@@ -191,9 +191,6 @@ def new_Folder():
 # print(file_name)
 # products1Variant.AddComponentsFromFiles(combination_file, "All")
 
-
-
-
 # def combined_dimension():
 #     catapp = win32.Dispatch("CATIA.Application")
 #     productDocument = catapp.ActiveDocument
@@ -204,3 +201,30 @@ def new_Folder():
 #     length.Value = 1480
 #     constraint.Orientation = 1
 #     product.Update()
+
+#偏移組合檔
+def add_offset_assembly(element1, element2, dist, relation, binding_conditions):#(組合檔1, 零件1, 組合檔2, 零件2, 距離, 結合面, 拘束條件)
+    catapp = win32.Dispatch('CATIA.Application')
+    productDocument = catapp.ActiveDocument
+    product = productDocument.Product
+    constraints = product.Connections("CATIAConstraints")
+    ref1 = product.CreateReferenceFromName("Product1/%s/!PartBody/!%s" % (element1, relation))#(將%指定檔內容移入%s)
+    ref2 = product.CreateReferenceFromName("Product1/%s/!PartBody/!%s" % (element2, relation))
+    constraint = constraints.AddBiEltCst(1, ref1, ref2)# (1表示偏移拘束, ref1, ref2)
+    length = constraint.Dimension
+    length.value = dist
+    constraint.Orientation = binding_conditions#(1表示SAME, 0表示OPPOSITE)
+    product.Update()
+    return True
+
+def base_lock(element1, element2):#定海神針, 固定基準零件
+    catapp = win32.Dispatch('CATIA.Application')
+    productDocument = catapp.ActiveDocument
+    product = productDocument.Product
+    constraints = product.Connections("CATIAConstraints")
+    ref = product.CreateReferenceFromName("Product1/%s/!Product1/%s/" % (element1, element2))
+    constraint = constraints.AddMonoEltCst(0, ref)
+    product.Update()
+    return True
+
+
