@@ -214,7 +214,7 @@ def add_offset_assembly(element1, element2, dist, relation, binding_conditions):
     length = constraint.Dimension
     length.value = dist
     constraint.Orientation = binding_conditions#(1表示SAME, 0表示OPPOSITE)
-    product.Update()
+    # product.Update()
     return True
 
 def base_lock(element1, element2):#定海神針, 固定基準零件
@@ -226,5 +226,17 @@ def base_lock(element1, element2):#定海神針, 固定基準零件
     constraint = constraints.AddMonoEltCst(0, ref)
     product.Update()
     return True
+
+def update():
+    catapp = win32.Dispatch('CATIA.Application')
+    productDocument = catapp.ActiveDocument
+    product = productDocument.Product
+    product.Update()
+    selection = productDocument.Selection
+    visPropertySet = selection.VisProperties
+    bSTR1 = visPropertySet.Name
+    bSTR2 = visPropertySet.Name
+    visPropertySet.SetShow(0)
+    selection.Clear()
 
 
