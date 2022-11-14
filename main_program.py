@@ -85,6 +85,7 @@ def import_file_Part(path, file_name):  # (資料夾路徑，檔案名稱)
     combination_file.append(path + '\\' + file_name + '.CATPart')
     products1Variant.AddComponentsFromFiles(combination_file, "All")
 
+
 def folder_file_name():  # 抓取檔案名稱
     path = os.listdir('C:\\Users\\User\\Desktop\\stamping_press')
     x = []
@@ -204,7 +205,7 @@ def import_part(path, file_name):
 def save_file(path, file_name):
     catapp = win32.Dispatch('CATIA.Application')
     partDocument1 = catapp.ActiveDocument
-    partDocument1.SaveAs(path + '\\' + file_name)
+    partDocument1.SaveAs(path + '\\' + file_name + "CATPrat")
     partDocument1.Close()
 
 # 新增資料夾
