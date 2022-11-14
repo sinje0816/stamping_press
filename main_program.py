@@ -201,14 +201,12 @@ def import_part(path, file_name):
     documents1 = catapp.Documents
     partDocument1 = documents1.Open(path + "\\" + file_name + ".CATPart")
 
-
 # 儲存零件檔
 def save_file(path, file_name):
     catapp = win32.Dispatch('CATIA.Application')
     partDocument1 = catapp.ActiveDocument
     partDocument1.SaveAs(path + '\\' + file_name + "CATPrat")
     partDocument1.Close()
-
 
 # 新增資料夾
 def new_Folder():
@@ -275,8 +273,6 @@ def update():
     productDocument = catapp.ActiveDocument
     product = productDocument.Product
     product.Update()
-    myViewpoint = myViewer.Viewpoint3D
-    myViewpoint.PutSightDirection.Array(1.414, 1.414, 0)
     specsAndGeomWindow = catapp.ActiveWindow
     viewer3D = specsAndGeomWindow.ActiveViewer
     viewer3D.Reframe()
