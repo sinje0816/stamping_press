@@ -135,7 +135,7 @@ file_name_list = ['BOLSTER1', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3', 'FRAME4',
                   'FRAME33', 'FRAME34', 'FRAME34', 'FRAME35', 'FRAME36', 'FRAME36', 'FRAME37', 'FRAME37', 'FRAME37',
                   'FRAME37', 'FRAME38', 'FRAME39', 'FRAME40', 'FRAME41', 'FRAME42', 'FRAME43', 'GIB1', 'GIB2']
 for x in file_name_list:  # 讀取串列名稱並匯入檔案
-    mprog.import_file_Part("C:\\Users\\USER\\Desktop\\stamping_press", x)
+    mprog.import_file_Part(path, x)
 
 # 機架組合SN1-250
 mprog.base_lock('BOLSTER1.1', 'BOLSTER1.1')  # 基準零件(定海神針)
