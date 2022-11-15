@@ -120,7 +120,8 @@ file_name_FRAME = ['BOLSTER1', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3', 'FRAME4'
                   'FRAME27', 'FRAME28', 'FRAME29', 'FRAME30', 'FRAME31', 'FRAME32','FRAME33', 'FRAME34', 'FRAME35',
                   'FRAME36', 'FRAME37', 'FRAME38', 'FRAME39', 'FRAME40', 'FRAME41', 'FRAME43', 'GIB1',
                   'GIB2' ]
-for x in file_name_FRAME:
+new_file_name_FRAME = file_name_FRAME[::-1]
+for x in new_file_name_FRAME:
     mprog.save_file(path,x)
 
 
