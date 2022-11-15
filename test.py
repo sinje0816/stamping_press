@@ -26,6 +26,7 @@ F = [320, 400, 440, 520, 600, 680, 760, 840, 900]
 FRAME1_cutout = [655 + 370, 675 + 415, 695 + 450, 715 + 577.5, 735 + 670, 755 + 770, 775 + 895, 795 + 1080, 815 + 1210]
 FRAME20_H = [280, 355, 420, 437.5, 550, 680, 825, 990, 1120]
 FRAME2_lower_depth = [166.016, 246.016, 286.016, 366.016, 446.016, 526.016, 606.016, 686.016, 746.016]
+FRAME1_lower_high = [1330 , 1335 , 1340 , 1445 , 1455 , 1460 , 1470 , 1575 , 1595]
 
 #新增資料夾
 path, dir =mprog.new_Folder()
@@ -161,10 +162,10 @@ mprog.add_offset_assembly('FRAME9.1', 'FRAME3.1', -FRAME2_lower_depth[i] + 5, 'Y
 # 中間左右側板
 mprog.add_offset_assembly('FRAME11.1', 'BOLSTER1.1', -R[i] / 2 , 'XZ.PLANE', 0)
 mprog.add_offset_assembly('BOLSTER1.1', 'FRAME11.1', -T[i], 'XY.PLANE', 0)
-mprog.add_offset_assembly('FRAME8.1', 'FRAME11.1', FRAME2_lower_depth[i] - 3.984, 'YZ.PLANE', 1)
+mprog.add_offset_assembly('FRAME8.1', 'FRAME11.1', FRAME2_lower_depth[i] - 3.984+7.968, 'YZ.PLANE', 1)
 mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -R[i] / 2 - 90, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -T[i], 'XY.PLANE', 0)
-mprog.add_offset_assembly('FRAME5.1', 'FRAME10.1', -FRAME2_lower_depth[i] + 3.984, 'YZ.PLANE', 0)
+mprog.add_offset_assembly('FRAME5.1', 'FRAME10.1', -FRAME2_lower_depth[i] + 3.984-7.968, 'YZ.PLANE', 0)
 # 底部後面ㄇ形角鐵
 mprog.add_offset_assembly('FRAME3.1', 'FRAME4.1', 0, 'XZ.PLANE', 1)
 mprog.add_offset_assembly('FRAME3.1', 'FRAME4.1', 0, 'XY.PLANE', 0)
@@ -214,19 +215,19 @@ mprog.add_offset_assembly('BOLSTER1.1', 'FRAME17.1', 0, 'XZ.PLANE', 1)
 mprog.add_offset_assembly('BOLSTER1.1', 'FRAME17.1', -T[i], 'XY.PLANE', 0)
 mprog.add_offset_assembly('FRAME3.1', 'FRAME17.1', FRAME1_cutout_bottom[i], 'YZ.PLANE', 0)
 # 左右側板前GIB
-mprog.add_offset_assembly('GIB1.1', 'FRAME1.1', -367.5, 'XY.PLANE', 1)
+mprog.add_offset_assembly('GIB1.1', 'FRAME5.1', FRAME1_lower_high[i] + 40, 'XY.PLANE', 0)
 mprog.add_offset_assembly('GIB1.1', 'FRAME1.1', 72.5, 'XZ.PLANE', 0)
-mprog.add_offset_assembly('GIB1.1', 'FRAME1.1', -865.35, 'YZ.PLANE', 1)
-mprog.add_offset_assembly('GIB2.1', 'FRAME2.1', -367.5, 'XY.PLANE', 1)
+mprog.add_offset_assembly('GIB1.1', 'FRAME5.1', 334.65, 'YZ.PLANE', 0)
+mprog.add_offset_assembly('GIB2.1', 'FRAME8.1', FRAME1_lower_high[i] + 40, 'XY.PLANE', 1)
 mprog.add_offset_assembly('GIB2.1', 'FRAME2.1', -72.5, 'XZ.PLANE', 0)
-mprog.add_offset_assembly('GIB2.1', 'FRAME2.1', -865.35, 'YZ.PLANE', 1)
+mprog.add_offset_assembly('GIB2.1', 'FRAME5.1', 334.65, 'YZ.PLANE', 0)
 # 左GIB後鎖固用方塊
 mprog.add_offset_assembly('GIB2.1', 'FRAME23.1', -690, 'XY.PLANE', 1)
 mprog.add_offset_assembly('FRAME2.1', 'FRAME23.1', 50 + 35, 'XZ.PLANE', 1)
-mprog.add_offset_assembly('FRAME2.1', 'FRAME23.1', -865.35, 'YZ.PLANE', 1)
+mprog.add_offset_assembly('GIB2.1', 'FRAME23.1', 0, 'YZ.PLANE', 0)
 mprog.add_offset_assembly('GIB2.1', 'FRAME24.1', 0, 'XY.PLANE', 1)
 mprog.add_offset_assembly('FRAME2.1', 'FRAME24.1', 50 + 35, 'XZ.PLANE', 0)
-mprog.add_offset_assembly('FRAME2.1', 'FRAME24.1', -865.35, 'YZ.PLANE', 0)
+mprog.add_offset_assembly('GIB2.1', 'FRAME24.1', 0, 'YZ.PLANE', 1)
 mprog.add_offset_assembly('GIB2.1', 'FRAME27.1', -690 / 2, 'XY.PLANE', 1)
 mprog.add_offset_assembly('FRAME2.1', 'FRAME27.1', 50, 'XZ.PLANE', 1)
 mprog.add_offset_assembly('GIB2.1', 'FRAME27.1', 0, 'YZ.PLANE', 1)
@@ -235,14 +236,14 @@ mprog.add_offset_assembly('FRAME23.1', 'FRAME31.1', -50, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('FRAME23.1', 'FRAME31.1', -130.35, 'YZ.PLANE', 0)
 mprog.add_offset_assembly('GIB2.1', 'FRAME31.2', -150, 'XY.PLANE', 1)
 mprog.add_offset_assembly('FRAME23.1', 'FRAME31.2', -50, 'YZ.PLANE', 0)
-mprog.add_offset_assembly('FRAME23.1', 'FRAME31.2', -130.35, 'XZ.PLANE', 0)
+mprog.add_offset_assembly('FRAME23.1', 'FRAME31.2', -62.5, 'XZ.PLANE', 0)
 # 右GIB後鎖固用方塊
 mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', -690, 'XY.PLANE', 1)
 mprog.add_offset_assembly('FRAME1.1', 'FRAME25.1', -50 - 35, 'XZ.PLANE', 0)
-mprog.add_offset_assembly('FRAME1.1', 'FRAME25.1', -865.35, 'YZ.PLANE', 0)
+mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', 0, 'YZ.PLANE', 1)
 mprog.add_offset_assembly('GIB1.1', 'FRAME26.1', 0, 'XY.PLANE', 1)
 mprog.add_offset_assembly('FRAME1.1', 'FRAME26.1', -50 - 35, 'XZ.PLANE', 0)
-mprog.add_offset_assembly('FRAME1.1', 'FRAME26.1', -865.35, 'YZ.PLANE', 1)
+mprog.add_offset_assembly('GIB1.1', 'FRAME26.1', 0, 'YZ.PLANE', 0)
 mprog.add_offset_assembly('GIB1.1', 'FRAME28.1', -690 / 2, 'XY.PLANE', 1)
 mprog.add_offset_assembly('FRAME1.1', 'FRAME28.1', -50, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('GIB1.1', 'FRAME28.1', 0, 'YZ.PLANE', 1)
