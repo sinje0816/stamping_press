@@ -205,7 +205,7 @@ def import_part(path, file_name):
 def save_file(path, file_name):
     catapp = win32.Dispatch('CATIA.Application')
     partDocument1 = catapp.ActiveDocument
-    partDocument1.SaveAs(path + '\\' + file_name + "CATPrat")
+    partDocument1.SaveAs(path + '\\' + file_name)
     partDocument1.Close()
 
 # 新增資料夾
@@ -309,6 +309,6 @@ def hide_ass_all_Constraint():
     selection1.Search("Type='Assembly Design'.Constraint,all")
     selection1.VisProperties.SetShow(1)
     selection1.Clear()
-    selection1.Search("Type='Part Design'.Plane,all")
-    selection1.VisProperties.SetShow(1)
-    selection1.Clear()
+    # selection1.Search("Type='Part Design'.Plane,all")
+    # selection1.VisProperties.SetShow(1)
+    # selection1.Clear()
