@@ -71,9 +71,12 @@ elif hole == "2":
 env = mprog.set_CATIA_workbench_env()
 
 #匯入零件檔
-file_name_FRAME = ['FRAME1' , 'FRAME2' , 'FRAME3' , 'FRAME4' , 'FRAME9' , 'FRAME10' , 'FRAME11' , 'FRAME12' , 'FRAME13'
-    , 'FRAME20' , 'FRAME29' , 'FRAME30' , 'FRAME32' , 'FRAME41' , 'FRAME43' , 'BOLSTER1' , 'BOLSTER2' , 'BOLSTER3'
-    , 'SLIDE']
+file_name_FRAME = ['BOLSTER1', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3', 'FRAME4', 'FRAME5', 'FRAME6', 'FRAME7', 'FRAME8',
+                  'FRAME9', 'FRAME10', 'FRAME11', 'FRAME12', 'FRAME13', 'FRAME14', 'FRAME15', 'FRAME16', 'FRAME17',
+                  'FRAME18', 'FRAME19', 'FRAME20', 'FRAME21', 'FRAME22', 'FRAME23', 'FRAME24', 'FRAME25', 'FRAME26',
+                  'FRAME27', 'FRAME28', 'FRAME29', 'FRAME30', 'FRAME31', 'FRAME32','FRAME33', 'FRAME34', 'FRAME35',
+                  'FRAME36', 'FRAME37', 'FRAME38', 'FRAME39', 'FRAME40', 'FRAME41', 'FRAME43', 'GIB1',
+                  'GIB2' ]
 for x in file_name_FRAME:
     mprog.import_part("C:\\Users\\USER\\Desktop\\stamping_press",x)
 
@@ -106,14 +109,17 @@ mprog.param_change('BOLSTER1' , "hole_type" , hole_type[j])
 #     mprog.param_change(x, 'P', P[i])
 
 #更改零件變數Q
-product_file_name = ['BOLSTER3']
-for x in product_file_name:
-    mprog.param_change(x, 'Q', Q[i])
+# product_file_name = ['BOLSTER3']
+# for x in product_file_name:
+#     mprog.param_change(x, 'Q', Q[i])
 
 #儲存零件並關閉
-file_name_FRAME = ['FRAME1' , 'FRAME2' , 'FRAME3' , 'FRAME4' , 'FRAME9' , 'FRAME10' , 'FRAME11' , 'FRAME12' , 'FRAME13'
-    , 'FRAME20' , 'FRAME29' , 'FRAME30' , 'FRAME32' , 'FRAME41' , 'FRAME43' , 'BOLSTER1' , 'BOLSTER2' , 'BOLSTER3'
-    , 'SLIDE']
+file_name_FRAME = ['BOLSTER1', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3', 'FRAME4', 'FRAME5', 'FRAME6', 'FRAME7', 'FRAME8',
+                  'FRAME9', 'FRAME10', 'FRAME11', 'FRAME12', 'FRAME13', 'FRAME14', 'FRAME15', 'FRAME16', 'FRAME17',
+                  'FRAME18', 'FRAME19', 'FRAME20', 'FRAME21', 'FRAME22', 'FRAME23', 'FRAME24', 'FRAME25', 'FRAME26',
+                  'FRAME27', 'FRAME28', 'FRAME29', 'FRAME30', 'FRAME31', 'FRAME32','FRAME33', 'FRAME34', 'FRAME35',
+                  'FRAME36', 'FRAME37', 'FRAME38', 'FRAME39', 'FRAME40', 'FRAME41', 'FRAME43', 'GIB1',
+                  'GIB2' ]
 for x in file_name_FRAME:
     mprog.save_file(path,x)
 
