@@ -1,6 +1,6 @@
 import os
 import win32com.client as win32
-import datetime
+import datetime, time
 
 
 # 開啟CATIA(由學長提供之函式)
@@ -84,7 +84,16 @@ def import_file_Part(path, file_name):  # (資料夾路徑，檔案名稱)
     combination_file = []  # 組合檔
     combination_file.append(path + '\\' + file_name + '.CATPart')
     products1Variant.AddComponentsFromFiles(combination_file, "All")
-
+# 匯入組合檔
+def import_file_Product(path, file_name):  # (資料夾路徑，檔案名稱)
+    catapp = win32.Dispatch('CATIA.Application')
+    productDocument1 = catapp.ActiveDocument
+    product1 = productDocument1.Product
+    products1 = product1.Products
+    products1Variant = products1
+    combination_file = []  # 組合檔
+    combination_file.append(path + '\\' + file_name + '.CATProduct')
+    products1Variant.AddComponentsFromFiles(combination_file, "All")
 
 def folder_file_name():  # 抓取檔案名稱
     path = os.listdir('C:\\Users\\User\\Desktop\\stamping_press')
@@ -93,14 +102,12 @@ def folder_file_name():  # 抓取檔案名稱
         x.append(file_name.split('.')[0])
     print(x)
 
-
 # frame名稱
 def frame_name():
     x = []
     for a in range(1, 44):
         x.append('FRAME' + str(a))
     print(x)
-
 
 # 偏移組合檔_0(0表示OPPOSITE)
 def add_offset_assembly_0(element1, element2, element3, element4, element5, dist,
@@ -120,7 +127,6 @@ def add_offset_assembly_0(element1, element2, element3, element4, element5, dist
     constraint.Orientation = 0
     product.Update()
     return True
-
 
 # 偏移組合檔_1(1表示SAME)
 def add_offset_assembly_1(element1, element2, element3, element4, element5, dist,
@@ -159,7 +165,6 @@ def combination_file_open(target, dir):
     partdoc = document.Open(part_dir)
     return target + '.CATPart'
 
-
 def param_change(file_name, target, value):
     catapp = win32.Dispatch("CATIA.Application")
     productDocument = catapp.ActiveDocument
@@ -188,7 +193,6 @@ def combined_dimension(combination_number, combined_dimension):  # 組合編號,
     constraint.Orientation = 1
     product.Update()
 
-
 # 開啟零件檔
 # def open_part():
 #     catapp = win32.Dispatch('CATIA.Application')
@@ -201,10 +205,24 @@ def import_part(path, file_name):
     documents1 = catapp.Documents
     partDocument1 = documents1.Open(path + "\\" + file_name + ".CATPart")
 
+def import_product(path, file_name):
+    catapp = win32.Dispatch('CATIA.Application')
+    documents1 = catapp.Documents
+    partDocument1 = documents1.Open(path + "\\" + file_name + ".CATProduct")
+
 # 儲存零件檔
+# def save_file(path, file_name):
+#     catapp = win32.Dispatch('CATIA.Application')
+#     partDocument1 = catapp.ActiveDocument
+#     partDocument1.SaveAs(path + '\\' + file_name)
+#     partDocument1.Close()
+
 def save_file(path, file_name):
     catapp = win32.Dispatch('CATIA.Application')
-    partDocument1 = catapp.ActiveDocument
+    document = catapp.Documents
+    file_name = file_name + '.CATPart'
+    partDocument1 = document.Item(file_name)
+    print(path + '\\' + file_name)
     partDocument1.SaveAs(path + '\\' + file_name)
     partDocument1.Close()
 
@@ -217,28 +235,6 @@ def new_Folder():
     path = 'C:\\Users\\USER\\Desktop' + '\\' + dir
     os.mkdir(path)
     return path, dir
-
-
-# catapp = win32.Dispatch('CATIA.Application')
-# productDocument1 = catapp.ActiveDocument
-# product1 = productDocument1.Product
-# products1 = product1.Products
-# products1Variant = products1
-# combination_file = []#組合檔
-# combination_file.append(path + '\\' + file_name + '.CATProduct')
-# print(file_name)
-# products1Variant.AddComponentsFromFiles(combination_file, "All")
-
-# def combined_dimension():
-#     catapp = win32.Dispatch("CATIA.Application")
-#     productDocument = catapp.ActiveDocument
-#     product = productDocument.Product
-#     constraints = product.Connections("CATIAConstraints")
-#     constraint = constraints.Item("Offset.173")
-#     length = constraint.Dimension
-#     length.Value = 1480
-#     constraint.Orientation = 1
-#     product.Update()
 
 # 偏移組合檔
 def add_offset_assembly(element1, element2, dist, relation,
@@ -278,27 +274,6 @@ def update():
     viewer3D.Reframe()
 
 
-def close_plane():
-    catapp = win32.Dispatch('CATIA.Application')
-    partDocument1 = catapp.ActiveDocument
-    selection1 = partDocument1.Selection
-    visPropertySet1 = selection1.VisProperties
-    part1 = partDocument1.Part
-    bodies1 = part1.Bodies
-    body1 = bodies1.Item("PartBody")
-    hybridShapes1 = body1.HybridShapes
-    hybridShapePlaneOffset1 = hybridShapes1.Item("XZ.PLANE")
-    hybridShapes1 = hybridShapePlaneOffset1.Parent
-    selection1.Add(hybridShapePlaneOffset1)
-    hybridShapePlaneAngle1 = hybridShapes1.Item("YZ.PLANE")
-    hybridShapes1 = hybridShapePlaneAngle1.Parent
-    selection1.Add(hybridShapePlaneAngle1)
-    hybridShapePlaneAngle2 = hybridShapes1.Item("XY.PLANE")
-    hybridShapes1 = hybridShapePlaneAngle2.Parent
-    selection1.Add(hybridShapePlaneAngle2)
-    visPropertySet1 = visPropertySet1.Parent
-    visPropertySet1.SetShow(1)
-    selection1.Clear()
 
 # 組合拘束隱藏
 def hide_ass_all_Constraint():
