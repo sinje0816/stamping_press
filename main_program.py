@@ -205,6 +205,11 @@ def import_part(path, file_name):
     documents1 = catapp.Documents
     partDocument1 = documents1.Open(path + "\\" + file_name + ".CATPart")
 
+def import_product(path, file_name):
+    catapp = win32.Dispatch('CATIA.Application')
+    documents1 = catapp.Documents
+    partDocument1 = documents1.Open(path + "\\" + file_name + ".CATProduct")
+
 # 儲存零件檔
 # def save_file(path, file_name):
 #     catapp = win32.Dispatch('CATIA.Application')
@@ -220,7 +225,6 @@ def save_file(path, file_name):
     print(path + '\\' + file_name)
     partDocument1.SaveAs(path + '\\' + file_name)
     partDocument1.Close()
-    time.sleep(0.5)
 
 # 新增資料夾
 def new_Folder():

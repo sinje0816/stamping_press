@@ -58,8 +58,8 @@ elif type == "SN1-200":
     i = 7
 elif type == "SN1-250":
     i = 8
-else:
-    break
+# else:
+#     break
 print(i)
 
 # 輸入平板型號
@@ -111,16 +111,17 @@ file_name_list = ['BALANCER1', 'BALANCER10', 'BALANCER2', 'BALANCER3', 'BALANCER
 for x in file_name_list:
     mprog.import_part("C:\\Users\\USER\\Desktop\\stamping_press", x)
     print('open' + str(x))
-
+    mprog.save_file(path, X)
 
 #待開啟並存入新資料夾-----------------------------------------------------------------------------------------------------
 file_Assembly_name_list = ['SLIDE_UNIT', 'BALANCER_RIGHT', 'BALANCER_LEFT', 'CRANK_SHAFT', 'CLUCTH_ASSEMBLY']
-
-
-new_file_name_list = file_name_list
+for x in file_Assembly_name_list:
+    mprog.import_product("C:\\Users\\USER\\Desktop\\stamping_press", x)
+    print('open' + str(x))
+    mprog.save_file(path, X)
 
 # 如果file_name_FRAME 等於串列內容則對什麼變數進行更改
-for y in new_file_name_list:
+for y in file_name_list:
     print('save' + str(y))
     if y == 'FRAME1' or y == 'FRAME2' or y == 'FRAME20' or y == 'FRAME30':  # 更改零件變數H
         mprog.param_change(y, 'H', H[i])
@@ -364,7 +365,7 @@ mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 95, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 22 + 18, 'XY.PLANE', 0)
 mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 312.5, 'YZ.PLANE', 0)
 
-# 組合product-機架, 衝頭
+# # 組合product-機架, 衝頭
 mprog.add_offset_assembly_0('SLIDE_UNIT', 'BOLSTER3', 'FRAME_BALANCER', 'FRAME', 'BOLSTER1.1', 0, 'XY.PLANE')
 mprog.add_offset_assembly_0('SLIDE_UNIT', 'BOLSTER3', 'FRAME_BALANCER', 'FRAME', 'BOLSTER1.1', 0, 'YZ.PLANE')
 mprog.add_offset_assembly_0('SLIDE_UNIT', 'BOLSTER3', 'FRAME_BALANCER', 'FRAME', 'BOLSTER1.1', 0, 'XZ.PLANE')
