@@ -95,26 +95,26 @@ for y in new_file_name_FRAME:
     print(y)
     if y == 'FRAME1' or y == 'FRAME2' or y == 'FRAME20' or y == 'FRAME30':#更改零件變數H
             mprog.param_change(y, 'H', H[i])
-            mprog.save_file(path, y)
+            mprog.save_file_part(path, y)
     elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43':#更改零件變數R
             mprog.param_change(y, 'R', R[i])
-            mprog.save_file(path, y)
+            mprog.save_file_part(path, y)
     elif y == 'FRAME10' or  y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':#更改零件變數E
             mprog.param_change(y, 'E', E[i])
             if y == 'BOLSTER1':
                 mprog.param_change('BOLSTER1', "hole_type", hole_type[j])
-            mprog.save_file(path, y)
+            mprog.save_file_part(path, y)
     elif y == 'FRAME29': #更改零件變數A
             mprog.param_change(y, 'A', A[i])
-            mprog.save_file(path, y)
+            mprog.save_file_part(path, y)
     elif y == 'BOLSTER2' or y == 'SLIDE':#更改零件變數P
             mprog.param_change(y, 'P', P[i])
-            mprog.save_file(path, y)
+            mprog.save_file_part(path, y)
     elif y == 'BOLSTER3':#更改零件變數Q
             mprog.param_change(y, 'Q', Q[i])
-            mprog.save_file(path, y)
+            mprog.save_file_part(path, y)
     else:
-        mprog.save_file(path, y)
+        mprog.save_file_part(path, y)
 
 # 開啟新組合檔
 mprog.assembly_create()
@@ -258,7 +258,7 @@ mprog.add_offset_assembly('FRAME43.1', 'FRAME17.1', -48, 'XY.PLANE', 1)
 mprog.add_offset_assembly('FRAME43.1', 'FRAME17.1', 0, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('FRAME43.1', 'FRAME17.1', 0, 'YZ.PLANE', 1)
 # 後面安裝馬達下板子
-mprog.add_offset_assembly('FRAME41.1', 'FRAME4.1', H[i] / 2, 'XY.PLANE', 0)  # 要找他所有變數
+mprog.add_offset_assembly('FRAME41.1', 'FRAME20.1', -1362, 'XY.PLANE', 0)
 mprog.add_offset_assembly('FRAME41.1', 'FRAME4.1', 0, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('FRAME41.1', 'FRAME4.1', 0, 'YZ.PLANE', 0)
 # FRAME2中間下板子
@@ -314,7 +314,7 @@ mprog.add_offset_assembly('FRAME36.1', 'FRAME35.1', 88, 'YZ.PLANE', 1)
 mprog.add_offset_assembly('FRAME36.2', 'FRAME35.1', 272.236, 'XZ.PLANE', 1)
 mprog.add_offset_assembly('FRAME36.2', 'FRAME35.1', -272.236, 'XY.PLANE', 1)
 mprog.add_offset_assembly('FRAME36.2', 'FRAME35.1', 88, 'YZ.PLANE', 1)
-#
+#後方馬達下支撐板上治具
 mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 95, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 22 + 18, 'XY.PLANE', 0)
 mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 312.5, 'YZ.PLANE', 0)
