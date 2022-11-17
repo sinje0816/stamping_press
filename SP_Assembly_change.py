@@ -7,7 +7,10 @@ j = ()
 type = ()
 hole = ()
 
-#電子型錄規格
+# 自動算尺寸相加除2---------------------------------------------------------------------
+
+
+# 電子型錄規格
 A = [720, 830, 890, 940, 1050, 1160, 1300, 1480, 1560]
 B = [1058, 1125, 1210, 1315, 1480, 1680, 1985, 2113, 2400]
 H = [2060, 2185, 2290, 2540, 2755, 2990, 3270, 3725, 4005]
@@ -17,9 +20,9 @@ D_DH = [250, 280, 330, 350, 380, 430, 490, 550, 580]
 S = [983, 1068, 1158, 1285, 1445, 1630, 1809, 2067, 2262]
 H_Z = [1260, 1385, 1490, 1640, 1855, 2086.933, 2370, 2725, 3005]
 O = [1045, 1075, 1125, 1145, 1175, 1225, 1285, 1345, 1375]
-hole_type = [0 , 1 , 2]
-P = [330 , 380 , 430 , 480 , 560 , 650 , 720 , 860 , 960]
-Q = [250 , 300 , 350 , 400 , 460 , 520 , 580 , 650 , 720]
+hole_type = [0, 1, 2]
+P = [330, 380, 430, 480, 560, 650, 720, 860, 960]
+Q = [250, 300, 350, 400, 460, 520, 580, 650, 720]
 T = [85, 100, 115, 130, 140, 155, 165, 180, 180]
 Z = [800, 800, 800, 900, 900, 900, 900, 1000, 1000]
 FRAME1_cutout_bottom = [197, 277, 317, 397, 477, 557, 637, 717, 797]
@@ -27,9 +30,9 @@ F = [320, 400, 440, 520, 600, 680, 760, 840, 900]
 FRAME1_cutout = [655 + 370, 675 + 415, 695 + 450, 715 + 577.5, 735 + 670, 755 + 770, 775 + 895, 795 + 1080, 815 + 1210]
 FRAME20_H = [280, 355, 420, 437.5, 550, 680, 825, 990, 1120]
 FRAME2_lower_depth = [165, 245, 285, 365, 445, 525, 605, 685, 745]
-FRAME1_lower_high = [1330 , 1335 , 1340 , 1445 , 1455 , 1460 , 1470 , 1575 , 1595]
-FRAME20_FRAME2_YZ = [805 , 805 , 979 , 979 , 979 , 979 , 979 , 979 , 979]
-BALANCER1_XZ = [204 , 253 , 268 , 282 , 317 , 345 , 375 , 460 , 575]#(R+180mm)/2+80mm
+FRAME1_lower_high = [1330, 1335, 1340, 1445, 1455, 1460, 1470, 1575, 1595]
+FRAME20_FRAME2_YZ = [805, 805, 979, 979, 979, 979, 979, 979, 979]
+BALANCER1_XZ = [204, 253, 268, 282, 317, 345, 375, 460, 575]  # (R+180mm)/2+80mm
 # 新增資料夾
 path, dir = mprog.new_Folder()
 print(path)
@@ -41,24 +44,24 @@ print(path)
 # 確認型號
 print("輸入型號")
 type = input()
-if type == "SN1-25" or type == "sn1-25" :
-    i=0
+if type == "SN1-25" or type == "sn1-25":
+    i = 0
 elif type == "SN1-35" or type == "sn1-35":
-    i=1
+    i = 1
 elif type == "SN1-45" or type == "sn1-45":
-    i=2
+    i = 2
 elif type == "SN1-60" or type == "sn1-60":
-    i=3
+    i = 3
 elif type == "SN1-80" or type == "sn1-80":
-    i=4
+    i = 4
 elif type == "SN1-110" or type == "sn1-110":
-    i=5
+    i = 5
 elif type == "SN1-160" or type == "sn1-160":
-    i=6
+    i = 6
 elif type == "SN1-200" or type == "sn1-200":
-    i=7
+    i = 7
 elif type == "SN1-250" or type == "sn1-250":
-    i=8
+    i = 8
 print(i)
 
 # 輸入平板型號
@@ -105,66 +108,127 @@ file_name_list = ['BALANCER1', 'BALANCER10', 'BALANCER2', 'BALANCER3', 'BALANCER
                   'JOINT5',
                   'JOINT6', 'JOINT7', 'JOINT8', 'JOINT9', 'MAIN_GEAR1', 'MAIN_GEAR2', 'MAIN_GEAR3', 'MAIN_GEAR4',
                   'OVERLOAD PROTECTER', 'Pin', 'POINT', 'POINT2', 'POINT3', 'PRESSURE_PLATE', 'SLIDE', 'SPROCKET',
-                  'washer left', 'washer right', 'WORM GEAR COVER', 'WORM GEAR', 'WORM WHEEL COVER', 'WORM WHEEL']
+                  'washer left', 'washer right', 'WORM GEAR COVER', 'WORM GEAR', 'WORM WHEEL COVER', 'WORM WHEEL',
+                  'BALANCER_LEFT_All', 'BALANCER_RIGHT_ALL', 'CRANK_SHAFT_All', 'CLUCTH_ASSEMBLY_All']
 
-#開啟零件檔更改變數後儲存並關閉
+# 開啟組合檔
+file_product_name_list = ['SLIDE_UNIT']
+for x in file_product_name_list:
+    mprog.import_product("C:\\Users\\USER\\Desktop\\stamping_press", x)
+    # print('open' + str(x))
+    mprog.save_file_product(path, x)
+
+# 開啟零件檔更改變數後儲存並關閉
 for y in file_name_list:
     # print('save' + str(y))
     mprog.import_part("C:\\Users\\USER\\Desktop\\stamping_press", y)
     # print('open' + str(y))
-    if y == 'FRAME1' or y == 'FRAME2' or y == 'FRAME20' or y == 'FRAME30' or y == 'BALANCER1':  # 更改零件變數H
-        mprog.param_change(y, 'H', H[i])
-        mprog.save_file_part(path, y)
-    elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43':  # 更改零件變數R
-        mprog.param_change(y, 'R', R[i])
-        mprog.save_file_part(path, y)
-    elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
-        mprog.param_change(y, 'E', E[i])
-        if y == 'BOLSTER1':
-            mprog.param_change('BOLSTER1', "hole_type", hole_type[j])
-        mprog.save_file_part(path, y)
-    elif y == 'FRAME29' or y == 'FRAME8' or y == 'FRAME5':  # 更改零件變數A
-        mprog.param_change(y, 'A', A[i])
-        mprog.save_file_part(path, y)
-    elif y == 'BOLSTER2' or y == 'SLIDE':  # 更改零件變數P
-        mprog.param_change(y, 'P', P[i])
-        mprog.save_file_part(path, y)
-    elif y == 'BOLSTER3':  # 更改零件變數Q
-        mprog.param_change(y, 'Q', Q[i])
-        mprog.save_file_part(path, y)
-    elif y == 'CLUCTH_ASSEMBLY36':  # 更改零件變數O
-        mprog.param_change(y, 'O', O[i])
-        mprog.save_file_part(path, y)
-    elif y == 'BEARING_HOUSING2':  # 更改零件變數S
-        mprog.param_change(y, 'S', S[i])
-        mprog.save_file_part(path, y)
+    if i <= 3:
+        if y == 'BALANCER1' or y == 'BALANCER10' or y == 'BALANCER2' or y == 'BALANCER3' or y == 'BALANCER4' or y == 'BALANCER4' or y == 'BALANCER5' or y == 'BALANCER6' or y == 'BALANCER7' or y == 'BALANCER8' or y == 'BALANCER9' or y == 'BALL CUP' or y == 'BEARING_HOUSING1' or y == 'BEARING_HOUSING2' or y == 'BEARING_HOUSING3' or y == 'BEARING_HOUSING4' or y == 'BEARING_HOUSING5' or y == 'BOLSTER2' or y == 'BOLSTER3' or y == 'BOLSTER4' or y == 'BOLSTER5' or y == 'BUSH' or y == 'CLUCTH_ASSEMBLY1' or y == 'CLUCTH_ASSEMBLY10' or y == 'CLUCTH_ASSEMBLY11' or y == 'CLUCTH_ASSEMBLY12' or y == 'CLUCTH_ASSEMBLY13' or y == 'CLUCTH_ASSEMBLY14' or y == 'CLUCTH_ASSEMBLY15' or y == 'CLUCTH_ASSEMBLY16' or y == 'CLUCTH_ASSEMBLY17' or y == 'CLUCTH_ASSEMBLY18' or y == 'CLUCTH_ASSEMBLY19' or y == 'CLUCTH_ASSEMBLY2' or y == 'CLUCTH_ASSEMBLY20' or y == 'CLUCTH_ASSEMBLY21' or y == 'CLUCTH_ASSEMBLY22' or y == 'CLUCTH_ASSEMBLY23' or y == 'CLUCTH_ASSEMBLY24' or y == 'CLUCTH_ASSEMBLY25' or y == 'CLUCTH_ASSEMBLY26' or y == 'CLUCTH_ASSEMBLY27' or y == 'CLUCTH_ASSEMBLY28' or y == 'CLUCTH_ASSEMBLY29' or y == 'CLUCTH_ASSEMBLY3' or y == 'CLUCTH_ASSEMBLY30' or y == 'CLUCTH_ASSEMBLY31' or y == 'CLUCTH_ASSEMBLY32' or y == 'CLUCTH_ASSEMBLY33' or y == 'CLUCTH_ASSEMBLY34' or y == 'CLUCTH_ASSEMBLY35' or y == 'CLUCTH_ASSEMBLY36' or y == 'CLUCTH_ASSEMBLY4' or y == 'CLUCTH_ASSEMBLY5' or y == 'CLUCTH_ASSEMBLY6' or y == 'CLUCTH_ASSEMBLY7' or y == 'CLUCTH_ASSEMBLY8' or y == 'CLUCTH_ASSEMBLY9' or y == 'COUNTER_PARTS' or y == 'COVER (BALL SCREW)' or y == 'CRANK_SHAFT' or y == 'CRANK_SHAFT' or y == 'FLYWHEEL BRAKE' or y == 'HOLD MOUNTING MANIFOLD' or y == 'inside the punch 9' or y == 'JOINT1' or y == 'JOINT10' or y == 'JOINT2' or y == 'JOINT3' or y == 'JOINT4' or y == 'JOINT5' or y == 'JOINT6' or y == 'JOINT7' or y == 'JOINT8' or y == 'JOINT9' or y == 'MAIN_GEAR1' or y == 'MAIN_GEAR2' or y == 'MAIN_GEAR3' or y == 'MAIN_GEAR4' or y == 'OVERLOAD PROTECTER' or y == 'Pin' or y == 'POINT' or y == 'POINT2' or y == 'POINT3' or y == 'PRESSURE_PLATE' or y == 'SLIDE' or y == 'SLIDE_UNIT' or y == 'SPROCKET' or y == 'washer left' or y == 'washer right' or y == 'WORM GEAR COVER' or y == 'WORM GEAR' or y == 'WORM WHEEL COVER' or y == 'WORM WHEEL':
+            mprog.axis_system()
+            mprog.scaling(0.5)
+            if y == 'FRAME1' or y == 'FRAME2' or y == 'FRAME20' or y == 'FRAME30' or y == 'BALANCER1':  # 更改零件變數H
+                mprog.param_change(y, 'H', H[i])
+                mprog.save_file_part(path, y)
+            elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43':  # 更改零件變數R
+                mprog.param_change(y, 'R', R[i])
+                mprog.save_file_part(path, y)
+            elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
+                mprog.param_change(y, 'E', E[i])
+                if y == 'BOLSTER1':
+                    mprog.param_change('BOLSTER1', "hole_type", hole_type[j])
+                mprog.save_file_part(path, y)
+            elif y == 'FRAME29' or y == 'FRAME8' or y == 'FRAME5':  # 更改零件變數A
+                mprog.param_change(y, 'A', A[i])
+                mprog.save_file_part(path, y)
+            elif y == 'SLIDE':  # 更改零件變數P
+                mprog.param_change(y, 'P', P[i])
+                mprog.save_file_part(path, y)
+            elif y == 'BOLSTER3':  # 更改零件變數Q
+                mprog.param_change(y, 'Q', Q[i])
+                mprog.save_file_part(path, y)
+            else:
+                mprog.save_file_part(path, y)
+        else:
+            if y == 'FRAME1' or y == 'FRAME2' or y == 'FRAME20' or y == 'FRAME30':  # 更改零件變數H
+                mprog.param_change(y, 'H', H[i])
+                mprog.save_file_part(path, y)
+            elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43':  # 更改零件變數R
+                mprog.param_change(y, 'R', R[i])
+                mprog.save_file_part(path, y)
+            elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
+                mprog.param_change(y, 'E', E[i])
+                if y == 'BOLSTER1':
+                    mprog.param_change('BOLSTER1', "hole_type", hole_type[j])
+                mprog.save_file_part(path, y)
+            elif y == 'FRAME29' or y == 'FRAME8' or y == 'FRAME5':  # 更改零件變數A
+                mprog.param_change(y, 'A', A[i])
+                mprog.save_file_part(path, y)
+            elif y == 'BOLSTER2' or y == 'SLIDE':  # 更改零件變數P
+                mprog.param_change(y, 'P', P[i])
+                mprog.save_file_part(path, y)
+            elif y == 'BOLSTER3':  # 更改零件變數Q
+                mprog.param_change(y, 'Q', Q[i])
+                mprog.save_file_part(path, y)
+            else:
+                mprog.save_file_part(path, y)
     else:
-        mprog.save_file_part(path, y)
+        if y == 'FRAME1' or y == 'FRAME2' or y == 'FRAME20' or y == 'FRAME30' or y == 'BALANCER1':  # 更改零件變數H
+            mprog.param_change(y, 'H', H[i])
+            mprog.save_file_part(path, y)
+        elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43':  # 更改零件變數R
+            mprog.param_change(y, 'R', R[i])
+            mprog.save_file_part(path, y)
+        elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
+            mprog.param_change(y, 'E', E[i])
+            if y == 'BOLSTER1':
+                mprog.param_change('BOLSTER1', "hole_type", hole_type[j])
+            mprog.save_file_part(path, y)
+        elif y == 'FRAME29' or y == 'FRAME8' or y == 'FRAME5':  # 更改零件變數A
+            mprog.param_change(y, 'A', A[i])
+            mprog.save_file_part(path, y)
+        elif y == 'BOLSTER2' or y == 'SLIDE':  # 更改零件變數P
+            mprog.param_change(y, 'P', P[i])
+            mprog.save_file_part(path, y)
+        elif y == 'BOLSTER3':  # 更改零件變數Q
+            mprog.param_change(y, 'Q', Q[i])
+            mprog.save_file_part(path, y)
+        elif y == 'CLUCTH_ASSEMBLY36':  # 更改零件變數O
+            mprog.param_change(y, 'O', O[i])
+            mprog.save_file_part(path, y)
+        elif y == 'BEARING_HOUSING2':  # 更改零件變數S
+            mprog.param_change(y, 'S', S[i])
+            mprog.save_file_part(path, y)
+        else:
+            mprog.save_file_part(path, y)
 
-#開啟組合檔
-file_product_name_list = ['SLIDE_UNIT', 'BALANCER_RIGHT', 'BALANCER_LEFT', 'CRANK_SHAFT', 'CLUCTH_ASSEMBLY']
-for x in file_product_name_list:
-    mprog.import_product("C:\\Users\\USER\\Desktop\\stamping_press", x)
-    print('open' + str(x))
-    mprog.save_file_product(path, x)
+# 開啟組合檔
+# file_product_name_list = ['SLIDE_UNIT']
+# for x in file_product_name_list:
+#     mprog.import_product(path, x)
+#     # print('open' + str(x))
+#     mprog.save_file_product(path, x)
 
 # 開啟新組合檔
 mprog.assembly_create()
 
 # 匯入待組合零件檔
-file_FRAME_name_list = ['BOLSTER1', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3', 'FRAME4', 'FRAME5', 'FRAME6', 'FRAME7', 'FRAME8',
-                  'FRAME9', 'FRAME10', 'FRAME11', 'FRAME12', 'FRAME13', 'FRAME14', 'FRAME15', 'FRAME16', 'FRAME17',
-                  'FRAME18', 'FRAME19', 'FRAME20', 'FRAME21', 'FRAME22', 'FRAME23', 'FRAME24', 'FRAME25', 'FRAME26',
-                  'FRAME27', 'FRAME28', 'FRAME29', 'FRAME30', 'FRAME31', 'FRAME31', 'FRAME31', 'FRAME31', 'FRAME32',
-                  'FRAME33', 'FRAME34', 'FRAME34', 'FRAME35', 'FRAME36', 'FRAME36', 'FRAME37', 'FRAME37', 'FRAME37',
-                  'FRAME37', 'FRAME38', 'FRAME39', 'FRAME40', 'FRAME41', 'FRAME42', 'FRAME43', 'GIB1', 'GIB2']
+file_FRAME_name_list = ['BOLSTER1', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3', 'FRAME4', 'FRAME5', 'FRAME6', 'FRAME7',
+                        'FRAME8', 'FRAME9', 'FRAME10', 'FRAME11', 'FRAME12', 'FRAME13', 'FRAME14', 'FRAME15', 'FRAME16',
+                        'FRAME17', 'FRAME18', 'FRAME19', 'FRAME20', 'FRAME21', 'FRAME22', 'FRAME23', 'FRAME24',
+                        'FRAME25', 'FRAME26', 'FRAME27', 'FRAME28', 'FRAME29', 'FRAME30', 'FRAME31', 'FRAME31',
+                        'FRAME31', 'FRAME31', 'FRAME32', 'FRAME33', 'FRAME34', 'FRAME34', 'FRAME35', 'FRAME36',
+                        'FRAME36', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME38', 'FRAME39', 'FRAME40',
+                        'FRAME41', 'FRAME42', 'FRAME43', 'GIB1', 'GIB2', 'BALANCER_LEFT_All', 'BALANCER_RIGHT_ALL',
+                        'CRANK_SHAFT_All', 'CLUCTH_ASSEMBLY_All']
 for x in file_FRAME_name_list:  # 讀取串列名稱並匯入檔案
-    print('import' + str(x))
+    # print('import' + str(x) + 'part')
     mprog.import_file_Part(path, x)
 
-#匯入待組合組合檔
+# 匯入待組合組合檔
 file_Assembly_name_list = ['SLIDE_UNIT', 'BALANCER_RIGHT', 'BALANCER_LEFT', 'CRANK_SHAFT', 'CLUCTH_ASSEMBLY']
 for x in file_Assembly_name_list:
+    # print('import' + str(x) + 'product')
     mprog.import_file_Product(path, x)
 
 # 機架組合
@@ -353,29 +417,21 @@ mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 95, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 22 + 18, 'XY.PLANE', 0)
 mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 312.5, 'YZ.PLANE', 0)
 
-# 組合product-機架, 衝頭
-mprog.add_offset_assembly_0('SLIDE_UNIT', 'BOLSTER3', 'FRAME_BALANCER', 'FRAME', 'BOLSTER1.1', 0, 'XY.PLANE')
-mprog.add_offset_assembly_0('SLIDE_UNIT', 'BOLSTER3', 'FRAME_BALANCER', 'FRAME', 'BOLSTER1.1', 0, 'YZ.PLANE')
-mprog.add_offset_assembly_0('SLIDE_UNIT', 'BOLSTER3', 'FRAME_BALANCER', 'FRAME', 'BOLSTER1.1', 0, 'XZ.PLANE')
-# 組合product-機架,曲輪軸
-mprog.add_offset_assembly_1('CRANK_SHAFT', 'BEARING_HOUSING2.1', 'FRAME_BALANCER', 'FRAME', 'BOLSTER1.1', 0, 'XY.PLANE')
-mprog.add_offset_assembly_1('CRANK_SHAFT', 'BEARING_HOUSING2.1', 'FRAME_BALANCER', 'FRAME', 'BOLSTER1.1', 0, 'XZ.PLANE')
-mprog.add_offset_assembly_1('CRANK_SHAFT', 'BEARING_HOUSING2.1', 'FRAME_BALANCER', 'FRAME', 'BOLSTER1.1', 0, 'YZ.PLANE')
-# 組合product-機架,離合器組立圖
-mprog.add_offset_assembly_1('CLUCTH_ASSEMBLY', 'CLUCTH_ASSEMBLY36.1', 'FRAME_BALANCER', 'FRAME', 'BOLSTER1.1', 0, 'XY.PLANE')
-mprog.add_offset_assembly_0('CLUCTH_ASSEMBLY', 'CLUCTH_ASSEMBLY36.1', 'FRAME_BALANCER', 'FRAME', 'BOLSTER1.1', 0, 'YZ.PLANE')
-mprog.add_offset_assembly_0('CLUCTH_ASSEMBLY', 'CLUCTH_ASSEMBLY36.1', 'FRAME_BALANCER', 'FRAME', 'BOLSTER1.1', 0, 'XZ.PLANE')
-
-
-#結合問題
-# 組合product-機架,左平衡氣壓缸
-mprog.add_offset_Part_Product_assembly('BALANCER_LEFT', 'BALANCER1.1', 'FRAME3.1', H[i], 'XY.PLANE', 0)
-mprog.add_offset_assembly_1('BALANCER_LEFT', 'BALANCER1.1', 'FRAME_BALANCER', 'FRAME', 'BOLSTER1.1', 0, 'YZ.PLANE')
-mprog.add_offset_Part_Product_assembly('BALANCER_LEFT', 'BALANCER1.1', 'FRAME3.1', BALANCER1_XZ[i], 'XZ.PLANE', 0)
-# 組合product-機架,右平衡氣壓缸
-mprog.add_offset_Part_Product_assembly('BALANCER_RIGHT', 'BALANCER1.1', 'FRAME3.1', H[i], 'XY.PLANE', 0)
-mprog.add_offset_assembly_0('BALANCER_RIGHT', 'BALANCER1.1', 'FRAME_BALANCER', 'FRAME', 'BOLSTER1.1', 0, 'YZ.PLANE')
-mprog.add_offset_Part_Product_assembly('BALANCER_RIGHT', 'BALANCER1.1', 'FRAME3.1', -BALANCER1_XZ[i], 'XZ.PLANE', 0)
+# 離合器跟FRAME3組立
+mprog.add_offset_product_assembly('CRANK_SHAFT_All.1', 'Geometrical Set.2', 'FRAME20.1', 0, 'XY.PLANE', 0)
+mprog.add_offset_product_assembly('CRANK_SHAFT_All.1', 'Geometrical Set.2', 'FRAME20.1', 0, 'XZ.PLANE', 0)
+mprog.add_offset_product_assembly('CRANK_SHAFT_All.1', 'Geometrical Set.2', 'FRAME20.1', 0, 'YZ.PLANE', 0)
+# 氣壓缸跟FRAME3組立
+mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1',  -32, 'XY.PLANE',1)
+mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -460, 'XZ.PLANE', 0)
+mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -260, 'YZ.PLANE', 0)
+mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1',  -32, 'XY.PLANE',1)
+mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -460, 'XZ.PLANE', 1)
+mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', 260, 'YZ.PLANE', 1)
+#離合器與FRAME3結合
+mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', 0, 'XY.PLANE',0)
+mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', 0, 'XZ.PLANE', 1)
+mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', 510, 'YZ.PLANE', 1)
 
 # 更新
 mprog.update()
