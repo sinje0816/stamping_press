@@ -25,7 +25,7 @@ FRAME1_cutout_bottom = [197, 277, 317, 397, 477, 557, 637, 717, 797]
 F = [320, 400, 440, 520, 600, 680, 760, 840, 900]
 FRAME1_cutout = [655 + 370, 675 + 415, 695 + 450, 715 + 577.5, 735 + 670, 755 + 770, 775 + 895, 795 + 1080, 815 + 1210]
 FRAME20_H = [280, 355, 420, 437.5, 550, 680, 825, 990, 1120]
-FRAME2_lower_depth = [166.016, 246.016, 286.016, 366.016, 446.016, 526.016, 606.016, 686.016, 746.016]
+FRAME2_lower_depth = [165, 245, 285, 365, 445, 525, 605, 685, 745]
 FRAME1_lower_high = [1330 , 1335 , 1340 , 1445 , 1455 , 1460 , 1470 , 1575 , 1595]
 
 #新增資料夾
@@ -95,26 +95,26 @@ for y in new_file_name_FRAME:
     print(y)
     if y == 'FRAME1' or y == 'FRAME2' or y == 'FRAME20' or y == 'FRAME30':#更改零件變數H
             mprog.param_change(y, 'H', H[i])
-            mprog.save_file(path, y)
+            mprog.save_file_part(path, y)
     elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43':#更改零件變數R
             mprog.param_change(y, 'R', R[i])
-            mprog.save_file(path, y)
+            mprog.save_file_part(path, y)
     elif y == 'FRAME10' or  y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':#更改零件變數E
             mprog.param_change(y, 'E', E[i])
             if y == 'BOLSTER1':
                 mprog.param_change('BOLSTER1', "hole_type", hole_type[j])
-            mprog.save_file(path, y)
-    elif y == 'FRAME29': #更改零件變數A
+            mprog.save_file_part(path, y)
+    elif y == 'FRAME29' or  y =='FRAME5' or  y =='FRAME8': #更改零件變數A
             mprog.param_change(y, 'A', A[i])
-            mprog.save_file(path, y)
+            mprog.save_file_part(path, y)
     elif y == 'BOLSTER2' or y == 'SLIDE':#更改零件變數P
             mprog.param_change(y, 'P', P[i])
-            mprog.save_file(path, y)
+            mprog.save_file_part(path, y)
     elif y == 'BOLSTER3':#更改零件變數Q
             mprog.param_change(y, 'Q', Q[i])
-            mprog.save_file(path, y)
+            mprog.save_file_part(path, y)
     else:
-        mprog.save_file(path, y)
+        mprog.save_file_part(path, y)
 
 # 開啟新組合檔
 mprog.assembly_create()
