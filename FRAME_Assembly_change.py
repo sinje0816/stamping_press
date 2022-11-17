@@ -213,7 +213,7 @@ mprog.add_offset_assembly('BOLSTER1.1', 'FRAME19.1', -T[i], 'XY.PLANE', 0)
 mprog.add_offset_assembly('BOLSTER1.1', 'FRAME19.1', -332.5, 'YZ.PLANE', 0)
 mprog.add_offset_assembly('BOLSTER1.1', 'FRAME17.1', 0, 'XZ.PLANE', 1)
 mprog.add_offset_assembly('BOLSTER1.1', 'FRAME17.1', -T[i], 'XY.PLANE', 0)
-mprog.add_offset_assembly('FRAME3.1', 'FRAME17.1', FRAME1_cutout_bottom[i], 'YZ.PLANE', 0)
+mprog.add_offset_assembly('FRAME3.1', 'FRAME17.1', FRAME1_cutout_bottom[i]-37, 'YZ.PLANE', 0)
 # 左右側板前GIB
 mprog.add_offset_assembly('GIB1.1', 'FRAME5.1', FRAME1_lower_high[i] + 40, 'XY.PLANE', 0)
 mprog.add_offset_assembly('GIB1.1', 'FRAME1.1', 72.5, 'XZ.PLANE', 0)
