@@ -54,13 +54,11 @@ class set_CATIA_workbench_env:
             pass
         return
 
-
 # 開啟組合檔
 def assembly_create():
     catapp = win32.Dispatch('CATIA.Application')
     documents1 = catapp.Documents
     productDocument1 = documents1.Add("Product")
-
 
 # 匯入組合檔
 def import_file_Product(path, file_name):  # (資料夾路徑，檔案名稱)
@@ -73,7 +71,6 @@ def import_file_Product(path, file_name):  # (資料夾路徑，檔案名稱)
     combination_file.append(path + '\\' + file_name + '.CATProduct')
     products1Variant.AddComponentsFromFiles(combination_file, "All")
 
-
 # 匯入零件檔
 def import_file_Part(path, file_name):  # (資料夾路徑，檔案名稱)
     catapp = win32.Dispatch('CATIA.Application')
@@ -84,6 +81,7 @@ def import_file_Part(path, file_name):  # (資料夾路徑，檔案名稱)
     combination_file = []  # 組合檔
     combination_file.append(path + '\\' + file_name + '.CATPart')
     products1Variant.AddComponentsFromFiles(combination_file, "All")
+
 # 匯入組合檔
 def import_file_Product(path, file_name):  # (資料夾路徑，檔案名稱)
     catapp = win32.Dispatch('CATIA.Application')
@@ -99,9 +97,8 @@ def folder_file_name():  # 抓取檔案名稱
     path = os.listdir('C:\\Users\\User\\Desktop\\stamping_press')
     x = []
     for file_name in path:
-        x.append(file_name.split('.')[0])
-    print(x)
-
+        x.append('or y == \'' + file_name.split('.')[0] + '\'')
+        print(' '.join(x))
 # frame名稱
 def frame_name():
     x = []
@@ -110,8 +107,7 @@ def frame_name():
     print(x)
 
 # 偏移組合檔_0(0表示OPPOSITE)
-def add_offset_assembly_0(element1, element2, element3, element4, element5, dist,
-                          relation):  # (組合檔1, 零件1, 組合檔2, 零件2, 距離, 結合面)
+def add_offset_assembly_0(element1, element2, element3, element4, element5, dist, relation):  # (組合檔1, 零件1, 組合檔2, 零件2, 距離, 結合面)
     catapp = win32.Dispatch("CATIA.Application")
     productdoc = catapp.ActiveDocument
     product = productdoc.Product
@@ -129,8 +125,7 @@ def add_offset_assembly_0(element1, element2, element3, element4, element5, dist
     return True
 
 # 偏移組合檔_1(1表示SAME)
-def add_offset_assembly_1(element1, element2, element3, element4, element5, dist,
-                          relation):  # (組合檔1, 零件1, 組合檔2, 零件2, 距離, 結合面)
+def add_offset_assembly_1(element1, element2, element3, element4, element5, dist, relation):  # (組合檔1, 零件1, 組合檔2, 零件2, 距離, 結合面)
     catapp = win32.Dispatch("CATIA.Application")
     productdoc = catapp.ActiveDocument
     product = productdoc.Product
@@ -262,6 +257,20 @@ def add_offset_assembly(element1, element2, dist, relation, binding_conditions):
     return True
 
 # 偏移組合檔
+def add_offset_product_assembly(element1, element2, element3, dist, relation, binding_conditions):  # (組合檔1, 零件1, 組合檔2, 零件2, 距離, 結合面, 拘束條件)
+    catapp = win32.Dispatch('CATIA.Application')
+    productDocument = catapp.ActiveDocument
+    product = productDocument.Product
+    constraints = product.Connections("CATIAConstraints")
+    ref1 = product.CreateReferenceFromName("Product1/%s/!%s/%s" % (element1, element2, relation))  # (將%指定檔內容移入%s)
+    ref2 = product.CreateReferenceFromName("Product1/%s/!PartBody/%s" % (element3, relation))
+    constraint = constraints.AddBiEltCst(1, ref1, ref2)  # (1表示偏移拘束, ref1, ref2)
+    length = constraint.Dimension
+    length.value = dist
+    constraint.Orientation = binding_conditions  # (1表示SAME, 0表示OPPOSITE)
+    return True
+
+# 偏移組合檔
 def add_offset_Part_Product_assembly(element1, element2, element3, dist, relation, binding_conditions):  # (組合檔1, 零件1, 組合檔2, 零件2, 距離, 結合面, 拘束條件)
     catapp = win32.Dispatch('CATIA.Application')
     productDocument = catapp.ActiveDocument
@@ -310,3 +319,25 @@ def hide_ass_all_Constraint():
     selection1.Search("Type='Part Design'.Plane,all")
     selection1.VisProperties.SetShow(1)
     selection1.Clear()
+
+def axis_system():#開啟座標軸
+    catapp = win32.Dispatch('CATIA.Application')
+    Part = catapp.ActiveDocument.Part
+    AxisSystems = Part.AxisSystems
+    AxisSystem = AxisSystems.Add()
+    Hybridbodys = Part.HybridBodies
+    Part.Update()
+
+def scaling(X):  # 等比例縮小
+    catapp = win32.Dispatch('CATIA.Application')
+    partDocument = catapp.ActiveDocument
+    part = partDocument.Part
+    shapeFactory = part.ShapeFactory
+    axisSystems = part.AxisSystems
+    axisSystem = axisSystems.Item("Axis System.1")
+    reference = part.CreateReferenceFromBRepName(
+        "FVertex:(Vertex:(Neighbours:(Face:(Brp:(AxisSystem.1;2);None:();Cf11:());Face:(Brp:(AxisSystem.1;3);None:();Cf11:());Face:(Brp:(AxisSystem.1;1);None:();Cf11:()));Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
+        axisSystem)
+    scaling = shapeFactory.AddNewScaling2(reference, X)
+    part.InWorkObject = scaling
+    part.Update()
