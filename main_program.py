@@ -223,7 +223,7 @@ def save_file_part(path, file_name):
     document = catapp.Documents
     file_name = file_name + '.CATPart'
     partDocument1 = document.Item(file_name)
-    print(path + '\\' + file_name)
+    # print(path + '\\' + file_name)
     partDocument1.SaveAs(path + '\\' + file_name)
     partDocument1.Close()
 #組合檔存檔
@@ -232,7 +232,7 @@ def save_file_product(path, file_name):
     document = catapp.Documents
     file_name = file_name + '.CATProduct'
     partDocument1 = document.Item(file_name)
-    print(path + '\\' + file_name)
+    # print(path + '\\' + file_name)
     partDocument1.SaveAs(path + '\\' + file_name)
     partDocument1.Close()
 
@@ -247,8 +247,7 @@ def new_Folder():
     return path, dir
 
 # 偏移組合檔
-def add_offset_assembly(element1, element2, dist, relation,
-                        binding_conditions):  # (組合檔1, 零件1, 組合檔2, 零件2, 距離, 結合面, 拘束條件)
+def add_offset_assembly(element1, element2, dist, relation, binding_conditions):  # (組合檔1, 零件1, 組合檔2, 零件2, 距離, 結合面, 拘束條件)
     catapp = win32.Dispatch('CATIA.Application')
     productDocument = catapp.ActiveDocument
     product = productDocument.Product
@@ -262,6 +261,20 @@ def add_offset_assembly(element1, element2, dist, relation,
     # product.Update()
     return True
 
+# 偏移組合檔
+def add_offset_Part_Product_assembly(element1, element2, element3, dist, relation, binding_conditions):  # (組合檔1, 零件1, 組合檔2, 零件2, 距離, 結合面, 拘束條件)
+    catapp = win32.Dispatch('CATIA.Application')
+    productDocument = catapp.ActiveDocument
+    product = productDocument.Product
+    constraints = product.Connections("CATIAConstraints")
+    ref1 = product.CreateReferenceFromName("Product1/%s.1/%s!PartBody/!%s" % (element1, element2, relation))  # (將%指定檔內容移入%s)
+    ref2 = product.CreateReferenceFromName("Product1/%s/!PartBody/!%s" % (element3, relation))
+    constraint = constraints.AddBiEltCst(1, ref1, ref2)  # (1表示偏移拘束, ref1, ref2)
+    length = constraint.Dimension
+    length.value = dist
+    constraint.Orientation = binding_conditions  # (1表示SAME, 0表示OPPOSITE)
+    # product.Update()
+    return True
 
 def base_lock(element1, element2):  # 定海神針, 固定基準零件
     catapp = win32.Dispatch('CATIA.Application')
