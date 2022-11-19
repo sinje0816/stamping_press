@@ -8,6 +8,7 @@ type = ()
 hole = ()
 close = ()
 change = ()
+height = ()
 
 # 自動算尺寸相加除2
 
@@ -74,6 +75,39 @@ elif type == "SN1-250" or type == "sn1-250":
     i = 8
 print(i)
 
+print('請輸入高度類型(S = 0 , H = 1 , P = 2)')
+height = input()
+if S == 0:
+    h = 0
+elif H == 1:
+    h = 1
+elif H == 2:
+    h = 2
+else:
+    print()
+#判斷是否長寬
+print('請輸入是否變更長寬(0 = 1.5H , 1 = H)')
+change = input()
+if close == '0':
+    l = 0
+elif close == '1':
+    l = 1
+else:
+    print('閉合輸入錯誤')
+print(l)
+
+#判斷是否閉合
+print('請輸入是否閉合(0 = 是 , 1 = 否)')
+close = input()
+if close == '0':
+    k = 0
+elif close == '1':
+    k = 1
+else:
+    print('閉合輸入錯誤')
+print(k)
+
+
 
 # 輸入平板型號
 print("請輸入平板型式(0 = 圓形平板 , 1 = 方形平板 , 2 = 模墊型平板)")
@@ -87,29 +121,6 @@ elif hole == "2":
 else:
     print('平板型號輸入錯誤')
 print(j)
-
-#判斷是否閉合
-print('請輸入是否閉合(0 = 是 , 1 = 否)')
-close = input()
-if close == '0':
-    k = 0
-elif close == '1':
-    k = 1
-else:
-    print('閉合輸入錯誤')
-print(k)
-
-#判斷是否長寬
-print('請輸入是否變更長寬(0 = 是 , 1 = 否)')
-change = input()
-if close == '0':
-    l = 0
-elif close == '1':
-    l = 1
-else:
-    print('閉合輸入錯誤')
-print(l)
-
 
 # 開啟CATIA
 env = mprog.set_CATIA_workbench_env()
@@ -136,7 +147,7 @@ for y in file_name_list:
                 if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
                     mprog.param_change(y, 'B', B_15[i])
                     mprog.save_file_part(path, y)
-                elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30':  # 更改零件變數R
+                elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29':  # 更改零件變數R
                     mprog.param_change(y, 'R', R_15[i])
                     mprog.save_file_part(path, y)
                 elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
@@ -159,7 +170,7 @@ for y in file_name_list:
                 if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
                     mprog.param_change(y, 'B', B[i])
                     mprog.save_file_part(path, y)
-                elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30':  # 更改零件變數R
+                elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29':  # 更改零件變數R
                     mprog.param_change(y, 'R', R[i])
                     mprog.save_file_part(path, y)
                 elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
@@ -183,7 +194,7 @@ for y in file_name_list:
                 if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
                     mprog.param_change(y, 'B', B_15[i])
                     mprog.save_file_part(path, y)
-                elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30':  # 更改零件變數R
+                elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29':  # 更改零件變數R
                     mprog.param_change(y, 'R', R_15[i])
                     mprog.save_file_part(path, y)
                 elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
@@ -206,7 +217,7 @@ for y in file_name_list:
                 if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
                     mprog.param_change(y, 'B', B[i])
                     mprog.save_file_part(path, y)
-                elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30':  # 更改零件變數R
+                elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29':  # 更改零件變數R
                     mprog.param_change(y, 'R', R[i])
                     mprog.save_file_part(path, y)
                 elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
@@ -230,7 +241,7 @@ for y in file_name_list:
             if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
                 mprog.param_change(y, 'B', B_15[i])
                 mprog.save_file_part(path, y)
-            elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30':  # 更改零件變數R
+            elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29':  # 更改零件變數R
                 mprog.param_change(y, 'R', R_15[i])
                 mprog.save_file_part(path, y)
             elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
@@ -253,7 +264,7 @@ for y in file_name_list:
             if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
                 mprog.param_change(y, 'B', B[i])
                 mprog.save_file_part(path, y)
-            elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30':  # 更改零件變數R
+            elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29':  # 更改零件變數R
                 mprog.param_change(y, 'R', R[i])
                 mprog.save_file_part(path, y)
             elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
