@@ -1,13 +1,17 @@
 import os
+from typing import Tuple
+
 import win32com.client as win32
 import main_program as mprog
 
 i = ()
-j = ()
+j: tuple = ()
 type = ()
 hole = ()
 close = ()
 change = ()
+height = ()
+l = ()
 
 # 自動算尺寸相加除2
 
@@ -74,6 +78,38 @@ elif type == "SN1-250" or type == "sn1-250":
     i = 8
 print(i)
 
+#高度類型選擇
+print('請輸入高度類型(S = 0 , H = 1 , P = 2)')
+height = input()
+if height == '0':
+    h = 0
+elif height == '1':
+    h = 1
+elif height == '2':
+    h = 2
+print(h)
+
+#判斷是否長寬
+print('請輸入是否變更長寬(0 = 1.5H , 1 = H)')
+l = input()
+if l == '0':
+    l = 0
+elif l == '1':
+    l = 1
+else:
+    print('閉合輸入錯誤')
+print(l)
+
+#判斷是否閉合
+print('請輸入是否閉合(0 = 是 , 1 = 否)')
+close = input()
+if close == '0':
+    k = 0
+elif close == '1':
+    k = 1
+else:
+    print('閉合輸入錯誤')
+print(k)
 
 # 輸入平板型號
 print("請輸入平板型式(0 = 圓形平板 , 1 = 方形平板 , 2 = 模墊型平板)")
@@ -87,29 +123,6 @@ elif hole == "2":
 else:
     print('平板型號輸入錯誤')
 print(j)
-
-#判斷是否閉合
-print('請輸入是否閉合(0 = 是 , 1 = 否)')
-close = input()
-if close == '0':
-    k = 0
-elif close == '1':
-    k = 1
-else:
-    print('閉合輸入錯誤')
-print(k)
-
-#判斷是否長寬
-print('請輸入是否變更長寬(0 = 是 , 1 = 否)')
-change = input()
-if close == '0':
-    l = 0
-elif close == '1':
-    l = 1
-else:
-    print('閉合輸入錯誤')
-print(l)
-
 
 # 開啟CATIA
 env = mprog.set_CATIA_workbench_env()
@@ -128,7 +141,7 @@ for y in file_name_list:
     # print('save' + str(y))
     mprog.import_part("C:\\Users\\USER\\Desktop\\stamping_press", y)
     # print('open' + str(y))
-    if i <= 3:
+    if i == 3 or i == 2 or i == 1:
         if y == 'BALANCER_LEFT_All' or y == 'BALANCER_RIGHT_ALL' or y == 'CRANK_SHAFT_All' or  y == 'CLUCTH_ASSEMBLY_All' or y == 'SLIDE_UNIT_All':
             mprog.axis_system()
             mprog.scaling(0.5)
@@ -136,7 +149,7 @@ for y in file_name_list:
                 if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
                     mprog.param_change(y, 'B', B_15[i])
                     mprog.save_file_part(path, y)
-                elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30':  # 更改零件變數R
+                elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29':  # 更改零件變數R
                     mprog.param_change(y, 'R', R_15[i])
                     mprog.save_file_part(path, y)
                 elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
@@ -156,10 +169,10 @@ for y in file_name_list:
                 else:
                     mprog.save_file_part(path, y)
             else:
-                if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
+                if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數H
                     mprog.param_change(y, 'B', B[i])
                     mprog.save_file_part(path, y)
-                elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30':  # 更改零件變數R
+                elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29':  # 更改零件變數R
                     mprog.param_change(y, 'R', R[i])
                     mprog.save_file_part(path, y)
                 elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
@@ -183,7 +196,7 @@ for y in file_name_list:
                 if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
                     mprog.param_change(y, 'B', B_15[i])
                     mprog.save_file_part(path, y)
-                elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30':  # 更改零件變數R
+                elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29':  # 更改零件變數R
                     mprog.param_change(y, 'R', R_15[i])
                     mprog.save_file_part(path, y)
                 elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
@@ -206,7 +219,7 @@ for y in file_name_list:
                 if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
                     mprog.param_change(y, 'B', B[i])
                     mprog.save_file_part(path, y)
-                elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30':  # 更改零件變數R
+                elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29':  # 更改零件變數R
                     mprog.param_change(y, 'R', R[i])
                     mprog.save_file_part(path, y)
                 elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
@@ -230,7 +243,7 @@ for y in file_name_list:
             if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
                 mprog.param_change(y, 'B', B_15[i])
                 mprog.save_file_part(path, y)
-            elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30':  # 更改零件變數R
+            elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29':  # 更改零件變數R
                 mprog.param_change(y, 'R', R_15[i])
                 mprog.save_file_part(path, y)
             elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
@@ -253,7 +266,7 @@ for y in file_name_list:
             if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
                 mprog.param_change(y, 'B', B[i])
                 mprog.save_file_part(path, y)
-            elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30':  # 更改零件變數R
+            elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29':  # 更改零件變數R
                 mprog.param_change(y, 'R', R[i])
                 mprog.save_file_part(path, y)
             elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
@@ -302,28 +315,19 @@ if l == 0:
     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', -80 - B_15[i] + F[i] / 2, 'YZ.PLANE', 1)
 else:
     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', -80 - B[i] + F[i] / 2, 'YZ.PLANE', 1)
-if l == 0:
-    mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -A_15[i] / 2, 'XZ.PLANE', 0)
-else:
-    mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -A[i] / 2, 'XZ.PLANE', 0)
+mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -A[i] / 2, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -Z[i], 'XY.PLANE', 0)
 if l == 0:
     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -80 - B_15[i] + F[i] / 2, 'YZ.PLANE', 1)
 else:
     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -80 - B[i] + F[i] / 2, 'YZ.PLANE', 1)
-if l == 0:
-    mprog.add_offset_assembly('BOLSTER1.1', 'FRAME5.1', -A_15[i] / 2, 'XZ.PLANE', 0)
-else:
-    mprog.add_offset_assembly('BOLSTER1.1', 'FRAME5.1', -A[i] / 2, 'XZ.PLANE', 0)
+mprog.add_offset_assembly('BOLSTER1.1', 'FRAME5.1', -A[i] / 2, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('BOLSTER1.1', 'FRAME5.1', -Z[i], 'XY.PLANE', 1)
 if l == 0:
     mprog.add_offset_assembly('FRAME7.1', 'FRAME5.1', -B_15[i], 'YZ.PLANE', 1)
 else:
     mprog.add_offset_assembly('FRAME7.1', 'FRAME5.1', -B[i], 'YZ.PLANE', 1)
-if l == 0:
-    mprog.add_offset_assembly('BOLSTER1.1', 'FRAME8.1', A_15[i] / 2, 'XZ.PLANE', 0)
-else:
-    mprog.add_offset_assembly('BOLSTER1.1', 'FRAME8.1', A[i] / 2, 'XZ.PLANE', 0)
+mprog.add_offset_assembly('BOLSTER1.1', 'FRAME8.1', A[i] / 2, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('BOLSTER1.1', 'FRAME8.1', -Z[i], 'XY.PLANE', 0)
 if l == 0:
     mprog.add_offset_assembly('FRAME6.1', 'FRAME8.1', -B_15[i], 'YZ.PLANE', 0)
@@ -349,10 +353,7 @@ if l == 0:
 else:
     mprog.add_offset_assembly('FRAME5.1', 'FRAME1.1', -B[i] / 2, 'YZ.PLANE', 1)
 # 底部前、中板
-if l == 0:
-    mprog.add_offset_assembly('FRAME5.1', 'FRAME3.1', A_15[i] / 2, 'XZ.PLANE', 1)
-else:
-    mprog.add_offset_assembly('FRAME5.1', 'FRAME3.1', A[i] / 2, 'XZ.PLANE', 1)
+mprog.add_offset_assembly('FRAME5.1', 'FRAME3.1', A[i] / 2, 'XZ.PLANE', 1)
 mprog.add_offset_assembly('FRAME5.1', 'FRAME3.1', 0, 'XY.PLANE', 0)
 mprog.add_offset_assembly('FRAME5.1', 'FRAME3.1', 0, 'YZ.PLANE', 1)
 mprog.add_offset_assembly('FRAME9.1', 'FRAME3.1', 0, 'XZ.PLANE', 0)
@@ -364,13 +365,19 @@ if l == 0:
 else:
     mprog.add_offset_assembly('FRAME11.1', 'BOLSTER1.1', -R[i] / 2, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('BOLSTER1.1', 'FRAME11.1', -T[i], 'XY.PLANE', 0)
-mprog.add_offset_assembly('FRAME8.1', 'FRAME11.1', FRAME2_lower_depth[i] - 3.984 + 7.968, 'YZ.PLANE', 1)
+if l == 0:
+    mprog.add_offset_assembly('FRAME8.1', 'FRAME11.1', FRAME2_lower_depth[i] * 1.5 - 3.984 + 7.968, 'YZ.PLANE', 1)
+else:
+    mprog.add_offset_assembly('FRAME8.1', 'FRAME11.1', FRAME2_lower_depth[i] - 3.984 + 7.968, 'YZ.PLANE', 1)
 if l == 0:
     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -R_15[i] / 2 - 90, 'XZ.PLANE', 0)
 else:
     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -R[i] / 2 - 90, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -T[i], 'XY.PLANE', 0)
-mprog.add_offset_assembly('FRAME5.1', 'FRAME10.1', -FRAME2_lower_depth[i] + 3.984 - 7.968, 'YZ.PLANE', 0)
+if l == 0:
+    mprog.add_offset_assembly('FRAME5.1', 'FRAME10.1', -FRAME2_lower_depth[i] * 1.5 + 3.984 - 7.968, 'YZ.PLANE', 0)
+else:
+    mprog.add_offset_assembly('FRAME5.1', 'FRAME10.1', -FRAME2_lower_depth[i] + 3.984 - 7.968, 'YZ.PLANE', 0)
 # 底部後面ㄇ形角鐵
 mprog.add_offset_assembly('FRAME3.1', 'FRAME4.1', 0, 'XZ.PLANE', 1)
 mprog.add_offset_assembly('FRAME3.1', 'FRAME4.1', 0, 'XY.PLANE', 0)
@@ -441,16 +448,10 @@ mprog.add_offset_assembly('BOLSTER1.1', 'FRAME17.1', 0, 'XZ.PLANE', 1)
 mprog.add_offset_assembly('BOLSTER1.1', 'FRAME17.1', -T[i], 'XY.PLANE', 0)
 mprog.add_offset_assembly('FRAME3.1', 'FRAME17.1', FRAME1_cutout_bottom[i] - 37, 'YZ.PLANE', 0)
 # 左右側板前GIB
-if l == 0:
-    mprog.add_offset_assembly('GIB1.1', 'FRAME5.1', FRAME1_lower_high[i]*1.5 + 40, 'XY.PLANE', 0)
-else:
-    mprog.add_offset_assembly('GIB1.1', 'FRAME5.1', FRAME1_lower_high[i] + 40, 'XY.PLANE', 0)
+mprog.add_offset_assembly('GIB1.1', 'FRAME5.1', FRAME1_lower_high[i] + 40, 'XY.PLANE', 0)
 mprog.add_offset_assembly('GIB1.1', 'FRAME1.1', 72.5, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('GIB1.1', 'FRAME5.1', 334.65, 'YZ.PLANE', 0)
-if l == 0:
-    mprog.add_offset_assembly('GIB2.1', 'FRAME8.1', FRAME1_lower_high[i]*1.5 + 40, 'XY.PLANE', 1)
-else:
-    mprog.add_offset_assembly('GIB2.1', 'FRAME8.1', FRAME1_lower_high[i] + 40, 'XY.PLANE', 1)
+mprog.add_offset_assembly('GIB2.1', 'FRAME8.1', FRAME1_lower_high[i] + 40, 'XY.PLANE', 1)
 mprog.add_offset_assembly('GIB2.1', 'FRAME2.1', -72.5, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('GIB2.1', 'FRAME5.1', 334.65, 'YZ.PLANE', 0)
 # 左GIB後鎖固用方塊
@@ -502,13 +503,19 @@ if l == 0:
     mprog.add_offset_assembly('FRAME34.1', 'BOLSTER1.1', -R_15[i] / 2 - 90, 'XZ.PLANE', 1)
 else:
     mprog.add_offset_assembly('FRAME34.1', 'BOLSTER1.1', -R[i] / 2 - 90, 'XZ.PLANE', 1)
-mprog.add_offset_assembly('FRAME34.1', 'FRAME3.1', -2390.5, 'XY.PLANE', 1)  # 要找他所有變數
+if l == 0:
+    mprog.add_offset_assembly('FRAME34.1', 'FRAME3.1', -2029, 'XY.PLANE', 1)  # 要找他所有變數
+else:
+    mprog.add_offset_assembly('FRAME34.1', 'FRAME3.1', -2390.5, 'XY.PLANE', 1)
 mprog.add_offset_assembly('FRAME34.1', 'FRAME7.1', 1141, 'YZ.PLANE', 0)  # 要找他所有變數
 if l == 0:
     mprog.add_offset_assembly('FRAME34.2', 'BOLSTER1.1', -R_15[i] / 2 - 90, 'XZ.PLANE', 0)
 else:
     mprog.add_offset_assembly('FRAME34.2', 'BOLSTER1.1', -R[i] / 2 - 90, 'XZ.PLANE', 0)
-mprog.add_offset_assembly('FRAME34.2', 'FRAME3.1', 2390.5, 'XY.PLANE', 0)  # 要找他所有變數
+if l == 0:
+    mprog.add_offset_assembly('FRAME34.2', 'FRAME3.1', 2029, 'XY.PLANE', 0)  # 要找他所有變數
+else:
+    mprog.add_offset_assembly('FRAME34.2', 'FRAME3.1', 2390.5, 'XY.PLANE', 0)
 mprog.add_offset_assembly('FRAME34.2', 'FRAME7.1', 1141, 'YZ.PLANE', 0)  # 要找他所有變數
 # 後方大軸承
 mprog.add_offset_assembly('FRAME35.1', 'FRAME3.1', 0, 'XZ.PLANE', 1)
@@ -562,19 +569,21 @@ mprog.add_offset_assembly('BOLSTER2.1', 'BOLSTER3.1', 0, 'XY.PLANE', 0)
 mprog.add_offset_assembly('BOLSTER2.1', 'BOLSTER3.1', 0, 'YZ.PLANE', 0)
 # 平板1, 3組立
 mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', 0, 'XZ.PLANE', 0)
-if j == 0 and k == 0:
-    mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', D_S[i], 'XY.PLANE', 0)
-elif j == 0 and k == 1:
-    mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', D_S[i] + DH_S[i], 'XY.PLANE', 0)
-elif j == 1 and k == 0:
-    mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', D_H[i], 'XY.PLANE', 0)
-elif j == 1 and k == 1:
-    mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', D_H[i] + DH_H[i], 'XY.PLANE', 0)
-elif j == 2 and k == 0:
-    mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', D_P[i], 'XY.PLANE', 0)
-else:
-    mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', D_P[i] + DH_P[i], 'XY.PLANE', 0)
 mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', 0, 'YZ.PLANE', 0)
+if k == 0:
+    if h == 0:
+        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', D_S[i], 'XY.PLANE', 0)
+    elif h == 1:
+        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', D_H[i], 'XY.PLANE', 0)
+    else:
+        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', D_P[i], 'XY.PLANE', 0)
+else:
+    if h == 0:
+        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', D_S[i] + D_S[i], 'XY.PLANE', 0)
+    elif  h == 1:
+        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', D_H[i] + D_H[i], 'XY.PLANE', 0)
+    else:
+        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', D_P[i] + D_P[i], 'XY.PLANE', 0)
 #SLIDE跟平板3組立
 mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 85, 'XY.PLANE', 1)
 mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 0, 'XZ.PLANE', 1)
@@ -585,10 +594,16 @@ mprog.add_offset_product_assembly('CRANK_SHAFT_All.1', 'Geometrical Set.2', 'FRA
 mprog.add_offset_product_assembly('CRANK_SHAFT_All.1', 'Geometrical Set.2', 'FRAME20.1', 0, 'YZ.PLANE', 0)
 # 氣壓缸跟FRAME3組立
 mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -32, 'XY.PLANE', 1)
-mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -460, 'XZ.PLANE', 0)
+if l == 0:
+    mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -688, 'XZ.PLANE', 0)
+else:
+    mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -460, 'XZ.PLANE', 0)
 mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -260, 'YZ.PLANE', 0)
 mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -32, 'XY.PLANE', 1)
-mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -460, 'XZ.PLANE', 1)
+if l == 0:
+    mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -688, 'XZ.PLANE', 1)
+else:
+    mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -460, 'XZ.PLANE', 1)
 mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', 260, 'YZ.PLANE', 1)
 # 離合器與FRAME3結合
 mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', 0, 'XY.PLANE', 0)
