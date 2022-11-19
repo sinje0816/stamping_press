@@ -1,13 +1,13 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys, datetime, os
-from GUI import Ui_Form
+from UI import Ui_Dialog
 import para
 
 
-class main(QtWidgets.QWidget, Ui_Form):
+class main(QtWidgets.QWidget, Ui_Dialog):
     def __init__(self):
         super(main, self).__init__()
-        self.ui = Ui_Form()
+        self.ui = Ui_Dialog()
         self.ui.setupUi(self)
         self.ui.pushButton.clicked.connect(self.start)
         self.add_item_for_comboBox()
