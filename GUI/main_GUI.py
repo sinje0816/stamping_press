@@ -10,23 +10,29 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
         self.ui.pushButton.clicked.connect(self.start)
-        self.add_item_for_comboBox()
+        # self.add_item_for_comboBox()
         self.path = str()
         BASE_DIR = os.path.dirname(os.path.realpath(__file__))
         self.setWindowIcon(QtGui.QIcon(BASE_DIR + '\\ico.ico'))
 
     def start(self):
-        # print('start')
-        print(self.ui.comboBox.currentText())
-        type = str(self.ui.comboBox.currentText())
-        # print(type)
+        change = str(self.ui.comboBox_2.currentText())
+        height = str(self.ui.comboBox_3.currentText())
+        type = str(self.ui.comboBox_4.currentText())
+        hole = str(self.ui.comboBox_5.currentText())
+        close = str(self.ui.comboBox_6.currentText())
+        print(type)
+        print(change)
+        print(height)
+        print(close)
+        print(hole)
         self.create_dir(type)
 
-    def add_item_for_comboBox(self):
-        print('insert')
-        # data = ['sd1', 'sd2']
-        # for item in data:
-        #     self.ui.comboBox.addItem(item)
+    # def add_item_for_comboBox(self):
+    #     print('insert')
+    #     # data = ['sd1', 'sd2']
+    #     # for item in data:
+    #     #     self.ui.comboBox.addItem(item)
 
     def create_dir(self, type):
         time_now = datetime.datetime.now()

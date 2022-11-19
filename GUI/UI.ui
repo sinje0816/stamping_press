@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>735</width>
-    <height>469</height>
+    <height>606</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>510</x>
-     <y>280</y>
+     <y>320</y>
      <width>221</width>
      <height>71</height>
     </rect>
@@ -180,7 +180,7 @@ start generating</string>
    <property name="geometry">
     <rect>
      <x>250</x>
-     <y>410</y>
+     <y>480</y>
      <width>211</width>
      <height>51</height>
     </rect>
@@ -261,7 +261,7 @@ start generating</string>
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>390</y>
+     <y>460</y>
      <width>221</width>
      <height>81</height>
     </rect>
@@ -302,6 +302,57 @@ start generating</string>
    </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;SEYI SN1系列C型曲軸沖床自動化生成系統&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;SEYI SN1 series C-type crankshaft punch automatic generation system&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_6">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>400</y>
+     <width>211</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微軟正黑體</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <item>
+    <property name="text">
+     <string>是</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>否</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>380</y>
+     <width>221</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微軟正黑體</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;是否閉合&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Whether closed&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
