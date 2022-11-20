@@ -45,7 +45,7 @@ E_15 = [1051 , 1170 , 1260 , 1350 , 1575 , 1725 , 1875 , 2100 , 2250]
 
 B = [1058, 1125, 1210, 1315, 1480, 1680, 1985, 2113, 2400]
 B_15 =[1587 , 1688 , 1815 , 1973 , 2220 , 2520 , 2978 , 3170 , 3600]
-i = 5
+i = 7
 # mprog.folder_file_name()
 # x = ['back straight', 'BALANCER', 'BALANCER1', 'BALANCER10', 'BALANCER2', 'BALANCER3', 'BALANCER4', 'BALANCER4',
 #      'BALANCER5', 'BALANCER6', 'BALANCER7', 'BALANCER8', 'BALANCER9', 'BALL CUP',
@@ -111,5 +111,95 @@ l = (0)
 # mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', 0, 'XY.PLANE', 1)
 # mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', 0, 'YZ.PLANE', 0)
 
-mprog.axis_system()
-mprog.scaling()
+
+
+# else if E == 1400mm
+# {
+# 	T = 180mm
+# 	F = 840mm
+# 	d = 380mm
+# 	b = 320mm
+# 	c = 200mm
+# 	t = 30mm
+# 	f = 250mm
+# 	n = 28mm
+# 	s = 48mm
+# 	p = 30mm
+# 	q = 20mm
+# 	b1 = 180mm
+# 	`i(LR)` = 7lmxs
+# 	`i(FB)` = 5lmxs
+# 	g = 100mm
+# 	h = 100mm
+# 	e = 320mm
+# 	l = 250mm
+# 	k = 500mm
+# 	type3_width=s/2+b1
+# 	j  = 28mm
+# }
+
+
+# else if E == 1600mm
+# {
+# 	T = 180mm
+# 	F = 960mm
+# 	d = 440mm
+# 	b = 380mm
+# 	c = 300mm
+# 	t = 30mm
+# 	f = 290mm
+# 	n = 28mm
+# 	s = 48mm
+# 	p = 30mm
+# 	q = 20mm
+# 	b1 = 220mm
+# 	`i(LR)` = 9lmxs
+# 	`i(FB)` = 7lmxs
+# 	g = 100mm
+# 	h = 100mm
+# 	e = 320mm
+# 	l = 290mm
+# 	k = 580mm
+# 	type3_width=s/2+b1
+# 	j  = 28mm
+# }
+
+
+# mprog.add_offset_assembly('GIB1.1', 'FRAME3.1', FRAME1_lower_high[i] + 40, 'XY.PLANE', 0)
+# mprog.add_offset_assembly('GIB1.1', 'FRAME1.1', 72.5, 'XZ.PLANE', 0)
+# mprog.add_offset_assembly('GIB1.1', 'FRAME5.1', 334.65, 'YZ.PLANE', 0)
+# mprog.add_offset_assembly('GIB2.1', 'FRAME3.1', FRAME1_lower_high[i] + 40, 'XY.PLANE', 0)
+# mprog.add_offset_assembly('GIB2.1', 'FRAME2.1', -72.5, 'XZ.PLANE', 0)
+# mprog.add_offset_assembly('GIB2.1', 'FRAME5.1', 334.65, 'YZ.PLANE', 0)
+
+# mprog.add_offset_assembly('GIB2.1', 'FRAME23.1', -690, 'XY.PLANE', 1)
+# mprog.add_offset_assembly('GIB2.1', 'FRAME23.1', 0, 'XZ.PLANE', 1)
+# mprog.add_offset_assembly('GIB2.1', 'FRAME23.1', 0, 'YZ.PLANE', 0)
+# mprog.add_offset_assembly('GIB2.1', 'FRAME24.1', 0, 'XY.PLANE', 1)
+# mprog.add_offset_assembly('FRAME2.1', 'FRAME24.1', 50 + 35, 'XZ.PLANE', 0)
+# mprog.add_offset_assembly('GIB2.1', 'FRAME24.1', 0, 'YZ.PLANE', 1)
+# mprog.add_offset_assembly('GIB2.1', 'FRAME27.1', -690 / 2, 'XY.PLANE', 1)
+# mprog.add_offset_assembly('FRAME2.1', 'FRAME27.1', 50, 'XZ.PLANE', 1)
+# mprog.add_offset_assembly('GIB2.1', 'FRAME27.1', 0, 'YZ.PLANE', 1)
+# mprog.add_offset_assembly('GIB2.1', 'FRAME31.1', -690, 'XY.PLANE', 1)
+# mprog.add_offset_assembly('FRAME23.1', 'FRAME31.1', -50, 'XZ.PLANE', 0)
+# mprog.add_offset_assembly('FRAME23.1', 'FRAME31.1', -130.35, 'YZ.PLANE', 0)
+# mprog.add_offset_assembly('GIB2.1', 'FRAME31.2', -150, 'XY.PLANE', 1)
+# mprog.add_offset_assembly('FRAME23.1', 'FRAME31.2', -50, 'YZ.PLANE', 0)
+# mprog.add_offset_assembly('FRAME23.1', 'FRAME31.2', -62.5, 'XZ.PLANE', 0)
+#
+# mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', -690, 'XY.PLANE', 1)
+# mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', 0, 'XZ.PLANE', 0)
+# mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', 0, 'YZ.PLANE', 1)
+# mprog.add_offset_assembly('GIB1.1', 'FRAME26.1', 0, 'XY.PLANE', 1)
+# mprog.add_offset_assembly('FRAME1.1', 'FRAME26.1', -50 - 35, 'XZ.PLANE', 0)
+# mprog.add_offset_assembly('GIB1.1', 'FRAME26.1', 0, 'YZ.PLANE', 0)
+# mprog.add_offset_assembly('GIB1.1', 'FRAME28.1', -690 / 2, 'XY.PLANE', 1)
+# mprog.add_offset_assembly('FRAME1.1', 'FRAME28.1', -50, 'XZ.PLANE', 0)
+# mprog.add_offset_assembly('GIB1.1', 'FRAME28.1', 0, 'YZ.PLANE', 1)
+# mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', -690, 'XY.PLANE', 1)
+# mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', -50, 'XZ.PLANE', 1)
+# mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', 130.35, 'YZ.PLANE', 1)
+# mprog.add_offset_assembly('GIB1.1', 'FRAME31.4', -150, 'XY.PLANE', 1)
+# mprog.add_offset_assembly('FRAME31.3', 'FRAME31.4', 0, 'YZ.PLANE', 0)
+# mprog.add_offset_assembly('FRAME31.3', 'FRAME31.4', 0, 'XZ.PLANE', 0)
