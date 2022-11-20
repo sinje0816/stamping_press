@@ -112,4 +112,4 @@ l = (0)
 # mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', 0, 'YZ.PLANE', 0)
 
 mprog.axis_system()
-mprog.scaling(0.5)
+mprog.scaling()

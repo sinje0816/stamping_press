@@ -144,7 +144,7 @@ for y in file_name_list:
     # print('save' + str(y))
     mprog.import_part("C:\\Users\\USER\\Desktop\\stamping_press", y)
     # print('open' + str(y))
-    if i == 3 or i == 2 or i == 1:
+    if i == 3 or i == 2 or i == 1 or i == 0:
         if y == 'BALANCER_LEFT_All' or y == 'BALANCER_RIGHT_ALL' or y == 'CRANK_SHAFT_All' or  y == 'CLUCTH_ASSEMBLY_All' or y == 'SLIDE_UNIT_All':
             mprog.axis_system()
             mprog.scaling(0.5)
