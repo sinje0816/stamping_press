@@ -632,9 +632,9 @@ else:
     mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -32, 'XY.PLANE', 1)
 if i == 4:
     if l == 0:
-        mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1',  -347, 'XZ.PLANE', 0)
+        mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1',  -500.5, 'XZ.PLANE', 0)
     else:
-        mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1',  -R[i] / 2 - 13, 'XZ.PLANE', 0)
+        mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1',  -347, 'XZ.PLANE', 0)
 else:
     if l == 0:
         mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1',  -R_15[i] / 2 - 13, 'XZ.PLANE', 0)
@@ -650,9 +650,9 @@ else:
     mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -32, 'XY.PLANE', 1)
 if i == 4:
     if l == 0:
-        mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1',  -347, 'XZ.PLANE', 1)
+        mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1',  -500.5, 'XZ.PLANE', 1)
     else:
-        mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -R[i] / 2 - 13, 'XZ.PLANE', 1)
+        mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -347, 'XZ.PLANE', 1)
 else:
     if l == 0:
         mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1',  -R_15[i] / 2 - 13, 'XZ.PLANE', 1)
