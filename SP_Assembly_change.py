@@ -27,8 +27,8 @@ D_S = [80, 90, 110, 130, 150, 180, 200, 220, 250, 280]
 D_H = [50, 60, 70, 80, 100, 110, 130, 150, 180, 210]
 D_P = [35, 40, 45, 50, 60, 70, 80, 90, 100, 110]
 DH_S = [230, 250, 270, 300, 330, 350, 400, 450, 450, 500]
-DH_H = [200, 220, 240, 270, 300, 320, 360, 400, 400, 500]
-DH_P = [200, 220, 240, 270, 300, 320, 360, 400, 400, 500]
+DH_H = [200, 220, 240, 270, 300, 320, 360, 400, 400, 450]
+DH_P = [200, 220, 240, 270, 300, 320, 360, 400, 400, 450]
 S = [983, 1068, 1158, 1285, 1445, 1630, 1809, 2067, 2262, 2357]
 H_Z = [1260, 1385, 1490, 1640, 1855, 2086.933, 2370, 2725, 3005, 3285]
 O = [1045, 1075, 1125, 1145, 1175, 1225, 1285, 1345, 1375, 1405]
@@ -39,9 +39,9 @@ Q = [250, 300, 350, 400, 460, 520, 580, 650, 720, 790]
 Q_15 = [375, 450, 525, 600, 690, 780, 870, 975, 1080, 1185]
 T = [85, 100, 115, 130, 140, 155, 165, 180, 180, 200]
 Z = [800, 800, 800, 900, 900, 900, 900, 1000, 1000, 1100]
-FRAME1_cutout_bottom = [197, 277, 317, 397, 477, 557, 637, 717, 797, 877]
+# FRAME1_cutout_bottom = [197, 277, 317, 397, 477, 557, 637, 717, 797, 877]
 F = [320, 400, 440, 520, 600, 680, 760, 840, 900, 960]
-FRAME1_cutout = [655 + 370, 675 + 415, 695 + 450, 715 + 577.5, 735 + 670, 755 + 770, 775 + 895, 795 + 1080, 815 + 1210, ]
+# FRAME1_cutout = [655 + 370, 675 + 415, 695 + 450, 715 + 577.5, 735 + 670, 755 + 770, 775 + 895, 795 + 1080, 815 + 1210, ]
 FRAME20_H = [280, 355, 420, 437.5, 550, 680, 825, 990, 1120, 1170]
 FRAME2_lower_depth = [166.016, 246.016, 286.016, 366.016, 446.016, 526.016, 606.016, 686.016, 766.016, 846.016]
 FRAME2_lower_depth_15 = [265.016, 385.016, 445.016, 565.016, 685.016, 925.016, 805.016, 1045.016, 1165.016, 1285.016]
@@ -49,8 +49,7 @@ FRAME1_lower_high = [1330, 1335, 1340, 1445, 1455, 1460, 1470, 1575, 1595, 1695]
 FRAME20_FRAME2_YZ = [805, 805, 979, 979, 979, 979, 979, 979, 979, 979]
 BALANCER1_XZ = [204, 253, 268, 282, 317, 345, 375, 460, 575, 690]  # (R+180mm)/2+80mm
 FRAME_10_H = [558, 620.5, 673, 798, 905.5, 1023, 1163, 1320.5, 1530.5, 1740.5]
-
-# FRAME_32_XY = [0, 0, 0, 1722, 1819.5, 1922, 2052, 2785]
+FRAME_32_XY = [0, 0, 0, 1722, 1819.5, 1922, 2052, 2294.5, 2504.5, 2794.5]
 
 # 新增資料夾
 path, dir = mprog.new_Folder()
@@ -526,7 +525,7 @@ mprog.add_offset_assembly('FRAME41.1', 'FRAME4.1', 0, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('FRAME41.1', 'FRAME4.1', 0, 'YZ.PLANE', 0)
 # FRAME2中間下板子
 mprog.add_offset_assembly('FRAME32.1', 'BOLSTER1.1', 0, 'XZ.PLANE', 0)
-mprog.add_offset_assembly('FRAME32.1', 'FRAME30.1', -1023, 'XY.PLANE', 0)  # 要找他所有變數
+mprog.add_offset_assembly('FRAME32.1', 'FRAME3.1', FRAME_32_XY[i] + 19, 'XY.PLANE', 0)  # 要找他所有變數
 mprog.add_offset_assembly('FRAME32.1', 'FRAME30.1', 0, 'YZ.PLANE', 0)
 # 後方大軸承支架
 mprog.add_offset_assembly('FRAME10.1', 'FRAME34.2', -485.543, 'YZ.PLANE', 0)
@@ -596,18 +595,18 @@ mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', 0, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', 0, 'YZ.PLANE', 0)
 if k == 0:
     if h == 0:
-        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', D_S[i], 'XY.PLANE', 0)
+        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_S[i], 'XY.PLANE', 0)
     elif h == 1:
-        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', D_H[i], 'XY.PLANE', 0)
+        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_H[i], 'XY.PLANE', 0)
     else:
-        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', D_P[i], 'XY.PLANE', 0)
+        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_P[i], 'XY.PLANE', 0)
 else:
     if h == 0:
-        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', D_S[i] + D_S[i], 'XY.PLANE', 0)
+        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_S[i] + D_S[i], 'XY.PLANE', 0)
     elif  h == 1:
-        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', D_H[i] + D_H[i], 'XY.PLANE', 0)
+        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_H[i] + D_H[i], 'XY.PLANE', 0)
     else:
-        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', D_P[i] + D_P[i], 'XY.PLANE', 0)
+        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_P[i] + D_P[i], 'XY.PLANE', 0)
 #SLIDE跟平板3組立
 if i == 4:
     mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 267.38, 'XY.PLANE', 1)
@@ -645,7 +644,7 @@ if i == 4:
 else:
     mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -260, 'YZ.PLANE', 0)
 if i == 4:
-    mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -87.5, 'XY.PLANE', 1)
+    mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -21.8, 'XY.PLANE', 1)
 else:
     mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -32, 'XY.PLANE', 1)
 if i == 4:
@@ -672,4 +671,4 @@ mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 
 
 # 更新
 mprog.update()
-mprog.hide_ass_all_Constraint()
+mprog.Close_All()

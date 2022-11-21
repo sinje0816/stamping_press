@@ -295,7 +295,6 @@ def base_lock(element1, element2):  # 定海神針, 固定基準零件
     product.Update()
     return True
 
-
 def update():
     catapp = win32.Dispatch('CATIA.Application')
     productDocument = catapp.ActiveDocument
@@ -304,8 +303,6 @@ def update():
     specsAndGeomWindow = catapp.ActiveWindow
     viewer3D = specsAndGeomWindow.ActiveViewer
     viewer3D.Reframe()
-
-
 
 # 組合拘束隱藏
 def hide_ass_all_Constraint():
@@ -342,50 +339,12 @@ def scaling(X):  # 等比例縮小
     part.InWorkObject = scaling
     part.Update()
 
-# def variable_change():
-#     if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
-#         mprog.param_change(y, 'B', B[i])
-#         mprog.save_file_part(path, y)
-#     elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30':  # 更改零件變數R
-#         mprog.param_change(y, 'R', R[i])
-#         mprog.save_file_part(path, y)
-#     elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
-#         mprog.param_change(y, 'E', E[i])
-#         if y == 'BOLSTER1':
-#             mprog.param_change('BOLSTER1', "hole_type", hole_type[j])
-#         mprog.save_file_part(path, y)
-#     elif y == 'FRAME29' or y == 'FRAME8' or y == 'FRAME5':  # 更改零件變數A
-#         mprog.param_change(y, 'A', A[i])
-#         mprog.save_file_part(path, y)
-#     elif y == 'BOLSTER2':  # 更改零件變數P
-#         mprog.param_change(y, 'P', P[i])
-#         mprog.save_file_part(path, y)
-#     elif y == 'BOLSTER3':  # 更改零件變數Q
-#         mprog.param_change(y, 'Q', Q[i])
-#         mprog.save_file_part(path, y)
-#     else:
-#         mprog.save_file_part(path, y)
-#
-# def variable_change_15():
-#     if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
-#         mprog.param_change(y, 'B', B_15[i])
-#         mprog.save_file_part(path, y)
-#     elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30':  # 更改零件變數R
-#         mprog.param_change(y, 'R', R_15[i])
-#         mprog.save_file_part(path, y)
-#     elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
-#         mprog.param_change(y, 'E', E_15[i])
-#         if y == 'BOLSTER1':
-#             mprog.param_change('BOLSTER1', "hole_type", hole_type[j])
-#         mprog.save_file_part(path, y)
-#     elif y == 'FRAME29' or y == 'FRAME8' or y == 'FRAME5':  # 更改零件變數A
-#         mprog.param_change(y, 'A', A[i])
-#         mprog.save_file_part(path, y)
-#     elif y == 'BOLSTER2':  # 更改零件變數P
-#         mprog.param_change(y, 'P', P[i])
-#         mprog.save_file_part(path, y)
-#     elif y == 'BOLSTER3':  # 更改零件變數Q
-#         mprog.param_change(y, 'Q', Q[i])
-#         mprog.save_file_part(path, y)
-#     else:
-#         mprog.save_file_part(path, y)
+# 關閉實體外所有東西
+def Close_All():
+    catapp = win32.Dispatch('CATIA.Application')
+    partdocument1 = catapp.ActiveDocument
+    selection1 = partdocument1.Selection
+    selection1.Search(
+        "((((((((CATStFreeStyleSearch.OpenBodyFeature + CATPrtSearch.OpenBodyFeature) + CATGmoSearch.OpenBodyFeature) + CATSpdSearch.OpenBodyFeature) + CATPrtSearch.Sketch + CATPrtSearch.Plane) + CATPrtSearch.MfConstraint) + CATPrtSearch.AxisSystem) + CATPrtSearch.Point) + CATPrtSearch.Line),all")
+    visPropertySet1 = selection1.VisProperties
+    visPropertySet1.SetShow(1)

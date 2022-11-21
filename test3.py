@@ -1,16 +1,20 @@
 import main_program as mprog
+import os
+import win32com.client as win32
+import datetime, time
+
 Q = [250, 300, 350, 400, 460, 520, 580, 650, 720]
-Q_15 = [375 , 450 , 525 , 600 , 690 , 780 , 870 , 975 , 1080]
+Q_15 = [375, 450, 525, 600, 690, 780, 870, 975, 1080]
 
 A = [720, 830, 890, 940, 1050, 1160, 1300, 1480, 1560]
-A_15 = [1080 , 1245 , 1335 , 1410 , 1575 , 1740 , 1950 , 2220 , 2340]
+A_15 = [1080, 1245, 1335, 1410, 1575, 1740, 1950, 2220, 2340]
 B = [1058, 1125, 1210, 1315, 1480, 1680, 1985, 2113, 2400]
-B_15 =[1587 , 1688 , 1815 , 1973 , 2220 , 2520 , 2978 , 3170 , 3600]
+B_15 = [1587, 1688, 1815, 1973, 2220, 2520, 2978, 3170, 3600]
 H = [2060, 2185, 2290, 2540, 2755, 2990, 3270, 3725, 4005]
 R = [388, 486, 516, 544, 614, 670, 730, 900, 970]
-R_15 = [582 , 729 , 774 , 816 , 921 , 1005 , 1095 , 1350 , 1455]
+R_15 = [582, 729, 774, 816, 921, 1005, 1095, 1350, 1455]
 E = [700, 780, 840, 900, 1050, 1150, 1250, 1400, 1500]
-E_15 = [1050 , 1170 , 1260 , 1350 , 1575 , 1725 , 1875 , 2100 , 2250]
+E_15 = [1050, 1170, 1260, 1350, 1575, 1725, 1875, 2100, 2250]
 D_DH = [250, 280, 330, 350, 380, 430, 490, 550, 580]
 D_S = [80, 90, 110, 130, 150, 180, 200, 220, 250]
 D_H = [50, 60, 70, 80, 100, 110, 130, 150, 180]
@@ -23,9 +27,9 @@ H_Z = [1260, 1385, 1490, 1640, 1855, 2086.933, 2370, 2725, 3005]
 O = [1045, 1075, 1125, 1145, 1175, 1225, 1285, 1345, 1375]
 hole_type = [0, 1, 2]
 P = [330, 380, 430, 480, 560, 650, 720, 860, 960]
-P_15 = [495 , 570 , 645 , 720 , 840 , 975 , 1080 , 1290 , 1440]
+P_15 = [495, 570, 645, 720, 840, 975, 1080, 1290, 1440]
 Q = [250, 300, 350, 400, 460, 520, 580, 650, 720]
-Q_15 = [375 , 450 , 525 , 600 , 690 , 780 , 870 , 975 , 1080]
+Q_15 = [375, 450, 525, 600, 690, 780, 870, 975, 1080]
 T = [85, 100, 115, 130, 140, 155, 165, 180, 180]
 Z = [800, 800, 800, 900, 900, 900, 900, 1000, 1000]
 FRAME1_cutout_bottom = [197, 277, 317, 397, 477, 557, 637, 717, 797]
@@ -41,10 +45,10 @@ BALANCER1_XZ = [204, 253, 268, 282, 317, 345, 375, 460, 575]  # (R+180mm)/2+80mm
 FRAME_10_H = [558, 620.5, 673, 798, 905.5, 1023, 1163, 1320.5, 1530.5]
 
 E = [700, 780, 840, 900, 1050, 1150, 1250, 1400, 1500]
-E_15 = [1051 , 1170 , 1260 , 1350 , 1575 , 1725 , 1875 , 2100 , 2250]
+E_15 = [1051, 1170, 1260, 1350, 1575, 1725, 1875, 2100, 2250]
 
 B = [1058, 1125, 1210, 1315, 1480, 1680, 1985, 2113, 2400]
-B_15 =[1587 , 1688 , 1815 , 1973 , 2220 , 2520 , 2978 , 3170 , 3600]
+B_15 = [1587, 1688, 1815, 1973, 2220, 2520, 2978, 3170, 3600]
 i = 7
 # mprog.folder_file_name()
 # x = ['back straight', 'BALANCER', 'BALANCER1', 'BALANCER10', 'BALANCER2', 'BALANCER3', 'BALANCER4', 'BALANCER4',
@@ -69,6 +73,8 @@ i = 7
 #      'washer left', 'washer right', 'WORM GEAR COVER', 'WORM GEAR', 'WORM WHEEL COVER', 'WORM WHEEL']
 # y = ['BALANCER_LEFT', 'BALANCER_RIGHT', 'CLUCTH_ASSEMBLY', 'CRANK_SHAFT', 'SLIDE_UNIT']
 l = (0)
+
+
 # mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -32, 'XY.PLANE', 1)
 # if l == 0:
 #     mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1',  -R_15[i] / 2 - 13, 'XZ.PLANE', 0)
@@ -110,7 +116,6 @@ l = (0)
 # mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', -R_15[i] - 180, 'XZ.PLANE', 1)
 # mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', 0, 'XY.PLANE', 1)
 # mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', 0, 'YZ.PLANE', 0)
-
 
 
 # else if E == 1400mm
@@ -203,3 +208,14 @@ l = (0)
 # mprog.add_offset_assembly('GIB1.1', 'FRAME31.4', -150, 'XY.PLANE', 1)
 # mprog.add_offset_assembly('FRAME31.3', 'FRAME31.4', 0, 'YZ.PLANE', 0)
 # mprog.add_offset_assembly('FRAME31.3', 'FRAME31.4', 0, 'XZ.PLANE', 0)
+
+
+def close():
+    catapp = win32.Dispatch('CATIA.Application')
+    partdocument1 = catapp.ActiveDocument
+    selection1 = partdocument1.Selection
+    selection1.Search(
+        "((((((((CATStFreeStyleSearch.OpenBodyFeature + CATPrtSearch.OpenBodyFeature) + CATGmoSearch.OpenBodyFeature) + CATSpdSearch.OpenBodyFeature) + CATPrtSearch.Sketch + CATPrtSearch.Plane) + CATPrtSearch.MfConstraint) + CATPrtSearch.AxisSystem) + CATPrtSearch.Point) + CATPrtSearch.Line),all")
+    visPropertySet1 = selection1.VisProperties
+    visPropertySet1.SetShow(1)
+close()
