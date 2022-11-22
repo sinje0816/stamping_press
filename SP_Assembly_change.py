@@ -102,16 +102,16 @@ else:
     print('閉合輸入錯誤')
 print(l)
 
-#判斷是否閉合
-print('請輸入是否閉合(0 = 是 , 1 = 否)')
-close = input()
-if close == '0':
-    k = 0
-elif close == '1':
-    k = 1
-else:
-    print('閉合輸入錯誤')
-print(k)
+# #判斷是否閉合
+# print('請輸入是否閉合(0 = 是 , 1 = 否)')
+# close = input()
+# if close == '0':
+#     k = 0
+# elif close == '1':
+#     k = 1
+# else:
+#     print('閉合輸入錯誤')
+# print(k)
 
 # 輸入平板型號
 print("請輸入平板型式(0 = 圓形平板 , 1 = 方形平板 , 2 = 模墊型平板)")
@@ -593,20 +593,20 @@ mprog.add_offset_assembly('BOLSTER2.1', 'BOLSTER3.1', 0, 'YZ.PLANE', 0)
 # 平板1, 3組立
 mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', 0, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', 0, 'YZ.PLANE', 0)
-if k == 0:
-    if h == 0:
-        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_S[i], 'XY.PLANE', 0)
-    elif h == 1:
-        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_H[i], 'XY.PLANE', 0)
-    else:
-        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_P[i], 'XY.PLANE', 0)
+# if k == 0:
+if h == 0:
+    mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_S[i], 'XY.PLANE', 0)
+elif h == 1:
+    mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_H[i], 'XY.PLANE', 0)
 else:
-    if h == 0:
-        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_S[i] + D_S[i], 'XY.PLANE', 0)
-    elif  h == 1:
-        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_H[i] + D_H[i], 'XY.PLANE', 0)
-    else:
-        mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_P[i] + D_P[i], 'XY.PLANE', 0)
+    mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_P[i], 'XY.PLANE', 0)
+# else:
+#     if h == 0:
+#         mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_S[i] + D_S[i], 'XY.PLANE', 0)
+#     elif  h == 1:
+#         mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_H[i] + D_H[i], 'XY.PLANE', 0)
+#     else:
+#         mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_P[i] + D_P[i], 'XY.PLANE', 0)
 #SLIDE跟平板3組立
 if i == 4:
     mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 267.38, 'XY.PLANE', 1)
