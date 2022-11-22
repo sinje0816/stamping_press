@@ -95,17 +95,17 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         height = str(self.ui.comboBox_3.currentText())
         type = str(self.ui.comboBox_4.currentText())
         hole = str(self.ui.comboBox_5.currentText())
-        print(type , change , height , close , hole)
+        print(type , change , height , hole)
         self.create_dir(type)
-        self.l , self.h ,self.i ,self.j ,self.k = self.choos(change , height , type , hole , close)
-        self.change_dir( self.l , self.h ,self.i ,self.j ,self.k , self.path)
-        self.ass_(self.l , self.h ,self.i ,self.j ,self.k , self.path)
+        self.l , self.h ,self.i ,self.j = self.choos(change , height , type , hole)
+        self.change_dir( self.l , self.h ,self.i ,self.j , self.path)
+        self.ass_(self.l , self.h ,self.i ,self.j , self.path)
 
 
 
 
-    def choos(self , change , height , type , hole , close):
-        # "輸入型號"
+    def choos(self , change , height , type , hole):
+        # 確認型號"輸入型號"
         type = input()
         if type == "SN1-25" or type == "sn1-25" or type == "25":
             i = 0
@@ -130,7 +130,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         print(i)
 
         # 高度類型選擇
-        # '請輸入高度類型(S = 0 , H = 1 , P = 2)'
+        # '請輸入高度類型(S = 0 , H = 1 , P = 2)')
         height = input()
         if height == '0':
             h = 0
@@ -141,7 +141,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         print(h)
 
         # 判斷是否長寬
-        # '請輸入是否變更長寬(0 = 1.5H , 1 = H)')
+        # print('請輸入是否變更長寬(0 = 1.5H , 1 = H)')
         l = input()
         if l == '0':
             l = 0
@@ -151,9 +151,19 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             print('閉合輸入錯誤')
         print(l)
 
+        # #判斷是否閉合
+        # print('請輸入是否閉合(0 = 是 , 1 = 否)')
+        # close = input()
+        # if close == '0':
+        #     k = 0
+        # elif close == '1':
+        #     k = 1
+        # else:
+        #     print('閉合輸入錯誤')
+        # print(k)
+
         # 輸入平板型號
         # print("請輸入平板型式(0 = 圓形平板 , 1 = 方形平板 , 2 = 模墊型平板)")
-        hole = input()
         if hole == "0":
             j = 0
         elif hole == "1":
@@ -163,7 +173,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         else:
             print('平板型號輸入錯誤')
         print(j)
-        return h , i , l , j , k
+        return h , i , l , j
 
 
     def add_item_for_comboBox(self):
@@ -663,20 +673,20 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # 平板1, 3組立
         mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', 0, 'XZ.PLANE', 0)
         mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', 0, 'YZ.PLANE', 0)
-        if k == 0:
-            if h == 0:
-                mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_S[i], 'XY.PLANE', 0)
-            elif h == 1:
-                mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_H[i], 'XY.PLANE', 0)
-            else:
-                mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_P[i], 'XY.PLANE', 0)
+        # if k == 0:
+        if h == 0:
+            mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_S[i], 'XY.PLANE', 0)
+        elif h == 1:
+            mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_H[i], 'XY.PLANE', 0)
         else:
-            if h == 0:
-                mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_S[i] + D_S[i], 'XY.PLANE', 0)
-            elif h == 1:
-                mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_H[i] + D_H[i], 'XY.PLANE', 0)
-            else:
-                mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_P[i] + D_P[i], 'XY.PLANE', 0)
+            mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_P[i], 'XY.PLANE', 0)
+        # else:
+        #     if h == 0:
+        #         mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_S[i] + D_S[i], 'XY.PLANE', 0)
+        #     elif  h == 1:
+        #         mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_H[i] + D_H[i], 'XY.PLANE', 0)
+        #     else:
+        #         mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_P[i] + D_P[i], 'XY.PLANE', 0)
         # SLIDE跟平板3組立
         if i == 4:
             mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 267.38, 'XY.PLANE',
