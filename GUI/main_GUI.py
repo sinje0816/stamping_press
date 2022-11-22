@@ -2,7 +2,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import sys, datetime, os
 from GUI import Ui_Dialog
 import main_program as mprog
-
+import para
 change = ()
 height = ()
 type = ()
@@ -90,19 +90,21 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         self.ui.comboBox_2.addItems(table_size)
         self.ui.comboBox_3.clear()
         self.ui.comboBox_3.addItems(close_h)
-
     def start(self):
         change = str(self.ui.comboBox_2.currentText())
         height = str(self.ui.comboBox_3.currentText())
         type = str(self.ui.comboBox_4.currentText())
         hole = str(self.ui.comboBox_5.currentText())
-        print(type, change, height, close, hole)
+        print(type , change , height , close , hole)
         self.create_dir(type)
-        self.l, self.h, self.i, self.j, self.k = self.choos(change, height, type, hole, close)
-        self.change_dir(self.l, self.h, self.i, self.j, self.k, self.path)
-        self.ass_(self.l, self.h, self.i, self.j, self.k, self.path)
+        self.l , self.h ,self.i ,self.j ,self.k = self.choos(change , height , type , hole , close)
+        self.change_dir( self.l , self.h ,self.i ,self.j ,self.k , self.path)
+        self.ass_(self.l , self.h ,self.i ,self.j ,self.k , self.path)
 
-    def choos(self, change, height, type, hole, close):
+
+
+
+    def choos(self , change , height , type , hole , close):
         # "輸入型號"
         type = input()
         if type == "SN1-25" or type == "sn1-25" or type == "25":
@@ -161,7 +163,8 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         else:
             print('平板型號輸入錯誤')
         print(j)
-        return h, i, l, j, k
+        return h , i , l , j , k
+
 
     def add_item_for_comboBox(self):
         print('insert')
@@ -178,7 +181,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         os.mkdir(path)
         self.path = path
 
-    def change_dir(self, h, i, l, j, k, path):
+    def change_dir(self, h , i , l , j , k , path):
 
         # 開啟CATIA
         env = mprog.set_CATIA_workbench_env()
@@ -313,7 +316,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     else:
                         mprog.save_file_part(path, y)
 
-    def ass_(self, h, i, l, j, k, path):
+    def ass_(self, h , i , l , j , k , path):
 
         # 開啟新組合檔
         mprog.assembly_create()
@@ -761,7 +764,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # 更新
         mprog.update()
         mprog.Close_All()
-
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
