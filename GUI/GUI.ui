@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>735</width>
-    <height>606</height>
+    <height>609</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <property name="geometry">
     <rect>
      <x>510</x>
-     <y>320</y>
+     <y>310</y>
      <width>221</width>
-     <height>71</height>
+     <height>81</height>
     </rect>
    </property>
    <property name="font">
@@ -36,10 +36,10 @@ start generating</string>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>170</y>
-     <width>201</width>
-     <height>71</height>
+     <x>0</x>
+     <y>90</y>
+     <width>241</width>
+     <height>131</height>
     </rect>
    </property>
    <property name="font">
@@ -62,9 +62,9 @@ start generating</string>
    <property name="geometry">
     <rect>
      <x>250</x>
-     <y>250</y>
+     <y>260</y>
      <width>211</width>
-     <height>51</height>
+     <height>61</height>
     </rect>
    </property>
    <property name="font">
@@ -75,12 +75,12 @@ start generating</string>
    </property>
    <item>
     <property name="text">
-     <string>H、W</string>
+     <string>W、D</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>1.5H、W</string>
+     <string>1.5W、1.5D</string>
     </property>
    </item>
   </widget>
@@ -88,9 +88,9 @@ start generating</string>
    <property name="geometry">
     <rect>
      <x>250</x>
-     <y>330</y>
+     <y>380</y>
      <width>211</width>
-     <height>51</height>
+     <height>61</height>
     </rect>
    </property>
    <property name="font">
@@ -119,9 +119,9 @@ start generating</string>
    <property name="geometry">
     <rect>
      <x>250</x>
-     <y>180</y>
+     <y>120</y>
      <width>211</width>
-     <height>51</height>
+     <height>61</height>
     </rect>
    </property>
    <property name="font">
@@ -180,9 +180,9 @@ start generating</string>
    <property name="geometry">
     <rect>
      <x>250</x>
-     <y>480</y>
+     <y>510</y>
      <width>211</width>
-     <height>51</height>
+     <height>61</height>
     </rect>
    </property>
    <property name="font">
@@ -210,23 +210,25 @@ start generating</string>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>240</y>
-     <width>221</width>
-     <height>81</height>
+     <x>0</x>
+     <y>220</y>
+     <width>241</width>
+     <height>131</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>微軟正黑體</family>
      <pointsize>12</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="layoutDirection">
     <enum>Qt::LeftToRight</enum>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;長、寬類型&lt;br/&gt;Length and width type&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;寬、深類型&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;width and dipth type&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -235,10 +237,10 @@ start generating</string>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>310</y>
-     <width>221</width>
-     <height>81</height>
+     <x>0</x>
+     <y>350</y>
+     <width>241</width>
+     <height>131</height>
     </rect>
    </property>
    <property name="font">
@@ -247,11 +249,17 @@ start generating</string>
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="toolTipDuration">
+    <number>-1</number>
+   </property>
+   <property name="statusTip">
+    <string notr="true"/>
+   </property>
    <property name="layoutDirection">
     <enum>Qt::RightToLeft</enum>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;高度類型&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;height type&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;閉合工作高度&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;closed working height&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -260,10 +268,10 @@ start generating</string>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>460</y>
-     <width>221</width>
-     <height>81</height>
+     <x>0</x>
+     <y>480</y>
+     <width>241</width>
+     <height>121</height>
     </rect>
    </property>
    <property name="font">
@@ -285,9 +293,9 @@ start generating</string>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>0</y>
-     <width>701</width>
+     <x>0</x>
+     <y>-20</y>
+     <width>731</width>
      <height>131</height>
     </rect>
    </property>
@@ -302,57 +310,6 @@ start generating</string>
    </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600;&quot;&gt;SEYI SN1系列C型曲軸沖床自動化生成系統&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;SEYI SN1 series C-type crankshaft punch automatic generation system&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox_6">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>400</y>
-     <width>211</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>微軟正黑體</family>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <item>
-    <property name="text">
-     <string>是</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>否</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QLabel" name="label_6">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>380</y>
-     <width>221</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>微軟正黑體</family>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="layoutDirection">
-    <enum>Qt::RightToLeft</enum>
-   </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;是否閉合&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Whether closed&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
