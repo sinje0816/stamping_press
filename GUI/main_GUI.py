@@ -106,6 +106,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
     def choos(self , change , height , type , hole):
         # 確認型號"輸入型號"
+        # 確認型號"輸入型號"
         type = input()
         if type == "SN1-25" or type == "sn1-25" or type == "25":
             i = 0
@@ -129,49 +130,106 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             i = 9
         print(i)
 
-        # 高度類型選擇
-        # '請輸入高度類型(S = 0 , H = 1 , P = 2)')
+        # 合模高
         height = input()
-        if height == '0':
+        if type == "SN1-25" and height == '230':
             h = 0
-        elif height == '1':
+        elif type == "SN1-25" and height == '200':
             h = 1
-        elif height == '2':
-            h = 2
+        elif type == "SN1-35" and height == '250':
+            h = 0
+        elif type == "SN1-35" and height == '220':
+            h = 1
+        elif type == "SN1-45" and height == '270':
+            h = 0
+        elif type == "SN1-45" and height == '240':
+            h = 1
+        elif type == "SN1-60" and height == '300':
+            h = 0
+        elif type == "SN1-60" and height == '270':
+            h = 1
+        elif type == "SN1-80" and height == '330':
+            h = 0
+        elif type == "SN1-80" and height == '300':
+            h = 1
+        elif type == "SN1-110" and height == '350':
+            h = 0
+        elif type == "SN1-110" and height == '320':
+            h = 1
+        elif type == "SN1-160" and height == '400':
+            h = 0
+        elif type == "SN1-160" and height == '360':
+            h = 1
+        elif type == "SN1-200" and height == '450':
+            h = 0
+        elif type == "SN1-200" and height == '400':
+            h = 1
+        elif type == "SN1-250" and height == '450':
+            h = 0
+        elif type == "SN1-250" and height == '400':
+            h = 1
+        elif type == "SN1-300" and height == '500':
+            h = 0
+        elif type == "SN1-300" and height == '450':
+            h = 1
         print(h)
 
-        # 判斷是否長寬
-        # print('請輸入是否變更長寬(0 = 1.5H , 1 = H)')
+        # 判斷長寬
         l = input()
-        if l == '0':
+        if l == '720x1058':
             l = 0
-        elif l == '1':
+        elif l == '1080x1587':
+            l = 1
+        elif l == '830x1125':
+            l = 0
+        elif l == '1245x1688':
+            l = 1
+        elif l == '890x1210':
+            l = 0
+        elif l == '1335x1815':
+            l = 1
+        elif l == '940x1315':
+            l = 0
+        elif l == '1410x1973':
+            l = 1
+        elif l == '1050x1480':
+            l = 0
+        elif l == '1575x2220':
+            l = 1
+        elif l == '1160x1680':
+            l = 0
+        elif l == '1740x2520':
+            l = 1
+        elif l == '1300x1985':
+            l = 0
+        elif l == '1950x2978':
+            l = 1
+        elif l == '1480x2113':
+            l = 0
+        elif l == '2220x3170':
+            l = 1
+        elif l == '1560x2400':
+            l = 0
+        elif l == '2340x3600':
+            l = 1
+        elif l == '1760x2700':
+            l = 0
+        elif l == '2640x4050':
             l = 1
         else:
             print('閉合輸入錯誤')
         print(l)
 
-        # #判斷是否閉合
-        # print('請輸入是否閉合(0 = 是 , 1 = 否)')
-        # close = input()
-        # if close == '0':
-        #     k = 0
-        # elif close == '1':
-        #     k = 1
-        # else:
-        #     print('閉合輸入錯誤')
-        # print(k)
-
+        #
         # 輸入平板型號
-        # print("請輸入平板型式(0 = 圓形平板 , 1 = 方形平板 , 2 = 模墊型平板)")
-        if hole == "0":
+        if hole == "圓型平板":
             j = 0
-        elif hole == "1":
+        elif hole == "方型平板":
             j = 1
-        elif hole == "2":
+        elif hole == "模墊型平板":
             j = 2
-        else:
-            print('平板型號輸入錯誤')
+        # else:
+        #     print('平板型號輸入錯誤')
         print(j)
         return h , i , l , j
 
