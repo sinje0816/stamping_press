@@ -36,9 +36,7 @@ Q = [250, 300, 350, 400, 460, 520, 580, 650, 720, 790]
 Q_15 = [375, 450, 525, 600, 690, 780, 870, 975, 1080, 1185]
 T = [85, 100, 115, 130, 140, 155, 165, 180, 180, 200]
 Z = [800, 800, 800, 900, 900, 900, 900, 1000, 1000, 1100]
-# FRAME1_cutout_bottom = [197, 277, 317, 397, 477, 557, 637, 717, 797, 877]
 F = [320, 400, 440, 520, 600, 680, 760, 840, 900, 960]
-# FRAME1_cutout = [655 + 370, 675 + 415, 695 + 450, 715 + 577.5, 735 + 670, 755 + 770, 775 + 895, 795 + 1080, 815 + 1210, ]
 FRAME20_H = [280, 355, 420, 437.5, 550, 680, 825, 990, 1120, 1170]
 FRAME2_lower_depth = [166.016, 246.016, 286.016, 366.016, 446.016, 526.016, 606.016, 686.016, 766.016, 846.016]
 FRAME2_lower_depth_15 = [265.016, 385.016, 445.016, 565.016, 685.016, 925.016, 805.016, 1045.016, 1165.016, 1285.016]
@@ -95,17 +93,17 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         height = str(self.ui.comboBox_3.currentText())
         type = str(self.ui.comboBox_4.currentText())
         hole = str(self.ui.comboBox_5.currentText())
-        print(type , change , height , close , hole)
+        print(type , change , height , hole)
         self.create_dir(type)
-        self.l , self.h ,self.i ,self.j ,self.k = self.choos(change , height , type , hole , close)
-        self.change_dir( self.l , self.h ,self.i ,self.j ,self.k , self.path)
-        self.ass_(self.l , self.h ,self.i ,self.j ,self.k , self.path)
+        self.l , self.h ,self.i ,self.j = self.choos(change , height , type , hole)
+        self.change_dir( self.l , self.h ,self.i ,self.j , self.path)
+        self.ass_(self.l , self.h ,self.i ,self.j , self.path)
 
 
 
 
-    def choos(self , change , height , type , hole , close):
-        # "輸入型號"
+    def choos(self , change , height , type , hole):
+        # 確認型號"輸入型號"
         type = input()
         if type == "SN1-25" or type == "sn1-25" or type == "25":
             i = 0
@@ -129,41 +127,107 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             i = 9
         print(i)
 
-        # 高度類型選擇
-        # '請輸入高度類型(S = 0 , H = 1 , P = 2)'
+        # 合模高
         height = input()
-        if height == '0':
+        if type == "SN1-25" and height == '230':
             h = 0
-        elif height == '1':
+        elif type == "SN1-25" and height == '200':
             h = 1
-        elif height == '2':
-            h = 2
+        elif type == "SN1-35" and height == '250':
+            h = 0
+        elif type == "SN1-35" and height == '220':
+            h = 1
+        elif type == "SN1-45" and height == '270':
+            h = 0
+        elif type == "SN1-45" and height == '240':
+            h = 1
+        elif type == "SN1-60" and height == '300':
+            h = 0
+        elif type == "SN1-60" and height == '270':
+            h = 1
+        elif type == "SN1-80" and height == '330':
+            h = 0
+        elif type == "SN1-80" and height == '300':
+            h = 1
+        elif type == "SN1-110" and height == '350':
+            h = 0
+        elif type == "SN1-110" and height == '320':
+            h = 1
+        elif type == "SN1-160" and height == '400':
+            h = 0
+        elif type == "SN1-160" and height == '360':
+            h = 1
+        elif type == "SN1-200" and height == '450':
+            h = 0
+        elif type == "SN1-200" and height == '400':
+            h = 1
+        elif type == "SN1-250" and height == '450':
+            h = 0
+        elif type == "SN1-250" and height == '400':
+            h = 1
+        elif type == "SN1-300" and height == '500':
+            h = 0
+        elif type == "SN1-300" and height == '450':
+            h = 1
         print(h)
 
-        # 判斷是否長寬
-        # '請輸入是否變更長寬(0 = 1.5H , 1 = H)')
+        # 判斷長寬
         l = input()
-        if l == '0':
+        if l == '720x1058':
             l = 0
-        elif l == '1':
+        elif l == '1080x1587':
+            l = 1
+        elif l == '830x1125':
+            l = 0
+        elif l == '1245x1688':
+            l = 1
+        elif l == '890x1210':
+            l = 0
+        elif l == '1335x1815':
+            l = 1
+        elif l == '940x1315':
+            l = 0
+        elif l == '1410x1973':
+            l = 1
+        elif l == '1050x1480':
+            l = 0
+        elif l == '1575x2220':
+            l = 1
+        elif l == '1160x1680':
+            l = 0
+        elif l == '1740x2520':
+            l = 1
+        elif l == '1300x1985':
+            l = 0
+        elif l == '1950x2978':
+            l = 1
+        elif l == '1480x2113':
+            l = 0
+        elif l == '2220x3170':
+            l = 1
+        elif l == '1560x2400':
+            l = 0
+        elif l == '2340x3600':
+            l = 1
+        elif l == '1760x2700':
+            l = 0
+        elif l == '2640x4050':
             l = 1
         else:
             print('閉合輸入錯誤')
         print(l)
 
         # 輸入平板型號
-        # print("請輸入平板型式(0 = 圓形平板 , 1 = 方形平板 , 2 = 模墊型平板)")
-        hole = input()
-        if hole == "0":
+        if hole == "圓型平板":
             j = 0
-        elif hole == "1":
+        elif hole == "方型平板":
             j = 1
-        elif hole == "2":
+        elif hole == "模墊型平板":
             j = 2
-        else:
-            print('平板型號輸入錯誤')
+        # else:
+        #     print('平板型號輸入錯誤')
         print(j)
-        return h , i , l , j , k
+        return h , i , l , j
 
 
     def add_item_for_comboBox(self):
@@ -663,20 +727,20 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # 平板1, 3組立
         mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', 0, 'XZ.PLANE', 0)
         mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', 0, 'YZ.PLANE', 0)
-        if k == 0:
-            if h == 0:
-                mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_S[i], 'XY.PLANE', 0)
-            elif h == 1:
-                mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_H[i], 'XY.PLANE', 0)
-            else:
-                mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_P[i], 'XY.PLANE', 0)
+        # if k == 0:
+        if h == 0:
+            mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_S[i], 'XY.PLANE', 0)
+        elif h == 1:
+            mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_H[i], 'XY.PLANE', 0)
         else:
-            if h == 0:
-                mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_S[i] + D_S[i], 'XY.PLANE', 0)
-            elif h == 1:
-                mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_H[i] + D_H[i], 'XY.PLANE', 0)
-            else:
-                mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_P[i] + D_P[i], 'XY.PLANE', 0)
+            mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_P[i], 'XY.PLANE', 0)
+        # else:
+        #     if h == 0:
+        #         mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_S[i] + D_S[i], 'XY.PLANE', 0)
+        #     elif  h == 1:
+        #         mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_H[i] + D_H[i], 'XY.PLANE', 0)
+        #     else:
+        #         mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_P[i] + D_P[i], 'XY.PLANE', 0)
         # SLIDE跟平板3組立
         if i == 4:
             mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 267.38, 'XY.PLANE',

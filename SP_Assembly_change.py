@@ -81,14 +81,12 @@ elif type == "SN1-300" or type == "sn1-300" or type == "300":
 print(i)
 
 #高度類型選擇
-print('請輸入高度類型(S = 0 , H = 1 , P = 2)')
+print('請輸入高度類型(S = 0 , H_P = 1)')
 height = input()
 if height == '0':
     h = 0
 elif height == '1':
     h = 1
-elif height == '2':
-    h = 2
 print(h)
 
 #判斷是否長寬
@@ -596,10 +594,9 @@ mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', 0, 'YZ.PLANE', 0)
 # if k == 0:
 if h == 0:
     mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_S[i], 'XY.PLANE', 0)
-elif h == 1:
-    mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_H[i], 'XY.PLANE', 0)
 else:
-    mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_P[i], 'XY.PLANE', 0)
+    mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_H[i], 'XY.PLANE', 0)
+
 # else:
 #     if h == 0:
 #         mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_S[i] + D_S[i], 'XY.PLANE', 0)
