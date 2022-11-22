@@ -2,7 +2,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import sys, datetime, os
 from GUI import Ui_Dialog
 import main_program as mprog
-import para
+
 change = ()
 height = ()
 type = ()
@@ -60,22 +60,49 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         BASE_DIR = os.path.dirname(os.path.realpath(__file__))
         self.setWindowIcon(QtGui.QIcon(BASE_DIR + '\\ico.ico'))
         self.a = int()
+        self.ui.comboBox_4.currentIndexChanged.connect(self.change_combobox4)
+
+    def insert_data_combobox_change(self):
+        data = {250: {230: [720, 1058], 200: [1080, 1587]},
+                350: {250: [830, 1125], 220: [1245, 1688]},
+                450: {270: [890, 1210], 240: [1335, 1815]},
+                600: {300: [940, 1315], 270: [1410, 1973]},
+                800: {330: [1050, 1480], 300: [1575, 2220]},
+                1100: {350: [1160, 1680], 320: [1740, 2520]},
+                1600: {400: [1300, 1985], 360: [1950, 2978]},
+                2000: {450: [1480, 2113], 400: [2220, 3170]},
+                2500: {450: [1560, 2400], 400: [2340, 3600]},
+                3000: {500: [1760, 2700], 450: [2640, 4050]}
+                }
+        return data
+
+    def change_combobox4(self):
+        print(self.ui.comboBox_4.currentText())
+        all_data = self.insert_data_combobox_change()
+        type = str(self.ui.comboBox_4.currentText())
+        ton = int(type.split('-')[-1] + '0')
+        close_h = list(all_data[ton].keys())
+        table_size = [str(all_data[ton][close_h[0]][0]) + 'x' + str(all_data[ton][close_h[0]][1]),
+                      str(all_data[ton][close_h[1]][0]) + 'x' + str(all_data[ton][close_h[1]][1])]
+        close_h = list(map(str, close_h))
+
+        self.ui.comboBox_2.clear()
+        self.ui.comboBox_2.addItems(table_size)
+        self.ui.comboBox_3.clear()
+        self.ui.comboBox_3.addItems(close_h)
 
     def start(self):
         change = str(self.ui.comboBox_2.currentText())
         height = str(self.ui.comboBox_3.currentText())
         type = str(self.ui.comboBox_4.currentText())
         hole = str(self.ui.comboBox_5.currentText())
-        print(type , change , height , close , hole)
+        print(type, change, height, close, hole)
         self.create_dir(type)
-        self.l , self.h ,self.i ,self.j ,self.k = self.choos(change , height , type , hole , close)
-        self.change_dir( self.l , self.h ,self.i ,self.j ,self.k , self.path)
-        self.ass_(self.l , self.h ,self.i ,self.j ,self.k , self.path)
+        self.l, self.h, self.i, self.j, self.k = self.choos(change, height, type, hole, close)
+        self.change_dir(self.l, self.h, self.i, self.j, self.k, self.path)
+        self.ass_(self.l, self.h, self.i, self.j, self.k, self.path)
 
-
-
-
-    def choos(self , change , height , type , hole , close):
+    def choos(self, change, height, type, hole, close):
         # "輸入型號"
         type = input()
         if type == "SN1-25" or type == "sn1-25" or type == "25":
@@ -134,8 +161,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         else:
             print('平板型號輸入錯誤')
         print(j)
-        return h , i , l , j , k
-
+        return h, i, l, j, k
 
     def add_item_for_comboBox(self):
         print('insert')
@@ -152,7 +178,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         os.mkdir(path)
         self.path = path
 
-    def change_dir(self, h , i , l , j , k , path):
+    def change_dir(self, h, i, l, j, k, path):
 
         # 開啟CATIA
         env = mprog.set_CATIA_workbench_env()
@@ -287,7 +313,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     else:
                         mprog.save_file_part(path, y)
 
-    def ass_(self, h , i , l , j , k , path):
+    def ass_(self, h, i, l, j, k, path):
 
         # 開啟新組合檔
         mprog.assembly_create()
@@ -735,6 +761,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # 更新
         mprog.update()
         mprog.Close_All()
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])

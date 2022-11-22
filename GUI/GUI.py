@@ -123,8 +123,7 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.pushButton.setText(_translate("Dialog", "開始生成\n"
-"start generating"))
+        self.pushButton.setText(_translate("Dialog", "開始生成\n""start generating"))
         self.label.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">型號選擇</span></p><p align=\"center\"><span style=\" font-weight:600;\">Type selection</span></p></body></html>"))
         self.comboBox_2.setItemText(0, _translate("Dialog", "W、D"))
         self.comboBox_2.setItemText(1, _translate("Dialog", "1.5W、1.5D"))
