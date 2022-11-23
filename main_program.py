@@ -99,6 +99,7 @@ def folder_file_name():  # 抓取檔案名稱
     for file_name in path:
         x.append('or y == \'' + file_name.split('.')[0] + '\'')
         print(' '.join(x))
+
 # frame名稱
 def frame_name():
     x = []
@@ -142,7 +143,6 @@ def add_offset_assembly_1(element1, element2, element3, element4, element5, dist
     product.Update()
     return True
 
-
 def combination_file_open(target, dir):
     # 連結CATIA
     catapp = win32.Dispatch("CATIA.Application")
@@ -175,7 +175,6 @@ def param_change(file_name, target, value):
     productDocument = catapp.ActiveDocument
     part.Update()
 
-
 # FRAME結合尺寸parameter, parameter_dimension, combined_number
 def combined_dimension(combination_number, combined_dimension):  # 組合編號, 組合尺寸
     catapp = win32.Dispatch("CATIA.Application")
@@ -187,12 +186,6 @@ def combined_dimension(combination_number, combined_dimension):  # 組合編號,
     length.Value = combined_dimension
     constraint.Orientation = 1
     product.Update()
-
-# 開啟零件檔
-# def open_part():
-#     catapp = win32.Dispatch('CATIA.Application')
-#     documents1 = catapp.Documents
-#     partDocument1 = documents1.Add("Part")
 
 # 零件檔修改
 def import_part(path, file_name):
@@ -221,6 +214,7 @@ def save_file_part(path, file_name):
     # print(path + '\\' + file_name)
     partDocument1.SaveAs(path + '\\' + file_name)
     partDocument1.Close()
+
 #組合檔存檔
 def save_file_product(path, file_name):
     catapp = win32.Dispatch('CATIA.Application')
@@ -229,20 +223,18 @@ def save_file_product(path, file_name):
     partDocument1 = document.Item(file_name)
     # print(path + '\\' + file_name)
     partDocument1.SaveAs(path + '\\' + file_name)
-    partDocument1.Close()
 
 # 新增資料夾
 def new_Folder():
     time = datetime.datetime.now()
     print(time.day, time.hour, time.minute, time.second)
-    dir = 'stamping_press' + '_' + str(time.month) + '_' + str(time.day) + '_' + str(time.hour) + '_' + str(
-        time.minute) + '_' + str(time.second)
+    dir = 'stamping_press' + '_' + str(time.month) + '_' + str(time.day) + '_' + str(time.hour) + '_' + str(time.minute) + '_' + str(time.second)
     path = 'C:\\Users\\USER\\Desktop' + '\\' + dir
     os.mkdir(path)
     return path, dir
 
-# 偏移組合檔
-def add_offset_assembly(element1, element2, dist, relation, binding_conditions):  # (組合檔1, 零件1, 組合檔2, 零件2, 距離, 結合面, 拘束條件)
+# 偏移組合檔(零件結合)
+def add_offset_assembly(element1, element2, dist, relation, binding_conditions, name):  # (組合檔1, 零件1, 組合檔2, 零件2, 距離, 結合面, 拘束條件)
     catapp = win32.Dispatch('CATIA.Application')
     productDocument = catapp.ActiveDocument
     product = productDocument.Product
@@ -253,11 +245,11 @@ def add_offset_assembly(element1, element2, dist, relation, binding_conditions):
     length = constraint.Dimension
     length.value = dist
     constraint.Orientation = binding_conditions  # (1表示SAME, 0表示OPPOSITE)
-    # product.Update()
+    constraint.Name = name
     return True
 
-# 偏移組合檔
-def add_offset_product_assembly(element1, element2, element3, dist, relation, binding_conditions):  # (組合檔1, 零件1, 組合檔2, 零件2, 距離, 結合面, 拘束條件)
+# 偏移組合檔(標準件與零件結合)
+def add_offset_product_assembly(element1, element2, element3, dist, relation, binding_conditions, name):  # (組合檔1, 零件1, 組合檔2, 零件2, 距離, 結合面, 拘束條件)
     catapp = win32.Dispatch('CATIA.Application')
     productDocument = catapp.ActiveDocument
     product = productDocument.Product
@@ -268,31 +260,17 @@ def add_offset_product_assembly(element1, element2, element3, dist, relation, bi
     length = constraint.Dimension
     length.value = dist
     constraint.Orientation = binding_conditions  # (1表示SAME, 0表示OPPOSITE)
+    constraint.Name = name
     return True
 
-# 偏移組合檔
-def add_offset_Part_Product_assembly(element1, element2, element3, dist, relation, binding_conditions):  # (組合檔1, 零件1, 組合檔2, 零件2, 距離, 結合面, 拘束條件)
-    catapp = win32.Dispatch('CATIA.Application')
-    productDocument = catapp.ActiveDocument
-    product = productDocument.Product
-    constraints = product.Connections("CATIAConstraints")
-    ref1 = product.CreateReferenceFromName("Product1/%s.1/%s!PartBody/!%s" % (element1, element2, relation))  # (將%指定檔內容移入%s)
-    ref2 = product.CreateReferenceFromName("Product1/%s/!PartBody/!%s" % (element3, relation))
-    constraint = constraints.AddBiEltCst(1, ref1, ref2)  # (1表示偏移拘束, ref1, ref2)
-    length = constraint.Dimension
-    length.value = dist
-    constraint.Orientation = binding_conditions  # (1表示SAME, 0表示OPPOSITE)
-    # product.Update()
-    return True
-
-def base_lock(element1, element2):  # 定海神針, 固定基準零件
+def base_lock(element1, element2, name):  # 定海神針, 固定基準零件
     catapp = win32.Dispatch('CATIA.Application')
     productDocument = catapp.ActiveDocument
     product = productDocument.Product
     constraints = product.Connections("CATIAConstraints")
     ref = product.CreateReferenceFromName("Product1/%s/!Product1/%s/" % (element1, element2))
     constraint = constraints.AddMonoEltCst(0, ref)
-    product.Update()
+    constraint.Name = name
     return True
 
 def update():
@@ -348,3 +326,24 @@ def Close_All():
         "((((((((CATStFreeStyleSearch.OpenBodyFeature + CATPrtSearch.OpenBodyFeature) + CATGmoSearch.OpenBodyFeature) + CATSpdSearch.OpenBodyFeature) + CATPrtSearch.Sketch + CATPrtSearch.Plane) + CATPrtSearch.MfConstraint) + CATPrtSearch.AxisSystem) + CATPrtSearch.Point) + CATPrtSearch.Line),all")
     visPropertySet1 = selection1.VisProperties
     visPropertySet1.SetShow(1)
+
+def del_ass_all_Constraint():
+    catapp = win32.Dispatch('CATIA.Application')
+    document = catapp.Documents
+    drawingdocument = catapp.ActiveDocument
+    selection1 = drawingdocument.Selection
+    selection1.Search("Type='Assembly Design'.Constraint,all")
+    selection1.VisProperties.SetShow(1)
+    selection1.Delete()
+
+def saveas(save_dir, target, data_type):
+    catapp = win32.Dispatch('CATIA.Application')
+    document = catapp.Documents
+    try:
+        saveas = document.Item('%s%s' % (target, data_type))
+        saveas.SaveAs('%s\%s%s' % (save_dir, target, data_type))
+    except:
+        saveas = catapp.ActiveDocument
+        saveas.SaveAs('%s\%s%s' % (save_dir, target, data_type))
+    finally:
+        saveas.Save()
