@@ -548,9 +548,73 @@ def del_ass_all_Constraint():
 # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', A[i] / 2, 'XZ.PLANE', 1, 1)
 
 
-mprog.add_offset_assembly('MAIN_GEAR2.1', 'MAIN_GEAR3.1', 0, 'XZ.PLANE', 1, 205)
-mprog.add_offset_assembly('MAIN_GEAR2.1', 'MAIN_GEAR3.1', 0, 'XY.PLANE', 0, 206)
-mprog.add_offset_assembly('MAIN_GEAR2.1', 'MAIN_GEAR3.1', 11, 'YZ.PLANE', 1, 207)
+# def constaint_value_change(constraints_name, value, Orientation):
+#     catapp = win32.Dispatch('CATIA.Application')
+#     productDocument = catapp.ActiveDocument
+#     product = productDocument.Product
+#     product = product.ReferenceProduct
+#     constraints = product.Connections("CATIAConstraints")
+#     constraint = constraints.Item(str(constraints_name))
+#     length = constraint.Dimension
+#     length.Value = value
+#     constraint.Orientation = Orientation
+
+# constaint_value_change(207, 3000, 1)
+# mprog.base_lock('FRAME20.1', 'FRAME20.1', 0)
+# mprog.constaint_value_change(3, -80 - B[i] + F[i] / 2 + 353, 1)
+# mprog.constaint_value_change(6, -80 - B[i] + F[i] / 2 + 353, 1)
+# mprog.constaint_value_change(36, 0, 1)
+# mprog.constaint_value_change(63, F[i] / 2 - 80 - 37.5, 1)
+# mprog.constaint_value_change(69, -F[i] / 2 + 80 + 37.5, 0)
+# mprog.constaint_value_change(167, 0, 0)
+
+BOLSTER1_Offset_value = 2000
+
+# mprog.constaint_value_change(3, -80 - B[i] + F[i] / 2  + 353 - BOLSTER1_Offset_value, 1)
+# mprog.constaint_value_change(6, -80 - B[i] + F[i] / 2 + 353 - BOLSTER1_Offset_value, 1)
+# mprog.constaint_value_change(36, -BOLSTER1_Offset_value, 1)
+# mprog.constaint_value_change(39, -BOLSTER1_Offset_value, 1)
+# mprog.constaint_value_change(63, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 1)
+# mprog.constaint_value_change(66, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 0)
+# mprog.constaint_value_change(60, -F[i] / 2 + 80 + 37.5 - BOLSTER1_Offset_value + 80, 1)
+# mprog.constaint_value_change(69, -F[i] / 2 + 80 + 37.5 - BOLSTER1_Offset_value + 80, 0)
+# mprog.constaint_value_change(167, -100, 0) #BLOSTER1 & 3
+
+# GIB_Offset_value = -3200
+# mprog.constaint_value_change(75, GIB_Offset_value, 0)
+# mprog.constaint_value_change(78, GIB_Offset_value, 0)
+# mprog.constaint_value_change(84, GIB_Offset_value - 334.65, 1)
+# mprog.constaint_value_change(87, GIB_Offset_value - 334.65, 1)
+# mprog.constaint_value_change(81, GIB_Offset_value - 334.65, 0)
+# mprog.constaint_value_change(96, GIB_Offset_value - 334.65, 1)
+# mprog.constaint_value_change(102, GIB_Offset_value - 334.65, 1)
+# mprog.constaint_value_change(99, GIB_Offset_value - 334.65, 0)
+
+# CLOCK_Offset_value = 2800
+# mprog.constaint_value_change(174, CLOCK_Offset_value, 0)
+# CLOCK_SHAFT_Offset_value = 1500
+# mprog.constaint_value_change(188, CLOCK_SHAFT_Offset_value, 1)
+#
+# mprog.constaint_value_change(195, 1892.5 + 150, 0)
+
+#
+# mprog.constaint_value_change(176, -1700, 1)
+# mprog.constaint_value_change(180, -1700, 1)
+
+def Isometric_view():
+    catapp = win32.Dispatch('CATIA.Application')
+    # specsAndGeomWindow = catapp.ActiveWindow
+    # viewer3D = specsAndGeomWindow1.ActiveViewer
+    # viewpoint3D = viewer3D.Viewpoint3D
+    # viewer3D.Reframe
+    # myViewer.Viewpoint3D = catapp.ActiveDocument.Cameras.Item(1)
+    # myViewpoint = myViewer.Viewpoint3D
+    # myViewpoint.PutSightDirection.Array(1.414, 1.414, 0)
+    oISoView = oSheet.Views.Add("3D View")
+
+
+
+
 
 mprog.update()
 # mprog.hide_ass_all_Constraint()

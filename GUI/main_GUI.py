@@ -353,7 +353,9 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             mprog.import_file_Part(path, x)
 
         # 機架組合
-        mprog.base_lock('BOLSTER1.1', 'BOLSTER1.1', 0)  # 基準零件(定海神針)
+        # mprog.base_lock('BOLSTER1.1', 'BOLSTER1.1', 0)  # 基準零件(定海神針)
+        mprog.base_lock('FRAME20.1', 'FRAME20.1', 0)  # 基準零件(定海神針)
+
         # (0表示SAME, 1表示OPPOSITE)
         ##平板-四底座
         if l == 0:
@@ -810,8 +812,33 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
         # --------------------------------------- 生成爆炸圖--------------------------------------------
         # 重新定義拘束尺寸
-        #
+        BOLSTER1_Offset_value = 2500
+        GIB_Offset_value = -3200
+        CLOCK_Offset_value = 2800
+        CLOCK_SHAFT_Offset_value = 1500
 
+        mprog.constaint_value_change(3, -80 - B[i] + F[i] / 2 + 353 - BOLSTER1_Offset_value, 1)
+        mprog.constaint_value_change(6, -80 - B[i] + F[i] / 2 + 353 - BOLSTER1_Offset_value, 1)
+        mprog.constaint_value_change(36, -BOLSTER1_Offset_value, 1)
+        mprog.constaint_value_change(39, -BOLSTER1_Offset_value, 1)
+        mprog.constaint_value_change(63, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 1)
+        mprog.constaint_value_change(66, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 0)
+        mprog.constaint_value_change(60, -F[i] / 2 + 80 + 37.5 - BOLSTER1_Offset_value + 80, 1)
+        mprog.constaint_value_change(69, -F[i] / 2 + 80 + 37.5 - BOLSTER1_Offset_value + 80, 0)
+        mprog.constaint_value_change(167, -250, 0)  # BLOSTER1 & 3
+        mprog.constaint_value_change(75, GIB_Offset_value, 0)
+        mprog.constaint_value_change(78, GIB_Offset_value, 0)
+        mprog.constaint_value_change(84, GIB_Offset_value - 334.65, 1)
+        mprog.constaint_value_change(87, GIB_Offset_value - 334.65, 1)
+        mprog.constaint_value_change(81, GIB_Offset_value - 334.65, 0)
+        mprog.constaint_value_change(96, GIB_Offset_value - 334.65, 1)
+        mprog.constaint_value_change(102, GIB_Offset_value - 334.65, 1)
+        mprog.constaint_value_change(99, GIB_Offset_value - 334.65, 0)
+        mprog.constaint_value_change(174, CLOCK_Offset_value, 0)
+        mprog.constaint_value_change(188, CLOCK_SHAFT_Offset_value, 1)
+        mprog.constaint_value_change(195, 1892.5 + 150, 0)
+        mprog.constaint_value_change(176, -1700, 1)
+        mprog.constaint_value_change(180, -1700, 1)
 
 if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率

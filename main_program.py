@@ -347,3 +347,14 @@ def saveas(save_dir, target, data_type):
         saveas.SaveAs('%s\%s%s' % (save_dir, target, data_type))
     finally:
         saveas.Save()
+
+def constaint_value_change(constraints_name, value, Orientation):
+    catapp = win32.Dispatch('CATIA.Application')
+    productDocument = catapp.ActiveDocument
+    product = productDocument.Product
+    product = product.ReferenceProduct
+    constraints = product.Connections("CATIAConstraints")
+    constraint = constraints.Item(str(constraints_name))
+    length = constraint.Dimension
+    length.Value = value
+    constraint.Orientation = Orientation
