@@ -358,3 +358,126 @@ def constaint_value_change(constraints_name, value, Orientation):
     length = constraint.Dimension
     length.Value = value
     constraint.Orientation = Orientation
+
+def OPEN_Drawing():
+    catapp = win32.Dispatch('CATIA.Application')
+    documents = catapp.Documents
+    drawingDocument = documents.Open("C:\\Users\\User\\Desktop\\stamping_press\\Drawing1.CATDrawing")
+
+def change_Drawing_scale(value):
+    catapp = win32.Dispatch('CATIA.Application')
+    drawingDocument = catapp.ActiveDocument
+    drawingSheets = drawingDocument.Sheets
+    drawingSheet = drawingSheets.Item("Sheet.1")
+    drawingSheet.Scale = float(value)
+
+def exploded_Drawing_1():
+    catapp = win32.Dispatch('CATIA.Application')
+    drawingDocument = catapp.ActiveDocument
+    drawingSheets = drawingDocument.Sheets
+    drawingSheet = drawingSheets.Item("Sheet.1")
+    drawingViews = drawingSheet.Views
+    drawingView = drawingViews.Add("AutomaticNaming")
+    drawingViewGenerativeLinks = drawingView.GenerativeLinks
+    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
+    documents = catapp.Documents
+    productDocument = documents.Item("SN1-110.CATProduct")
+    product = productDocument.Product
+    drawingViewGenerativeBehavior.Document = product
+    drawingViewGenerativeBehavior.DefineIsometricView(- 0.707107, 0.707107, 0, -0.408248, -0.408248, 0.816497)
+    drawingView.X = 180
+    drawingView.Y = 650
+    drawingView.Scale = 0.055556
+    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
+    drawingViewGenerativeBehavior.Update()
+    drawingView.Activate()
+
+def exploded_Drawing_2():
+    catapp = win32.Dispatch('CATIA.Application')
+    drawingDocument = catapp.ActiveDocument
+    drawingSheets = drawingDocument.Sheets
+    drawingSheet = drawingSheets.Item("Sheet.1")
+    drawingViews = drawingSheet.Views
+    drawingView = drawingViews.Add("AutomaticNaming")
+    drawingViewGenerativeLinks = drawingView.GenerativeLinks
+    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
+    documents = catapp.Documents
+    productDocument = documents.Item("SN1-110.CATProduct")
+    product = productDocument.Product
+    drawingViewGenerativeBehavior.Document = product
+    drawingViewGenerativeBehavior.DefineIsometricView(0.707107, -0.707107, 0, 0.408248, 0.408248, 0.816497)
+    drawingView.X = 540 #圖面座標
+    drawingView.Y = 650
+    drawingView.Scale = 0.055556
+    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
+    drawingViewGenerativeBehavior.Update()
+    drawingView.Activate()
+
+def exploded_Drawing_3():
+    catapp = win32.Dispatch('CATIA.Application')
+    drawingDocument = catapp.ActiveDocument
+    drawingSheets = drawingDocument.Sheets
+    drawingSheet = drawingSheets.Item("Sheet.1")
+    drawingViews = drawingSheet.Views
+    drawingView = drawingViews.Add("AutomaticNaming")
+    drawingViewGenerativeLinks = drawingView.GenerativeLinks
+    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
+    documents = catapp.Documents
+    productDocument = documents.Item("SN1-110.CATProduct")
+    product = productDocument.Product
+    drawingViewGenerativeBehavior.Document = product
+    drawingViewGenerativeBehavior.DefineIsometricView(0, 1, 0, 0, 0, 1)
+    drawingView.X = 360
+    drawingView.Y = 220
+    drawingView.Scale = 0.055556
+    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
+    drawingViewGenerativeBehavior.Update()
+    drawingView.Activate()
+
+def exploded_Drawing_4():
+    catapp = win32.Dispatch('CATIA.Application')
+    drawingDocument = catapp.ActiveDocument
+    drawingSheets = drawingDocument.Sheets
+    drawingSheet = drawingSheets.Item("Sheet.1")
+    drawingViews = drawingSheet.Views
+    drawingView = drawingViews.Add("AutomaticNaming")
+    drawingViewGenerativeLinks = drawingView.GenerativeLinks
+    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
+    documents = catapp.Documents
+    productDocument = documents.Item("SN1-110.CATProduct")
+    product = productDocument.Product
+    drawingViewGenerativeBehavior.Document = product
+    drawingViewGenerativeBehavior.DefineIsometricView(1, 0, 0, 0, 0, 1)
+    drawingView.X = 180
+    drawingView.Y = 220
+    drawingView.Scale = 0.055556
+    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
+    drawingViewGenerativeBehavior.Update()
+    drawingView.Activate()
+
+def exploded_Drawing_5():
+    catapp = win32.Dispatch('CATIA.Application')
+    drawingDocument = catapp.ActiveDocument
+    drawingSheets = drawingDocument.Sheets
+    drawingSheet = drawingSheets.Item("Sheet.1")
+    drawingViews = drawingSheet.Views
+    drawingView = drawingViews.Add("AutomaticNaming")
+    drawingViewGenerativeLinks = drawingView.GenerativeLinks
+    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
+    documents = catapp.Documents
+    productDocument = documents.Item("SN1-110.CATProduct")
+    product = productDocument.Product
+    drawingViewGenerativeBehavior.Document = product
+    drawingViewGenerativeBehavior.DefineIsometricView(0, 0, 1, 0, 0, 1)
+    drawingView.X = 540
+    drawingView.Y = 220
+    drawingView.Scale = 0.055556
+    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
+    drawingViewGenerativeBehavior.Update()
+    drawingView.Activate()
+
+def OPEN_Drawing_window():
+    catapp = win32.Dispatch('CATIA.Application')
+    specsAndGeomWindow = catapp.ActiveWindow
+    viewer3D = specsAndGeomWindow.ActiveViewer
+    viewpoint3D = viewer3D.Viewpoint3D
