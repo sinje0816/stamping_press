@@ -690,91 +690,92 @@ CLOCK_SHAFT_Offset_value = 0
 # mprog.constaint_value_change(201, -84, 1)  # Joint1
 
 
-# --------------------------------------- 生成爆炸圖--------------------------------------------
-# # 重新定義拘束尺寸
-# BOLSTER1_Offset_value = 2500
-# GIB_Offset_value = -3200
-# CLOCK_Offset_value = 2800
-# CLOCK_SHAFT_Offset_value = 1500
-#
-# mprog.constaint_value_change(3, -80 - B[i] + F[i] / 2 + 353 - BOLSTER1_Offset_value, 1)
-# mprog.constaint_value_change(6, -80 - B[i] + F[i] / 2 + 353 - BOLSTER1_Offset_value, 1)
-# mprog.constaint_value_change(36, -BOLSTER1_Offset_value, 1)
-# mprog.constaint_value_change(39, -BOLSTER1_Offset_value, 1)
-# mprog.constaint_value_change(63, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 1)
-# mprog.constaint_value_change(66, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 0)
-# mprog.constaint_value_change(60, -F[i] / 2 + 80 + 37.5 - BOLSTER1_Offset_value + 80, 1)
-# mprog.constaint_value_change(69, -F[i] / 2 + 80 + 37.5 - BOLSTER1_Offset_value + 80, 0)
-# mprog.constaint_value_change(167, -250, 0)  # BLOSTER1 & 3
-# mprog.constaint_value_change(75, GIB_Offset_value, 0)
-# mprog.constaint_value_change(78, GIB_Offset_value, 0)
-# mprog.constaint_value_change(84, GIB_Offset_value - 334.65, 1)
-# mprog.constaint_value_change(87, GIB_Offset_value - 334.65, 1)
-# mprog.constaint_value_change(81, GIB_Offset_value - 334.65, 0)
-# mprog.constaint_value_change(96, GIB_Offset_value - 334.65, 1)
-# mprog.constaint_value_change(102, GIB_Offset_value - 334.65, 1)
-# mprog.constaint_value_change(99, GIB_Offset_value - 334.65, 0)
-# mprog.constaint_value_change(174, CLOCK_Offset_value, 0)
-# mprog.constaint_value_change(188, CLOCK_SHAFT_Offset_value, 1)
-# mprog.constaint_value_change(195, 1892.5 + 150, 0)# 大齒輪與FRAME20
-# mprog.constaint_value_change(176, -1700, 1)# 右氣壓缸
-# mprog.constaint_value_change(180, -1700, 1)# 左氣壓缸
-# mprog.update()#更新
-# mprog.OPEN_Drawing()#開啟圖面
-# mprog.change_Drawing_scale(1 / 18)#圖面比例
-# mprog.exploded_Drawing_1()#爆炸圖1
+#### --------------------------------------- 生成爆炸圖--------------------------------------------
+# 重新定義拘束尺寸
+BOLSTER1_Offset_value = 2500
+GIB_Offset_value = -3200
+CLOCK_Offset_value = 2800
+CLOCK_SHAFT_Offset_value = 1500
+
+mprog.constaint_value_change(3, -80 - B[i] + F[i] / 2 + 353 - BOLSTER1_Offset_value, 1)
+mprog.constaint_value_change(6, -80 - B[i] + F[i] / 2 + 353 - BOLSTER1_Offset_value, 1)
+mprog.constaint_value_change(36, -BOLSTER1_Offset_value, 1)
+mprog.constaint_value_change(39, -BOLSTER1_Offset_value, 1)
+mprog.constaint_value_change(63, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 1)
+mprog.constaint_value_change(66, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 0)
+mprog.constaint_value_change(60, -F[i] / 2 + 80 + 37.5 - BOLSTER1_Offset_value + 80, 1)
+mprog.constaint_value_change(69, -F[i] / 2 + 80 + 37.5 - BOLSTER1_Offset_value + 80, 0)
+mprog.constaint_value_change(167, -250, 0)  # BLOSTER1 & 3
+mprog.constaint_value_change(75, GIB_Offset_value, 0)
+mprog.constaint_value_change(78, GIB_Offset_value, 0)
+mprog.constaint_value_change(84, GIB_Offset_value - 334.65, 1)
+mprog.constaint_value_change(87, GIB_Offset_value - 334.65, 1)
+mprog.constaint_value_change(81, GIB_Offset_value - 334.65, 0)
+mprog.constaint_value_change(96, GIB_Offset_value - 334.65, 1)
+mprog.constaint_value_change(102, GIB_Offset_value - 334.65, 1)
+mprog.constaint_value_change(99, GIB_Offset_value - 334.65, 0)
+mprog.constaint_value_change(174, CLOCK_Offset_value, 0)
+mprog.constaint_value_change(188, CLOCK_SHAFT_Offset_value, 1)
+mprog.constaint_value_change(195, 1892.5 + 150, 0)# 大齒輪與FRAME20
+mprog.constaint_value_change(176, -1700, 1)# 右氣壓缸
+mprog.constaint_value_change(180, -1700, 1)# 左氣壓缸
+mprog.update()#更新
+mprog.OPEN_Drawing()#開啟圖面
+mprog.change_Drawing_scale(1 / 12)#圖面比例
+mprog.exploded_Drawing_1()#爆炸圖1
+mprog.switch_window()#開啟3D圖視窗
+#還原零件初始位置
+BOLSTER1_Offset_value = 0
+GIB_Offset_value = 334.5
+CLOCK_Offset_value = 35
+CLOCK_SHAFT_Offset_value = 0
+
+mprog.constaint_value_change(3, -80 - B[i] + F[i] / 2 + 353 - BOLSTER1_Offset_value, 1)
+mprog.constaint_value_change(6, -80 - B[i] + F[i] / 2 + 353 - BOLSTER1_Offset_value, 1)
+mprog.constaint_value_change(36, -BOLSTER1_Offset_value, 1)
+mprog.constaint_value_change(39, -BOLSTER1_Offset_value, 1)
+mprog.constaint_value_change(63, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 1)
+mprog.constaint_value_change(66, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 0)
+mprog.constaint_value_change(60, -F[i] / 2 + 80 + 37.5 - BOLSTER1_Offset_value + 80, 1)
+mprog.constaint_value_change(69, -F[i] / 2 + 80 + 37.5 - BOLSTER1_Offset_value + 80, 0)
+mprog.constaint_value_change(167, 0, 0)  # BLOSTER1 & 3
+mprog.constaint_value_change(75, GIB_Offset_value, 0)
+mprog.constaint_value_change(78, GIB_Offset_value, 0)
+mprog.constaint_value_change(84, GIB_Offset_value - 334.65, 1)
+mprog.constaint_value_change(87, GIB_Offset_value - 334.65, 1)
+mprog.constaint_value_change(81, GIB_Offset_value - 334.65, 0)
+mprog.constaint_value_change(96, GIB_Offset_value - 334.65, 1)
+mprog.constaint_value_change(102, GIB_Offset_value - 334.65, 1)
+mprog.constaint_value_change(99, GIB_Offset_value - 334.65, 0)
+mprog.constaint_value_change(174, CLOCK_Offset_value, 0)
+mprog.constaint_value_change(188, CLOCK_SHAFT_Offset_value, 1)
+mprog.constaint_value_change(195, 765, 0)  # 大齒輪與FRAME20
+mprog.constaint_value_change(176, -21.8, 1)  # 右氣壓缸
+mprog.constaint_value_change(180, -21.8, 1)  # 左氣壓缸
+#--------------------爆炸圖右圖------------------
+mprog.constaint_value_change(159, -3000, 0)  # 支架
+mprog.constaint_value_change(186, 3500, 1)  # 離合器
+mprog.constaint_value_change(203, 3400, 1)  # JOINT_All.1
+mprog.constaint_value_change(195, 2500, 0)  # 大齒輪MAIN_GEA1
+mprog.constaint_value_change(201, -500, 1)  # Joint1
+mprog.update()
+mprog.switch_window()
+mprog.exploded_Drawing_2()#爆炸圖2
+mprog.switch_window()
+#復原位置
+mprog.constaint_value_change(159, 312.5, 0)  # 支架
+mprog.constaint_value_change(186, 510, 1)  # 離合器
+mprog.constaint_value_change(203, 1010, 1)  # JOINT_All.1
+mprog.constaint_value_change(195, 765, 0)  # 大齒輪MAIN_GEA1
+mprog.constaint_value_change(201, -84, 1)  # Joint1
+mprog.update()
+mprog.switch_window()
+#--------------------爆炸圖下(前、左、右)----------------
+mprog.exploded_Drawing_3()
+mprog.exploded_Drawing_4()
+mprog.exploded_Drawing_5()
+
 # mprog.OPEN_Drawing_window()#開啟3D圖視窗
-# #還原零件初始位置
-# BOLSTER1_Offset_value = 0
-# GIB_Offset_value = 334.5
-# CLOCK_Offset_value = 35
-# CLOCK_SHAFT_Offset_value = 0
-#
-# mprog.constaint_value_change(3, -80 - B[i] + F[i] / 2 + 353 - BOLSTER1_Offset_value, 1)
-# mprog.constaint_value_change(6, -80 - B[i] + F[i] / 2 + 353 - BOLSTER1_Offset_value, 1)
-# mprog.constaint_value_change(36, -BOLSTER1_Offset_value, 1)
-# mprog.constaint_value_change(39, -BOLSTER1_Offset_value, 1)
-# mprog.constaint_value_change(63, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 1)
-# mprog.constaint_value_change(66, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 0)
-# mprog.constaint_value_change(60, -F[i] / 2 + 80 + 37.5 - BOLSTER1_Offset_value + 80, 1)
-# mprog.constaint_value_change(69, -F[i] / 2 + 80 + 37.5 - BOLSTER1_Offset_value + 80, 0)
-# mprog.constaint_value_change(167, 0, 0)  # BLOSTER1 & 3
-# mprog.constaint_value_change(75, GIB_Offset_value, 0)
-# mprog.constaint_value_change(78, GIB_Offset_value, 0)
-# mprog.constaint_value_change(84, GIB_Offset_value - 334.65, 1)
-# mprog.constaint_value_change(87, GIB_Offset_value - 334.65, 1)
-# mprog.constaint_value_change(81, GIB_Offset_value - 334.65, 0)
-# mprog.constaint_value_change(96, GIB_Offset_value - 334.65, 1)
-# mprog.constaint_value_change(102, GIB_Offset_value - 334.65, 1)
-# mprog.constaint_value_change(99, GIB_Offset_value - 334.65, 0)
-# mprog.constaint_value_change(174, CLOCK_Offset_value, 0)
-# mprog.constaint_value_change(188, CLOCK_SHAFT_Offset_value, 1)
-# mprog.constaint_value_change(195, 765, 0)  # 大齒輪與FRAME20
-# mprog.constaint_value_change(176, -21.8, 1)  # 右氣壓缸
-# mprog.constaint_value_change(180, -21.8, 1)  # 左氣壓缸
-# #--------------------爆炸圖右圖------------------
-# mprog.constaint_value_change(159, -3000, 0)  # 支架
-# mprog.constaint_value_change(186, 3500, 1)  # 離合器
-# mprog.constaint_value_change(203, 3400, 1)  # JOINT_All.1
-# mprog.constaint_value_change(195, 2500, 0)  # 大齒輪MAIN_GEA1
-# mprog.constaint_value_change(201, -500, 1)  # Joint1
-# mprog.update()
-# mprog.exploded_Drawing_2()#爆炸圖2
-# #復原位置
-# mprog.constaint_value_change(159, 312.5, 0)  # 支架
-# mprog.constaint_value_change(186, 510, 1)  # 離合器
-# mprog.constaint_value_change(203, 1010, 1)  # JOINT_All.1
-# mprog.constaint_value_change(195, 765, 0)  # 大齒輪MAIN_GEA1
-# mprog.constaint_value_change(201, -84, 1)  # Joint1
-# mprog.update()
-# #--------------------爆炸圖下(前、左、右)----------------
-# mprog.exploded_Drawing_3()
-# mprog.exploded_Drawing_4()
-# mprog.exploded_Drawing_5()
-
-
-
-mprog.OPEN_Drawing_window()#開啟3D圖視窗
 
 
 # mprog.update()

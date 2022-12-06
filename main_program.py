@@ -385,9 +385,9 @@ def exploded_Drawing_1():
     product = productDocument.Product
     drawingViewGenerativeBehavior.Document = product
     drawingViewGenerativeBehavior.DefineIsometricView(- 0.707107, 0.707107, 0, -0.408248, -0.408248, 0.816497)
-    drawingView.X = 180
-    drawingView.Y = 650
-    drawingView.Scale = 0.055556
+    drawingView.X = 220
+    drawingView.Y = 590
+    drawingView.Scale = float(1 / 12)
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     drawingViewGenerativeBehavior.Update()
     drawingView.Activate()
@@ -406,9 +406,9 @@ def exploded_Drawing_2():
     product = productDocument.Product
     drawingViewGenerativeBehavior.Document = product
     drawingViewGenerativeBehavior.DefineIsometricView(0.707107, -0.707107, 0, 0.408248, 0.408248, 0.816497)
-    drawingView.X = 540 #圖面座標
-    drawingView.Y = 650
-    drawingView.Scale = 0.055556
+    drawingView.X = 660 #圖面座標
+    drawingView.Y = 584
+    drawingView.Scale = float(1 / 12)
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     drawingViewGenerativeBehavior.Update()
     drawingView.Activate()
@@ -426,10 +426,10 @@ def exploded_Drawing_3():
     productDocument = documents.Item("SN1-110.CATProduct")
     product = productDocument.Product
     drawingViewGenerativeBehavior.Document = product
-    drawingViewGenerativeBehavior.DefineIsometricView(0, 1, 0, 0, 0, 1)
-    drawingView.X = 360
+    drawingViewGenerativeBehavior.DefineFrontView(0, 1, 0, 0, 0, 1)
+    drawingView.X = 460
     drawingView.Y = 220
-    drawingView.Scale = 0.055556
+    drawingView.Scale = float(1 / 12)
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     drawingViewGenerativeBehavior.Update()
     drawingView.Activate()
@@ -447,10 +447,10 @@ def exploded_Drawing_4():
     productDocument = documents.Item("SN1-110.CATProduct")
     product = productDocument.Product
     drawingViewGenerativeBehavior.Document = product
-    drawingViewGenerativeBehavior.DefineIsometricView(1, 0, 0, 0, 0, 1)
-    drawingView.X = 180
+    drawingViewGenerativeBehavior.DefineFrontView(1, 0, 0, 0, 0, 1)
+    drawingView.X = 220
     drawingView.Y = 220
-    drawingView.Scale = 0.055556
+    drawingView.Scale = float(1 / 12)
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     drawingViewGenerativeBehavior.Update()
     drawingView.Activate()
@@ -468,16 +468,15 @@ def exploded_Drawing_5():
     productDocument = documents.Item("SN1-110.CATProduct")
     product = productDocument.Product
     drawingViewGenerativeBehavior.Document = product
-    drawingViewGenerativeBehavior.DefineIsometricView(0, 0, 1, 0, 0, 1)
-    drawingView.X = 540
+    drawingViewGenerativeBehavior.DefineFrontView(-1, 0, 0, 0, 0, 1)
+    drawingView.X = 700
     drawingView.Y = 220
-    drawingView.Scale = 0.055556
+    drawingView.Scale = float(1 / 12)
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     drawingViewGenerativeBehavior.Update()
     drawingView.Activate()
 
-def OPEN_Drawing_window():
-    catapp = win32.Dispatch('CATIA.Application')
-    specsAndGeomWindow = catapp.ActiveWindow
-    viewer3D = specsAndGeomWindow.ActiveViewer
-    viewpoint3D = viewer3D.Viewpoint3D
+def switch_window():
+    catapp = win32.Dispatch("CATIA.Application")
+    specsAndGeomWindow1 = catapp.ActiveWindow
+    specsAndGeomWindow1.ActivateNext()
