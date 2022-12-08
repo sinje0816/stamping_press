@@ -30,10 +30,6 @@ for x in projection_file_name_list:
 def Select_projection_surface(surface , XLocation , YLocation):
     projection_file_name_list = ['FRAME1']
     for x in projection_file_name_list:
-            # mprog.import_part("C:\\Users\\USER\\Desktop\\stamping_press", x)
-            # if x == 'FRAME1':
-            #     p = 4
-            #     p2 = 5
             drawingView1 = drawingViews1.Add("AutomaticNaming")
             drawingViewGenerativeLinks1 = drawingView1.GenerativeLinks
             drawingViewGenerativeBehavior1 = drawingView1.GenerativeBehavior
@@ -49,20 +45,5 @@ def Select_projection_surface(surface , XLocation , YLocation):
             drawingView1.Scale = float(1 / 18)
             drawingViewGenerativeBehavior1 = drawingView1.GenerativeBehavior
             drawingViewGenerativeBehavior1.Update()
-        # drawingViews2 = drawingSheet.Views
-        # drawingView2 = drawingViews2.Add("AutomaticNaming")
-        # drawingViewGenerativeLinks2 = drawingView2.GenerativeLinks
-        # drawingViewGenerativeBehavior2 = drawingView2.GenerativeBehavior
-        # documents2 = catapp.Documents
-        # partDocument2 = documents2.Item(x + ".CATPart")
-        # product2 = partDocument2.GetItem(x)
-        # drawingViewGenerativeBehavior2.Document = product2
-        # drawingViewGenerativeBehavior2.DefineFrontView(projection[P[p2]][0], projection[P[p2]][1], projection[P[p2]][2]
-        #                                                , projection[P[p2]][3], projection[P[p2]][4], projection[P[p2]][5])
-        # drawingView2.X = 120
-        # drawingView2.Y = 640
-        # drawingView2.Scale = float(1/18)
-        # drawingViewGenerativeBehavior2 = drawingView2.GenerativeBehavior
-        # drawingViewGenerativeBehavior2.Update()
-        # drawingView2.Activate()
+
 

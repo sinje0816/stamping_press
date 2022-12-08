@@ -45,7 +45,3 @@ for x in projection_file_name_list:
         Y2 = 300
         N.Select_projection_surface(p, X1, Y1)
         N.Select_projection_surface(p2, X2, Y2)
-
-
-# N.Select_projection_surface(p , X1 , Y1)
-# N.Select_projection_surface(p2 , X2 , Y2)
