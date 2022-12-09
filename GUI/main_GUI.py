@@ -2,7 +2,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import sys, datetime, os
 from GUI import Ui_Dialog
 import main_program as mprog
-import para
+import drafting as draft
 
 change = ()
 height = ()
@@ -187,7 +187,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # for item in data:
         #     self.ui.comboBox.addItem(item)
 
-    def create_dir(self, type):
+    def create_dir(self, type):  # 創建資料夾
         time_now = datetime.datetime.now()
         dir_name = '{}_{}_{}_{}_{}'.format(type, time_now.day, time_now.hour, time_now.minute, time_now.second)
         desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
@@ -202,17 +202,14 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
         # 匯入零件檔
         file_name_list = ['BOLSTER1', 'BOLSTER2', 'BOLSTER3', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3', 'FRAME4',
-                          'FRAME5',
-                          'FRAME6', 'FRAME7', 'FRAME8', 'FRAME9', 'FRAME10', 'FRAME11', 'FRAME12', 'FRAME13', 'FRAME14',
-                          'FRAME15', 'FRAME16', 'FRAME17', 'FRAME18', 'FRAME19', 'FRAME20', 'FRAME21', 'FRAME22',
-                          'FRAME23',
-                          'FRAME24', 'FRAME25', 'FRAME26', 'FRAME27', 'FRAME28', 'FRAME29', 'FRAME30', 'FRAME31',
-                          'FRAME32',
-                          'FRAME33', 'FRAME34', 'FRAME35', 'FRAME36', 'FRAME36', 'FRAME37', 'FRAME38', 'FRAME39',
-                          'FRAME40',
-                          'FRAME41', 'FRAME42', 'FRAME43', 'GIB1', 'GIB2', 'BALANCER_LEFT_All', 'BALANCER_RIGHT_ALL',
-                          'CRANK_SHAFT_CLOCK', 'CLUCTH_ASSEMBLY_All', 'SLIDE_UNIT_All', 'CRANK_SHAFT', 'JOINT_All',
-                          'MAIN_GEAR1', 'MAIN_GEAR2', 'MAIN_GEAR3', 'MAIN_GEAR4', 'JOINT1']
+                          'FRAME5', 'FRAME6', 'FRAME7', 'FRAME8', 'FRAME9', 'FRAME10', 'FRAME11', 'FRAME12', 'FRAME13',
+                          'FRAME14', 'FRAME15', 'FRAME16', 'FRAME17', 'FRAME18', 'FRAME19', 'FRAME20', 'FRAME21',
+                          'FRAME22', 'FRAME23', 'FRAME24', 'FRAME25', 'FRAME26', 'FRAME27', 'FRAME28', 'FRAME29',
+                          'FRAME30', 'FRAME31', 'FRAME32', 'FRAME33', 'FRAME34', 'FRAME35', 'FRAME36', 'FRAME36',
+                          'FRAME37', 'FRAME38', 'FRAME39', 'FRAME40', 'FRAME41', 'FRAME42', 'FRAME43', 'FRAME44',
+                          'FRAME45', 'FRAME46', 'GIB1', 'GIB2', 'BALANCER_LEFT_All', 'BALANCER_RIGHT_ALL', 'CRANK_SHAFT_CLOCK',
+                          'CLUCTH_ASSEMBLY_All', 'SLIDE_UNIT_All', 'CRANK_SHAFT', 'JOINT_All', 'MAIN_GEAR1',
+                          'MAIN_GEAR2', 'MAIN_GEAR3', 'MAIN_GEAR4', 'JOINT1']
 
         # 開啟零件檔更改變數後儲存並關閉
         for y in file_name_list:
@@ -241,7 +238,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
                             mprog.param_change(y, 'B', B_15[i])
                             mprog.save_file_part(path, y)
-                        elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29' or y == 'FRAME42':  # 更改零件變數R
+                        elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29' or y == 'FRAME42' or y == 'FRAME43' or y == 'FRAME45':  # 更改零件變數R
                             mprog.param_change(y, 'R', R_15[i])
                             mprog.save_file_part(path, y)
                         elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
@@ -264,7 +261,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
                             mprog.param_change(y, 'B', B[i])
                             mprog.save_file_part(path, y)
-                        elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29' or y == 'FRAME42':  # 更改零件變數R
+                        elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29' or y == 'FRAME42' or y == 'FRAME42' or y == 'FRAME43' or y == 'FRAME45':  # 更改零件變數R
                             mprog.param_change(y, 'R', R[i])
                             mprog.save_file_part(path, y)
                         elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
@@ -288,7 +285,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
                         mprog.param_change(y, 'B', B_15[i])
                         mprog.save_file_part(path, y)
-                    elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29' or y == 'FRAME42':  # 更改零件變數R
+                    elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29' or y == 'FRAME42' or y == 'FRAME42' or y == 'FRAME43' or y == 'FRAME45':  # 更改零件變數R
                         mprog.param_change(y, 'R', R_15[i])
                         mprog.save_file_part(path, y)
                     elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
@@ -311,7 +308,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
                         mprog.param_change(y, 'B', B[i])
                         mprog.save_file_part(path, y)
-                    elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29' or y == 'FRAME42':  # 更改零件變數R
+                    elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29' or y == 'FRAME42' or y == 'FRAME42' or y == 'FRAME43' or y == 'FRAME45':  # 更改零件變數R
                         mprog.param_change(y, 'R', R[i])
                         mprog.save_file_part(path, y)
                     elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
@@ -344,20 +341,17 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                                    'FRAME26', 'FRAME27', 'FRAME28', 'FRAME29', 'FRAME30', 'FRAME31', 'FRAME31',
                                    'FRAME31', 'FRAME31', 'FRAME32', 'FRAME33', 'FRAME34', 'FRAME34', 'FRAME35',
                                    'FRAME36', 'FRAME36', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME38',
-                                   'FRAME39', 'FRAME40', 'FRAME41', 'FRAME42', 'FRAME43', 'GIB1', 'GIB2',
-                                   'BALANCER_LEFT_All', 'BALANCER_RIGHT_ALL', 'CRANK_SHAFT_CLOCK',
-                                   'CLUCTH_ASSEMBLY_All', 'SLIDE_UNIT_ALL', 'CRANK_SHAFT', 'JOINT_All', 'MAIN_GEAR1',
-                                   'MAIN_GEAR2', 'MAIN_GEAR3', 'MAIN_GEAR4', 'JOINT1']
+                                   'FRAME39', 'FRAME40', 'FRAME41', 'FRAME42', 'FRAME43', 'FRAME44', 'FRAME45',
+                                   'FRAME46', 'GIB1', 'GIB2', 'BALANCER_LEFT_All', 'BALANCER_RIGHT_ALL',
+                                   'CRANK_SHAFT_CLOCK', 'CLUCTH_ASSEMBLY_All', 'SLIDE_UNIT_ALL', 'CRANK_SHAFT',
+                                   'JOINT_All', 'MAIN_GEAR1', 'MAIN_GEAR2', 'MAIN_GEAR3', 'MAIN_GEAR4', 'JOINT1']
         for x in file_Assembly_name_list:  # 讀取串列名稱並匯入檔案
-            # print('import' + str(x) + 'part')
             mprog.import_file_Part(path, x)
 
-        # 機架組合
-        # mprog.base_lock('BOLSTER1.1', 'BOLSTER1.1', 0)  # 基準零件(定海神針)
         mprog.base_lock('FRAME20.1', 'FRAME20.1', 0)  # 基準零件(定海神針)
 
         # (0表示SAME, 1表示OPPOSITE)
-        ##平板-四底座
+        # 平板-四底座
         if l == 0:
             mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', A_15[i] / 2, 'XZ.PLANE', 1, 1)
         else:
@@ -519,10 +513,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('BOLSTER1.1', 'FRAME19.1', -F[i] / 2 + 80 + 37.5, 'YZ.PLANE', 0, 69)
         mprog.add_offset_assembly('BOLSTER1.1', 'FRAME17.1', 0, 'XZ.PLANE', 1, 70)
         mprog.add_offset_assembly('BOLSTER1.1', 'FRAME17.1', -T[i], 'XY.PLANE', 0, 71)
-        if l == 0:
-            mprog.add_offset_assembly('FRAME3.1', 'FRAME17.1', FRAME2_lower_depth_15[i], 'YZ.PLANE', 0, 72)
-        else:
-            mprog.add_offset_assembly('FRAME3.1', 'FRAME17.1', FRAME2_lower_depth[i], 'YZ.PLANE', 0, 72)
+        mprog.add_offset_assembly('FRAME9.1', 'FRAME17.1', 0, 'YZ.PLANE', 0, 72)
         # 左右側板前GIB
         if i == 4:
             mprog.add_offset_assembly('GIB1.1', 'FRAME3.1', FRAME1_lower_high[i] + 40 - 34.5, 'XY.PLANE', 0, 73)
@@ -769,11 +760,13 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', 510, 'YZ.PLANE', 1,
                                           186)
         # 曲軸與時鐘結合
-        mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 0, 'XZ.PLANE', 0,
+        mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 0, 'XZ.PLANE',
+                                          0,
                                           187)
         mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 35, 'YZ.PLANE',
                                           1, 188)
-        mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 0, 'XY.PLANE', 1,
+        mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 0, 'XY.PLANE',
+                                          1,
                                           189)
         # 大齒輪結合
         mprog.add_offset_assembly('MAIN_GEAR1.1', 'MAIN_GEAR4.1', 0, 'XZ.PLANE', 0, 190)
@@ -798,10 +791,22 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                                           1, 203)
         mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1', -422.052, 'XY.PLANE',
                                           0, 204)
-        #大齒輪內套環
+        # 大齒輪內套環
         mprog.add_offset_assembly('MAIN_GEAR2.1', 'MAIN_GEAR3.1', 0, 'XZ.PLANE', 1, 205)
         mprog.add_offset_assembly('MAIN_GEAR2.1', 'MAIN_GEAR3.1', 0, 'XY.PLANE', 0, 206)
         mprog.add_offset_assembly('MAIN_GEAR2.1', 'MAIN_GEAR3.1', 11, 'YZ.PLANE', 1, 207)
+        # BOLSTER後板
+        mprog.add_offset_assembly('FRAME45.1', 'FRAME17.1', 0, 'XZ.PLANE', 0, 208)
+        mprog.add_offset_assembly('FRAME45.1', 'FRAME17.1', -48, 'XY.PLANE', 1, 209)
+        mprog.add_offset_assembly('FRAME45.1', 'FRAME17.1', 0, 'YZ.PLANE', 1, 210)
+
+        mprog.add_offset_assembly('FRAME46.1', 'FRAME17.1', -48, 'XY.PLANE', 1, 211)
+        mprog.add_offset_assembly('FRAME46.1', 'FRAME17.1', 0, 'XZ.PLANE', 0, 212)
+        mprog.add_offset_assembly('FRAME46.1', 'FRAME17.1', 0, 'YZ.PLANE', 1, 213)
+
+        mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 5, 'XY.PLANE', 0, 214)
+        mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 0, 'XZ.PLANE', 0, 215)
+        mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 979, 'YZ.PLANE', 1, 216)
 
         # 更新
         mprog.update()
@@ -817,8 +822,8 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         CLOCK_Offset_value = 2800
         CLOCK_SHAFT_Offset_value = 1500
 
-        mprog.constaint_value_change(3, -80 - B[i] + F[i] / 2 + 353 - BOLSTER1_Offset_value, 1)
-        mprog.constaint_value_change(6, -80 - B[i] + F[i] / 2 + 353 - BOLSTER1_Offset_value, 1)
+        mprog.constaint_value_change(3, -80 - B[i] + F[i] / 2 + 343 - BOLSTER1_Offset_value, 1)
+        mprog.constaint_value_change(6, -80 - B[i] + F[i] / 2 + 343 - BOLSTER1_Offset_value, 1)
         mprog.constaint_value_change(36, -BOLSTER1_Offset_value, 1)
         mprog.constaint_value_change(39, -BOLSTER1_Offset_value, 1)
         mprog.constaint_value_change(63, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 1)
@@ -841,8 +846,9 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.constaint_value_change(180, -1700, 1)  # 左氣壓缸
         mprog.update()  # 更新
         mprog.OPEN_Drawing()  # 開啟圖面
-        mprog.change_Drawing_scale(1 / 18)  # 圖面比例
-        mprog.exploded_Drawing_1()  # 爆炸圖1
+        drafting_Coordinate_Position, scale = draft.drafting_parameter_calculation(A[i], B[i], H[i])  # 計算爆炸圖比例及位置
+        draft.change_Drawing_scale(1 / scale)  # 圖面比例
+        draft.exploded_Drawing_1()  # 爆炸圖1
         mprog.switch_window()  # 開啟3D圖視窗
         # 還原零件初始位置
         BOLSTER1_Offset_value = 0
@@ -850,8 +856,8 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         CLOCK_Offset_value = 35
         CLOCK_SHAFT_Offset_value = 0
 
-        mprog.constaint_value_change(3, -80 - B[i] + F[i] / 2 + 353 - BOLSTER1_Offset_value, 1)
-        mprog.constaint_value_change(6, -80 - B[i] + F[i] / 2 + 353 - BOLSTER1_Offset_value, 1)
+        mprog.constaint_value_change(3, -80 - B[i] + F[i] / 2 - BOLSTER1_Offset_value, 1)
+        mprog.constaint_value_change(6, -80 - B[i] + F[i] / 2 - BOLSTER1_Offset_value, 1)
         mprog.constaint_value_change(36, -BOLSTER1_Offset_value, 1)
         mprog.constaint_value_change(39, -BOLSTER1_Offset_value, 1)
         mprog.constaint_value_change(63, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 1)
@@ -872,6 +878,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.constaint_value_change(195, 765, 0)  # 大齒輪與FRAME20
         mprog.constaint_value_change(176, -21.8, 1)  # 右氣壓缸
         mprog.constaint_value_change(180, -21.8, 1)  # 左氣壓缸
+        mprog.update()
         # --------------------爆炸圖右圖------------------
         mprog.constaint_value_change(159, -3000, 0)  # 支架
         mprog.constaint_value_change(186, 3500, 1)  # 離合器
@@ -880,7 +887,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.constaint_value_change(201, -500, 1)  # Joint1
         mprog.update()
         mprog.switch_window()
-        mprog.exploded_Drawing_2()  # 爆炸圖2
+        draft.exploded_Drawing_2()  # 爆炸圖2
         mprog.switch_window()
         # 復原位置
         mprog.constaint_value_change(159, 312.5, 0)  # 支架
@@ -891,9 +898,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.update()
         mprog.switch_window()
         # --------------------爆炸圖下(前、左、右)----------------
-        mprog.exploded_Drawing_3()
-        mprog.exploded_Drawing_4()
-        mprog.exploded_Drawing_5()
+        draft.Front_View_Drawing(drafting_Coordinate_Position['Front View'][0], drafting_Coordinate_Position['Front View'][1], scale)
+        draft.Left_View_Drawing(drafting_Coordinate_Position['Left View'][0], drafting_Coordinate_Position['Left View'][1], scale)
+        draft.Right_View_Drawing(drafting_Coordinate_Position['Right View'][0], drafting_Coordinate_Position['Right View'][1], scale)
+
 
 if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率
