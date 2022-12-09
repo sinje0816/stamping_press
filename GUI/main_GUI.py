@@ -187,7 +187,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # for item in data:
         #     self.ui.comboBox.addItem(item)
 
-    def create_dir(self, type):
+    def create_dir(self, type):#創建資料夾
         time_now = datetime.datetime.now()
         dir_name = '{}_{}_{}_{}_{}'.format(type, time_now.day, time_now.hour, time_now.minute, time_now.second)
         desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
