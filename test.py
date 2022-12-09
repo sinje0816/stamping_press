@@ -3,8 +3,6 @@ import win32com.client as win32
 import datetime, time
 import main_program as mprog
 
-
-
 A = [720, 830, 890, 940, 1050, 1160, 1300, 1480, 1560, 1760]
 A_15 = [1080, 1245, 1335, 1410, 1575, 1740, 1950, 2220, 2340, 2640]
 B = [1058, 1125, 1210, 1315, 1480, 1680, 1985, 2113, 2400, 2700]
@@ -41,10 +39,6 @@ BALANCER1_XZ = [204, 253, 268, 282, 317, 345, 375, 460, 575, 690]  # (R+180mm)/2
 FRAME_10_H = [558, 620.5, 673, 798, 905.5, 1023, 1163, 1320.5, 1530.5, 1740.5]
 FRAME_32_XY = [0, 0, 0, 1722, 1819.5, 1922, 2052, 2294.5, 2504.5, 2794.5]
 
-
-
-
-
 draft_Surface_Border = 20
 body_draft_area_center_initX = 500
 body_draft_area_center_initY = 220
@@ -55,13 +49,13 @@ drafting_min_Y = 43
 drafting_max_Y = 810
 drafting_min_X = 20
 drafting_max_X = 982
-scale = 1
+
+
 
 def drafting_parameter_calculation(width, height, depth):  # 電子型錄WHD, 比例
+    scale_p = 1
     while True:
-        scale_p = 1
         scale_tmp = scale_p  # temping original scale
-        global scale
         scale = 1 / scale_p  # proportion convert to ratio
         drafting_area_centerX = body_draft_area_center_initX  # 前視圖中心
         drafting_area_centerY = body_draft_area_center_initY
@@ -81,14 +75,20 @@ def drafting_parameter_calculation(width, height, depth):  # 電子型錄WHD, �
         # ----------下圖面比例位置判斷------------
         if scale_p % 2 != 0 or scale_p % 5 == 0 or scale_p % 10 != 0:
             scale += 1
-            if  drafting_area_extremum[2] < drafting_min_Y and drafting_area_extremum[3] > drafting_center_Y:  # 若Ymin和Ymax同時大於圖框則比例縮小
+            if drafting_area_extremum[2] < drafting_min_Y and drafting_area_extremum[
+                3] > drafting_center_Y:  # 若Ymin和Ymax同時大於圖框則比例縮小
                 scale_p += 1
-            elif drafting_area_extremum[2] > drafting_min_Y and drafting_area_extremum[3] > drafting_center_Y and drafting_area_extremum[2] < drafting_root_Y:  # 若Ymin再返迴圈和邊框之間同時Ymax同時大於圖框中心則比例縮小
+            elif drafting_area_extremum[2] > drafting_min_Y and drafting_area_extremum[3] > drafting_center_Y and \
+                    drafting_area_extremum[2] < drafting_root_Y:  # 若Ymin再返迴圈和邊框之間同時Ymax同時大於圖框中心則比例縮小
                 scale_p += 1
-            elif drafting_area_extremum[0] < drafting_min_X and drafting_area_extremum[1] > drafting_center_X:  # 若Xmin和Xmax同時大於圖框則比例縮小
+            elif drafting_area_extremum[0] < drafting_min_X and drafting_area_extremum[
+                1] > drafting_center_X:  # 若Xmin和Xmax同時大於圖框則比例縮小
                 scale_p += 1
-            elif drafting_area_extremum[0] > drafting_min_X and drafting_area_extremum[1] > drafting_center_X and drafting_area_extremum[0] < drafting_root_X:  # 若Xmin再返迴圈和邊框之間同時Xmax同時大於圖框中心則比例縮小
+            elif drafting_area_extremum[0] > drafting_min_X and drafting_area_extremum[1] > drafting_center_X and \
+                    drafting_area_extremum[0] < drafting_root_X:  # 若Xmin再返迴圈和邊框之間同時Xmax同時大於圖框中心則比例縮小
                 scale_p += 1
+            else:
+                break
         # ------------Y方向-------------
         elif drafting_area_extremum[2] <= drafting_min_Y:
             drafting_area_centerY += 1
@@ -102,37 +102,20 @@ def drafting_parameter_calculation(width, height, depth):  # 電子型錄WHD, �
         else:
             break
 
-    drafting_Coordinate_Position = {}
-    drafting_Coordinate_Position.update({'Front View': [drafting_area_centerX, drafting_area_centerY],
-                                         'Left View': [drafting_area_centerX - w_scale / 2 - d_scale / 2, drafting_area_centerY],
-                                         'Right View': [drafting_area_centerX + w_scale / 2 + d_scale / 2, drafting_area_centerY]})
-    print(drafting_Coordinate_Position)
-    return drafting_Coordinate_Position
+    drafting_Coordinate_Position = {'Front View': (drafting_area_centerX, drafting_area_centerY),
+                                    'Left View': (drafting_area_centerX - w_scale / 2 - d_scale / 2, drafting_area_centerY),
+                                    'Right View': (drafting_area_centerX + w_scale / 2 + d_scale / 2, drafting_area_centerY)}
+    return drafting_Coordinate_Position, scale_p
 
-drafting_parameter_calculation(A[5], B[5], H[5])
-# mprog.change_Drawing_scale(scale)
-#
-# def exploded_Drawing():
-#     catapp = win32.Dispatch('CATIA.Application')
-#     drawingDocument = catapp.ActiveDocument
-#     drawingSheets = drawingDocument.Sheets
-#     drawingSheet = drawingSheets.Item("Sheet.1")
-#     drawingViews = drawingSheet.Views
-#     drawingView = drawingViews.Add("AutomaticNaming")
-#     drawingViewGenerativeLinks = drawingView.GenerativeLinks
-#     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
-#     documents = catapp.Documents
-#     productDocument = documents.Item("SN1-110.CATProduct")
-#     product = productDocument.Product
-#     drawingViewGenerativeBehavior.Document = product
-#     drawingViewGenerativeBehavior.DefineFrontView(0, 1, 0, 0, 0, 1)
-#     drawingView.X =
-#     drawingView.Y =
-#     drawingView.Scale = float()
-#     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
-#     drawingViewGenerativeBehavior.Update()
-#     drawingView.Activate()
-#
-# mprog.exploded_Drawing_3()
-# mprog.exploded_Drawing_4()
-# mprog.exploded_Drawing_5()
+drafting_Coordinate_Position, scale = drafting_parameter_calculation(A[5], B[5], H[5])
+print(scale)
+mprog.change_Drawing_scale(1 / scale)
+# drafting_Coordinate_Position = drafting_parameter_calculation(A[5], B[5], H[5])
+
+exploded_drafting_down_Coordinate = {'Front View': (0, 1, 0, 0, 0, 1),
+                                     'Left View': (1, 0, 0, 0, 0, 1),
+                                     'Right View': (-1, 0, 0, 0, 0, 1)}
+
+mprog.Front_View_Drawing(drafting_Coordinate_Position['Front View'][0], drafting_Coordinate_Position['Front View'][1], scale)
+mprog.Left_View_Drawing(drafting_Coordinate_Position['Left View'][0], drafting_Coordinate_Position['Left View'][1], scale)
+mprog.Right_View_Drawing(drafting_Coordinate_Position['Right View'][0], drafting_Coordinate_Position['Right View'][1], scale)

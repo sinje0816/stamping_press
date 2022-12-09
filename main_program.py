@@ -413,7 +413,7 @@ def exploded_Drawing_2():
     drawingViewGenerativeBehavior.Update()
     drawingView.Activate()
 
-def exploded_Drawing_3():
+def Front_View_Drawing(X_coordinate, Y_coordinate, scale):
     catapp = win32.Dispatch('CATIA.Application')
     drawingDocument = catapp.ActiveDocument
     drawingSheets = drawingDocument.Sheets
@@ -427,14 +427,21 @@ def exploded_Drawing_3():
     product = productDocument.Product
     drawingViewGenerativeBehavior.Document = product
     drawingViewGenerativeBehavior.DefineFrontView(0, 1, 0, 0, 0, 1)
-    drawingView.X = 460
-    drawingView.Y = 220
-    drawingView.Scale = float(1 / 12)
+    drawingView.X = X_coordinate
+    drawingView.Y = Y_coordinate
+    drawingView.Scale = 1 / scale
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     drawingViewGenerativeBehavior.Update()
     drawingView.Activate()
+    drawingtexts = drawingView.Texts
+    drawingtext = drawingtexts.Item(1)
+    drawingtexts = drawingtext.Parent
+    selection = productDocument.Selection
+    selection.Add(drawingtext)
+    selection.Delete()
+    selection.Clear()
 
-def exploded_Drawing_4():
+def Left_View_Drawing(X_coordinate, Y_coordinate, scale):
     catapp = win32.Dispatch('CATIA.Application')
     drawingDocument = catapp.ActiveDocument
     drawingSheets = drawingDocument.Sheets
@@ -448,14 +455,21 @@ def exploded_Drawing_4():
     product = productDocument.Product
     drawingViewGenerativeBehavior.Document = product
     drawingViewGenerativeBehavior.DefineFrontView(1, 0, 0, 0, 0, 1)
-    drawingView.X = 220
-    drawingView.Y = 220
-    drawingView.Scale = float(1 / 12)
+    drawingView.X = X_coordinate
+    drawingView.Y = Y_coordinate
+    drawingView.Scale = 1 / scale
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     drawingViewGenerativeBehavior.Update()
     drawingView.Activate()
+    drawingtexts = drawingView.Texts
+    drawingtext = drawingtexts.Item(1)
+    drawingtexts = drawingtext.Parent
+    selection = productDocument.Selection
+    selection.Add(drawingtext)
+    selection.Delete()
+    selection.Clear()
 
-def exploded_Drawing_5():
+def Right_View_Drawing(X_coordinate, Y_coordinate, scale):
     catapp = win32.Dispatch('CATIA.Application')
     drawingDocument = catapp.ActiveDocument
     drawingSheets = drawingDocument.Sheets
@@ -469,12 +483,19 @@ def exploded_Drawing_5():
     product = productDocument.Product
     drawingViewGenerativeBehavior.Document = product
     drawingViewGenerativeBehavior.DefineFrontView(-1, 0, 0, 0, 0, 1)
-    drawingView.X = 700
-    drawingView.Y = 220
-    drawingView.Scale = float(1 / 12)
+    drawingView.X = X_coordinate
+    drawingView.Y = Y_coordinate
+    drawingView.Scale = 1 / scale
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     drawingViewGenerativeBehavior.Update()
     drawingView.Activate()
+    drawingtexts = drawingView.Texts
+    drawingtext = drawingtexts.Item(1)
+    drawingtexts = drawingtext.Parent
+    selection = productDocument.Selection
+    selection.Add(drawingtext)
+    selection.Delete()
+    selection.Clear()
 
 def switch_window():
     catapp = win32.Dispatch("CATIA.Application")
