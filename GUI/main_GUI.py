@@ -846,9 +846,9 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.constaint_value_change(180, -1700, 1)  # 左氣壓缸
         mprog.update()  # 更新
         mprog.OPEN_Drawing()  # 開啟圖面
-        drafting_Coordinate_Position, scale = draft.drafting_parameter_calculation(A[i], B[i], H[i])  # 計算爆炸圖比例及位置
+        drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale = draft.drafting_parameter_calculation(A[i], B[i], H[i], S[i], T[i])  # 計算爆炸圖比例及位置
         draft.change_Drawing_scale(1 / scale)  # 圖面比例
-        draft.exploded_Drawing_1()  # 爆炸圖1
+        draft.exploded_Drawing_1(drafting_isometric_Coordinate_Position['exploded_1'][0], drafting_isometric_Coordinate_Position['exploded_1'][1], scale)  # 爆炸圖1
         mprog.switch_window()  # 開啟3D圖視窗
         # 還原零件初始位置
         BOLSTER1_Offset_value = 0
@@ -887,7 +887,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.constaint_value_change(201, -500, 1)  # Joint1
         mprog.update()
         mprog.switch_window()
-        draft.exploded_Drawing_2()  # 爆炸圖2
+        draft.exploded_Drawing_2(drafting_isometric_Coordinate_Position['exploded_2'][0], drafting_isometric_Coordinate_Position['exploded_2'][1], scale)
         mprog.switch_window()
         # 復原位置
         mprog.constaint_value_change(159, 312.5, 0)  # 支架
