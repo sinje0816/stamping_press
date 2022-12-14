@@ -84,12 +84,6 @@ def drafting_parameter_calculation(width, height, depth, S, T):  # 電子型錄W
                                             drafting_isometric_area_centerY + drafting_isometric_Y_range / 2]  # Y-max[3]
         drafting_isometric_root_Y_min = drafting_center_Y + 5
         drafting_isometric_root_X_min = drafting_view_min_X + 5
-        # drafting_isometric_root_Y_max = drafting_view_max_Y - 5
-        # drafting_isometric_root_X_max = drafting_view_max_X - 5
-        drafting_isometric_root_Y_min = drafting_center_Y + 5
-        drafting_isometric_root_X_min = drafting_view_min_X + 5
-        # drafting_isometric_root_Y_max = drafting_view_max_Y - 5
-        # drafting_isometric_root_X_max = drafting_view_max_X - 5
 
         # ----------圖面比例位置判斷------------
         if scale_p % 2 != 0 or scale_p % 5 != 0 or scale_p % 10 != 0:
@@ -117,11 +111,6 @@ def drafting_parameter_calculation(width, height, depth, S, T):  # 電子型錄W
             break
     # ------------三視圖位置-------------
     while True:
-        scale_tmp = scale_p  # temping original scale
-        scale = 1 / scale_p  # proportion convert to ratio
-        w_scale = width * scale  # width after scaling
-        h_scale = height * scale  # height after scaling
-        d_scale = depth * scale
         drafting_area_X_range = w_scale + d_scale * 2 + draft_X_clearence * 6
         drafting_area_Y_range = h_scale + draft_Y_clearence * 2
         drafting_area_extremum = [drafting_area_centerX - drafting_area_X_range / 2,  # X-min[0]
@@ -129,7 +118,7 @@ def drafting_parameter_calculation(width, height, depth, S, T):  # 電子型錄W
                                   drafting_area_centerY - drafting_area_Y_range / 2 - h_scale*1 / 3,  # Y-min[2]
                                   drafting_area_centerY + drafting_area_Y_range / 2]  # Y-max[3]
         drafting_center_Y = drafting_view_max_Y / 2 + drafting_view_min_Y
-        drafting_center_X = drafting_view_max_X / 2 + drafting_view_min_X
+        drafting_center_X = drafting_view_max_X / 2
         drafting_root_X = drafting_view_min_X + 5  # 反迴圈框_X
         drafting_root_Y = drafting_view_min_Y + 5
         # ------------Y方向-------------
@@ -146,11 +135,6 @@ def drafting_parameter_calculation(width, height, depth, S, T):  # 電子型錄W
             break
     # ---------isometric position-----------
     while True:
-        scale_tmp = scale_p  # temping original scale
-        scale = 1 / scale_p  # proportion convert to ratio
-        w_scale = width * scale  # width after scaling
-        h_scale = height * scale  # height after scaling
-        d_scale = depth * scale
         drafting_isometric_X_range = w_scale * math.cos(math.radians(45)) * 3 + d_scale * math.cos(math.radians(45)) + scale * 3200 * math.cos(math.radians(45)) + 3500 * scale * math.cos(math.radians(45)) + draft_X_clearence * 2  # W多乘2次為增長邊界長度
         drafting_isometric_Y_range = (S + T) * scale * math.cos(math.radians(35.7)) + math.cos(math.radians(35.7)) + h_scale * math.cos(math.radians(35.7))  # h為增長邊界範圍
         drafting_isometric_area_extremum = [drafting_isometric_area_centerX - drafting_isometric_X_range / 2,  # X-min[0]
@@ -159,8 +143,6 @@ def drafting_parameter_calculation(width, height, depth, S, T):  # 電子型錄W
                                             drafting_isometric_area_centerY + drafting_isometric_Y_range / 2]  # Y-max[3]
         drafting_isometric_root_Y_min = drafting_center_Y + 5
         drafting_isometric_root_X_min = drafting_view_min_X + 5
-        # drafting_isometric_root_Y_max = drafting_view_max_Y - 5
-        # drafting_isometric_root_X_max = drafting_view_max_X - 5
         # ------------Y方向-------------
         if drafting_isometric_area_extremum[2] <= drafting_center_Y:  # 若爆炸圖圖面Y最小值小於中心軸則爆炸圖1圖面中心上移1
             drafting_isometric_area_centerY += 1
@@ -172,6 +154,7 @@ def drafting_parameter_calculation(width, height, depth, S, T):  # 電子型錄W
         elif drafting_isometric_area_extremum[0] > drafting_isometric_root_X_min:  # 若爆炸圖圖面X最小值小於中心軸則爆炸圖1圖面中心左移1
             drafting_isometric_area_centerX -= 1
         else:
+            print(drafting_isometric_area_extremum, drafting_view_max_Y, drafting_center_X)
             break
     # 三視圖位置
     drafting_Coordinate_Position = {'Front View': (drafting_area_centerX, drafting_area_centerY),
@@ -180,8 +163,8 @@ def drafting_parameter_calculation(width, height, depth, S, T):  # 電子型錄W
     # 等角圖位置
     drafting_isometric_area_extremum_X = drafting_isometric_area_extremum[1] - drafting_isometric_area_extremum[0]
     drafting_isometric_area_extremum_Y = drafting_isometric_area_extremum[3] - drafting_isometric_area_extremum[2]
-    drafting_isometric_Coordinate_Position = {'exploded_1': (drafting_area_centerX - 3500 * scale * math.cos(math.radians(45)), (drafting_view_max_Y - drafting_center_Y) / 2 + drafting_center_Y - 50),
-                                              'exploded_2': (drafting_area_centerX + 3500 * scale * math.cos(math.radians(45)), (drafting_view_max_Y - drafting_center_Y) / 2 + drafting_center_Y - 85)}
+    drafting_isometric_Coordinate_Position = {'exploded_1': (drafting_center_X - (drafting_isometric_area_extremum[1] - drafting_isometric_area_extremum[0]) / 4, drafting_center_Y + (drafting_isometric_area_extremum[3] - drafting_isometric_area_extremum[2]) / 2),
+                                              'exploded_2': (drafting_center_X + (drafting_isometric_area_extremum[1] - drafting_isometric_area_extremum[0]) / 4, drafting_center_Y + (drafting_isometric_area_extremum[3] - drafting_isometric_area_extremum[2]) / 2 - 35)}
     return drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale_p
 
 def change_Drawing_scale(value):
