@@ -3,43 +3,6 @@ import win32com.client as win32
 import datetime, time, math
 import main_program as mprog
 
-A = [720, 830, 890, 940, 1050, 1160, 1300, 1480, 1560, 1760]
-A_15 = [1080, 1245, 1335, 1410, 1575, 1740, 1950, 2220, 2340, 2640]
-B = [1058, 1125, 1210, 1315, 1480, 1680, 1985, 2113, 2400, 2700]
-B_15 = [1587, 1688, 1815, 1973, 2220, 2520, 2978, 3170, 3600, 4050]
-H = [2060, 2185, 2290, 2540, 2755, 2990, 3270, 3725, 4005, 4285]
-R = [388, 486, 516, 544, 614, 670, 730, 900, 970, 1040]
-R_15 = [582, 729, 774, 816, 921, 1005, 1095, 1350, 1455, 1560]
-E = [700, 780, 840, 900, 1050, 1150, 1250, 1400, 1500, 1600]
-E_15 = [1051, 1170, 1260, 1350, 1575, 1725, 1875, 2100, 2250, 2400]
-D_DH = [250, 280, 330, 350, 380, 430, 490, 550, 580, 610]
-D_S = [80, 90, 110, 130, 150, 180, 200, 220, 250, 280]
-D_H = [50, 60, 70, 80, 100, 110, 130, 150, 180, 210]
-D_P = [35, 40, 45, 50, 60, 70, 80, 90, 100, 110]
-DH_S = [230, 250, 270, 300, 330, 350, 400, 450, 450, 500]
-DH_H = [200, 220, 240, 270, 300, 320, 360, 400, 400, 450]
-DH_P = [200, 220, 240, 270, 300, 320, 360, 400, 400, 450]
-S = [983, 1068, 1158, 1285, 1445, 1630, 1809, 2067, 2262, 2357]
-H_Z = [1260, 1385, 1490, 1640, 1855, 2086.933, 2370, 2725, 3005, 3285]
-O = [1045, 1075, 1125, 1145, 1175, 1225, 1285, 1345, 1375, 1405]
-hole_type = [0, 1, 2]
-P = [330, 380, 430, 480, 560, 650, 720, 860, 960, 1060]
-P_15 = [495, 570, 645, 721, 840, 975, 1080, 1290, 1440, 1590]
-Q = [250, 300, 350, 400, 460, 520, 580, 650, 720, 790]
-Q_15 = [375, 450, 525, 600, 690, 780, 870, 975, 1080, 1185]
-T = [85, 100, 115, 130, 140, 155, 165, 180, 180, 200]
-Z = [800, 800, 800, 900, 900, 900, 900, 1000, 1000, 1100]
-F = [320, 400, 440, 520, 600, 680, 760, 840, 900, 960]
-FRAME20_H = [280, 355, 420, 437.5, 550, 680, 825, 990, 1120, 1170]
-FRAME2_lower_depth = [166.016, 246.016, 286.016, 366.016, 446.016, 526.016, 606.016, 686.016, 746.016, 806.016]
-FRAME2_lower_depth_15 = [331.016, 451.016, 511.016, 631.016, 751.016, 871.016, 991.016, 1111.016, 1201.016, 1291.016]
-FRAME1_lower_high = [1330, 1335, 1340, 1445, 1455, 1460, 1470, 1575, 1595, 1695]
-FRAME20_FRAME2_YZ = [805, 805, 979, 979, 979, 979, 979, 979, 979, 979]
-BALANCER1_XZ = [204, 253, 268, 282, 317, 345, 375, 460, 575, 690]  # (R+180mm)/2+80mm
-FRAME_10_H = [558, 620.5, 673, 798, 905.5, 1023, 1163, 1320.5, 1530.5, 1740.5]
-FRAME_32_XY = [0, 0, 0, 1722, 1819.5, 1922, 2052, 2294.5, 2504.5, 2794.5]
-
-draft_Surface_Border = 20
 draft_area_center_initX = 500
 draft_area_center_initY = 220
 draft_X_clearence = 10
@@ -107,7 +70,6 @@ def drafting_parameter_calculation(width, height, depth, S, T):  # 電子型錄W
         elif drafting_isometric_area_extremum[0] < drafting_view_min_X and drafting_isometric_area_extremum[1] > drafting_view_max_X:
             scale_p += 1
         else:
-            print(scale_p)
             break
     # ------------三視圖位置-------------
     while True:
@@ -135,8 +97,8 @@ def drafting_parameter_calculation(width, height, depth, S, T):  # 電子型錄W
             break
     # ---------isometric position-----------
     while True:
-        drafting_isometric_X_range = w_scale * math.cos(math.radians(45)) * 3 + d_scale * math.cos(math.radians(45)) + scale * 3200 * math.cos(math.radians(45)) + 3500 * scale * math.cos(math.radians(45)) + draft_X_clearence * 2  # W多乘2次為增長邊界長度
-        drafting_isometric_Y_range = (S + T) * scale * math.cos(math.radians(35.7)) + math.cos(math.radians(35.7)) + h_scale * math.cos(math.radians(35.7))  # h為增長邊界範圍
+        drafting_isometric_X_range = w_scale * math.cos(math.radians(45)) * 3 + d_scale * math.cos(math.radians(45)) + scale * 4250 * math.cos(math.radians(45)) + 3500 * scale * math.cos(math.radians(45)) + draft_X_clearence * 2  # W多乘2次為增長邊界長度
+        drafting_isometric_Y_range = (S + T) * scale * math.cos(math.radians(35.264)) + math.cos(math.radians(35.7)) + h_scale * math.cos(math.radians(35.7))  # h為增長邊界範圍
         drafting_isometric_area_extremum = [drafting_isometric_area_centerX - drafting_isometric_X_range / 2,  # X-min[0]
                                             drafting_isometric_area_centerX + drafting_isometric_X_range / 2,  # X-max[1]
                                             drafting_isometric_area_centerY - drafting_isometric_Y_range / 2,  # Y-min[2]
@@ -154,7 +116,6 @@ def drafting_parameter_calculation(width, height, depth, S, T):  # 電子型錄W
         elif drafting_isometric_area_extremum[0] > drafting_isometric_root_X_min:  # 若爆炸圖圖面X最小值小於中心軸則爆炸圖1圖面中心左移1
             drafting_isometric_area_centerX -= 1
         else:
-            print(drafting_isometric_area_extremum, drafting_view_max_Y, drafting_center_X)
             break
     # 三視圖位置
     drafting_Coordinate_Position = {'Front View': (drafting_area_centerX, drafting_area_centerY),
@@ -239,7 +200,6 @@ def Front_View_Drawing(X_coordinate, Y_coordinate, scale, type):
     drawingSheet = drawingSheets.Item("Sheet.1")
     drawingViews = drawingSheet.Views
     drawingView = drawingViews.Add("AutomaticNaming")
-    drawingViewGenerativeLinks = drawingView.GenerativeLinks
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     documents = catapp.Documents
     productDocument = documents.Item(type + ".CATProduct")
@@ -327,13 +287,23 @@ def coordinate():
     catDrwSel = catDrwDoc.Selection
     catDrwSelLb = catDrwSel
 
-# mprog.change_Drawing_scale(1 / scale)
-# # drafting_Coordinate_Position = drafting_parameter_calculation(A[5], B[5], H[5])
+def balloons(view, circle_position_1, circle_position_2, circle_position_3, point_position_1, point_position_2, leader_line_length):
+    catapp = win32.Dispatch("CATIA.Application")
+    partdoc = catapp.ActiveDocument
+    catapp = win32.Dispatch('CATIA.Application')
+    drawingdocument = catapp.ActiveDocument
+    drawingsheets = drawingdocument.Sheets
+    drawingsheet = drawingsheets.Item('Sheet.1')
+    drawingviews = drawingsheet.Views
+    drawingview = drawingviews.Item('Isometric view')
+    drawingview.Activate()
+    DrawTexts_balloons = drawingview.Texts
+    DrawText = DrawTexts_balloons.Add(circle_position_1, circle_position_2, circle_position_3) #線段長度
+    DrawText.SetFontName(0, 0, 'Arial Unicode MS (TrueType)')
+    DrawText.SetFontSize(0, 0, 10)  # 調整字體位置和大小(x, y, 字體大小)
+    DrawLeader_DrawTexts_balloons = DrawText.Leaders.Add(point_position_1, point_position_2)  # 圓點位置
+    DrawText.FrameType = 3  # 圓類型
+    DrawLeader_DrawTexts_balloons.AnchorPoint = 0  # 錨點位置(左:1 or 右:0)
+    DrawLeader_DrawTexts_balloons.ModifyPoint(0, leader_line_length, 0)  # 選擇引線點並調整座標
+    DrawLeader_DrawTexts_balloons.HeadSymbol = 20  # 引號標點類型
 
-# exploded_drafting_down_Coordinate = {'Front View': (0, 1, 0, 0, 0, 1),
-#                                      'Left View': (1, 0, 0, 0, 0, 1),
-#                                      'Right View': (-1, 0, 0, 0, 0, 1)}
-#
-# mprog.Front_View_Drawing(drafting_Coordinate_Position['Front View'][0], drafting_Coordinate_Position['Front View'][1], scale)
-# mprog.Left_View_Drawing(drafting_Coordinate_Position['Left View'][0], drafting_Coordinate_Position['Left View'][1], scale)
-# mprog.Right_View_Drawing(drafting_Coordinate_Position['Right View'][0], drafting_Coordinate_Position['Right View'][1], scale)

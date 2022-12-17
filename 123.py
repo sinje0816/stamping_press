@@ -1,3 +1,4 @@
+import math
 import os
 import win32com.client as win32
 import datetime, time
@@ -25,135 +26,49 @@ FRAME20_H = [280, 355, 420, 437.5, 550, 680, 825, 990, 1120]
 FRAME2_lower_depth = [165, 245, 285, 365, 445, 525, 605, 685, 745]
 FRAME1_lower_high = [1330, 1335, 1340, 1445, 1455, 1460, 1470, 1575, 1595]
 FRAME20_FRAME2_YZ = [805, 805, 979, 979, 979, 979, 979, 979, 979]
-BALANCER1_XZ = [204, 253, 268, 282, 317, 345, 375, 460, 575]  #
-i = 5
-
-
-
-
-
-# mprog.constaint_value_change(3, -80 - B[i] + F[i] / 2 - BOLSTER1_Offset_value, 1)
-# mprog.constaint_value_change(6, -80 - B[i] + F[i] / 2 - BOLSTER1_Offset_value, 1)
-# mprog.constaint_value_change(36, -BOLSTER1_Offset_value, 1)
-# mprog.constaint_value_change(39, -BOLSTER1_Offset_value, 1)
-# mprog.constaint_value_change(63, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 1)
-# mprog.constaint_value_change(66, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 0)
-# mprog.constaint_value_change(60, -F[i] / 2 + 80 + 37.5 - BOLSTER1_Offset_value + 80, 1)
-# mprog.constaint_value_change(69, -F[i] / 2 + 80 + 37.5 - BOLSTER1_Offset_value + 80, 0)
-# mprog.constaint_value_change(167, 0, 0)  # BLOSTER1 & 3
-# mprog.constaint_value_change(75, GIB_Offset_value, 0)
-# mprog.constaint_value_change(78, GIB_Offset_value, 0)
-# mprog.constaint_value_change(84, GIB_Offset_value - 334.65, 1)
-# mprog.constaint_value_change(87, GIB_Offset_value - 334.65, 1)
-# mprog.constaint_value_change(81, GIB_Offset_value - 334.65, 0)
-# mprog.constaint_value_change(96, GIB_Offset_value - 334.65, 1)
-# mprog.constaint_value_change(102, GIB_Offset_value - 334.65, 1)
-# mprog.constaint_value_change(99, GIB_Offset_value - 334.65, 0)
-# mprog.constaint_value_change(174, CLOCK_Offset_value, 0)
-# mprog.constaint_value_change(188, CLOCK_SHAFT_Offset_value, 1)
-# mprog.constaint_value_change(195, 765, 0)  # 大齒輪與FRAME20
-# mprog.constaint_value_change(176, -21.8, 1)  # 右氣壓缸
-# mprog.constaint_value_change(180, -21.8, 1)  # 左氣壓缸
-# mprog.update()
-# # --------------------爆炸圖右圖------------------
-# mprog.constaint_value_change(159, -3000, 0)  # 支架
-# mprog.constaint_value_change(186, 3500, 1)  # 離合器
-# mprog.constaint_value_change(203, 3400, 1)  # JOINT_All.1
-# mprog.constaint_value_change(195, 2500, 0)  # 大齒輪MAIN_GEA1
-# mprog.constaint_value_change(201, -500, 1)  # Joint1
-# mprog.update()
+BALANCER1_XZ = [204, 253, 268, 282, 317, 345, 375, 460, 575]
 
 type = str('SN1-110')
 i = 5
-
-# drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale = draft.drafting_parameter_calculation(A[i], B[i], H[i], S[i], T[i])  # 計算爆炸圖比例及位置
-# print(drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale)
-
-# BOLSTER1_Offset_value = 2500
-# GIB_Offset_value = -3200
-# CLOCK_Offset_value = 2800
-# CLOCK_SHAFT_Offset_value = 1500
 #
-# mprog.constaint_value_change(3, -B[i] - BOLSTER1_Offset_value, 1)
-# mprog.constaint_value_change(6, -B[i] - BOLSTER1_Offset_value, 1)
-# mprog.constaint_value_change(36, -BOLSTER1_Offset_value, 1)
-# mprog.constaint_value_change(39, -BOLSTER1_Offset_value, 1)
-# mprog.constaint_value_change(63, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 1)
-# mprog.constaint_value_change(66, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 0)
-# mprog.constaint_value_change(60, -F[i] / 2 + 80 + 37.5 - BOLSTER1_Offset_value + 80, 1)
-# mprog.constaint_value_change(69, -F[i] / 2 + 80 + 37.5 - BOLSTER1_Offset_value + 80, 0)
-# mprog.constaint_value_change(167, -250, 0)  # BLOSTER1 & 3
-# mprog.constaint_value_change(75, GIB_Offset_value, 0)
-# mprog.constaint_value_change(78, GIB_Offset_value, 0)
-# mprog.constaint_value_change(84, GIB_Offset_value - 334.65, 1)
-# mprog.constaint_value_change(87, GIB_Offset_value - 334.65, 1)
-# mprog.constaint_value_change(81, GIB_Offset_value - 334.65, 0)
-# mprog.constaint_value_change(96, GIB_Offset_value - 334.65, 1)
-# mprog.constaint_value_change(102, GIB_Offset_value - 334.65, 1)
-# mprog.constaint_value_change(99, GIB_Offset_value - 334.65, 0)
-# mprog.constaint_value_change(174, CLOCK_Offset_value, 0)
-# mprog.constaint_value_change(188, CLOCK_SHAFT_Offset_value, 1)
-# mprog.constaint_value_change(195, 1892.5 + 150, 0)  # 大齒輪與FRAME20
-# mprog.constaint_value_change(176, -1700, 1)  # 右氣壓缸
-# mprog.constaint_value_change(180, -1700, 1)  # 左氣壓缸
-# mprog.update()
-# mprog.switch_window()  # 切換頁面
-# draft.change_Drawing_scale(1 / scale)  # 圖面比例
-# draft.exploded_Drawing_1(scale)  # 爆炸圖1
-# BOLSTER1_Offset_value = 0
-# GIB_Offset_value = 334.5
-# CLOCK_Offset_value = 35
-# CLOCK_SHAFT_Offset_value = 0
-
-# 計算爆炸圖比例及位置
-# drafting_Coordinate_Position, scale = draft.drafting_parameter_calculation(A[i], B[i], H[i])  # 計算爆炸圖比例及位置
-# draft.change_Drawing_scale(1 / scale)  # 圖面比例
-# draft.Front_View_Drawing(drafting_Coordinate_Position['Front View'][0], drafting_Coordinate_Position['Front View'][1], scale, type)
-# draft.Left_View_Drawing(drafting_Coordinate_Position['Left View'][0], drafting_Coordinate_Position['Left View'][1], scale, type)
-# draft.Right_View_Drawing(drafting_Coordinate_Position['Right View'][0], drafting_Coordinate_Position['Right View'][1], scale, type)
-
-
-
+#
 mprog.switch_window()
 
 ## --------------------------------------- 生成爆炸圖--------------------------------------------
 mprog.constaint_value_change(159, 312.5, 0)  # 支架
 mprog.constaint_value_change(186, 510, 1)  # 離合器
 mprog.constaint_value_change(203, 1010, 1)  # JOINT_All.1
-mprog.constaint_value_change(195, 765, 0)  # 大齒輪MAIN_GEA1
+mprog.constaint_value_change(195, 592.5 + 150, 1)  # 大齒輪MAIN_GEA1
 mprog.constaint_value_change(201, -84, 1)  # Joint1
-mprog.update()
-
 # 重新定義拘束尺寸
 BOLSTER1_Offset_value = 2500
-GIB_Offset_value = -3200
-CLOCK_Offset_value = 2800
-CLOCK_SHAFT_Offset_value = 1500
+GIB_Offset_value = -4250 + 45
+Behide_GIB_Offset_value = GIB_Offset_value - 334.5 - 65
+CLOCK_Offset_value = 3250
+CLOCK_SHAFT_Offset_value = CLOCK_Offset_value - 1350
 
-mprog.constaint_value_change(3, -80 - B[i] + F[i] / 2 + 343 - BOLSTER1_Offset_value, 1)
-mprog.constaint_value_change(6, -80 - B[i] + F[i] / 2 + 343 - BOLSTER1_Offset_value, 1)
-mprog.constaint_value_change(36, -BOLSTER1_Offset_value, 1)
-mprog.constaint_value_change(39, -BOLSTER1_Offset_value, 1)
-mprog.constaint_value_change(63, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 1)
-mprog.constaint_value_change(66, F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value - 80, 0)
-mprog.constaint_value_change(60, -F[i] / 2 + 80 + 37.5 - BOLSTER1_Offset_value + 80, 1)
-mprog.constaint_value_change(69, -F[i] / 2 + 80 + 37.5 - BOLSTER1_Offset_value + 80, 0)
-mprog.constaint_value_change(167, -250, 0)  # BLOSTER1 & 3
+mprog.constaint_value_change(3, -B[i] - BOLSTER1_Offset_value, 1)
+mprog.constaint_value_change(6, -B[i] - BOLSTER1_Offset_value, 1)
+mprog.constaint_value_change(36, -BOLSTER1_Offset_value - F[i] / 2 + 80, 1)
+mprog.constaint_value_change(39, -BOLSTER1_Offset_value - F[i] / 2 + 80, 1)
+mprog.constaint_value_change(63, -F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value, 1)
+mprog.constaint_value_change(66, -F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value, 0)
+mprog.constaint_value_change(60, -37.5 - BOLSTER1_Offset_value, 1)
+mprog.constaint_value_change(69, -37.5 - BOLSTER1_Offset_value, 0)
+mprog.constaint_value_change(167, -760, 0)  # BLOSTER1 & 3
 mprog.constaint_value_change(75, GIB_Offset_value, 0)
 mprog.constaint_value_change(78, GIB_Offset_value, 0)
-mprog.constaint_value_change(84, GIB_Offset_value - 334.65, 1)
-mprog.constaint_value_change(87, GIB_Offset_value - 334.65, 1)
-mprog.constaint_value_change(81, GIB_Offset_value - 334.65, 0)
-mprog.constaint_value_change(96, GIB_Offset_value - 334.65, 1)
-mprog.constaint_value_change(102, GIB_Offset_value - 334.65, 1)
-mprog.constaint_value_change(99, GIB_Offset_value - 334.65, 0)
+mprog.constaint_value_change(84, Behide_GIB_Offset_value, 1)
+mprog.constaint_value_change(87, Behide_GIB_Offset_value, 1)
+mprog.constaint_value_change(81, Behide_GIB_Offset_value, 0)
+mprog.constaint_value_change(96, Behide_GIB_Offset_value, 1)
+mprog.constaint_value_change(102, Behide_GIB_Offset_value, 1)
+mprog.constaint_value_change(99, Behide_GIB_Offset_value, 0)
 mprog.constaint_value_change(174, CLOCK_Offset_value, 0)
 mprog.constaint_value_change(188, CLOCK_SHAFT_Offset_value, 1)
-mprog.constaint_value_change(195, 1892.5 + 150, 0)  # 大齒輪與FRAME20
 mprog.constaint_value_change(176, -1700, 1)  # 右氣壓缸
 mprog.constaint_value_change(180, -1700, 1)  # 左氣壓缸
 mprog.update()  # 更新
-# mprog.OPEN_Drawing()  # 開啟圖面
 mprog.switch_window()
 drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale = draft.drafting_parameter_calculation(A[i], B[i], H[i], S[i], T[i])  # 計算爆炸圖比例及位置
 draft.change_Drawing_scale(1 / scale)  # 圖面比例
@@ -184,7 +99,6 @@ mprog.constaint_value_change(102, GIB_Offset_value - 334.65, 1)
 mprog.constaint_value_change(99, GIB_Offset_value - 334.65, 0)
 mprog.constaint_value_change(174, CLOCK_Offset_value, 0)
 mprog.constaint_value_change(188, CLOCK_SHAFT_Offset_value, 1)
-mprog.constaint_value_change(195, 765, 0)  # 大齒輪與FRAME20
 mprog.constaint_value_change(176, -21.8, 1)  # 右氣壓缸
 mprog.constaint_value_change(180, -21.8, 1)  # 左氣壓缸
 mprog.update()
@@ -192,7 +106,7 @@ mprog.update()
 mprog.constaint_value_change(159, -3000, 0)  # 支架
 mprog.constaint_value_change(186, 3500, 1)  # 離合器
 mprog.constaint_value_change(203, 3400, 1)  # JOINT_All.1
-mprog.constaint_value_change(195, 2500, 0)  # 大齒輪MAIN_GEA1
+mprog.constaint_value_change(195, 2500, 1)  # 大齒輪MAIN_GEA1
 mprog.constaint_value_change(201, -500, 1)  # Joint1
 mprog.update()
 mprog.switch_window()
@@ -202,20 +116,32 @@ mprog.switch_window()
 mprog.constaint_value_change(159, 312.5, 0)  # 支架
 mprog.constaint_value_change(186, 510, 1)  # 離合器
 mprog.constaint_value_change(203, 1010, 1)  # JOINT_All.1
-mprog.constaint_value_change(195, 765, 0)  # 大齒輪MAIN_GEA1
+mprog.constaint_value_change(195, 592.5 + 150, 1)  # 大齒輪MAIN_GEA1
 mprog.constaint_value_change(201, -84, 1)  # Joint1
 mprog.update()
 mprog.switch_window()
 # --------------------爆炸圖下(前、左、右)----------------
-draft.Front_View_Drawing(drafting_Coordinate_Position['Front View'][0], drafting_Coordinate_Position['Front View'][1], scale, 'SN1-110')
-draft.Left_View_Drawing(drafting_Coordinate_Position['Left View'][0], drafting_Coordinate_Position['Left View'][1], scale, 'SN1-110')
-draft.Right_View_Drawing(drafting_Coordinate_Position['Right View'][0], drafting_Coordinate_Position['Right View'][1], scale, 'SN1-110')
+draft.Front_View_Drawing(drafting_Coordinate_Position['Front View'][0],
+                         drafting_Coordinate_Position['Front View'][1], scale, 'SN1-110')
+draft.Left_View_Drawing(drafting_Coordinate_Position['Left View'][0],
+                        drafting_Coordinate_Position['Left View'][1], scale, 'SN1-110')
+draft.Right_View_Drawing(drafting_Coordinate_Position['Right View'][0],
+                         drafting_Coordinate_Position['Right View'][1], scale, 'SN1-110')
 
 
 
 
 
 
-# mprog.OPEN_Drawing_window()#開啟3D圖視窗
-# mprog.update()
-# mprog.hide_ass_all_Constraint()
+
+
+
+
+
+
+
+
+
+
+
+
