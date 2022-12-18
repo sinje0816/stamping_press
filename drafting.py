@@ -11,11 +11,11 @@ draft_Y_clearence = 25
 drafting_view_min_Y = 43
 drafting_view_max_Y = 810
 drafting_view_min_X = 20
-drafting_view_max_X = 982
+drafting_view_max_X = 1250
 isometric_view_center_X = 270
 isometric_view_center_Y = 600
 
-def drafting_parameter_calculation(width, height, depth, S, T):  # 電子型錄WHD, 比例
+def drafting_parameter_calculation(width, height, depth, T):  # 電子型錄WHD, 比例
     scale_p = 1
     drafting_area_centerX = draft_area_center_initX  # 前視圖中心
     drafting_area_centerY = draft_area_center_initY
@@ -23,6 +23,9 @@ def drafting_parameter_calculation(width, height, depth, S, T):  # 電子型錄W
     drafting_isometric_area_centerX = (drafting_view_max_X - drafting_view_min_Y) / 2
 
     while True:
+        # 排除餘數不為 2, 5, 10 的數
+        if scale_p % 2 != 0 or scale_p % 5 != 0 or scale_p % 10 != 0:
+            scale_p += 1
         scale_tmp = scale_p  # temping original scale
         scale = 1 / scale_p  # proportion convert to ratio
         w_scale = width * scale  # width after scaling
@@ -30,57 +33,32 @@ def drafting_parameter_calculation(width, height, depth, S, T):  # 電子型錄W
         d_scale = depth * scale
         drafting_area_X_range = w_scale + d_scale * 2 + draft_X_clearence * 6
         drafting_area_Y_range = h_scale + draft_Y_clearence * 2
-        drafting_area_extremum = [drafting_area_centerX - drafting_area_X_range / 2,  # X-min[0]
-                                  drafting_area_centerX + drafting_area_X_range / 2,  # X-max[1]
-                                  drafting_area_centerY - drafting_area_Y_range / 2,  # Y-min[2]
-                                  drafting_area_centerY + drafting_area_Y_range / 2]  # Y-max[3]
-        drafting_center_Y = drafting_view_max_Y / 2 + drafting_view_min_Y
-        drafting_center_X = drafting_view_max_X / 2 + drafting_view_min_X
-        drafting_root_X = drafting_view_min_X + 5  # 反迴圈框_X
-        drafting_root_Y = drafting_view_min_Y + 5
+        drafting_center_Y = (drafting_view_max_Y / 2 + drafting_view_min_Y)
         # ---------isometric view-------------
-        drafting_isometric_X_range = w_scale * math.cos(math.radians(45)) * 3 + d_scale * math.cos(math.radians(45)) + scale * 3200 * math.cos(math.radians(45)) + 3500 * scale * math.cos(math.radians(45)) + draft_X_clearence * 2  # W多乘2次為增長邊界長度
-        drafting_isometric_Y_range = (S + T) * scale * math.cos(math.radians(35.7)) + math.cos(math.radians(35.7)) + h_scale * math.cos(math.radians(35.7))  # h為增長邊界範圍
-        drafting_isometric_area_extremum = [drafting_isometric_area_centerX - drafting_isometric_X_range / 2,  # X-min[0]
-                                            drafting_isometric_area_centerX + drafting_isometric_X_range / 2,  # X-max[1]
-                                            drafting_isometric_area_centerY - drafting_isometric_Y_range / 2,  # Y-min[2]
-                                            drafting_isometric_area_centerY + drafting_isometric_Y_range / 2]  # Y-max[3]
-        drafting_isometric_root_Y_min = drafting_center_Y + 5
-        drafting_isometric_root_X_min = drafting_view_min_X + 5
-
+        drafting_isometric_X_range = w_scale * math.cos(math.radians(45)) * 3 + d_scale * math.cos(math.radians(45)) * 2 + scale * 4250 * math.cos(math.radians(45)) + 3500 * scale * math.cos(math.radians(45)) + draft_X_clearence * 2  # W多乘2次為增長邊界長度
+        drafting_isometric_Y_range = ((1700 + 500) * scale + T * scale + h_scale)  # h為增長邊界範圍(500為上下range)
         # ----------圖面比例位置判斷------------
-        if scale_p % 2 != 0 or scale_p % 5 != 0 or scale_p % 10 != 0:
-            scale_p += 1
         # ----------三視圖----------
-        if drafting_area_extremum[2] > drafting_view_min_Y and drafting_area_extremum[3] > drafting_center_Y and drafting_area_extremum[2] < drafting_root_Y:  # 若Ymin再返迴圈和邊框之間同時Ymax同時大於圖框中心則比例縮小
+        if drafting_area_X_range > drafting_view_max_X - drafting_view_min_X:
             scale_p += 1
-        elif drafting_area_extremum[2] < drafting_view_min_Y and drafting_area_extremum[3] > drafting_center_Y:  # 若Ymin和Ymax同時大於圖框則比例縮小
+        elif drafting_area_Y_range > drafting_center_Y - drafting_view_min_Y:
             scale_p += 1
-        elif drafting_area_extremum[0] > drafting_view_min_X and drafting_area_extremum[1] > drafting_center_X and drafting_area_extremum[0] < drafting_root_X:  # 若Xmin再返迴圈和邊框之間同時Xmax同時大於圖框中心則比例縮小
+        elif drafting_isometric_X_range > drafting_view_max_X - drafting_view_min_X:
             scale_p += 1
-        elif drafting_area_extremum[0] < drafting_view_min_X and drafting_area_extremum[1] > drafting_center_X:  # 若Xmin和Xmax同時大於圖框則比例縮小
-            scale_p += 1
-        # ----------等角圖----------
-        elif drafting_isometric_area_extremum[2] > drafting_center_Y and drafting_isometric_area_extremum[2] < drafting_isometric_root_Y_min and drafting_isometric_area_extremum[3] > drafting_view_max_Y:
-            scale_p += 1
-        elif drafting_isometric_area_extremum[2] < drafting_center_Y and drafting_isometric_area_extremum[3] > drafting_view_max_Y:
-            scale_p += 1
-        elif drafting_isometric_area_extremum[0] > drafting_view_min_X and drafting_isometric_area_extremum[0] < drafting_isometric_root_X_min and drafting_isometric_area_extremum[1] > drafting_view_max_X:  # 若Ymin和Ymax同時大於圖框則比例縮小
-            scale_p += 1
-        elif drafting_isometric_area_extremum[0] < drafting_view_min_X and drafting_isometric_area_extremum[1] > drafting_view_max_X:
+        elif drafting_isometric_Y_range > drafting_view_max_Y - drafting_center_Y:
             scale_p += 1
         else:
             break
-    # ------------三視圖位置-------------
+    # ------------位置---------------
+    # ------------三視圖-------------
     while True:
         drafting_area_X_range = w_scale + d_scale * 2 + draft_X_clearence * 6
         drafting_area_Y_range = h_scale + draft_Y_clearence * 2
         drafting_area_extremum = [drafting_area_centerX - drafting_area_X_range / 2,  # X-min[0]
                                   drafting_area_centerX + drafting_area_X_range / 2,  # X-max[1]
-                                  drafting_area_centerY - drafting_area_Y_range / 2 - h_scale*1 / 3,  # Y-min[2]
+                                  drafting_area_centerY - drafting_area_Y_range / 2 - h_scale * 1 / 3,  # Y-min[2]
                                   drafting_area_centerY + drafting_area_Y_range / 2]  # Y-max[3]
         drafting_center_Y = drafting_view_max_Y / 2 + drafting_view_min_Y
-        drafting_center_X = drafting_view_max_X / 2
         drafting_root_X = drafting_view_min_X + 5  # 反迴圈框_X
         drafting_root_Y = drafting_view_min_Y + 5
         # ------------Y方向-------------
@@ -97,8 +75,10 @@ def drafting_parameter_calculation(width, height, depth, S, T):  # 電子型錄W
             break
     # ---------isometric position-----------
     while True:
-        drafting_isometric_X_range = w_scale * math.cos(math.radians(45)) * 3 + d_scale * math.cos(math.radians(45)) + scale * 4250 * math.cos(math.radians(45)) + 3500 * scale * math.cos(math.radians(45)) + draft_X_clearence * 2  # W多乘2次為增長邊界長度
-        drafting_isometric_Y_range = (S + T) * scale * math.cos(math.radians(35.264)) + math.cos(math.radians(35.7)) + h_scale * math.cos(math.radians(35.7))  # h為增長邊界範圍
+        drafting_isometric_X_range = w_scale * math.cos(math.radians(45)) * 3 + d_scale * math.cos(
+            math.radians(45)) * 2 + scale * 4250 * math.cos(math.radians(45)) + 3500 * scale * math.cos(
+            math.radians(45)) + draft_X_clearence * 2  # W多乘2次為增長邊界長度
+        drafting_isometric_Y_range = ((1700 + 500) * scale + T * scale + h_scale) # h為增長邊界範圍(500為上下range)
         drafting_isometric_area_extremum = [drafting_isometric_area_centerX - drafting_isometric_X_range / 2,  # X-min[0]
                                             drafting_isometric_area_centerX + drafting_isometric_X_range / 2,  # X-max[1]
                                             drafting_isometric_area_centerY - drafting_isometric_Y_range / 2,  # Y-min[2]
@@ -122,10 +102,8 @@ def drafting_parameter_calculation(width, height, depth, S, T):  # 電子型錄W
                                     'Left View': (drafting_area_centerX - w_scale / 2 - d_scale / 2, drafting_area_centerY),
                                     'Right View': (drafting_area_centerX + w_scale / 2 + d_scale / 2, drafting_area_centerY)}
     # 等角圖位置
-    drafting_isometric_area_extremum_X = drafting_isometric_area_extremum[1] - drafting_isometric_area_extremum[0]
-    drafting_isometric_area_extremum_Y = drafting_isometric_area_extremum[3] - drafting_isometric_area_extremum[2]
-    drafting_isometric_Coordinate_Position = {'exploded_1': (drafting_center_X - (drafting_isometric_area_extremum[1] - drafting_isometric_area_extremum[0]) / 4, drafting_center_Y + (drafting_isometric_area_extremum[3] - drafting_isometric_area_extremum[2]) / 2),
-                                              'exploded_2': (drafting_center_X + (drafting_isometric_area_extremum[1] - drafting_isometric_area_extremum[0]) / 4, drafting_center_Y + (drafting_isometric_area_extremum[3] - drafting_isometric_area_extremum[2]) / 2 - 35)}
+    drafting_isometric_Coordinate_Position = {'exploded_1': (drafting_area_centerX + 25 - (drafting_isometric_area_extremum[1] - drafting_isometric_area_extremum[0]) / 5, drafting_view_max_Y - (drafting_isometric_area_extremum[3] - drafting_isometric_area_extremum[2]) * 2 / 3),
+                                              'exploded_2': (drafting_area_centerX + 50 + (drafting_isometric_area_extremum[1] - drafting_isometric_area_extremum[0]) / 5, drafting_view_max_Y - (drafting_isometric_area_extremum[3] - drafting_isometric_area_extremum[2]) * 2 / 3 - 50)}
     return drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale_p
 
 def change_Drawing_scale(value):
@@ -135,17 +113,18 @@ def change_Drawing_scale(value):
     drawingSheet = drawingSheets.Item("Sheet.1")
     drawingSheet.Scale = float(value)
 
-def exploded_Drawing_1(X_coordinate, Y_coordinate, scale):
+def exploded_Drawing_1(Type, X_coordinate, Y_coordinate, scale):
     catapp = win32.Dispatch('CATIA.Application')
     drawingDocument = catapp.ActiveDocument
     drawingSheets = drawingDocument.Sheets
     drawingSheet = drawingSheets.Item("Sheet.1")
     drawingViews = drawingSheet.Views
     drawingView = drawingViews.Add("AutomaticNaming")
+    drawingView.SetViewName("Isometric view1", '', '')  # 更改視圖名稱
     drawingViewGenerativeLinks = drawingView.GenerativeLinks
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     documents = catapp.Documents
-    productDocument = documents.Item("SN1-110.CATProduct")
+    productDocument = documents.Item(str(Type) + ".CATProduct")
     product = productDocument.Product
     drawingViewGenerativeBehavior.Document = product
     drawingViewGenerativeBehavior.DefineIsometricView(-0.707107, 0.707107, 0, -0.408248, -0.408248, 0.816497)
@@ -156,26 +135,27 @@ def exploded_Drawing_1(X_coordinate, Y_coordinate, scale):
     drawingViewGenerativeBehavior.Update()
     drawingView.Activate()
     selection = productDocument.Selection
-    selection.Clear()
-    drawingview1 = drawingViews.Item('Isometric view')
+    drawingview1 = drawingViews.Item('Isometric view1')
     drawingtexts1 = drawingview1.Texts
     drawingtext1 = drawingtexts1.Item(1)
     drawingtexts1 = drawingtext1.Parent
+    selection.Clear()
     selection.Add(drawingtext1)
     selection.Delete()
     selection.Clear()
 
-def exploded_Drawing_2(X_coordinate, Y_coordinate, scale):
+def exploded_Drawing_2(Type, X_coordinate, Y_coordinate, scale):
     catapp = win32.Dispatch('CATIA.Application')
     drawingDocument = catapp.ActiveDocument
     drawingSheets = drawingDocument.Sheets
     drawingSheet = drawingSheets.Item("Sheet.1")
     drawingViews = drawingSheet.Views
     drawingView = drawingViews.Add("AutomaticNaming")
+    drawingView.SetViewName("Isometric view2", '', '')  # 更改視圖名稱
     drawingViewGenerativeLinks = drawingView.GenerativeLinks
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     documents = catapp.Documents
-    productDocument = documents.Item("SN1-110.CATProduct")
+    productDocument = documents.Item(str(Type) + ".CATProduct")
     product = productDocument.Product
     drawingViewGenerativeBehavior.Document = product
     drawingViewGenerativeBehavior.DefineIsometricView(0.707107, -0.707107, 0, 0.408248, 0.408248, 0.816497)
@@ -193,16 +173,17 @@ def exploded_Drawing_2(X_coordinate, Y_coordinate, scale):
     selection.Delete()
     selection.Clear()
 
-def Front_View_Drawing(X_coordinate, Y_coordinate, scale, type):
+def Front_View_Drawing(Type, X_coordinate, Y_coordinate, scale):
     catapp = win32.Dispatch('CATIA.Application')
     drawingDocument = catapp.ActiveDocument
     drawingSheets = drawingDocument.Sheets
     drawingSheet = drawingSheets.Item("Sheet.1")
     drawingViews = drawingSheet.Views
     drawingView = drawingViews.Add("AutomaticNaming")
+    drawingView.SetViewName("Front view", '', '')  # 更改視圖名稱
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     documents = catapp.Documents
-    productDocument = documents.Item(type + ".CATProduct")
+    productDocument = documents.Item(str(Type) + ".CATProduct")
     product = productDocument.Product
     drawingViewGenerativeBehavior.Document = product
     drawingViewGenerativeBehavior.DefineFrontView(0, 1, 0, 0, 0, 1)
@@ -212,10 +193,7 @@ def Front_View_Drawing(X_coordinate, Y_coordinate, scale, type):
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     drawingViewGenerativeBehavior.Update()
     drawingView.Activate()
-    # drawingView = drawingViews.Add("Front view")
-    # drawingviews1
     selection = productDocument.Selection
-    selection.Clear()
     drawingview1 = drawingViews.Item('Front view')
     drawingtexts1 = drawingview1.Texts
     drawingtext1 = drawingtexts1.Item(1)
@@ -224,17 +202,18 @@ def Front_View_Drawing(X_coordinate, Y_coordinate, scale, type):
     selection.Delete()
     selection.Clear()
 
-def Left_View_Drawing(X_coordinate, Y_coordinate, scale, type):
+def Left_View_Drawing(Type, X_coordinate, Y_coordinate, scale):
     catapp = win32.Dispatch('CATIA.Application')
     drawingDocument = catapp.ActiveDocument
     drawingSheets = drawingDocument.Sheets
     drawingSheet = drawingSheets.Item("Sheet.1")
     drawingViews = drawingSheet.Views
     drawingView = drawingViews.Add("AutomaticNaming")
+    drawingView.SetViewName("Left view", '', '')  # 更改視圖名稱
     drawingViewGenerativeLinks = drawingView.GenerativeLinks
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     documents = catapp.Documents
-    productDocument = documents.Item(type + ".CATProduct")
+    productDocument = documents.Item(str(Type) + ".CATProduct")
     product = productDocument.Product
     drawingViewGenerativeBehavior.Document = product
     drawingViewGenerativeBehavior.DefineFrontView(1, 0, 0, 0, 0, 1)
@@ -252,17 +231,18 @@ def Left_View_Drawing(X_coordinate, Y_coordinate, scale, type):
     selection.Delete()
     selection.Clear()
 
-def Right_View_Drawing(X_coordinate, Y_coordinate, scale, type):
+def Right_View_Drawing(Type, X_coordinate, Y_coordinate, scale):
     catapp = win32.Dispatch('CATIA.Application')
     drawingDocument = catapp.ActiveDocument
     drawingSheets = drawingDocument.Sheets
     drawingSheet = drawingSheets.Item("Sheet.1")
     drawingViews = drawingSheet.Views
     drawingView = drawingViews.Add("AutomaticNaming")
+    drawingView.SetViewName("Right view", '', '')  # 更改視圖名稱
     drawingViewGenerativeLinks = drawingView.GenerativeLinks
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     documents = catapp.Documents
-    productDocument = documents.Item(type + ".CATProduct")
+    productDocument = documents.Item(str(Type) + ".CATProduct")
     product = productDocument.Product
     drawingViewGenerativeBehavior.Document = product
     drawingViewGenerativeBehavior.DefineFrontView(-1, 0, 0, 0, 0, 1)
@@ -282,7 +262,6 @@ def Right_View_Drawing(X_coordinate, Y_coordinate, scale, type):
 
 def coordinate():
     catapp = win32.Dispatch('CATIA.Application')
-
     catDrwDoc = catapp.ActiveDocument
     catDrwSel = catDrwDoc.Selection
     catDrwSelLb = catDrwSel
@@ -295,7 +274,7 @@ def balloons(view, circle_position_1, circle_position_2, circle_position_3, poin
     drawingsheets = drawingdocument.Sheets
     drawingsheet = drawingsheets.Item('Sheet.1')
     drawingviews = drawingsheet.Views
-    drawingview = drawingviews.Item('Isometric view')
+    drawingview = drawingviews.Item(view)
     drawingview.Activate()
     DrawTexts_balloons = drawingview.Texts
     DrawText = DrawTexts_balloons.Add(circle_position_1, circle_position_2, circle_position_3) #線段長度
@@ -303,7 +282,40 @@ def balloons(view, circle_position_1, circle_position_2, circle_position_3, poin
     DrawText.SetFontSize(0, 0, 10)  # 調整字體位置和大小(x, y, 字體大小)
     DrawLeader_DrawTexts_balloons = DrawText.Leaders.Add(point_position_1, point_position_2)  # 圓點位置
     DrawText.FrameType = 3  # 圓類型
-    DrawLeader_DrawTexts_balloons.AnchorPoint = 0  # 錨點位置(左:1 or 右:0)
-    DrawLeader_DrawTexts_balloons.ModifyPoint(0, leader_line_length, 0)  # 選擇引線點並調整座標
+    # DrawText.DeactivateFrame(3)
+    # DrawText.Deactivates = 1
+    # DrawText.Blanking(0)
+    DrawLeader_DrawTexts_balloons.AllAround = 0
+    DrawLeader_DrawTexts_balloons.ModifyPoint(0, leader_line_length, 0)  # 選擇引線點 -> (0, 1, 2)並調整座標位置
     DrawLeader_DrawTexts_balloons.HeadSymbol = 20  # 引號標點類型
+    # DrawText.StandardBehavior = 1
+    # MyViewGenBehavior = MyView.GenerativeBehavior
 
+def create_center_line(view_name, x_value_1, y_value_1, x_value_2, y_value_2):
+    catapp = win32.Dispatch('CATIA.Application')
+    drawingdocument = catapp.ActiveDocument
+    drawingsheets = drawingdocument.Sheets
+    drawingsheet = drawingsheets.Item('Sheet.1')
+    drawingviews = drawingsheet.Views
+    drawingview = drawingviews.Item(view_name)
+    drawingview.Activate()
+    factory2d = drawingview.Factory2D
+    dotted_line = factory2d.CreateLine(x_value_1, y_value_1, x_value_2, y_value_2)
+    dotted_line.Name = 'chain_line'
+    object = catapp.ActiveDocument.Selection
+    object.Search('Name=chain_line,all')
+    vis = catapp.ActiveDocument.Selection.VisProperties
+    vis.SetRealLineType(2, 0.3)
+    vis.SetRealWidth(1, 0.13)
+
+def change_sheet_name():
+    catapp = win32.Dispatch('CATIA.Application')
+    drawingDocument1 = catapp.ActiveDocument
+    drawingSheets1 = drawingDocument1.Sheets
+    drawingSheet1 = drawingSheets1.Item("Sheet.1")
+    drawingViews1 = drawingSheet1.Views
+    drawingView1 = drawingViews1.Add("AutomaticNaming")
+
+def close_broken_line_block_diagram():
+    pass
+    # drawingView1.FrameVisualization = False
