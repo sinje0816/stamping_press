@@ -266,6 +266,7 @@ def coordinate():
     catDrwSel = catDrwDoc.Selection
     catDrwSelLb = catDrwSel
 
+# 圈碼圖
 def balloons(view, circle_position_1, circle_position_2, circle_position_3, point_position_1, point_position_2, leader_line_length):
     catapp = win32.Dispatch("CATIA.Application")
     partdoc = catapp.ActiveDocument
@@ -291,6 +292,7 @@ def balloons(view, circle_position_1, circle_position_2, circle_position_3, poin
     # DrawText.StandardBehavior = 1
     # MyViewGenBehavior = MyView.GenerativeBehavior
 
+# 爆炸圖中心線
 def create_center_line(view_name, x_value_1, y_value_1, x_value_2, y_value_2):
     catapp = win32.Dispatch('CATIA.Application')
     drawingdocument = catapp.ActiveDocument
@@ -308,14 +310,51 @@ def create_center_line(view_name, x_value_1, y_value_1, x_value_2, y_value_2):
     vis.SetRealLineType(2, 0.3)
     vis.SetRealWidth(1, 0.13)
 
-def change_sheet_name():
+def close_broken_line_block_diagram(view_name):
     catapp = win32.Dispatch('CATIA.Application')
     drawingDocument1 = catapp.ActiveDocument
     drawingSheets1 = drawingDocument1.Sheets
     drawingSheet1 = drawingSheets1.Item("Sheet.1")
     drawingViews1 = drawingSheet1.Views
-    drawingView1 = drawingViews1.Add("AutomaticNaming")
+    drawingView1 = drawingViews1.Item(view_name)
+    drawingView1.FrameVisualization = False
 
-def close_broken_line_block_diagram():
-    pass
-    # drawingView1.FrameVisualization = False
+# 尺寸標註
+def add_dimension_to_view(view_name, item_name, catDimDistance, x_value_1, y_value_1, x_value_2, y_value_2, angle):  # 標註型式, 座標1(X, Y), 座標2(X, Y)
+    catapp = win32.Dispatch('CATIA.Application')
+    drawingdocument = catapp.ActiveDocument
+    drawingsheets = drawingdocument.Sheets
+    drawingsheet = drawingsheets.Item('Sheet.1')
+    drawingviews = drawingsheet.Views
+    drawingview = drawingviews.Item(view_name)  # 圖框名稱
+    drawingview.Activate()  # 選擇圖框
+    factory2d = drawingview.Factory2D
+    Point1 = factory2d.CreatePoint(x_value_1, y_value_1)  # 建點
+    Point2 = factory2d.CreatePoint(x_value_2, y_value_2)
+    iType = catDimDistance  # 標註類型
+    geoelem = [Point1, Point2]  # 選擇標註點
+    geocoordElem = [x_value_1, y_value_1, x_value_2, y_value_2]  # 座標
+    dim = drawingview.Dimensions.Add2(iType, geoelem, geocoordElem, None, angle)  # (標註類型, 選擇標註點, 座標, 參考元素(可空著), 角度)
+    dim.Name = item_name
+    drawingdim = drawingview.Dimensions.Item(dim.Name)
+    if x_value_1 > x_value_2:
+        if x_value_1 >= 0:
+            x_value = x_value_1 + 300
+        else:
+            x_value = x_value_1 - 300
+    else:
+        if x_value_2 >= 0:
+            x_value = x_value_2 + 300
+        else:
+            x_value = x_value_2 - 300
+    if y_value_1 > y_value_2:
+        if y_value_1 >= 0:
+            y_value = y_value_1 + 300
+        else:
+            y_value = y_value_1 - 300
+    else:
+        if y_value_2 >= 0:
+            y_value = y_value_2 + 300
+        else:
+            y_value = y_value_2 - 300
+    drawingdim.MoveValue(x_value, y_value, 2, 0)  # 標註偏移(X, Y, 選擇偏移部位, 角度尺寸)

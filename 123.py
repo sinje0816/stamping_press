@@ -42,9 +42,9 @@ FRAME_10_H = [558, 620.5, 673, 798, 905.5, 1023, 1163, 1320.5, 1530.5, 1740.5]
 FRAME_32_XY = [0, 0, 0, 1722, 1819.5, 1922, 2052, 2294.5, 2504.5, 2794.5]
 
 type = str('SN1-110')
-i = 6
+i = 5
+
 #
-# #
 mprog.switch_window()
 mprog.constaint_value_change(167, 0, 0)
 # --------------------------------------- 生成爆炸圖--------------------------------------------
@@ -56,7 +56,7 @@ mprog.constaint_value_change(201, -84, 1)  # Joint1
 
 # 重新定義拘束尺寸
 BOLSTER1_Offset_value = 1750
-GIB_Offset_value = -3000
+GIB_Offset_value = -3250
 Behide_GIB_Offset_value = GIB_Offset_value - 334.5 - 65 + 109.85
 CLOCK_Offset_value = 2850
 CLOCK_SHAFT_Offset_value = CLOCK_Offset_value - 1350
@@ -108,7 +108,7 @@ draft.change_Drawing_scale(1 / scale)  # 圖面比例
 draft.exploded_Drawing_1(type, drafting_isometric_Coordinate_Position['exploded_1'][0], drafting_isometric_Coordinate_Position['exploded_1'][1], scale)  # 爆炸圖1
 mprog.switch_window()  # 開啟3D圖視窗
 # 還原零件初始位置
-BOLSTER1_Offset_value = 80 - F[i] / 2
+BOLSTER1_Offset_value = -F[i] / 2 + 80
 GIB_Offset_value = 334.5 - 45
 CLOCK_Offset_value = 35
 CLOCK_SHAFT_Offset_value = 45
@@ -208,10 +208,6 @@ CLOCK_Pointer = 3325
 FRAME_TOP_LEFT_X = (R[i] + 90 + 50) * cos45 + 50
 FRAME_TOP_LEFT_X_1 = FRAME_TOP_LEFT_X * sin30 / cos30
 
-
-FRAME_TOP_LEFT_X_Y = H[i] - S[i] - Z[i] - 12  # 因X產生微小高度
-FRAME_TOP_LEFT_Y = FRAME_TOP_LEFT_X * math.sin(math.radians(57.24)) / math.cos(math.radians(57.24)) + 112
-
 scale = 1 / scale
 
 # (將3D圖面尺寸轉換為2D尺寸, 將圖面x座標尺寸轉為R再將R轉為Y)
@@ -248,9 +244,6 @@ draft.balloons('Isometric view1', circle_position['3'][0], circle_position['3'][
 draft.create_center_line('Isometric view1', 0, 0, -CLOCK_Pointer * cos45, -CLOCK_Pointer * cos45 * sin30 / cos30)
 draft.create_center_line('Isometric view1', -BLOSTER1_center_Offset_Value * cos45, -BLOSTER1_center_Offset_Value * cos45 * sin30 / cos30,
                          -BLOSTER1_center_Offset_Value * cos45, -S[i] - Z[i] - T[i])
-draft.create_center_line('Isometric view2', -742.5 * cos45, -742.5 * cos45 * sin30 / cos30, -JOINT_ALL_offset_value * cos45, -JOINT_ALL_offset_value * cos45 * sin30 / cos30 - 50)
+draft.create_center_line('Isometric view2', -742.5 * cos45, -742.5 * cos45 * sin30 / cos30, -JOINT_ALL_offset_value * cos45, -JOINT_ALL_offset_value * cos45 * sin30 / cos30)
 draft.create_center_line('Isometric view2', -742.5 * cos45, -742.5 * cos45 * sin30 / cos30 - 300,
                          -(Fixture_offset_value + B[i]) * cos45, -(Fixture_offset_value + B[i]) * cos45 * sin30 / cos30 - 300)
-
-
-

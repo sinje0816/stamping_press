@@ -948,6 +948,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         cos45 = math.cos(math.radians(45))
         sin30 = math.sin(math.radians(30))
         cos30 = math.cos(math.radians(30))
+        sin60 = math.sin(math.radians(60))
+        cos60 = math.cos(math.radians(60))
+        cos35_267 = math.cos(math.radians(35.267))
+        sin35_267 = math.sin(math.radians(35.267))
 
         BOLSTER1_Offset_value = 1750
         BLOSTER1_center_Offset_Value = 1775
@@ -964,12 +968,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         FRAME_TOP_LEFT_X = (R[i] + 90 + 50) * cos45 + 50
         FRAME_TOP_LEFT_X_1 = FRAME_TOP_LEFT_X * sin30 / cos30
 
-        FRAME_TOP_LEFT_X_Y = H[i] - S[i] - Z[i] - 12  # 因X產生微小高度
-        FRAME_TOP_LEFT_Y = FRAME_TOP_LEFT_X * math.sin(math.radians(57.24)) / math.cos(math.radians(57.24)) + 112
-
         scale = 1 / scale
 
         # (將3D圖面尺寸轉換為2D尺寸, 將圖面x座標尺寸轉為R再將R轉為Y)
+        # 引線點座標
         point_position = {'2': [-CLOCK_Offset_value * cos45,
                                 -CLOCK_Offset_value * cos45 * sin30 / cos30],
                           '3': [(-1250) * cos45,
@@ -980,7 +982,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                                 (-BOLSTER1_Offset_value - R[i]) * cos45 * sin30 / cos30 - S[i] + T[i]],
                           '6': [(GIB_Offset_value - (R[i] + 145) / 2) * cos45,
                                 (GIB_Offset_value - (R[i] + 145) / 2) * cos45 * sin30 / cos30]}
-
+        # 圈圈座標
         circle_position = {
             '2': ['2', point_position['2'][0] - FRAME_TOP_LEFT_X, point_position['2'][1] + FRAME_TOP_LEFT_X_1],
             '3': ['3', point_position['3'][0] - FRAME_TOP_LEFT_X, point_position['3'][1] + FRAME_TOP_LEFT_X_1],
@@ -989,23 +991,43 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                   point_position['5'][0] * 2 * 0.9 * sin30 / cos30 + FRAME_TOP_LEFT_X_1],
             '6': ['6', point_position['6'][0] - FRAME_TOP_LEFT_X, point_position['6'][1] + FRAME_TOP_LEFT_X_1]}
 
-        draft.balloons('Isometric view', circle_position['6'][0], circle_position['6'][1], circle_position['6'][2],
+        draft.balloons('Isometric view1', circle_position['6'][0], circle_position['6'][1], circle_position['6'][2],
                        point_position['6'][0], point_position['6'][1], circle_position['6'][1])
-        draft.balloons('Isometric view', circle_position['2'][0], circle_position['2'][1], circle_position['2'][2],
+        draft.balloons('Isometric view1', circle_position['2'][0], circle_position['2'][1], circle_position['2'][2],
                        point_position['2'][0], point_position['2'][1], circle_position['2'][1])
-        draft.balloons('Isometric view', circle_position['4'][0], circle_position['4'][1], circle_position['4'][2],
+        draft.balloons('Isometric view1', circle_position['4'][0], circle_position['4'][1], circle_position['4'][2],
                        point_position['4'][0], point_position['4'][1], circle_position['4'][1])
-        draft.balloons('Isometric view', circle_position['5'][0], circle_position['5'][1], circle_position['5'][2],
+        draft.balloons('Isometric view1', circle_position['5'][0], circle_position['5'][1], circle_position['5'][2],
                        point_position['5'][0], point_position['5'][1], circle_position['5'][1])
-        draft.balloons('Isometric view', circle_position['3'][0], circle_position['3'][1], circle_position['3'][2],
+        draft.balloons('Isometric view1', circle_position['3'][0], circle_position['3'][1], circle_position['3'][2],
                        point_position['3'][0], point_position['3'][1], circle_position['3'][1])
 
         # ------------中心線-------------
-        draft.create_center_line(0, 0, -CLOCK_Pointer * cos45, -CLOCK_Pointer * cos45 * sin30 / cos30)
-        draft.create_center_line(-BLOSTER1_center_Offset_Value * cos45,
+        draft.create_center_line('Isometric view1', 0, 0, -CLOCK_Pointer * cos45,
+                                 -CLOCK_Pointer * cos45 * sin30 / cos30)
+        draft.create_center_line('Isometric view1', -BLOSTER1_center_Offset_Value * cos45,
                                  -BLOSTER1_center_Offset_Value * cos45 * sin30 / cos30,
                                  -BLOSTER1_center_Offset_Value * cos45, -S[i] - Z[i] - T[i])
-
+        draft.create_center_line('Isometric view2', -742.5 * cos45, -742.5 * cos45 * sin30 / cos30,
+                                 -JOINT_ALL_offset_value * cos45, -JOINT_ALL_offset_value * cos45 * sin30 / cos30)
+        draft.create_center_line('Isometric view2', -742.5 * cos45, -742.5 * cos45 * sin30 / cos30 - 300,
+                                 -(Fixture_offset_value + B[i]) * cos45,
+                                 -(Fixture_offset_value + B[i]) * cos45 * sin30 / cos30 - 300)
+        # ------------尺寸標註線-------------
+        # Left_view = {'H': [0, 0, (H[i] - Z[i] - S[i] - 34), 0, -(S[i] + Z[i]), 90],
+        #              'D': [0, 0, (H[i] - Z[i] - S[i] - 34), -B[i], (H[i] - Z[i] - S[i] - 34) - 110, 0]}
+        #
+        # Left_view_list = []
+        # for key in Left_view:
+        #     Left_view_list.append(key)
+        #
+        # for i in Left_view_list:
+        #     draft.add_dimension_to_view('Left view', str(i), Left_view[i][0], Left_view[i][1], Left_view[i][2],
+        #                                 Left_view[i][3], Left_view[i][4], Left_view[i][5])
+        # -------------關閉虛框---------------
+        view_name = ['Isometric view1', 'Isometric view2', 'Front view', 'Left view', 'Right view']
+        for i in view_name:
+            draft.close_broken_line_block_diagram(i)
 
 if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率
