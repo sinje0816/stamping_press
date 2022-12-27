@@ -26,7 +26,7 @@ def Material_diagram_projection(surface , XLocation , YLocation , x , scale):
     drawingSheets = drawingDocument.Sheets
     drawingSheet = drawingSheets.Item("Sheet.1")
     drawingViews1 = drawingSheet.Views
-    drawingView1 = drawingViews1.Add("AutomaticNaming")
+    drawingView1 = drawingViews1.Add(x)
     drawingViewGenerativeLinks1 = drawingView1.GenerativeLinks
     drawingViewGenerativeBehavior1 = drawingView1.GenerativeBehavior
     documents1 = catapp.Documents
@@ -38,7 +38,7 @@ def Material_diagram_projection(surface , XLocation , YLocation , x , scale):
                                                            , projection[U[surface]][4], projection[U[surface]][5])
     drawingView1.X = XLocation
     drawingView1.Y = YLocation
-    drawingView1.Scale =scale
+    drawingView1.Scale = scale
     drawingViewGenerativeBehavior1 = drawingView1.GenerativeBehavior
     drawingViewGenerativeBehavior1.Update()
     drawingView1.Activate()
@@ -50,10 +50,10 @@ def Material_diagram_projection(surface , XLocation , YLocation , x , scale):
     # selection.Add(drawingtext1)
     # selection.Delete()
     # selection.Clear()
-    # drawingView1.FrameVisualization = False
+    drawingView1.FrameVisualization = False
 
 
-def circle_code(view , point_positionX, point_positionY):
+def Material_diagram_balloons(view , name , XLocation , YLocation):
     catapp = win32.Dispatch("CATIA.Application")
     partdoc = catapp.ActiveDocument
     catapp = win32.Dispatch('CATIA.Application')
@@ -64,17 +64,19 @@ def circle_code(view , point_positionX, point_positionY):
     drawingview = drawingviews.Item(view)
     drawingview.Activate()
     DrawTexts_balloons = drawingview.Texts
-    DrawText = DrawTexts_balloons.Add
+    DrawText = DrawTexts_balloons.Add(name, XLocation , YLocation)
     DrawText.SetFontName(0, 0, 'Arial Unicode MS (TrueType)')
     DrawText.SetFontSize(0, 0, 10)  # 調整字體位置和大小(x, y, 字體大小)
-    DrawLeader_DrawTexts_balloons = DrawText.Leaders.Add(point_positionX, point_positionY)  # 圓點位置
+    # DrawLeader_DrawTexts_balloons = DrawText.Leaders.Add(point_positionX, point_positionY)  # 圓點位置
     DrawText.FrameType = 3  # 圓類型
+    DrawText.x = XLocation
+    # DrawText.y = YLocation
     # DrawText.DeactivateFrame(3)
     # DrawText.Deactivates = 1
     # DrawText.Blanking(0)
-    DrawLeader_DrawTexts_balloons.AllAround = 0
-    DrawLeader_DrawTexts_balloons.ModifyPoint(0, leader_line_length, 0)  # 選擇引線點 -> (0, 1, 2)並調整座標位置
-    DrawLeader_DrawTexts_balloons.HeadSymbol = 20  # 引號標點類型
+    # DrawLeader_DrawTexts_balloons.AllAround = 0
+    # DrawLeader_DrawTexts_balloons.ModifyPoint(0, leader_line_length, 0)  # 選擇引線點 -> (0, 1, 2)並調整座標位置
+    # DrawLeader_DrawTexts_balloons.HeadSymbol = 20  # 引號標點類型
     # DrawText.StandardBehavior = 1
     # MyViewGenBehavior = MyView.GenerativeBehavior
 

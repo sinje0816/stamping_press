@@ -67,6 +67,7 @@ U = ["front view" , "Rear view" , "top view" , "bottom view" , "Left view" , "ri
      "top view(Y inverse)" , 'bottom view(right horizontal)' , 'right view(left horizontal)','Rear view(left horizontal)',
      'top view(right horizontal)' , 'top view(180 degree)' , 'bottom view(left horizontal)']
 #圖框範圍
+circle_gap = 400
 ALL_range = []
 gap = 5
 drafting_min_Y = 44
@@ -81,15 +82,30 @@ box_1_Ymin = 25
 box_width_gap = 80+2*gap#虛擬方框一的寬度間隙
 box_heigth_gap = 150+2*gap#虛擬方框一的高度間隙
 
-
 def test(i, l):
     scale, box_1_center , box_1_range = DT.scale_Adjustment(5, 1)
     scale = 1 / 4
     ALL_range , scale = DT.drafting_parameter_calculation(5, 1 , scale , box_1_range)#ALL_range = [方寬編號[Xmax , Xmin , Ymax , Ymin]]
-    projection_file_name_list = ['FRAME1' , 'FRAME2' ,'FRAME30', 'FRAME44', 'FRAME41', 'FRAME34', 'FRAME9', 'FRAME45', 'FRAME43', 'FRAME7',
-                                 'MAIN_GEAR2', 'FRAME32' , 'FRAME47' , 'FRAME23' , 'FRAME31', 'FRAME24', 'FRAME38' , 'FRAME11', 'FRAME39', 'FRAME17',
-                                 'FRAME3', 'FRAME13' , 'FRAME14', 'FRAME22',
-                                 'FRAME37', 'FRAME8', 'FRAME29', 'FRAME20', 'FRAME33' , 'FRAME48' , 'FRAME49']
+    # projection_file_name_list = ['FRAME1' , 'FRAME2' ,'FRAME30', 'FRAME44', 'FRAME41', 'FRAME34', 'FRAME9', 'FRAME45', 'FRAME43', 'FRAME7',
+    #                              'MAIN_GEAR2', 'FRAME32' , 'FRAME47' , 'FRAME23' , 'FRAME31', 'FRAME24', 'FRAME38' , 'FRAME11', 'FRAME39', 'FRAME17',
+    #                              'FRAME3', 'FRAME13' , 'FRAME14', 'FRAME22',
+    #                              'FRAME37', 'FRAME8', 'FRAME29', 'FRAME20', 'FRAME33' , 'FRAME48' , 'FRAME49']
+    projection_file_name_list = ['FRAME1' , 'FRAME2' , 'FRAME30' , 'FRAME44' , 'FRAME41' , 'FRAME34' , 'FRAME9' , 'FRAME45' , 'FRAME43' , 'FRAME7',
+                                 'MAIN_GEAR2' , 'FRAME32']
+    part_circle_position = {
+        '1': ['1' , -B[i] / 2 , H[i] / 2 + circle_gap],
+        '2': ['2' , -B[i] / 2 , H[i] / 2 + circle_gap],
+        '3': ['3' , -(R[i]+180) / 2 , FRAME44_height[i] / 2 + circle_gap],
+        '4': ['4' , -(R[i]+180) / 2 , FRAME44_height[i] / 2 + circle_gap],
+        '5': ['5' , -(R[i]+180) / 2 , FRAME_41_depth[i] / 2 + circle_gap],
+        '6': ['6' , -182 / 2 , 80 / 2 + circle_gap],
+        '7': ['7' , -(R[i]+180) / 2 , 50 / 2 +circle_gap],
+        '8': ['8' , -R[i] / 2 , 476 / 2 + circle_gap],
+        '9': ['8-1' , -R[i] / 2 , 150 / 2 + circle_gap],
+        '10': ['10' , -FRAME_7_width[i] / 2 , 300 / 2 + circle_gap],
+        '11': ['11' , -125 / 2 , 270 / 2 + circle_gap],
+        '12': ['12' , -R[i] / 2 , 429 / 2 + circle_gap],
+    }
     for x in projection_file_name_list:
         mprog.import_part("C:\\Users\\USER\\Desktop\\stamping_press", x)
         if l == 1:
@@ -102,6 +118,7 @@ def test(i, l):
                 Y2 = (ALL_range[0][2]+ALL_range[0][3])*3/4#第二個投影Y中心(Y中心為將Y範圍分成兩塊之上半部中心)
                 N.Material_diagram_projection(p, X1, Y1 , x , scale)
                 N.Material_diagram_projection(p2, X2, Y2 , x, scale)
+                N.Material_diagram_balloons(x , part_circle_position['1'][0] , part_circle_position['1'][1] , part_circle_position['1'][2])
             elif x == 'FRAME2':
                 p = 4#左視圖投影
                 p2 = 5#右視圖投影
@@ -111,6 +128,8 @@ def test(i, l):
                 Y2 = (ALL_range[0][2]+ALL_range[0][3])/4#第二個投影Y中心(Y中心為將Y範圍分成兩塊之上半部中心)
                 N.Material_diagram_projection(p, X1, Y1 , x, scale)
                 N.Material_diagram_projection(p2, X2, Y2 , x, scale)
+                N.Material_diagram_balloons(x, part_circle_position['2'][0], part_circle_position['2'][1],
+                                            part_circle_position['2'][2])
             elif x == 'FRAME30':
                 p = 0#前視圖投影
                 p2 = 5#右視圖投影
@@ -124,6 +143,8 @@ def test(i, l):
                 N.Material_diagram_projection(p, X1, Y1 , x, scale)
                 N.Material_diagram_projection(p2, X2, Y2 , x, scale)
                 N.Material_diagram_projection(p3, X3, Y3 , x, scale)
+                N.Material_diagram_balloons(x, part_circle_position['3'][0], part_circle_position['3'][1],
+                                            part_circle_position['3'][2])
             elif x == 'FRAME44':
                 p = 0#前視圖投影
                 p2 = 3#下視圖投影
@@ -133,6 +154,9 @@ def test(i, l):
                 Y2 = ALL_range[2][3] + 40*(scale)/2 + gap#box_3_Ymin+FRAME44厚度一半-間隙
                 N.Material_diagram_projection(p, X1, Y1, x, scale)
                 N.Material_diagram_projection(p2, X2, Y2, x, scale)
+                N.Material_diagram_balloons(x, part_circle_position['4'][0], part_circle_position['4'][1],
+                                            part_circle_position['4'][2])
+
             elif x == 'FRAME41':
                 p = 6#上視圖(左轉向)投影
                 p2 = 5#右視圖投影
@@ -142,19 +166,23 @@ def test(i, l):
                 Y2 = ALL_range[3][3] + 22 * (scale) / 2 + gap#box_3_Yin+FRAME41厚度一半-間隙
                 N.Material_diagram_projection(p, X1, Y1, x, scale)
                 N.Material_diagram_projection(p2, X2, Y2, x, scale)
+                N.Material_diagram_balloons(x, part_circle_position['5'][0], part_circle_position['5'][1],
+                                            part_circle_position['5'][2])
             elif x == 'FRAME34':
-                p = 1#後視圖投影
-                p2 = 5#右視圖投影
+                p2 = 1#後視圖投影
+                p = 5#右視圖投影
                 p3 = 7#下視圖翻轉180度投影
-                X1 = ALL_range[4][0] - 182 * scale / 2 - gap#box_5_Xmax-FRAME34寬度一半-間隙
-                X2 = ALL_range[4][1] + 40 * scale / 2 + gap#box_5_Xmin+FRAME34厚度一半+間隙
+                X2 = ALL_range[4][0] - 182 * scale / 2 - gap#box_5_Xmax-FRAME34寬度一半-間隙
+                X1 = ALL_range[4][1] + 40 * scale / 2 + gap#box_5_Xmin+FRAME34厚度一半+間隙
                 X3 = ALL_range[4][0] - 182 * scale / 2 - gap#box_5_Xmax-FRAME34寬度一半-間隙
-                Y1 = ALL_range[4][2] - 80 * scale / 2 - gap#box_5_Ymax-FRAME34深度一半-間隙
                 Y2 = ALL_range[4][2] - 80 * scale / 2 - gap#box_5_Ymax-FRAME34深度一半-間隙
+                Y1 = ALL_range[4][2] - 80 * scale / 2 - gap#box_5_Ymax-FRAME34深度一半-間隙
                 Y3 = ALL_range[4][3] + 40 * scale / 2 + gap#box_5_Ymax+FRAME34厚度一半+間隙
                 N.Material_diagram_projection(p, X1, Y1, x, scale)
                 N.Material_diagram_projection(p2, X2, Y2, x, scale)
                 N.Material_diagram_projection(p3, X3, Y3, x, scale)
+                N.Material_diagram_balloons(x, part_circle_position['6'][0], part_circle_position['6'][1],
+                                            part_circle_position['6'][2])
             elif x == 'FRAME9':
                 p = 2#上視圖投影
                 p2 = 0#前視圖投影
@@ -164,6 +192,8 @@ def test(i, l):
                 Y2 = ALL_range[5][3] + (Z[i] - T[i] - 40) * scale / 2 + gap#box_6_Ymin+FRAME9高度一半+間隙
                 N.Material_diagram_projection(p, X1, Y1, x, scale)
                 N.Material_diagram_projection(p2, X2, Y2, x, scale)
+                N.Material_diagram_balloons(x, part_circle_position['7'][0], part_circle_position['7'][1],
+                                            part_circle_position['7'][2])
             elif x =='FRAME45':
                 p = 2#上視圖投影
                 p2 = 9#右側視圖(左旋轉)投影
@@ -173,21 +203,29 @@ def test(i, l):
                 Y2 = ALL_range[6][2] - 476 * scale / 2 - gap  # box_7_Ymax-FRAME45深度一半-間隙
                 N.Material_diagram_projection(p, X1, Y1, x, scale)
                 N.Material_diagram_projection(p2, X2, Y2, x, scale)
+                N.Material_diagram_balloons(x, part_circle_position['8'][0], part_circle_position['8'][1],
+                                            part_circle_position['8'][2])
             elif x == 'FRAME43':
                 p = 0#前視圖投影
                 X1 = ALL_range[7][1] + R[i] * scale / 2 + gap#box_8_Xmin+FRAME43寬度一半+間隙
                 Y1 = ALL_range[7][2] - 150 * scale / 2 - gap#box_8_Ymax-FRAME45深度一半-間隙
                 N.Material_diagram_projection(p, X1, Y1, x, scale)
+                N.Material_diagram_balloons(x, part_circle_position['9'][0], part_circle_position['9'][1],
+                                            part_circle_position['9'][2])
             elif x == 'FRAME7':
                 p = 8#下視圖(右旋)投影
                 X1 = ALL_range[8][1] + FRAME_7_width[i] * scale / 2 + gap#box_9_Xmin+FRAME7寬度一半+間隙
                 Y1 = ALL_range[8][2] - 300 * scale / 2 - gap#box_9_Ymax-FRAME7深度一半-間隙
                 N.Material_diagram_projection(p, X1, Y1, x, scale)
+                N.Material_diagram_balloons(x, part_circle_position['10'][0], part_circle_position['10'][1],
+                                            part_circle_position['10'][2])
             elif x == 'MAIN_GEAR2':
                 p = 5#右視圖投影
                 X1 = ALL_range[9][1] + 125 * scale / 2 + gap#box_10_Xmin+MAIN_GEAR2深度一半+間隙
                 Y1 = ALL_range[9][2] - 270 * scale / 2 - gap#box_10_Ymax-MAIN_GEAR2高度一半-間隙
                 N.Material_diagram_projection(p, X1, Y1, x, scale)
+                N.Material_diagram_balloons(x, part_circle_position['11'][0], part_circle_position['11'][1],
+                                            part_circle_position['11'][2])
             elif x == 'FRAME32':
                 p = 6#上視圖(左旋)投影
                 p2 = 10#背視圖(左旋)投影
@@ -197,6 +235,8 @@ def test(i, l):
                 Y2 = ALL_range[10][2] - 429 * scale / 2 - gap  # box_11_Ymax-FRAME深度一半-間隙
                 N.Material_diagram_projection(p, X1, Y1, x, scale)
                 N.Material_diagram_projection(p2, X2, Y2, x, scale)
+                N.Material_diagram_balloons(x, part_circle_position['12'][0], part_circle_position['12'][1],
+                                            part_circle_position['12'][2])
             elif x == 'FRAME47':
                 p = 6#上視圖(左旋)投影
                 p2 = 1#背視圖投影
@@ -373,6 +413,8 @@ def test(i, l):
                 Y2 = ALL_range[29][2] - 30 * scale / 2 - gap  # box_30_Ymax-FRAME49高度一半-間隙
                 N.Material_diagram_projection(p, X1, Y1, x, scale)
                 N.Material_diagram_projection(p2, X2, Y2, x, scale)
+            else :
+                break
         elif l == 0:
             if x == 'FRAME1':
                 p = 4  # 左視圖投影
@@ -656,7 +698,10 @@ def test(i, l):
                 Y2 = ALL_range[29][2] - 30 * scale / 2 - gap  # box_30_Ymax-FRAME49高度一半-間隙
                 N.Material_diagram_projection(p, X1, Y1, x, scale)
                 N.Material_diagram_projection(p2, X2, Y2, x, scale)
+            else :
+                break
 
-mprog.set_CATIA_workbench_env()
+# mprog.set_CATIA_workbench_env()
 mprog.OPEN_Drawing()
 test(5 , 1)
+# N.Material_diagram_balloons('FRAME1' , -200 , (A[5]/2+45)*15)
