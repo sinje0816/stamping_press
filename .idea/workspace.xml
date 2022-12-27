@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="修改爆炸圖偏移二變數&#10;新增更改視圖名稱">
+      <change beforePath="$PROJECT_DIR$/.idea/Stamping press.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Stamping press.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_11_23__01_50__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_11_23__01_50__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123.py" beforeDir="false" afterPath="$PROJECT_DIR$/123.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/main_GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/main_GUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/TEST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drafting.py" beforeDir="false" afterPath="$PROJECT_DIR$/drafting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/N1.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/N1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/N_Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/N_Test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/drafting_test_calculate.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/drafting_test_calculate.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +49,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.TEST">
     <configuration name="123" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
