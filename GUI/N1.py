@@ -5,7 +5,7 @@ import main_program as mprog
 import win32com.client as win32
 import N_Test as N
 import drafting_tesst2 as DT
-
+import drafting as D
 
 # 電子型錄規格
 A = [720, 830, 890, 940, 1050, 1160, 1300, 1480, 1560, 1760]
@@ -85,10 +85,11 @@ box_heigth_gap = 150+2*gap#虛擬方框一的高度間隙
 def test(i, l):
     scale, box_1_center , box_1_range = DT.scale_Adjustment(i, l)
     ALL_range , scale = DT.drafting_parameter_calculation(i, l , scale , box_1_range)#ALL_range = [方寬編號[Xmax , Xmin , Ymax , Ymin]]
-    projection_file_name_list = ['FRAME1' , 'FRAME2' ,'FRAME30', 'FRAME44', 'FRAME41', 'FRAME34', 'FRAME9', 'FRAME45', 'FRAME43', 'FRAME7',
-                                 'MAIN_GEAR2', 'FRAME32' , 'FRAME47' , 'FRAME23' , 'FRAME31', 'FRAME24', 'FRAME38' , 'FRAME11', 'FRAME39', 'FRAME17',
-                                 'FRAME3', 'FRAME13' , 'FRAME14', 'FRAME22',
-                                 'FRAME37', 'FRAME8', 'FRAME29', 'FRAME20', 'FRAME33' , 'FRAME48' , 'FRAME49']
+    # projection_file_name_list = ['FRAME1' , 'FRAME2' ,'FRAME30', 'FRAME44', 'FRAME41', 'FRAME34', 'FRAME9', 'FRAME45', 'FRAME43', 'FRAME7',
+    #                              'MAIN_GEAR2', 'FRAME32' , 'FRAME47' , 'FRAME23' , 'FRAME31', 'FRAME24', 'FRAME38' , 'FRAME11', 'FRAME39', 'FRAME17',
+    #                              'FRAME3', 'FRAME13' , 'FRAME14', 'FRAME22',
+    #                              'FRAME37', 'FRAME8', 'FRAME29', 'FRAME20', 'FRAME33' , 'FRAME48' , 'FRAME49']
+    projection_file_name_list = ['FRAME1']
     part_circle_position = {
         '1': ['1' , -B[i] / 2 , H[i] / 2 + circle_gap],
         '2': ['2' , -B[i] / 2 , H[i] / 2 + circle_gap],
@@ -176,6 +177,8 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x , part_circle_position['1'][0] , part_circle_position['1'][1] , part_circle_position['1'][2] , '1')
+                D.add_dimension_to_view('FRAME1_1' , '1' , 0 , B[i] / 2 , (H[i] - 80) / 2 , B[i] / 2 , -(H[i] - 80) / 2 , 90)
+                D.add_dimension_to_view('FRAME1_1', '2', 0, -B[i] / 2, -(H[i] - 80) / 2, B[i] / 2, -(H[i] - 80) / 2, 0)
             elif x == 'FRAME2':
                 p = 4#左視圖投影
                 p2 = 5#右視圖投影
@@ -1105,4 +1108,3 @@ def test(i, l):
 mprog.set_CATIA_workbench_env()
 mprog.OPEN_Drawing()
 test(5 , 1)
-# N.Material_diagram_balloons('FRAME1' , -200 , (A[5]/2+45)*15)

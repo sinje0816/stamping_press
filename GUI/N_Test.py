@@ -31,6 +31,7 @@ def Material_diagram_projection(surface , XLocation , YLocation , x , scale , pa
     drawingViewGenerativeBehavior1 = drawingView1.GenerativeBehavior
     documents1 = catapp.Documents
     partDocument1 = documents1.Item(x + ".CATPart")
+    # partDocument1 = documents1.Item('FRAME1' + ".CATPart")
     product1 = partDocument1.GetItem(x)
     drawingViewGenerativeBehavior1.Document = product1
     drawingViewGenerativeBehavior1.DefineFrontView(projection[U[surface]][0], projection[U[surface]][1]
@@ -42,7 +43,8 @@ def Material_diagram_projection(surface , XLocation , YLocation , x , scale , pa
     drawingViewGenerativeBehavior1 = drawingView1.GenerativeBehavior
     drawingViewGenerativeBehavior1.Update()
     drawingView1.Activate()
-    # drawingview2 = drawingViews1.Item('Front view')
+    # print(x + "_" + part_view_number)
+    # drawingview2 = drawingViews1.Item(x + "_" + part_view_number)
     # drawingtexts1 = drawingview2.Texts
     # drawingtext1 = drawingtexts1.Item(1)
     # # drawingtexts1 = drawingtext1.Parent
@@ -50,6 +52,17 @@ def Material_diagram_projection(surface , XLocation , YLocation , x , scale , pa
     # selection.Add(drawingtext1)
     # selection.Delete()
     # selection.Clear()
+    # --
+    drawingview1 =  drawingViews1.Item(x + "_" + part_view_number)
+    # drawingview1 =  drawingViews1.Item('FRAME1_1')
+    drawingtexts1 = drawingview1.Texts
+    drawingtext1 = drawingtexts1.Item(1)
+    drawingtexts1 = drawingtext1.Parent
+    selection = partDocument1.Selection
+    selection.Clear()
+    selection.Add(drawingtext1)
+    selection.Delete()
+    selection.Clear()
     drawingView1.FrameVisualization = False
 
 
