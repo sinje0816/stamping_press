@@ -18,7 +18,7 @@ U = ["front view" , "Rear view" , "top view" , "bottom view" , "Left view" , "ri
 
 
 
-def Material_diagram_projection(surface , XLocation , YLocation , x , scale):
+def Material_diagram_projection(surface , XLocation , YLocation , x , scale , part_view_number):
     catapp = win32.Dispatch('CATIA.Application')
     ActWin = catapp.Windows.item("Drawing1.CATDrawing")
     ActWin.Activate()
@@ -26,7 +26,7 @@ def Material_diagram_projection(surface , XLocation , YLocation , x , scale):
     drawingSheets = drawingDocument.Sheets
     drawingSheet = drawingSheets.Item("Sheet.1")
     drawingViews1 = drawingSheet.Views
-    drawingView1 = drawingViews1.Add(x)
+    drawingView1 = drawingViews1.Add(x + "_" + part_view_number)
     drawingViewGenerativeLinks1 = drawingView1.GenerativeLinks
     drawingViewGenerativeBehavior1 = drawingView1.GenerativeBehavior
     documents1 = catapp.Documents
@@ -53,7 +53,7 @@ def Material_diagram_projection(surface , XLocation , YLocation , x , scale):
     drawingView1.FrameVisualization = False
 
 
-def Material_diagram_balloons(view , name , XLocation , YLocation):
+def Material_diagram_balloons(view , name , XLocation , YLocation , part_view_number):
     catapp = win32.Dispatch("CATIA.Application")
     partdoc = catapp.ActiveDocument
     catapp = win32.Dispatch('CATIA.Application')
@@ -61,7 +61,7 @@ def Material_diagram_balloons(view , name , XLocation , YLocation):
     drawingsheets = drawingdocument.Sheets
     drawingsheet = drawingsheets.Item('Sheet.1')
     drawingviews = drawingsheet.Views
-    drawingview = drawingviews.Item(view)
+    drawingview = drawingviews.Item(view + "_" + part_view_number)
     drawingview.Activate()
     DrawTexts_balloons = drawingview.Texts
     DrawText = DrawTexts_balloons.Add(name, XLocation , YLocation)
