@@ -303,7 +303,7 @@ def axis_system():#開啟座標軸
     Hybridbodys = Part.HybridBodies
     Part.Update()
 
-def scaling(X):  # 等比例縮小
+def scaling(X):  # 零件等比例縮小
     catapp = win32.Dispatch('CATIA.Application')
     partDocument = catapp.ActiveDocument
     part = partDocument.Part

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="N1及drafting_test更新">
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;TEST.py&#10;#&#9;drafting.py">
+      <change afterPath="$PROJECT_DIR$/TEST_BOM.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/N1.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/N1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/N_Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/N_Test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/main_GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/main_GUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/TEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_program.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_program.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +49,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.N1">
+  <component name="RunManager" selected="Python.TEST_BOM">
     <configuration name="123" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Stamping press" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -132,7 +134,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="drafting (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="TEST_BOM" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Stamping press" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -144,7 +146,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/drafting.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TEST_BOM.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -155,11 +157,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.TEST_BOM" />
         <item itemvalue="Python.N1" />
         <item itemvalue="Python.N_Test" />
         <item itemvalue="Python.TEST" />
         <item itemvalue="Python.123" />
-        <item itemvalue="Python.drafting (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -171,13 +173,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668131959961</updated>
-    </task>
-    <task id="LOCAL-00003" summary="註:新增機架組立">
-      <created>1668347727461</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1668347727461</updated>
     </task>
     <task id="LOCAL-00004" summary="註:新增機架組立">
       <created>1668414377521</created>
@@ -515,7 +510,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672153488883</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="N1及N_test圈馬程式更新">
+      <created>1672236353047</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1672236353047</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -531,7 +533,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="新增:變數與結合判斷式" />
     <MESSAGE value="修改部分YZ尺寸距離" />
     <MESSAGE value="80~250噸數OK" />
     <MESSAGE value="修改結合尺寸與判斷式" />
@@ -556,17 +557,35 @@
     <MESSAGE value="完成零件6圈碼圖建立" />
     <MESSAGE value="修改爆炸圖偏移二變數&#10;新增更改視圖名稱" />
     <MESSAGE value="N1及drafting_test更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="N1及drafting_test更新" />
+    <MESSAGE value="N1及N_test圈馬程式更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="N1及N_test圈馬程式更新" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/N_Test.py</url>
-          <line>26</line>
-          <option name="timeStamp" value="2" />
+          <line>58</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI/N_Test.py</url>
+          <line>60</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI/N_Test.py</url>
+          <line>61</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
 </project>

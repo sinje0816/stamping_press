@@ -46,7 +46,8 @@ i = 5
 # drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale = draft.drafting_parameter_calculation(A[i],
 #                                                                                                                    B[i],
 #                                                                                                                    H[i],
-#                                                                                                                    E[i])                                                                                                                T[i])
+#                                                                                                                    E[i])
+#                                                                                                                    T[i])
 #
 # sin45 = math.sin(math.radians(45))
 # cos45 = math.cos(math.radians(45))
@@ -806,18 +807,38 @@ sin35_267 = math.sin(math.radians(35.267))
 # # (R[i] + 90) * cos45, H[i] - Z[i] - S[i] - 34, (R[i] + 90) * cos45, -S[i] - Z[i]
 
 
-Left_view = {'H': [0, 0, (H[i] - Z[i] - S[i] - 34), 0, -(S[i] + Z[i]), 90],
-             'D': [0, 0, (H[i] - Z[i] - S[i] - 34), -B[i], (H[i] - Z[i] - S[i] - 34) - 110, 0]}
+# Left_view = {'H': [0, 0, (H[i] - Z[i] - S[i] - 34), 0, -(S[i] + Z[i]), 90],
+#              'D': [0, 0, (H[i] - Z[i] - S[i] - 34), -B[i], (H[i] - Z[i] - S[i] - 34) - 110, 0]}
+#
+# Left_view_list = []
+# for key in Left_view:
+#     Left_view_list.append(key)
+# print(Left_view_list)
+#
+# for i in Left_view_list:
+#     print(Left_view[i][0])
+#     draft.add_dimension_to_view('Left view', str(i), Left_view[i][0], Left_view[i][1], Left_view[i][2], Left_view[i][3], Left_view[i][4], Left_view[i][5])
+#
+# view_name = ['Isometric view1', 'Isometric view2', 'Front view', 'Left view', 'Right view']
+# for i in view_name:
+#     draft.close_broken_line_block_diagram(i)
 
-Left_view_list = []
-for key in Left_view:
-    Left_view_list.append(key)
-print(Left_view_list)
+# mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', 29, 'XY.PLANE', 1, 217)
+# mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', 35, 'XZ.PLANE', 0, 218)
+# mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', -99.35, 'YZ.PLANE', 1, 219)
+# mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', 29, 'XY.PLANE', 0, 220)
+# mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', -35, 'XZ.PLANE', 1, 221)
+# mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', 099.35, 'YZ.PLANE', 0, 222)
+file_Assembly_name_list = ['BOLSTER1', 'BOLSTER2', 'BOLSTER3', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3',
+                                   'FRAME4', 'FRAME5', 'FRAME6', 'FRAME7', 'FRAME8', 'FRAME9', 'FRAME10', 'FRAME11',
+                                   'FRAME12', 'FRAME13', 'FRAME14', 'FRAME15', 'FRAME16', 'FRAME17', 'FRAME18',
+                                   'FRAME19', 'FRAME20', 'FRAME21', 'FRAME22', 'FRAME23', 'FRAME24', 'FRAME25',
+                                   'FRAME26', 'FRAME27', 'FRAME28', 'FRAME29', 'FRAME30', 'FRAME31', 'FRAME31',
+                                   'FRAME31', 'FRAME31', 'FRAME32', 'FRAME33', 'FRAME34', 'FRAME34', 'FRAME35',
+                                   'FRAME36', 'FRAME36', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME38',
+                                   'FRAME39', 'FRAME40', 'FRAME41', 'FRAME42', 'FRAME43', 'FRAME44', 'FRAME45',
+                                   'FRAME46', 'FRAME47', 'GIB1', 'GIB2', 'BALANCER_LEFT_All', 'BALANCER_RIGHT_ALL',
+                                   'CRANK_SHAFT_CLOCK', 'CLUCTH_ASSEMBLY_All', 'SLIDE_UNIT_ALL', 'CRANK_SHAFT',
+                                   'JOINT_All', 'MAIN_GEAR1', 'MAIN_GEAR2', 'MAIN_GEAR3', 'MAIN_GEAR4', 'JOINT1']
+# print(len(file_Assembly_name_list))
 
-for i in Left_view_list:
-    print(Left_view[i][0])
-    draft.add_dimension_to_view('Left view', str(i), Left_view[i][0], Left_view[i][1], Left_view[i][2], Left_view[i][3], Left_view[i][4], Left_view[i][5])
-
-view_name = ['Isometric view1', 'Isometric view2', 'Front view', 'Left view', 'Right view']
-for i in view_name:
-    draft.close_broken_line_block_diagram(i)

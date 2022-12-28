@@ -3,6 +3,7 @@ import sys, datetime, os, math
 from GUI import Ui_Dialog
 import main_program as mprog
 import drafting as draft
+import TEST_BOM as BOM
 
 change = ()
 height = ()
@@ -208,124 +209,124 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                           'FRAME37', 'FRAME38', 'FRAME39', 'FRAME40', 'FRAME41', 'FRAME42', 'FRAME43', 'FRAME44',
                           'FRAME45', 'FRAME46', 'GIB1', 'GIB2', 'BALANCER_LEFT_All', 'BALANCER_RIGHT_ALL', 'CRANK_SHAFT_CLOCK',
                           'CLUCTH_ASSEMBLY_All', 'SLIDE_UNIT_All', 'CRANK_SHAFT', 'JOINT_All', 'MAIN_GEAR1',
-                          'MAIN_GEAR2', 'MAIN_GEAR3', 'MAIN_GEAR4', 'JOINT1']
+                          'MAIN_GEAR2', 'MAIN_GEAR3', 'MAIN_GEAR4', 'JOINT1', 'FRAME47']
 
         # 開啟零件檔更改變數後儲存並關閉
-        for y in file_name_list:
-            # print('save' + str(y))
-            mprog.import_part("C:\\Users\\USER\\Desktop\\stamping_press", y)
-            # print('open' + str(y))
+        for name in file_name_list:
+            # print('save' + str(name))
+            mprog.import_part("C:\\Users\\USER\\Desktop\\stamping_press", name)
+            # print('open' + str(name))
             if i == 4:
-                if y == 'SLIDE_UNIT_All':
+                if name == 'SLIDE_UNIT_All':
                     mprog.axis_system()
                     mprog.scaling(0.8)
                     if l == 0:
-                        mprog.param_change(y, 'P', P_15[i])
+                        mprog.param_change(name, 'P', P_15[i])
                     else:
-                        mprog.param_change(y, 'P', P[i])
-                    mprog.save_file_part(path, y)
-                elif y == 'BALANCER_LEFT_All' or y == 'BALANCER_RIGHT_ALL':
+                        mprog.param_change(name, 'P', P[i])
+                    mprog.save_file_part(path, name)
+                elif name == 'BALANCER_LEFT_All' or name == 'BALANCER_RIGHT_ALL':
                     mprog.axis_system()
                     mprog.scaling(0.7)
-                    mprog.save_file_part(path, y)
-                elif y == 'GIB1' or y == 'GIB2':
+                    mprog.save_file_part(path, name)
+                elif name == 'GIB1' or name == 'GIB2':
                     mprog.axis_system()
                     mprog.scaling(0.9)
-                    mprog.save_file_part(path, y)
+                    mprog.save_file_part(path, name)
                 else:
                     if l == 0:
-                        if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
-                            mprog.param_change(y, 'B', B_15[i])
-                            mprog.save_file_part(path, y)
-                        elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29' or y == 'FRAME42' or y == 'FRAME43' or y == 'FRAME45':  # 更改零件變數R
-                            mprog.param_change(y, 'R', R_15[i])
-                            mprog.save_file_part(path, y)
-                        elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
-                            mprog.param_change(y, 'E', E_15[i])
-                            if y == 'BOLSTER1':
-                                mprog.param_change('BOLSTER1', "hole_type", hole_type[j])
-                            mprog.save_file_part(path, y)
-                        elif y == 'FRAME29' or y == 'FRAME8' or y == 'FRAME5' or y == 'FRAME6' or y == 'FRAME7':  # 更改零件變數A
-                            mprog.param_change(y, 'A', A_15[i])
-                            mprog.save_file_part(path, y)
-                        elif y == 'SLIDE_UNIT_All':  # 更改零件變數P
-                            mprog.param_change(y, 'P', P_15[i])
-                            mprog.save_file_part(path, y)
-                        elif y == 'BOLSTER3' or y == 'BOLSTER2':  # 更改零件變數Q
-                            mprog.param_change(y, 'Q', Q_15[i])
-                            mprog.save_file_part(path, y)
+                        if name == 'FRAME1' or name == 'FRAME2':  # 更改零件變數B
+                            mprog.param_change(name, 'B', B_15[i])
+                            mprog.save_file_part(path, name)
+                        elif name == 'FRAME3' or name == 'FRAME4' or name == 'FRAME9' or name == 'FRAME32' or name == 'FRAME41' or name == 'FRAME43' or name == 'FRAME20' or name == 'FRAME30' or name == 'FRAME29' or name == 'FRAME42' or name == 'FRAME43' or name == 'FRAME45':  # 更改零件變數R
+                            mprog.param_change(name, 'R', R_15[i])
+                            mprog.save_file_part(path, name)
+                        elif name == 'FRAME10' or name == 'FRAME11' or name == 'FRAME12' or name == 'FRAME13' or name == 'BOLSTER1':  # 更改零件變數E
+                            mprog.param_change(name, 'E', E_15[i])
+                            if name == 'BOLSTER1':
+                                mprog.param_change('BOLSTER1', "hole_tnamepe", hole_type[j])
+                            mprog.save_file_part(path, name)
+                        elif name == 'FRAME29' or name == 'FRAME8' or name == 'FRAME5' or name == 'FRAME6' or name == 'FRAME7':  # 更改零件變數A
+                            mprog.param_change(name, 'A', A_15[i])
+                            mprog.save_file_part(path, name)
+                        elif name == 'SLIDE_UNIT_All':  # 更改零件變數P
+                            mprog.param_change(name, 'P', P_15[i])
+                            mprog.save_file_part(path, name)
+                        elif name == 'BOLSTER3' or name == 'BOLSTER2':  # 更改零件變數Q
+                            mprog.param_change(name, 'Q', Q_15[i])
+                            mprog.save_file_part(path, name)
                         else:
-                            mprog.save_file_part(path, y)
+                            mprog.save_file_part(path, name)
                     else:
-                        if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
-                            mprog.param_change(y, 'B', B[i])
-                            mprog.save_file_part(path, y)
-                        elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29' or y == 'FRAME42' or y == 'FRAME42' or y == 'FRAME43' or y == 'FRAME45':  # 更改零件變數R
-                            mprog.param_change(y, 'R', R[i])
-                            mprog.save_file_part(path, y)
-                        elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
-                            mprog.param_change(y, 'E', E[i])
-                            if y == 'BOLSTER1':
-                                mprog.param_change('BOLSTER1', "hole_type", hole_type[j])
-                            mprog.save_file_part(path, y)
-                        elif y == 'FRAME29' or y == 'FRAME8' or y == 'FRAME5' or y == 'FRAME6' or y == 'FRAME7':  # 更改零件變數A
-                            mprog.param_change(y, 'A', A[i])
-                            mprog.save_file_part(path, y)
-                        elif y == 'SLIDE_UNIT_All':  # 更改零件變數P
-                            mprog.param_change(y, 'P', P[i])
-                            mprog.save_file_part(path, y)
-                        elif y == 'BOLSTER3' or y == 'BOLSTER2':  # 更改零件變數Q
-                            mprog.param_change(y, 'Q', Q[i])
-                            mprog.save_file_part(path, y)
+                        if name == 'FRAME1' or name == 'FRAME2':  # 更改零件變數B
+                            mprog.param_change(name, 'B', B[i])
+                            mprog.save_file_part(path, name)
+                        elif name == 'FRAME3' or name == 'FRAME4' or name == 'FRAME9' or name == 'FRAME32' or name == 'FRAME41' or name == 'FRAME43' or name == 'FRAME20' or name == 'FRAME30' or name == 'FRAME29' or name == 'FRAME42' or name == 'FRAME42' or name == 'FRAME43' or name == 'FRAME45':  # 更改零件變數R
+                            mprog.param_change(name, 'R', R[i])
+                            mprog.save_file_part(path, name)
+                        elif name == 'FRAME10' or name == 'FRAME11' or name == 'FRAME12' or name == 'FRAME13' or name == 'BOLSTER1':  # 更改零件變數E
+                            mprog.param_change(name, 'E', E[i])
+                            if name == 'BOLSTER1':
+                                mprog.param_change('BOLSTER1', "hole_tnamepe", hole_type[j])
+                            mprog.save_file_part(path, name)
+                        elif name == 'FRAME29' or name == 'FRAME8' or name == 'FRAME5' or name == 'FRAME6' or name == 'FRAME7':  # 更改零件變數A
+                            mprog.param_change(name, 'A', A[i])
+                            mprog.save_file_part(path, name)
+                        elif name == 'SLIDE_UNIT_All':  # 更改零件變數P
+                            mprog.param_change(name, 'P', P[i])
+                            mprog.save_file_part(path, name)
+                        elif name == 'BOLSTER3' or name == 'BOLSTER2':  # 更改零件變數Q
+                            mprog.param_change(name, 'Q', Q[i])
+                            mprog.save_file_part(path, name)
                         else:
-                            mprog.save_file_part(path, y)
+                            mprog.save_file_part(path, name)
             else:
                 if l == 0:
-                    if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
-                        mprog.param_change(y, 'B', B_15[i])
-                        mprog.save_file_part(path, y)
-                    elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29' or y == 'FRAME42' or y == 'FRAME42' or y == 'FRAME43' or y == 'FRAME45':  # 更改零件變數R
-                        mprog.param_change(y, 'R', R_15[i])
-                        mprog.save_file_part(path, y)
-                    elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
-                        mprog.param_change(y, 'E', E_15[i])
-                        if y == 'BOLSTER1':
-                            mprog.param_change('BOLSTER1', "hole_type", hole_type[j])
-                        mprog.save_file_part(path, y)
-                    elif y == 'FRAME29' or y == 'FRAME8' or y == 'FRAME5' or y == 'FRAME6' or y == 'FRAME7':  # 更改零件變數A
-                        mprog.param_change(y, 'A', A_15[i])
-                        mprog.save_file_part(path, y)
-                    elif y == 'SLIDE_UNIT_All':  # 更改零件變數P
-                        mprog.param_change(y, 'P', P_15[i])
-                        mprog.save_file_part(path, y)
-                    elif y == 'BOLSTER3' or y == 'BOLSTER2':  # 更改零件變數Q
-                        mprog.param_change(y, 'Q', Q_15[i])
-                        mprog.save_file_part(path, y)
+                    if name == 'FRAME1' or name == 'FRAME2':  # 更改零件變數B
+                        mprog.param_change(name, 'B', B_15[i])
+                        mprog.save_file_part(path, name)
+                    elif name == 'FRAME3' or name == 'FRAME4' or name == 'FRAME9' or name == 'FRAME32' or name == 'FRAME41' or name == 'FRAME43' or name == 'FRAME20' or name == 'FRAME30' or name == 'FRAME29' or name == 'FRAME42' or name == 'FRAME42' or name == 'FRAME43' or name == 'FRAME45':  # 更改零件變數R
+                        mprog.param_change(name, 'R', R_15[i])
+                        mprog.save_file_part(path, name)
+                    elif name == 'FRAME10' or name == 'FRAME11' or name == 'FRAME12' or name == 'FRAME13' or name == 'BOLSTER1':  # 更改零件變數E
+                        mprog.param_change(name, 'E', E_15[i])
+                        if name == 'BOLSTER1':
+                            mprog.param_change('BOLSTER1', "hole_tnamepe", hole_type[j])
+                        mprog.save_file_part(path, name)
+                    elif name == 'FRAME29' or name == 'FRAME8' or name == 'FRAME5' or name == 'FRAME6' or name == 'FRAME7':  # 更改零件變數A
+                        mprog.param_change(name, 'A', A_15[i])
+                        mprog.save_file_part(path, name)
+                    elif name == 'SLIDE_UNIT_All':  # 更改零件變數P
+                        mprog.param_change(name, 'P', P_15[i])
+                        mprog.save_file_part(path, name)
+                    elif name == 'BOLSTER3' or name == 'BOLSTER2':  # 更改零件變數Q
+                        mprog.param_change(name, 'Q', Q_15[i])
+                        mprog.save_file_part(path, name)
                     else:
-                        mprog.save_file_part(path, y)
+                        mprog.save_file_part(path, name)
                 else:
-                    if y == 'FRAME1' or y == 'FRAME2':  # 更改零件變數B
-                        mprog.param_change(y, 'B', B[i])
-                        mprog.save_file_part(path, y)
-                    elif y == 'FRAME3' or y == 'FRAME4' or y == 'FRAME9' or y == 'FRAME32' or y == 'FRAME41' or y == 'FRAME43' or y == 'FRAME20' or y == 'FRAME30' or y == 'FRAME29' or y == 'FRAME42' or y == 'FRAME42' or y == 'FRAME43' or y == 'FRAME45':  # 更改零件變數R
-                        mprog.param_change(y, 'R', R[i])
-                        mprog.save_file_part(path, y)
-                    elif y == 'FRAME10' or y == 'FRAME11' or y == 'FRAME12' or y == 'FRAME13' or y == 'BOLSTER1':  # 更改零件變數E
-                        mprog.param_change(y, 'E', E[i])
-                        if y == 'BOLSTER1':
-                            mprog.param_change('BOLSTER1', "hole_type", hole_type[j])
-                        mprog.save_file_part(path, y)
-                    elif y == 'FRAME29' or y == 'FRAME8' or y == 'FRAME5' or y == 'FRAME6' or y == 'FRAME7':  # 更改零件變數A
-                        mprog.param_change(y, 'A', A[i])
-                        mprog.save_file_part(path, y)
-                    elif y == 'SLIDE_UNIT_All':  # 更改零件變數P
-                        mprog.param_change(y, 'P', P[i])
-                        mprog.save_file_part(path, y)
-                    elif y == 'BOLSTER3' or y == 'BOLSTER2':  # 更改零件變數Q
-                        mprog.param_change(y, 'Q', Q[i])
-                        mprog.save_file_part(path, y)
+                    if name == 'FRAME1' or name == 'FRAME2':  # 更改零件變數B
+                        mprog.param_change(name, 'B', B[i])
+                        mprog.save_file_part(path, name)
+                    elif name == 'FRAME3' or name == 'FRAME4' or name == 'FRAME9' or name == 'FRAME32' or name == 'FRAME41' or name == 'FRAME43' or name == 'FRAME20' or name == 'FRAME30' or name == 'FRAME29' or name == 'FRAME42' or name == 'FRAME42' or name == 'FRAME43' or name == 'FRAME45':  # 更改零件變數R
+                        mprog.param_change(name, 'R', R[i])
+                        mprog.save_file_part(path, name)
+                    elif name == 'FRAME10' or name == 'FRAME11' or name == 'FRAME12' or name == 'FRAME13' or name == 'BOLSTER1':  # 更改零件變數E
+                        mprog.param_change(name, 'E', E[i])
+                        if name == 'BOLSTER1':
+                            mprog.param_change('BOLSTER1', "hole_tnamepe", hole_type[j])
+                        mprog.save_file_part(path, name)
+                    elif name == 'FRAME29' or name == 'FRAME8' or name == 'FRAME5' or name == 'FRAME6' or name == 'FRAME7':  # 更改零件變數A
+                        mprog.param_change(name, 'A', A[i])
+                        mprog.save_file_part(path, name)
+                    elif name == 'SLIDE_UNIT_All':  # 更改零件變數P
+                        mprog.param_change(name, 'P', P[i])
+                        mprog.save_file_part(path, name)
+                    elif name == 'BOLSTER3' or name == 'BOLSTER2':  # 更改零件變數Q
+                        mprog.param_change(name, 'Q', Q[i])
+                        mprog.save_file_part(path, name)
                     else:
-                        mprog.save_file_part(path, y)
+                        mprog.save_file_part(path, name)
 
     def ass_(self, h, i, l, j, path):
         type = str(self.ui.comboBox_4.currentText())  # 沖床噸數類型
@@ -341,9 +342,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                                    'FRAME31', 'FRAME31', 'FRAME32', 'FRAME33', 'FRAME34', 'FRAME34', 'FRAME35',
                                    'FRAME36', 'FRAME36', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME38',
                                    'FRAME39', 'FRAME40', 'FRAME41', 'FRAME42', 'FRAME43', 'FRAME44', 'FRAME45',
-                                   'FRAME46', 'GIB1', 'GIB2', 'BALANCER_LEFT_All', 'BALANCER_RIGHT_ALL',
+                                   'FRAME46', 'FRAME47', 'GIB1', 'GIB2', 'BALANCER_LEFT_All', 'BALANCER_RIGHT_ALL',
                                    'CRANK_SHAFT_CLOCK', 'CLUCTH_ASSEMBLY_All', 'SLIDE_UNIT_ALL', 'CRANK_SHAFT',
                                    'JOINT_All', 'MAIN_GEAR1', 'MAIN_GEAR2', 'MAIN_GEAR3', 'MAIN_GEAR4', 'JOINT1']
+
         for x in file_Assembly_name_list:  # 讀取串列名稱並匯入檔案
             mprog.import_file_Part(path, x)
 
@@ -646,11 +648,11 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('FRAME40.1', 'FRAME20.1', FRAME20_FRAME2_YZ[i], 'YZ.PLANE', 1, 150)
         # FRAME35上兩圓管
         mprog.add_offset_assembly('FRAME36.1', 'FRAME35.1', -272.236, 'XZ.PLANE', 1, 151)
-        mprog.add_offset_assembly('FRAME36.1', 'FRAME35.1', -272.236, 'XY.PLANE', 1, 152)
-        mprog.add_offset_assembly('FRAME36.1', 'FRAME35.1', 88, 'YZ.PLANE', 1, 153)
+        mprog.add_offset_assembly('FRAME36.1', 'FRAME35.1', 272.236, 'XY.PLANE', 0, 152)
+        mprog.add_offset_assembly('FRAME36.1', 'FRAME35.1', 41, 'YZ.PLANE', 0, 153)
         mprog.add_offset_assembly('FRAME36.2', 'FRAME35.1', 272.236, 'XZ.PLANE', 1, 154)
-        mprog.add_offset_assembly('FRAME36.2', 'FRAME35.1', -272.236, 'XY.PLANE', 1, 155)
-        mprog.add_offset_assembly('FRAME36.2', 'FRAME35.1', 88, 'YZ.PLANE', 1, 156)
+        mprog.add_offset_assembly('FRAME36.2', 'FRAME35.1', 272.236, 'XY.PLANE', 0, 155)
+        mprog.add_offset_assembly('FRAME36.2', 'FRAME35.1', 41, 'YZ.PLANE', 0, 156)
         # 後方馬達下支撐板上治具
         mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 95, 'XZ.PLANE', 0, 157)
         mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 22 + 18, 'XY.PLANE', 0, 158)
@@ -796,14 +798,29 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('FRAME45.1', 'FRAME17.1', 0, 'XZ.PLANE', 0, 208)
         mprog.add_offset_assembly('FRAME45.1', 'FRAME17.1', -48, 'XY.PLANE', 1, 209)
         mprog.add_offset_assembly('FRAME45.1', 'FRAME17.1', 0, 'YZ.PLANE', 1, 210)
-
+        #
         mprog.add_offset_assembly('FRAME46.1', 'FRAME17.1', -48, 'XY.PLANE', 1, 211)
         mprog.add_offset_assembly('FRAME46.1', 'FRAME17.1', 0, 'XZ.PLANE', 0, 212)
         mprog.add_offset_assembly('FRAME46.1', 'FRAME17.1', 0, 'YZ.PLANE', 1, 213)
-
+        #
         mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 5, 'XY.PLANE', 0, 214)
         mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 0, 'XZ.PLANE', 0, 215)
         mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 979, 'YZ.PLANE', 1, 216)
+        #
+        mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', 29, 'XY.PLANE', 1, 217)
+        mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', 35, 'XZ.PLANE', 0, 218)
+        mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', -99.35, 'YZ.PLANE', 1, 219)
+        mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', 29, 'XY.PLANE', 0, 220)
+        mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', -35, 'XZ.PLANE', 1, 221)
+        mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', 099.35, 'YZ.PLANE', 0, 222)
+        # 方管
+        mprog.add_offset_assembly('FRAME44.1', 'FRAME48.1', 124, 'XY.PLANE', 1, 223)
+        mprog.add_offset_assembly('FRAME44.1', 'FRAME48.1', 159 + 16, 'XZ.PLANE', 0, 224)
+        mprog.add_offset_assembly('FRAME44.1', 'FRAME48.1', -32, 'YZ.PLANE', 0, 225)
+        # 圓柱
+        mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', 220, 'XY.PLANE', 0, 226)
+        mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', 145, 'XZ.PLANE', 0, 227)
+        mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', -32, 'YZ.PLANE', 0, 228)
 
         # 更新
         mprog.update()
@@ -1028,6 +1045,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         view_name = ['Isometric view1', 'Isometric view2', 'Front view', 'Left view', 'Right view']
         for i in view_name:
             draft.close_broken_line_block_diagram(i)
+        #--------------存檔------------------
+        mprog.save_file_part(path, type)
+
+        #-------------
 
 if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率
