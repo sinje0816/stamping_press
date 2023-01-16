@@ -3,7 +3,7 @@ import sys, datetime, os, math
 from GUI import Ui_Dialog
 import main_program as mprog
 import drafting as draft
-import TEST_BOM as BOM
+# import TEST_BOM as BOM
 
 change = ()
 height = ()
@@ -213,9 +213,8 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
         # 開啟零件檔更改變數後儲存並關閉
         for name in file_name_list:
-            # print('save' + str(name))
             mprog.import_part("C:\\Users\\USER\\Desktop\\stamping_press", name)
-            # print('open' + str(name))
+
             if i == 4:
                 if name == 'SLIDE_UNIT_All':
                     mprog.axis_system()
@@ -933,6 +932,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.constaint_value_change(168, BOLSTER1_XY, 0)
         mprog.update()
         # # # --------------------爆炸圖右圖------------------
+
         Fixture_offset_value = 2850
         CLUCTH_ASSEMBLY_offset_value = B[i] + 1650
         JOINT_ALL_offset_value = CLUCTH_ASSEMBLY_offset_value
@@ -944,7 +944,11 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.constaint_value_change(195, MAIN_GEAR_offset_value, 1)  # 大齒輪MAIN_GEA1
         mprog.constaint_value_change(201, -375, 1)  # Joint1
         mprog.update()
+        mprog.switch_window()
+        draft.exploded_Drawing_2(type, drafting_isometric_Coordinate_Position['exploded_2'][0],
+                                 drafting_isometric_Coordinate_Position['exploded_2'][1], scale)  # 爆炸圖2
         # 復原位置
+        mprog.switch_window()
         mprog.constaint_value_change(159, 312.5, 0)  # 支架
         mprog.constaint_value_change(186, 510, 1)  # 離合器
         mprog.constaint_value_change(203, 1010, 1)  # JOINT_All.1
@@ -1030,23 +1034,20 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         draft.create_center_line('Isometric view2', -742.5 * cos45, -742.5 * cos45 * sin30 / cos30 - 300,
                                  -(Fixture_offset_value + B[i]) * cos45,
                                  -(Fixture_offset_value + B[i]) * cos45 * sin30 / cos30 - 300)
-        # ------------尺寸標註線-------------
-        # Left_view = {'H': [0, 0, (H[i] - Z[i] - S[i] - 34), 0, -(S[i] + Z[i]), 90],
-        #              'D': [0, 0, (H[i] - Z[i] - S[i] - 34), -B[i], (H[i] - Z[i] - S[i] - 34) - 110, 0]}
-        #
-        # Left_view_list = []
-        # for key in Left_view:
-        #     Left_view_list.append(key)
-        #
-        # for i in Left_view_list:
-        #     draft.add_dimension_to_view('Left view', str(i), Left_view[i][0], Left_view[i][1], Left_view[i][2],
-        #                                 Left_view[i][3], Left_view[i][4], Left_view[i][5])
+
+        Left_view_list = []
+        for i in Left_view_list:
+            Left_view_list.append(i)
+
+        for i in Left_view_list:
+            draft.add_dimension_to_view('Left view', str(i), Left_view_list[i][0], Left_view_list[i][1], Left_view_list[i][2],
+                                        Left_view_list[i][3], Left_view_list[i][4], Left_view_list[i][5])
         # -------------關閉虛框---------------
         view_name = ['Isometric view1', 'Isometric view2', 'Front view', 'Left view', 'Right view']
         for i in view_name:
             draft.close_broken_line_block_diagram(i)
         #--------------存檔------------------
-        mprog.save_file_part(path, type)
+        # mprog.save_file_part(path, type)
 
         #-------------
 

@@ -64,7 +64,7 @@ def bom_text_create():
             DrawText.SetFontSize(0, 0, 5)  # 調整字體位置和大小(x, y, 字體大小).
             DrawText.AnchorPosition = 2  # 文字框對其位置(TopL=1,MidL=2,BottomL=3,TopM=4,MidM=5,BottomM=6,TopR=7,MidR=8,BottomR=9)
 
-# bom_text_create()
+bom_text_create()
 
 def create_center_line(x_value_1, y_value_1, x_value_2, y_value_2):
     catapp = win32.Dispatch('CATIA.Application')
@@ -83,5 +83,5 @@ def create_center_line(x_value_1, y_value_1, x_value_2, y_value_2):
     vis.SetRealLineType(2, 0.3)
     vis.SetRealWidth(1, 0.13)
 
-for i in BOM_list_name:
-    create_center_line(960, 102 + 12 * int(i), 1169, 102 + 12 * int(i))
+# for i in BOM_list_name:
+#     create_center_line(960, 102 + 12 * int(i), 1169, 102 + 12 * int(i))
