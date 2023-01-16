@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="材料圖bom表建立">
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="修改main_GUI爆炸圖程式&#10;#BOLSTER待修正">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/main_GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/main_GUI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/TEST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TEST_BOM.py" beforeDir="false" afterPath="$PROJECT_DIR$/TEST_BOM.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,10 +44,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../stamping_press - 複製" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.main_GUI">
+  <component name="RunManager" selected="Python.TEST">
     <configuration name="N1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Stamping press" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -156,8 +155,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main_GUI" />
         <item itemvalue="Python.TEST" />
+        <item itemvalue="Python.main_GUI" />
         <item itemvalue="Python.TEST_BOM" />
         <item itemvalue="Python.N1" />
         <item itemvalue="Python.N_Test" />
@@ -172,13 +171,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668131959961</updated>
-    </task>
-    <task id="LOCAL-00005" summary="註:新增機架組立，平面和組合線隱藏">
-      <created>1668414820426</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1668414820426</updated>
     </task>
     <task id="LOCAL-00006" summary="註:新增機架組立，平面和組合線隱藏">
       <created>1668414884177</created>
@@ -516,7 +508,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673848368259</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="修改main_GUI爆炸圖程式&#10;#BOLSTER待修正">
+      <created>1673872018026</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1673872018026</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,7 +531,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改結合尺寸與判斷式" />
     <MESSAGE value="修改標準件判斷條件及新增噸數300尺寸" />
     <MESSAGE value="修改氣壓缸尺寸" />
     <MESSAGE value="修改FRAME32結合距離及尺寸、氣壓缸結合距離" />
@@ -557,7 +555,8 @@
     <MESSAGE value="N1及N_test圈馬程式更新" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;TEST.py&#10;#&#9;drafting.py" />
     <MESSAGE value="材料圖bom表建立" />
-    <option name="LAST_COMMIT_MESSAGE" value="材料圖bom表建立" />
+    <MESSAGE value="修改main_GUI爆炸圖程式&#10;#BOLSTER待修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改main_GUI爆炸圖程式&#10;#BOLSTER待修正" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
