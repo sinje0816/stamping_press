@@ -38,7 +38,6 @@ BOM_list = {'1': ['01 ', '50', '1680x2910', 'SS400', '1', '1628.6', '如圖'],
             '36': ['43 ', '32', '32x85', 'SS400', '1', '0.7', '如圖'],
             '37': ['44 ', '62', 'φ30', 'SS400', '1', '0.3', '如圖']}
 
-print(BOM_list['10'][1])
 
 BOM_list_name = []
 for i in BOM_list:
@@ -54,7 +53,6 @@ def bom_text_create():
     drawingsheets = drawingdocument.Sheets
     drawingsheet = drawingsheets.Item('Sheet.1')
     drawingview = drawingsheet.Views.Item('Background View')
-    drawingview.Activate()
     drawingview = drawingview.Texts
     # drawingview.Activate()
     for i in BOM_list_name:

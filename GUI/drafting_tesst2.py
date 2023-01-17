@@ -52,13 +52,13 @@ temporary_range = []
 box_1_range = []
 scale = 1
 gap = 5
-box_gap = 40#虛擬方框內間隙
+box_gap = 22#虛擬方框內間隙
 drafting_min_Y = 44
 drafting_max_Y = 810
 drafting_min_X = 20
 drafting_max_X = 1169
 #第一虛擬方框位置
-box_1_Xmax = 425
+box_1_Xmax = 490
 box_1_Ymax = 810
 box_1_Xmin = 25
 box_1_Ymin = 25
@@ -84,14 +84,14 @@ file_list_range = {
     'FRAME7': [FRAME_7_width[i] * scale + 2 * gap + box_gap, 300 * scale + 2 * gap + box_gap / 2],
     'MAIN_GEAR2': [125 * scale + 2 * gap + box_gap, 270 * scale + 2 * gap + box_gap / 2],
     'FRAME32': [(R[i] + 19) * scale + 2 * gap + box_gap, 429 * scale + 2 * gap + box_gap / 2],
-    'FRAME31': [(40 + 45) * scale + 2 * gap + box_gap, (150 + 45) * scale + 2 * gap + box_gap / 2],
+    'FRAME31': [(40 + 45) * scale + 2 * gap + box_gap + 50, (150 + 45) * scale + 2 * gap + box_gap / 2],
     'FRAME38': [290 * scale + 2 * gap + box_gap, 145 * scale + 2 * gap + box_gap / 2],
     'FRAME11': [FRAME_11_width[i] * scale + 2 * gap + box_gap, (FRAME_11_height[i] + 90) * scale + 2 * scale + box_gap],
     'FRAME39': [145 * scale + 2 * gap + box_gap, (300 + 19) * scale + 2 * gap + box_gap],
     'FRAME17': [75 * scale + 2 * gap + box_gap, (75 + 48) * scale + 2 * gap + box_gap / 2],
     'FRAME3': [(R[i] + 180) * scale + 2 * gap + box_gap, ((Z[i] - T[i] - 40 + 50) * scale + 2 * gap + box_gap)],
     'FRAME14': [75 * scale + 2 * gap + box_gap, (75 + 70) * scale + 2 * gap + box_gap],
-    'FRAME22': [460 * scale + 2 * gap + box_gap, 280 * scale + 2 * gap + box_gap / 2],
+    'FRAME22': [460 * scale + 2 * gap + box_gap, 280 * scale + 2 * gap + box_gap / 2 ],
     'FRAME37': [140 * scale + 2 * gap + box_gap, 80 * scale + 2 * gap + box_gap / 2],
     'FRAME8': [(FRAME_8_width[i] + 40) * scale + 2 * gap + box_gap, 300 * scale + 2 * gap + box_gap],
     'FRAME29': [(65 + R[i] + 180) * scale + 2 * gap + box_gap, 30 * scale + 2 * gap + box_gap],
@@ -99,11 +99,11 @@ file_list_range = {
     'FRAME33': [50 * scale + 2 * gap + box_gap, (180 + 50) * scale + 2 * gap + box_gap],
     'FRAME13': [(85+55) * scale + 2 * gap + box_gap , FRAME_13_depth[i] * scale + box_gap + 2 * gap],
     'FRAME23': [99.35 * scale + 2 * gap + box_gap , (150+35) * scale + 2 * gap + box_gap],
-    'FRAME24': [(99.35 + 35) * scale + 2 * gap + box_gap , (150 + 35) * scale + 2 * gap + box_gap],
+    'FRAME24': [(99.35 + 35) * scale + 2 * gap + box_gap, (150 + 35) * scale + 2 * gap + box_gap],
     'FRAME47': [(50 + 19) * scale + 2 * gap + box_gap , 74 * scale + 2 * gap + box_gap],
     'FRAME48': [(32 + 82) * scale + 2 * gap + box_gap , 32 * scale + 2 * gap + box_gap],
     'FRAME49': [(30 + 54) * scale + 2 * gap + box_gap , 30 * scale + 2 * gap + box_gap]
-}#正常情況下之零件清單
+}#正常情況下之零件清單(FRAME24X範圍有額外尺寸)
 
 def scale_Adjustment(i , l):
     scale_p = 0
@@ -167,7 +167,7 @@ def drafting_parameter_calculation(i, l , scale , box_1_range):
                             'FRAME7': [FRAME_7_width[i] * scale + 2 * gap + box_gap, 300 * scale + 2 * gap + box_gap / 2],
                             'MAIN_GEAR2': [125 * scale + 2 * gap + box_gap, 270 * scale + 2 * gap + box_gap / 2],
                             'FRAME32': [(R[i] + 19) * scale + 2 * gap + box_gap, 429 * scale + 2 * gap + box_gap / 2],
-                            'FRAME31': [(40 + 45) * scale + 2 * gap + box_gap, (150 + 45) * scale + 2 * gap + box_gap / 2],
+                            'FRAME31': [(40 + 45) * scale + 2 * gap + box_gap + 50, (150 + 45) * scale + 2 * gap + box_gap / 2],
                             'FRAME38': [290 * scale + 2 * gap + box_gap, 145 * scale + 2 * gap + box_gap / 2],
                             'FRAME11': [FRAME_11_width[i] * scale + 2 * gap + box_gap, (FRAME_11_height[i]+90) * scale + 2 * scale + box_gap],
                             'FRAME39': [145 * scale + 2 * gap + box_gap, (300 + 19) * scale + 2 * gap + box_gap],
@@ -181,8 +181,8 @@ def drafting_parameter_calculation(i, l , scale , box_1_range):
                             'FRAME20': [(R[i] + 180) * scale + 2 * gap + box_gap, (FRAME20_H[i] + 50) * scale + 2 * gap + box_gap],
                             'FRAME33': [50 * scale + 2 * gap + box_gap, (180 + 50) * scale + 2 * gap + box_gap],
                             'FRAME13': [(85+55) * scale + 2 * gap + box_gap , FRAME_13_depth[i] * scale + box_gap/2 + 2 * gap],
-                            'FRAME23': [99.35 * scale + 2 * gap + box_gap , (150+35) * scale + 2 * gap + box_gap],
-                            'FRAME24': [(99.35 + 35) * scale + 2 * gap + box_gap , (150 + 35) * scale + 2 * gap + box_gap],
+                            'FRAME23': [99.35 * scale + 2 * gap + box_gap, (150+35) * scale + 2 * gap + box_gap],
+                            'FRAME24': [(99.35 + 35) * scale + 2 * gap + box_gap, (150 + 35) * scale + 2 * gap + box_gap],
                             'FRAME47': [(50 + 19) * scale + 2 * gap + box_gap , 74 * scale + 2 * gap + box_gap/2],
                             'FRAME48': [(32+82) * scale + 2 * gap + box_gap , 32 * scale + 2 * gap + box_gap/2],
                             'FRAME49': [(30+54) * scale + 2 * gap + box_gap , 30 * scale + 2 * gap + box_gap/2]
@@ -203,7 +203,7 @@ def drafting_parameter_calculation(i, l , scale , box_1_range):
                           'FRAME7': [FRAME_7_15_width[i] * scale + 2 * gap + box_gap, 300 * scale + 2 * gap + box_gap],
                           'MAIN_GEAR2': [125 * scale + 2 * gap + box_gap, 270 * scale + 2 * gap + box_gap],
                           'FRAME32': [(R_15[i] + 19) * scale + 2 * gap + box_gap, 429 * scale + 2 * gap + box_gap],
-                          'FRAME31': [(40 + 45) * scale + 2 * gap + box_gap, (150 + 45) * scale + 2 * gap + box_gap],
+                          'FRAME31': [(40 + 45) * scale + 2 * gap + box_gap + 50, (150 + 45) * scale + 2 * gap + box_gap],
                           'FRAME38': [290 * scale + 2 * gap + box_gap, 145 * scale + 2 * gap + box_gap / 2],
                           'FRAME11': [FRAME_11_15_width[i] * scale + 2 * gap + box_gap, (FRAME_11_height[i]+90) * scale + 2 * scale + box_gap],
                           'FRAME39': [145 * scale + 2 * gap + box_gap, (300 + 19) * scale + 2 * gap + box_gap],
@@ -253,7 +253,7 @@ def drafting_parameter_calculation(i, l , scale , box_1_range):
                             if Y_center + file_list_range[x][1]/2 + box_gap > ALL_range[-1][3] and x != new_line[-1]:#後續其他零件的Y方向虛擬方框判斷(Y中心+方框一半高)
                                 temporary_range[1] -=1
                                 continue
-                            if Y_center - file_list_range[x][1] / 2 - box_gap < 25 or X_center + file_list_range[x][0]/2 > 760 and Y_center - file_list_range[x][1] / 2 + box_gap < 45:#當方框Ymin超出下界限時，Y中心重製為方框1的Ymax，X中心重製為上一行零件的Xmax
+                            if Y_center - file_list_range[x][1] / 2 - box_gap < 25 or X_center + file_list_range[x][0]/2 > 760 and Y_center - file_list_range[x][1] / 2 + box_gap < 45 or X_center + file_list_range[x][0] / 2 > 960 and Y_center - file_list_range[x][1] / 2 - box_gap < 570:#當方框Ymin超出下界限時，Y中心重製為方框1的Ymax，X中心重製為上一行零件的Xmax
                                 new_line.append(x)#將超出下限的零件加入換行零件串列
                                 temporary_range[1] = box_1_range[2]#Y中心重製為方框1的Ymax
                                 for p in range(len(ALL_range)) :#利用for迴圈取出目前方框的Xmax
@@ -292,7 +292,7 @@ def drafting_parameter_calculation(i, l , scale , box_1_range):
                             'FRAME7': [FRAME_7_width[i] * scale + 2 * gap + box_gap, 300 * scale + 2 * gap + box_gap / 2],
                             'MAIN_GEAR2': [125 * scale + 2 * gap + box_gap, 270 * scale + 2 * gap + box_gap / 2],
                             'FRAME32': [(R[i] + 19) * scale + 2 * gap + box_gap, 429 * scale + 2 * gap + box_gap / 2],
-                            'FRAME31': [(40 + 45) * scale + 2 * gap + box_gap, (150 + 45) * scale + 2 * gap + box_gap / 2],
+                            'FRAME31': [(40 + 45) * scale + 2 * gap + box_gap + 50, (150 + 45) * scale + 2 * gap + box_gap / 2],
                             'FRAME38': [290 * scale + 2 * gap + box_gap, 145 * scale + 2 * gap + box_gap / 2],
                             'FRAME11': [FRAME_11_width[i] * scale + 2 * gap + box_gap, (FRAME_11_height[i]+90) * scale + 2 * scale + box_gap],
                             'FRAME39': [145 * scale + 2 * gap + box_gap, (300 + 19) * scale + 2 * gap + box_gap],
@@ -342,7 +342,7 @@ def drafting_parameter_calculation(i, l , scale , box_1_range):
                                 -1]:  # 後續其他零件的Y方向虛擬方框判斷(Y中心+方框一半高)
                                 temporary_range[1] -= 1
                                 continue
-                            if Y_center - file_list_15_range[x][1] / 2 - box_gap < 25 or X_center + file_list_15_range[x][0]/2 > 760 and Y_center - file_list_15_range[x][1] / 2 + box_gap < 45:#當方框Ymin超出下界限時，Y中心重製為方框1的Ymax，X中心重製為上一行零件的Xmax
+                            if Y_center - file_list_15_range[x][1] / 2 - box_gap < 25 or X_center + file_list_15_range[x][0]/2 > 760 and Y_center - file_list_15_range[x][1] / 2 + box_gap < 45 or X_center + file_list_range[x][0] / 2 > 960 and Y_center - file_list_range[x][1] / 2 - box_gap < 570:#當方框Ymin超出下界限時，Y中心重製為方框1的Ymax，X中心重製為上一行零件的Xmax
                                 new_line.append(x)#將超出下限的零件加入換行零件串列
                                 temporary_range[1] = box_1_range[2]#Y中心重製為方框1的Ymax
                                 for p in range(len(ALL_range)) :#利用for迴圈取出目前方框的Xmax
@@ -380,7 +380,7 @@ def drafting_parameter_calculation(i, l , scale , box_1_range):
                           'FRAME7': [FRAME_7_15_width[i] * scale + 2 * gap + box_gap, 300 * scale + 2 * gap + box_gap],
                           'MAIN_GEAR2': [125 * scale + 2 * gap + box_gap, 270 * scale + 2 * gap + box_gap],
                           'FRAME32': [(R_15[i] + 19) * scale + 2 * gap + box_gap, 429 * scale + 2 * gap + box_gap],
-                          'FRAME31': [(40 + 45) * scale + 2 * gap + box_gap, (150 + 45) * scale + 2 * gap + box_gap],
+                          'FRAME31': [(40 + 45) * scale + 2 * gap + box_gap + 50, (150 + 45) * scale + 2 * gap + box_gap],
                           'FRAME38': [290 * scale + 2 * gap + box_gap, 145 * scale + 2 * gap + box_gap / 2],
                           'FRAME11': [FRAME_11_15_width[i] * scale + 2 * gap + box_gap, (FRAME_11_height[i]+90) * scale + 2 * scale + box_gap],
                           'FRAME39': [145 * scale + 2 * gap + box_gap, (300 + 19) * scale + 2 * gap + box_gap],

@@ -67,7 +67,9 @@ U = ["front view" , "Rear view" , "top view" , "bottom view" , "Left view" , "ri
      "top view(Y inverse)" , 'bottom view(right horizontal)' , 'right view(left horizontal)','Rear view(left horizontal)',
      'top view(right horizontal)' , 'top view(180 degree)' , 'bottom view(left horizontal)']
 #圖框範圍
-circle_gap = 400
+circle_Xgap = 300
+circle_gap = 300
+circle_15_gap = 500
 ALL_range = []
 gap = 5
 drafting_min_Y = 44
@@ -85,78 +87,77 @@ box_heigth_gap = 150+2*gap#虛擬方框一的高度間隙
 def test(i, l):
     scale, box_1_center , box_1_range = DT.scale_Adjustment(i, l)
     ALL_range , scale = DT.drafting_parameter_calculation(i, l , scale , box_1_range)#ALL_range = [方寬編號[Xmax , Xmin , Ymax , Ymin]]
-    # projection_file_name_list = ['FRAME1' , 'FRAME2' ,'FRAME30', 'FRAME44', 'FRAME41', 'FRAME34', 'FRAME9', 'FRAME45', 'FRAME43', 'FRAME7',
-    #                              'MAIN_GEAR2', 'FRAME32' , 'FRAME47' , 'FRAME23' , 'FRAME31', 'FRAME24', 'FRAME38' , 'FRAME11', 'FRAME39', 'FRAME17',
-    #                              'FRAME3', 'FRAME13' , 'FRAME14', 'FRAME22',
-    #                              'FRAME37', 'FRAME8', 'FRAME29', 'FRAME20', 'FRAME33' , 'FRAME48' , 'FRAME49']
-    projection_file_name_list = ['FRAME1']
+    projection_file_name_list = ['FRAME1' , 'FRAME2' ,'FRAME30', 'FRAME44', 'FRAME41', 'FRAME34', 'FRAME9', 'FRAME45', 'FRAME43', 'FRAME7',
+                                 'MAIN_GEAR2', 'FRAME32' , 'FRAME47' , 'FRAME23' , 'FRAME31', 'FRAME24', 'FRAME38' , 'FRAME11', 'FRAME39', 'FRAME17',
+                                 'FRAME3', 'FRAME13' , 'FRAME14', 'FRAME22',
+                                 'FRAME37', 'FRAME8', 'FRAME29', 'FRAME20', 'FRAME33' , 'FRAME48' , 'FRAME49']
     part_circle_position = {
-        '1': ['1' , -B[i] / 2 , H[i] / 2 + circle_gap],
-        '2': ['2' , -B[i] / 2 , H[i] / 2 + circle_gap],
-        '3': ['3' , -(R[i]+180) / 2 , FRAME44_height[i] / 2 + circle_gap],
-        '4': ['4' , -(R[i]+180) / 2 , FRAME44_height[i] / 2 + circle_gap],
-        '5': ['5' , -(R[i]+180) / 2 , FRAME_41_depth[i] / 2 + circle_gap],
-        '6': ['6' , -182 / 2 , 80 / 2 + circle_gap],
-        '7': ['7' , -(R[i]+180) / 2 , 50 / 2 +circle_gap],
-        '8': ['8' , -R[i] / 2 , 476 / 2 + circle_gap],
-        '9': ['8-1' , -R[i] / 2 , 150 / 2 + circle_gap],
-        '10': ['10' , -FRAME_7_width[i] / 2 , 300 / 2 + circle_gap],
-        '11': ['11' , -125 / 2 , 270 / 2 + circle_gap],
-        '12': ['12' , -R[i] / 2 , 429 / 2 + circle_gap],
-        '13': ['13' , -50 / 2 , 74 / 2 + circle_gap],
-        '14': ['14' , -99.35 / 2 , 35 / 2 + circle_gap],
-        '15': ['15A' , -40 / 2 , 150 / 2 + circle_gap],
-        '16': ['15' , -40 / 2 , 150 / 2 + circle_gap],
-        '17': ['16' , -99.35 / 2 , 35 / 2 + circle_gap],
-        '18': ['18' , -290 / 2 , 145 / 2 + circle_gap],
-        '19': ['19' , -FRAME_11_width[i] / 2 , 90 / 2 + circle_gap],
-        '20': ['20' , -145 / 2 , 300 / 2 + circle_gap],
-        '21': ['21' , -75 / 2 , 75 / 2 + circle_gap],
-        '22': ['22' , -(R[i] + 180) / 2 , 50 / 2 + circle_gap],
-        '23': ['24' , -85 / 2 , FRAME_13_depth[i] / 2 + circle_gap],
-        '24': ['25' , -75 / 2 , 75 / 2 + circle_gap],
-        '25': ['27' , -460 / 2 , 280 / 2 + circle_gap],
-        '26': ['29' , -140 / 2 , 80 / 2 + circle_gap],
-        '27': ['30' , -40 / 2 , 300 / 2 + circle_gap],
-        '28': ['33' , -(R[i] + 180) / 2 , 30 / 2 + circle_gap],
-        '29': ['35' , -(R[i] + 180) / 2 , 50 / 2 + circle_gap],
-        '30': ['41' , -50 / 2 , 180 / 2 + circle_gap],
-        '31': ['43' , -32 / 2 , 32 / 2 + circle_gap],
-        '32': ['44' , -30 / 2 , 30 / 2 + circle_gap]
+        '1': ['1' , -B[i] / 2 - circle_Xgap , H[i] / 2 + circle_gap],
+        '2': ['2' , -B[i] / 2 - circle_Xgap , H[i] / 2 + circle_gap],
+        '3': ['3' , -(R[i]+180) / 2 - circle_Xgap , FRAME44_height[i] / 2 + circle_gap],
+        '4': ['4' , -(R[i]+180) / 2 - circle_Xgap , FRAME44_height[i] / 2 + circle_gap],
+        '5': ['5' , -(R[i]+180) / 2 - circle_Xgap , FRAME_41_depth[i] / 2 + circle_gap],
+        '6': ['6' , -182 / 2 - circle_Xgap , 80 / 2 + circle_gap],
+        '7': ['7' , -(R[i]+180) / 2 - circle_Xgap, 50 / 2 +circle_gap],
+        '8': ['8' , -R[i] / 2 - circle_Xgap , 476 / 2 + circle_gap],
+        '9': ['8-1' , -R[i] / 2 - circle_Xgap , 150 / 2 + circle_gap],
+        '10': ['10' , -FRAME_7_width[i] / 2 - circle_Xgap , 300 / 2 + circle_gap],
+        '11': ['11' , -125 / 2 - circle_Xgap , 270 / 2 + circle_gap],
+        '12': ['12' , -R[i] / 2 - circle_Xgap , 429 / 2 + circle_gap],
+        '13': ['13' , -50 / 2 - circle_Xgap , 74 / 2 + circle_gap],
+        '14': ['14' , -99.35 / 2 - circle_Xgap , 35 / 2 + circle_gap],
+        '15': ['15A' , -40 / 2 - circle_Xgap , 150 / 2 + circle_gap],
+        '16': ['15' , -40 / 2 - circle_Xgap , 150 / 2 + circle_gap],
+        '17': ['16' , -99.35 / 2 - circle_Xgap , 35 / 2 + circle_gap],
+        '18': ['18' , -290 / 2 - circle_Xgap , 145 / 2 + circle_gap],
+        '19': ['19' , -FRAME_11_width[i] / 2 - circle_Xgap , 90 / 2 + circle_gap],
+        '20': ['20' , -145 / 2 - circle_Xgap , 300 / 2 + circle_gap],
+        '21': ['21' , -75 / 2 - circle_Xgap , 75 / 2 + circle_gap],
+        '22': ['22' , -(R[i] + 180) / 2 - circle_Xgap , 50 / 2 + circle_gap],
+        '23': ['24' , -85 / 2 - circle_Xgap , FRAME_13_depth[i] / 2 + circle_gap],
+        '24': ['25' , -75 / 2 - circle_Xgap , 75 / 2 + circle_gap],
+        '25': ['27' , -460 / 2 - circle_Xgap , 280 / 2 + circle_gap],
+        '26': ['29' , -140 / 2 - circle_Xgap , 80 / 2 + circle_gap],
+        '27': ['30' , -40 / 2 - circle_Xgap , 300 / 2 + circle_gap],
+        '28': ['33' , -65 / 2 - circle_Xgap , 30 / 2 + circle_gap],
+        '29': ['35' , -(R[i] + 180) / 2 - circle_Xgap , 50 / 2 + circle_gap],
+        '30': ['41' , -50 / 2 - circle_Xgap , 180 / 2 + circle_gap],
+        '31': ['43' , -32 / 2 - circle_Xgap , 32 / 2 + circle_gap],
+        '32': ['44' , -30 / 2 - circle_Xgap , 30 / 2 + circle_gap]
     }
     part_circle_15_position = {
-        '1': ['1' , -B_15[i] / 2 , H[i] / 2 + circle_gap],
-        '2': ['2' , -B_15[i] / 2 , H[i] / 2 + circle_gap],
-        '3': ['3' , -(R_15[i]+180) / 2 , FRAME44_height[i] / 2 + circle_gap],
-        '4': ['4' , -(R_15[i]+180) / 2 , FRAME44_height[i] / 2 + circle_gap],
-        '5': ['5' , -(R_15[i]+180) / 2 , FRAME_41_depth[i] / 2 + circle_gap],
-        '6': ['6' , -182 / 2 , 80 / 2 + circle_gap],
-        '7': ['7' , -(R_15[i]+180) / 2 , 50 / 2 +circle_gap],
-        '8': ['8' , -R_15[i] / 2 , 476 / 2 + circle_gap],
-        '9': ['8-1' , -R_15[i] / 2 , 150 / 2 + circle_gap],
-        '10': ['10' , -FRAME_7_15_width[i] / 2 , 300 / 2 + circle_gap],
-        '11': ['11' , -125 / 2 , 270 / 2 + circle_gap],
-        '12': ['12' , -R_15[i] / 2 , 429 / 2 + circle_gap],
-        '13': ['13' , -50 / 2 , 74 / 2 + circle_gap],
-        '14': ['14' , -99.35 / 2 , 35 / 2 + circle_gap],
-        '15': ['15A' , -40 / 2 , 150 / 2 + circle_gap],
-        '16': ['15' , -40 / 2 , 150 / 2 + circle_gap],
-        '17': ['16' , -99.35 / 2 , 35 / 2 + circle_gap],
-        '18': ['18' , -290 / 2 , 145 / 2 + circle_gap],
-        '19': ['19' , -FRAME_11_15_width[i] / 2 , 90 / 2 + circle_gap],
-        '20': ['20' , -145 / 2 , 300 / 2 + circle_gap],
-        '21': ['21' , -75 / 2 , 75 / 2 + circle_gap],
-        '22': ['22' , -(R_15[i] + 180) / 2 , 50 / 2 + circle_gap],
-        '23': ['24' , -85 / 2 , FRAME_13_depth[i] / 2 + circle_gap],
-        '24': ['25' , -75 / 2 , 75 / 2 + circle_gap],
-        '25': ['27' , -460 / 2 , 280 / 2 + circle_gap],
-        '26': ['29' , -140 / 2 , 80 / 2 + circle_gap],
-        '27': ['30' , -40 / 2 , 300 / 2 + circle_gap],
-        '28': ['33' , -(R_15[i] + 180) / 2 , 30 / 2 + circle_gap],
-        '29': ['35' , -(R_15[i] + 180) / 2 , 50 / 2 + circle_gap],
-        '30': ['41' , -50 / 2 , 180 / 2 + circle_gap],
-        '31': ['43' , -32 / 2 , 32 / 2 + circle_gap],
-        '32': ['44' , -30 / 2 , 30 / 2 + circle_gap]
+        '1': ['1' , -B_15[i] / 2 - circle_Xgap , H[i] / 2 + circle_15_gap],
+        '2': ['2' , -B_15[i] / 2 - circle_Xgap , H[i] / 2 + circle_15_gap],
+        '3': ['3' , -(R_15[i]+180) / 2 - circle_Xgap , FRAME44_height[i] / 2 + circle_15_gap],
+        '4': ['4' , -(R_15[i]+180) / 2 - circle_Xgap , FRAME44_height[i] / 2 + circle_15_gap],
+        '5': ['5' , -(R_15[i]+180) / 2 - circle_Xgap , FRAME_41_depth[i] / 2 + circle_15_gap],
+        '6': ['6' , -182 / 2 - circle_Xgap , 80 / 2 + circle_15_gap],
+        '7': ['7' , -(R_15[i]+180) / 2 - circle_Xgap , 50 / 2 +circle_15_gap],
+        '8': ['8' , -R_15[i] / 2 - circle_Xgap , 476 / 2 + circle_15_gap],
+        '9': ['8-1' , -R_15[i] / 2 - circle_Xgap , 150 / 2 + circle_15_gap],
+        '10': ['10' , -FRAME_7_15_width[i] / 2 - circle_Xgap , 300 / 2 + circle_15_gap],
+        '11': ['11' , -125 / 2 - circle_Xgap , 270 / 2 + circle_15_gap],
+        '12': ['12' , -R_15[i] / 2 - circle_Xgap , 429 / 2 + circle_15_gap],
+        '13': ['13' , -50 / 2 - circle_Xgap , 74 / 2 + circle_15_gap],
+        '14': ['14' , -99.35 / 2 - circle_Xgap , 35 / 2 + circle_15_gap],
+        '15': ['15A' , -40 / 2 - circle_Xgap , 150 / 2 + circle_15_gap],
+        '16': ['15' , -40 / 2 - circle_Xgap , 150 / 2 + circle_15_gap],
+        '17': ['16' , -99.35 / 2 - circle_Xgap , 35 / 2 + circle_15_gap],
+        '18': ['18' , -290 / 2 - circle_Xgap , 145 / 2 + circle_15_gap],
+        '19': ['19' , -FRAME_11_15_width[i] / 2 - circle_Xgap , 90 / 2 + circle_15_gap],
+        '20': ['20' , -145 / 2 - circle_Xgap , 300 / 2 + circle_15_gap],
+        '21': ['21' , -75 / 2 - circle_Xgap , 75 / 2 + circle_15_gap],
+        '22': ['22' , -(R_15[i] + 180) / 2 - circle_Xgap , 50 / 2 + circle_15_gap],
+        '23': ['24' , -85 / 2 - circle_Xgap , FRAME_13_depth[i] / 2 + circle_15_gap],
+        '24': ['25' , -75 / 2 - circle_Xgap , 75 / 2 + circle_15_gap],
+        '25': ['27' , -460 / 2 - circle_Xgap , 280 / 2 + circle_15_gap],
+        '26': ['29' , -140 / 2 - circle_Xgap , 80 / 2 + circle_15_gap],
+        '27': ['30' , -40 / 2 - circle_Xgap , 300 / 2 + circle_15_gap],
+        '28': ['33' , -65 / 2 / 2 - circle_Xgap , 30 / 2 + circle_15_gap],
+        '29': ['35' , -(R_15[i] - 180) / 2 + circle_Xgap , 50 / 2 + circle_15_gap],
+        '30': ['41' , -50 / 2 - circle_Xgap , 180 / 2 + circle_15_gap],
+        '31': ['43' , -32 / 2 - circle_Xgap , 32 / 2 + circle_15_gap],
+        '32': ['44' , -30 / 2 - circle_Xgap , 30 / 2 + circle_15_gap]
     }
     for x in projection_file_name_list:
         mprog.import_part("C:\\Users\\USER\\Desktop\\stamping_press", x)
@@ -166,7 +167,7 @@ def test(i, l):
             if x == 'FRAME1':
                 p = 4#左視圖投影
                 p2 = 5#右視圖投影
-                X1 = (ALL_range[0][0]+ALL_range[0][1])/4 + 10#第一個投影X中心+尺寸標註預留量
+                X1 = (ALL_range[0][0]+ALL_range[0][1])/4 + 10 + 25#第一個投影X中心+尺寸標註預留量
                 X2 = (ALL_range[0][0]+ALL_range[0][1])*3/4#第二個投影X中心(X中心為將X範圍分成兩塊之中心)
                 Y1 = (ALL_range[0][2]+ALL_range[0][3])*3/4#第一個投影Y中心
                 Y2 = (ALL_range[0][2]+ALL_range[0][3])*3/4#第二個投影Y中心(Y中心為將Y範圍分成兩塊之上半部中心)
@@ -176,14 +177,14 @@ def test(i, l):
                 N.Material_diagram_projection(p2, X2, Y2 , x, scale , part_view_number)
                 number += 1
                 part_view_number = str(number)
-                N.Material_diagram_balloons(x , part_circle_position['1'][0] , part_circle_position['1'][1] , part_circle_position['1'][2] , '1')
+                N.Material_diagram_balloons(x , part_circle_position['1'][0] , part_circle_position['1'][1] , part_circle_position['1'][2] , '1' , scale)
                 D.add_dimension_to_view('FRAME1_1' , '1' , 0 , B[i] / 2 , (H[i] - 80) / 2 , B[i] / 2 , -(H[i] - 80) / 2 , 90)
                 D.add_dimension_to_view('FRAME1_1', '2', 0, -B[i] / 2, -(H[i] - 80) / 2, B[i] / 2, -(H[i] - 80) / 2, 0)
             elif x == 'FRAME2':
                 p = 4#左視圖投影
                 p2 = 5#右視圖投影
-                X1 = (ALL_range[0][0]+ALL_range[0][1])/4 + 10#第一個投影X中心+尺寸標註預留量
-                X2 = (ALL_range[0][0]+ALL_range[0][1])*3/4#第二個投影X中心(X中心為將X範圍分成兩塊之中心)
+                X1 = (ALL_range[0][0]+ALL_range[0][1])/4 + 10 + 25#第一個投影X中心+尺寸標註預留量
+                X2 = (ALL_range[0][0]+ALL_range[0][1])*3/4 #第二個投影X中心(X中心為將X範圍分成兩塊之中心)
                 Y1 = (ALL_range[0][2]+ALL_range[0][3])/4#第一個投影Y中心
                 Y2 = (ALL_range[0][2]+ALL_range[0][3])/4#第二個投影Y中心(Y中心為將Y範圍分成兩塊之上半部中心)
                 N.Material_diagram_projection(p, X1, Y1 , x, scale , part_view_number)
@@ -193,7 +194,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['2'][0], part_circle_position['2'][1],
-                                            part_circle_position['2'][2] , '1')
+                                            part_circle_position['2'][2] , '1' , scale)
             elif x == 'FRAME30':
                 p = 0#前視圖投影
                 p2 = 5#右視圖投影
@@ -214,7 +215,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['3'][0], part_circle_position['3'][1],
-                                            part_circle_position['3'][2] , '1')
+                                            part_circle_position['3'][2] , '1' , scale)
             elif x == 'FRAME44':
                 p = 0#前視圖投影
                 p2 = 3#下視圖投影
@@ -229,7 +230,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['4'][0], part_circle_position['4'][1],
-                                            part_circle_position['4'][2] , '1')
+                                            part_circle_position['4'][2] , '1' , scale)
 
             elif x == 'FRAME41':
                 p = 6#上視圖(左轉向)投影
@@ -245,7 +246,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['5'][0], part_circle_position['5'][1],
-                                            part_circle_position['5'][2] , '1')
+                                            part_circle_position['5'][2] , '1' , scale)
             elif x == 'FRAME34':
                 p2 = 1#後視圖投影
                 p = 5#右視圖投影
@@ -266,7 +267,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['6'][0], part_circle_position['6'][1],
-                                            part_circle_position['6'][2] , '1')
+                                            part_circle_position['6'][2] , '1' , scale)
             elif x == 'FRAME9':
                 p = 2#上視圖投影
                 p2 = 0#前視圖投影
@@ -281,7 +282,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['7'][0], part_circle_position['7'][1],
-                                            part_circle_position['7'][2] , '1')
+                                            part_circle_position['7'][2] , '1' , scale)
             elif x =='FRAME45':
                 p = 2#上視圖投影
                 p2 = 9#右側視圖(左旋轉)投影
@@ -296,7 +297,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['8'][0], part_circle_position['8'][1],
-                                            part_circle_position['8'][2] , '1')
+                                            part_circle_position['8'][2] , '1' , scale)
             elif x == 'FRAME43':
                 p = 0#前視圖投影
                 X1 = ALL_range[7][1] + R[i] * scale / 2 + gap#box_8_Xmin+FRAME43寬度一半+間隙
@@ -305,7 +306,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['9'][0], part_circle_position['9'][1],
-                                            part_circle_position['9'][2] , '1')
+                                            part_circle_position['9'][2] , '1' , scale)
             elif x == 'FRAME7':
                 p = 8#下視圖(右旋)投影
                 X1 = ALL_range[8][1] + FRAME_7_width[i] * scale / 2 + gap#box_9_Xmin+FRAME7寬度一半+間隙
@@ -314,7 +315,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['10'][0], part_circle_position['10'][1],
-                                            part_circle_position['10'][2] , '1')
+                                            part_circle_position['10'][2] , '1' , scale)
             elif x == 'MAIN_GEAR2':
                 p = 5#右視圖投影
                 X1 = ALL_range[9][1] + 125 * scale / 2 + gap#box_10_Xmin+MAIN_GEAR2深度一半+間隙
@@ -323,7 +324,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['11'][0], part_circle_position['11'][1],
-                                            part_circle_position['11'][2] , '1')
+                                            part_circle_position['11'][2] , '1' , scale)
             elif x == 'FRAME32':
                 p = 6#上視圖(左旋)投影
                 p2 = 10#背視圖(左旋)投影
@@ -338,7 +339,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['12'][0], part_circle_position['12'][1],
-                                            part_circle_position['12'][2] , '1')
+                                            part_circle_position['12'][2] , '1' , scale)
             elif x == 'FRAME47':
                 p = 6#上視圖(左旋)投影
                 p2 = 1#背視圖投影
@@ -353,7 +354,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['13'][0], part_circle_position['13'][1],
-                                            part_circle_position['13'][2] , '1')
+                                            part_circle_position['13'][2] , '1' , scale)
             elif x== 'FRAME23':
                 p = 6#上視圖(左旋)投影
                 p2 = 5#右視圖投影
@@ -368,7 +369,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['14'][0], part_circle_position['14'][1],
-                                            part_circle_position['14'][2] , '1')
+                                            part_circle_position['14'][2] , '1' , scale)
             elif x== 'FRAME31':
                 p = 0#前視圖投影
                 p2 = 5#右視圖投影
@@ -401,9 +402,9 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['15'][0], part_circle_position['15'][1],
-                                            part_circle_position['15'][2] , '1')
+                                            part_circle_position['15'][2] , '1' , scale)
                 N.Material_diagram_balloons(x, part_circle_position['16'][0], part_circle_position['16'][1],
-                                            part_circle_position['16'][2] , '4')
+                                            part_circle_position['16'][2] , '4' , scale)
             elif x == 'FRAME24':
                 p = 6#上視圖(左旋)投影
                 p2 = 1#背視圖投影
@@ -424,7 +425,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['17'][0], part_circle_position['17'][1],
-                                            part_circle_position['17'][2] , '1')
+                                            part_circle_position['17'][2] , '1' , scale)
             elif x == 'FRAME38':
                 p = 11#上視圖(右旋)投影
                 X1 = ALL_range[15][1] + 290 * scale / 2 + gap#box_16_Xmin+FRAME38寬度一半+間隙
@@ -433,7 +434,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['18'][0], part_circle_position['18'][1],
-                                            part_circle_position['18'][2] , '1')
+                                            part_circle_position['18'][2] , '1' , scale)
             elif x == 'FRAME11':
                 p2 = 5#右視圖投影
                 p = 6#上視圖(左旋)投影
@@ -448,7 +449,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['19'][0], part_circle_position['19'][1],
-                                            part_circle_position['19'][2] , '1')
+                                            part_circle_position['19'][2] , '1' , scale)
             elif x == 'FRAME39':
                 p = 12#上視圖(翻轉180度)投影
                 p2 =1#後視圖
@@ -463,7 +464,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['20'][0], part_circle_position['20'][1],
-                                            part_circle_position['20'][2] , '1')
+                                            part_circle_position['20'][2] , '1' , scale)
             elif x == 'FRAME17':
                 p = 12#上視圖(翻轉180度)投影
                 p2 =4 #左視圖投影
@@ -478,7 +479,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['21'][0], part_circle_position['21'][1],
-                                            part_circle_position['21'][2] , '1')
+                                            part_circle_position['21'][2] , '1' , scale)
             elif x == 'FRAME3':
                 p2 = 0#前視圖投影
                 p = 2#上視圖投影
@@ -493,7 +494,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['22'][0], part_circle_position['22'][1],
-                                            part_circle_position['22'][2] , '1')
+                                            part_circle_position['22'][2] , '1' , scale)
             elif x == 'FRAME13':
                 p = 2#上視圖投影
                 p2 = 9#右視圖(左旋)投影
@@ -508,7 +509,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['23'][0], part_circle_position['23'][1],
-                                            part_circle_position['23'][2] , '1')
+                                            part_circle_position['23'][2] , '1' , scale)
             elif x == 'FRAME14':
                 p = 6#上視圖(左旋)投影
                 p2 = 4#左視圖投影
@@ -523,16 +524,16 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['24'][0], part_circle_position['24'][1],
-                                            part_circle_position['24'][2] , '1')
+                                            part_circle_position['24'][2] , '1' , scale)
             elif x == 'FRAME22':
                 p = 4#左視圖投影
-                X1 = ALL_range[22][1] + 460 * scale / 2 + gap#box_23_Xmin+FRAME22寬度一半+間隙
-                Y1 = ALL_range[22][2] - 280 * scale / 2 + gap#box_23_Ymax-FRAME22高度一半-間隙
+                X1 = (ALL_range[22][1] + ALL_range[22][0] ) / 2#box_23_Xmin+FRAME22寬度一半+間隙
+                Y1 = (ALL_range[22][2] + ALL_range[22][3]) / 2#box_23_Ymax-FRAME22高度一半-間隙
                 N.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number)
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['25'][0], part_circle_position['25'][1],
-                                            part_circle_position['25'][2] , '1')
+                                            part_circle_position['25'][2] , '1' , scale)
             elif x == 'FRAME37':
                 p = 1#後視圖投影
                 X1 = ALL_range[23][1] + 140 * scale / 2 + gap#box_24_Xmin+FRAME37寬度一半+間隙
@@ -541,7 +542,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['26'][0], part_circle_position['26'][1],
-                                            part_circle_position['26'][2] , '1')
+                                            part_circle_position['26'][2] , '1' , scale)
             elif x == 'FRAME8':
                 p2 = 13#下視圖(左旋)投影
                 p = 10#後視圖(左旋)投影
@@ -556,7 +557,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['27'][0], part_circle_position['27'][1],
-                                            part_circle_position['27'][2] , '1')
+                                            part_circle_position['27'][2] , '1' , scale)
             elif x == 'FRAME29':
                 p2 = 7#下視圖(180度)投影
                 p = 9#右視圖(左旋)投影
@@ -571,7 +572,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['28'][0], part_circle_position['28'][1],
-                                            part_circle_position['28'][2] , '1')
+                                            part_circle_position['28'][2] , '1' , scale)
             elif x == 'FRAME20':
                 p2 = 0#前視圖投影
                 p = 2#上視圖投影
@@ -586,7 +587,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['29'][0], part_circle_position['29'][1],
-                                            part_circle_position['29'][2] , '1')
+                                            part_circle_position['29'][2] , '1' , scale)
             elif x == 'FRAME33':
                 p = 12#上視圖(轉180度)投影
                 p2 = 1#後視圖投影
@@ -601,7 +602,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['30'][0], part_circle_position['30'][1],
-                                            part_circle_position['30'][2] , '1')
+                                            part_circle_position['30'][2] , '1' , scale)
             elif x == 'FRAME48':
                 p = 4#左視圖投影
                 p2 = 0#前視圖投影
@@ -616,7 +617,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['31'][0], part_circle_position['31'][1],
-                                            part_circle_position['31'][2] , '1')
+                                            part_circle_position['31'][2] , '1' , scale)
             elif x == 'FRAME49':
                 p = 0#前視圖投影
                 p2 = 5#右視圖投影
@@ -631,7 +632,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_position['32'][0], part_circle_position['32'][1],
-                                            part_circle_position['32'][2] , '1')
+                                            part_circle_position['32'][2] , '1' , scale)
             else :
                 break
         elif l == 0:
@@ -648,7 +649,9 @@ def test(i, l):
                 N.Material_diagram_projection(p2, X2, Y2 , x, scale , part_view_number)
                 number += 1
                 part_view_number = str(number)
-                N.Material_diagram_balloons(x , part_circle_15_position['1'][0] , part_circle_15_position['1'][1] , part_circle_15_position['1'][2] , '1')
+                N.Material_diagram_balloons(x , part_circle_15_position['1'][0] , part_circle_15_position['1'][1] , part_circle_15_position['1'][2] , '1' , scale)
+                D.add_dimension_to_view('FRAME1_1' , '1' , 0 , B_15[i] / 2 , (H[i] - 80) / 2 , B_15[i] / 2 , -(H[i] - 80) / 2 , 90)
+                D.add_dimension_to_view('FRAME1_1', '2', 0, -B_15[i] / 2, -(H[i] - 80) / 2, B_15[i] / 2, -(H[i] - 80) / 2, 0)
             elif x == 'FRAME2':
                 p = 4#左視圖投影
                 p2 = 5#右視圖投影
@@ -663,7 +666,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['2'][0], part_circle_15_position['2'][1],
-                                            part_circle_15_position['2'][2] , '1')
+                                            part_circle_15_position['2'][2] , '1' , scale)
             elif x == 'FRAME30':
                 p = 0#前視圖投影
                 p2 = 5#右視圖投影
@@ -684,7 +687,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['3'][0], part_circle_15_position['3'][1],
-                                            part_circle_15_position['3'][2] , '1')
+                                            part_circle_15_position['3'][2] , '1' , scale)
             elif x == 'FRAME44':
                 p = 0#前視圖投影
                 p2 = 3#下視圖投影
@@ -699,7 +702,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['4'][0], part_circle_15_position['4'][1],
-                                            part_circle_15_position['4'][2] , '1')
+                                            part_circle_15_position['4'][2] , '1' , scale)
 
             elif x == 'FRAME41':
                 p = 6#上視圖(左轉向)投影
@@ -715,7 +718,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['5'][0], part_circle_15_position['5'][1],
-                                            part_circle_15_position['5'][2] , '1')
+                                            part_circle_15_position['5'][2] , '1' , scale)
             elif x == 'FRAME34':
                 p2 = 1#後視圖投影
                 p = 5#右視圖投影
@@ -736,7 +739,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['6'][0], part_circle_15_position['6'][1],
-                                            part_circle_15_position['6'][2] , '1')
+                                            part_circle_15_position['6'][2] , '1' , scale)
             elif x == 'FRAME9':
                 p = 2#上視圖投影
                 p2 = 0#前視圖投影
@@ -751,7 +754,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['7'][0], part_circle_15_position['7'][1],
-                                            part_circle_15_position['7'][2] , '1')
+                                            part_circle_15_position['7'][2] , '1' , scale)
             elif x =='FRAME45':
                 p = 2#上視圖投影
                 p2 = 9#右側視圖(左旋轉)投影
@@ -766,7 +769,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['8'][0], part_circle_15_position['8'][1],
-                                            part_circle_15_position['8'][2] , '1')
+                                            part_circle_15_position['8'][2] , '1' , scale)
             elif x == 'FRAME43':
                 p = 0#前視圖投影
                 X1 = ALL_range[7][1] + R_15[i] * scale / 2 + gap#box_8_Xmin+FRAME43寬度一半+間隙
@@ -775,7 +778,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['9'][0], part_circle_15_position['9'][1],
-                                            part_circle_15_position['9'][2] , '1')
+                                            part_circle_15_position['9'][2] , '1' , scale)
             elif x == 'FRAME7':
                 p = 8#下視圖(右旋)投影
                 X1 = ALL_range[8][1] + FRAME_7_15_width[i] * scale / 2 + gap#box_9_Xmin+FRAME7寬度一半+間隙
@@ -784,7 +787,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['10'][0], part_circle_15_position['10'][1],
-                                            part_circle_15_position['10'][2] , '1')
+                                            part_circle_15_position['10'][2] , '1' , scale)
             elif x == 'MAIN_GEAR2':
                 p = 5#右視圖投影
                 X1 = ALL_range[9][1] + 125 * scale / 2 + gap#box_10_Xmin+MAIN_GEAR2深度一半+間隙
@@ -793,7 +796,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['11'][0], part_circle_15_position['11'][1],
-                                            part_circle_15_position['11'][2] , '1')
+                                            part_circle_15_position['11'][2] , '1' , scale)
             elif x == 'FRAME32':
                 p = 6#上視圖(左旋)投影
                 p2 = 10#背視圖(左旋)投影
@@ -808,7 +811,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['12'][0], part_circle_15_position['12'][1],
-                                            part_circle_15_position['12'][2] , '1')
+                                            part_circle_15_position['12'][2] , '1' , scale)
             elif x == 'FRAME47':
                 p = 6#上視圖(左旋)投影
                 p2 = 1#背視圖投影
@@ -823,7 +826,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['13'][0], part_circle_15_position['13'][1],
-                                            part_circle_15_position['13'][2] , '1')
+                                            part_circle_15_position['13'][2] , '1' , scale)
             elif x== 'FRAME23':
                 p = 6#上視圖(左旋)投影
                 p2 = 5#右視圖投影
@@ -838,7 +841,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['14'][0], part_circle_15_position['14'][1],
-                                            part_circle_15_position['14'][2] , '1')
+                                            part_circle_15_position['14'][2] , '1' , scale)
             elif x== 'FRAME31':
                 p = 0#前視圖投影
                 p2 = 5#右視圖投影
@@ -871,9 +874,9 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['15'][0], part_circle_15_position['15'][1],
-                                            part_circle_15_position['15'][2] , '1')
+                                            part_circle_15_position['15'][2] , '1' , scale)
                 N.Material_diagram_balloons(x, part_circle_15_position['16'][0], part_circle_15_position['16'][1],
-                                            part_circle_15_position['16'][2] , '4')
+                                            part_circle_15_position['16'][2] , '4' , scale)
             elif x == 'FRAME24':
                 p = 6#上視圖(左旋)投影
                 p2 = 1#背視圖投影
@@ -894,7 +897,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['17'][0], part_circle_15_position['17'][1],
-                                            part_circle_15_position['17'][2] , '1')
+                                            part_circle_15_position['17'][2] , '1' , scale)
             elif x == 'FRAME38':
                 p = 11#上視圖(右旋)投影
                 X1 = ALL_range[15][1] + 290 * scale / 2 + gap#box_16_Xmin+FRAME38寬度一半+間隙
@@ -903,7 +906,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['18'][0], part_circle_15_position['18'][1],
-                                            part_circle_15_position['18'][2] , '1')
+                                            part_circle_15_position['18'][2] , '1' , scale)
             elif x == 'FRAME11':
                 p2 = 5#右視圖投影
                 p = 6#上視圖(左旋)投影
@@ -918,7 +921,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['19'][0], part_circle_15_position['19'][1],
-                                            part_circle_15_position['19'][2] , '1')
+                                            part_circle_15_position['19'][2] , '1' , scale)
             elif x == 'FRAME39':
                 p = 12#上視圖(翻轉180度)投影
                 p2 =1#後視圖
@@ -933,7 +936,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['20'][0], part_circle_15_position['20'][1],
-                                            part_circle_15_position['20'][2] , '1')
+                                            part_circle_15_position['20'][2] , '1' , scale)
             elif x == 'FRAME17':
                 p = 12#上視圖(翻轉180度)投影
                 p2 =4 #左視圖投影
@@ -948,7 +951,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['21'][0], part_circle_15_position['21'][1],
-                                            part_circle_15_position['21'][2] , '1')
+                                            part_circle_15_position['21'][2] , '1' , scale)
             elif x == 'FRAME3':
                 p2 = 0#前視圖投影
                 p = 2#上視圖投影
@@ -963,7 +966,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['22'][0], part_circle_15_position['22'][1],
-                                            part_circle_15_position['22'][2] , '1')
+                                            part_circle_15_position['22'][2] , '1' , scale)
             elif x == 'FRAME13':
                 p = 2#上視圖投影
                 p2 = 9#右視圖(左旋)投影
@@ -978,7 +981,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['23'][0], part_circle_15_position['23'][1],
-                                            part_circle_15_position['23'][2] , '1')
+                                            part_circle_15_position['23'][2] , '1' , scale)
             elif x == 'FRAME14':
                 p = 6#上視圖(左旋)投影
                 p2 = 4#左視圖投影
@@ -993,7 +996,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['24'][0], part_circle_15_position['24'][1],
-                                            part_circle_15_position['24'][2] , '1')
+                                            part_circle_15_position['24'][2] , '1' , scale)
             elif x == 'FRAME22':
                 p = 4#左視圖投影
                 X1 = ALL_range[22][1] + 460 * scale / 2 + gap#box_23_Xmin+FRAME22寬度一半+間隙
@@ -1002,7 +1005,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['25'][0], part_circle_15_position['25'][1],
-                                            part_circle_15_position['25'][2] , '1')
+                                            part_circle_15_position['25'][2] , '1' , scale)
             elif x == 'FRAME37':
                 p = 1#後視圖投影
                 X1 = ALL_range[23][1] + 140 * scale / 2 + gap#box_24_Xmin+FRAME37寬度一半+間隙
@@ -1011,7 +1014,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['26'][0], part_circle_15_position['26'][1],
-                                            part_circle_15_position['26'][2] , '1')
+                                            part_circle_15_position['26'][2] , '1' , scale)
             elif x == 'FRAME8':
                 p2 = 13#下視圖(左旋)投影
                 p = 10#後視圖(左旋)投影
@@ -1026,7 +1029,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['27'][0], part_circle_15_position['27'][1],
-                                            part_circle_15_position['27'][2] , '1')
+                                            part_circle_15_position['27'][2] , '1' , scale)
             elif x == 'FRAME29':
                 p2 = 7#下視圖(180度)投影
                 p = 9#右視圖(左旋)投影
@@ -1041,7 +1044,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['28'][0], part_circle_15_position['28'][1],
-                                            part_circle_15_position['28'][2] , '1')
+                                            part_circle_15_position['28'][2] , '1' , scale)
             elif x == 'FRAME20':
                 p2 = 0#前視圖投影
                 p = 2#上視圖投影
@@ -1056,7 +1059,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['29'][0], part_circle_15_position['29'][1],
-                                            part_circle_15_position['29'][2] , '1')
+                                            part_circle_15_position['29'][2] , '1' , scale)
             elif x == 'FRAME33':
                 p = 12#上視圖(轉180度)投影
                 p2 = 1#後視圖投影
@@ -1071,7 +1074,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['30'][0], part_circle_15_position['30'][1],
-                                            part_circle_15_position['30'][2] , '1')
+                                            part_circle_15_position['30'][2] , '1' , scale)
             elif x == 'FRAME48':
                 p = 4#左視圖投影
                 p2 = 0#前視圖投影
@@ -1086,7 +1089,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['31'][0], part_circle_15_position['31'][1],
-                                            part_circle_15_position['31'][2] , '1')
+                                            part_circle_15_position['31'][2] , '1' , scale)
             elif x == 'FRAME49':
                 p = 0#前視圖投影
                 p2 = 5#右視圖投影
@@ -1101,7 +1104,7 @@ def test(i, l):
                 number += 1
                 part_view_number = str(number)
                 N.Material_diagram_balloons(x, part_circle_15_position['32'][0], part_circle_15_position['32'][1],
-                                            part_circle_15_position['32'][2] , '1')
+                                            part_circle_15_position['32'][2] , '1' , scale)
             else :
                 break
 

@@ -3,6 +3,7 @@ import sys, datetime, os
 from GUI import Ui_Dialog
 import main_program as mprog
 import win32com.client as win32
+import time
 
 
 projection = {"front view":(0, 1 , 0, 0 , 0, 1) , "Rear view":(0, -1, 0, 0 , 0, 1) , "top view":(0, 1 , 0, -1 , 0 , 0)
@@ -20,7 +21,7 @@ U = ["front view" , "Rear view" , "top view" , "bottom view" , "Left view" , "ri
 
 def Material_diagram_projection(surface , XLocation , YLocation , x , scale , part_view_number):
     catapp = win32.Dispatch('CATIA.Application')
-    ActWin = catapp.Windows.item("Drawing1.CATDrawing")
+    ActWin = catapp.Windows.item("Drawing2.CATDrawing")
     ActWin.Activate()
     drawingDocument = catapp.ActiveDocument
     drawingSheets = drawingDocument.Sheets
@@ -58,41 +59,36 @@ def Material_diagram_projection(surface , XLocation , YLocation , x , scale , pa
     drawingtexts1 = drawingview1.Texts
     drawingtext1 = drawingtexts1.Item(1)
     drawingtexts1 = drawingtext1.Parent
-    selection = partDocument1.Selection
-    selection.Clear()
+    selection = drawingDocument.Selection
     selection.Add(drawingtext1)
     selection.Delete()
-    selection.Clear()
-    drawingView1.FrameVisualization = False
+    # selection.Clear()
+    # drawingView1.FrameVisualization = False
 
 
-def Material_diagram_balloons(view , name , XLocation , YLocation , part_view_number):
-    catapp = win32.Dispatch("CATIA.Application")
-    partdoc = catapp.ActiveDocument
-    catapp = win32.Dispatch('CATIA.Application')
-    drawingdocument = catapp.ActiveDocument
-    drawingsheets = drawingdocument.Sheets
-    drawingsheet = drawingsheets.Item('Sheet.1')
-    drawingviews = drawingsheet.Views
-    drawingview = drawingviews.Item(view + "_" + part_view_number)
-    drawingview.Activate()
-    DrawTexts_balloons = drawingview.Texts
-    DrawText = DrawTexts_balloons.Add(name, XLocation , YLocation)
-    DrawText.SetFontName(0, 0, 'Arial Unicode MS (TrueType)')
-    DrawText.SetFontSize(0, 0, 10)  # 調整字體位置和大小(x, y, 字體大小)
-    # DrawLeader_DrawTexts_balloons = DrawText.Leaders.Add(point_positionX, point_positionY)  # 圓點位置
-    DrawText.FrameType = 3  # 圓類型
-    DrawText.x = XLocation
-    # DrawText.y = YLocation
-    # DrawText.DeactivateFrame(3)
-    # DrawText.Deactivates = 1
-    # DrawText.Blanking(0)
-    # DrawLeader_DrawTexts_balloons.AllAround = 0
-    # DrawLeader_DrawTexts_balloons.ModifyPoint(0, leader_line_length, 0)  # 選擇引線點 -> (0, 1, 2)並調整座標位置
-    # DrawLeader_DrawTexts_balloons.HeadSymbol = 20  # 引號標點類型
-    # DrawText.StandardBehavior = 1
-    # MyViewGenBehavior = MyView.GenerativeBehavior
-
-
-
-
+def Material_diagram_balloons(view , name , XLocation , YLocation , part_view_number , scale):
+        catapp = win32.Dispatch("CATIA.Application")
+        partdoc = catapp.ActiveDocument
+        catapp = win32.Dispatch('CATIA.Application')
+        drawingdocument = catapp.ActiveDocument
+        drawingsheets = drawingdocument.Sheets
+        drawingsheet = drawingsheets.Item('Sheet.1')
+        drawingviews = drawingsheet.Views
+        drawingview = drawingviews.Item(view + "_" + part_view_number)
+        drawingview.Activate()
+        DrawTexts_balloons = drawingview.Texts
+        DrawText = DrawTexts_balloons.Add(name, XLocation , YLocation)
+        DrawText.SetFontName(0, 0, 'Arial Unicode MS (TrueType)')
+        DrawText.SetFontSize(0, 0, 8.4)  # 調整字體位置和大小(x, y, 字體大小)
+        # DrawLeader_DrawTexts_balloons = DrawText.Leaders.Add(point_positionX, point_positionY)  # 圓點位置
+        DrawText.FrameType = 3  # 圓類型
+        DrawText.x = XLocation
+        # DrawText.y = YLocation
+        # DrawText.DeactivateFrame(3)
+        # DrawText.Deactivates = 1
+        # DrawText.Blanking(0)
+        # DrawLeader_DrawTexts_balloons.AllAround = 0
+        # DrawLeader_DrawTexts_balloons.ModifyPoint(0, leader_line_length, 0)  # 選擇引線點 -> (0, 1, 2)並調整座標位置
+        # DrawLeader_DrawTexts_balloons.HeadSymbol = 20  # 引號標點類型
+        # DrawText.StandardBehavior = 1
+        # MyViewGenBehavior = MyView.GenerativeBehavior
