@@ -52,7 +52,8 @@ def Material_diagram_projection(surface , XLocation , YLocation , x , scale , pa
     # selection = partDocument1.Selection
     # selection.Add(drawingtext1)
     # selection.Delete()
-    # selection.Clear()
+    selection = drawingDocument.Selection
+    selection.Clear()
     # --
     drawingview1 =  drawingViews1.Item(x + "_" + part_view_number)
     # drawingview1 =  drawingViews1.Item('FRAME1_1')
@@ -62,7 +63,7 @@ def Material_diagram_projection(surface , XLocation , YLocation , x , scale , pa
     selection = drawingDocument.Selection
     selection.Add(drawingtext1)
     selection.Delete()
-    # selection.Clear()
+    selection.Clear()
     # drawingView1.FrameVisualization = False
 
 

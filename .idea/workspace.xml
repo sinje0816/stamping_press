@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="N1及N_test圈馬程式更新">
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="N1及N_test圈馬位置更新，新增一個開啟圖面副程式">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/N1.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/N1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/N_Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/N_Test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/drafting_tesst2.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/drafting_tesst2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TEST_BOM.py" beforeDir="false" afterPath="$PROJECT_DIR$/TEST_BOM.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_program.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_program.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +132,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="drafting (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="TEST_BOM" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Stamping press" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -147,7 +144,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/drafting.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TEST_BOM.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -159,10 +156,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.N1" />
+        <item itemvalue="Python.TEST_BOM" />
         <item itemvalue="Python.N_Test" />
         <item itemvalue="Python.TEST" />
         <item itemvalue="Python.123" />
-        <item itemvalue="Python.drafting (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -174,13 +171,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668131959961</updated>
-    </task>
-    <task id="LOCAL-00004" summary="註:新增機架組立">
-      <created>1668414377521</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1668414377521</updated>
     </task>
     <task id="LOCAL-00005" summary="註:新增機架組立，平面和組合線隱藏">
       <created>1668414820426</created>
@@ -518,7 +508,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672236353047</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="N1及N_test圈馬位置更新，新增一個開啟圖面副程式">
+      <created>1673921545749</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1673921545749</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -534,7 +531,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改部分YZ尺寸距離" />
     <MESSAGE value="80~250噸數OK" />
     <MESSAGE value="修改結合尺寸與判斷式" />
     <MESSAGE value="修改標準件判斷條件及新增噸數300尺寸" />
@@ -559,24 +555,25 @@
     <MESSAGE value="修改爆炸圖偏移二變數&#10;新增更改視圖名稱" />
     <MESSAGE value="N1及drafting_test更新" />
     <MESSAGE value="N1及N_test圈馬程式更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="N1及N_test圈馬程式更新" />
+    <MESSAGE value="N1及N_test圈馬位置更新，新增一個開啟圖面副程式" />
+    <option name="LAST_COMMIT_MESSAGE" value="N1及N_test圈馬位置更新，新增一個開啟圖面副程式" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/N_Test.py</url>
-          <line>58</line>
+          <line>59</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/N_Test.py</url>
-          <line>60</line>
+          <line>61</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/N_Test.py</url>
-          <line>61</line>
+          <line>62</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>

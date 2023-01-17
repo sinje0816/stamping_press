@@ -1109,5 +1109,5 @@ def test(i, l):
                 break
 
 mprog.set_CATIA_workbench_env()
-mprog.OPEN_Drawing()
+mprog.OPEN_Drawing2()
 test(5 , 1)
