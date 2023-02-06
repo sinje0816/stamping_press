@@ -565,12 +565,12 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         else:
             mprog.add_offset_assembly('GIB2.1', 'FRAME31.1', -690, 'XY.PLANE', 1, 88)
         mprog.add_offset_assembly('FRAME23.1', 'FRAME31.1', -50, 'XZ.PLANE', 0, 89)
-        mprog.add_offset_assembly('FRAME23.1', 'FRAME31.1', -130.35, 'YZ.PLANE', 0, 90)
+        mprog.add_offset_assembly('FRAME23.1', 'FRAME31.1', -130.35 - 22.5, 'YZ.PLANE', 0, 90)
         if i == 4:
             mprog.add_offset_assembly('GIB2.1', 'FRAME31.2', -150 - 34.5, 'XY.PLANE', 1, 91)
         else:
             mprog.add_offset_assembly('GIB2.1', 'FRAME31.2', -150, 'XY.PLANE', 1, 91)
-        mprog.add_offset_assembly('FRAME23.1', 'FRAME31.2', -50, 'YZ.PLANE', 0, 92)
+        mprog.add_offset_assembly('FRAME23.1', 'FRAME31.2', -130.35 - 22.5, 'YZ.PLANE', 0, 92)
         mprog.add_offset_assembly('FRAME23.1', 'FRAME31.2', -62.5, 'XZ.PLANE', 0, 93)
         # 右GIB後鎖固用方塊
         if i == 4:
@@ -596,7 +596,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         else:
             mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', -690, 'XY.PLANE', 1, 103)
         mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', -50, 'XZ.PLANE', 1, 104)
-        mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', 130.35, 'YZ.PLANE', 1, 105)
+        mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', 130.35 + 22.5, 'YZ.PLANE', 1, 105)
         if i == 4:
             mprog.add_offset_assembly('GIB1.1', 'FRAME31.4', -150 - 34.5, 'XY.PLANE', 1, 106)
         else:

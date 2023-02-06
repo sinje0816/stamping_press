@@ -275,22 +275,17 @@ def balloons(view, circle_position_1, circle_position_2, circle_position_3, poin
     drawingsheets = drawingdocument.Sheets
     drawingsheet = drawingsheets.Item('Sheet.1')
     drawingviews = drawingsheet.Views
-    drawingview = drawingviews.Item(view)
-    drawingview.Activate()
-    DrawTexts_balloons = drawingview.Texts
-    DrawText = DrawTexts_balloons.Add(circle_position_1, circle_position_2, circle_position_3) #線段長度
+    drawingview = drawingviews.Item(view).Activate()
+    # 圈碼內容及位置
+    DrawText = drawingview.Texts.Add(circle_position_1, circle_position_2, circle_position_3)  # (輸入內容, 線段長度X, 線段長度Y)
     DrawText.SetFontName(0, 0, 'Arial Unicode MS (TrueType)')
     DrawText.SetFontSize(0, 0, 10)  # 調整字體位置和大小(x, y, 字體大小)
-    DrawLeader_DrawTexts_balloons = DrawText.Leaders.Add(point_position_1, point_position_2)  # 圓點位置
     DrawText.FrameType = 3  # 圓類型
-    # DrawText.DeactivateFrame(3)
-    # DrawText.Deactivates = 1
-    # DrawText.Blanking(0)
+    # 引線點標註位置
+    DrawLeader_DrawTexts_balloons = DrawText.Leaders.Add(point_position_1, point_position_2)  # 圓點位置
     DrawLeader_DrawTexts_balloons.AllAround = 0
     DrawLeader_DrawTexts_balloons.ModifyPoint(0, leader_line_length, 0)  # 選擇引線點 -> (0, 1, 2)並調整座標位置
     DrawLeader_DrawTexts_balloons.HeadSymbol = 20  # 引號標點類型
-    # DrawText.StandardBehavior = 1
-    # MyViewGenBehavior = MyView.GenerativeBehavior
 
 # 爆炸圖中心線
 def create_center_line(view_name, x_value_1, y_value_1, x_value_2, y_value_2):
@@ -358,3 +353,27 @@ def add_dimension_to_view(view_name, item_name, catDimDistance, x_value_1, y_val
         else:
             y_value = y_value_2 - 300
     drawingdim.MoveValue(x_value, y_value, 2, 0)  # 標註偏移(X, Y, 選擇偏移部位, 角度尺寸)
+
+def symbol_of_weld(view, WeldingSymbol, lead_X, lead_Y, WeldingTail):  # 焊接符號
+    catapp = win32.Dispatch("CATIA.Application")
+    partdoc = catapp.ActiveDocument
+    catapp = win32.Dispatch('CATIA.Application')
+    drawingdocument = catapp.ActiveDocument
+    drawingsheets = drawingdocument.Sheets
+    drawingsheet = drawingsheets.Item('Sheet.1')
+    drawingviews = drawingsheet.Views
+    drawingview = drawingviews.Item(view)
+    MyWelding = drawingview.Weldings.Add(WeldingSymbol, lead_X, lead_Y)  # 引線標註點位置(引線符號, 座標X, 座標Y)
+    # 基線位置
+    # 基線計算位置時要注意需呈現為60度
+    if lead_X >= 0:
+        MyWelding.X = lead_X + 100 * math.cos(math.radians(60))
+        MyWelding.angle = 0
+    else:
+        MyWelding.X = lead_X - 100 * math.cos(math.radians(60))
+        MyWelding.angle = 180
+    if lead_Y >= 0:
+        MyWelding.Y = lead_Y + 100 * math.sin(math.radians(60))
+    else:
+        MyWelding.Y = lead_Y - 100 * math.sin(math.radians(60))
+    MyWelding.WeldingTail = WeldingTail  # 是否開啟尾叉 0 or 1

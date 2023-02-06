@@ -198,13 +198,6 @@ def import_product(path, file_name):
     documents1 = catapp.Documents
     partDocument1 = documents1.Open(path + "\\" + file_name + ".CATProduct")
 
-# 儲存零件檔
-# def save_file(path, file_name):
-#     catapp = win32.Dispatch('CATIA.Application')
-#     partDocument1 = catapp.ActiveDocument
-#     partDocument1.SaveAs(path + '\\' + file_name)
-#     partDocument1.Close()
-
 #零件檔存檔
 def save_file_part(path, file_name):
     catapp = win32.Dispatch('CATIA.Application')
@@ -383,3 +376,18 @@ def switch_window():
     catapp = win32.Dispatch("CATIA.Application")
     specsAndGeomWindow1 = catapp.ActiveWindow
     specsAndGeomWindow1.ActivateNext()
+
+def hide_show_part(part_name, hide_show):  # 隱藏零件
+    catapp = win32.Dispatch("CATIA.Application")
+    productDocument1 = catapp.ActiveDocument
+    selection1 = productDocument1.Selection
+    visPropertySet1 = selection1.VisProperties
+    product1 = productDocument1.Product
+    products1 = product1.Products
+    product2 = products1.Item(part_name + '.1')
+    products1 = product2.Parent
+    selection1.Add(product2)
+    visPropertySet1 = visPropertySet1.Parent
+    visPropertySet1.SetShow(hide_show)  # 隱藏1, 顯示0
+    selection1.Clear()
+
