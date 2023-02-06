@@ -355,7 +355,7 @@ def constaint_value_change(constraints_name, value, Orientation):
 def OPEN_Drawing():
     catapp = win32.Dispatch('CATIA.Application')
     documents = catapp.Documents
-    drawingDocument = documents.Open("C:\\Users\\User\\Desktop\\stamping_press\\Drawing1.CATDrawing")
+    drawingDocument = documents.Open("C:\\Users\\User\\Desktop\\stamping_press\\Exploded Views.CATDrawing")
 
 def OPEN_detail_drawing():
     catapp = win32.Dispatch('CATIA.Application')

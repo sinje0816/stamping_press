@@ -891,9 +891,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
         mprog.update()  # 更新
         mprog.OPEN_Drawing()
-        drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale = draft.drafting_parameter_calculation(
-            A[i], B[i], H[i], T[i])  # 計算爆炸圖比例及位置
-        print(drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale)
+        drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale = draft.drafting_parameter_calculation(A[i], B[i], H[i], T[i])  # 計算爆炸圖比例及位置
         draft.change_Drawing_scale(1 / scale)  # 圖面比例
         draft.exploded_Drawing_1(type, drafting_isometric_Coordinate_Position['exploded_1'][0],
                                  drafting_isometric_Coordinate_Position['exploded_1'][1], scale)  # 爆炸圖1
