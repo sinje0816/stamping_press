@@ -369,6 +369,16 @@ def OPEN_detail_drawing():
     documents = catapp.Documents
     drawingDocument = documents.Open("C:\\Users\\User\\Desktop\\stamping_press\\detail_drawing.CATDrawing")
 
+#組合檔存檔
+def save_detail_drawing(path, file_name):
+    catapp = win32.Dispatch('CATIA.Application')
+    document = catapp.Documents
+    file_name = file_name + '.CATDrawing'
+    partDocument2 = document.Item(file_name)
+    # print(path + '\\' + file_name)
+    partDocument2.SaveAs(path + '\\' + file_name)
+    partDocument2.Close()
+
 def switch_window():
     catapp = win32.Dispatch("CATIA.Application")
     specsAndGeomWindow1 = catapp.ActiveWindow
