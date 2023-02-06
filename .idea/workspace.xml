@@ -2,12 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="N1及N_test圈馬程式更新">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_1_13__06_22__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_1_13__06_22__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_6__04_58__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_6__04_58__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_6__09_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_6__09_52__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/N1.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/N1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/N_Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/N_Test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/drafting_tesst2.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/drafting_tesst2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TEST_BOM.py" beforeDir="false" afterPath="$PROJECT_DIR$/TEST_BOM.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_program.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_program.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/123.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRAME_ASSEMBLY.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRAME_Assembly_change.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/GUI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/N_Test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/drafting_part.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/drafting_part_calculate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/drafting_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/main_GUI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Part_change.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SP_Assembly_change.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TEST.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TEST_BOM.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drafting.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_program.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/new Folder.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -560,26 +574,5 @@
     <MESSAGE value="N1及drafting_test更新" />
     <MESSAGE value="N1及N_test圈馬程式更新" />
     <option name="LAST_COMMIT_MESSAGE" value="N1及N_test圈馬程式更新" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI/N_Test.py</url>
-          <line>58</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI/N_Test.py</url>
-          <line>60</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI/N_Test.py</url>
-          <line>61</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
