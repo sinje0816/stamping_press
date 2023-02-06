@@ -3,6 +3,8 @@ import sys, datetime, os, math
 from GUI import Ui_Dialog
 import main_program as mprog
 import drafting as draft
+import drafting_part as dp
+import drafting_part_calculate as dpc
 # import TEST_BOM as BOM
 
 change = ()
@@ -47,6 +49,17 @@ FRAME20_FRAME2_YZ = [805, 805, 979, 979, 979, 979, 979, 979, 979, 979]
 BALANCER1_XZ = [204, 253, 268, 282, 317, 345, 375, 460, 575, 690]  # (R+180mm)/2+80mm
 FRAME_10_H = [558, 620.5, 673, 798, 905.5, 1023, 1163, 1320.5, 1530.5, 1740.5]
 FRAME_32_XY = [0, 0, 0, 1722, 1819.5, 1922, 2052, 2294.5, 2504.5, 2794.5]
+
+FRAME44_height = [588 , 665.5 , 733 , 773 , 890.5 , 1023 , 1173 , 1385.5 , 1455.5 , 1445.5]
+FRAME_41_depth = [590 , 590 , 590 , 590 , 490 , 590 , 590 , 590 , 590 , 590]
+FRAME_7_width = [176 , 182 , 197 , 208 , 228 , 255 , 295 , 299 , 305 , 305]
+FRAME_7_15_width = [200.3 , 209.3 , 231.8 , 248.3 , 278.3 , 318.8 , 378.8 , 384.8 , 393.8 , 393.8]
+FRAME_11_height = [1122 , 1184.5 , 1237 , 1362 , 1469.5 , 1587 , 1727 , 1884.5 , 2094.5 , 2304.5]
+FRAME_11_width = [600 , 680 , 720 , 800 , 880 , 960 , 1040 , 1120 , 1180 , 1240]
+FRAME_11_15_width = [765 , 885 , 945 , 1065 , 1185 , 1305 , 1425 , 1545 , 1635 , 1725]
+FRAME_8_width = [164 , 170 , 185 , 196 , 216 , 243 , 283 , 288 , 293 , 358]
+FRAME_8_15_width = [246 , 255 , 278 , 294 , 324 , 365 , 425 , 432 , 440 , 537]
+FRAME_13_depth = [59.016 , 139.016 , 179.016 , 259.016 , 339.016 , 419.016 , 499.016 , 579.016 , 639.016 , 699.016]
 
 
 class main(QtWidgets.QWidget, Ui_Dialog):
@@ -1037,20 +1050,29 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                                  -(Fixture_offset_value + B[i]) * cos45 * sin30 / cos30 - 300)
 
         Left_view_list = []
-        for i in Left_view_list:
-            Left_view_list.append(i)
+        for x in Left_view_list:
+            Left_view_list.append(x)
 
-        for i in Left_view_list:
-            draft.add_dimension_to_view('Left view', str(i), Left_view_list[i][0], Left_view_list[i][1], Left_view_list[i][2],
-                                        Left_view_list[i][3], Left_view_list[i][4], Left_view_list[i][5])
+        for x in Left_view_list:
+            draft.add_dimension_to_view('Left view', str(x), Left_view_list[x][0], Left_view_list[x][1], Left_view_list[x][2],
+                                        Left_view_list[x][3], Left_view_list[x][4], Left_view_list[x][5])
         # -------------關閉虛框---------------
         view_name = ['Isometric view1', 'Isometric view2', 'Front view', 'Left view', 'Right view']
-        for i in view_name:
-            draft.close_broken_line_block_diagram(i)
+        for x in view_name:
+            draft.close_broken_line_block_diagram(x)
+
+
         #--------------存檔------------------
         # mprog.save_file_part(path, type)
 
         #-------------
+        # dp.Parts_drawing_generation(i , j , path)
+
+        #-----------零件圖生成--------
+        mprog.OPEN_detail_drawing()
+        dp.Parts_drawing_generation(i, l, path)
+        dpc.bom_text_create()
+        mprog.save_detail_drawing(path , "detail_drawing")
 
 if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率

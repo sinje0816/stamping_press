@@ -56,15 +56,15 @@ FRAME_13_depth = [59.016 , 139.016 , 179.016 , 259.016 , 339.016 , 419.016 , 499
 
 
 
-projection = {"front view":(0, 1 , 0, 0 , 0, 1) , "Rear view":(0, -1, 0, 0 , 0, 1) , "top view":(0, 1 , 0, -1 , 0 , 0)
-    , "bottom view":(0, 1, 0, 1, 0, 0), "Left view":(1, 0, 0, 0, 0, 1) , "right view":(-1, 0, 0, 0, 0, 1)
-              , 'top view(left horizontal)':(-1 , 0 , 0 , 0 , -1 , 0)  , "top view(Y inverse)":(0 , -1 , 0 , -1 , 0 , 0) ,
-              'bottom view(right horizontal)':(-1 , 0 , 0 , 0 , 1 , 0) , 'right view(left horizontal)':(0 , 0 , -1 , -1 , 0 , 0),
-              'Rear view(left horizontal)':(0 , 0 , -1 , 0 , -1 , 0) , 'top view(right horizontal)':(1 , 0 , 0 , 0 , 1 , 0) ,
-              'top view(180 degree)':(0 , -1 , 0 , 1 , 0 , 0) , 'bottom view(left horizontal)':(1 , 0 , 0 , 0 , -1 , 0)}
-U = ["front view" , "Rear view" , "top view" , "bottom view" , "Left view" , "right view" , 'top view(left horizontal)' ,
-     "top view(Y inverse)" , 'bottom view(right horizontal)' , 'right view(left horizontal)','Rear view(left horizontal)',
-     'top view(right horizontal)' , 'top view(180 degree)' , 'bottom view(left horizontal)']
+# projection = {"front view":(0, 1 , 0, 0 , 0, 1) , "Rear view":(0, -1, 0, 0 , 0, 1) , "top view":(0, 1 , 0, -1 , 0 , 0)
+#     , "bottom view":(0, 1, 0, 1, 0, 0), "Left view":(1, 0, 0, 0, 0, 1) , "right view":(-1, 0, 0, 0, 0, 1)
+#               , 'top view(left horizontal)':(-1 , 0 , 0 , 0 , -1 , 0)  , "top view(Y inverse)":(0 , -1 , 0 , -1 , 0 , 0) ,
+#               'bottom view(right horizontal)':(-1 , 0 , 0 , 0 , 1 , 0) , 'right view(left horizontal)':(0 , 0 , -1 , -1 , 0 , 0),
+#               'Rear view(left horizontal)':(0 , 0 , -1 , 0 , -1 , 0) , 'top view(right horizontal)':(1 , 0 , 0 , 0 , 1 , 0) ,
+#               'top view(180 degree)':(0 , -1 , 0 , 1 , 0 , 0) , 'bottom view(left horizontal)':(1 , 0 , 0 , 0 , -1 , 0)}
+# U = ["front view" , "Rear view" , "top view" , "bottom view" , "Left view" , "right view" , 'top view(left horizontal)' ,
+#      "top view(Y inverse)" , 'bottom view(right horizontal)' , 'right view(left horizontal)','Rear view(left horizontal)',
+#      'top view(right horizontal)' , 'top view(180 degree)' , 'bottom view(left horizontal)']
 #圖框範圍
 circle_Xgap = 300
 circle_gap = 300
@@ -83,7 +83,7 @@ box_1_Ymin = 25
 box_width_gap = 80+2*gap#虛擬方框一的寬度間隙
 box_heigth_gap = 150+2*gap#虛擬方框一的高度間隙
 
-def Parts_drawing_generation(i, l):
+def Parts_drawing_generation(i, l , path):
     scale, box_1_center , box_1_range = DP.scale_Adjustment(i, l)
     ALL_range , scale = DP.drafting_parameter_calculation(i, l , scale , box_1_range)#ALL_range = [方寬編號[Xmax , Xmin , Ymax , Ymin]]
     projection_file_name_list = ['FRAME1' , 'FRAME2' ,'FRAME30', 'FRAME44', 'FRAME41', 'FRAME34', 'FRAME9', 'FRAME45', 'FRAME43', 'FRAME7',
@@ -159,7 +159,7 @@ def Parts_drawing_generation(i, l):
         '32': ['44' , -30 / 2 - circle_Xgap , 30 / 2 + circle_15_gap]
     }
     for x in projection_file_name_list:
-        mprog.import_part("C:\\Users\\USER\\Desktop\\stamping_press", x)
+        mprog.import_part(path, x)
         number = 1
         part_view_number = str(number)
         if l == 1:
@@ -179,6 +179,7 @@ def Parts_drawing_generation(i, l):
                 DP.Parts_drafting_balloons(x , part_circle_position['1'][0] , part_circle_position['1'][1] , part_circle_position['1'][2] , '1' , scale)
                 draft.add_dimension_to_view('FRAME1_1' , '1' , 0 , B[i] / 2 , (H[i] - 80) / 2 , B[i] / 2 , -(H[i] - 80) / 2 , 90)
                 draft.add_dimension_to_view('FRAME1_1', '2', 0, -B[i] / 2, -(H[i] - 80) / 2, B[i] / 2, -(H[i] - 80) / 2, 0)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME2':
                 p = 4#左視圖投影
                 p2 = 5#右視圖投影
@@ -194,6 +195,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['2'][0], part_circle_position['2'][1],
                                             part_circle_position['2'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME30':
                 p = 0#前視圖投影
                 p2 = 5#右視圖投影
@@ -215,6 +217,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['3'][0], part_circle_position['3'][1],
                                             part_circle_position['3'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME44':
                 p = 0#前視圖投影
                 p2 = 3#下視圖投影
@@ -230,7 +233,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['4'][0], part_circle_position['4'][1],
                                             part_circle_position['4'][2] , '1' , scale)
-
+                mprog.save_file_part(path, x)
             elif x == 'FRAME41':
                 p = 6#上視圖(左轉向)投影
                 p2 = 5#右視圖投影
@@ -246,6 +249,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['5'][0], part_circle_position['5'][1],
                                             part_circle_position['5'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME34':
                 p2 = 1#後視圖投影
                 p = 5#右視圖投影
@@ -267,6 +271,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['6'][0], part_circle_position['6'][1],
                                             part_circle_position['6'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME9':
                 p = 2#上視圖投影
                 p2 = 0#前視圖投影
@@ -282,6 +287,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['7'][0], part_circle_position['7'][1],
                                             part_circle_position['7'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x =='FRAME45':
                 p = 2#上視圖投影
                 p2 = 9#右側視圖(左旋轉)投影
@@ -297,6 +303,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['8'][0], part_circle_position['8'][1],
                                             part_circle_position['8'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME43':
                 p = 0#前視圖投影
                 X1 = ALL_range[7][1] + R[i] * scale / 2 + gap#box_8_Xmin+FRAME43寬度一半+間隙
@@ -306,6 +313,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['9'][0], part_circle_position['9'][1],
                                             part_circle_position['9'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME7':
                 p = 8#下視圖(右旋)投影
                 X1 = ALL_range[8][1] + FRAME_7_width[i] * scale / 2 + gap#box_9_Xmin+FRAME7寬度一半+間隙
@@ -315,6 +323,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['10'][0], part_circle_position['10'][1],
                                             part_circle_position['10'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'MAIN_GEAR2':
                 p = 5#右視圖投影
                 X1 = ALL_range[9][1] + 125 * scale / 2 + gap#box_10_Xmin+MAIN_GEAR2深度一半+間隙
@@ -324,6 +333,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['11'][0], part_circle_position['11'][1],
                                             part_circle_position['11'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME32':
                 p = 6#上視圖(左旋)投影
                 p2 = 10#背視圖(左旋)投影
@@ -339,6 +349,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['12'][0], part_circle_position['12'][1],
                                             part_circle_position['12'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME47':
                 p = 6#上視圖(左旋)投影
                 p2 = 1#背視圖投影
@@ -354,6 +365,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['13'][0], part_circle_position['13'][1],
                                             part_circle_position['13'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x== 'FRAME23':
                 p = 6#上視圖(左旋)投影
                 p2 = 5#右視圖投影
@@ -369,6 +381,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['14'][0], part_circle_position['14'][1],
                                             part_circle_position['14'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x== 'FRAME31':
                 p = 0#前視圖投影
                 p2 = 5#右視圖投影
@@ -404,6 +417,7 @@ def Parts_drawing_generation(i, l):
                                             part_circle_position['15'][2] , '1' , scale)
                 DP.Parts_drafting_balloons(x, part_circle_position['16'][0], part_circle_position['16'][1],
                                             part_circle_position['16'][2] , '4' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME24':
                 p = 6#上視圖(左旋)投影
                 p2 = 1#背視圖投影
@@ -425,6 +439,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['17'][0], part_circle_position['17'][1],
                                             part_circle_position['17'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME38':
                 p = 11#上視圖(右旋)投影
                 X1 = ALL_range[15][1] + 290 * scale / 2 + gap#box_16_Xmin+FRAME38寬度一半+間隙
@@ -434,6 +449,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['18'][0], part_circle_position['18'][1],
                                             part_circle_position['18'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME11':
                 p2 = 5#右視圖投影
                 p = 6#上視圖(左旋)投影
@@ -449,6 +465,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['19'][0], part_circle_position['19'][1],
                                             part_circle_position['19'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME39':
                 p = 12#上視圖(翻轉180度)投影
                 p2 =1#後視圖
@@ -464,6 +481,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['20'][0], part_circle_position['20'][1],
                                             part_circle_position['20'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME17':
                 p = 12#上視圖(翻轉180度)投影
                 p2 =4 #左視圖投影
@@ -479,6 +497,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['21'][0], part_circle_position['21'][1],
                                             part_circle_position['21'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME3':
                 p2 = 0#前視圖投影
                 p = 2#上視圖投影
@@ -494,6 +513,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['22'][0], part_circle_position['22'][1],
                                             part_circle_position['22'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME13':
                 p = 2#上視圖投影
                 p2 = 9#右視圖(左旋)投影
@@ -509,6 +529,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['23'][0], part_circle_position['23'][1],
                                             part_circle_position['23'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME14':
                 p = 6#上視圖(左旋)投影
                 p2 = 4#左視圖投影
@@ -524,6 +545,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['24'][0], part_circle_position['24'][1],
                                             part_circle_position['24'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME22':
                 p = 4#左視圖投影
                 X1 = (ALL_range[22][1] + ALL_range[22][0] ) / 2#box_23_Xmin+FRAME22寬度一半+間隙
@@ -533,6 +555,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['25'][0], part_circle_position['25'][1],
                                             part_circle_position['25'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME37':
                 p = 1#後視圖投影
                 X1 = ALL_range[23][1] + 140 * scale / 2 + gap#box_24_Xmin+FRAME37寬度一半+間隙
@@ -542,6 +565,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['26'][0], part_circle_position['26'][1],
                                             part_circle_position['26'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME8':
                 p2 = 13#下視圖(左旋)投影
                 p = 10#後視圖(左旋)投影
@@ -557,6 +581,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['27'][0], part_circle_position['27'][1],
                                             part_circle_position['27'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME29':
                 p2 = 7#下視圖(180度)投影
                 p = 9#右視圖(左旋)投影
@@ -572,6 +597,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['28'][0], part_circle_position['28'][1],
                                             part_circle_position['28'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME20':
                 p2 = 0#前視圖投影
                 p = 2#上視圖投影
@@ -587,6 +613,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['29'][0], part_circle_position['29'][1],
                                             part_circle_position['29'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME33':
                 p = 12#上視圖(轉180度)投影
                 p2 = 1#後視圖投影
@@ -602,6 +629,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['30'][0], part_circle_position['30'][1],
                                             part_circle_position['30'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME48':
                 p = 4#左視圖投影
                 p2 = 0#前視圖投影
@@ -617,6 +645,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['31'][0], part_circle_position['31'][1],
                                             part_circle_position['31'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME49':
                 p = 0#前視圖投影
                 p2 = 5#右視圖投影
@@ -632,6 +661,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_position['32'][0], part_circle_position['32'][1],
                                             part_circle_position['32'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             else :
                 break
         elif l == 0:
@@ -651,6 +681,7 @@ def Parts_drawing_generation(i, l):
                 DP.Parts_drafting_balloons(x , part_circle_15_position['1'][0] , part_circle_15_position['1'][1] , part_circle_15_position['1'][2] , '1' , scale)
                 draft.add_dimension_to_view('FRAME1_1' , '1' , 0 , B_15[i] / 2 , (H[i] - 80) / 2 , B_15[i] / 2 , -(H[i] - 80) / 2 , 90)
                 draft.add_dimension_to_view('FRAME1_1', '2', 0, -B_15[i] / 2, -(H[i] - 80) / 2, B_15[i] / 2, -(H[i] - 80) / 2, 0)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME2':
                 p = 4#左視圖投影
                 p2 = 5#右視圖投影
@@ -666,6 +697,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['2'][0], part_circle_15_position['2'][1],
                                             part_circle_15_position['2'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME30':
                 p = 0#前視圖投影
                 p2 = 5#右視圖投影
@@ -687,6 +719,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['3'][0], part_circle_15_position['3'][1],
                                             part_circle_15_position['3'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME44':
                 p = 0#前視圖投影
                 p2 = 3#下視圖投影
@@ -702,7 +735,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['4'][0], part_circle_15_position['4'][1],
                                             part_circle_15_position['4'][2] , '1' , scale)
-
+                mprog.save_file_part(path, x)
             elif x == 'FRAME41':
                 p = 6#上視圖(左轉向)投影
                 p2 = 5#右視圖投影
@@ -718,6 +751,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['5'][0], part_circle_15_position['5'][1],
                                             part_circle_15_position['5'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME34':
                 p2 = 1#後視圖投影
                 p = 5#右視圖投影
@@ -739,6 +773,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['6'][0], part_circle_15_position['6'][1],
                                             part_circle_15_position['6'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME9':
                 p = 2#上視圖投影
                 p2 = 0#前視圖投影
@@ -754,6 +789,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['7'][0], part_circle_15_position['7'][1],
                                             part_circle_15_position['7'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x =='FRAME45':
                 p = 2#上視圖投影
                 p2 = 9#右側視圖(左旋轉)投影
@@ -769,6 +805,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['8'][0], part_circle_15_position['8'][1],
                                             part_circle_15_position['8'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME43':
                 p = 0#前視圖投影
                 X1 = ALL_range[7][1] + R_15[i] * scale / 2 + gap#box_8_Xmin+FRAME43寬度一半+間隙
@@ -778,6 +815,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['9'][0], part_circle_15_position['9'][1],
                                             part_circle_15_position['9'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME7':
                 p = 8#下視圖(右旋)投影
                 X1 = ALL_range[8][1] + FRAME_7_15_width[i] * scale / 2 + gap#box_9_Xmin+FRAME7寬度一半+間隙
@@ -787,6 +825,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['10'][0], part_circle_15_position['10'][1],
                                             part_circle_15_position['10'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'MAIN_GEAR2':
                 p = 5#右視圖投影
                 X1 = ALL_range[9][1] + 125 * scale / 2 + gap#box_10_Xmin+MAIN_GEAR2深度一半+間隙
@@ -796,6 +835,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['11'][0], part_circle_15_position['11'][1],
                                             part_circle_15_position['11'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME32':
                 p = 6#上視圖(左旋)投影
                 p2 = 10#背視圖(左旋)投影
@@ -811,6 +851,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['12'][0], part_circle_15_position['12'][1],
                                             part_circle_15_position['12'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME47':
                 p = 6#上視圖(左旋)投影
                 p2 = 1#背視圖投影
@@ -826,6 +867,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['13'][0], part_circle_15_position['13'][1],
                                             part_circle_15_position['13'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x== 'FRAME23':
                 p = 6#上視圖(左旋)投影
                 p2 = 5#右視圖投影
@@ -841,6 +883,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['14'][0], part_circle_15_position['14'][1],
                                             part_circle_15_position['14'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x== 'FRAME31':
                 p = 0#前視圖投影
                 p2 = 5#右視圖投影
@@ -876,6 +919,7 @@ def Parts_drawing_generation(i, l):
                                             part_circle_15_position['15'][2] , '1' , scale)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['16'][0], part_circle_15_position['16'][1],
                                             part_circle_15_position['16'][2] , '4' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME24':
                 p = 6#上視圖(左旋)投影
                 p2 = 1#背視圖投影
@@ -897,6 +941,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['17'][0], part_circle_15_position['17'][1],
                                             part_circle_15_position['17'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME38':
                 p = 11#上視圖(右旋)投影
                 X1 = ALL_range[15][1] + 290 * scale / 2 + gap#box_16_Xmin+FRAME38寬度一半+間隙
@@ -906,6 +951,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['18'][0], part_circle_15_position['18'][1],
                                             part_circle_15_position['18'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME11':
                 p2 = 5#右視圖投影
                 p = 6#上視圖(左旋)投影
@@ -921,6 +967,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['19'][0], part_circle_15_position['19'][1],
                                             part_circle_15_position['19'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME39':
                 p = 12#上視圖(翻轉180度)投影
                 p2 =1#後視圖
@@ -936,6 +983,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['20'][0], part_circle_15_position['20'][1],
                                             part_circle_15_position['20'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME17':
                 p = 12#上視圖(翻轉180度)投影
                 p2 =4 #左視圖投影
@@ -951,6 +999,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['21'][0], part_circle_15_position['21'][1],
                                             part_circle_15_position['21'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME3':
                 p2 = 0#前視圖投影
                 p = 2#上視圖投影
@@ -966,6 +1015,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['22'][0], part_circle_15_position['22'][1],
                                             part_circle_15_position['22'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME13':
                 p = 2#上視圖投影
                 p2 = 9#右視圖(左旋)投影
@@ -981,6 +1031,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['23'][0], part_circle_15_position['23'][1],
                                             part_circle_15_position['23'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME14':
                 p = 6#上視圖(左旋)投影
                 p2 = 4#左視圖投影
@@ -996,6 +1047,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['24'][0], part_circle_15_position['24'][1],
                                             part_circle_15_position['24'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME22':
                 p = 4#左視圖投影
                 X1 = ALL_range[22][1] + 460 * scale / 2 + gap#box_23_Xmin+FRAME22寬度一半+間隙
@@ -1005,6 +1057,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['25'][0], part_circle_15_position['25'][1],
                                             part_circle_15_position['25'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME37':
                 p = 1#後視圖投影
                 X1 = ALL_range[23][1] + 140 * scale / 2 + gap#box_24_Xmin+FRAME37寬度一半+間隙
@@ -1014,6 +1067,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['26'][0], part_circle_15_position['26'][1],
                                             part_circle_15_position['26'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME8':
                 p2 = 13#下視圖(左旋)投影
                 p = 10#後視圖(左旋)投影
@@ -1029,6 +1083,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['27'][0], part_circle_15_position['27'][1],
                                             part_circle_15_position['27'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME29':
                 p2 = 7#下視圖(180度)投影
                 p = 9#右視圖(左旋)投影
@@ -1044,6 +1099,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['28'][0], part_circle_15_position['28'][1],
                                             part_circle_15_position['28'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME20':
                 p2 = 0#前視圖投影
                 p = 2#上視圖投影
@@ -1059,6 +1115,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['29'][0], part_circle_15_position['29'][1],
                                             part_circle_15_position['29'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME33':
                 p = 12#上視圖(轉180度)投影
                 p2 = 1#後視圖投影
@@ -1074,6 +1131,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['30'][0], part_circle_15_position['30'][1],
                                             part_circle_15_position['30'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME48':
                 p = 4#左視圖投影
                 p2 = 0#前視圖投影
@@ -1089,6 +1147,7 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['31'][0], part_circle_15_position['31'][1],
                                             part_circle_15_position['31'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             elif x == 'FRAME49':
                 p = 0#前視圖投影
                 p2 = 5#右視圖投影
@@ -1104,9 +1163,6 @@ def Parts_drawing_generation(i, l):
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x, part_circle_15_position['32'][0], part_circle_15_position['32'][1],
                                             part_circle_15_position['32'][2] , '1' , scale)
+                mprog.save_file_part(path, x)
             else :
                 break
-
-mprog.set_CATIA_workbench_env()
-mprog.OPEN_detail_drawing()
-Parts_drawing_generation(8 , 1)

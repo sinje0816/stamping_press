@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="圖框文字刪除部分更新，開啟圖檔2副程式套用至N1">
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="drafting_part.py細節修改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/N1.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/drafting_part.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/N_Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/N_Test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/drafting_tesst2.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/drafting_part_calculate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/drafting_test_calculate.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/failed_drafting_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/drafting_part.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/drafting_part.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/drafting_part_calculate.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/drafting_part_calculate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/main_GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/main_GUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_program.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_program.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,28 +49,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.main_GUI">
-    <configuration name="N_Test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Stamping press" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/N_Test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.drafting_part (1)">
     <configuration name="TEST_BOM" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Stamping press" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -135,6 +113,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="drafting_part_calculate" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Stamping press" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/drafting_part_calculate.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main_GUI" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Stamping press" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -158,11 +157,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main_GUI" />
         <item itemvalue="Python.drafting_part (1)" />
-        <item itemvalue="Python.drafting_part" />
+        <item itemvalue="Python.main_GUI" />
         <item itemvalue="Python.TEST_BOM" />
-        <item itemvalue="Python.N_Test" />
+        <item itemvalue="Python.drafting_part_calculate" />
+        <item itemvalue="Python.drafting_part" />
       </list>
     </recent_temporary>
   </component>
@@ -174,13 +173,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668131959961</updated>
-    </task>
-    <task id="LOCAL-00006" summary="註:新增機架組立，平面和組合線隱藏">
-      <created>1668414884177</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1668414884177</updated>
     </task>
     <task id="LOCAL-00007" summary="大改">
       <created>1668416491270</created>
@@ -518,7 +510,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673922914129</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="drafting_part.py細節修改">
+      <created>1675650883078</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1675650883080</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -534,7 +533,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改結合尺寸與判斷式" />
     <MESSAGE value="修改標準件判斷條件及新增噸數300尺寸" />
     <MESSAGE value="修改氣壓缸尺寸" />
     <MESSAGE value="修改FRAME32結合距離及尺寸、氣壓缸結合距離" />
@@ -559,6 +557,25 @@
     <MESSAGE value="N1及N_test圈馬程式更新" />
     <MESSAGE value="N1及N_test圈馬位置更新，新增一個開啟圖面副程式" />
     <MESSAGE value="圖框文字刪除部分更新，開啟圖檔2副程式套用至N1" />
-    <option name="LAST_COMMIT_MESSAGE" value="圖框文字刪除部分更新，開啟圖檔2副程式套用至N1" />
+    <MESSAGE value="drafting_part.py細節修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="drafting_part.py細節修改" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI/main_GUI.py</url>
+          <line>1049</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
