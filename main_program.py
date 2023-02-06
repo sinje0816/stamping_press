@@ -364,10 +364,10 @@ def OPEN_Drawing():
     documents = catapp.Documents
     drawingDocument = documents.Open("C:\\Users\\User\\Desktop\\stamping_press\\Drawing1.CATDrawing")
 
-def OPEN_Drawing2():
+def OPEN_detail_drawing():
     catapp = win32.Dispatch('CATIA.Application')
     documents = catapp.Documents
-    drawingDocument = documents.Open("C:\\Users\\User\\Desktop\\stamping_press\\Drawing2.CATDrawing")
+    drawingDocument = documents.Open("C:\\Users\\User\\Desktop\\stamping_press\\detail_drawing.CATDrawing")
 
 def switch_window():
     catapp = win32.Dispatch("CATIA.Application")

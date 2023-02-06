@@ -67,7 +67,7 @@ def Material_diagram_projection(surface , XLocation , YLocation , x , scale , pa
     # drawingView1.FrameVisualization = False
 
 
-def Material_diagram_balloons(view , name , XLocation , YLocation , part_view_number , scale):
+def Parts_drawing_balloons(view , name , XLocation , YLocation , part_view_number , scale):
         catapp = win32.Dispatch("CATIA.Application")
         partdoc = catapp.ActiveDocument
         catapp = win32.Dispatch('CATIA.Application')

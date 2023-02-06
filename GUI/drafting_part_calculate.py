@@ -1,3 +1,4 @@
+import win32com.client as win32
 i = 0#型號順序
 A = [720, 830, 890, 940, 1050, 1160, 1300, 1480, 1560, 1760]
 A_15 = [1080, 1245, 1335, 1410, 1575, 1740, 1950, 2220, 2340, 2640]
@@ -64,6 +65,16 @@ box_1_Xmin = 25
 box_1_Ymin = 25
 box_width_gap = 80+2*gap#虛擬方框一的寬度間隙
 box_heigth_gap = 150+2*gap#虛擬方框一的高度間隙
+
+projection = {"front view":(0, 1 , 0, 0 , 0, 1) , "Rear view":(0, -1, 0, 0 , 0, 1) , "top view":(0, 1 , 0, -1 , 0 , 0)
+    , "bottom view":(0, 1, 0, 1, 0, 0), "Left view":(1, 0, 0, 0, 0, 1) , "right view":(-1, 0, 0, 0, 0, 1)
+              , 'top view(left horizontal)':(-1 , 0 , 0 , 0 , -1 , 0)  , "top view(Y inverse)":(0 , -1 , 0 , -1 , 0 , 0) ,
+              'bottom view(right horizontal)':(-1 , 0 , 0 , 0 , 1 , 0) , 'right view(left horizontal)':(0 , 0 , -1 , -1 , 0 , 0),
+              'Rear view(left horizontal)':(0 , 0 , -1 , 0 , -1 , 0) , 'top view(right horizontal)':(1 , 0 , 0 , 0 , 1 , 0) ,
+              'top view(180 degree)':(0 , -1 , 0 , 1 , 0 , 0) , 'bottom view(left horizontal)':(1 , 0 , 0 , 0 , -1 , 0)}
+U = ["front view" , "Rear view" , "top view" , "bottom view" , "Left view" , "right view" , 'top view(left horizontal)' ,
+     "top view(Y inverse)" , 'bottom view(right horizontal)' , 'right view(left horizontal)','Rear view(left horizontal)',
+     'top view(right horizontal)' , 'top view(180 degree)' , 'bottom view(left horizontal)']
 
 projection_file_name_list = ['FRAME30', 'FRAME44', 'FRAME41', 'FRAME34', 'FRAME9', 'FRAME45', 'FRAME43', 'FRAME7',
                                  'MAIN_GEAR2', 'FRAME32' , 'FRAME47' , 'FRAME23' , 'FRAME31', 'FRAME24', 'FRAME38' , 'FRAME11', 'FRAME39', 'FRAME17',
@@ -415,5 +426,80 @@ def drafting_parameter_calculation(i, l , scale , box_1_range):
                             break
             break
     return ALL_range , scale
+
+def Material_diagram_projection(surface , XLocation , YLocation , part_name , scale , part_view_number):#零件圖佈圖主程式
+    catapp = win32.Dispatch('CATIA.Application')
+    ActWin = catapp.Windows.item("Drawing2.CATDrawing")
+    ActWin.Activate()
+    drawingDocument = catapp.ActiveDocument
+    drawingSheets = drawingDocument.Sheets
+    drawingSheet = drawingSheets.Item("Sheet.1")
+    drawingViews1 = drawingSheet.Views
+    drawingView1 = drawingViews1.Add(part_name + "_" + part_view_number)
+    drawingViewGenerativeLinks1 = drawingView1.GenerativeLinks
+    drawingViewGenerativeBehavior1 = drawingView1.GenerativeBehavior
+    documents1 = catapp.Documents
+    partDocument1 = documents1.Item(part_name + ".CATPart")
+    # partDocument1 = documents1.Item('FRAME1' + ".CATPart")
+    product1 = partDocument1.GetItem(part_name)
+    drawingViewGenerativeBehavior1.Document = product1
+    drawingViewGenerativeBehavior1.DefineFrontView(projection[U[surface]][0], projection[U[surface]][1]
+                                                           , projection[U[surface]][2], projection[U[surface]][3]
+                                                           , projection[U[surface]][4], projection[U[surface]][5])
+    drawingView1.X = XLocation
+    drawingView1.Y = YLocation
+    drawingView1.Scale = scale
+    drawingViewGenerativeBehavior1 = drawingView1.GenerativeBehavior
+    drawingViewGenerativeBehavior1.Update()
+    drawingView1.Activate()
+    # print(x + "_" + part_view_number)
+    # drawingview2 = drawingViews1.Item(x + "_" + part_view_number)
+    # drawingtexts1 = drawingview2.Texts
+    # drawingtext1 = drawingtexts1.Item(1)
+    # # drawingtexts1 = drawingtext1.Parent
+    # selection = partDocument1.Selection
+    # selection.Add(drawingtext1)
+    # selection.Delete()
+    selection = drawingDocument.Selection
+    selection.Clear()
+    # --
+    drawingview1 =  drawingViews1.Item(part_name + "_" + part_view_number)
+    # drawingview1 =  drawingViews1.Item('FRAME1_1')
+    drawingtexts1 = drawingview1.Texts
+    drawingtext1 = drawingtexts1.Item(1)
+    drawingtexts1 = drawingtext1.Parent
+    selection = drawingDocument.Selection
+    selection.Add(drawingtext1)
+    selection.Delete()
+    selection.Clear()
+    # drawingView1.FrameVisualization = False
+
+
+def Parts_drafting_balloons(view , name , XLocation , YLocation , part_view_number , scale):#圈碼圖建立
+        catapp = win32.Dispatch("CATIA.Application")
+        partdoc = catapp.ActiveDocument
+        catapp = win32.Dispatch('CATIA.Application')
+        drawingdocument = catapp.ActiveDocument
+        drawingsheets = drawingdocument.Sheets
+        drawingsheet = drawingsheets.Item('Sheet.1')
+        drawingviews = drawingsheet.Views
+        drawingview = drawingviews.Item(view + "_" + part_view_number)
+        drawingview.Activate()
+        DrawTexts_balloons = drawingview.Texts
+        DrawText = DrawTexts_balloons.Add(name, XLocation , YLocation)
+        DrawText.SetFontName(0, 0, 'Arial Unicode MS (TrueType)')
+        DrawText.SetFontSize(0, 0, 8.4)  # 調整字體位置和大小(x, y, 字體大小)
+        # DrawLeader_DrawTexts_balloons = DrawText.Leaders.Add(point_positionX, point_positionY)  # 圓點位置
+        DrawText.FrameType = 3  # 圓類型
+        DrawText.x = XLocation
+        # DrawText.y = YLocation
+        # DrawText.DeactivateFrame(3)
+        # DrawText.Deactivates = 1
+        # DrawText.Blanking(0)
+        # DrawLeader_DrawTexts_balloons.AllAround = 0
+        # DrawLeader_DrawTexts_balloons.ModifyPoint(0, leader_line_length, 0)  # 選擇引線點 -> (0, 1, 2)並調整座標位置
+        # DrawLeader_DrawTexts_balloons.HeadSymbol = 20  # 引號標點類型
+        # DrawText.StandardBehavior = 1
+        # MyViewGenBehavior = MyView.GenerativeBehavior
 
 
