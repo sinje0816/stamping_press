@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="修改FRAME31.1~4的位置">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_6__04_58__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/N_Test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/TEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/TEST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting_part.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting_part.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/Drawing1.CATDrawing" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME20.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME20.CATPart" afterDir="false" />
-    </list>
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="新增檔案路徑py檔&#10;爆炸圖新增1.5" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -183,13 +172,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668131959961</updated>
-    </task>
-    <task id="LOCAL-00006" summary="註:新增機架組立，平面和組合線隱藏">
-      <created>1668414884177</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1668414884177</updated>
     </task>
     <task id="LOCAL-00007" summary="大改">
       <created>1668416491270</created>
@@ -527,7 +509,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675673982521</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="新增檔案路徑py檔&#10;爆炸圖新增1.5">
+      <created>1675852725989</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1675852725989</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -543,7 +532,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改結合尺寸與判斷式" />
     <MESSAGE value="修改標準件判斷條件及新增噸數300尺寸" />
     <MESSAGE value="修改氣壓缸尺寸" />
     <MESSAGE value="修改FRAME32結合距離及尺寸、氣壓缸結合距離" />
@@ -568,6 +556,7 @@
     <MESSAGE value="N1及N_test圈馬程式更新" />
     <MESSAGE value="修改main_GUI平板問題及離合器起飛問題" />
     <MESSAGE value="修改FRAME31.1~4的位置" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改FRAME31.1~4的位置" />
+    <MESSAGE value="新增檔案路徑py檔&#10;爆炸圖新增1.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增檔案路徑py檔&#10;爆炸圖新增1.5" />
   </component>
 </project>
