@@ -314,17 +314,14 @@ def Right_Top_View_Drawing(Type, X_coordinate, Y_coordinate, scale):
     selection.Delete()
     selection.Clear()
 
-
 def coordinate():
     catapp = win32.Dispatch('CATIA.Application')
     catDrwDoc = catapp.ActiveDocument
     catDrwSel = catDrwDoc.Selection
     catDrwSelLb = catDrwSel
 
-
 # 圈碼圖
-def balloons(view, circle_position_1, circle_position_2, circle_position_3, point_position_1, point_position_2,
-             leader_line_length):
+def balloons(view, content, circle_position_1, circle_position_2, point_position_1, point_position_2, leader_line_length):
     catapp = win32.Dispatch("CATIA.Application")
     partdoc = catapp.ActiveDocument
     catapp = win32.Dispatch('CATIA.Application')
@@ -335,7 +332,7 @@ def balloons(view, circle_position_1, circle_position_2, circle_position_3, poin
     drawingview = drawingviews.Item(view)
     drawingview.Activate()
     # 圈碼內容及位置
-    DrawText = drawingview.Texts.Add(circle_position_1, circle_position_2, circle_position_3)  # (輸入內容, 線段長度X, 線段長度Y)
+    DrawText = drawingview.Texts.Add(content, circle_position_1, circle_position_2)  # (輸入內容, 線段長度X, 線段長度Y)
     DrawText.SetFontName(0, 0, 'Arial Unicode MS (TrueType)')
     DrawText.SetFontSize(0, 0, 10)  # 調整字體位置和大小(x, y, 字體大小)
     DrawText.FrameType = 3  # 圓類型
@@ -344,7 +341,6 @@ def balloons(view, circle_position_1, circle_position_2, circle_position_3, poin
     DrawLeader_DrawTexts_balloons.AllAround = 0
     DrawLeader_DrawTexts_balloons.ModifyPoint(0, leader_line_length, 0)  # 選擇引線點 -> (0, 1, 2)並調整座標位置
     DrawLeader_DrawTexts_balloons.HeadSymbol = 20  # 引號標點類型
-
 
 # 爆炸圖中心線
 def create_center_line(view_name, x_value_1, y_value_1, x_value_2, y_value_2):
@@ -373,7 +369,6 @@ def close_broken_line_block_diagram(view_name):
     drawingViews1 = drawingSheet1.Views
     drawingView1 = drawingViews1.Item(view_name)
     drawingView1.FrameVisualization = False
-
 
 # 尺寸標註
 def add_dimension_to_view(view_name, item_name, catDimDistance, x_value_1, y_value_1, x_value_2, y_value_2,
@@ -440,6 +435,17 @@ def symbol_of_weld(view, WeldingSymbol, lead_X, lead_Y, WeldingTail):  # 焊接�
     else:
         MyWelding.Y = lead_Y - 100 * math.sin(math.radians(60))
     MyWelding.WeldingTail = WeldingTail  # 是否開啟尾叉 0 or 1
+
+    for i in range(1, 14):
+        print(i)
+        drawingWelding1 = MyWelding
+        # drawingWelding1 = drawingWeldings1.Item('Welding Symbol.1')
+        catWeldingFieldOne = i
+        textRange1 = drawingWelding1.GetTextRange(catWeldingFieldOne)
+        char1 = textRange1.Text
+        textRange1.Text = i
+        TextProperties = drawingWelding1.TextProperties
+        TextProperties.Update()
 
 
 def background():
@@ -515,8 +521,8 @@ def drafting_welding_view_parameter_calculation(width, height, depth):  # 電子
     drafting_down_Coordinate_Position = {
         'Right View': (drafting_area_centerX - drafting_area_X_left_range, drafting_down_area_centerY),
         'Front View': (drafting_area_centerX, drafting_down_area_centerY),
-        'section A-A': (drafting_area_centerX + drafting_area_X_right_range / 2, drafting_down_area_centerY),
-        'section B-B': (drafting_area_centerX + drafting_area_X_right_range, drafting_down_area_centerY)}
+        'section A-A': (drafting_area_centerX + drafting_area_X_left_range, drafting_down_area_centerY),
+        'section B-B': (drafting_area_centerX + drafting_area_X_left_range * 2, drafting_down_area_centerY)}
     # 上圖位置
     drafting_up_Coordinate_Position = {
         'section D-D': (drafting_area_centerX - drafting_area_X_left_range, drafting_up_area_centerY),
@@ -525,26 +531,28 @@ def drafting_welding_view_parameter_calculation(width, height, depth):  # 電子
         'section E-E': (drafting_area_centerX + drafting_area_X_right_range, drafting_up_area_centerY), }
     return drafting_down_Coordinate_Position, drafting_up_Coordinate_Position, scale_p
 
-
 # 剖面圖
-def Section(view_name, Coordinate_X, Coordinate_Y, Scale, Coordinate, Position):
+def section(view_name, Coordinate_X, Coordinate_Y, Scale, Coordinate, change_direction):
     catapp = win32.Dispatch('CATIA.Application')
-    drawingDocument = catapp.ActiveDocument
-    drawingSheets = drawingDocument.Sheets
-    drawingSheet = drawingSheets.ActiveSheet
-    drawingViews = drawingSheet.Views
-    drawingview = drawingViews.Item(view_name)  # 圖框名稱
-    drawingView1 = drawingview.ActiveView
+    drawingDocument1 = catapp.ActiveDocument
+    drawingSheets1 = drawingDocument1.Sheets
+    drawingSheet1 = drawingSheets1.Item("Sheet.1")
+    drawingViews1 = drawingSheet1.Views
+    drawingView1 = drawingViews1.Item(view_name)  # 圖框名稱
+    drawingView1.Activate()
+    drawingSheets1 = drawingDocument1.Sheets
+    drawingViews1 = drawingSheet1.Views
+    drawingView1 = drawingViews1.ActiveView
     drawingViewGenerativeBehavior1 = drawingView1.GenerativeBehavior
-    drawingView2 = drawingViews.Add("AutomaticNaming")
+    drawingView2 = drawingViews1.Add("AutomaticNaming")
     drawingViewGenerativeBehavior2 = drawingView2.GenerativeBehavior
     drawingView2.X = Coordinate_X
     drawingView2.Y = Coordinate_Y
-    drawingView2.Scale = Scale
+    drawingView2.Scale = 1 / Scale
     drawingView2.Angle = 0
-    geocoordElem = Coordinate  # 指定剖面線兩點座標(座標1_X, 座標1_Y, 座標2_X, 座標2_Y)
+    SectionProfile =Coordinate
     drawingViewGenerativeBehavior2Variant = drawingViewGenerativeBehavior2
-    drawingViewGenerativeBehavior2Variant.DefineSectionView(geocoordElem, "SectionView", "Offset", Position, drawingViewGenerativeBehavior1)  # 順時針: 0, 逆時針: 1
+    drawingViewGenerativeBehavior2Variant.DefineSectionView(SectionProfile, "SectionView", "Offset", change_direction, drawingViewGenerativeBehavior1)
     drawingViewGenerativeLinks1 = drawingView2.GenerativeLinks
     drawingViewGenerativeLinks2 = drawingView1.GenerativeLinks
     drawingViewGenerativeLinks2.CopyLinksTo(drawingViewGenerativeLinks1)

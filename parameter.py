@@ -1,3 +1,5 @@
+import math
+
 # 電子型錄規格
 A = [720, 830, 890, 940, 1050, 1160, 1300, 1480, 1560, 1760]
 A_15 = [1080, 1245, 1335, 1410, 1575, 1740, 1950, 2220, 2340, 2640]
@@ -45,6 +47,16 @@ FRAME_8_width = [164 , 170 , 185 , 196 , 216 , 243 , 283 , 288 , 293 , 358]
 FRAME_8_15_width = [246 , 255 , 278 , 294 , 324 , 365 , 425 , 432 , 440 , 537]
 FRAME_13_depth = [59.016 , 139.016 , 179.016 , 259.016 , 339.016 , 419.016 , 499.016 , 579.016 , 639.016 , 699.016]
 
+# 三角函數
+sin45 = math.sin(math.radians(45))
+cos45 = math.cos(math.radians(45))
+sin30 = math.sin(math.radians(30))
+cos30 = math.cos(math.radians(30))
+sin60 = math.sin(math.radians(60))
+cos60 = math.cos(math.radians(60))
+cos35_267 = math.cos(math.radians(35.267))
+sin35_267 = math.sin(math.radians(35.267))
+
 # -------------焊接圖---------------
 #隱藏part
 hide_part_name = ['BOLSTER1', 'BOLSTER2', 'BOLSTER3', 'BALANCER_LEFT_All', 'BALANCER_RIGHT_All', 'CRANK_SHAFT_CLOCK',
@@ -66,3 +78,5 @@ draft_X_clearence = 10
 draft_Y_clearence = 25
 # 下圖Y最小位置
 drafting_down_min_Y = 65
+
+# 圈碼座標
