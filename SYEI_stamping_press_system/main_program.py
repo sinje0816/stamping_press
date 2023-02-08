@@ -1,6 +1,7 @@
 import os
 import win32com.client as win32
 import datetime, time
+import file_path as fp
 
 
 # 開啟CATIA(由學長提供之函式)
@@ -94,7 +95,7 @@ def import_file_Product(path, file_name):  # (資料夾路徑，檔案名稱)
     products1Variant.AddComponentsFromFiles(combination_file, "All")
 
 def folder_file_name():  # 抓取檔案名稱
-    path = os.listdir('C:\\Users\\User\\Desktop\\stamping_press')
+    path = os.listdir(fp.system_root + fp.part)
     x = []
     for file_name in path:
         x.append('or y == \'' + file_name.split('.')[0] + '\'')
@@ -216,6 +217,12 @@ def save_file_product(path, file_name):
     partDocument1 = document.Item(file_name)
     # print(path + '\\' + file_name)
     partDocument1.SaveAs(path + '\\' + file_name)
+
+def save_PDF(path, file_name):
+    catapp = win32.Dispatch("CATIA.Application")
+    partdoc = catapp.ActiveDocument
+    # 儲存檔案後關閉
+    partdoc.ExportData("%s\%s.%s" % (path, file_name, "pdf"), 'pdf')
 
 # 新增資料夾
 def new_Folder():
@@ -355,14 +362,14 @@ def constaint_value_change(constraints_name, value, Orientation):
 def OPEN_Drawing():
     catapp = win32.Dispatch('CATIA.Application')
     documents = catapp.Documents
-    drawingDocument = documents.Open("C:\\Users\\User\\Desktop\\stamping_press\\Exploded Views.CATDrawing")
+    drawingDocument = documents.Open(fp.system_root + fp.part + fp.Exploded_Views)
 
 def OPEN_detail_drawing():
     catapp = win32.Dispatch('CATIA.Application')
     documents = catapp.Documents
-    drawingDocument = documents.Open("C:\\Users\\User\\Desktop\\stamping_press\\detail_drawing.CATDrawing")
+    drawingDocument = documents.Open(fp.system_root + fp.part + fp.detail_drawing)
 
-#組合檔存檔
+#零件圖存檔
 def save_detail_drawing(path, file_name):
     catapp = win32.Dispatch('CATIA.Application')
     document = catapp.Documents

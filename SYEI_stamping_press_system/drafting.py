@@ -332,7 +332,8 @@ def balloons(view, circle_position_1, circle_position_2, circle_position_3, poin
     drawingsheets = drawingdocument.Sheets
     drawingsheet = drawingsheets.Item('Sheet.1')
     drawingviews = drawingsheet.Views
-    drawingview = drawingviews.Item(view).Activate()
+    drawingview = drawingviews.Item(view)
+    drawingview.Activate()
     # 圈碼內容及位置
     DrawText = drawingview.Texts.Add(circle_position_1, circle_position_2, circle_position_3)  # (輸入內容, 線段長度X, 線段長度Y)
     DrawText.SetFontName(0, 0, 'Arial Unicode MS (TrueType)')

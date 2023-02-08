@@ -68,7 +68,7 @@ FRAME_13_depth = [59.016 , 139.016 , 179.016 , 259.016 , 339.016 , 419.016 , 499
 #圖框範圍
 circle_Xgap = 300
 circle_gap = 300
-circle_15_gap = 500
+circle_15_gap = 400
 ALL_range = []
 gap = 5
 drafting_min_Y = 44
@@ -99,13 +99,13 @@ def Parts_drawing_generation(i, l , path):
         '6': ['6' , -182 / 2 - circle_Xgap , 80 / 2 + circle_gap],
         '7': ['7' , -(R[i]+180) / 2 - circle_Xgap, 50 / 2 +circle_gap],
         '8': ['8' , -R[i] / 2 - circle_Xgap , 476 / 2 + circle_gap],
-        '9': ['8-1' , -R[i] / 2 - circle_Xgap , 150 / 2 + circle_gap],
+        '9': ['8-1' , -R[i] / 2 - circle_Xgap , 150 / 2 + circle_gap + 50],
         '10': ['10' , -FRAME_7_width[i] / 2 - circle_Xgap , 300 / 2 + circle_gap],
         '11': ['11' , -125 / 2 - circle_Xgap , 270 / 2 + circle_gap],
         '12': ['12' , -R[i] / 2 - circle_Xgap , 429 / 2 + circle_gap],
         '13': ['13' , -50 / 2 - circle_Xgap , 74 / 2 + circle_gap],
         '14': ['14' , -99.35 / 2 - circle_Xgap , 35 / 2 + circle_gap],
-        '15': ['15A' , -40 / 2 - circle_Xgap , 150 / 2 + circle_gap],
+        '15': ['15A' , -40 / 2 - circle_Xgap , 150 / 2 + circle_gap + 50],
         '16': ['15' , -40 / 2 - circle_Xgap , 150 / 2 + circle_gap],
         '17': ['16' , -99.35 / 2 - circle_Xgap , 35 / 2 + circle_gap],
         '18': ['18' , -290 / 2 - circle_Xgap , 145 / 2 + circle_gap],
@@ -133,13 +133,13 @@ def Parts_drawing_generation(i, l , path):
         '6': ['6' , -182 / 2 - circle_Xgap , 80 / 2 + circle_15_gap],
         '7': ['7' , -(R_15[i]+180) / 2 - circle_Xgap , 50 / 2 +circle_15_gap],
         '8': ['8' , -R_15[i] / 2 - circle_Xgap , 476 / 2 + circle_15_gap],
-        '9': ['8-1' , -R_15[i] / 2 - circle_Xgap , 150 / 2 + circle_15_gap],
+        '9': ['8-1' , -R_15[i] / 2 - circle_Xgap , 150 / 2 + circle_15_gap + 50],
         '10': ['10' , -FRAME_7_15_width[i] / 2 - circle_Xgap , 300 / 2 + circle_15_gap],
         '11': ['11' , -125 / 2 - circle_Xgap , 270 / 2 + circle_15_gap],
         '12': ['12' , -R_15[i] / 2 - circle_Xgap , 429 / 2 + circle_15_gap],
         '13': ['13' , -50 / 2 - circle_Xgap , 74 / 2 + circle_15_gap],
         '14': ['14' , -99.35 / 2 - circle_Xgap , 35 / 2 + circle_15_gap],
-        '15': ['15A' , -40 / 2 - circle_Xgap , 150 / 2 + circle_15_gap],
+        '15': ['15A' , -40 / 2 - circle_Xgap , 150 / 2 + circle_15_gap + 50],
         '16': ['15' , -40 / 2 - circle_Xgap , 150 / 2 + circle_15_gap],
         '17': ['16' , -99.35 / 2 - circle_Xgap , 35 / 2 + circle_15_gap],
         '18': ['18' , -290 / 2 - circle_Xgap , 145 / 2 + circle_15_gap],
@@ -153,7 +153,7 @@ def Parts_drawing_generation(i, l , path):
         '26': ['29' , -140 / 2 - circle_Xgap , 80 / 2 + circle_15_gap],
         '27': ['30' , -40 / 2 - circle_Xgap , 300 / 2 + circle_15_gap],
         '28': ['33' , -65 / 2 / 2 - circle_Xgap , 30 / 2 + circle_15_gap],
-        '29': ['35' , -(R_15[i] - 180) / 2 + circle_Xgap , 50 / 2 + circle_15_gap],
+        '29': ['35' , -(R_15[i] - 180) / 2 - circle_Xgap , 50 / 2 + circle_15_gap],
         '30': ['41' , -50 / 2 - circle_Xgap , 180 / 2 + circle_15_gap],
         '31': ['43' , -32 / 2 - circle_Xgap , 32 / 2 + circle_15_gap],
         '32': ['44' , -30 / 2 - circle_Xgap , 30 / 2 + circle_15_gap]
