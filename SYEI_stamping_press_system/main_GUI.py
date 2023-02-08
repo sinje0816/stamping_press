@@ -5,6 +5,7 @@ import main_program as mprog
 import drafting as draft
 import drafting_part as dp
 import drafting_part_calculate as dpc
+import file_path as fp
 # import TEST_BOM as BOM
 
 change = ()
@@ -70,6 +71,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         self.ui.pushButton.clicked.connect(self.start)
         self.add_item_for_comboBox()
         self.path = str()
+        self.part_path = str()
         BASE_DIR = os.path.dirname(os.path.realpath(__file__))
         self.setWindowIcon(QtGui.QIcon(BASE_DIR + '\\ico.ico'))
         self.a = int()
@@ -112,8 +114,8 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         print(type, l, height, hole)
         self.create_dir(type)
         self.l, self.h, self.i, self.j = self.choos(l, height, type, hole)
-        self.change_dir(self.l, self.h, self.i, self.j, self.path)
-        self.ass_(self.l, self.h, self.i, self.j, self.path)
+        self.change_dir(self.l, self.h, self.i, self.j, self.part_path)
+        self.ass_(self.l, self.h, self.i, self.j, self.path , self.part_path)
 
     def choos(self, l, height, type, hole):
         # 確認型號"輸入型號"
@@ -207,7 +209,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
         path = desktop + '\\' + dir_name
         os.mkdir(path)
+        part_path = path + "\\" + "part"
+        os.mkdir(part_path)
         self.path = path
+        self.part_path = part_path
 
     def change_dir(self, h, i, l, j, path):
         # 開啟CATIA
@@ -226,7 +231,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
         # 開啟零件檔更改變數後儲存並關閉
         for name in file_name_list:
-            mprog.import_part("C:\\Users\\USER\\Desktop\\stamping_press", name)
+            mprog.import_part(fp.system_root + fp.part, name)
 
             if i == 4:
                 if name == 'SLIDE_UNIT_All':
@@ -247,7 +252,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     mprog.save_file_part(path, name)
                 else:
                     if l == 0:
-                        if name == 'FRAME1' or name == 'FRAME2':  # 更改零件變數B
+                        if name == 'FRAME1' or name == 'FRAME2' or name == 'FRAME44':  # 更改零件變數B
                             mprog.param_change(name, 'B', B_15[i])
                             mprog.save_file_part(path, name)
                         elif name == 'FRAME3' or name == 'FRAME4' or name == 'FRAME9' or name == 'FRAME32' or name == 'FRAME41' or name == 'FRAME43' or name == 'FRAME20' or name == 'FRAME30' or name == 'FRAME29' or name == 'FRAME42' or name == 'FRAME43' or name == 'FRAME45':  # 更改零件變數R
@@ -270,7 +275,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         else:
                             mprog.save_file_part(path, name)
                     else:
-                        if name == 'FRAME1' or name == 'FRAME2':  # 更改零件變數B
+                        if name == 'FRAME1' or name == 'FRAME2' or name == 'FRAME44':  # 更改零件變數B
                             mprog.param_change(name, 'B', B[i])
                             mprog.save_file_part(path, name)
                         elif name == 'FRAME3' or name == 'FRAME4' or name == 'FRAME9' or name == 'FRAME32' or name == 'FRAME41' or name == 'FRAME43' or name == 'FRAME20' or name == 'FRAME30' or name == 'FRAME29' or name == 'FRAME42' or name == 'FRAME42' or name == 'FRAME43' or name == 'FRAME45':  # 更改零件變數R
@@ -294,7 +299,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                             mprog.save_file_part(path, name)
             else:
                 if l == 0:
-                    if name == 'FRAME1' or name == 'FRAME2':  # 更改零件變數B
+                    if name == 'FRAME1' or name == 'FRAME2' or name == 'FRAME44':  # 更改零件變數B
                         mprog.param_change(name, 'B', B_15[i])
                         mprog.save_file_part(path, name)
                     elif name == 'FRAME3' or name == 'FRAME4' or name == 'FRAME9' or name == 'FRAME32' or name == 'FRAME41' or name == 'FRAME43' or name == 'FRAME20' or name == 'FRAME30' or name == 'FRAME29' or name == 'FRAME42' or name == 'FRAME42' or name == 'FRAME43' or name == 'FRAME45':  # 更改零件變數R
@@ -317,7 +322,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     else:
                         mprog.save_file_part(path, name)
                 else:
-                    if name == 'FRAME1' or name == 'FRAME2':  # 更改零件變數B
+                    if name == 'FRAME1' or name == 'FRAME2' or name == 'FRAME44':  # 更改零件變數B
                         mprog.param_change(name, 'B', B[i])
                         mprog.save_file_part(path, name)
                     elif name == 'FRAME3' or name == 'FRAME4' or name == 'FRAME9' or name == 'FRAME32' or name == 'FRAME41' or name == 'FRAME43' or name == 'FRAME20' or name == 'FRAME30' or name == 'FRAME29' or name == 'FRAME42' or name == 'FRAME42' or name == 'FRAME43' or name == 'FRAME45':  # 更改零件變數R
@@ -340,7 +345,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     else:
                         mprog.save_file_part(path, name)
 
-    def ass_(self, h, i, l, j, path):
+    def ass_(self, h, i, l, j, path , part_path):
         type = str(self.ui.comboBox_4.currentText())  # 沖床噸數類型
         # 開啟新組合檔
         mprog.assembly_create()
@@ -360,7 +365,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                                    'MAIN_GEAR4', 'JOINT1']
 
         for x in file_Assembly_name_list:  # 讀取串列名稱並匯入檔案
-            mprog.import_file_Part(path, x)
+            mprog.import_file_Part(part_path, x)
 
         mprog.base_lock('FRAME20.1', 'FRAME20.1', 0)  # 基準零件(定海神針)
 
@@ -839,7 +844,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.update()
         mprog.Close_All()
         # 儲存Product檔
-        mprog.saveas(path, type, '.CATProduct')
+        mprog.saveas(part_path, type, '.CATProduct')
 
         # --------------------------------------- 生成爆炸圖-------------------------------------------
         # 重新定義拘束尺寸
@@ -852,46 +857,87 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         BOLSTER1_XY_T = Z[i] - T[i] + BOLSTER1_XY_Z
         BOLSTER1_XY = BOLSTER1_XY_T + DH_S[i]
         BALANCER = -1700
-
-        mprog.constaint_value_change(3, -B[i] - BOLSTER1_Offset_value, 1)
-        mprog.constaint_value_change(6, -B[i] - BOLSTER1_Offset_value, 1)
-        mprog.constaint_value_change(36, -BOLSTER1_Offset_value - F[i] / 2 + 80, 1)
-        mprog.constaint_value_change(39, -BOLSTER1_Offset_value - F[i] / 2 + 80, 1)
-        mprog.constaint_value_change(63, -F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value, 1)
-        mprog.constaint_value_change(66, -F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value, 0)
-        mprog.constaint_value_change(60, -37.5 - BOLSTER1_Offset_value, 1)
-        mprog.constaint_value_change(69, -37.5 - BOLSTER1_Offset_value, 0)
-        mprog.constaint_value_change(75, GIB_Offset_value + 45, 0)
-        mprog.constaint_value_change(78, GIB_Offset_value + 45, 0)
-        mprog.constaint_value_change(84, Behide_GIB_Offset_value, 1)
-        mprog.constaint_value_change(87, Behide_GIB_Offset_value, 1)
-        mprog.constaint_value_change(81, Behide_GIB_Offset_value, 0)
-        mprog.constaint_value_change(96, Behide_GIB_Offset_value, 1)
-        mprog.constaint_value_change(102, Behide_GIB_Offset_value, 1)
-        mprog.constaint_value_change(99, Behide_GIB_Offset_value, 0)
-        mprog.constaint_value_change(174, CLOCK_Offset_value, 0)
-        mprog.constaint_value_change(188, CLOCK_SHAFT_Offset_value, 1)
-        mprog.constaint_value_change(176, BALANCER, 1)  # 右氣壓缸
-        mprog.constaint_value_change(180, BALANCER, 1)  # 左氣壓缸
-        mprog.constaint_value_change(2, BOLSTER1_XY_Z, 1)
-        mprog.constaint_value_change(5, BOLSTER1_XY_Z, 0)
-        mprog.constaint_value_change(8, BOLSTER1_XY_Z, 1)
-        mprog.constaint_value_change(11, BOLSTER1_XY_Z, 0)
-        mprog.constaint_value_change(26, BOLSTER1_XY_T, 1)
-        mprog.constaint_value_change(29, BOLSTER1_XY_T, 0)
-        mprog.constaint_value_change(35, BOLSTER1_XY_T, 0)
-        mprog.constaint_value_change(38, BOLSTER1_XY_T, 0)
-        mprog.constaint_value_change(56, BOLSTER1_XY_T, 0)
-        mprog.constaint_value_change(59, BOLSTER1_XY_T, 0)
-        mprog.constaint_value_change(62, BOLSTER1_XY_T, 0)
-        mprog.constaint_value_change(65, BOLSTER1_XY_T, 0)
-        mprog.constaint_value_change(68, BOLSTER1_XY_T, 0)
-        mprog.constaint_value_change(71, BOLSTER1_XY_T, 0)
-        mprog.constaint_value_change(168, BOLSTER1_XY, 0)
+        if l == 1:
+            mprog.constaint_value_change(3, -B[i] - BOLSTER1_Offset_value, 1)
+            mprog.constaint_value_change(6, -B[i] - BOLSTER1_Offset_value, 1)
+            mprog.constaint_value_change(36, -BOLSTER1_Offset_value - F[i] / 2 + 80, 1)
+            mprog.constaint_value_change(39, -BOLSTER1_Offset_value - F[i] / 2 + 80, 1)
+            mprog.constaint_value_change(63, -F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value, 1)
+            mprog.constaint_value_change(66, -F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value, 0)
+            mprog.constaint_value_change(60, -37.5 - BOLSTER1_Offset_value, 1)
+            mprog.constaint_value_change(69, -37.5 - BOLSTER1_Offset_value, 0)
+            mprog.constaint_value_change(75, GIB_Offset_value + 45, 0)
+            mprog.constaint_value_change(78, GIB_Offset_value + 45, 0)
+            mprog.constaint_value_change(84, Behide_GIB_Offset_value, 1)
+            mprog.constaint_value_change(87, Behide_GIB_Offset_value, 1)
+            mprog.constaint_value_change(81, Behide_GIB_Offset_value, 0)
+            mprog.constaint_value_change(96, Behide_GIB_Offset_value, 1)
+            mprog.constaint_value_change(102, Behide_GIB_Offset_value, 1)
+            mprog.constaint_value_change(99, Behide_GIB_Offset_value, 0)
+            mprog.constaint_value_change(174, CLOCK_Offset_value, 0)
+            mprog.constaint_value_change(188, CLOCK_SHAFT_Offset_value, 1)
+            mprog.constaint_value_change(176, BALANCER, 1)  # 右氣壓缸
+            mprog.constaint_value_change(180, BALANCER, 1)  # 左氣壓缸
+            mprog.constaint_value_change(2, BOLSTER1_XY_Z, 1)
+            mprog.constaint_value_change(5, BOLSTER1_XY_Z, 0)
+            mprog.constaint_value_change(8, BOLSTER1_XY_Z, 1)
+            mprog.constaint_value_change(11, BOLSTER1_XY_Z, 0)
+            mprog.constaint_value_change(26, BOLSTER1_XY_T, 1)
+            mprog.constaint_value_change(29, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(35, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(38, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(56, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(59, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(62, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(65, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(68, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(71, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(168, BOLSTER1_XY, 0)
+        else:
+            mprog.constaint_value_change(3, -B_15[i] - BOLSTER1_Offset_value, 1)
+            mprog.constaint_value_change(6, -B_15[i] - BOLSTER1_Offset_value, 1)
+            mprog.constaint_value_change(36, -BOLSTER1_Offset_value - F[i] / 2 + 80, 1)
+            mprog.constaint_value_change(39, -BOLSTER1_Offset_value - F[i] / 2 + 80, 1)
+            mprog.constaint_value_change(63, -F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value, 1)
+            mprog.constaint_value_change(66, -F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value, 0)
+            mprog.constaint_value_change(60, -37.5 - BOLSTER1_Offset_value, 1)
+            mprog.constaint_value_change(69, -37.5 - BOLSTER1_Offset_value, 0)
+            mprog.constaint_value_change(75, GIB_Offset_value + 45, 0)
+            mprog.constaint_value_change(78, GIB_Offset_value + 45, 0)
+            mprog.constaint_value_change(84, Behide_GIB_Offset_value, 1)
+            mprog.constaint_value_change(87, Behide_GIB_Offset_value, 1)
+            mprog.constaint_value_change(81, Behide_GIB_Offset_value, 0)
+            mprog.constaint_value_change(96, Behide_GIB_Offset_value, 1)
+            mprog.constaint_value_change(102, Behide_GIB_Offset_value, 1)
+            mprog.constaint_value_change(99, Behide_GIB_Offset_value, 0)
+            mprog.constaint_value_change(174, CLOCK_Offset_value, 0)
+            mprog.constaint_value_change(188, CLOCK_SHAFT_Offset_value, 1)
+            mprog.constaint_value_change(176, BALANCER, 1)  # 右氣壓缸
+            mprog.constaint_value_change(180, BALANCER, 1)  # 左氣壓缸
+            mprog.constaint_value_change(2, BOLSTER1_XY_Z, 1)
+            mprog.constaint_value_change(5, BOLSTER1_XY_Z, 0)
+            mprog.constaint_value_change(8, BOLSTER1_XY_Z, 1)
+            mprog.constaint_value_change(11, BOLSTER1_XY_Z, 0)
+            mprog.constaint_value_change(26, BOLSTER1_XY_T, 1)
+            mprog.constaint_value_change(29, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(35, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(38, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(56, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(59, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(62, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(65, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(68, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(71, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(168, BOLSTER1_XY, 0)
 
         mprog.update()  # 更新
         mprog.OPEN_Drawing()
-        drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale = draft.drafting_parameter_calculation(A[i], B[i], H[i], T[i])  # 計算爆炸圖比例及位置
+        if l == 1:
+            drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale = draft.drafting_parameter_calculation(A[i], B[i], H[i], T[i])  # 計算爆炸圖比例及位置
+        else :
+            drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale = draft.drafting_parameter_calculation(
+                A_15[i], B_15[i], H[i], T[i])  # 計算爆炸圖比例及位置
+
         draft.change_Drawing_scale(1 / scale)  # 圖面比例
         draft.exploded_Drawing_1(type, drafting_isometric_Coordinate_Position['exploded_1'][0],
                                  drafting_isometric_Coordinate_Position['exploded_1'][1], scale)  # 爆炸圖1
@@ -906,55 +952,99 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         BOLSTER1_XY_T = -T[i]
         BOLSTER1_XY = DH_S[i]
         BALANCER = -32
-
-        mprog.constaint_value_change(3, -B[i] - BOLSTER1_Offset_value, 1)
-        mprog.constaint_value_change(6, -B[i] - BOLSTER1_Offset_value, 1)
-        mprog.constaint_value_change(36, -BOLSTER1_Offset_value - F[i] / 2 + 80, 1)
-        mprog.constaint_value_change(39, -BOLSTER1_Offset_value - F[i] / 2 + 80, 1)
-        mprog.constaint_value_change(63, -F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value, 1)
-        mprog.constaint_value_change(66, -F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value, 0)
-        mprog.constaint_value_change(60, -37.5 - BOLSTER1_Offset_value, 1)
-        mprog.constaint_value_change(69, -37.5 - BOLSTER1_Offset_value, 0)
-        mprog.constaint_value_change(75, GIB_Offset_value + 45, 0)
-        mprog.constaint_value_change(78, GIB_Offset_value + 45, 0)
-        mprog.constaint_value_change(84, Behide_GIB_Offset_value, 1)
-        mprog.constaint_value_change(87, Behide_GIB_Offset_value, 1)
-        mprog.constaint_value_change(81, Behide_GIB_Offset_value, 0)
-        mprog.constaint_value_change(96, Behide_GIB_Offset_value, 1)
-        mprog.constaint_value_change(102, Behide_GIB_Offset_value, 1)
-        mprog.constaint_value_change(99, Behide_GIB_Offset_value, 0)
-        mprog.constaint_value_change(174, CLOCK_Offset_value, 0)
-        mprog.constaint_value_change(188, CLOCK_SHAFT_Offset_value, 1)
-        mprog.constaint_value_change(176, BALANCER, 1)  # 右氣壓缸
-        mprog.constaint_value_change(180, BALANCER, 1)  # 左氣壓缸
-        mprog.constaint_value_change(2, BOLSTER1_XY_Z, 1)
-        mprog.constaint_value_change(5, BOLSTER1_XY_Z, 0)
-        mprog.constaint_value_change(8, BOLSTER1_XY_Z, 1)
-        mprog.constaint_value_change(11, BOLSTER1_XY_Z, 0)
-        mprog.constaint_value_change(26, BOLSTER1_XY_T, 1)
-        mprog.constaint_value_change(29, BOLSTER1_XY_T, 0)
-        mprog.constaint_value_change(35, BOLSTER1_XY_T, 0)
-        mprog.constaint_value_change(38, BOLSTER1_XY_T, 0)
-        mprog.constaint_value_change(56, BOLSTER1_XY_T, 0)
-        mprog.constaint_value_change(59, BOLSTER1_XY_T, 0)
-        mprog.constaint_value_change(62, BOLSTER1_XY_T, 0)
-        mprog.constaint_value_change(65, BOLSTER1_XY_T, 0)
-        mprog.constaint_value_change(68, BOLSTER1_XY_T, 0)
-        mprog.constaint_value_change(71, BOLSTER1_XY_T, 0)
-        mprog.constaint_value_change(168, BOLSTER1_XY, 0)
+        if l == 1:
+            mprog.constaint_value_change(3, -B[i] - BOLSTER1_Offset_value, 1)
+            mprog.constaint_value_change(6, -B[i] - BOLSTER1_Offset_value, 1)
+            mprog.constaint_value_change(36, -BOLSTER1_Offset_value - F[i] / 2 + 80, 1)
+            mprog.constaint_value_change(39, -BOLSTER1_Offset_value - F[i] / 2 + 80, 1)
+            mprog.constaint_value_change(63, -F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value, 1)
+            mprog.constaint_value_change(66, -F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value, 0)
+            mprog.constaint_value_change(60, -37.5 - BOLSTER1_Offset_value, 1)
+            mprog.constaint_value_change(69, -37.5 - BOLSTER1_Offset_value, 0)
+            mprog.constaint_value_change(75, GIB_Offset_value + 45, 0)
+            mprog.constaint_value_change(78, GIB_Offset_value + 45, 0)
+            mprog.constaint_value_change(84, Behide_GIB_Offset_value, 1)
+            mprog.constaint_value_change(87, Behide_GIB_Offset_value, 1)
+            mprog.constaint_value_change(81, Behide_GIB_Offset_value, 0)
+            mprog.constaint_value_change(96, Behide_GIB_Offset_value, 1)
+            mprog.constaint_value_change(102, Behide_GIB_Offset_value, 1)
+            mprog.constaint_value_change(99, Behide_GIB_Offset_value, 0)
+            mprog.constaint_value_change(174, CLOCK_Offset_value, 0)
+            mprog.constaint_value_change(188, CLOCK_SHAFT_Offset_value, 1)
+            mprog.constaint_value_change(176, BALANCER, 1)  # 右氣壓缸
+            mprog.constaint_value_change(180, BALANCER, 1)  # 左氣壓缸
+            mprog.constaint_value_change(2, BOLSTER1_XY_Z, 1)
+            mprog.constaint_value_change(5, BOLSTER1_XY_Z, 0)
+            mprog.constaint_value_change(8, BOLSTER1_XY_Z, 1)
+            mprog.constaint_value_change(11, BOLSTER1_XY_Z, 0)
+            mprog.constaint_value_change(26, BOLSTER1_XY_T, 1)
+            mprog.constaint_value_change(29, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(35, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(38, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(56, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(59, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(62, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(65, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(68, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(71, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(168, BOLSTER1_XY, 0)
+        else :
+            mprog.constaint_value_change(3, -B_15[i] - BOLSTER1_Offset_value, 1)
+            mprog.constaint_value_change(6, -B_15[i] - BOLSTER1_Offset_value, 1)
+            mprog.constaint_value_change(36, -BOLSTER1_Offset_value - F[i] / 2 + 80, 1)
+            mprog.constaint_value_change(39, -BOLSTER1_Offset_value - F[i] / 2 + 80, 1)
+            mprog.constaint_value_change(63, -F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value, 1)
+            mprog.constaint_value_change(66, -F[i] / 2 - 80 - 37.5 - BOLSTER1_Offset_value, 0)
+            mprog.constaint_value_change(60, -37.5 - BOLSTER1_Offset_value, 1)
+            mprog.constaint_value_change(69, -37.5 - BOLSTER1_Offset_value, 0)
+            mprog.constaint_value_change(75, GIB_Offset_value + 45, 0)
+            mprog.constaint_value_change(78, GIB_Offset_value + 45, 0)
+            mprog.constaint_value_change(84, Behide_GIB_Offset_value, 1)
+            mprog.constaint_value_change(87, Behide_GIB_Offset_value, 1)
+            mprog.constaint_value_change(81, Behide_GIB_Offset_value, 0)
+            mprog.constaint_value_change(96, Behide_GIB_Offset_value, 1)
+            mprog.constaint_value_change(102, Behide_GIB_Offset_value, 1)
+            mprog.constaint_value_change(99, Behide_GIB_Offset_value, 0)
+            mprog.constaint_value_change(174, CLOCK_Offset_value, 0)
+            mprog.constaint_value_change(188, CLOCK_SHAFT_Offset_value, 1)
+            mprog.constaint_value_change(176, BALANCER, 1)  # 右氣壓缸
+            mprog.constaint_value_change(180, BALANCER, 1)  # 左氣壓缸
+            mprog.constaint_value_change(2, BOLSTER1_XY_Z, 1)
+            mprog.constaint_value_change(5, BOLSTER1_XY_Z, 0)
+            mprog.constaint_value_change(8, BOLSTER1_XY_Z, 1)
+            mprog.constaint_value_change(11, BOLSTER1_XY_Z, 0)
+            mprog.constaint_value_change(26, BOLSTER1_XY_T, 1)
+            mprog.constaint_value_change(29, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(35, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(38, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(56, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(59, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(62, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(65, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(68, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(71, BOLSTER1_XY_T, 0)
+            mprog.constaint_value_change(168, BOLSTER1_XY, 0)
         mprog.update()
         # # # --------------------爆炸圖右圖------------------
 
         Fixture_offset_value = 2850
         CLUCTH_ASSEMBLY_offset_value = B[i] + 1650
+        CLUCTH_ASSEMBLY_offset_15_value = B_15[i] + 1650
         JOINT_ALL_offset_value = CLUCTH_ASSEMBLY_offset_value
         MAIN_GEAR_offset_value = B[i] + 850
-
-        mprog.constaint_value_change(159, -312.5 - Fixture_offset_value, 0)  # 支架
-        mprog.constaint_value_change(186, CLUCTH_ASSEMBLY_offset_value, 1)  # 離合器
-        mprog.constaint_value_change(203, JOINT_ALL_offset_value, 1)  # JOINT_All.1
-        mprog.constaint_value_change(195, MAIN_GEAR_offset_value, 1)  # 大齒輪MAIN_GEA1
-        mprog.constaint_value_change(201, -375, 1)  # Joint1
+        MAIN_GEAR_offset_15_value = B_15[i] + 850
+        if l == 1:
+            mprog.constaint_value_change(159, -312.5 - Fixture_offset_value, 0)  # 支架
+            mprog.constaint_value_change(186, CLUCTH_ASSEMBLY_offset_value, 1)  # 離合器
+            mprog.constaint_value_change(203, JOINT_ALL_offset_value, 1)  # JOINT_All.1
+            mprog.constaint_value_change(195, MAIN_GEAR_offset_value, 1)  # 大齒輪MAIN_GEA1
+            mprog.constaint_value_change(201, -375, 1)  # Joint1
+        else:
+            mprog.constaint_value_change(159, -312.5 - Fixture_offset_value, 0)  # 支架
+            mprog.constaint_value_change(186, CLUCTH_ASSEMBLY_offset_15_value, 1)  # 離合器
+            mprog.constaint_value_change(203, JOINT_ALL_offset_value, 1)  # JOINT_All.1
+            mprog.constaint_value_change(195, MAIN_GEAR_offset_15_value, 1)  # 大齒輪MAIN_GEA1
+            mprog.constaint_value_change(201, -375, 1)  # Joint1
         mprog.update()
         mprog.switch_window()
         draft.exploded_Drawing_2(type, drafting_isometric_Coordinate_Position['exploded_2'][0],
@@ -1061,15 +1151,17 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
 
         #--------------存檔------------------
-        # mprog.save_file_part(path, type)
+        mprog.save_PDF(path, "Exploded_Views")
+        mprog.save_detail_drawing(path , "Exploded_Views")
 
         #-------------
         # dp.Parts_drawing_generation(i , j , path)
 
         #-----------零件圖生成--------
         mprog.OPEN_detail_drawing()
-        dp.Parts_drawing_generation(i, l, path)
+        dp.Parts_drawing_generation(i, l, part_path)
         dpc.bom_text_create()
+        mprog.save_PDF(path , "detail_drawing")
         mprog.save_detail_drawing(path , "detail_drawing")
 
 if __name__ == "__main__":
