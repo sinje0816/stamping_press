@@ -2,6 +2,7 @@ import os
 import win32com.client as win32
 import datetime, time
 import file_path as fp
+import zipfile as zf
 
 
 # 開啟CATIA(由學長提供之函式)
@@ -218,12 +219,6 @@ def save_file_product(path, file_name):
     # print(path + '\\' + file_name)
     partDocument1.SaveAs(path + '\\' + file_name)
 
-def save_PDF(path, file_name):
-    catapp = win32.Dispatch("CATIA.Application")
-    partdoc = catapp.ActiveDocument
-    # 儲存檔案後關閉
-    partdoc.ExportData("%s\%s.%s" % (path, file_name, "pdf"), 'pdf')
-
 # 新增資料夾
 def new_Folder():
     time = datetime.datetime.now()
@@ -397,4 +392,3 @@ def hide_show_part(part_name, hide_show):  # 隱藏零件
     visPropertySet1 = visPropertySet1.Parent
     visPropertySet1.SetShow(hide_show)  # 隱藏1, 顯示0
     selection1.Clear()
-

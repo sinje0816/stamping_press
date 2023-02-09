@@ -427,7 +427,7 @@ def drafting_parameter_calculation(i, l , scale , box_1_range):
             break
     return ALL_range , scale
 
-def Material_diagram_projection(surface , XLocation , YLocation , part_name , scale , part_view_number):#零件圖佈圖主程式
+def Material_diagram_projection(surface , XLocation , YLocation , part_name , scale , part_view_number , new_part):#零件圖佈圖主程式
     catapp = win32.Dispatch('CATIA.Application')
     ActWin = catapp.Windows.item("detail_drawing.CATDrawing")
     ActWin.Activate()

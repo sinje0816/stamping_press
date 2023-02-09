@@ -127,6 +127,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             i = 2
         elif type == "SN1-60" or type == "sn1-60" or type == "60":
             i = 3
+
         elif type == "SN1-80" or type == "sn1-80" or type == "80":
             i = 4
         elif type == "SN1-110" or type == "sn1-110" or type == "110":
@@ -455,9 +456,15 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -R[i] / 2 - 90, 'XZ.PLANE', 0, 28)
         mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -T[i], 'XY.PLANE', 0, 29)
         if l == 0:
-            mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', FRAME2_lower_depth_15[i], 'YZ.PLANE', 1, 30)
+            if i == 4:
+                mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', FRAME2_lower_depth_15[i] + 80, 'YZ.PLANE', 1, 30)
+            else:
+                mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', FRAME2_lower_depth_15[i], 'YZ.PLANE', 1, 30)
         else:
-            mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', FRAME2_lower_depth[i], 'YZ.PLANE', 1, 30)
+            if i == 4:
+                mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', FRAME2_lower_depth[i] + 80, 'YZ.PLANE', 1, 30)
+            else:
+                mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', FRAME2_lower_depth[i], 'YZ.PLANE', 1, 30)
         # 底部後面ㄇ形角鐵
         mprog.add_offset_assembly('FRAME3.1', 'FRAME4.1', 0, 'XZ.PLANE', 1, 31)
         mprog.add_offset_assembly('FRAME3.1', 'FRAME4.1', 0, 'XY.PLANE', 0, 32)
@@ -569,14 +576,14 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             mprog.add_offset_assembly('GIB2.1', 'FRAME31.1', -690 - 34.5, 'XY.PLANE', 1, 88)
         else:
             mprog.add_offset_assembly('GIB2.1', 'FRAME31.1', -690, 'XY.PLANE', 1, 88)
-        mprog.add_offset_assembly('FRAME23.1', 'FRAME31.1', -50, 'XZ.PLANE', 0, 89)
+        mprog.add_offset_assembly('FRAME23.1', 'FRAME31.1', -35, 'XZ.PLANE', 0, 89)
         mprog.add_offset_assembly('FRAME23.1', 'FRAME31.1', -130.35 - 22.5, 'YZ.PLANE', 0, 90)
         if i == 4:
             mprog.add_offset_assembly('GIB2.1', 'FRAME31.2', -150 - 34.5, 'XY.PLANE', 1, 91)
         else:
             mprog.add_offset_assembly('GIB2.1', 'FRAME31.2', -150, 'XY.PLANE', 1, 91)
         mprog.add_offset_assembly('FRAME23.1', 'FRAME31.2', -130.35 - 22.5, 'YZ.PLANE', 0, 92)
-        mprog.add_offset_assembly('FRAME23.1', 'FRAME31.2', -62.5, 'XZ.PLANE', 0, 93)
+        mprog.add_offset_assembly('FRAME23.1', 'FRAME31.2', -35, 'XZ.PLANE', 0, 93)
         # 右GIB後鎖固用方塊
         if i == 4:
             mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', -690 - 34.5, 'XY.PLANE', 1, 94)
@@ -600,7 +607,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', -690 - 34.5, 'XY.PLANE', 1, 103)
         else:
             mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', -690, 'XY.PLANE', 1, 103)
-        mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', -50, 'XZ.PLANE', 1, 104)
+        mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', -35, 'XZ.PLANE', 1, 104)
         mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', 130.35 + 22.5, 'YZ.PLANE', 1, 105)
         if i == 4:
             mprog.add_offset_assembly('GIB1.1', 'FRAME31.4', -150 - 34.5, 'XY.PLANE', 1, 106)
@@ -618,7 +625,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('FRAME41.1', 'FRAME4.1', 0, 'YZ.PLANE', 0, 114)
         # FRAME2中間下板子
         mprog.add_offset_assembly('FRAME32.1', 'BOLSTER1.1', 0, 'XZ.PLANE', 0, 115)
-        mprog.add_offset_assembly('FRAME32.1', 'FRAME3.1', FRAME_32_XY[i] + 19, 'XY.PLANE', 0, 116)
+        mprog.add_offset_assembly('FRAME32.1', 'FRAME3.1', FRAME_32_XY[i] + 20, 'XY.PLANE', 0, 116)
         mprog.add_offset_assembly('FRAME32.1', 'FRAME30.1', 0, 'YZ.PLANE', 0, 117)
         # 後方大軸承支架
         mprog.add_offset_assembly('FRAME10.1', 'FRAME34.2', -485.543, 'YZ.PLANE', 0, 118)
@@ -636,7 +643,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # 後方大軸承
         mprog.add_offset_assembly('FRAME35.1', 'FRAME3.1', 0, 'XZ.PLANE', 1, 124)
         mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -(H[i] - Z[i] - S[i] - 34 + 448), 'XY.PLANE', 0, 125)
-        mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -FRAME20_FRAME2_YZ[i] - 32, 'YZ.PLANE', 0, 126)
+        mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -FRAME20_FRAME2_YZ[i] - 28, 'YZ.PLANE', 0, 126)
         # 後方馬達下支撐板
         mprog.add_offset_assembly('FRAME39.1', 'FRAME1.1', 50, 'XZ.PLANE', 0, 127)
         mprog.add_offset_assembly('FRAME39.1', 'FRAME20.1', -360, 'XY.PLANE', 0, 128)
@@ -768,15 +775,11 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', 260, 'YZ.PLANE',
                                               1, 183)
         # 離合器與FRAME20結合
-        if i == 4:
-            mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', 108.109,
-                                              'XY.PLANE', 0, 184)
-        else:
-            mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', -(H[i] - Z[i] - S[i] - 34 - 5 + 448), 'XY.PLANE',
+        mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', -(H[i] - Z[i] - S[i] - 34 - 5 + 448), 'XY.PLANE',
                                               0, 184)
         mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', 0, 'XZ.PLANE', 1,
                                           185)
-        mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', 510, 'YZ.PLANE', 1,
+        mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', 512, 'YZ.PLANE', 1,
                                           186)
         # 曲軸與時鐘結合
         mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 0, 'XZ.PLANE',
@@ -1151,8 +1154,8 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
 
         #--------------存檔------------------
-        mprog.save_PDF(path, "Exploded_Views")
         mprog.save_detail_drawing(path , "Exploded_Views")
+        mprog.saveas(path, "Exploded_Views", ".pdf")
 
         #-------------
         # dp.Parts_drawing_generation(i , j , path)
@@ -1161,8 +1164,8 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.OPEN_detail_drawing()
         dp.Parts_drawing_generation(i, l, part_path)
         dpc.bom_text_create()
-        mprog.save_PDF(path , "detail_drawing")
         mprog.save_detail_drawing(path , "detail_drawing")
+        mprog.saveas(path, "detail_drawing", ".pdf")
 
 if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率
