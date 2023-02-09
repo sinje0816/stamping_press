@@ -1,0 +1,470 @@
+Index: SYEI_stamping_press_system/TEST.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import win32com.client as win32\r\nimport main_program as mprog\r\nimport datetime, time, math\r\nimport drafting as draft\r\nimport parameter as par\r\n\r\ni = 5\r\n\r\n# mprog.switch_window()\r\n\r\n# 隱藏機架外零件\r\n# for part_name in par.hide_part_name:\r\n#     mprog.hide_show_part(part_name, 1)\r\n\r\n# #投影\r\n# mprog.switch_window()\r\ndrafting_down_Coordinate_Position, drafting_up_Coordinate_Position, scale = draft.drafting_welding_view_parameter_calculation(\r\n    par.A[i], par.B[i], par.H[i])\r\ndraft.change_Drawing_scale(1 / scale)\r\n# # 副程式名稱須注意是否與立體圖相符\r\n# draft.Front_View_Drawing('SN1-110', drafting_down_Coordinate_Position['Right View'][0], drafting_down_Coordinate_Position['Right View'][1], scale)  # 左側試圖\r\n# draft.Right_View_Drawing('SN1-110', drafting_down_Coordinate_Position['Front View'][0], drafting_down_Coordinate_Position['Front View'][1], scale)  # 前視圖\r\n# draft.Right_Top_View_Drawing('SN1-110', drafting_up_Coordinate_Position['Top View'][0], drafting_up_Coordinate_Position['Top View'][1], scale)  # 上視圖\r\n\r\n\r\n# 剖面圖座標\r\nSection_Coordinate = {'A-A': [[float(0), float(-2900), float(0), float(600)], 1],\r\n                      'B-B': [[float(par.B[i] + 100), float(520), float(par.B[i] + 100), float(-1200)], 0],\r\n                      'C-C': [[float(-195), float(-1460), float(2286), float(par.B[i] + 100)], 0],\r\n                      'D-D': [[float(-par.A[i] / 2 - 100), float(-par.H[i] / 2), float(par.A[i] / 2 + 100), float(-par.H[i] / 2)], 0],\r\n                      'E-E': [[float(-100), float(-(par.S[i] + par.Z[i]) + 100), float(par.B[i] / 3), float(-(par.S[i] + par.Z[i]) + 100)], 1],\r\n                      'F-F': [[float(-272), float(- 176 / 2), float(-272), float(-176 * 1.5)], 0],\r\n                      'G-G': [[float(par.B[i] + 100), float(-(par.S[i] + par.Z[i]) + 150), float(par.B[i] + 100), float(-(par.S[i] + par.Z[i]) - 150)], 1]}\r\n\r\ndraft.section('Front view', drafting_down_Coordinate_Position['section A-A'][0],\r\n              drafting_down_Coordinate_Position['section A-A'][1], scale, Section_Coordinate['A-A'][0], Section_Coordinate['A-A'][1])\r\ndraft.section('Right view', drafting_down_Coordinate_Position['section B-B'][0],\r\n              drafting_down_Coordinate_Position['section B-B'][1], scale, Section_Coordinate['B-B'][0], Section_Coordinate['B-B'][1])\r\ndraft.section('Section view A-A', drafting_up_Coordinate_Position['section C-C'][0],\r\n              drafting_up_Coordinate_Position['section C-C'][1], scale, Section_Coordinate['C-C'][0], Section_Coordinate['C-C'][1])\r\ndraft.section('Section view C-C', drafting_up_Coordinate_Position['section D-D'][0],\r\n              drafting_up_Coordinate_Position['section D-D'][1], scale, Section_Coordinate['D-D'][0], Section_Coordinate['D-D'][1])\r\ndraft.section('Right view', drafting_up_Coordinate_Position['section E-E'][0],\r\n              drafting_up_Coordinate_Position['section E-E'][1], scale, Section_Coordinate['E-E'][0], Section_Coordinate['E-E'][1])\r\n\r\n# # 焊接符號生成\r\n# draft.symbol_of_weld('Front view', 3, -par.A[i] / 2 + 50 + 105, par.H[i] - par.S[i] - par.Z[i] - 32, 1)\r\n\r\n# # 圈碼圖生成\r\n# draft.balloons('Front view', '1', -par.A[i] / 2 - 100 * par.cos30, (par.H[i] - par.S[i] - par.Z[i]) * par.sin30 / 2, -par.A[i] / 2, (par.H[i] - par.S[i] - par.Z[i]) / 2, -par.A[i] / 2 - 100 * par.cos30)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/SYEI_stamping_press_system/TEST.py b/SYEI_stamping_press_system/TEST.py
+--- a/SYEI_stamping_press_system/TEST.py	(revision 13792d1d9ab8ab051d042afa2e5e546497b3673a)
++++ b/SYEI_stamping_press_system/TEST.py	(date 1675942449164)
+@@ -13,35 +13,67 @@
+ #     mprog.hide_show_part(part_name, 1)
+ 
+ # #投影
+-# mprog.switch_window()
++# # mprog.switch_window()
+ drafting_down_Coordinate_Position, drafting_up_Coordinate_Position, scale = draft.drafting_welding_view_parameter_calculation(
+-    par.A[i], par.B[i], par.H[i])
++    par.A[i], par.B[i], par.H[i], par.S[i], par.Z[i], par.T[i])
+ draft.change_Drawing_scale(1 / scale)
+-# # 副程式名稱須注意是否與立體圖相符
+-# draft.Front_View_Drawing('SN1-110', drafting_down_Coordinate_Position['Right View'][0], drafting_down_Coordinate_Position['Right View'][1], scale)  # 左側試圖
+-# draft.Right_View_Drawing('SN1-110', drafting_down_Coordinate_Position['Front View'][0], drafting_down_Coordinate_Position['Front View'][1], scale)  # 前視圖
+-# draft.Right_Top_View_Drawing('SN1-110', drafting_up_Coordinate_Position['Top View'][0], drafting_up_Coordinate_Position['Top View'][1], scale)  # 上視圖
+-
++# 副程式名稱須注意是否與立體圖相符
++draft.Front_View_Drawing('SN1-110', drafting_down_Coordinate_Position['Right View'][0],
++                         drafting_down_Coordinate_Position['Right View'][1], scale)  # 左側試圖
++draft.Right_View_Drawing('SN1-110', drafting_down_Coordinate_Position['Front View'][0],
++                         drafting_down_Coordinate_Position['Front View'][1], scale)  # 前視圖
++draft.Right_Top_View_Drawing('SN1-110', drafting_up_Coordinate_Position['Top View'][0],
++                             drafting_up_Coordinate_Position['Top View'][1], scale)  # 上視圖
+ 
+ # 剖面圖座標
+ Section_Coordinate = {'A-A': [[float(0), float(-2900), float(0), float(600)], 1],
+                       'B-B': [[float(par.B[i] + 100), float(520), float(par.B[i] + 100), float(-1200)], 0],
+-                      'C-C': [[float(-195), float(-1460), float(2286), float(par.B[i] + 100)], 0],
+-                      'D-D': [[float(-par.A[i] / 2 - 100), float(-par.H[i] / 2), float(par.A[i] / 2 + 100), float(-par.H[i] / 2)], 0],
+-                      'E-E': [[float(-100), float(-(par.S[i] + par.Z[i]) + 100), float(par.B[i] / 3), float(-(par.S[i] + par.Z[i]) + 100)], 1],
+-                      'F-F': [[float(-272), float(- 176 / 2), float(-272), float(-176 * 1.5)], 0],
+-                      'G-G': [[float(par.B[i] + 100), float(-(par.S[i] + par.Z[i]) + 150), float(par.B[i] + 100), float(-(par.S[i] + par.Z[i]) - 150)], 1]}
++                      'C-C': [[float(-195), float(-par.S[i] + 100), float(par.B[i] + 100), float(-par.S[i] + 100)], 0],
++                      'D-D': [[float(-par.A[i] / 2 - 100), float(-par.H[i] / 2), float(par.A[i] / 2 + 100),
++                               float(-par.H[i] / 2)], 1],
++                      'E-E': [[float(-100), float(-(par.S[i] + par.Z[i]) + 100), float(par.B[i] / 3),
++                               float(-(par.S[i] + par.Z[i]) + 100)], 0],
++                      'F-F': [[float(272), float(- 176 / 2), float(272), float(-176 * 3 / 2)], 0],
++                      'G-G': [[float(par.B[i] + 100), float(-(par.S[i] + par.Z[i]) + 200), float(par.B[i] + 100),
++                               float(-(par.S[i] + par.Z[i]) - 200)], 0]}
++Section_Coordinate_title = list(Section_Coordinate.keys())
++view_order = ['Front view', 'Right view', 'Section view A-A', 'Front view', 'Right view', 'Section view B-B',
++              'Section view A-A']
++for title in Section_Coordinate_title:
++    for view_name in view_order:
++        if 'Section view ' + title in drafting_up_Coordinate_Position:  # 若此元素為此字典之鍵則執行
++            draft.Section(view_name, drafting_up_Coordinate_Position['Section view ' + title][0],
++                          drafting_up_Coordinate_Position['Section view ' + title][1], scale,
++                          Section_Coordinate[title][0],
++                          Section_Coordinate[title][1], 'Section view ' + title)
++        else:
++            draft.Section(view_name, drafting_down_Coordinate_Position['Section view ' + title][0],
++                          drafting_down_Coordinate_Position['Section view ' + title][1], scale,
++                          Section_Coordinate[title][0],
++                          Section_Coordinate[title][1], 'Section view ' + title)
++        view_order.pop(0)  # 刪除串列中第一個元素
++        break
+ 
+-draft.section('Front view', drafting_down_Coordinate_Position['section A-A'][0],
+-              drafting_down_Coordinate_Position['section A-A'][1], scale, Section_Coordinate['A-A'][0], Section_Coordinate['A-A'][1])
+-draft.section('Right view', drafting_down_Coordinate_Position['section B-B'][0],
+-              drafting_down_Coordinate_Position['section B-B'][1], scale, Section_Coordinate['B-B'][0], Section_Coordinate['B-B'][1])
+-draft.section('Section view A-A', drafting_up_Coordinate_Position['section C-C'][0],
+-              drafting_up_Coordinate_Position['section C-C'][1], scale, Section_Coordinate['C-C'][0], Section_Coordinate['C-C'][1])
+-draft.section('Section view C-C', drafting_up_Coordinate_Position['section D-D'][0],
+-              drafting_up_Coordinate_Position['section D-D'][1], scale, Section_Coordinate['D-D'][0], Section_Coordinate['D-D'][1])
+-draft.section('Right view', drafting_up_Coordinate_Position['section E-E'][0],
+-              drafting_up_Coordinate_Position['section E-E'][1], scale, Section_Coordinate['E-E'][0], Section_Coordinate['E-E'][1])
++# 裁切選定圖面範圍
++detail_view_coordinate = {
++    'Section view D-D': [float(par.A[i] / 2), float(-270), float(-par.A[i] / 2), float(-270), float(-par.A[i] / 2),
++                         float(-630), float(par.A[i] / 2), float(-630)],
++    'Section view F-F': [float(-979 + 42), float(-25), float(-979 + 42), float(-290), float(-54 - 979), float(-290),
++                         float(-979 - 54), float(-25)],
++    'Section view G-G': [float(-par.A[i] / 2 - par.FRAME_6_7_width[i]), float(-par.S[i] - par.Z[i] + 150), float(-par.A[i] / 2 - par.FRAME_6_7_width[i]),
++                         float(-par.S[i] - par.Z[i] - 150), float(-par.A[i] / 2 + par.FRAME_6_7_width[i] + 170),
++                         float(-par.S[i] - par.Z[i] - 150), float(-par.A[i] / 2 + par.FRAME_6_7_width[i] + 170),
++                         float(-par.S[i] - par.Z[i] + 150)]}
++# detail_view_coordinate_keys = list(detail_view_coordinate.keys())
++# for coordinate_keys in detail_view_coordinate_keys:
++#     if coordinate_keys in drafting_up_Coordinate_Position:
++#         draft.Define_Polygonal_Detail_View(coordinate_keys, detail_view_coordinate[coordinate_keys],
++#                                            drafting_up_Coordinate_Position[coordinate_keys][0],
++#                                            drafting_up_Coordinate_Position[coordinate_keys][1])
++#     else:
++#         draft.Define_Polygonal_Detail_View(coordinate_keys, detail_view_coordinate[coordinate_keys],
++#                                            drafting_down_Coordinate_Position[coordinate_keys][0],
++#                                            drafting_down_Coordinate_Position[coordinate_keys][1])
+ 
+ # # 焊接符號生成
+ # draft.symbol_of_weld('Front view', 3, -par.A[i] / 2 + 50 + 105, par.H[i] - par.S[i] - par.Z[i] - 32, 1)
+Index: parameter.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import math\r\n\r\n# 電子型錄規格\r\nA = [720, 830, 890, 940, 1050, 1160, 1300, 1480, 1560, 1760]\r\nA_15 = [1080, 1245, 1335, 1410, 1575, 1740, 1950, 2220, 2340, 2640]\r\nB = [1058, 1125, 1210, 1315, 1480, 1680, 1985, 2113, 2400, 2700]\r\nB_15 = [1587, 1688, 1815, 1973, 2220, 2520, 2978, 3170, 3600, 4050]\r\nH = [2060, 2185, 2290, 2540, 2755, 2990, 3270, 3725, 4005, 4285]\r\nR = [388, 486, 516, 544, 614, 670, 730, 900, 970, 1040]\r\nR_15 = [582, 729, 774, 816, 921, 1005, 1095, 1350, 1455, 1560]\r\nE = [700, 780, 840, 900, 1050, 1150, 1250, 1400, 1500, 1600]\r\nE_15 = [1051, 1170, 1260, 1350, 1575, 1725, 1875, 2100, 2250, 2400]\r\nD_DH = [250, 280, 330, 350, 380, 430, 490, 550, 580, 610]\r\nD_S = [80, 90, 110, 130, 150, 180, 200, 220, 250, 280]\r\nD_H = [50, 60, 70, 80, 100, 110, 130, 150, 180, 210]\r\nD_P = [35, 40, 45, 50, 60, 70, 80, 90, 100, 110]\r\nDH_S = [230, 250, 270, 300, 330, 350, 400, 450, 450, 500]\r\nDH_H = [200, 220, 240, 270, 300, 320, 360, 400, 400, 450]\r\nDH_P = [200, 220, 240, 270, 300, 320, 360, 400, 400, 450]\r\nS = [983, 1068, 1158, 1285, 1445, 1630, 1809, 2067, 2262, 2357]\r\nH_Z = [1260, 1385, 1490, 1640, 1855, 2086.933, 2370, 2725, 3005, 3285]\r\nO = [1045, 1075, 1125, 1145, 1175, 1225, 1285, 1345, 1375, 1405]\r\nhole_type = [0, 1, 2]\r\nP = [330, 380, 430, 480, 560, 650, 720, 860, 960, 1060]\r\nP_15 = [495, 570, 645, 721, 840, 975, 1080, 1290, 1440, 1590]\r\nQ = [250, 300, 350, 400, 460, 520, 580, 650, 720, 790]\r\nQ_15 = [375, 450, 525, 600, 690, 780, 870, 975, 1080, 1185]\r\nT = [85, 100, 115, 130, 140, 155, 165, 180, 180, 200]\r\nZ = [800, 800, 800, 900, 900, 900, 900, 1000, 1000, 1100]\r\nF = [320, 400, 440, 520, 600, 680, 760, 840, 900, 960]\r\nFRAME20_H = [280, 355, 420, 437.5, 550, 680, 825, 990, 1120, 1170]\r\nFRAME2_lower_depth = [166.016, 246.016, 286.016, 366.016, 446.016, 526.016, 606.016, 686.016, 746.016, 806.016]\r\nFRAME2_lower_depth_15 = [331.016, 451.016, 511.016, 631.016, 751.016, 871.016, 991.016, 1111.016, 1201.016, 1291.016]\r\nFRAME1_lower_high = [1330, 1335, 1340, 1445, 1455, 1460, 1470, 1575, 1595, 1695]\r\nFRAME20_FRAME2_YZ = [805, 805, 979, 979, 979, 979, 979, 979, 979, 979]\r\nBALANCER1_XZ = [204, 253, 268, 282, 317, 345, 375, 460, 575, 690]  # (R+180mm)/2+80mm\r\nFRAME_10_H = [558, 620.5, 673, 798, 905.5, 1023, 1163, 1320.5, 1530.5, 1740.5]\r\nFRAME_32_XY = [0, 0, 0, 1722, 1819.5, 1922, 2052, 2294.5, 2504.5, 2794.5]\r\nFRAME44_height = [588 , 665.5 , 733 , 773 , 890.5 , 1023 , 1173 , 1385.5 , 1455.5 , 1445.5]\r\nFRAME_41_depth = [590 , 590 , 590 , 590 , 490 , 590 , 590 , 590 , 590 , 590]\r\nFRAME_7_width = [176 , 182 , 197 , 208 , 228 , 255 , 295 , 299 , 305 , 305]\r\nFRAME_7_15_width = [200.3 , 209.3 , 231.8 , 248.3 , 278.3 , 318.8 , 378.8 , 384.8 , 393.8 , 393.8]\r\nFRAME_11_height = [1122 , 1184.5 , 1237 , 1362 , 1469.5 , 1587 , 1727 , 1884.5 , 2094.5 , 2304.5]\r\nFRAME_11_width = [600 , 680 , 720 , 800 , 880 , 960 , 1040 , 1120 , 1180 , 1240]\r\nFRAME_11_15_width = [765 , 885 , 945 , 1065 , 1185 , 1305 , 1425 , 1545 , 1635 , 1725]\r\nFRAME_8_width = [164 , 170 , 185 , 196 , 216 , 243 , 283 , 288 , 293 , 358]\r\nFRAME_8_15_width = [246 , 255 , 278 , 294 , 324 , 365 , 425 , 432 , 440 , 537]\r\nFRAME_13_depth = [59.016 , 139.016 , 179.016 , 259.016 , 339.016 , 419.016 , 499.016 , 579.016 , 639.016 , 699.016]\r\n\r\n# 三角函數\r\nsin45 = math.sin(math.radians(45))\r\ncos45 = math.cos(math.radians(45))\r\nsin30 = math.sin(math.radians(30))\r\ncos30 = math.cos(math.radians(30))\r\nsin60 = math.sin(math.radians(60))\r\ncos60 = math.cos(math.radians(60))\r\ncos35_267 = math.cos(math.radians(35.267))\r\nsin35_267 = math.sin(math.radians(35.267))\r\n\r\n# -------------焊接圖---------------\r\n#隱藏part\r\nhide_part_name = ['BOLSTER1', 'BOLSTER2', 'BOLSTER3', 'BALANCER_LEFT_All', 'BALANCER_RIGHT_All', 'CRANK_SHAFT_CLOCK',\r\n                  'CLUCTH_ASSEMBLY_All', 'SLIDE_UNIT_All', 'CRANK_SHAFT.1', 'JOINT_All', 'MAIN_GEAR1', 'MAIN_GEAR2',\r\n                  'MAIN_GEAR3', 'MAIN_GEAR4', 'JOINT1', 'GIB1', 'GIB2', 'FRAME35', 'Fixture']\r\n# 前視圖中心 & 上視圖中心\r\ndrafting_front_area_centerX = 435\r\n# 下圖\r\ndrafting_down_area_centerY = 460 / 2 + 65\r\n# 上圖\r\ndrafting_up_area_centerY = (821 - 65 - 460) / 2 + 65 + 420\r\n# 圖面最大範圍框\r\ndrafting_view_min_Y = 43\r\ndrafting_view_max_Y = 842\r\ndrafting_view_min_X = 20\r\ndrafting_view_max_X = 1169\r\n# 圖框虛線間隔\r\ndraft_X_clearence = 10\r\ndraft_Y_clearence = 25\r\n# 下圖Y最小位置\r\ndrafting_down_min_Y = 65\r\n\r\n# 圈碼座標
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/parameter.py b/parameter.py
+--- a/parameter.py	(revision 13792d1d9ab8ab051d042afa2e5e546497b3673a)
++++ b/parameter.py	(date 1675941771158)
+@@ -46,7 +46,7 @@
+ FRAME_8_width = [164 , 170 , 185 , 196 , 216 , 243 , 283 , 288 , 293 , 358]
+ FRAME_8_15_width = [246 , 255 , 278 , 294 , 324 , 365 , 425 , 432 , 440 , 537]
+ FRAME_13_depth = [59.016 , 139.016 , 179.016 , 259.016 , 339.016 , 419.016 , 499.016 , 579.016 , 639.016 , 699.016]
+-
++FRAME_6_7_width = [48.5, 54.5, 69.5, 80.5, 100.5, 127.5, 167.5, 171.5, 177.5]
+ # 三角函數
+ sin45 = math.sin(math.radians(45))
+ cos45 = math.cos(math.radians(45))
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"16196f2d-2bed-4919-b6e6-decc4073d892\" name=\"Changes\" comment=\"修改FRAME31.1~4的位置\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_6__04_58__Changes_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GUI/N_Test.py\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SYEI_stamping_press_system/TEST.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SYEI_stamping_press_system/TEST.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SYEI_stamping_press_system/drafting.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SYEI_stamping_press_system/drafting.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SYEI_stamping_press_system/drafting_part.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SYEI_stamping_press_system/drafting_part.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/Drawing1.CATDrawing\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME20.CATPart\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME20.CATPart\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PREVIOUS_COMMIT_AUTHORS\">\r\n      <list>\r\n        <option value=\"USER &lt;c109104260@nkust.edu.tw&gt;\" />\r\n      </list>\r\n    </option>\r\n    <option name=\"PUSH_AUTO_UPDATE\" value=\"true\" />\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"RESET_MODE\" value=\"MIXED\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2HNiUWrGHo44xE9O4z5nXSKlf4K\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\User\\PycharmProjects\\stamping_press\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Python.main_GUI\">\r\n    <configuration name=\"PY\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Stamping press\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/PY.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"TEST (1)\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Stamping press\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/SYEI_stamping_press_system/TEST.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"TEST\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Stamping press\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/TEST.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"drafting_part\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Stamping press\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/SYEI_stamping_press_system/drafting_part.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"main_GUI\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Stamping press\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Python.main_GUI\" />\r\n        <item itemvalue=\"Python.TEST (1)\" />\r\n        <item itemvalue=\"Python.drafting_part\" />\r\n        <item itemvalue=\"Python.TEST\" />\r\n        <item itemvalue=\"Python.PY\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"16196f2d-2bed-4919-b6e6-decc4073d892\" name=\"Changes\" comment=\"\" />\r\n      <created>1668131959961</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1668131959961</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"註:新增機架組立，平面和組合線隱藏\">\r\n      <created>1668414884177</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668414884177</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"大改\">\r\n      <created>1668416491270</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668416491270</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"改完路徑了1\">\r\n      <created>1668421251047</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668421251047</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"程式結合\">\r\n      <created>1668421282864</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668421282864</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"新增test機架零件變數變換和機架組和更新\">\r\n      <created>1668516189353</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668516189353</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"新增test機架零件變數變換和機架組和更新\">\r\n      <created>1668519506744</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668519506744</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"新增test機架零件變數變換和機架組和更新\">\r\n      <created>1668520170071</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668520170071</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"新增test機架零件變數變換和機架組和更新\">\r\n      <created>1668520455726</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668520455726</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"新增test1機架組合和組合檔結合\">\r\n      <created>1668564901994</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668564901994</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"新增test1機架組合和組合檔結合\">\r\n      <created>1668564917977</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668564917977</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"更改檔名&#10;新增:沖床測試檔\">\r\n      <created>1668605946628</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668605946628</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"新增...\">\r\n      <created>1668611116553</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668611116553</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"FRAME_Assembly_change更改部分缺失結合尺寸及結合方式\">\r\n      <created>1668698222569</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668698222569</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"新增:標準件結合\">\r\n      <created>1668781374862</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668781374862</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"新增:標準件結合\">\r\n      <created>1668843984942</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668843984942</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00021\" summary=\"新增:平板與標準件連結\">\r\n      <created>1668844200933</created>\r\n      <option name=\"number\" value=\"00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668844200933</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00022\" summary=\"新增:平板與標準件連結\">\r\n      <created>1668860563635</created>\r\n      <option name=\"number\" value=\"00022\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668860563635</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00023\" summary=\"新增:變數及結合判斷式\">\r\n      <created>1668860593088</created>\r\n      <option name=\"number\" value=\"00023\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668860593088</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00024\" summary=\"新增:變數與結合判斷式\">\r\n      <created>1668861100744</created>\r\n      <option name=\"number\" value=\"00024\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668861100744</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00025\" summary=\"修改部分YZ尺寸距離\">\r\n      <created>1668870166204</created>\r\n      <option name=\"number\" value=\"00025\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668870166204</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00026\" summary=\"80~250噸數OK\">\r\n      <created>1668942377027</created>\r\n      <option name=\"number\" value=\"00026\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668942377027</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00027\" summary=\"修改結合尺寸與判斷式\">\r\n      <created>1668947649149</created>\r\n      <option name=\"number\" value=\"00027\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00027\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668947649149</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00028\" summary=\"修改標準件判斷條件及新增噸數300尺寸\">\r\n      <created>1669042645660</created>\r\n      <option name=\"number\" value=\"00028\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00028\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1669042645660</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00029\" summary=\"修改氣壓缸尺寸\">\r\n      <created>1669043614548</created>\r\n      <option name=\"number\" value=\"00029\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00029\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1669043614548</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00030\" summary=\"修改FRAME32結合距離及尺寸、氣壓缸結合距離\">\r\n      <created>1669107668327</created>\r\n      <option name=\"number\" value=\"00030\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00030\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1669107668327</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00031\" summary=\"移除行程部分\">\r\n      <created>1669115571073</created>\r\n      <option name=\"number\" value=\"00031\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00031\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1669115571073</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00032\" summary=\"SP移除閉合部分&#10;main_GUI新增判斷條件\">\r\n      <created>1669119855900</created>\r\n      <option name=\"number\" value=\"00032\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00032\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1669119855900</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00033\" summary=\"新增結合零件&#10;新增Product存檔\">\r\n      <created>1670073006067</created>\r\n      <option name=\"number\" value=\"00033\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00033\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670073006067</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00034\" summary=\"新增標準件偏移結合\">\r\n      <created>1670086312963</created>\r\n      <option name=\"number\" value=\"00034\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00034\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670086312963</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00035\" summary=\"新增:爆炸圖尺寸更改\">\r\n      <created>1670253116158</created>\r\n      <option name=\"number\" value=\"00035\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00035\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670253116158</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00036\" summary=\"Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;123.py&#10;#&#9;GUI/main_GUI.py\">\r\n      <created>1670318199355</created>\r\n      <option name=\"number\" value=\"00036\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00036\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670318199355</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00037\" summary=\"新增:爆炸圖圖面\">\r\n      <created>1670318251316</created>\r\n      <option name=\"number\" value=\"00037\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00037\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670318251316</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00038\" summary=\"新增:爆炸圖圖面\">\r\n      <created>1670318256390</created>\r\n      <option name=\"number\" value=\"00038\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00038\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670318256390</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00039\" summary=\"新增:比例判別, 生成2D視圖\">\r\n      <created>1670337064813</created>\r\n      <option name=\"number\" value=\"00039\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00039\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670337064813</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00040\" summary=\"比例調整及判斷\">\r\n      <created>1670573601274</created>\r\n      <option name=\"number\" value=\"00040\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00040\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670573601274</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00041\" summary=\"完成爆炸圖下半部比例位置自動調整\">\r\n      <created>1670577732225</created>\r\n      <option name=\"number\" value=\"00041\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00041\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670577732225</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00042\" summary=\"更改主檔爆炸圖下圖\">\r\n      <created>1670918566295</created>\r\n      <option name=\"number\" value=\"00042\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00042\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670918566295</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00043\" summary=\"完成爆炸圖比例位置偏移\">\r\n      <created>1671034419443</created>\r\n      <option name=\"number\" value=\"00043\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00043\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1671034419443</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00044\" summary=\"修正爆炸圖比例偏移\">\r\n      <created>1671168366685</created>\r\n      <option name=\"number\" value=\"00044\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00044\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1671168366685</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00045\" summary=\"建立及測試圈碼圖&#10;(Y方向卡關)\">\r\n      <created>1671273349379</created>\r\n      <option name=\"number\" value=\"00045\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00045\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1671273349379</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00046\" summary=\"建立及測試圈碼圖&#10;(Y方向卡關)\">\r\n      <created>1671273358578</created>\r\n      <option name=\"number\" value=\"00046\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00046\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1671273358578</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00047\" summary=\"完成零件6圈碼圖建立\">\r\n      <created>1671354767706</created>\r\n      <option name=\"number\" value=\"00047\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00047\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1671354767706</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00048\" summary=\"修改爆炸圖偏移二變數&#10;新增更改視圖名稱\">\r\n      <created>1671878126103</created>\r\n      <option name=\"number\" value=\"00048\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00048\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1671878126103</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00049\" summary=\"N1及drafting_test更新\">\r\n      <created>1672144632891</created>\r\n      <option name=\"number\" value=\"00049\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00049\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672144632891</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00050\" summary=\"N1及drafting_test更新\">\r\n      <created>1672144785065</created>\r\n      <option name=\"number\" value=\"00050\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00050\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672144785065</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00051\" summary=\"N1及drafting_test更新\">\r\n      <created>1672153488883</created>\r\n      <option name=\"number\" value=\"00051\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00051\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672153488883</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00052\" summary=\"N1及N_test圈馬程式更新\">\r\n      <created>1672236353047</created>\r\n      <option name=\"number\" value=\"00052\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00052\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672236353047</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00053\" summary=\"修改FRAME31.1~4的位置\">\r\n      <created>1675673976293</created>\r\n      <option name=\"number\" value=\"00053\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00053\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1675673976293</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00054\" summary=\"修改FRAME31.1~4的位置\">\r\n      <created>1675673982520</created>\r\n      <option name=\"number\" value=\"00054\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00054\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1675673982521</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"55\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"修改結合尺寸與判斷式\" />\r\n    <MESSAGE value=\"修改標準件判斷條件及新增噸數300尺寸\" />\r\n    <MESSAGE value=\"修改氣壓缸尺寸\" />\r\n    <MESSAGE value=\"修改FRAME32結合距離及尺寸、氣壓缸結合距離\" />\r\n    <MESSAGE value=\"移除行程部分\" />\r\n    <MESSAGE value=\"SP移除閉合部分&#10;main_GUI新增判斷條件\" />\r\n    <MESSAGE value=\"新增結合零件&#10;新增Product存檔\" />\r\n    <MESSAGE value=\"新增標準件偏移結合\" />\r\n    <MESSAGE value=\"新增:爆炸圖尺寸更改\" />\r\n    <MESSAGE value=\"Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;123.py&#10;#&#9;GUI/main_GUI.py\" />\r\n    <MESSAGE value=\"新增:爆炸圖圖面\" />\r\n    <MESSAGE value=\"新增:比例判別, 生成2D視圖\" />\r\n    <MESSAGE value=\"比例調整及判斷\" />\r\n    <MESSAGE value=\"完成爆炸圖前、左、右視圖\" />\r\n    <MESSAGE value=\"完成爆炸圖下半部比例位置自動調整\" />\r\n    <MESSAGE value=\"更改主檔爆炸圖下圖\" />\r\n    <MESSAGE value=\"完成爆炸圖比例位置偏移\" />\r\n    <MESSAGE value=\"修正爆炸圖比例偏移\" />\r\n    <MESSAGE value=\"建立及測試圈碼圖&#10;(Y方向卡關)\" />\r\n    <MESSAGE value=\"完成零件6圈碼圖建立\" />\r\n    <MESSAGE value=\"修改爆炸圖偏移二變數&#10;新增更改視圖名稱\" />\r\n    <MESSAGE value=\"N1及drafting_test更新\" />\r\n    <MESSAGE value=\"N1及N_test圈馬程式更新\" />\r\n    <MESSAGE value=\"修改main_GUI平板問題及離合器起飛問題\" />\r\n    <MESSAGE value=\"修改FRAME31.1~4的位置\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"修改FRAME31.1~4的位置\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 13792d1d9ab8ab051d042afa2e5e546497b3673a)
++++ b/.idea/workspace.xml	(date 1675942104289)
+@@ -1,17 +1,13 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="修改FRAME31.1~4的位置">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_6__04_58__Changes_.xml" beforeDir="false" />
++    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="完成建立剖面圖副程式&#10;完成建立焊接符號">
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_8__04_19__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_8__04_19__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_8__04_19__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_8__04_19__Changes_1.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/GUI/N_Test.py" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/TEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/TEST.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting_part.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting_part.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/Drawing1.CATDrawing" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME20.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME20.CATPart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/parameter.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -51,15 +47,18 @@
+   <component name="PropertiesComponent">
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
++    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/PDAL_NSS_ADS_SUS316" />
+     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+   </component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\Users\User\PycharmProjects\stamping_press" />
++    </key>
++    <key name="MoveFile.RECENT_KEYS">
++      <recent name="C:\Users\User\PycharmProjects\stamping_press\SYEI_stamping_press_system" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Python.main_GUI">
++  <component name="RunManager" selected="Python.TEST (1)">
+     <configuration name="PY" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="Stamping press" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+@@ -123,7 +122,7 @@
+       <option name="INPUT_FILE" value="" />
+       <method v="2" />
+     </configuration>
+-    <configuration name="drafting_part" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++    <configuration name="drafting (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="Stamping press" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+       <option name="PARENT_ENVS" value="true" />
+@@ -135,7 +134,7 @@
+       <option name="IS_MODULE_SDK" value="true" />
+       <option name="ADD_CONTENT_ROOTS" value="true" />
+       <option name="ADD_SOURCE_ROOTS" value="true" />
+-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/drafting_part.py" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/drafting.py" />
+       <option name="PARAMETERS" value="" />
+       <option name="SHOW_COMMAND_LINE" value="false" />
+       <option name="EMULATE_TERMINAL" value="false" />
+@@ -144,7 +143,7 @@
+       <option name="INPUT_FILE" value="" />
+       <method v="2" />
+     </configuration>
+-    <configuration name="main_GUI" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++    <configuration name="drafting" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="Stamping press" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+       <option name="PARENT_ENVS" value="true" />
+@@ -152,11 +151,11 @@
+         <env name="PYTHONUNBUFFERED" value="1" />
+       </envs>
+       <option name="SDK_HOME" value="" />
+-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SYEI_stamping_press_system" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+       <option name="IS_MODULE_SDK" value="true" />
+       <option name="ADD_CONTENT_ROOTS" value="true" />
+       <option name="ADD_SOURCE_ROOTS" value="true" />
+-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/drafting.py" />
+       <option name="PARAMETERS" value="" />
+       <option name="SHOW_COMMAND_LINE" value="false" />
+       <option name="EMULATE_TERMINAL" value="false" />
+@@ -167,11 +166,11 @@
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Python.main_GUI" />
+         <item itemvalue="Python.TEST (1)" />
+-        <item itemvalue="Python.drafting_part" />
++        <item itemvalue="Python.drafting (1)" />
+         <item itemvalue="Python.TEST" />
+         <item itemvalue="Python.PY" />
++        <item itemvalue="Python.drafting" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -183,13 +182,6 @@
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1668131959961</updated>
+-    </task>
+-    <task id="LOCAL-00006" summary="註:新增機架組立，平面和組合線隱藏">
+-      <created>1668414884177</created>
+-      <option name="number" value="00006" />
+-      <option name="presentableId" value="LOCAL-00006" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1668414884177</updated>
+     </task>
+     <task id="LOCAL-00007" summary="大改">
+       <created>1668416491270</created>
+@@ -527,7 +519,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1675673982521</updated>
+     </task>
+-    <option name="localTasksCounter" value="55" />
++    <task id="LOCAL-00055" summary="新增焊接圖比例計算&#10;剖面圖待調整(哭阿">
++      <created>1675768928092</created>
++      <option name="number" value="00055" />
++      <option name="presentableId" value="LOCAL-00055" />
++      <option name="project" value="LOCAL" />
++      <updated>1675768928093</updated>
++    </task>
++    <option name="localTasksCounter" value="56" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -543,7 +542,6 @@
+     <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+   <component name="VcsManagerConfiguration">
+-    <MESSAGE value="修改結合尺寸與判斷式" />
+     <MESSAGE value="修改標準件判斷條件及新增噸數300尺寸" />
+     <MESSAGE value="修改氣壓缸尺寸" />
+     <MESSAGE value="修改FRAME32結合距離及尺寸、氣壓缸結合距離" />
+@@ -568,6 +566,28 @@
+     <MESSAGE value="N1及N_test圈馬程式更新" />
+     <MESSAGE value="修改main_GUI平板問題及離合器起飛問題" />
+     <MESSAGE value="修改FRAME31.1~4的位置" />
+-    <option name="LAST_COMMIT_MESSAGE" value="修改FRAME31.1~4的位置" />
++    <MESSAGE value="新增焊接圖比例計算&#10;剖面圖待調整(哭阿" />
++    <option name="LAST_COMMIT_MESSAGE" value="新增焊接圖比例計算&#10;剖面圖待調整(哭阿" />
++  </component>
++  <component name="XDebuggerManager">
++    <breakpoint-manager>
++      <breakpoints>
++        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
++          <url>file://$PROJECT_DIR$/GUI/N_Test.py</url>
++          <line>58</line>
++          <option name="timeStamp" value="6" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
++          <url>file://$PROJECT_DIR$/GUI/N_Test.py</url>
++          <line>60</line>
++          <option name="timeStamp" value="7" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
++          <url>file://$PROJECT_DIR$/GUI/N_Test.py</url>
++          <line>61</line>
++          <option name="timeStamp" value="8" />
++        </line-breakpoint>
++      </breakpoints>
++    </breakpoint-manager>
+   </component>
+ </project>
+\ No newline at end of file
+Index: SYEI_stamping_press_system/drafting.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import os\r\nimport win32com.client as win32\r\nimport datetime, time, math\r\nimport main_program as mprog\r\nimport parameter as par\r\n\r\ndraft_area_center_initX = 500\r\ndraft_area_center_initY = 220\r\ndraft_X_clearence = 10\r\ndraft_Y_clearence = 25\r\n# 圖面最大範圍框\r\ndrafting_view_min_Y = 43\r\ndrafting_view_max_Y = 810\r\ndrafting_view_min_X = 20\r\ndrafting_view_max_X = 1250\r\nisometric_view_center_X = 270\r\nisometric_view_center_Y = 600\r\n\r\n\r\ndef drafting_parameter_calculation(width, height, depth, T):  # 電子型錄WHD, 比例\r\n    scale_p = 1\r\n    drafting_area_centerX = draft_area_center_initX  # 前視圖中心\r\n    drafting_area_centerY = draft_area_center_initY\r\n    drafting_isometric_area_centerY = isometric_view_center_Y\r\n    drafting_isometric_area_centerX = (drafting_view_max_X - drafting_view_min_Y) / 2\r\n\r\n    while True:\r\n        # 排除餘數不為 2, 5, 10 的數\r\n        if scale_p % 2 != 0 or scale_p % 5 != 0 or scale_p % 10 != 0:\r\n            scale_p += 1\r\n        scale_tmp = scale_p  # temping original scale\r\n        scale = 1 / scale_p  # proportion convert to ratio\r\n        w_scale = width * scale  # width after scaling\r\n        h_scale = height * scale  # height after scaling\r\n        d_scale = depth * scale\r\n        drafting_area_X_range = w_scale + d_scale * 2 + draft_X_clearence * 6\r\n        drafting_area_Y_range = h_scale + draft_Y_clearence * 2\r\n        drafting_center_Y = (drafting_view_max_Y / 2 + drafting_view_min_Y)\r\n        # ---------isometric view-------------\r\n        drafting_isometric_X_range = w_scale * math.cos(math.radians(45)) * 3 + d_scale * math.cos(\r\n            math.radians(45)) * 2 + scale * 4250 * math.cos(math.radians(45)) + 3500 * scale * math.cos(\r\n            math.radians(45)) + draft_X_clearence * 2  # W多乘2次為增長邊界長度\r\n        drafting_isometric_Y_range = ((1700 + 500) * scale + T * scale + h_scale)  # h為增長邊界範圍(500為上下range)\r\n        # ----------圖面比例位置判斷------------\r\n        # ----------三視圖----------\r\n        if drafting_area_X_range > drafting_view_max_X - drafting_view_min_X:\r\n            scale_p += 1\r\n        elif drafting_area_Y_range > drafting_center_Y - drafting_view_min_Y:\r\n            scale_p += 1\r\n        elif drafting_isometric_X_range > drafting_view_max_X - drafting_view_min_X:\r\n            scale_p += 1\r\n        elif drafting_isometric_Y_range > drafting_view_max_Y - drafting_center_Y:\r\n            scale_p += 1\r\n        else:\r\n            break\r\n    # ------------位置---------------\r\n    # ------------三視圖-------------\r\n    while True:\r\n        drafting_area_X_range = w_scale + d_scale * 2 + draft_X_clearence * 6\r\n        drafting_area_Y_range = h_scale + draft_Y_clearence * 2\r\n        drafting_area_extremum = [drafting_area_centerX - drafting_area_X_range / 2,  # X-min[0]\r\n                                  drafting_area_centerX + drafting_area_X_range / 2,  # X-max[1]\r\n                                  drafting_area_centerY - drafting_area_Y_range / 2 - h_scale * 1 / 3,  # Y-min[2]\r\n                                  drafting_area_centerY + drafting_area_Y_range / 2]  # Y-max[3]\r\n        drafting_center_Y = drafting_view_max_Y / 2 + drafting_view_min_Y\r\n        drafting_root_X = drafting_view_min_X + 5  # 反迴圈框_X\r\n        drafting_root_Y = drafting_view_min_Y + 5\r\n        # ------------Y方向-------------\r\n        if drafting_area_extremum[2] <= drafting_view_min_Y:\r\n            drafting_area_centerY += 1\r\n        elif drafting_area_extremum[2] > drafting_root_Y:\r\n            drafting_area_centerY -= 1\r\n        # ------------X方向-------------\r\n        elif drafting_area_extremum[0] <= drafting_view_min_X:\r\n            drafting_area_centerX += 1\r\n        elif drafting_area_extremum[0] <= drafting_root_X:\r\n            drafting_area_centerX -= 1\r\n        else:\r\n            break\r\n    # ---------isometric position-----------\r\n    while True:\r\n        drafting_isometric_X_range = w_scale * math.cos(math.radians(45)) * 3 + d_scale * math.cos(\r\n            math.radians(45)) * 2 + scale * 4250 * math.cos(math.radians(45)) + 3500 * scale * math.cos(\r\n            math.radians(45)) + draft_X_clearence * 2  # W多乘2次為增長邊界長度\r\n        drafting_isometric_Y_range = ((1700 + 500) * scale + T * scale + h_scale)  # h為增長邊界範圍(500為上下range)\r\n        drafting_isometric_area_extremum = [drafting_isometric_area_centerX - drafting_isometric_X_range / 2,\r\n                                            # X-min[0]\r\n                                            drafting_isometric_area_centerX + drafting_isometric_X_range / 2,\r\n                                            # X-max[1]\r\n                                            drafting_isometric_area_centerY - drafting_isometric_Y_range / 2,\r\n                                            # Y-min[2]\r\n                                            drafting_isometric_area_centerY + drafting_isometric_Y_range / 2]  # Y-max[3]\r\n        drafting_isometric_root_Y_min = drafting_center_Y + 5\r\n        drafting_isometric_root_X_min = drafting_view_min_X + 5\r\n        # ------------Y方向-------------\r\n        if drafting_isometric_area_extremum[2] <= drafting_center_Y:  # 若爆炸圖圖面Y最小值小於中心軸則爆炸圖1圖面中心上移1\r\n            drafting_isometric_area_centerY += 1\r\n        elif drafting_isometric_area_extremum[2] >= drafting_isometric_root_Y_min:  # 若爆炸圖圖面Y最小值大於返回圈框則爆炸圖1圖面中心下移1\r\n            drafting_isometric_area_centerY -= 1\r\n        # ------------X方向-------------\r\n        elif drafting_isometric_area_extremum[0] <= drafting_view_min_X:  # 若爆炸圖圖面X最小值小於中心軸則爆炸圖1圖面中心右移1\r\n            drafting_isometric_area_centerX += 1\r\n        elif drafting_isometric_area_extremum[0] > drafting_isometric_root_X_min:  # 若爆炸圖圖面X最小值小於中心軸則爆炸圖1圖面中心左移1\r\n            drafting_isometric_area_centerX -= 1\r\n        else:\r\n            break\r\n    # 三視圖位置\r\n    drafting_Coordinate_Position = {'Front View': (drafting_area_centerX, drafting_area_centerY),\r\n                                    'Left View': (\r\n                                    drafting_area_centerX - w_scale / 2 - d_scale / 2, drafting_area_centerY),\r\n                                    'Right View': (\r\n                                    drafting_area_centerX + w_scale / 2 + d_scale / 2, drafting_area_centerY)}\r\n    # 等角圖位置\r\n    drafting_isometric_Coordinate_Position = {'exploded_1': (\r\n    drafting_area_centerX + 25 - (drafting_isometric_area_extremum[1] - drafting_isometric_area_extremum[0]) / 5,\r\n    drafting_view_max_Y - (drafting_isometric_area_extremum[3] - drafting_isometric_area_extremum[2]) * 2 / 3),\r\n                                              'exploded_2': (drafting_area_centerX + 50 + (\r\n                                                          drafting_isometric_area_extremum[1] -\r\n                                                          drafting_isometric_area_extremum[0]) / 5,\r\n                                                             drafting_view_max_Y - (\r\n                                                                         drafting_isometric_area_extremum[3] -\r\n                                                                         drafting_isometric_area_extremum[\r\n                                                                             2]) * 2 / 3 - 50)}\r\n    return drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale_p\r\n\r\n\r\ndef change_Drawing_scale(value):\r\n    catapp = win32.Dispatch('CATIA.Application')\r\n    drawingDocument = catapp.ActiveDocument\r\n    drawingSheets = drawingDocument.Sheets\r\n    drawingSheet = drawingSheets.Item(\"Sheet.1\")\r\n    drawingSheet.Scale = float(value)\r\n\r\n\r\ndef exploded_Drawing_1(Type, X_coordinate, Y_coordinate, scale):\r\n    catapp = win32.Dispatch('CATIA.Application')\r\n    drawingDocument = catapp.ActiveDocument\r\n    drawingSheets = drawingDocument.Sheets\r\n    drawingSheet = drawingSheets.Item(\"Sheet.1\")\r\n    drawingViews = drawingSheet.Views\r\n    drawingView = drawingViews.Add(\"AutomaticNaming\")\r\n    drawingView.SetViewName(\"Isometric view1\", '', '')  # 更改視圖名稱\r\n    drawingViewGenerativeLinks = drawingView.GenerativeLinks\r\n    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior\r\n    documents = catapp.Documents\r\n    productDocument = documents.Item(str(Type) + \".CATProduct\")\r\n    product = productDocument.Product\r\n    drawingViewGenerativeBehavior.Document = product\r\n    drawingViewGenerativeBehavior.DefineIsometricView(-0.707107, 0.707107, 0, -0.408248, -0.408248, 0.816497)\r\n    drawingView.X = X_coordinate\r\n    drawingView.Y = Y_coordinate\r\n    drawingView.Scale = 1 / scale\r\n    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior\r\n    drawingViewGenerativeBehavior.Update()\r\n    drawingView.Activate()\r\n    selection = productDocument.Selection\r\n    drawingview1 = drawingViews.Item('Isometric view1')\r\n    drawingtexts1 = drawingview1.Texts\r\n    drawingtext1 = drawingtexts1.Item(1)\r\n    drawingtexts1 = drawingtext1.Parent\r\n    selection.Clear()\r\n    selection.Add(drawingtext1)\r\n    selection.Delete()\r\n    selection.Clear()\r\n\r\n\r\ndef exploded_Drawing_2(Type, X_coordinate, Y_coordinate, scale):\r\n    catapp = win32.Dispatch('CATIA.Application')\r\n    drawingDocument = catapp.ActiveDocument\r\n    drawingSheets = drawingDocument.Sheets\r\n    drawingSheet = drawingSheets.Item(\"Sheet.1\")\r\n    drawingViews = drawingSheet.Views\r\n    drawingView = drawingViews.Add(\"AutomaticNaming\")\r\n    drawingView.SetViewName(\"Isometric view2\", '', '')  # 更改視圖名稱\r\n    drawingViewGenerativeLinks = drawingView.GenerativeLinks\r\n    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior\r\n    documents = catapp.Documents\r\n    productDocument = documents.Item(str(Type) + \".CATProduct\")\r\n    product = productDocument.Product\r\n    drawingViewGenerativeBehavior.Document = product\r\n    drawingViewGenerativeBehavior.DefineIsometricView(0.707107, -0.707107, 0, 0.408248, 0.408248, 0.816497)\r\n    drawingView.X = X_coordinate\r\n    drawingView.Y = Y_coordinate\r\n    drawingView.Scale = 1 / scale\r\n    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior\r\n    drawingViewGenerativeBehavior.Update()\r\n    drawingView.Activate()\r\n    drawingtexts = drawingView.Texts\r\n    drawingtext = drawingtexts.Item(1)\r\n    drawingtexts = drawingtext.Parent\r\n    selection = productDocument.Selection\r\n    selection.Add(drawingtext)\r\n    selection.Delete()\r\n    selection.Clear()\r\n\r\n\r\ndef Front_View_Drawing(Type, X_coordinate, Y_coordinate, scale):\r\n    catapp = win32.Dispatch('CATIA.Application')\r\n    drawingDocument = catapp.ActiveDocument\r\n    drawingSheets = drawingDocument.Sheets\r\n    drawingSheet = drawingSheets.Item(\"Sheet.1\")\r\n    drawingViews = drawingSheet.Views\r\n    drawingView = drawingViews.Add(\"AutomaticNaming\")\r\n    drawingView.SetViewName(\"Front view\", '', '')  # 更改視圖名稱\r\n    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior\r\n    documents = catapp.Documents\r\n    productDocument = documents.Item(str(Type) + \".CATProduct\")\r\n    product = productDocument.Product\r\n    drawingViewGenerativeBehavior.Document = product\r\n    drawingViewGenerativeBehavior.DefineFrontView(0, 1, 0, 0, 0, 1)\r\n    drawingView.X = X_coordinate\r\n    drawingView.Y = Y_coordinate\r\n    drawingView.Scale = 1 / scale\r\n    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior\r\n    drawingViewGenerativeBehavior.Update()\r\n    drawingView.Activate()\r\n    selection = productDocument.Selection\r\n    drawingview1 = drawingViews.Item('Front view')\r\n    drawingtexts = drawingview1.Texts\r\n    drawingtext1 = drawingtexts.Item('1')\r\n    drawingtexts1 = drawingtext1.Parent\r\n    selection.Add(drawingtext1)\r\n    selection.Delete()\r\n    selection.Clear()\r\n\r\n\r\ndef Left_View_Drawing(Type, X_coordinate, Y_coordinate, scale):\r\n    catapp = win32.Dispatch('CATIA.Application')\r\n    drawingDocument = catapp.ActiveDocument\r\n    drawingSheets = drawingDocument.Sheets\r\n    drawingSheet = drawingSheets.Item(\"Sheet.1\")\r\n    drawingViews = drawingSheet.Views\r\n    drawingView = drawingViews.Add(\"AutomaticNaming\")\r\n    drawingView.SetViewName(\"Left view\", '', '')  # 更改視圖名稱\r\n    drawingViewGenerativeLinks = drawingView.GenerativeLinks\r\n    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior\r\n    documents = catapp.Documents\r\n    productDocument = documents.Item(str(Type) + \".CATProduct\")\r\n    product = productDocument.Product\r\n    drawingViewGenerativeBehavior.Document = product\r\n    drawingViewGenerativeBehavior.DefineFrontView(1, 0, 0, 0, 0, 1)\r\n    drawingView.X = X_coordinate\r\n    drawingView.Y = Y_coordinate\r\n    drawingView.Scale = 1 / scale\r\n    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior\r\n    drawingViewGenerativeBehavior.Update()\r\n    drawingView.Activate()\r\n    selection = productDocument.Selection\r\n    drawingview1 = drawingViews.Item('Left view')\r\n    drawingtexts = drawingview1.Texts\r\n    drawingtext1 = drawingtexts.Item('1')\r\n    drawingtexts1 = drawingtext1.Parent\r\n    selection.Add(drawingtext1)\r\n    selection.Delete()\r\n    selection.Clear()\r\n\r\n\r\ndef Right_View_Drawing(Type, X_coordinate, Y_coordinate, scale):\r\n    catapp = win32.Dispatch('CATIA.Application')\r\n    drawingDocument = catapp.ActiveDocument\r\n    drawingSheets = drawingDocument.Sheets\r\n    drawingSheet = drawingSheets.Item(\"Sheet.1\")\r\n    drawingViews = drawingSheet.Views\r\n    drawingView = drawingViews.Add(\"AutomaticNaming\")\r\n    drawingView.SetViewName(\"Right view\", '', '')  # 更改視圖名稱\r\n    drawingViewGenerativeLinks = drawingView.GenerativeLinks\r\n    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior\r\n    documents = catapp.Documents\r\n    productDocument = documents.Item(str(Type) + \".CATProduct\")\r\n    product = productDocument.Product\r\n    drawingViewGenerativeBehavior.Document = product\r\n    drawingViewGenerativeBehavior.DefineFrontView(-1, 0, 0, 0, 0, 1)\r\n    drawingView.X = X_coordinate\r\n    drawingView.Y = Y_coordinate\r\n    drawingView.Scale = 1 / scale\r\n    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior\r\n    drawingViewGenerativeBehavior.Update()\r\n    drawingView.Activate()\r\n    drawingtexts = drawingView.Texts\r\n    drawingtext = drawingtexts.Item(1)\r\n    drawingtexts = drawingtext.Parent\r\n    selection = productDocument.Selection\r\n    selection.Add(drawingtext)\r\n    selection.Delete()\r\n    selection.Clear()\r\n\r\n\r\ndef Right_Top_View_Drawing(Type, X_coordinate, Y_coordinate, scale):\r\n    catapp = win32.Dispatch('CATIA.Application')\r\n    drawingDocument = catapp.ActiveDocument\r\n    drawingSheets = drawingDocument.Sheets\r\n    drawingSheet = drawingSheets.Item(\"Sheet.1\")\r\n    drawingViews = drawingSheet.Views\r\n    drawingView = drawingViews.Add(\"AutomaticNaming\")\r\n    drawingView.SetViewName(\"Top view\", '', '')  # 更改視圖名稱\r\n    drawingViewGenerativeLinks = drawingView.GenerativeLinks\r\n    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior\r\n    documents = catapp.Documents\r\n    productDocument = documents.Item(str(Type) + \".CATProduct\")\r\n    product = productDocument.Product\r\n    drawingViewGenerativeBehavior.Document = product\r\n    drawingViewGenerativeBehavior.DefineFrontView(-1, 0, 0, 0, -1, 0)\r\n    drawingView.X = X_coordinate\r\n    drawingView.Y = Y_coordinate\r\n    drawingView.Scale = 1 / scale\r\n    drawingViewGenerativeBehavior = drawingView.GenerativeBehavior\r\n    drawingViewGenerativeBehavior.Update()\r\n    drawingView.Activate()\r\n    drawingtexts = drawingView.Texts\r\n    drawingtext = drawingtexts.Item(1)\r\n    drawingtexts = drawingtext.Parent\r\n    selection = productDocument.Selection\r\n    selection.Add(drawingtext)\r\n    selection.Delete()\r\n    selection.Clear()\r\n\r\ndef coordinate():\r\n    catapp = win32.Dispatch('CATIA.Application')\r\n    catDrwDoc = catapp.ActiveDocument\r\n    catDrwSel = catDrwDoc.Selection\r\n    catDrwSelLb = catDrwSel\r\n\r\n# 圈碼圖\r\ndef balloons(view, content, circle_position_1, circle_position_2, point_position_1, point_position_2, leader_line_length):\r\n    catapp = win32.Dispatch(\"CATIA.Application\")\r\n    partdoc = catapp.ActiveDocument\r\n    catapp = win32.Dispatch('CATIA.Application')\r\n    drawingdocument = catapp.ActiveDocument\r\n    drawingsheets = drawingdocument.Sheets\r\n    drawingsheet = drawingsheets.Item('Sheet.1')\r\n    drawingviews = drawingsheet.Views\r\n    drawingview = drawingviews.Item(view)\r\n    drawingview.Activate()\r\n    # 圈碼內容及位置\r\n    DrawText = drawingview.Texts.Add(content, circle_position_1, circle_position_2)  # (輸入內容, 線段長度X, 線段長度Y)\r\n    DrawText.SetFontName(0, 0, 'Arial Unicode MS (TrueType)')\r\n    DrawText.SetFontSize(0, 0, 10)  # 調整字體位置和大小(x, y, 字體大小)\r\n    DrawText.FrameType = 3  # 圓類型\r\n    # 引線點標註位置\r\n    DrawLeader_DrawTexts_balloons = DrawText.Leaders.Add(point_position_1, point_position_2)  # 圓點位置\r\n    DrawLeader_DrawTexts_balloons.AllAround = 0\r\n    DrawLeader_DrawTexts_balloons.ModifyPoint(0, leader_line_length, 0)  # 選擇引線點 -> (0, 1, 2)並調整座標位置\r\n    DrawLeader_DrawTexts_balloons.HeadSymbol = 20  # 引號標點類型\r\n\r\n# 爆炸圖中心線\r\ndef create_center_line(view_name, x_value_1, y_value_1, x_value_2, y_value_2):\r\n    catapp = win32.Dispatch('CATIA.Application')\r\n    drawingdocument = catapp.ActiveDocument\r\n    drawingsheets = drawingdocument.Sheets\r\n    drawingsheet = drawingsheets.Item('Sheet.1')\r\n    drawingviews = drawingsheet.Views\r\n    drawingview = drawingviews.Item(view_name)\r\n    drawingview.Activate()\r\n    factory2d = drawingview.Factory2D\r\n    dotted_line = factory2d.CreateLine(x_value_1, y_value_1, x_value_2, y_value_2)\r\n    dotted_line.Name = 'chain_line'\r\n    object = catapp.ActiveDocument.Selection\r\n    object.Search('Name=chain_line,all')\r\n    vis = catapp.ActiveDocument.Selection.VisProperties\r\n    vis.SetRealLineType(2, 0.3)\r\n    vis.SetRealWidth(1, 0.13)\r\n\r\n\r\ndef close_broken_line_block_diagram(view_name):\r\n    catapp = win32.Dispatch('CATIA.Application')\r\n    drawingDocument1 = catapp.ActiveDocument\r\n    drawingSheets1 = drawingDocument1.Sheets\r\n    drawingSheet1 = drawingSheets1.Item(\"Sheet.1\")\r\n    drawingViews1 = drawingSheet1.Views\r\n    drawingView1 = drawingViews1.Item(view_name)\r\n    drawingView1.FrameVisualization = False\r\n\r\n# 尺寸標註\r\ndef add_dimension_to_view(view_name, item_name, catDimDistance, x_value_1, y_value_1, x_value_2, y_value_2,\r\n                          angle):  # 標註型式, 座標1(X, Y), 座標2(X, Y)\r\n    catapp = win32.Dispatch('CATIA.Application')\r\n    drawingdocument = catapp.ActiveDocument\r\n    drawingsheets = drawingdocument.Sheets\r\n    drawingsheet = drawingsheets.Item('Sheet.1')\r\n    drawingviews = drawingsheet.Views\r\n    drawingview = drawingviews.Item(view_name)  # 圖框名稱\r\n    drawingview.Activate()  # 選擇圖框\r\n    factory2d = drawingview.Factory2D\r\n    Point1 = factory2d.CreatePoint(x_value_1, y_value_1)  # 建點\r\n    Point2 = factory2d.CreatePoint(x_value_2, y_value_2)\r\n    iType = catDimDistance  # 標註類型\r\n    geoelem = [Point1, Point2]  # 選擇標註點\r\n    geocoordElem = [x_value_1, y_value_1, x_value_2, y_value_2]  # 座標\r\n    dim = drawingview.Dimensions.Add2(iType, geoelem, geocoordElem, None, angle)  # (標註類型, 選擇標註點, 座標, 參考元素(可空著), 角度)\r\n    dim.Name = item_name\r\n    drawingdim = drawingview.Dimensions.Item(dim.Name)\r\n    if x_value_1 > x_value_2:\r\n        if x_value_1 >= 0:\r\n            x_value = x_value_1 + 300\r\n        else:\r\n            x_value = x_value_1 - 300\r\n    else:\r\n        if x_value_2 >= 0:\r\n            x_value = x_value_2 + 300\r\n        else:\r\n            x_value = x_value_2 - 300\r\n    if y_value_1 > y_value_2:\r\n        if y_value_1 >= 0:\r\n            y_value = y_value_1 + 300\r\n        else:\r\n            y_value = y_value_1 - 300\r\n    else:\r\n        if y_value_2 >= 0:\r\n            y_value = y_value_2 + 300\r\n        else:\r\n            y_value = y_value_2 - 300\r\n    drawingdim.MoveValue(x_value, y_value, 2, 0)  # 標註偏移(X, Y, 選擇偏移部位, 角度尺寸)\r\n\r\n\r\ndef symbol_of_weld(view, WeldingSymbol, lead_X, lead_Y, WeldingTail):  # 焊接符號\r\n    catapp = win32.Dispatch(\"CATIA.Application\")\r\n    partdoc = catapp.ActiveDocument\r\n    catapp = win32.Dispatch('CATIA.Application')\r\n    drawingdocument = catapp.ActiveDocument\r\n    drawingsheets = drawingdocument.Sheets\r\n    drawingsheet = drawingsheets.Item('Sheet.1')\r\n    drawingviews = drawingsheet.Views\r\n    drawingview = drawingviews.Item(view)\r\n    MyWelding = drawingview.Weldings.Add(WeldingSymbol, lead_X, lead_Y)  # 引線標註點位置(引線符號, 座標X, 座標Y)\r\n    # 基線位置\r\n    # 基線計算位置時要注意需呈現為60度\r\n    if lead_X >= 0:\r\n        MyWelding.X = lead_X + 100 * math.cos(math.radians(60))\r\n        MyWelding.angle = 0\r\n    else:\r\n        MyWelding.X = lead_X - 100 * math.cos(math.radians(60))\r\n        MyWelding.angle = 180\r\n    if lead_Y >= 0:\r\n        MyWelding.Y = lead_Y + 100 * math.sin(math.radians(60))\r\n    else:\r\n        MyWelding.Y = lead_Y - 100 * math.sin(math.radians(60))\r\n    MyWelding.WeldingTail = WeldingTail  # 是否開啟尾叉 0 or 1\r\n\r\n    for i in range(1, 14):\r\n        print(i)\r\n        drawingWelding1 = MyWelding\r\n        # drawingWelding1 = drawingWeldings1.Item('Welding Symbol.1')\r\n        catWeldingFieldOne = i\r\n        textRange1 = drawingWelding1.GetTextRange(catWeldingFieldOne)\r\n        char1 = textRange1.Text\r\n        textRange1.Text = i\r\n        TextProperties = drawingWelding1.TextProperties\r\n        TextProperties.Update()\r\n\r\n\r\ndef background():\r\n    catapp = win32.Dispatch('CATIA.Application')\r\n    drawingdocument = catapp.ActiveDocument\r\n    drawingsheets = drawingdocument.Sheets\r\n    drawingsheet = drawingsheets.Item('Sheet.1')\r\n    drawingview = drawingsheet.Views.Item('Background View').Activate()\r\n\r\n\r\ndef drafting_welding_view_parameter_calculation(width, height, depth):  # 電子型錄WHD, 比例\r\n    scale_p = 1\r\n    drafting_area_centerX = par.drafting_front_area_centerX  # 上:上視圖中心 & 下:前視圖中心\r\n    drafting_down_area_centerY = par.drafting_down_area_centerY\r\n    drafting_up_area_centerY = par.drafting_up_area_centerY\r\n\r\n    while True:\r\n        # 排除餘數不為 2, 5, 10 的數\r\n        if scale_p % 2 != 0 or scale_p % 5 != 0 or scale_p % 10 != 0:\r\n            scale_p += 1\r\n        scale = 1 / scale_p  # proportion convert to ratio\r\n        w_scale = width * scale  # width after scaling\r\n        h_scale = height * scale  # height after scaling\r\n        d_scale = depth * scale\r\n        # ------------下圖總範圍-------------\r\n        drafting_down_area_X_range = w_scale * 2 + d_scale * 2 + par.draft_X_clearence * 5\r\n        drafting_down_area_Y_range = h_scale + par.draft_Y_clearence * 2\r\n        drafting_up_max_range_center_Y = (821 - par.drafting_view_min_X) * 2 / 3 + par.drafting_view_min_Y\r\n        # ------------上圖總範圍-------------\r\n        drafting_up_area_X_range = w_scale * 2 + d_scale * 2 + par.draft_X_clearence * 5\r\n        drafting_up_area_Y_range = w_scale + par.draft_Y_clearence * 2\r\n        # ----------圖面比例判斷------------\r\n        # ----------下圖----------\r\n        if drafting_down_area_X_range > par.drafting_view_max_X - par.drafting_view_min_X:\r\n            scale_p += 1\r\n        elif drafting_down_area_Y_range > drafting_up_max_range_center_Y - par.drafting_view_min_Y:\r\n            scale_p += 1\r\n        # ----------上圖----------\r\n        elif drafting_up_area_X_range > par.drafting_view_max_X - par.drafting_view_min_X:\r\n            scale_p += 1\r\n        elif drafting_up_area_Y_range > par.drafting_view_max_Y - drafting_up_max_range_center_Y:\r\n            scale_p += 1\r\n        else:\r\n            break\r\n    # ------------下圖位置判斷-------------\r\n    while True:\r\n        drafting_area_X_left_range = w_scale * 1.5 + par.draft_X_clearence * 5\r\n        drafting_area_X_right_range = w_scale + d_scale * 1.5 + par.draft_X_clearence * 10\r\n        drafting_down_area_extremum = [drafting_area_centerX - drafting_area_X_left_range,  # X-min[0]\r\n                                       drafting_area_centerX + drafting_area_X_right_range]  # X-max[1]\r\n        drafting_root_X = par.drafting_view_min_X + 5  # 反迴圈框_X\r\n        # ------------X方向-------------\r\n        if drafting_down_area_extremum[0] <= par.drafting_view_min_X:\r\n            drafting_area_centerX += 1\r\n        elif drafting_down_area_extremum[0] <= drafting_root_X:\r\n            drafting_area_centerX -= 1\r\n        else:\r\n            break\r\n    # ------------上圖位置判斷--------------註:X位置共用\r\n    while True:\r\n        drafting_up_area_Y_range = w_scale + par.draft_Y_clearence * 2\r\n        drafting_up_area_extremum = [drafting_up_area_centerY - drafting_up_area_Y_range / 2,  # Y-min[0]\r\n                                     drafting_up_area_centerY + drafting_up_area_Y_range / 2]  # Y-max[1]\r\n        drafting_up_root_Y_min = drafting_up_max_range_center_Y + 5\r\n        # ------------Y方向-------------\r\n        if drafting_up_area_extremum[0] >= drafting_up_root_Y_min:\r\n            drafting_up_area_centerY -= 1\r\n        elif drafting_up_area_extremum[0] <= drafting_up_max_range_center_Y:  # 若爆炸圖圖面Y最小值小於中心軸則爆炸圖1圖面中心上移1\r\n            drafting_up_area_centerY += 1\r\n        else:\r\n            break\r\n    # 下圖位置\r\n    drafting_down_Coordinate_Position = {\r\n        'Right View': (drafting_area_centerX - drafting_area_X_left_range, drafting_down_area_centerY),\r\n        'Front View': (drafting_area_centerX, drafting_down_area_centerY),\r\n        'section A-A': (drafting_area_centerX + drafting_area_X_left_range, drafting_down_area_centerY),\r\n        'section B-B': (drafting_area_centerX + drafting_area_X_left_range * 2, drafting_down_area_centerY)}\r\n    # 上圖位置\r\n    drafting_up_Coordinate_Position = {\r\n        'section D-D': (drafting_area_centerX - drafting_area_X_left_range, drafting_up_area_centerY),\r\n        'Top View': (drafting_area_centerX, drafting_up_area_centerY),\r\n        'section C-C': (drafting_area_centerX + drafting_area_X_right_range / 2, drafting_up_area_centerY),\r\n        'section E-E': (drafting_area_centerX + drafting_area_X_right_range, drafting_up_area_centerY), }\r\n    return drafting_down_Coordinate_Position, drafting_up_Coordinate_Position, scale_p\r\n\r\n# 剖面圖\r\ndef section(view_name, Coordinate_X, Coordinate_Y, Scale, Coordinate, change_direction):\r\n    catapp = win32.Dispatch('CATIA.Application')\r\n    drawingDocument1 = catapp.ActiveDocument\r\n    drawingSheets1 = drawingDocument1.Sheets\r\n    drawingSheet1 = drawingSheets1.Item(\"Sheet.1\")\r\n    drawingViews1 = drawingSheet1.Views\r\n    drawingView1 = drawingViews1.Item(view_name)  # 圖框名稱\r\n    drawingView1.Activate()\r\n    drawingSheets1 = drawingDocument1.Sheets\r\n    drawingViews1 = drawingSheet1.Views\r\n    drawingView1 = drawingViews1.ActiveView\r\n    drawingViewGenerativeBehavior1 = drawingView1.GenerativeBehavior\r\n    drawingView2 = drawingViews1.Add(\"AutomaticNaming\")\r\n    drawingViewGenerativeBehavior2 = drawingView2.GenerativeBehavior\r\n    drawingView2.X = Coordinate_X\r\n    drawingView2.Y = Coordinate_Y\r\n    drawingView2.Scale = 1 / Scale\r\n    drawingView2.Angle = 0\r\n    SectionProfile =Coordinate\r\n    drawingViewGenerativeBehavior2Variant = drawingViewGenerativeBehavior2\r\n    drawingViewGenerativeBehavior2Variant.DefineSectionView(SectionProfile, \"SectionView\", \"Offset\", change_direction, drawingViewGenerativeBehavior1)\r\n    drawingViewGenerativeLinks1 = drawingView2.GenerativeLinks\r\n    drawingViewGenerativeLinks2 = drawingView1.GenerativeLinks\r\n    drawingViewGenerativeLinks2.CopyLinksTo(drawingViewGenerativeLinks1)\r\n    drawingViewGenerativeBehavior2 = drawingView2.GenerativeBehavior\r\n    drawingViewGenerativeBehavior2.Update()\r\n    drawingView2.ReferenceView = drawingView1\r\n    drawingView2.AlignedWithReferenceView()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/SYEI_stamping_press_system/drafting.py b/SYEI_stamping_press_system/drafting.py
+--- a/SYEI_stamping_press_system/drafting.py	(revision 13792d1d9ab8ab051d042afa2e5e546497b3673a)
++++ b/SYEI_stamping_press_system/drafting.py	(date 1675940666285)
+@@ -214,15 +214,11 @@
+     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
+     drawingViewGenerativeBehavior.Update()
+     drawingView.Activate()
+-    selection = productDocument.Selection
+-    drawingview1 = drawingViews.Item('Front view')
+-    drawingtexts = drawingview1.Texts
+-    drawingtext1 = drawingtexts.Item('1')
+-    drawingtexts1 = drawingtext1.Parent
+-    selection.Add(drawingtext1)
+-    selection.Delete()
++    selection = catapp.ActiveDocument.Selection
+     selection.Clear()
+-
++    selection.Add(catapp.ActiveDocument.sheets.ActiveSheet.Views.ActiveView)
++    selection.Search("Drafting.Text,sel")
++    selection.Delete()
+ 
+ def Left_View_Drawing(Type, X_coordinate, Y_coordinate, scale):
+     catapp = win32.Dispatch('CATIA.Application')
+@@ -245,14 +241,11 @@
+     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
+     drawingViewGenerativeBehavior.Update()
+     drawingView.Activate()
+-    selection = productDocument.Selection
+-    drawingview1 = drawingViews.Item('Left view')
+-    drawingtexts = drawingview1.Texts
+-    drawingtext1 = drawingtexts.Item('1')
+-    drawingtexts1 = drawingtext1.Parent
+-    selection.Add(drawingtext1)
+-    selection.Delete()
++    selection = catapp.ActiveDocument.Selection
+     selection.Clear()
++    selection.Add(catapp.ActiveDocument.sheets.ActiveSheet.Views.ActiveView)
++    selection.Search("Drafting.Text,sel")
++    selection.Delete()
+ 
+ 
+ def Right_View_Drawing(Type, X_coordinate, Y_coordinate, scale):
+@@ -276,13 +269,11 @@
+     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
+     drawingViewGenerativeBehavior.Update()
+     drawingView.Activate()
+-    drawingtexts = drawingView.Texts
+-    drawingtext = drawingtexts.Item(1)
+-    drawingtexts = drawingtext.Parent
+-    selection = productDocument.Selection
+-    selection.Add(drawingtext)
++    selection = catapp.ActiveDocument.Selection
++    selection.Clear()
++    selection.Add(catapp.ActiveDocument.sheets.ActiveSheet.Views.ActiveView)
++    selection.Search("Drafting.Text,sel")
+     selection.Delete()
+-    selection.Clear()
+ 
+ 
+ def Right_Top_View_Drawing(Type, X_coordinate, Y_coordinate, scale):
+@@ -306,13 +297,11 @@
+     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
+     drawingViewGenerativeBehavior.Update()
+     drawingView.Activate()
+-    drawingtexts = drawingView.Texts
+-    drawingtext = drawingtexts.Item(1)
+-    drawingtexts = drawingtext.Parent
+-    selection = productDocument.Selection
+-    selection.Add(drawingtext)
+-    selection.Delete()
++    selection = catapp.ActiveDocument.Selection
+     selection.Clear()
++    selection.Add(catapp.ActiveDocument.sheets.ActiveSheet.Views.ActiveView)
++    selection.Search("Drafting.Text,sel")
++    selection.Delete()
+ 
+ def coordinate():
+     catapp = win32.Dispatch('CATIA.Application')
+@@ -456,7 +445,7 @@
+     drawingview = drawingsheet.Views.Item('Background View').Activate()
+ 
+ 
+-def drafting_welding_view_parameter_calculation(width, height, depth):  # 電子型錄WHD, 比例
++def drafting_welding_view_parameter_calculation(width, height, depth, S, Z, T):  # 電子型錄WHD, 比例
+     scale_p = 1
+     drafting_area_centerX = par.drafting_front_area_centerX  # 上:上視圖中心 & 下:前視圖中心
+     drafting_down_area_centerY = par.drafting_down_area_centerY
+@@ -470,6 +459,9 @@
+         w_scale = width * scale  # width after scaling
+         h_scale = height * scale  # height after scaling
+         d_scale = depth * scale
++        S_scale = S * scale
++        Z_T_scale = (Z - T) * scale
++        T_scale = T * scale
+         # ------------下圖總範圍-------------
+         drafting_down_area_X_range = w_scale * 2 + d_scale * 2 + par.draft_X_clearence * 5
+         drafting_down_area_Y_range = h_scale + par.draft_Y_clearence * 2
+@@ -521,18 +513,20 @@
+     drafting_down_Coordinate_Position = {
+         'Right View': (drafting_area_centerX - drafting_area_X_left_range, drafting_down_area_centerY),
+         'Front View': (drafting_area_centerX, drafting_down_area_centerY),
+-        'section A-A': (drafting_area_centerX + drafting_area_X_left_range, drafting_down_area_centerY),
+-        'section B-B': (drafting_area_centerX + drafting_area_X_left_range * 2, drafting_down_area_centerY)}
++        'Section view A-A': (drafting_area_centerX + drafting_area_X_left_range + (d_scale - w_scale) / 5, drafting_down_area_centerY),
++        'Section view B-B': (drafting_area_centerX + drafting_area_X_left_range * 2 + (d_scale - w_scale) / 5, drafting_down_area_centerY),
++        'Section view F-F': (drafting_area_centerX + drafting_area_X_left_range * 2 + (d_scale - w_scale) / 5 - w_scale / 3, drafting_down_area_centerY - h_scale / 3),
++        'Section view G-G': (drafting_area_centerX + drafting_area_X_left_range * 2 + (d_scale - w_scale) / 5 + w_scale / 3, drafting_down_area_centerY - h_scale / 3)}
+     # 上圖位置
+     drafting_up_Coordinate_Position = {
+-        'section D-D': (drafting_area_centerX - drafting_area_X_left_range, drafting_up_area_centerY),
++        'Section view D-D': (drafting_area_centerX - drafting_area_X_left_range, drafting_up_area_centerY),
+         'Top View': (drafting_area_centerX, drafting_up_area_centerY),
+-        'section C-C': (drafting_area_centerX + drafting_area_X_right_range / 2, drafting_up_area_centerY),
+-        'section E-E': (drafting_area_centerX + drafting_area_X_right_range, drafting_up_area_centerY), }
++        'Section view C-C': (drafting_area_centerX + drafting_area_X_left_range + (d_scale - w_scale) / 5, drafting_up_area_centerY),
++        'Section view E-E': (drafting_area_centerX + drafting_area_X_left_range * 2 + (d_scale - w_scale) / 5, drafting_up_area_centerY)}
+     return drafting_down_Coordinate_Position, drafting_up_Coordinate_Position, scale_p
+ 
+ # 剖面圖
+-def section(view_name, Coordinate_X, Coordinate_Y, Scale, Coordinate, change_direction):
++def Section(view_name, Coordinate_X, Coordinate_Y, Scale, Coordinate, change_direction, new_create_view_name):
+     catapp = win32.Dispatch('CATIA.Application')
+     drawingDocument1 = catapp.ActiveDocument
+     drawingSheets1 = drawingDocument1.Sheets
+@@ -559,4 +553,39 @@
+     drawingViewGenerativeBehavior2 = drawingView2.GenerativeBehavior
+     drawingViewGenerativeBehavior2.Update()
+     drawingView2.ReferenceView = drawingView1
+-    drawingView2.AlignedWithReferenceView()
+\ No newline at end of file
++    drawingView2.AlignedWithReferenceView()
++    # 選定新投影圖面刪除文字方塊
++    drawingDocument1 = catapp.ActiveDocument
++    drawingSheets1 = drawingDocument1.Sheets
++    drawingSheet1 = drawingSheets1.Item("Sheet.1")
++    drawingViews1 = drawingSheet1.Views
++    drawingView1 = drawingViews1.Item(new_create_view_name)  # 圖框名稱
++    drawingView1.Activate()
++    selection = catapp.ActiveDocument.Selection
++    selection.Clear()
++    selection.Add(catapp.ActiveDocument.sheets.ActiveSheet.Views.ActiveView)
++    selection.Search("Drafting.Text,sel")
++    selection.Delete()
++
++def Define_Polygonal_Detail_View(view_name, Coordinate, Coordinate_X, Coordinate_Y):  # 留下框選範圍圖面
++    catapp = win32.Dispatch('CATIA.Application')
++    drawingDocument = catapp.ActiveDocument
++    drawingSheets = drawingDocument.Sheets
++    drawingSheet = drawingSheets.Item("Sheet.1")
++    drawingViews = drawingSheet.Views
++    drawingView = drawingViews.Item(view_name)  # 圖框名稱
++    drawingView.Activate()
++    drawingDocument = catapp.ActiveDocument
++    drawingSheets = drawingDocument.Sheets
++    drawingSheet = drawingSheets.ActiveSheet
++    drawingViews = drawingSheet.Views
++    drawingView = drawingViews.ActiveView
++    drawingViewGenerativeBehavior1 = drawingView.GenerativeBehavior
++    SectionProfile = Coordinate  # 給定框選範圍點座標
++    drawingViewGenerativeBehavior1Variant = drawingViewGenerativeBehavior1
++    drawingViewGenerativeBehavior1Variant.DefinePolygonalDetailView(SectionProfile[0:], drawingViewGenerativeBehavior1)
++    drawingViewGenerativeBehavior1 = drawingView.GenerativeBehavior
++    drawingViewGenerativeBehavior1.ForceUpdate()
++    # 重新設定圖面座標
++    drawingView.X = Coordinate_X
++    drawingView.Y = Coordinate_Y
+\ No newline at end of file
