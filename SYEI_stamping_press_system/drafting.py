@@ -346,6 +346,7 @@ def create_center_line(view_name, x_value_1, y_value_1, x_value_2, y_value_2):
     object = catapp.ActiveDocument.Selection
     object.Search('Name=chain_line,all')
     vis = catapp.ActiveDocument.Selection.VisProperties
+    # 更換線段type
     vis.SetRealLineType(2, 0.3)
     vis.SetRealWidth(1, 0.13)
 
@@ -522,7 +523,7 @@ def drafting_welding_view_parameter_calculation(width, height, depth, S, Z, T): 
         'Section view D-D': (drafting_area_centerX - drafting_area_X_left_range, drafting_up_area_centerY),
         'Top View': (drafting_area_centerX, drafting_up_area_centerY),
         'Section view C-C': (drafting_area_centerX + drafting_area_X_left_range + (d_scale - w_scale) / 5, drafting_up_area_centerY),
-        'Section view E-E': (drafting_area_centerX + drafting_area_X_left_range * 2 + (d_scale - w_scale) / 5, drafting_up_area_centerY)}
+        'Section view E-E': (drafting_area_centerX + drafting_area_X_left_range * 2 + (d_scale - w_scale) * 1 / 2, drafting_up_area_centerY)}
     return drafting_down_Coordinate_Position, drafting_up_Coordinate_Position, scale_p
 
 # 剖面圖
@@ -587,5 +588,93 @@ def Define_Polygonal_Detail_View(view_name, Coordinate, Coordinate_X, Coordinate
     drawingViewGenerativeBehavior1 = drawingView.GenerativeBehavior
     drawingViewGenerativeBehavior1.ForceUpdate()
     # 重新設定圖面座標
-    drawingView.X = Coordinate_X
-    drawingView.Y = Coordinate_Y
+    # try:
+    #     drawingView.X = Coordinate_X
+    #     drawingView.Y = Coordinate_Y
+    # except:
+    #     pass
+
+def break_line(view_name, Coordinate, X_direction, Y_direction):
+    catapp = win32.Dispatch('CATIA.Application')
+    drawingDocument = catapp.ActiveDocument
+    drawingSheets = drawingDocument.Sheets
+    drawingSheet = drawingSheets.Item("Sheet.1")
+    drawingViews = drawingSheet.Views
+    drawingView = drawingViews.Item(view_name)  # 圖框名稱
+    drawingView.Activate()
+    drawingDocument1 = catapp.ActiveDocument
+    drawingSheets1 = drawingDocument1.Sheets
+    drawingSheet1 = drawingSheets1.ActiveSheet
+    drawingViews1 = drawingSheet1.Views
+    drawingView1 = drawingViews1.ActiveView
+    drawingViewGenerativeBehavior1 = drawingView1.GenerativeBehavior
+    SectionProfile = Coordinate  # 選擇要框選省略之範圍
+    drawingViewGenerativeBehavior1Variant = drawingViewGenerativeBehavior1
+    drawingViewGenerativeBehavior1Variant.DefineBrokenView(SectionProfile[0:], X_direction, Y_direction)
+    # drawingViewGenerativeBehavior1Variant.SetRealLineType(8, 0.2)
+    # drawingViewGenerativeBehavior1Variant.visProperties1.SetRealWidth(2, 0.25)
+
+def close_all_Generated_Shape():
+    catapp = win32.Dispatch('CATIA.Application')
+    selection = catapp.ActiveDocument.Selection
+    selection.Clear()
+    selection.Add(catapp.ActiveDocument.sheets.ActiveSheet.Views.ActiveView)
+    selection.Search("Drafting.Generated Shape,all")
+    selection.Delete()
+
+def close_selection_text():
+    catapp = win32.Dispatch('CATIA.Application')
+    selection = catapp.ActiveDocument.Selection
+    selection.Clear()
+    selection.Add(catapp.ActiveDocument.sheets.ActiveSheet.Views.ActiveView)
+    selection.Search("Drafting.text, sel")
+    selection.Delete()
+
+def move_view_Position(view_name, X_Position, Y_Position):
+    catapp = win32.Dispatch('CATIA.Application')
+    drawingDocument = catapp.ActiveDocument
+    drawingSheets = drawingDocument.Sheets
+    drawingSheet = drawingSheets.Item("Sheet.1")
+    drawingViews = drawingSheet.Views
+    drawingView = drawingViews.Item(view_name)  # 圖框名稱
+    drawingView.Activate()
+    drawingView.X = X_Position
+    drawingView.Y = Y_Position
+
+def Define_Polygonal_Cipping_View(view_name, Coordinate, hide_show):
+    catapp = win32.Dispatch('CATIA.Application')
+    drawingDocument = catapp.ActiveDocument
+    drawingSheets = drawingDocument.Sheets
+    drawingSheet = drawingSheets.Item("Sheet.1")
+    drawingViews = drawingSheet.Views
+    drawingView = drawingViews.Item(view_name)  # 圖框名稱
+    drawingView.Activate()
+    drawingDocument = catapp.ActiveDocument
+    drawingSheets = drawingDocument.Sheets
+    drawingSheet = drawingSheets.ActiveSheet
+    drawingViews = drawingSheet.Views
+    drawingView = drawingViews.ActiveView
+    drawingViewGenerativeBehavior1 = drawingView.GenerativeBehavior
+    SectionProfile = Coordinate  # 給定框選範圍點座標
+    drawingViewGenerativeBehavior1Variant = drawingViewGenerativeBehavior1
+    drawingViewGenerativeBehavior1Variant.DefinePolygonalClippingView(SectionProfile[0:])
+    drawingViewGenerativeBehavior1 = drawingView.GenerativeBehavior
+    drawingViewGenerativeBehavior1.ForceUpdate()
+
+# 指定type種類全部刪除
+# 使用方法:"⌈輸入type⌋',all"
+# 指定元素名稱並刪除
+# 使用方法:"Name='⌈輸入名稱⌋',all"
+def selection_Search_delete(view_name, selection_name):
+    catapp = win32.Dispatch('CATIA.Application')
+    drawingDocument = catapp.ActiveDocument
+    drawingSheets = drawingDocument.Sheets
+    drawingSheet = drawingSheets.Item("Sheet.1")
+    drawingViews = drawingSheet.Views
+    drawingView = drawingViews.Item(view_name)  # 圖框名稱
+    drawingView.Activate()
+    selection = catapp.ActiveDocument.Selection
+    selection.Clear()
+    selection.Add(catapp.ActiveDocument.sheets.ActiveSheet.Views.ActiveView)
+    selection.Search(selection_name)
+    selection.Delete()

@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="將py檔更換位置" />
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="py檔更換位置">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/123.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/FRAME_ASSEMBLY.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/PY.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/TEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/TEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/parameter.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,7 +56,7 @@
       <recent name="C:\Users\User\PycharmProjects\stamping_press" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main_GUI">
+  <component name="RunManager" selected="Python.TEST (1)">
     <configuration name="PY" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Stamping press" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -156,8 +164,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main_GUI" />
         <item itemvalue="Python.TEST (1)" />
+        <item itemvalue="Python.main_GUI" />
         <item itemvalue="Python.drafting_part" />
         <item itemvalue="Python.TEST" />
         <item itemvalue="Python.PY" />
@@ -172,13 +180,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668131959961</updated>
-    </task>
-    <task id="LOCAL-00009" summary="程式結合">
-      <created>1668421282864</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1668421282864</updated>
     </task>
     <task id="LOCAL-00010" summary="新增test機架零件變數變換和機架組和更新">
       <created>1668516189353</created>
@@ -516,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675945931695</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="py檔更換位置">
+      <created>1675993596851</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1675993596851</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,7 +540,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改氣壓缸尺寸" />
     <MESSAGE value="修改FRAME32結合距離及尺寸、氣壓缸結合距離" />
     <MESSAGE value="移除行程部分" />
     <MESSAGE value="SP移除閉合部分&#10;main_GUI新增判斷條件" />
@@ -557,6 +564,18 @@
     <MESSAGE value="修改FRAME31.1~4的位置" />
     <MESSAGE value="完成剖面圖投影&#10;局部放大圖Section view F-F需先切換視窗關閉零件再進行投影" />
     <MESSAGE value="將py檔更換位置" />
-    <option name="LAST_COMMIT_MESSAGE" value="將py檔更換位置" />
+    <MESSAGE value="py檔更換位置" />
+    <option name="LAST_COMMIT_MESSAGE" value="py檔更換位置" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/drafting.py</url>
+          <line>675</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
