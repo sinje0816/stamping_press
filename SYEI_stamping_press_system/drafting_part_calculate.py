@@ -450,7 +450,7 @@ def Material_diagram_projection(surface , XLocation , YLocation , part_name , sc
     drawingView1.Y = YLocation
     drawingView1.Scale = scale
     drawingViewGenerativeBehavior1 = drawingView1.GenerativeBehavior
-    drawingViewGenerativeBehavior1.Update()
+    drawingViewGenerativeBehavior1.update()
     drawingView1.Activate()
     # print(x + "_" + part_view_number)
     # drawingview2 = drawingViews1.Item(x + "_" + part_view_number)
@@ -463,15 +463,27 @@ def Material_diagram_projection(surface , XLocation , YLocation , part_name , sc
     selection = drawingDocument.Selection
     selection.Clear()
     # --
-    drawingview1 =  drawingViews1.Item(part_name + "_" + part_view_number)
-    # drawingview1 =  drawingViews1.Item('FRAME1_1')
-    drawingtexts1 = drawingview1.Texts
-    drawingtext1 = drawingtexts1.Item(1)
-    drawingtexts1 = drawingtext1.Parent
-    selection = drawingDocument.Selection
-    selection.Add(drawingtext1)
-    selection.Delete()
-    selection.Clear()
+    try:
+        drawingview1 =  drawingViews1.Item(part_name + "_" + part_view_number)
+        # drawingview1 =  drawingViews1.Item('FRAME1_1')
+        drawingtexts1 = drawingview1.Texts
+        drawingtext1 = drawingtexts1.Item(1)
+        drawingtexts1 = drawingtext1.Parent
+        selection = drawingDocument.Selection
+        selection.Add(drawingtext1)
+        selection.Delete()
+        selection.Clear()
+    except:
+        drawingview1 = drawingViews1.Item(part_name + "_" + part_view_number)
+        # drawingview1 =  drawingViews1.Item('FRAME1_1')
+        drawingtexts1 = drawingview1.Texts
+        drawingtext1 = drawingtexts1.Item(1)
+        drawingtexts1 = drawingtext1.Parent
+        selection = drawingDocument.Selection
+        selection.Add(drawingtext1)
+        selection.Delete()
+        selection.Clear()
+    # drawingViews1.update()
     # drawingView1.FrameVisualization = False
 
 

@@ -1167,6 +1167,5 @@ def Parts_drawing_generation(i, l , path):
                 DP.Parts_drafting_balloons(x, part_circle_15_position['32'][0], part_circle_15_position['32'][1],
                                             part_circle_15_position['32'][2] , '1' , scale)
                 mprog.save_file_part(path, x)
-
             else :
                 break
