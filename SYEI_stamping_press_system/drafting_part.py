@@ -5,66 +5,8 @@ import main_program as mprog
 import win32com.client as win32
 import drafting_part_calculate as DP
 import drafting as draft
+import parameter as par
 
-# 電子型錄規格
-A = [720, 830, 890, 940, 1050, 1160, 1300, 1480, 1560, 1760]
-A_15 = [1080, 1245, 1335, 1410, 1575, 1740, 1950, 2220, 2340, 2640]
-B = [1058, 1125, 1210, 1315, 1480, 1680, 1985, 2113, 2400, 2700]
-B_15 = [1587, 1688, 1815, 1973, 2220, 2520, 2978, 3170, 3600, 4050]
-H = [2060, 2185, 2290, 2540, 2755, 2990, 3270, 3725, 4005, 4285]
-R = [388, 486, 516, 544, 614, 670, 730, 900, 970, 1040]
-R_15 = [582, 729, 774, 816, 921, 1005, 1095, 1350, 1455, 1560]
-E = [700, 780, 840, 900, 1050, 1150, 1250, 1400, 1500, 1600]
-E_15 = [1051, 1170, 1260, 1350, 1575, 1725, 1875, 2100, 2250, 2400]
-D_DH = [250, 280, 330, 350, 380, 430, 490, 550, 580, 610]
-D_S = [80, 90, 110, 130, 150, 180, 200, 220, 250, 280]
-D_H = [50, 60, 70, 80, 100, 110, 130, 150, 180, 210]
-D_P = [35, 40, 45, 50, 60, 70, 80, 90, 100, 110]
-DH_S = [230, 250, 270, 300, 330, 350, 400, 450, 450, 500]
-DH_H = [200, 220, 240, 270, 300, 320, 360, 400, 400, 450]
-DH_P = [200, 220, 240, 270, 300, 320, 360, 400, 400, 450]
-S = [983, 1068, 1158, 1285, 1445, 1630, 1809, 2067, 2262, 2357]
-H_Z = [1260, 1385, 1490, 1640, 1855, 2086.933, 2370, 2725, 3005, 3285]
-O = [1045, 1075, 1125, 1145, 1175, 1225, 1285, 1345, 1375, 1405]
-hole_type = [0, 1, 2]
-P = [330, 380, 430, 480, 560, 650, 720, 860, 960, 1060]
-P_15 = [495, 570, 645, 721, 840, 975, 1080, 1290, 1440, 1590]
-Q = [250, 300, 350, 400, 460, 520, 580, 650, 720, 790]
-Q_15 = [375, 450, 525, 600, 690, 780, 870, 975, 1080, 1185]
-T = [85, 100, 115, 130, 140, 155, 165, 180, 180, 200]
-Z = [800, 800, 800, 900, 900, 900, 900, 1000, 1000, 1100]
-F = [320, 400, 440, 520, 600, 680, 760, 840, 900, 960]
-FRAME20_H = [280, 355, 420, 437.5, 550, 680, 825, 990, 1120, 1170]
-FRAME2_lower_depth = [166.016, 246.016, 286.016, 366.016, 446.016, 526.016, 606.016, 686.016, 746.016, 806.016]
-FRAME2_lower_depth_15 = [331.016, 451.016, 511.016, 631.016, 751.016, 871.016, 991.016, 1111.016, 1201.016, 1291.016]
-FRAME1_lower_high = [1330, 1335, 1340, 1445, 1455, 1460, 1470, 1575, 1595, 1695]
-FRAME20_FRAME2_YZ = [805, 805, 979, 979, 979, 979, 979, 979, 979, 979]
-BALANCER1_XZ = [204, 253, 268, 282, 317, 345, 375, 460, 575, 690]  # (R+180mm)/2+80mm
-FRAME_10_H = [558, 620.5, 673, 798, 905.5, 1023, 1163, 1320.5, 1530.5, 1740.5]
-FRAME_32_XY = [0, 0, 0, 1722, 1819.5, 1922, 2052, 2294.5, 2504.5, 2794.5]
-
-FRAME44_height = [588 , 665.5 , 733 , 773 , 890.5 , 1023 , 1173 , 1385.5 , 1455.5 , 1445.5]
-FRAME_41_depth = [590 , 590 , 590 , 590 , 490 , 590 , 590 , 590 , 590 , 590]
-FRAME_7_width = [176 , 182 , 197 , 208 , 228 , 255 , 295 , 299 , 305 , 305]
-FRAME_7_15_width = [200.3 , 209.3 , 231.8 , 248.3 , 278.3 , 318.8 , 378.8 , 384.8 , 393.8 , 393.8]
-FRAME_11_height = [1122 , 1184.5 , 1237 , 1362 , 1469.5 , 1587 , 1727 , 1884.5 , 2094.5 , 2304.5]
-FRAME_11_width = [600 , 680 , 720 , 800 , 880 , 960 , 1040 , 1120 , 1180 , 1240]
-FRAME_11_15_width = [765 , 885 , 945 , 1065 , 1185 , 1305 , 1425 , 1545 , 1635 , 1725]
-FRAME_8_width = [164 , 170 , 185 , 196 , 216 , 243 , 283 , 288 , 293 , 358]
-FRAME_8_15_width = [246 , 255 , 278 , 294 , 324 , 365 , 425 , 432 , 440 , 537]
-FRAME_13_depth = [59.016 , 139.016 , 179.016 , 259.016 , 339.016 , 419.016 , 499.016 , 579.016 , 639.016 , 699.016]
-
-
-
-# projection = {"front view":(0, 1 , 0, 0 , 0, 1) , "Rear view":(0, -1, 0, 0 , 0, 1) , "top view":(0, 1 , 0, -1 , 0 , 0)
-#     , "bottom view":(0, 1, 0, 1, 0, 0), "Left view":(1, 0, 0, 0, 0, 1) , "right view":(-1, 0, 0, 0, 0, 1)
-#               , 'top view(left horizontal)':(-1 , 0 , 0 , 0 , -1 , 0)  , "top view(Y inverse)":(0 , -1 , 0 , -1 , 0 , 0) ,
-#               'bottom view(right horizontal)':(-1 , 0 , 0 , 0 , 1 , 0) , 'right view(left horizontal)':(0 , 0 , -1 , -1 , 0 , 0),
-#               'Rear view(left horizontal)':(0 , 0 , -1 , 0 , -1 , 0) , 'top view(right horizontal)':(1 , 0 , 0 , 0 , 1 , 0) ,
-#               'top view(180 degree)':(0 , -1 , 0 , 1 , 0 , 0) , 'bottom view(left horizontal)':(1 , 0 , 0 , 0 , -1 , 0)}
-# U = ["front view" , "Rear view" , "top view" , "bottom view" , "Left view" , "right view" , 'top view(left horizontal)' ,
-#      "top view(Y inverse)" , 'bottom view(right horizontal)' , 'right view(left horizontal)','Rear view(left horizontal)',
-#      'top view(right horizontal)' , 'top view(180 degree)' , 'bottom view(left horizontal)']
 #圖框範圍
 circle_Xgap = 300
 circle_gap = 300
@@ -91,69 +33,69 @@ def Parts_drawing_generation(i, l , path):
                                  'FRAME3', 'FRAME13' , 'FRAME14', 'FRAME22',
                                  'FRAME37', 'FRAME8', 'FRAME29', 'FRAME20', 'FRAME33' , 'FRAME48' , 'FRAME49']
     part_circle_position = {
-        '1': ['1' , -B[i] / 2 - circle_Xgap , H[i] / 2 + circle_gap],
-        '2': ['2' , -B[i] / 2 - circle_Xgap , H[i] / 2 + circle_gap],
-        '3': ['3' , -(R[i]+180) / 2 - circle_Xgap , FRAME44_height[i] / 2 + circle_gap],
-        '4': ['4' , -(R[i]+180) / 2 - circle_Xgap , FRAME44_height[i] / 2 + circle_gap],
-        '5': ['5' , -(R[i]+180) / 2 - circle_Xgap , FRAME_41_depth[i] / 2 + circle_gap],
+        '1': ['1' , -par.B[i] / 2 - circle_Xgap , par.H[i] / 2 + circle_gap],
+        '2': ['2' , -par.B[i] / 2 - circle_Xgap , par.H[i] / 2 + circle_gap],
+        '3': ['3' , -(par.R[i]+180) / 2 - circle_Xgap , par.FRAME44_height[i] / 2 + circle_gap],
+        '4': ['4' , -(par.R[i]+180) / 2 - circle_Xgap , par.FRAME44_height[i] / 2 + circle_gap],
+        '5': ['5' , -(par.R[i]+180) / 2 - circle_Xgap , par.FRAME_41_depth[i] / 2 + circle_gap],
         '6': ['6' , -182 / 2 - circle_Xgap , 80 / 2 + circle_gap],
-        '7': ['7' , -(R[i]+180) / 2 - circle_Xgap, 50 / 2 +circle_gap],
-        '8': ['8' , -R[i] / 2 - circle_Xgap , 476 / 2 + circle_gap],
-        '9': ['8-1' , -R[i] / 2 - circle_Xgap , 150 / 2 + circle_gap + 50],
-        '10': ['10' , -FRAME_7_width[i] / 2 - circle_Xgap , 300 / 2 + circle_gap],
+        '7': ['7' , -(par.R[i]+180) / 2 - circle_Xgap, 50 / 2 +circle_gap],
+        '8': ['8' , -par.R[i] / 2 - circle_Xgap , 476 / 2 + circle_gap],
+        '9': ['8-1' , -par.R[i] / 2 - circle_Xgap , 150 / 2 + circle_gap + 50],
+        '10': ['10' , -par.FRAME_7_width[i] / 2 - circle_Xgap , 300 / 2 + circle_gap],
         '11': ['11' , -125 / 2 - circle_Xgap , 270 / 2 + circle_gap],
-        '12': ['12' , -R[i] / 2 - circle_Xgap , 429 / 2 + circle_gap],
+        '12': ['12' , -par.R[i] / 2 - circle_Xgap , 429 / 2 + circle_gap],
         '13': ['13' , -50 / 2 - circle_Xgap , 74 / 2 + circle_gap],
         '14': ['14' , -99.35 / 2 - circle_Xgap , 35 / 2 + circle_gap],
         '15': ['15A' , -40 / 2 - circle_Xgap , 150 / 2 + circle_gap + 50],
         '16': ['15' , -40 / 2 - circle_Xgap , 150 / 2 + circle_gap],
         '17': ['16' , -99.35 / 2 - circle_Xgap , 35 / 2 + circle_gap],
         '18': ['18' , -290 / 2 - circle_Xgap , 145 / 2 + circle_gap],
-        '19': ['19' , -FRAME_11_width[i] / 2 - circle_Xgap , 90 / 2 + circle_gap],
+        '19': ['19' , -par.FRAME_11_width[i] / 2 - circle_Xgap , 90 / 2 + circle_gap],
         '20': ['20' , -145 / 2 - circle_Xgap , 300 / 2 + circle_gap],
         '21': ['21' , -75 / 2 - circle_Xgap , 75 / 2 + circle_gap],
-        '22': ['22' , -(R[i] + 180) / 2 - circle_Xgap , 50 / 2 + circle_gap],
-        '23': ['24' , -85 / 2 - circle_Xgap , FRAME_13_depth[i] / 2 + circle_gap],
+        '22': ['22' , -(par.R[i] + 180) / 2 - circle_Xgap , 50 / 2 + circle_gap],
+        '23': ['24' , -85 / 2 - circle_Xgap , par.FRAME_13_depth[i] / 2 + circle_gap],
         '24': ['25' , -75 / 2 - circle_Xgap , 75 / 2 + circle_gap],
         '25': ['27' , -460 / 2 - circle_Xgap , 280 / 2 + circle_gap],
         '26': ['29' , -140 / 2 - circle_Xgap , 80 / 2 + circle_gap],
         '27': ['30' , -40 / 2 - circle_Xgap , 300 / 2 + circle_gap],
         '28': ['33' , -65 / 2 - circle_Xgap , 30 / 2 + circle_gap],
-        '29': ['35' , -(R[i] + 180) / 2 - circle_Xgap , 50 / 2 + circle_gap],
+        '29': ['35' , -(par.R[i] + 180) / 2 - circle_Xgap , 50 / 2 + circle_gap],
         '30': ['41' , -50 / 2 - circle_Xgap , 180 / 2 + circle_gap],
         '31': ['43' , -32 / 2 - circle_Xgap , 32 / 2 + circle_gap],
         '32': ['44' , -30 / 2 - circle_Xgap , 30 / 2 + circle_gap]
     }
     part_circle_15_position = {
-        '1': ['1' , -B_15[i] / 2 - circle_Xgap , H[i] / 2 + circle_15_gap],
-        '2': ['2' , -B_15[i] / 2 - circle_Xgap , H[i] / 2 + circle_15_gap],
-        '3': ['3' , -(R_15[i]+180) / 2 - circle_Xgap , FRAME44_height[i] / 2 + circle_15_gap],
-        '4': ['4' , -(R_15[i]+180) / 2 - circle_Xgap , FRAME44_height[i] / 2 + circle_15_gap],
-        '5': ['5' , -(R_15[i]+180) / 2 - circle_Xgap , FRAME_41_depth[i] / 2 + circle_15_gap],
+        '1': ['1' , -par.B_15[i] / 2 - circle_Xgap , par.H[i] / 2 + circle_15_gap],
+        '2': ['2' , -par.B_15[i] / 2 - circle_Xgap , par.H[i] / 2 + circle_15_gap],
+        '3': ['3' , -(par.R_15[i]+180) / 2 - circle_Xgap , par.FRAME44_height[i] / 2 + circle_15_gap],
+        '4': ['4' , -(par.R_15[i]+180) / 2 - circle_Xgap , par.FRAME44_height[i] / 2 + circle_15_gap],
+        '5': ['5' , -(par.R_15[i]+180) / 2 - circle_Xgap , par.FRAME_41_depth[i] / 2 + circle_15_gap],
         '6': ['6' , -182 / 2 - circle_Xgap , 80 / 2 + circle_15_gap],
-        '7': ['7' , -(R_15[i]+180) / 2 - circle_Xgap , 50 / 2 +circle_15_gap],
-        '8': ['8' , -R_15[i] / 2 - circle_Xgap , 476 / 2 + circle_15_gap],
-        '9': ['8-1' , -R_15[i] / 2 - circle_Xgap , 150 / 2 + circle_15_gap + 50],
-        '10': ['10' , -FRAME_7_15_width[i] / 2 - circle_Xgap , 300 / 2 + circle_15_gap],
+        '7': ['7' , -(par.R_15[i]+180) / 2 - circle_Xgap , 50 / 2 +circle_15_gap],
+        '8': ['8' , -par.R_15[i] / 2 - circle_Xgap , 476 / 2 + circle_15_gap],
+        '9': ['8-1' , -par.R_15[i] / 2 - circle_Xgap , 150 / 2 + circle_15_gap + 50],
+        '10': ['10' , -par.FRAME_7_15_width[i] / 2 - circle_Xgap , 300 / 2 + circle_15_gap],
         '11': ['11' , -125 / 2 - circle_Xgap , 270 / 2 + circle_15_gap],
-        '12': ['12' , -R_15[i] / 2 - circle_Xgap , 429 / 2 + circle_15_gap],
+        '12': ['12' , -par.R_15[i] / 2 - circle_Xgap , 429 / 2 + circle_15_gap],
         '13': ['13' , -50 / 2 - circle_Xgap , 74 / 2 + circle_15_gap],
         '14': ['14' , -99.35 / 2 - circle_Xgap , 35 / 2 + circle_15_gap],
         '15': ['15A' , -40 / 2 - circle_Xgap , 150 / 2 + circle_15_gap + 50],
         '16': ['15' , -40 / 2 - circle_Xgap , 150 / 2 + circle_15_gap],
         '17': ['16' , -99.35 / 2 - circle_Xgap , 35 / 2 + circle_15_gap],
         '18': ['18' , -290 / 2 - circle_Xgap , 145 / 2 + circle_15_gap],
-        '19': ['19' , -FRAME_11_15_width[i] / 2 - circle_Xgap , 90 / 2 + circle_15_gap],
+        '19': ['19' , -par.FRAME_11_15_width[i] / 2 - circle_Xgap , 90 / 2 + circle_15_gap],
         '20': ['20' , -145 / 2 - circle_Xgap , 300 / 2 + circle_15_gap],
         '21': ['21' , -75 / 2 - circle_Xgap , 75 / 2 + circle_15_gap],
-        '22': ['22' , -(R_15[i] + 180) / 2 - circle_Xgap , 50 / 2 + circle_15_gap],
-        '23': ['24' , -85 / 2 - circle_Xgap , FRAME_13_depth[i] / 2 + circle_15_gap],
+        '22': ['22' , -(par.R_15[i] + 180) / 2 - circle_Xgap , 50 / 2 + circle_15_gap],
+        '23': ['24' , -85 / 2 - circle_Xgap , par.FRAME_13_depth[i] / 2 + circle_15_gap],
         '24': ['25' , -75 / 2 - circle_Xgap , 75 / 2 + circle_15_gap],
         '25': ['27' , -460 / 2 - circle_Xgap , 280 / 2 + circle_15_gap],
         '26': ['29' , -140 / 2 - circle_Xgap , 80 / 2 + circle_15_gap],
         '27': ['30' , -40 / 2 - circle_Xgap , 300 / 2 + circle_15_gap],
         '28': ['33' , -65 / 2 / 2 - circle_Xgap , 30 / 2 + circle_15_gap],
-        '29': ['35' , -(R_15[i] - 180) / 2 - circle_Xgap , 50 / 2 + circle_15_gap],
+        '29': ['35' , -(par.R_15[i] - 180) / 2 - circle_Xgap , 50 / 2 + circle_15_gap],
         '30': ['41' , -50 / 2 - circle_Xgap , 180 / 2 + circle_15_gap],
         '31': ['43' , -32 / 2 - circle_Xgap , 32 / 2 + circle_15_gap],
         '32': ['44' , -30 / 2 - circle_Xgap , 30 / 2 + circle_15_gap]
@@ -177,8 +119,8 @@ def Parts_drawing_generation(i, l , path):
                 number += 1
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x , part_circle_position['1'][0] , part_circle_position['1'][1] , part_circle_position['1'][2] , '1' , scale)
-                draft.add_dimension_to_view('FRAME1_1' , '1' , 0 , B[i] / 2 , (H[i] - 80) / 2 , B[i] / 2 , -(H[i] - 80) / 2 , 90)
-                draft.add_dimension_to_view('FRAME1_1', '2', 0, -B[i] / 2, -(H[i] - 80) / 2, B[i] / 2, -(H[i] - 80) / 2, 0)
+                draft.add_dimension_to_view('FRAME1_1' , '1' , 0 , par.B[i] / 2 , (par.H[i] - 80) / 2 , par.B[i] / 2 , -(par.H[i] - 80) / 2 , 90)
+                draft.add_dimension_to_view('FRAME1_1', '2', 0, -par.B[i] / 2, -(par.H[i] - 80) / 2, par.B[i] / 2, -(par.H[i] - 80) / 2, 0)
                 mprog.save_file_part(path, x)
             elif x == 'FRAME2':
                 p = 4#左視圖投影
@@ -200,11 +142,11 @@ def Parts_drawing_generation(i, l , path):
                 p = 0#前視圖投影
                 p2 = 5#右視圖投影
                 p3 = 3#下視圖投影
-                X1 = ALL_range[1][1] + (R[i]+180)*(scale)/2 + gap#BOX_2_Xmin+前視圖寬度一半+間隙
+                X1 = ALL_range[1][1] + (par.R[i]+180)*(scale)/2 + gap#BOX_2_Xmin+前視圖寬度一半+間隙
                 X2 = ALL_range[1][0] - (40)*(scale)/2 - gap#BOX_2_Xmax-FRAME30厚度一半-間隙
-                X3 = ALL_range[1][1] + (R[i]+180)*(scale)/2 + gap#BOX_2_Xmin+前視圖寬度一半+間隙
-                Y1 =ALL_range[1][2] - (FRAME44_height[i])*(scale)/2 - gap#BOX_2_Ymax-前視圖高度-間隙(取完整高度是為了使零件圖與右壁板高度相近)
-                Y2 =ALL_range[1][2] - (FRAME44_height[i])*(scale)/2 - gap#BOX_2_Ymax-前視圖高度-間隙(取完整高度是為了使零件圖與右壁板高度相近)
+                X3 = ALL_range[1][1] + (par.R[i]+180)*(scale)/2 + gap#BOX_2_Xmin+前視圖寬度一半+間隙
+                Y1 =ALL_range[1][2] - (par.FRAME44_height[i])*(scale)/2 - gap#BOX_2_Ymax-前視圖高度-間隙(取完整高度是為了使零件圖與右壁板高度相近)
+                Y2 =ALL_range[1][2] - (par.FRAME44_height[i])*(scale)/2 - gap#BOX_2_Ymax-前視圖高度-間隙(取完整高度是為了使零件圖與右壁板高度相近)
                 Y3 =ALL_range[1][3] + (40)*(scale)/2 + gap#BOX_2_Ymin+FRAME30厚度一半+間隙
                 DP.Material_diagram_projection(p, X1, Y1 , x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
@@ -221,9 +163,9 @@ def Parts_drawing_generation(i, l , path):
             elif x == 'FRAME44':
                 p = 0#前視圖投影
                 p2 = 3#下視圖投影
-                X1 = ALL_range[2][1] + (R[i]+180)*(scale)/2 + gap#box_3_Xmin+前視圖寬度一半+間隙
-                X2 = ALL_range[2][1] + (R[i]+180)*(scale)/2 + gap#box_3_Xmin+前視圖寬度一半+間隙
-                Y1 = ALL_range[2][2] - (FRAME44_height[i])*(scale)/2 - gap#box_3_Ymax+FRAME44高度一半-間隙
+                X1 = ALL_range[2][1] + (par.R[i]+180)*(scale)/2 + gap#box_3_Xmin+前視圖寬度一半+間隙
+                X2 = ALL_range[2][1] + (par.R[i]+180)*(scale)/2 + gap#box_3_Xmin+前視圖寬度一半+間隙
+                Y1 = ALL_range[2][2] - (par.FRAME44_height[i])*(scale)/2 - gap#box_3_Ymax+FRAME44高度一半-間隙
                 Y2 = ALL_range[2][3] + 40*(scale)/2 + gap#box_3_Ymin+FRAME44厚度一半-間隙
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
@@ -237,9 +179,9 @@ def Parts_drawing_generation(i, l , path):
             elif x == 'FRAME41':
                 p = 6#上視圖(左轉向)投影
                 p2 = 5#右視圖投影
-                X1 = ALL_range[3][1] + (R[i] + 180) * (scale) / 2 + gap#box_4_Xmin+前視圖寬度一半+間隙
-                X2 = ALL_range[3][1] + (R[i] + 180) * (scale) / 2 + gap#box_4_Xmin+前視圖寬度一半+間隙
-                Y1 = ALL_range[3][2] - (FRAME_41_depth[i]) * (scale) / 2 - gap#box_3_Ymax+FRAME41高度一半-間隙
+                X1 = ALL_range[3][1] + (par.R[i] + 180) * (scale) / 2 + gap#box_4_Xmin+前視圖寬度一半+間隙
+                X2 = ALL_range[3][1] + (par.R[i] + 180) * (scale) / 2 + gap#box_4_Xmin+前視圖寬度一半+間隙
+                Y1 = ALL_range[3][2] - (par.FRAME_41_depth[i]) * (scale) / 2 - gap#box_3_Ymax+FRAME41高度一半-間隙
                 Y2 = ALL_range[3][3] + 22 * (scale) / 2 + gap#box_3_Yin+FRAME41厚度一半-間隙
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
@@ -275,14 +217,13 @@ def Parts_drawing_generation(i, l , path):
             elif x == 'FRAME9':
                 p = 2#上視圖投影
                 p2 = 0#前視圖投影
-                X1 = ALL_range[5][1] + (R[i] + 180) * scale / 2 + gap#box_6_Xmin+FRAME9寬度一半+間隙
-                X2 = ALL_range[5][1] + (R[i] + 180) * scale / 2 + gap #box_6_Xmin+FRAME9寬度一半+間隙
+                X1 = ALL_range[5][1] + (par.R[i] + 180) * scale / 2 + gap#box_6_Xmin+FRAME9寬度一半+間隙
+                X2 = ALL_range[5][1] + (par.R[i] + 180) * scale / 2 + gap #box_6_Xmin+FRAME9寬度一半+間隙
                 Y1 = ALL_range[5][2] - 50 * scale / 2 - gap#box_6_Ymax-FRAME9厚度一半-間隙
-                Y2 = ALL_range[5][3] + (Z[i] - T[i] - 40) * scale / 2 + gap#box_6_Ymin+FRAME9高度一半+間隙
+                Y2 = ALL_range[5][3] + (par.Z[i] - par.T[i] - 40) * scale / 2 + gap#box_6_Ymin+FRAME9高度一半+間隙
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
                 part_view_number = str(number)
-                print(part_view_number)
                 DP.Material_diagram_projection(p2, X2, Y2, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
                 part_view_number = str(number)
@@ -292,15 +233,13 @@ def Parts_drawing_generation(i, l , path):
             elif x =='FRAME45':
                 p = 2#上視圖投影
                 p2 = 9#右側視圖(左旋轉)投影
-                X1 = ALL_range[6][1] + R[i] * scale / 2 + gap#box_7_Xmin+FRAME45寬度一半+間隙
+                X1 = ALL_range[6][1] + par.R[i] * scale / 2 + gap#box_7_Xmin+FRAME45寬度一半+間隙
                 X2 = ALL_range[6][0] - 19 * scale / 2 - gap#box_7_Xmax+FRAME45厚度一半-間隙
                 Y1 = ALL_range[6][2] - 476 * scale / 2 - gap#box_7_Ymax-FRAME45深度一半-間隙
                 Y2 = ALL_range[6][2] - 476 * scale / 2 - gap  # box_7_Ymax-FRAME45深度一半-間隙
-                print(part_view_number)
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
                 part_view_number = str(number)
-                print(part_view_number)
                 DP.Material_diagram_projection(p2, X2, Y2, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
                 part_view_number = str(number)
@@ -309,7 +248,7 @@ def Parts_drawing_generation(i, l , path):
                 mprog.save_file_part(path, x)
             elif x == 'FRAME43':
                 p = 0#前視圖投影
-                X1 = ALL_range[7][1] + R[i] * scale / 2 + gap#box_8_Xmin+FRAME43寬度一半+間隙
+                X1 = ALL_range[7][1] + par.R[i] * scale / 2 + gap#box_8_Xmin+FRAME43寬度一半+間隙
                 Y1 = ALL_range[7][2] - 150 * scale / 2 - gap#box_8_Ymax-FRAME45深度一半-間隙
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
@@ -319,7 +258,7 @@ def Parts_drawing_generation(i, l , path):
                 mprog.save_file_part(path, x)
             elif x == 'FRAME7':
                 p = 8#下視圖(右旋)投影
-                X1 = ALL_range[8][1] + FRAME_7_width[i] * scale / 2 + gap#box_9_Xmin+FRAME7寬度一半+間隙
+                X1 = ALL_range[8][1] + par.FRAME_7_width[i] * scale / 2 + gap#box_9_Xmin+FRAME7寬度一半+間隙
                 Y1 = ALL_range[8][2] - 300 * scale / 2 - gap#box_9_Ymax-FRAME7深度一半-間隙
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
@@ -340,7 +279,7 @@ def Parts_drawing_generation(i, l , path):
             elif x == 'FRAME32':
                 p = 6#上視圖(左旋)投影
                 p2 = 10#背視圖(左旋)投影
-                X1 = ALL_range[10][1] + R[i] * scale / 2 + gap#box_11_Xmin+FRAME32寬度一半+間隙
+                X1 = ALL_range[10][1] + par.R[i] * scale / 2 + gap#box_11_Xmin+FRAME32寬度一半+間隙
                 X2 = ALL_range[10][0] - 19 * scale / 2 - gap  # box_11_Xmax-FRAME32厚度一半-間隙
                 Y1 = ALL_range[10][2] - 429 * scale / 2 - gap#box_11_Ymax-FRAME深度一半-間隙
                 Y2 = ALL_range[10][2] - 429 * scale / 2 - gap  # box_11_Ymax-FRAME深度一半-間隙
@@ -456,9 +395,9 @@ def Parts_drawing_generation(i, l , path):
             elif x == 'FRAME11':
                 p2 = 5#右視圖投影
                 p = 6#上視圖(左旋)投影
-                X2 = ALL_range[16][1] + FRAME_11_width[i] * scale / 2 + gap#box_17_Xmin+FRAME11寬度一半+間隙
-                X1 = ALL_range[16][1] + FRAME_11_width[i] * scale / 2 + gap#box_17_Xmin+FRAME11寬度一半+間隙
-                Y2 = ALL_range[16][3] + FRAME_11_height[i] * scale / 2 + gap#box_17_Ymin+FRAME11高度一半+間隙
+                X2 = ALL_range[16][1] + par.FRAME_11_width[i] * scale / 2 + gap#box_17_Xmin+FRAME11寬度一半+間隙
+                X1 = ALL_range[16][1] + par.FRAME_11_width[i] * scale / 2 + gap#box_17_Xmin+FRAME11寬度一半+間隙
+                Y2 = ALL_range[16][3] + par.FRAME_11_height[i] * scale / 2 + gap#box_17_Ymin+FRAME11高度一半+間隙
                 Y1 = ALL_range[16][2] - 90 * scale / 2 - gap#box_17_Ymax-FRAME11厚度一半+間隙
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
@@ -504,9 +443,9 @@ def Parts_drawing_generation(i, l , path):
             elif x == 'FRAME3':
                 p2 = 0#前視圖投影
                 p = 2#上視圖投影
-                X2 = ALL_range[19][1] + (R[i]+180) * scale / 2 + gap#box_20_Xmin+FRAME3寬度一半+間隙
-                X1 = ALL_range[19][1] + (R[i]+180) * scale / 2 + gap#box_20_Xmin+FRAME3寬度一半+間隙
-                Y2 = ALL_range[19][3] + (Z[i] - T[i] - 40) * scale / 2 + gap#box_20_Ymin+FRAME3高度一半+間隙
+                X2 = ALL_range[19][1] + (par.R[i]+180) * scale / 2 + gap#box_20_Xmin+FRAME3寬度一半+間隙
+                X1 = ALL_range[19][1] + (par.R[i]+180) * scale / 2 + gap#box_20_Xmin+FRAME3寬度一半+間隙
+                Y2 = ALL_range[19][3] + (par.Z[i] - par.T[i] - 40) * scale / 2 + gap#box_20_Ymin+FRAME3高度一半+間隙
                 Y1 = ALL_range[19][2] - 50 * scale / 2 - gap#box_20_Ymax-FRAME3厚度一半+間隙
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
@@ -522,8 +461,8 @@ def Parts_drawing_generation(i, l , path):
                 p2 = 9#右視圖(左旋)投影
                 X1 = ALL_range[20][1] + 85 * scale / 2 + gap#box_21_Xmin+FRAME13寬度一半+間隙
                 X2 = ALL_range[20][0] - 55 * scale / 2 - gap#box_21_Xmax-FRAME13高度一半-間隙
-                Y1 = ALL_range[20][2] - FRAME_13_depth[i] * scale / 2 - gap#box_21_Ymax-FRAME13深度一半-間隙
-                Y2 = ALL_range[20][2] - FRAME_13_depth[i] * scale / 2 - gap  # box_21_Ymax-FRAME13深度一半-間隙
+                Y1 = ALL_range[20][2] - par.FRAME_13_depth[i] * scale / 2 - gap#box_21_Ymax-FRAME13深度一半-間隙
+                Y2 = ALL_range[20][2] - par.FRAME_13_depth[i] * scale / 2 - gap  # box_21_Ymax-FRAME13深度一半-間隙
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
                 part_view_number = str(number)
@@ -572,7 +511,7 @@ def Parts_drawing_generation(i, l , path):
             elif x == 'FRAME8':
                 p2 = 13#下視圖(左旋)投影
                 p = 10#後視圖(左旋)投影
-                X2 = ALL_range[24][0] - FRAME_8_width[i] * scale / 2 - gap#box_25_Xmax-FRAME8寬度一半-間隙
+                X2 = ALL_range[24][0] - par.FRAME_8_width[i] * scale / 2 - gap#box_25_Xmax-FRAME8寬度一半-間隙
                 X1 = ALL_range[24][1] + 40 * scale / 2 + gap#box_25_Xmin+FRAME8厚度一半+間隙
                 Y2 = ALL_range[24][2] - 300 * scale / 2 - gap#box_25_Ymax-FRAME8深度一半-間隙
                 Y1 = ALL_range[24][2] - 300 * scale / 2 - gap  # box_25_Ymax-FRAME8深度一半-間隙
@@ -588,7 +527,7 @@ def Parts_drawing_generation(i, l , path):
             elif x == 'FRAME29':
                 p2 = 7#下視圖(180度)投影
                 p = 9#右視圖(左旋)投影
-                X2 = ALL_range[25][0] - (R[i]+180) * scale / 2 - gap#box_26_Xmax-FRAME29寬度一半-間隙
+                X2 = ALL_range[25][0] - (par.R[i]+180) * scale / 2 - gap#box_26_Xmax-FRAME29寬度一半-間隙
                 X1 = ALL_range[25][1] + 65 * scale / 2 + gap#box_26_Xmin+FRAME29深度一半+間隙
                 Y2 = ALL_range[25][2] - 30 * scale / 2 - gap#box_26_Ymax-FRAME29厚度一半-間隙
                 Y1 = ALL_range[25][2] - 30 * scale / 2 - gap  # box_26_Ymax-FRAME29厚度一半-間隙
@@ -604,10 +543,10 @@ def Parts_drawing_generation(i, l , path):
             elif x == 'FRAME20':
                 p2 = 0#前視圖投影
                 p = 2#上視圖投影
-                X2 = ALL_range[26][1] + (R[i] + 180) * scale / 2 + gap#box_27_Xmin+FRAME20寬度一半+間隙
-                X1 = ALL_range[26][1] + (R[i] + 180) * scale / 2 + gap#box_27_Xmin+FRAME20寬度一半+間隙
+                X2 = ALL_range[26][1] + (par.R[i] + 180) * scale / 2 + gap#box_27_Xmin+FRAME20寬度一半+間隙
+                X1 = ALL_range[26][1] + (par.R[i] + 180) * scale / 2 + gap#box_27_Xmin+FRAME20寬度一半+間隙
                 Y1 = ALL_range[26][2] - 50 * scale / 2 - gap#box_27_Ymax-FRAME20厚度一半-間隙
-                Y2 = ALL_range[26][3] + FRAME20_H[i] * scale / 2 + gap#box_27_Ymin+FRAME20高度一半+間隙
+                Y2 = ALL_range[26][3] + par.FRAME20_H[i] * scale / 2 + gap#box_27_Ymin+FRAME20高度一半+間隙
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
                 part_view_number = str(number)
@@ -682,8 +621,8 @@ def Parts_drawing_generation(i, l , path):
                 number += 1
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x , part_circle_15_position['1'][0] , part_circle_15_position['1'][1] , part_circle_15_position['1'][2] , '1' , scale)
-                draft.add_dimension_to_view('FRAME1_1' , '1' , 0 , B_15[i] / 2 , (H[i] - 80) / 2 , B_15[i] / 2 , -(H[i] - 80) / 2 , 90)
-                draft.add_dimension_to_view('FRAME1_1', '2', 0, -B_15[i] / 2, -(H[i] - 80) / 2, B_15[i] / 2, -(H[i] - 80) / 2, 0)
+                draft.add_dimension_to_view('FRAME1_1' , '1' , 0 , par.B_15[i] / 2 , (par.H[i] - 80) / 2 , par.B_15[i] / 2 , -(par.H[i] - 80) / 2 , 90)
+                draft.add_dimension_to_view('FRAME1_1', '2', 0, -par.B_15[i] / 2, -(par.H[i] - 80) / 2, par.B_15[i] / 2, -(par.H[i] - 80) / 2, 0)
                 mprog.save_file_part(path, x)
             elif x == 'FRAME2':
                 p = 4#左視圖投影
@@ -705,11 +644,11 @@ def Parts_drawing_generation(i, l , path):
                 p = 0#前視圖投影
                 p2 = 5#右視圖投影
                 p3 = 3#下視圖投影
-                X1 = ALL_range[1][1] + (R_15[i]+180)*(scale)/2 + gap#BOX_2_Xmin+前視圖寬度一半+間隙
+                X1 = ALL_range[1][1] + (par.R_15[i]+180)*(scale)/2 + gap#BOX_2_Xmin+前視圖寬度一半+間隙
                 X2 = ALL_range[1][0] - (40)*(scale)/2 - gap#BOX_2_Xmax-FRAME30厚度一半-間隙
-                X3 = ALL_range[1][1] + (R_15[i]+180)*(scale)/2 + gap#BOX_2_Xmin+前視圖寬度一半+間隙
-                Y1 =ALL_range[1][2] - (FRAME44_height[i])*(scale)/2 - gap#BOX_2_Ymax-前視圖高度-間隙(取完整高度是為了使零件圖與右壁板高度相近)
-                Y2 =ALL_range[1][2] - (FRAME44_height[i])*(scale)/2 - gap#BOX_2_Ymax-前視圖高度-間隙(取完整高度是為了使零件圖與右壁板高度相近)
+                X3 = ALL_range[1][1] + (par.R_15[i]+180)*(scale)/2 + gap#BOX_2_Xmin+前視圖寬度一半+間隙
+                Y1 =ALL_range[1][2] - (par.FRAME44_height[i])*(scale)/2 - gap#BOX_2_Ymax-前視圖高度-間隙(取完整高度是為了使零件圖與右壁板高度相近)
+                Y2 =ALL_range[1][2] - (par.FRAME44_height[i])*(scale)/2 - gap#BOX_2_Ymax-前視圖高度-間隙(取完整高度是為了使零件圖與右壁板高度相近)
                 Y3 =ALL_range[1][3] + (40)*(scale)/2 + gap#BOX_2_Ymin+FRAME30厚度一半+間隙
                 DP.Material_diagram_projection(p, X1, Y1 , x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
@@ -726,9 +665,9 @@ def Parts_drawing_generation(i, l , path):
             elif x == 'FRAME44':
                 p = 0#前視圖投影
                 p2 = 3#下視圖投影
-                X1 = ALL_range[2][1] + (R_15[i]+180)*(scale)/2 + gap#box_3_Xmin+前視圖寬度一半+間隙
-                X2 = ALL_range[2][1] + (R_15[i]+180)*(scale)/2 + gap#box_3_Xmin+前視圖寬度一半+間隙
-                Y1 = ALL_range[2][2] - (FRAME44_height[i])*(scale)/2 - gap#box_3_Ymax+FRAME44高度一半-間隙
+                X1 = ALL_range[2][1] + (par.R_15[i]+180)*(scale)/2 + gap#box_3_Xmin+前視圖寬度一半+間隙
+                X2 = ALL_range[2][1] + (par.R_15[i]+180)*(scale)/2 + gap#box_3_Xmin+前視圖寬度一半+間隙
+                Y1 = ALL_range[2][2] - (par.FRAME44_height[i])*(scale)/2 - gap#box_3_Ymax+FRAME44高度一半-間隙
                 Y2 = ALL_range[2][3] + 40*(scale)/2 + gap#box_3_Ymin+FRAME44厚度一半-間隙
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
@@ -742,9 +681,9 @@ def Parts_drawing_generation(i, l , path):
             elif x == 'FRAME41':
                 p = 6#上視圖(左轉向)投影
                 p2 = 5#右視圖投影
-                X1 = ALL_range[3][1] + (R_15[i] + 180) * (scale) / 2 + gap#box_4_Xmin+前視圖寬度一半+間隙
-                X2 = ALL_range[3][1] + (R_15[i] + 180) * (scale) / 2 + gap#box_4_Xmin+前視圖寬度一半+間隙
-                Y1 = ALL_range[3][2] - (FRAME_41_depth[i]) * (scale) / 2 - gap#box_3_Ymax+FRAME41高度一半-間隙
+                X1 = ALL_range[3][1] + (par.R_15[i] + 180) * (scale) / 2 + gap#box_4_Xmin+前視圖寬度一半+間隙
+                X2 = ALL_range[3][1] + (par.R_15[i] + 180) * (scale) / 2 + gap#box_4_Xmin+前視圖寬度一半+間隙
+                Y1 = ALL_range[3][2] - (par.FRAME_41_depth[i]) * (scale) / 2 - gap#box_3_Ymax+FRAME41高度一半-間隙
                 Y2 = ALL_range[3][3] + 22 * (scale) / 2 + gap#box_3_Yin+FRAME41厚度一半-間隙
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
@@ -780,10 +719,10 @@ def Parts_drawing_generation(i, l , path):
             elif x == 'FRAME9':
                 p = 2#上視圖投影
                 p2 = 0#前視圖投影
-                X1 = ALL_range[5][1] + (R_15[i] + 180) * scale / 2 + gap#box_6_Xmin+FRAME9寬度一半+間隙
-                X2 = ALL_range[5][1] + (R_15[i] + 180) * scale / 2 + gap #box_6_Xmin+FRAME9寬度一半+間隙
+                X1 = ALL_range[5][1] + (par.R_15[i] + 180) * scale / 2 + gap#box_6_Xmin+FRAME9寬度一半+間隙
+                X2 = ALL_range[5][1] + (par.R_15[i] + 180) * scale / 2 + gap #box_6_Xmin+FRAME9寬度一半+間隙
                 Y1 = ALL_range[5][2] - 50 * scale / 2 - gap#box_6_Ymax-FRAME9厚度一半-間隙
-                Y2 = ALL_range[5][3] + (Z[i] - T[i] - 40) * scale / 2 + gap#box_6_Ymin+FRAME9高度一半+間隙
+                Y2 = ALL_range[5][3] + (par.Z[i] - par.T[i] - 40) * scale / 2 + gap#box_6_Ymin+FRAME9高度一半+間隙
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
                 part_view_number = str(number)
@@ -796,7 +735,7 @@ def Parts_drawing_generation(i, l , path):
             elif x =='FRAME45':
                 p = 2#上視圖投影
                 p2 = 9#右側視圖(左旋轉)投影
-                X1 = ALL_range[6][1] + R_15[i] * scale / 2 + gap#box_7_Xmin+FRAME45寬度一半+間隙
+                X1 = ALL_range[6][1] + par.R_15[i] * scale / 2 + gap#box_7_Xmin+FRAME45寬度一半+間隙
                 X2 = ALL_range[6][0] - 19 * scale / 2 - gap#box_7_Xmax+FRAME45厚度一半-間隙
                 Y1 = ALL_range[6][2] - 476 * scale / 2 - gap#box_7_Ymax-FRAME45深度一半-間隙
                 Y2 = ALL_range[6][2] - 476 * scale / 2 - gap  # box_7_Ymax-FRAME45深度一半-間隙
@@ -811,7 +750,7 @@ def Parts_drawing_generation(i, l , path):
                 mprog.save_file_part(path, x)
             elif x == 'FRAME43':
                 p = 0#前視圖投影
-                X1 = ALL_range[7][1] + R_15[i] * scale / 2 + gap#box_8_Xmin+FRAME43寬度一半+間隙
+                X1 = ALL_range[7][1] + par.R_15[i] * scale / 2 + gap#box_8_Xmin+FRAME43寬度一半+間隙
                 Y1 = ALL_range[7][2] - 150 * scale / 2 - gap#box_8_Ymax-FRAME45深度一半-間隙
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
@@ -821,7 +760,7 @@ def Parts_drawing_generation(i, l , path):
                 mprog.save_file_part(path, x)
             elif x == 'FRAME7':
                 p = 8#下視圖(右旋)投影
-                X1 = ALL_range[8][1] + FRAME_7_15_width[i] * scale / 2 + gap#box_9_Xmin+FRAME7寬度一半+間隙
+                X1 = ALL_range[8][1] + par.FRAME_7_15_width[i] * scale / 2 + gap#box_9_Xmin+FRAME7寬度一半+間隙
                 Y1 = ALL_range[8][2] - 300 * scale / 2 - gap#box_9_Ymax-FRAME7深度一半-間隙
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
@@ -842,7 +781,7 @@ def Parts_drawing_generation(i, l , path):
             elif x == 'FRAME32':
                 p = 6#上視圖(左旋)投影
                 p2 = 10#背視圖(左旋)投影
-                X1 = ALL_range[10][1] + R_15[i] * scale / 2 + gap#box_11_Xmin+FRAME32寬度一半+間隙
+                X1 = ALL_range[10][1] + par.R_15[i] * scale / 2 + gap#box_11_Xmin+FRAME32寬度一半+間隙
                 X2 = ALL_range[10][0] - 19 * scale / 2 - gap  # box_11_Xmax-FRAME32厚度一半-間隙
                 Y1 = ALL_range[10][2] - 429 * scale / 2 - gap#box_11_Ymax-FRAME深度一半-間隙
                 Y2 = ALL_range[10][2] - 429 * scale / 2 - gap  # box_11_Ymax-FRAME深度一半-間隙
@@ -958,9 +897,9 @@ def Parts_drawing_generation(i, l , path):
             elif x == 'FRAME11':
                 p2 = 5#右視圖投影
                 p = 6#上視圖(左旋)投影
-                X2 = ALL_range[16][1] + FRAME_11_15_width[i] * scale / 2 + gap#box_17_Xmin+FRAME11寬度一半+間隙
-                X1 = ALL_range[16][1] + FRAME_11_15_width[i] * scale / 2 + gap#box_17_Xmin+FRAME11寬度一半+間隙
-                Y2 = ALL_range[16][3] + FRAME_11_height[i] * scale / 2 + gap#box_17_Ymin+FRAME11高度一半+間隙
+                X2 = ALL_range[16][1] + par.FRAME_11_15_width[i] * scale / 2 + gap#box_17_Xmin+FRAME11寬度一半+間隙
+                X1 = ALL_range[16][1] + par.FRAME_11_15_width[i] * scale / 2 + gap#box_17_Xmin+FRAME11寬度一半+間隙
+                Y2 = ALL_range[16][3] + par.FRAME_11_height[i] * scale / 2 + gap#box_17_Ymin+FRAME11高度一半+間隙
                 Y1 = ALL_range[16][2] - 90 * scale / 2 - gap#box_17_Ymax-FRAME11厚度一半+間隙
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
@@ -1006,9 +945,9 @@ def Parts_drawing_generation(i, l , path):
             elif x == 'FRAME3':
                 p2 = 0#前視圖投影
                 p = 2#上視圖投影
-                X2 = ALL_range[19][1] + (R_15[i]+180) * scale / 2 + gap#box_20_Xmin+FRAME3寬度一半+間隙
-                X1 = ALL_range[19][1] + (R_15[i]+180) * scale / 2 + gap#box_20_Xmin+FRAME3寬度一半+間隙
-                Y2 = ALL_range[19][3] + (Z[i] - T[i] - 40) * scale / 2 + gap#box_20_Ymin+FRAME3高度一半+間隙
+                X2 = ALL_range[19][1] + (par.R_15[i]+180) * scale / 2 + gap#box_20_Xmin+FRAME3寬度一半+間隙
+                X1 = ALL_range[19][1] + (par.R_15[i]+180) * scale / 2 + gap#box_20_Xmin+FRAME3寬度一半+間隙
+                Y2 = ALL_range[19][3] + (par.Z[i] - par.T[i] - 40) * scale / 2 + gap#box_20_Ymin+FRAME3高度一半+間隙
                 Y1 = ALL_range[19][2] - 50 * scale / 2 - gap#box_20_Ymax-FRAME3厚度一半+間隙
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
@@ -1024,8 +963,8 @@ def Parts_drawing_generation(i, l , path):
                 p2 = 9#右視圖(左旋)投影
                 X1 = ALL_range[20][1] + 85 * scale / 2 + gap#box_21_Xmin+FRAME13寬度一半+間隙
                 X2 = ALL_range[20][0] - 55 * scale / 2 - gap#box_21_Xmax-FRAME13高度一半-間隙
-                Y1 = ALL_range[20][2] - FRAME_13_depth[i] * scale / 2 - gap#box_21_Ymax-FRAME13深度一半-間隙
-                Y2 = ALL_range[20][2] - FRAME_13_depth[i] * scale / 2 - gap  # box_21_Ymax-FRAME13深度一半-間隙
+                Y1 = ALL_range[20][2] - par.FRAME_13_depth[i] * scale / 2 - gap#box_21_Ymax-FRAME13深度一半-間隙
+                Y2 = ALL_range[20][2] - par.FRAME_13_depth[i] * scale / 2 - gap  # box_21_Ymax-FRAME13深度一半-間隙
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
                 part_view_number = str(number)
@@ -1074,7 +1013,7 @@ def Parts_drawing_generation(i, l , path):
             elif x == 'FRAME8':
                 p2 = 13#下視圖(左旋)投影
                 p = 10#後視圖(左旋)投影
-                X2 = ALL_range[24][0] - FRAME_8_15_width[i] * scale / 2 - gap#box_25_Xmax-FRAME8寬度一半-間隙
+                X2 = ALL_range[24][0] - par.FRAME_8_15_width[i] * scale / 2 - gap#box_25_Xmax-FRAME8寬度一半-間隙
                 X1 = ALL_range[24][1] + 40 * scale / 2 + gap#box_25_Xmin+FRAME8厚度一半+間隙
                 Y2 = ALL_range[24][2] - 300 * scale / 2 - gap#box_25_Ymax-FRAME8深度一半-間隙
                 Y1 = ALL_range[24][2] - 300 * scale / 2 - gap  # box_25_Ymax-FRAME8深度一半-間隙
@@ -1090,7 +1029,7 @@ def Parts_drawing_generation(i, l , path):
             elif x == 'FRAME29':
                 p2 = 7#下視圖(180度)投影
                 p = 9#右視圖(左旋)投影
-                X2 = ALL_range[25][0] - (R_15[i]+180) * scale / 2 - gap#box_26_Xmax-FRAME29寬度一半-間隙
+                X2 = ALL_range[25][0] - (par.R_15[i]+180) * scale / 2 - gap#box_26_Xmax-FRAME29寬度一半-間隙
                 X1 = ALL_range[25][1] + 65 * scale / 2 + gap#box_26_Xmin+FRAME29深度一半+間隙
                 Y2 = ALL_range[25][2] - 30 * scale / 2 - gap#box_26_Ymax-FRAME29厚度一半-間隙
                 Y1 = ALL_range[25][2] - 30 * scale / 2 - gap  # box_26_Ymax-FRAME29厚度一半-間隙
@@ -1106,10 +1045,10 @@ def Parts_drawing_generation(i, l , path):
             elif x == 'FRAME20':
                 p2 = 0#前視圖投影
                 p = 2#上視圖投影
-                X2 = ALL_range[26][1] + (R_15[i] + 180) * scale / 2 + gap#box_27_Xmin+FRAME20寬度一半+間隙
-                X1 = ALL_range[26][1] + (R_15[i] + 180) * scale / 2 + gap#box_27_Xmin+FRAME20寬度一半+間隙
+                X2 = ALL_range[26][1] + (par.R_15[i] + 180) * scale / 2 + gap#box_27_Xmin+FRAME20寬度一半+間隙
+                X1 = ALL_range[26][1] + (par.R_15[i] + 180) * scale / 2 + gap#box_27_Xmin+FRAME20寬度一半+間隙
                 Y1 = ALL_range[26][2] - 50 * scale / 2 - gap#box_27_Ymax-FRAME20厚度一半-間隙
-                Y2 = ALL_range[26][3] + FRAME20_H[i] * scale / 2 + gap#box_27_Ymin+FRAME20高度一半+間隙
+                Y2 = ALL_range[26][3] + par.FRAME20_H[i] * scale / 2 + gap#box_27_Ymin+FRAME20高度一半+間隙
                 DP.Material_diagram_projection(p, X1, Y1, x, scale , part_view_number, x + "_" + part_view_number)
                 number += 1
                 part_view_number = str(number)

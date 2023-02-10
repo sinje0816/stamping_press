@@ -343,6 +343,12 @@ def saveas(save_dir, target, data_type):
     finally:
         saveas.Save()
 
+def PDF_save(save_dir, name):
+    catapp = win32.Dispatch("CATIA.Application")
+    partdoc = catapp.ActiveDocument
+    # 儲存檔案後關閉
+    partdoc.ExportData("%s\%s.%s" % (save_dir, name, "pdf"),"pdf")
+
 def constaint_value_change(constraints_name, value, Orientation):
     catapp = win32.Dispatch('CATIA.Application')
     productDocument = catapp.ActiveDocument
