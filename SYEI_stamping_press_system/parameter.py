@@ -61,8 +61,10 @@ sin35_267 = math.sin(math.radians(35.267))
 # -------------焊接圖---------------
 #隱藏part
 hide_part_name = ['BOLSTER1', 'BOLSTER2', 'BOLSTER3', 'BALANCER_LEFT_All', 'BALANCER_RIGHT_All', 'CRANK_SHAFT_CLOCK',
-                  'CLUCTH_ASSEMBLY_All', 'SLIDE_UNIT_All', 'CRANK_SHAFT.1', 'JOINT_All', 'MAIN_GEAR1', 'MAIN_GEAR2',
-                  'MAIN_GEAR3', 'MAIN_GEAR4', 'JOINT1', 'GIB1', 'GIB2', 'FRAME35', 'Fixture']
+                  'CLUCTH_ASSEMBLY_All', 'SLIDE_UNIT_All', 'CRANK_SHAFT.1', 'JOINT_All', 'MAIN_GEAR1',
+                  'MAIN_GEAR3', 'MAIN_GEAR4', 'JOINT1', 'GIB1', 'GIB2', 'FRAME35', 'FRAME40', 'Fixture']
+part_name_Section_view_F_F = ['FRAME1', 'FRAME10']
+part_name_Section_view_D_D = ['FRAME21', 'FRAME22', 'FRAME32']
 # 前視圖中心 & 上視圖中心
 drafting_front_area_centerX = 435
 # 下圖
@@ -79,5 +81,6 @@ draft_X_clearence = 10
 draft_Y_clearence = 25
 # 下圖Y最小位置
 drafting_down_min_Y = 65
+
 
 # 圈碼座標
