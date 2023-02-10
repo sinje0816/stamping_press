@@ -1,42 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="865d8e7e-c907-4330-a965-64645c2dcf00" name="Changes" comment="FRAME44修正">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting_part.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting_part.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting_part_calculate.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting_part_calculate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME1.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME1.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME11.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME11.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME13.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME13.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME14.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME14.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME17.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME17.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME2.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME2.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME20.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME20.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME22.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME22.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME23.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME23.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME24.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME24.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME29.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME29.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME3.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME3.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME30.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME30.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME31.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME31.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME32.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME32.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME33.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME33.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME34.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME34.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME35.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME35.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME37.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME37.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME38.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME38.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME39.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME39.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME41.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME41.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME43.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME43.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME44.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME44.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME45.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME45.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME47.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME47.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME48.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME48.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME49.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME49.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME7.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME7.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME8.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME8.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME9.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME9.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/MAIN_GEAR2.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/MAIN_GEAR2.CATPart" afterDir="false" />
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_8__04_19__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_8__04_19__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_8__04_19__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_8__04_19__Changes_1.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,8 +51,8 @@
       <recent name="C:\Users\User\PycharmProjects\stamping_press" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.drafting_part">
-    <configuration name="123" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.main_GUI">
+    <configuration name="PY" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Stamping press" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -93,11 +60,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SYEI_stamping_press_system" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/123.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PY.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -127,7 +94,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="TEST_BOM" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="TEST" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Stamping press" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -135,11 +102,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SYEI_stamping_press_system" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/TEST_BOM.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TEST.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -192,18 +159,18 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.drafting_part" />
         <item itemvalue="Python.main_GUI" />
-        <item itemvalue="Python.123" />
-        <item itemvalue="Python.TEST_BOM" />
         <item itemvalue="Python.TEST (1)" />
+        <item itemvalue="Python.drafting_part" />
+        <item itemvalue="Python.TEST" />
+        <item itemvalue="Python.PY" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="865d8e7e-c907-4330-a965-64645c2dcf00" name="Changes" comment="" />
+      <changelist id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="" />
       <created>1668131959961</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -538,19 +505,19 @@
       <option name="project" value="LOCAL" />
       <updated>1675673982521</updated>
     </task>
-    <task id="LOCAL-00055" summary="主程式組立部分修正&#10;資料儲存副程式修正&#10;母檔修改">
-      <created>1675931086791</created>
+    <task id="LOCAL-00055" summary="完成剖面圖投影&#10;局部放大圖Section view F-F需先切換視窗關閉零件再進行投影">
+      <created>1675945568474</created>
       <option name="number" value="00055" />
       <option name="presentableId" value="LOCAL-00055" />
       <option name="project" value="LOCAL" />
-      <updated>1675931086791</updated>
+      <updated>1675945568474</updated>
     </task>
-    <task id="LOCAL-00056" summary="FRAME44修正">
-      <created>1675931490836</created>
+    <task id="LOCAL-00056" summary="完成剖面圖投影&#10;局部放大圖Section view F-F需先切換視窗關閉零件再進行投影">
+      <created>1675945584188</created>
       <option name="number" value="00056" />
       <option name="presentableId" value="LOCAL-00056" />
       <option name="project" value="LOCAL" />
-      <updated>1675931490836</updated>
+      <updated>1675945584188</updated>
     </task>
     <option name="localTasksCounter" value="57" />
     <servers />
@@ -568,6 +535,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="修改標準件判斷條件及新增噸數300尺寸" />
     <MESSAGE value="修改氣壓缸尺寸" />
     <MESSAGE value="修改FRAME32結合距離及尺寸、氣壓缸結合距離" />
     <MESSAGE value="移除行程部分" />
@@ -591,24 +559,7 @@
     <MESSAGE value="N1及N_test圈馬程式更新" />
     <MESSAGE value="修改main_GUI平板問題及離合器起飛問題" />
     <MESSAGE value="修改FRAME31.1~4的位置" />
-    <MESSAGE value="主程式組立部分修正&#10;資料儲存副程式修正&#10;母檔修改" />
-    <MESSAGE value="FRAME44修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="FRAME44修正" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py</url>
-          <line>1156</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py</url>
-          <line>849</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="完成剖面圖投影&#10;局部放大圖Section view F-F需先切換視窗關閉零件再進行投影" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成剖面圖投影&#10;局部放大圖Section view F-F需先切換視窗關閉零件再進行投影" />
   </component>
 </project>
