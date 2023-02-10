@@ -214,15 +214,11 @@ def Front_View_Drawing(Type, X_coordinate, Y_coordinate, scale):
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     drawingViewGenerativeBehavior.Update()
     drawingView.Activate()
-    selection = productDocument.Selection
-    drawingview1 = drawingViews.Item('Front view')
-    drawingtexts = drawingview1.Texts
-    drawingtext1 = drawingtexts.Item('1')
-    drawingtexts1 = drawingtext1.Parent
-    selection.Add(drawingtext1)
-    selection.Delete()
+    selection = catapp.ActiveDocument.Selection
     selection.Clear()
-
+    selection.Add(catapp.ActiveDocument.sheets.ActiveSheet.Views.ActiveView)
+    selection.Search("Drafting.Text,sel")
+    selection.Delete()
 
 def Left_View_Drawing(Type, X_coordinate, Y_coordinate, scale):
     catapp = win32.Dispatch('CATIA.Application')
@@ -245,14 +241,11 @@ def Left_View_Drawing(Type, X_coordinate, Y_coordinate, scale):
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     drawingViewGenerativeBehavior.Update()
     drawingView.Activate()
-    selection = productDocument.Selection
-    drawingview1 = drawingViews.Item('Left view')
-    drawingtexts = drawingview1.Texts
-    drawingtext1 = drawingtexts.Item('1')
-    drawingtexts1 = drawingtext1.Parent
-    selection.Add(drawingtext1)
-    selection.Delete()
+    selection = catapp.ActiveDocument.Selection
     selection.Clear()
+    selection.Add(catapp.ActiveDocument.sheets.ActiveSheet.Views.ActiveView)
+    selection.Search("Drafting.Text,sel")
+    selection.Delete()
 
 
 def Right_View_Drawing(Type, X_coordinate, Y_coordinate, scale):
@@ -276,13 +269,11 @@ def Right_View_Drawing(Type, X_coordinate, Y_coordinate, scale):
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     drawingViewGenerativeBehavior.Update()
     drawingView.Activate()
-    drawingtexts = drawingView.Texts
-    drawingtext = drawingtexts.Item(1)
-    drawingtexts = drawingtext.Parent
-    selection = productDocument.Selection
-    selection.Add(drawingtext)
-    selection.Delete()
+    selection = catapp.ActiveDocument.Selection
     selection.Clear()
+    selection.Add(catapp.ActiveDocument.sheets.ActiveSheet.Views.ActiveView)
+    selection.Search("Drafting.Text,sel")
+    selection.Delete()
 
 
 def Right_Top_View_Drawing(Type, X_coordinate, Y_coordinate, scale):
@@ -306,13 +297,11 @@ def Right_Top_View_Drawing(Type, X_coordinate, Y_coordinate, scale):
     drawingViewGenerativeBehavior = drawingView.GenerativeBehavior
     drawingViewGenerativeBehavior.Update()
     drawingView.Activate()
-    drawingtexts = drawingView.Texts
-    drawingtext = drawingtexts.Item(1)
-    drawingtexts = drawingtext.Parent
-    selection = productDocument.Selection
-    selection.Add(drawingtext)
-    selection.Delete()
+    selection = catapp.ActiveDocument.Selection
     selection.Clear()
+    selection.Add(catapp.ActiveDocument.sheets.ActiveSheet.Views.ActiveView)
+    selection.Search("Drafting.Text,sel")
+    selection.Delete()
 
 def coordinate():
     catapp = win32.Dispatch('CATIA.Application')
@@ -456,7 +445,7 @@ def background():
     drawingview = drawingsheet.Views.Item('Background View').Activate()
 
 
-def drafting_welding_view_parameter_calculation(width, height, depth):  # 電子型錄WHD, 比例
+def drafting_welding_view_parameter_calculation(width, height, depth, S, Z, T):  # 電子型錄WHD, 比例
     scale_p = 1
     drafting_area_centerX = par.drafting_front_area_centerX  # 上:上視圖中心 & 下:前視圖中心
     drafting_down_area_centerY = par.drafting_down_area_centerY
@@ -470,6 +459,9 @@ def drafting_welding_view_parameter_calculation(width, height, depth):  # 電子
         w_scale = width * scale  # width after scaling
         h_scale = height * scale  # height after scaling
         d_scale = depth * scale
+        S_scale = S * scale
+        Z_T_scale = (Z - T) * scale
+        T_scale = T * scale
         # ------------下圖總範圍-------------
         drafting_down_area_X_range = w_scale * 2 + d_scale * 2 + par.draft_X_clearence * 5
         drafting_down_area_Y_range = h_scale + par.draft_Y_clearence * 2
@@ -521,18 +513,20 @@ def drafting_welding_view_parameter_calculation(width, height, depth):  # 電子
     drafting_down_Coordinate_Position = {
         'Right View': (drafting_area_centerX - drafting_area_X_left_range, drafting_down_area_centerY),
         'Front View': (drafting_area_centerX, drafting_down_area_centerY),
-        'section A-A': (drafting_area_centerX + drafting_area_X_left_range, drafting_down_area_centerY),
-        'section B-B': (drafting_area_centerX + drafting_area_X_left_range * 2, drafting_down_area_centerY)}
+        'Section view A-A': (drafting_area_centerX + drafting_area_X_left_range + (d_scale - w_scale) / 5, drafting_down_area_centerY),
+        'Section view B-B': (drafting_area_centerX + drafting_area_X_left_range * 2 + (d_scale - w_scale) / 5, drafting_down_area_centerY),
+        'Section view F-F': (drafting_area_centerX + drafting_area_X_left_range * 2 + (d_scale - w_scale) / 5 - w_scale / 3, drafting_down_area_centerY - h_scale / 3),
+        'Section view G-G': (drafting_area_centerX + drafting_area_X_left_range * 2 + (d_scale - w_scale) / 5 + w_scale / 3, drafting_down_area_centerY - h_scale / 3)}
     # 上圖位置
     drafting_up_Coordinate_Position = {
-        'section D-D': (drafting_area_centerX - drafting_area_X_left_range, drafting_up_area_centerY),
+        'Section view D-D': (drafting_area_centerX - drafting_area_X_left_range, drafting_up_area_centerY),
         'Top View': (drafting_area_centerX, drafting_up_area_centerY),
-        'section C-C': (drafting_area_centerX + drafting_area_X_right_range / 2, drafting_up_area_centerY),
-        'section E-E': (drafting_area_centerX + drafting_area_X_right_range, drafting_up_area_centerY), }
+        'Section view C-C': (drafting_area_centerX + drafting_area_X_left_range + (d_scale - w_scale) / 5, drafting_up_area_centerY),
+        'Section view E-E': (drafting_area_centerX + drafting_area_X_left_range * 2 + (d_scale - w_scale) / 5, drafting_up_area_centerY)}
     return drafting_down_Coordinate_Position, drafting_up_Coordinate_Position, scale_p
 
 # 剖面圖
-def section(view_name, Coordinate_X, Coordinate_Y, Scale, Coordinate, change_direction):
+def Section(view_name, Coordinate_X, Coordinate_Y, Scale, Coordinate, change_direction, new_create_view_name):
     catapp = win32.Dispatch('CATIA.Application')
     drawingDocument1 = catapp.ActiveDocument
     drawingSheets1 = drawingDocument1.Sheets
@@ -560,3 +554,38 @@ def section(view_name, Coordinate_X, Coordinate_Y, Scale, Coordinate, change_dir
     drawingViewGenerativeBehavior2.Update()
     drawingView2.ReferenceView = drawingView1
     drawingView2.AlignedWithReferenceView()
+    # 選定新投影圖面刪除文字方塊
+    drawingDocument1 = catapp.ActiveDocument
+    drawingSheets1 = drawingDocument1.Sheets
+    drawingSheet1 = drawingSheets1.Item("Sheet.1")
+    drawingViews1 = drawingSheet1.Views
+    drawingView1 = drawingViews1.Item(new_create_view_name)  # 圖框名稱
+    drawingView1.Activate()
+    selection = catapp.ActiveDocument.Selection
+    selection.Clear()
+    selection.Add(catapp.ActiveDocument.sheets.ActiveSheet.Views.ActiveView)
+    selection.Search("Drafting.Text,sel")
+    selection.Delete()
+
+def Define_Polygonal_Detail_View(view_name, Coordinate, Coordinate_X, Coordinate_Y):  # 留下框選範圍圖面
+    catapp = win32.Dispatch('CATIA.Application')
+    drawingDocument = catapp.ActiveDocument
+    drawingSheets = drawingDocument.Sheets
+    drawingSheet = drawingSheets.Item("Sheet.1")
+    drawingViews = drawingSheet.Views
+    drawingView = drawingViews.Item(view_name)  # 圖框名稱
+    drawingView.Activate()
+    drawingDocument = catapp.ActiveDocument
+    drawingSheets = drawingDocument.Sheets
+    drawingSheet = drawingSheets.ActiveSheet
+    drawingViews = drawingSheet.Views
+    drawingView = drawingViews.ActiveView
+    drawingViewGenerativeBehavior1 = drawingView.GenerativeBehavior
+    SectionProfile = Coordinate  # 給定框選範圍點座標
+    drawingViewGenerativeBehavior1Variant = drawingViewGenerativeBehavior1
+    drawingViewGenerativeBehavior1Variant.DefinePolygonalDetailView(SectionProfile[0:], drawingViewGenerativeBehavior1)
+    drawingViewGenerativeBehavior1 = drawingView.GenerativeBehavior
+    drawingViewGenerativeBehavior1.ForceUpdate()
+    # 重新設定圖面座標
+    drawingView.X = Coordinate_X
+    drawingView.Y = Coordinate_Y
