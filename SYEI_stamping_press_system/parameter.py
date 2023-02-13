@@ -81,6 +81,7 @@ draft_X_clearence = 10
 draft_Y_clearence = 25
 # 下圖Y最小位置
 drafting_down_min_Y = 65
-
+# 焊接符號標註文字
+drafting_Welding_text = {'A-A Top': ['', ' ', 'QQ奶奶好喝到咩噗茶', '', '', '5']}
 
 # 圈碼座標

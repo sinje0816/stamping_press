@@ -308,7 +308,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                                    'FRAME12', 'FRAME13', 'FRAME14', 'FRAME15', 'FRAME16', 'FRAME17', 'FRAME18',
                                    'FRAME19', 'FRAME20', 'FRAME21', 'FRAME22', 'FRAME23', 'FRAME24', 'FRAME25',
                                    'FRAME26', 'FRAME27', 'FRAME28', 'FRAME29', 'FRAME30', 'FRAME31', 'FRAME31',
-                                   'FRAME31', 'FRAME31', 'FRAME32', 'FRAME33', 'FRAME34', 'FRAME34', 'FRAME35',
+                                   'FRAME31', 'FRAME31', 'FRAME32', 'FRAME33', 'FRAME33', 'FRAME34', 'FRAME34', 'FRAME35',
                                    'FRAME36', 'FRAME36', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME38',
                                    'FRAME39', 'FRAME40', 'FRAME41', 'FRAME42', 'FRAME43', 'FRAME44', 'FRAME45',
                                    'FRAME46', 'FRAME47', 'FRAME47', 'FRAME48', 'FRAME49', 'GIB1', 'GIB2',
@@ -555,9 +555,9 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('FRAME1.1', 'FRAME28.1', -50, 'XZ.PLANE', 0, 101)
         mprog.add_offset_assembly('GIB1.1', 'FRAME28.1', 0, 'YZ.PLANE', 1, 102)
         if i == 4:
-            mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 103)
+            mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', -par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 103)
         else:
-            mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 103)
+            mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', -par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 103)
         mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', -35, 'XZ.PLANE', 1, 104)
         mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', 130.35 + 22.5, 'YZ.PLANE', 1, 105)
         if i == 4:
@@ -668,7 +668,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # 時鐘跟FRAME20組立
         mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1', 0, 'XZ.PLANE', 0,
                                           173)
-        mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1',  37, 'YZ.PLANE', 0,
+        mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1',  33, 'YZ.PLANE', 0,
                                           174)
         mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1', -(par.H[i] - 34 - par.S[i] - par.Z[i]), 'XY.PLANE',
                                           0, 175)
@@ -735,7 +735,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # 曲軸與時鐘結合
         mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 0, 'XZ.PLANE',
                                           0, 187)
-        mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 35, 'YZ.PLANE',
+        mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 3 , 'YZ.PLANE',
                                           1, 188)
         mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 0, 'XY.PLANE',
                                           1, 189)
@@ -750,7 +750,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # 機架20結合曲軸旁圓管
         mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', 0, 'XZ.PLANE', 0, 196)
         mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', par.H[i] - par.Z[i] - par.S[i] - 34, 'XY.PLANE', 1, 197)
-        mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', 510, 'YZ.PLANE', 1, 198)
+        mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', 520.5, 'YZ.PLANE', 1, 198)
         # 大齒輪結合長棒
         mprog.add_offset_assembly('MAIN_GEAR1.1', 'JOINT1.1', 0, 'XZ.PLANE', 0, 199)
         mprog.add_offset_assembly('MAIN_GEAR1.1', 'JOINT1.1', 0, 'XY.PLANE', 1, 200)
@@ -793,6 +793,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', 220, 'XY.PLANE', 0, 226)
         mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', 145, 'XZ.PLANE', 0, 227)
         mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', -32, 'YZ.PLANE', 0, 228)
+        #2023/02/23更新 FRAME1左邊角鐵
+        mprog.add_offset_assembly('FRAME1.1', 'FRAME33.2', -140, 'XZ.PLANE', 0, 229)
+        mprog.add_offset_assembly('FRAME19.1', 'FRAME33.2', 708, 'XY.PLANE', 0, 230)
+        mprog.add_offset_assembly('FRAME10.1', 'FRAME33.2', -313.984, 'YZ.PLANE', 1, 231)
 
         # 更新
         mprog.update()
@@ -1117,6 +1121,133 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         dpc.bom_text_create()
         mprog.PDF_save(path, "detail_drawing")
         mprog.save_detail_drawing(path , "detail_drawing")
+
+        # --------焊接圖---------
+        # 隱藏機架外零件
+        for part_name in par.hide_part_name:
+            mprog.hide_show_part(part_name, 1)
+
+        # 投影
+        mprog.OPEN_Welding_diagram()
+        drafting_down_Coordinate_Position, drafting_up_Coordinate_Position, scale = draft.drafting_welding_view_parameter_calculation(
+            par.A[i], par.B[i], par.H[i], par.S[i], par.Z[i], par.T[i])
+        draft.change_Drawing_scale(1 / scale)
+        # 副程式名稱須注意是否與立體圖相符
+        draft.Front_View_Drawing('SN1-110', drafting_down_Coordinate_Position['Right View'][0],
+                                 drafting_down_Coordinate_Position['Right View'][1], scale)  # 左側試圖
+        draft.Right_View_Drawing('SN1-110', drafting_down_Coordinate_Position['Front View'][0],
+                                 drafting_down_Coordinate_Position['Front View'][1], scale)  # 前視圖
+        draft.Right_Top_View_Drawing('SN1-110', drafting_up_Coordinate_Position['Top View'][0],
+                                     drafting_up_Coordinate_Position['Top View'][1], scale)  # 上視圖
+
+        # 剖面圖座標
+        Section_Coordinate = {'A-A': [[float(0), float(-2900), float(0), float(600)], 1],
+                              'B-B': [[float(par.B[i] + 100), float(520), float(par.B[i] + 100), float(-1200)], 0],
+                              'C-C': [
+                                  [float(-195), float(-par.S[i] + 100), float(par.B[i] + 100), float(-par.S[i] + 100)],
+                                  0],
+                              'D-D': [[float(-par.A[i] / 2 - 100), float(-par.H[i] / 2), float(par.A[i] / 2 + 100),
+                                       float(-par.H[i] / 2)], 1],
+                              'E-E': [[float(-100), float(-(par.S[i] + par.Z[i]) + 100), float(par.B[i] / 3),
+                                       float(-(par.S[i] + par.Z[i]) + 100)], 0],
+                              'F-F': [[float(272), float(- 176 / 2), float(272), float(-176 * 3 / 2)], 0],
+                              'G-G': [
+                                  [float(par.B[i] + 100), float(-(par.S[i] + par.Z[i]) + 200), float(par.B[i] + 100),
+                                   float(-(par.S[i] + par.Z[i]) - 200)], 0]}
+        Section_Coordinate_title = list(Section_Coordinate.keys())
+        view_order = ['Front view', 'Right view', 'Section view A-A', 'Front view', 'Right view', 'Section view B-B',
+                      'Section view A-A']
+        for title in Section_Coordinate_title:
+            for view_name in view_order:
+                if 'Section view ' + title in drafting_up_Coordinate_Position:  # 若此元素為此字典之鍵則執行
+                    draft.Section(view_name, drafting_up_Coordinate_Position['Section view ' + title][0],
+                                  drafting_up_Coordinate_Position['Section view ' + title][1], scale,
+                                  Section_Coordinate[title][0],
+                                  Section_Coordinate[title][1], 'Section view ' + title)
+                else:
+                    draft.Section(view_name, drafting_down_Coordinate_Position['Section view ' + title][0],
+                                  drafting_down_Coordinate_Position['Section view ' + title][1], scale,
+                                  Section_Coordinate[title][0],
+                                  Section_Coordinate[title][1], 'Section view ' + title)
+                view_order.pop(0)  # 刪除串列中第一個元素
+                break
+
+        # # 裁切選定圖面範圍
+        detail_view_coordinate = {
+            'Section view D-D': [float(par.A[i] / 2), float(-270), float(-par.A[i] / 2), float(-270),
+                                 float(-par.A[i] / 2),
+                                 float(-630), float(par.A[i] / 2), float(-630)],
+            'Section view F-F': [float(-979 + 42), float(-25), float(-979 + 42), float(-290), float(-54 - 979),
+                                 float(-290),
+                                 float(-979 - 54), float(-25)],
+            'Section view G-G': [float(-par.A[i] / 2 - par.FRAME_6_7_width[i]), float(-par.S[i] - par.Z[i] + 150),
+                                 float(-par.A[i] / 2 - par.FRAME_6_7_width[i]),
+                                 float(-par.S[i] - par.Z[i] - 150), float(-par.A[i] / 2 + par.FRAME_6_7_width[i] + 170),
+                                 float(-par.S[i] - par.Z[i] - 150), float(-par.A[i] / 2 + par.FRAME_6_7_width[i] + 170),
+                                 float(-par.S[i] - par.Z[i] + 150)]}
+        detail_view_coordinate_keys = list(detail_view_coordinate.keys())
+        for coordinate_keys in detail_view_coordinate_keys:
+            if coordinate_keys == 'Section view F-F' or coordinate_keys == 'Section view D-D':
+                mprog.switch_window()
+                if coordinate_keys == 'Section view F-F':
+                    for name in par.part_name_Section_view_F_F:
+                        mprog.hide_show_part(name, 1)
+                elif coordinate_keys == 'Section view D-D':
+                    for name in par.part_name_Section_view_D_D:
+                        mprog.hide_show_part(name, 1)
+                mprog.switch_window()
+                if coordinate_keys in drafting_up_Coordinate_Position:
+                    draft.Define_Polygonal_Detail_View(coordinate_keys, detail_view_coordinate[coordinate_keys],
+                                                       drafting_up_Coordinate_Position[coordinate_keys][0],
+                                                       drafting_up_Coordinate_Position[coordinate_keys][1])
+                else:
+                    draft.Define_Polygonal_Detail_View(coordinate_keys, detail_view_coordinate[coordinate_keys],
+                                                       drafting_down_Coordinate_Position[coordinate_keys][0],
+                                                       drafting_down_Coordinate_Position[coordinate_keys][1])
+                mprog.switch_window()
+                if coordinate_keys == 'Section view F-F':
+                    for name in par.part_name_Section_view_F_F:
+                        mprog.hide_show_part(name, 0)
+                elif coordinate_keys == 'Section view D-D':
+                    for name in par.part_name_Section_view_D_D:
+                        mprog.hide_show_part(name, 0)
+                mprog.switch_window()
+            else:
+                if coordinate_keys in drafting_up_Coordinate_Position:
+                    draft.Define_Polygonal_Detail_View(coordinate_keys, detail_view_coordinate[coordinate_keys],
+                                                       drafting_up_Coordinate_Position[coordinate_keys][0],
+                                                       drafting_up_Coordinate_Position[coordinate_keys][1])
+                else:
+                    draft.Define_Polygonal_Detail_View(coordinate_keys, detail_view_coordinate[coordinate_keys],
+                                                       drafting_down_Coordinate_Position[coordinate_keys][0],
+                                                       drafting_down_Coordinate_Position[coordinate_keys][1])
+
+        # 產生折斷線
+        # 注意:折斷線若為水平線，方框四角座標須以⌈水平⌋建立；折斷線若為垂直線，方框四角座標須以⌈垂直⌋建立
+        break_line_Coordinate = {'Section view E-E': [
+            [float(0), float(par.A[i] / 6), float(par.B[i] / 3), float(par.A[i] / 6), float(0), float(-par.A[i] / 6),
+             float(par.B[i] / 3), float(-par.A[i] / 6)], 0, 1]}
+        print(break_line_Coordinate['Section view E-E'][0][0:])
+        draft.break_line('Section view E-E', break_line_Coordinate['Section view E-E'][0],
+                         break_line_Coordinate['Section view E-E'][1], break_line_Coordinate['Section view E-E'][2])
+
+        # 關閉所有剖線線所產生之虛線
+        draft.close_all_Generated_Shape()
+
+        # 產生防漏試驗之虛線
+        leakproof_broken_line = {
+            'Front view': [[float(-par.A[i] / 2 + par.FRAME_6_7_width[i] + 50), float(0),
+                            float(-par.A[i] / 2 + 50 + par.FRAME_6_7_width[i]), float(-par.S[i] / 2 - 200)], 0,
+                           'Section view H-H']}
+        draft.Section('Front view', drafting_down_Coordinate_Position['Section view A-A'][0],
+                      drafting_down_Coordinate_Position['Section view A-A'][1], scale,
+                      leakproof_broken_line['Front view'][0], leakproof_broken_line['Front view'][1],
+                      leakproof_broken_line['Front view'][2])
+        Detail_view_leak_broken_line = [float(550), float(-552), float(550), float(-583), float(978), float(-583),
+                                        float(978),
+                                        float(-552)]
+        draft.Define_Polygonal_Cipping_View('Section view H-H', Detail_view_leak_broken_line)
+        draft.selection_Search_delete('Front view', "Name='Callout (Section View).3', all")
 
 if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率
