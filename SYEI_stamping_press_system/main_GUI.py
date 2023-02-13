@@ -308,7 +308,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                                    'FRAME12', 'FRAME13', 'FRAME14', 'FRAME15', 'FRAME16', 'FRAME17', 'FRAME18',
                                    'FRAME19', 'FRAME20', 'FRAME21', 'FRAME22', 'FRAME23', 'FRAME24', 'FRAME25',
                                    'FRAME26', 'FRAME27', 'FRAME28', 'FRAME29', 'FRAME30', 'FRAME31', 'FRAME31',
-                                   'FRAME31', 'FRAME31', 'FRAME32', 'FRAME33', 'FRAME34', 'FRAME34', 'FRAME35',
+                                   'FRAME31', 'FRAME31', 'FRAME32', 'FRAME33', 'FRAME33', 'FRAME34', 'FRAME34', 'FRAME35',
                                    'FRAME36', 'FRAME36', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME38',
                                    'FRAME39', 'FRAME40', 'FRAME41', 'FRAME42', 'FRAME43', 'FRAME44', 'FRAME45',
                                    'FRAME46', 'FRAME47', 'FRAME47', 'FRAME48', 'FRAME49', 'GIB1', 'GIB2',
@@ -555,9 +555,9 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('FRAME1.1', 'FRAME28.1', -50, 'XZ.PLANE', 0, 101)
         mprog.add_offset_assembly('GIB1.1', 'FRAME28.1', 0, 'YZ.PLANE', 1, 102)
         if i == 4:
-            mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 103)
+            mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', -par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 103)
         else:
-            mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 103)
+            mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', -par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 103)
         mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', -35, 'XZ.PLANE', 1, 104)
         mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', 130.35 + 22.5, 'YZ.PLANE', 1, 105)
         if i == 4:
@@ -668,7 +668,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # 時鐘跟FRAME20組立
         mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1', 0, 'XZ.PLANE', 0,
                                           173)
-        mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1',  37, 'YZ.PLANE', 0,
+        mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1',  33, 'YZ.PLANE', 0,
                                           174)
         mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1', -(par.H[i] - 34 - par.S[i] - par.Z[i]), 'XY.PLANE',
                                           0, 175)
@@ -735,7 +735,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # 曲軸與時鐘結合
         mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 0, 'XZ.PLANE',
                                           0, 187)
-        mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 35, 'YZ.PLANE',
+        mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 3 , 'YZ.PLANE',
                                           1, 188)
         mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 0, 'XY.PLANE',
                                           1, 189)
@@ -750,7 +750,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # 機架20結合曲軸旁圓管
         mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', 0, 'XZ.PLANE', 0, 196)
         mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', par.H[i] - par.Z[i] - par.S[i] - 34, 'XY.PLANE', 1, 197)
-        mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', 510, 'YZ.PLANE', 1, 198)
+        mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', 520.5, 'YZ.PLANE', 1, 198)
         # 大齒輪結合長棒
         mprog.add_offset_assembly('MAIN_GEAR1.1', 'JOINT1.1', 0, 'XZ.PLANE', 0, 199)
         mprog.add_offset_assembly('MAIN_GEAR1.1', 'JOINT1.1', 0, 'XY.PLANE', 1, 200)
@@ -793,6 +793,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', 220, 'XY.PLANE', 0, 226)
         mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', 145, 'XZ.PLANE', 0, 227)
         mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', -32, 'YZ.PLANE', 0, 228)
+        #2023/02/23更新 FRAME1左邊角鐵
+        mprog.add_offset_assembly('FRAME1.1', 'FRAME33.2', -140, 'XZ.PLANE', 0, 229)
+        mprog.add_offset_assembly('FRAME19.1', 'FRAME33.2', 708, 'XY.PLANE', 0, 230)
+        mprog.add_offset_assembly('FRAME10.1', 'FRAME33.2', -313.984, 'YZ.PLANE', 1, 231)
 
         # 更新
         mprog.update()

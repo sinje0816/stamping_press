@@ -1,6 +1,7 @@
 import zipfile
 import main_program as mprog
 import parameter as par
+import drafting as draft
 
 import win32com.client as win32
 # BOM_list = {'1': ['01 ', '50', '1680x2910', 'SS400', '1', '1628.6', '如圖'],
@@ -86,8 +87,19 @@ import win32com.client as win32
 #
 # # for i in BOM_list_name:
 # #     create_center_line(960, 102 + 12 * int(i), 1169, 102 + 12 * int(i))
-i = 9
-if i == 4:
-    mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', -par.pocket_1_upper_hole[i] + 80 + 3, 'XY.PLANE', 1, 94)
-else:
-    mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', -par.pocket_1_upper_hole[i] + 80 + 3, 'XY.PLANE', 1, 94)
+i = 6
+# FRAME2右邊角鐵
+l = 1
+mprog.OPEN_Drawing()
+if l == 1:
+            drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale = draft.drafting_parameter_calculation(par.A[i], par.B[i], par.H[i], par.T[i])  # 計算爆炸圖比例及位置
+else :
+            drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale = draft.drafting_parameter_calculation(
+                par.A_15[i], par.B_15[i], par.H[i], par.T[i])  # 計算爆炸圖比例及位置
+
+draft.Front_View_Drawing(SN1-160, drafting_Coordinate_Position['Front View'][0],
+                                 drafting_Coordinate_Position['Front View'][1], scale)
+draft.Left_View_Drawing(SN1-160, drafting_Coordinate_Position['Left View'][0],
+                                drafting_Coordinate_Position['Left View'][1], scale)
+draft.Right_View_Drawing(SN1-160, drafting_Coordinate_Position['Right View'][0],
+                                 drafting_Coordinate_Position['Right View'][1], scale)
