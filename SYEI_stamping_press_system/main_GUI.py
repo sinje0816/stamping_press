@@ -1185,11 +1185,11 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                 par.A_15[i], par.B_15[i], par.H[i], par.S[i], par.Z[i], par.T[i])
         draft.change_Drawing_scale(1 / scale)
         # 副程式名稱須注意是否與立體圖相符
-        draft.Front_View_Drawing('SN1-110', drafting_down_Coordinate_Position['Right View'][0],
+        draft.Front_View_Drawing(type, drafting_down_Coordinate_Position['Right View'][0],
                                  drafting_down_Coordinate_Position['Right View'][1], scale)  # 左側試圖
-        draft.Right_View_Drawing('SN1-110', drafting_down_Coordinate_Position['Front View'][0],
+        draft.Right_View_Drawing(type, drafting_down_Coordinate_Position['Front View'][0],
                                  drafting_down_Coordinate_Position['Front View'][1], scale)  # 前視圖
-        draft.Right_Top_View_Drawing('SN1-110', drafting_up_Coordinate_Position['Top View'][0],
+        draft.Right_Top_View_Drawing(type, drafting_up_Coordinate_Position['Top View'][0],
                                      drafting_up_Coordinate_Position['Top View'][1], scale)  # 上視圖
         if l == 1:
             # 剖面圖座標
