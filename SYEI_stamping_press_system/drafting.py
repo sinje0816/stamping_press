@@ -402,7 +402,7 @@ def add_dimension_to_view(view_name, item_name, catDimDistance, x_value_1, y_val
     drawingdim.MoveValue(x_value, y_value, 2, 0)  # 標註偏移(X, Y, 選擇偏移部位, 角度尺寸)
 
 
-def symbol_of_weld(view, WeldingSymbol, lead_X, lead_Y, WeldingTail):  # 焊接符號
+def symbol_of_weld(view, WeldingSymbol, lead_X, lead_Y, WeldingTail, parameter):  # 焊接符號
     catapp = win32.Dispatch("CATIA.Application")
     partdoc = catapp.ActiveDocument
     catapp = win32.Dispatch('CATIA.Application')
@@ -418,24 +418,26 @@ def symbol_of_weld(view, WeldingSymbol, lead_X, lead_Y, WeldingTail):  # 焊接�
         MyWelding.X = lead_X + 100 * math.cos(math.radians(60))
         MyWelding.angle = 0
     else:
-        MyWelding.X = lead_X - 100 * math.cos(math.radians(60))
-        MyWelding.angle = 180
+        MyWelding.X = lead_X - 300
+        MyWelding.angle = 0
     if lead_Y >= 0:
-        MyWelding.Y = lead_Y + 100 * math.sin(math.radians(60))
+        MyWelding.Y = lead_Y + 300 * math.cos(math.radians(60)) / math.sin(math.radians(60))
     else:
-        MyWelding.Y = lead_Y - 100 * math.sin(math.radians(60))
+        MyWelding.Y = lead_Y - 300 * math.cos(math.radians(60)) / math.sin(math.radians(60))
     MyWelding.WeldingTail = WeldingTail  # 是否開啟尾叉 0 or 1
 
     for i in range(1, 14):
-        print(i)
-        drawingWelding1 = MyWelding
-        # drawingWelding1 = drawingWeldings1.Item('Welding Symbol.1')
-        catWeldingFieldOne = i
-        textRange1 = drawingWelding1.GetTextRange(catWeldingFieldOne)
-        char1 = textRange1.Text
-        textRange1.Text = i
-        TextProperties = drawingWelding1.TextProperties
-        TextProperties.Update()
+        try:
+            drawingWelding1 = MyWelding
+            # drawingWelding1 = drawingWeldings1.Item('Welding Symbol.1')
+            catWeldingFieldOne = i
+            textRange1 = drawingWelding1.GetTextRange(catWeldingFieldOne)
+            char1 = textRange1.Text
+            textRange1.Text = parameter[i]
+            TextProperties = drawingWelding1.TextProperties
+            TextProperties.Update()
+        except:
+            pass
 
 
 def background():
@@ -641,7 +643,7 @@ def move_view_Position(view_name, X_Position, Y_Position):
     drawingView.X = X_Position
     drawingView.Y = Y_Position
 
-def Define_Polygonal_Cipping_View(view_name, Coordinate, hide_show):
+def Define_Polygonal_Cipping_View(view_name, Coordinate):
     catapp = win32.Dispatch('CATIA.Application')
     drawingDocument = catapp.ActiveDocument
     drawingSheets = drawingDocument.Sheets

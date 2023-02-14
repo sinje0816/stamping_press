@@ -4,18 +4,18 @@ import drafting as draft
 import parameter as par
 
 i = 5
-# #
-# # mprog.switch_window()
-# #
-# # # 隱藏機架外零件
-# # for part_name in par.hide_part_name:
-# #     mprog.hide_show_part(part_name, 1)
+
+# mprog.switch_window()
+#
+# # 隱藏機架外零件
+# for part_name in par.hide_part_name:
+#     mprog.hide_show_part(part_name, 1)
 #
 # # 投影
-# # mprog.switch_window()
-drafting_down_Coordinate_Position, drafting_up_Coordinate_Position, scale = draft.drafting_welding_view_parameter_calculation(
-    par.A[i], par.B[i], par.H[i], par.S[i], par.Z[i], par.T[i])
-draft.change_Drawing_scale(1 / scale)
+# mprog.switch_window()
+# drafting_down_Coordinate_Position, drafting_up_Coordinate_Position, scale = draft.drafting_welding_view_parameter_calculation(
+#     par.A[i], par.B[i], par.H[i], par.S[i], par.Z[i], par.T[i])
+# draft.change_Drawing_scale(1 / scale)
 # # 副程式名稱須注意是否與立體圖相符
 # draft.Front_View_Drawing('SN1-110', drafting_down_Coordinate_Position['Right View'][0],
 #                          drafting_down_Coordinate_Position['Right View'][1], scale)  # 左側試圖
@@ -125,10 +125,10 @@ draft.change_Drawing_scale(1 / scale)
 # Detail_view_leak_broken_line = [float(550), float(-552), float(550), float(-583), float(978), float(-583), float(978),
 #                                 float(-552)]
 # draft.Define_Polygonal_Cipping_View('Section view H-H', Detail_view_leak_broken_line)
-draft.selection_Search_delete('Front view', "Name='Callout (Section View).3', all")
+# draft.selection_Search_delete('Front view', "Name='Callout (Section View).3', all")
 
-# # 焊接符號生成
-# draft.symbol_of_weld('Front view', 3, -par.A[i] / 2 + 50 + 105, par.H[i] - par.S[i] - par.Z[i] - 32, 1)
+# 焊接符號生成
+draft.symbol_of_weld('Front view', 3, -par.A[i] / 2 + 50 + 105, par.H[i] - par.S[i] - par.Z[i] - 32, 1, par.drafting_Welding_text['A-A Top'])
 
-# # 圈碼圖生成
-# draft.balloons('Front view', '1', -par.A[i] / 2 - 100 * par.cos30, (par.H[i] - par.S[i] - par.Z[i]) * par.sin30 / 2, -par.A[i] / 2, (par.H[i] - par.S[i] - par.Z[i]) / 2, -par.A[i] / 2 - 100 * par.cos30)
+# 圈碼圖生成
+draft.balloons('Front view', '1', -par.A[i] / 2 - 100 * par.cos30, (par.H[i] - par.S[i] - par.Z[i]) * par.sin30 / 2, -par.A[i] / 2, (par.H[i] - par.S[i] - par.Z[i]) / 2, -par.A[i] / 2 - 100 * par.cos30)
