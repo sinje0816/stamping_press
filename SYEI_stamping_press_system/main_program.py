@@ -370,6 +370,15 @@ def OPEN_detail_drawing():
     documents = catapp.Documents
     drawingDocument = documents.Open(fp.system_root + fp.part + fp.detail_drawing)
 
+def OPEN_Welding_diagram():
+    catapp = win32.Dispatch('CATIA.Application')
+    documents = catapp.Documents
+    drawingDocument = documents.Open(fp.system_root + fp.part + fp.Welding_diagram)
+
+def Close_all_window():
+    catapp = win32.Dispatch('CATIA.Application')
+
+
 #零件圖存檔
 def save_detail_drawing(path, file_name):
     catapp = win32.Dispatch('CATIA.Application')

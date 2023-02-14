@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="零件母檔更新及組立問題變更&#10;測試檔更改">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_6__05_01__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_6_下午_05_01_[Changes]/shelved.patch" beforeDir="false" />
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="零件母檔更新及組立變更&#10;變數調用方式統一">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/GUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/TEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/TEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +96,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="drafting_part" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="drafting" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Stamping press" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -109,7 +108,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/drafting_part.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/drafting.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -163,10 +162,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main_GUI" />
+        <item itemvalue="Python.drafting" />
         <item itemvalue="Python.TEST_BOM" />
         <item itemvalue="Python.parameter" />
         <item itemvalue="Python.TEST (1)" />
-        <item itemvalue="Python.drafting_part" />
       </list>
     </recent_temporary>
   </component>
@@ -178,6 +177,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668131959961</updated>
+    </task>
+    <task id="LOCAL-00010" summary="新增test機架零件變數變換和機架組和更新">
+      <created>1668516189353</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1668516189353</updated>
     </task>
     <task id="LOCAL-00011" summary="新增test機架零件變數變換和機架組和更新">
       <created>1668519506744</created>
@@ -515,14 +521,7 @@
       <option name="project" value="LOCAL" />
       <updated>1675993596851</updated>
     </task>
-    <task id="LOCAL-00059" summary="零件母檔更新及組立問題變更&#10;測試檔更改">
-      <created>1676272487469</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1676272487469</updated>
-    </task>
-    <option name="localTasksCounter" value="60" />
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -538,6 +537,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="修改FRAME32結合距離及尺寸、氣壓缸結合距離" />
     <MESSAGE value="移除行程部分" />
     <MESSAGE value="SP移除閉合部分&#10;main_GUI新增判斷條件" />
     <MESSAGE value="新增結合零件&#10;新增Product存檔" />
@@ -562,8 +562,7 @@
     <MESSAGE value="完成剖面圖投影&#10;局部放大圖Section view F-F需先切換視窗關閉零件再進行投影" />
     <MESSAGE value="將py檔更換位置" />
     <MESSAGE value="py檔更換位置" />
-    <MESSAGE value="零件母檔更新及組立問題變更&#10;測試檔更改" />
-    <option name="LAST_COMMIT_MESSAGE" value="零件母檔更新及組立問題變更&#10;測試檔更改" />
+    <option name="LAST_COMMIT_MESSAGE" value="py檔更換位置" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -572,11 +571,6 @@
           <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/drafting.py</url>
           <line>675</line>
           <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py</url>
-          <line>814</line>
-          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

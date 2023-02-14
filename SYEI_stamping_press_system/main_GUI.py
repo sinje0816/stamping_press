@@ -1059,48 +1059,90 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
         # (將3D圖面尺寸轉換為2D尺寸, 將圖面x座標尺寸轉為R再將R轉為Y)
         # 引線點座標
-        point_position = {'2': [-CLOCK_Offset_value * cos45,
-                                -CLOCK_Offset_value * cos45 * sin30 / cos30],
-                          '3': [(-1250) * cos45,
-                                (-1250) * cos45 * sin30 / cos30],
-                          '4': [(-BOLSTER1_Offset_value - par.R[i] / 2) * cos45,
-                                (-BOLSTER1_Offset_value - par.R[i] / 2) * cos45 * sin30 / cos30],
-                          '5': [(-BOLSTER1_Offset_value - par.R[i]) * cos45,
-                                (-BOLSTER1_Offset_value - par.R[i]) * cos45 * sin30 / cos30 - par.S[i] + par.T[i]],
-                          '6': [(GIB_Offset_value - (par.R[i] + 145) / 2) * cos45,
-                                (GIB_Offset_value - (par.R[i] + 145) / 2) * cos45 * sin30 / cos30]}
-        # 圈圈座標
-        circle_position = {
-            '2': ['2', point_position['2'][0] - FRAME_TOP_LEFT_X, point_position['2'][1] + FRAME_TOP_LEFT_X_1],
-            '3': ['3', point_position['3'][0] - FRAME_TOP_LEFT_X, point_position['3'][1] + FRAME_TOP_LEFT_X_1],
-            '4': ['4', point_position['4'][0] - FRAME_TOP_LEFT_X, point_position['4'][1] + FRAME_TOP_LEFT_X_1],
-            '5': ['5', point_position['5'][0] * 2 * 0.9 - FRAME_TOP_LEFT_X,
-                  point_position['5'][0] * 2 * 0.9 * sin30 / cos30 + FRAME_TOP_LEFT_X_1],
-            '6': ['6', point_position['6'][0] - FRAME_TOP_LEFT_X, point_position['6'][1] + FRAME_TOP_LEFT_X_1]}
+        if l == 1:
+            point_position = {'2': [-CLOCK_Offset_value * cos45,
+                                    -CLOCK_Offset_value * cos45 * sin30 / cos30],
+                              '3': [(-1250) * cos45,
+                                    (-1250) * cos45 * sin30 / cos30],
+                              '4': [(-BOLSTER1_Offset_value - par.R[i] / 2) * cos45,
+                                    (-BOLSTER1_Offset_value - par.R[i] / 2) * cos45 * sin30 / cos30],
+                              '5': [(-BOLSTER1_Offset_value - par.R[i]) * cos45,
+                                    (-BOLSTER1_Offset_value - par.R[i]) * cos45 * sin30 / cos30 - par.S[i] + par.T[i]],
+                              '6': [(GIB_Offset_value - (par.R[i] + 145) / 2) * cos45,
+                                    (GIB_Offset_value - (par.R[i] + 145) / 2) * cos45 * sin30 / cos30]}
+            # 圈圈座標`
+            circle_position = {
+                '2': ['2', point_position['2'][0] - FRAME_TOP_LEFT_X, point_position['2'][1] + FRAME_TOP_LEFT_X_1],
+                '3': ['3', point_position['3'][0] - FRAME_TOP_LEFT_X, point_position['3'][1] + FRAME_TOP_LEFT_X_1],
+                '4': ['4', point_position['4'][0] - FRAME_TOP_LEFT_X, point_position['4'][1] + FRAME_TOP_LEFT_X_1],
+                '5': ['5', point_position['5'][0] * 2 * 0.9 - FRAME_TOP_LEFT_X,
+                      point_position['5'][0] * 2 * 0.9 * sin30 / cos30 + FRAME_TOP_LEFT_X_1],
+                '6': ['6', point_position['6'][0] - FRAME_TOP_LEFT_X, point_position['6'][1] + FRAME_TOP_LEFT_X_1]}
 
-        draft.balloons('Isometric view1', circle_position['6'][0], circle_position['6'][1], circle_position['6'][2],
-                       point_position['6'][0], point_position['6'][1], circle_position['6'][1])
-        draft.balloons('Isometric view1', circle_position['2'][0], circle_position['2'][1], circle_position['2'][2],
-                       point_position['2'][0], point_position['2'][1], circle_position['2'][1])
-        draft.balloons('Isometric view1', circle_position['4'][0], circle_position['4'][1], circle_position['4'][2],
-                       point_position['4'][0], point_position['4'][1], circle_position['4'][1])
-        draft.balloons('Isometric view1', circle_position['5'][0], circle_position['5'][1], circle_position['5'][2],
-                       point_position['5'][0], point_position['5'][1], circle_position['5'][1])
-        draft.balloons('Isometric view1', circle_position['3'][0], circle_position['3'][1], circle_position['3'][2],
-                       point_position['3'][0], point_position['3'][1], circle_position['3'][1])
+            draft.balloons('Isometric view1', circle_position['6'][0], circle_position['6'][1], circle_position['6'][2],
+                           point_position['6'][0], point_position['6'][1], circle_position['6'][1])
+            draft.balloons('Isometric view1', circle_position['2'][0], circle_position['2'][1], circle_position['2'][2],
+                           point_position['2'][0], point_position['2'][1], circle_position['2'][1])
+            draft.balloons('Isometric view1', circle_position['4'][0], circle_position['4'][1], circle_position['4'][2],
+                           point_position['4'][0], point_position['4'][1], circle_position['4'][1])
+            draft.balloons('Isometric view1', circle_position['5'][0], circle_position['5'][1], circle_position['5'][2],
+                           point_position['5'][0], point_position['5'][1], circle_position['5'][1])
+            draft.balloons('Isometric view1', circle_position['3'][0], circle_position['3'][1], circle_position['3'][2],
+                           point_position['3'][0], point_position['3'][1], circle_position['3'][1])
 
-        # ------------中心線-------------
-        draft.create_center_line('Isometric view1', 0, 0, -CLOCK_Pointer * cos45,
-                                 -CLOCK_Pointer * cos45 * sin30 / cos30)
-        draft.create_center_line('Isometric view1', -BLOSTER1_center_Offset_Value * cos45,
-                                 -BLOSTER1_center_Offset_Value * cos45 * sin30 / cos30,
-                                 -BLOSTER1_center_Offset_Value * cos45, -par.S[i] - par.Z[i] - par.T[i])
-        draft.create_center_line('Isometric view2', -742.5 * cos45, -742.5 * cos45 * sin30 / cos30,
-                                 -JOINT_ALL_offset_value * cos45, -JOINT_ALL_offset_value * cos45 * sin30 / cos30)
-        draft.create_center_line('Isometric view2', -742.5 * cos45, -742.5 * cos45 * sin30 / cos30 - 300,
-                                 -(Fixture_offset_value + par.B[i]) * cos45,
-                                 -(Fixture_offset_value + par.B[i]) * cos45 * sin30 / cos30 - 300)
+            # ------------中心線-------------
+            draft.create_center_line('Isometric view1', 0, 0, -CLOCK_Pointer * cos45,
+                                     -CLOCK_Pointer * cos45 * sin30 / cos30)
+            draft.create_center_line('Isometric view1', -BLOSTER1_center_Offset_Value * cos45,
+                                     -BLOSTER1_center_Offset_Value * cos45 * sin30 / cos30,
+                                     -BLOSTER1_center_Offset_Value * cos45, -par.S[i] - par.Z[i] - par.T[i])
+            draft.create_center_line('Isometric view2', -742.5 * cos45, -742.5 * cos45 * sin30 / cos30,
+                                     -JOINT_ALL_offset_value * cos45, -JOINT_ALL_offset_value * cos45 * sin30 / cos30)
+            draft.create_center_line('Isometric view2', -742.5 * cos45, -742.5 * cos45 * sin30 / cos30 - 300,
+                                     -(Fixture_offset_value + par.B[i]) * cos45,
+                                     -(Fixture_offset_value + par.B[i]) * cos45 * sin30 / cos30 - 300)
+        else:
+            point_position = {'2': [-CLOCK_Offset_value * cos45,
+                                    -CLOCK_Offset_value * cos45 * sin30 / cos30],
+                              '3': [(-1250) * cos45,
+                                    (-1250) * cos45 * sin30 / cos30],
+                              '4': [(-BOLSTER1_Offset_value - par.R_15[i] / 2) * cos45,
+                                    (-BOLSTER1_Offset_value - par.R_15[i] / 2) * cos45 * sin30 / cos30],
+                              '5': [(-BOLSTER1_Offset_value - par.R_15[i]) * cos45,
+                                    (-BOLSTER1_Offset_value - par.R_15[i]) * cos45 * sin30 / cos30 - par.S[i] + par.T[i]],
+                              '6': [(GIB_Offset_value - (par.R_15[i] + 145) / 2) * cos45,
+                                    (GIB_Offset_value - (par.R_15[i] + 145) / 2) * cos45 * sin30 / cos30]}
+            # 圈圈座標`
+            circle_position = {
+                '2': ['2', point_position['2'][0] - FRAME_TOP_LEFT_X, point_position['2'][1] + FRAME_TOP_LEFT_X_1],
+                '3': ['3', point_position['3'][0] - FRAME_TOP_LEFT_X, point_position['3'][1] + FRAME_TOP_LEFT_X_1],
+                '4': ['4', point_position['4'][0] - FRAME_TOP_LEFT_X, point_position['4'][1] + FRAME_TOP_LEFT_X_1],
+                '5': ['5', point_position['5'][0] * 2 * 0.9 - FRAME_TOP_LEFT_X,
+                      point_position['5'][0] * 2 * 0.9 * sin30 / cos30 + FRAME_TOP_LEFT_X_1],
+                '6': ['6', point_position['6'][0] - FRAME_TOP_LEFT_X, point_position['6'][1] + FRAME_TOP_LEFT_X_1]}
 
+            draft.balloons('Isometric view1', circle_position['6'][0], circle_position['6'][1], circle_position['6'][2],
+                           point_position['6'][0], point_position['6'][1], circle_position['6'][1])
+            draft.balloons('Isometric view1', circle_position['2'][0], circle_position['2'][1], circle_position['2'][2],
+                           point_position['2'][0], point_position['2'][1], circle_position['2'][1])
+            draft.balloons('Isometric view1', circle_position['4'][0], circle_position['4'][1], circle_position['4'][2],
+                           point_position['4'][0], point_position['4'][1], circle_position['4'][1])
+            draft.balloons('Isometric view1', circle_position['5'][0], circle_position['5'][1], circle_position['5'][2],
+                           point_position['5'][0], point_position['5'][1], circle_position['5'][1])
+            draft.balloons('Isometric view1', circle_position['3'][0], circle_position['3'][1], circle_position['3'][2],
+                           point_position['3'][0], point_position['3'][1], circle_position['3'][1])
+
+            # ------------中心線-------------
+            draft.create_center_line('Isometric view1', 0, 0, -CLOCK_Pointer * cos45,
+                                     -CLOCK_Pointer * cos45 * sin30 / cos30)
+            draft.create_center_line('Isometric view1', -BLOSTER1_center_Offset_Value * cos45,
+                                     -BLOSTER1_center_Offset_Value * cos45 * sin30 / cos30,
+                                     -BLOSTER1_center_Offset_Value * cos45, -par.S[i] - par.Z[i] - par.T[i])
+            draft.create_center_line('Isometric view2', -742.5 * cos45, -742.5 * cos45 * sin30 / cos30,
+                                     -JOINT_ALL_offset_value * cos45, -JOINT_ALL_offset_value * cos45 * sin30 / cos30)
+            draft.create_center_line('Isometric view2', -742.5 * cos45, -742.5 * cos45 * sin30 / cos30 - 300,
+                                     -(Fixture_offset_value + par.B_15[i]) * cos45,
+                                     -(Fixture_offset_value + par.B_15[i]) * cos45 * sin30 / cos30 - 300)
         Left_view_list = []
         for x in Left_view_list:
             Left_view_list.append(x)
@@ -1112,7 +1154,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         view_name = ['Isometric view1', 'Isometric view2', 'Front view', 'Left view', 'Right view']
         for x in view_name:
             draft.close_broken_line_block_diagram(x)
-
 
         #--------------存檔------------------
         mprog.PDF_save(path, "Exploded_Views")
@@ -1127,6 +1168,261 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         dpc.bom_text_create()
         mprog.PDF_save(path, "detail_drawing")
         mprog.save_detail_drawing(path , "detail_drawing")
+
+        # --------焊接圖---------
+        # 隱藏機架外零件
+        for part_name in par.hide_part_name:
+            mprog.hide_show_part(part_name, 1)
+
+        # 投影
+        mprog.switch_window()
+        mprog.OPEN_Welding_diagram()
+        if l == 1:
+            drafting_down_Coordinate_Position, drafting_up_Coordinate_Position, scale = draft.drafting_welding_view_parameter_calculation(
+                par.A[i], par.B[i], par.H[i], par.S[i], par.Z[i], par.T[i])
+        else:
+            drafting_down_Coordinate_Position, drafting_up_Coordinate_Position, scale = draft.drafting_welding_view_parameter_calculation(
+                par.A_15[i], par.B_15[i], par.H[i], par.S[i], par.Z[i], par.T[i])
+        draft.change_Drawing_scale(1 / scale)
+        # 副程式名稱須注意是否與立體圖相符
+        draft.Front_View_Drawing('SN1-110', drafting_down_Coordinate_Position['Right View'][0],
+                                 drafting_down_Coordinate_Position['Right View'][1], scale)  # 左側試圖
+        draft.Right_View_Drawing('SN1-110', drafting_down_Coordinate_Position['Front View'][0],
+                                 drafting_down_Coordinate_Position['Front View'][1], scale)  # 前視圖
+        draft.Right_Top_View_Drawing('SN1-110', drafting_up_Coordinate_Position['Top View'][0],
+                                     drafting_up_Coordinate_Position['Top View'][1], scale)  # 上視圖
+        if l == 1:
+            # 剖面圖座標
+            Section_Coordinate = {'A-A': [[float(0), float(-2900), float(0), float(600)], 1],
+                                  'B-B': [[float(par.B[i] + 100), float(520), float(par.B[i] + 100), float(-1200)], 0],
+                                  'C-C': [
+                                      [float(-195), float(-par.S[i] + 100), float(par.B[i] + 100), float(-par.S[i] + 100)],
+                                      0],
+                                  'D-D': [[float(-par.A[i] / 2 - 100), float(-par.H[i] / 2), float(par.A[i] / 2 + 100),
+                                           float(-par.H[i] / 2)], 1],
+                                  'E-E': [[float(-100), float(-(par.S[i] + par.Z[i]) + 100), float(par.B[i] / 3),
+                                           float(-(par.S[i] + par.Z[i]) + 100)], 0],
+                                  'F-F': [[float(272), float(- 176 / 2), float(272), float(-176 * 3 / 2)], 0],
+                                  'G-G': [
+                                      [float(par.B[i] + 100), float(-(par.S[i] + par.Z[i]) + 200), float(par.B[i] + 100),
+                                       float(-(par.S[i] + par.Z[i]) - 200)], 0]}
+            Section_Coordinate_title = list(Section_Coordinate.keys())
+            view_order = ['Front view', 'Right view', 'Section view A-A', 'Front view', 'Right view', 'Section view B-B',
+                          'Section view A-A']
+            for title in Section_Coordinate_title:
+                for view_name in view_order:
+                    if 'Section view ' + title in drafting_up_Coordinate_Position:  # 若此元素為此字典之鍵則執行
+                        draft.Section(view_name, drafting_up_Coordinate_Position['Section view ' + title][0],
+                                      drafting_up_Coordinate_Position['Section view ' + title][1], scale,
+                                      Section_Coordinate[title][0],
+                                      Section_Coordinate[title][1], 'Section view ' + title)
+                    else:
+                        draft.Section(view_name, drafting_down_Coordinate_Position['Section view ' + title][0],
+                                      drafting_down_Coordinate_Position['Section view ' + title][1], scale,
+                                      Section_Coordinate[title][0],
+                                      Section_Coordinate[title][1], 'Section view ' + title)
+                    view_order.pop(0)  # 刪除串列中第一個元素
+                    break
+
+            # # 裁切選定圖面範圍
+            detail_view_coordinate = {
+                'Section view D-D': [float(par.A[i] / 2), float(-270), float(-par.A[i] / 2), float(-270),
+                                     float(-par.A[i] / 2),
+                                     float(-630), float(par.A[i] / 2), float(-630)],
+                'Section view F-F': [float(-979 + 42), float(-25), float(-979 + 42), float(-290), float(-54 - 979),
+                                     float(-290),
+                                     float(-979 - 54), float(-25)],
+                'Section view G-G': [float(-par.A[i] / 2 - par.FRAME_6_7_width[i]), float(-par.S[i] - par.Z[i] + 150),
+                                     float(-par.A[i] / 2 - par.FRAME_6_7_width[i]),
+                                     float(-par.S[i] - par.Z[i] - 150), float(-par.A[i] / 2 + par.FRAME_6_7_width[i] + 170),
+                                     float(-par.S[i] - par.Z[i] - 150), float(-par.A[i] / 2 + par.FRAME_6_7_width[i] + 170),
+                                     float(-par.S[i] - par.Z[i] + 150)]}
+            detail_view_coordinate_keys = list(detail_view_coordinate.keys())
+            for coordinate_keys in detail_view_coordinate_keys:
+                if coordinate_keys == 'Section view F-F' or coordinate_keys == 'Section view D-D':
+                    mprog.switch_window()
+                    if coordinate_keys == 'Section view F-F':
+                        for name in par.part_name_Section_view_F_F:
+                            mprog.hide_show_part(name, 1)
+                    elif coordinate_keys == 'Section view D-D':
+                        for name in par.part_name_Section_view_D_D:
+                            mprog.hide_show_part(name, 1)
+                    mprog.switch_window()
+                    if coordinate_keys in drafting_up_Coordinate_Position:
+                        draft.Define_Polygonal_Detail_View(coordinate_keys, detail_view_coordinate[coordinate_keys],
+                                                           drafting_up_Coordinate_Position[coordinate_keys][0],
+                                                           drafting_up_Coordinate_Position[coordinate_keys][1])
+                    else:
+                        draft.Define_Polygonal_Detail_View(coordinate_keys, detail_view_coordinate[coordinate_keys],
+                                                           drafting_down_Coordinate_Position[coordinate_keys][0],
+                                                           drafting_down_Coordinate_Position[coordinate_keys][1])
+                    mprog.switch_window()
+                    if coordinate_keys == 'Section view F-F':
+                        for name in par.part_name_Section_view_F_F:
+                            mprog.hide_show_part(name, 0)
+                    elif coordinate_keys == 'Section view D-D':
+                        for name in par.part_name_Section_view_D_D:
+                            mprog.hide_show_part(name, 0)
+                    mprog.switch_window()
+                else:
+                    if coordinate_keys in drafting_up_Coordinate_Position:
+                        draft.Define_Polygonal_Detail_View(coordinate_keys, detail_view_coordinate[coordinate_keys],
+                                                           drafting_up_Coordinate_Position[coordinate_keys][0],
+                                                           drafting_up_Coordinate_Position[coordinate_keys][1])
+                    else:
+                        draft.Define_Polygonal_Detail_View(coordinate_keys, detail_view_coordinate[coordinate_keys],
+                                                           drafting_down_Coordinate_Position[coordinate_keys][0],
+                                                           drafting_down_Coordinate_Position[coordinate_keys][1])
+
+            # 產生折斷線
+            # 注意:折斷線若為水平線，方框四角座標須以⌈水平⌋建立；折斷線若為垂直線，方框四角座標須以⌈垂直⌋建立
+            break_line_Coordinate = {'Section view E-E': [
+                [float(0), float(par.A[i] / 6), float(par.B[i] / 3), float(par.A[i] / 6), float(0), float(-par.A[i] / 6),
+                 float(par.B[i] / 3), float(-par.A[i] / 6)], 0, 1]}
+            print(break_line_Coordinate['Section view E-E'][0][0:])
+            draft.break_line('Section view E-E', break_line_Coordinate['Section view E-E'][0],
+                             break_line_Coordinate['Section view E-E'][1], break_line_Coordinate['Section view E-E'][2])
+
+            # 關閉所有剖線線所產生之虛線
+            draft.close_all_Generated_Shape()
+
+            # 產生防漏試驗之虛線
+            leakproof_broken_line = {
+                'Front view': [[float(-par.A[i] / 2 + par.FRAME_6_7_width[i] + 50), float(0),
+                                float(-par.A[i] / 2 + 50 + par.FRAME_6_7_width[i]), float(-par.S[i] / 2 - 200)], 0,
+                               'Section view H-H']}
+            draft.Section('Front view', drafting_down_Coordinate_Position['Section view A-A'][0],
+                          drafting_down_Coordinate_Position['Section view A-A'][1], scale,
+                          leakproof_broken_line['Front view'][0], leakproof_broken_line['Front view'][1],
+                          leakproof_broken_line['Front view'][2])
+            Detail_view_leak_broken_line = [float(550), float(-552), float(550), float(-583), float(978), float(-583),
+                                            float(978),
+                                            float(-552)]
+            draft.Define_Polygonal_Cipping_View('Section view H-H', Detail_view_leak_broken_line)
+            draft.selection_Search_delete('Front view', "Name='Callout (Section View).3', all")
+
+            # 焊接符號生成
+            draft.symbol_of_weld('Front view', 3, -par.A[i] / 2 + 50 + 105, par.H[i] - par.S[i] - par.Z[i] - 32, 1,
+                                 par.drafting_Welding_text['A-A Top'])
+        else:
+            # 剖面圖座標
+            Section_Coordinate = {'A-A': [[float(0), float(-2900), float(0), float(600)], 1],
+                                  'B-B': [[float(par.B_15[i] + 100), float(520), float(par.B_15[i] + 100), float(-1200)], 0],
+                                  'C-C': [
+                                      [float(-195), float(-par.S[i] + 100), float(par.B_15[i] + 100),
+                                       float(-par.S[i] + 100)],
+                                      0],
+                                  'D-D': [[float(-par.A_15[i] / 2 - 100), float(-par.H[i] / 2), float(par.A_15[i] / 2 + 100),
+                                           float(-par.H[i] / 2)], 1],
+                                  'E-E': [[float(-100), float(-(par.S[i] + par.Z[i]) + 100), float(par.B_15[i] / 3),
+                                           float(-(par.S[i] + par.Z[i]) + 100)], 0],
+                                  'F-F': [[float(272), float(- 176 / 2), float(272), float(-176 * 3 / 2)], 0],
+                                  'G-G': [
+                                      [float(par.B_15[i] + 100), float(-(par.S[i] + par.Z[i]) + 200),
+                                       float(par.B_15[i] + 100),
+                                       float(-(par.S[i] + par.Z[i]) - 200)], 0]}
+            Section_Coordinate_title = list(Section_Coordinate.keys())
+            view_order = ['Front view', 'Right view', 'Section view A-A', 'Front view', 'Right view',
+                          'Section view B-B',
+                          'Section view A-A']
+            for title in Section_Coordinate_title:
+                for view_name in view_order:
+                    if 'Section view ' + title in drafting_up_Coordinate_Position:  # 若此元素為此字典之鍵則執行
+                        draft.Section(view_name, drafting_up_Coordinate_Position['Section view ' + title][0],
+                                      drafting_up_Coordinate_Position['Section view ' + title][1], scale,
+                                      Section_Coordinate[title][0],
+                                      Section_Coordinate[title][1], 'Section view ' + title)
+                    else:
+                        draft.Section(view_name, drafting_down_Coordinate_Position['Section view ' + title][0],
+                                      drafting_down_Coordinate_Position['Section view ' + title][1], scale,
+                                      Section_Coordinate[title][0],
+                                      Section_Coordinate[title][1], 'Section view ' + title)
+                    view_order.pop(0)  # 刪除串列中第一個元素
+                    break
+
+            # # 裁切選定圖面範圍
+            detail_view_coordinate = {
+                'Section view D-D': [float(par.A_15[i] / 2), float(-270), float(-par.A_15[i] / 2), float(-270),
+                                     float(-par.A_15[i] / 2),
+                                     float(-630), float(par.A_15[i] / 2), float(-630)],
+                'Section view F-F': [float(-979 + 42), float(-25), float(-979 + 42), float(-290), float(-54 - 979),
+                                     float(-290),
+                                     float(-979 - 54), float(-25)],
+                'Section view G-G': [float(-par.A_15[i] / 2 - par.FRAME_6_7_width[i]), float(-par.S[i] - par.Z[i] + 150),
+                                     float(-par.A_15[i] / 2 - par.FRAME_6_7_width[i]),
+                                     float(-par.S[i] - par.Z[i] - 150),
+                                     float(-par.A_15[i] / 2 + par.FRAME_6_7_width[i] + 170),
+                                     float(-par.S[i] - par.Z[i] - 150),
+                                     float(-par.A_15[i] / 2 + par.FRAME_6_7_width[i] + 170),
+                                     float(-par.S[i] - par.Z[i] + 150)]}
+            detail_view_coordinate_keys = list(detail_view_coordinate.keys())
+            for coordinate_keys in detail_view_coordinate_keys:
+                if coordinate_keys == 'Section view F-F' or coordinate_keys == 'Section view D-D':
+                    mprog.switch_window()
+                    if coordinate_keys == 'Section view F-F':
+                        for name in par.part_name_Section_view_F_F:
+                            mprog.hide_show_part(name, 1)
+                    elif coordinate_keys == 'Section view D-D':
+                        for name in par.part_name_Section_view_D_D:
+                            mprog.hide_show_part(name, 1)
+                    mprog.switch_window()
+                    if coordinate_keys in drafting_up_Coordinate_Position:
+                        draft.Define_Polygonal_Detail_View(coordinate_keys, detail_view_coordinate[coordinate_keys],
+                                                           drafting_up_Coordinate_Position[coordinate_keys][0],
+                                                           drafting_up_Coordinate_Position[coordinate_keys][1])
+                    else:
+                        draft.Define_Polygonal_Detail_View(coordinate_keys, detail_view_coordinate[coordinate_keys],
+                                                           drafting_down_Coordinate_Position[coordinate_keys][0],
+                                                           drafting_down_Coordinate_Position[coordinate_keys][1])
+                    mprog.switch_window()
+                    if coordinate_keys == 'Section view F-F':
+                        for name in par.part_name_Section_view_F_F:
+                            mprog.hide_show_part(name, 0)
+                    elif coordinate_keys == 'Section view D-D':
+                        for name in par.part_name_Section_view_D_D:
+                            mprog.hide_show_part(name, 0)
+                    mprog.switch_window()
+                else:
+                    if coordinate_keys in drafting_up_Coordinate_Position:
+                        draft.Define_Polygonal_Detail_View(coordinate_keys, detail_view_coordinate[coordinate_keys],
+                                                           drafting_up_Coordinate_Position[coordinate_keys][0],
+                                                           drafting_up_Coordinate_Position[coordinate_keys][1])
+                    else:
+                        draft.Define_Polygonal_Detail_View(coordinate_keys, detail_view_coordinate[coordinate_keys],
+                                                           drafting_down_Coordinate_Position[coordinate_keys][0],
+                                                           drafting_down_Coordinate_Position[coordinate_keys][1])
+
+            # 產生折斷線
+            # 注意:折斷線若為水平線，方框四角座標須以⌈水平⌋建立；折斷線若為垂直線，方框四角座標須以⌈垂直⌋建立
+            break_line_Coordinate = {'Section view E-E': [
+                [float(0), float(par.A_15[i] / 6), float(par.B_15[i] / 3), float(par.A_15[i] / 6), float(0),
+                 float(-par.A_15[i] / 6),
+                 float(par.B_15[i] / 3), float(-par.A_15[i] / 6)], 0, 1]}
+            print(break_line_Coordinate['Section view E-E'][0][0:])
+            draft.break_line('Section view E-E', break_line_Coordinate['Section view E-E'][0],
+                             break_line_Coordinate['Section view E-E'][1], break_line_Coordinate['Section view E-E'][2])
+
+            # 關閉所有剖線線所產生之虛線
+            draft.close_all_Generated_Shape()
+
+            # 產生防漏試驗之虛線
+            leakproof_broken_line = {
+                'Front view': [[float(-par.A_15[i] / 2 + par.FRAME_6_7_width[i] + 50), float(0),
+                                float(-par.A_15[i] / 2 + 50 + par.FRAME_6_7_width[i]), float(-par.S[i] / 2 - 200)], 0,
+                               'Section view H-H']}
+            draft.Section('Front view', drafting_down_Coordinate_Position['Section view A-A'][0],
+                          drafting_down_Coordinate_Position['Section view A-A'][1], scale,
+                          leakproof_broken_line['Front view'][0], leakproof_broken_line['Front view'][1],
+                          leakproof_broken_line['Front view'][2])
+            Detail_view_leak_broken_line = [float(550), float(-552), float(550), float(-583), float(978), float(-583),
+                                            float(978),
+                                            float(-552)]
+            draft.Define_Polygonal_Cipping_View('Section view H-H', Detail_view_leak_broken_line)
+            draft.selection_Search_delete('Front view', "Name='Callout (Section View).3', all")
+
+            # 焊接符號生成
+            draft.symbol_of_weld('Front view', 3, -par.A_15[i] / 2 + 50 + 105, par.H[i] - par.S[i] - par.Z[i] - 32, 1,
+                                 par.drafting_Welding_text['A-A Top'])
 
 if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率
