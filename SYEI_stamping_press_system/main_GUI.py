@@ -398,9 +398,15 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             mprog.add_offset_assembly('FRAME11.1', 'FRAME3.1', par.R[i] / 2, 'XZ.PLANE', 0, 25)
         mprog.add_offset_assembly('BOLSTER1.1', 'FRAME11.1', -par.T[i], 'XY.PLANE', 1, 26)
         if l == 0:
-            mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth_15[i], 'YZ.PLANE', 1, 27)
+            if i == 4:
+                mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth_15[i] + 80, 'YZ.PLANE', 1, 27)
+            else :
+                mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth_15[i], 'YZ.PLANE', 1, 27)
         else:
-            mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth[i], 'YZ.PLANE', 1, 27)
+            if i == 4:
+                mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth[i] + 80, 'YZ.PLANE', 1, 27)
+            else :
+                mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth[i], 'YZ.PLANE', 1, 27)
         if l == 0:
             mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -par.R_15[i] / 2 - 90, 'XZ.PLANE', 0, 28)
         else:
