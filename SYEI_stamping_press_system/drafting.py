@@ -464,7 +464,7 @@ def drafting_welding_view_parameter_calculation(width, height, depth, S, Z, T): 
         Z_T_scale = (Z - T) * scale
         T_scale = T * scale
         # ------------下圖總範圍-------------
-        drafting_down_area_X_range = w_scale * 2 + d_scale * 2 + par.draft_X_clearence * 5
+        drafting_down_area_X_range = w_scale * 2 * 1.5 + d_scale * 2 + par.draft_X_clearence * 15
         drafting_down_area_Y_range = h_scale + par.draft_Y_clearence * 2
         drafting_up_max_range_center_Y = (821 - par.drafting_view_min_X) * 2 / 3 + par.drafting_view_min_Y
         # ------------上圖總範圍-------------

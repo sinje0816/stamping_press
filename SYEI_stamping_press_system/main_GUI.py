@@ -1183,17 +1183,20 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         else:
             drafting_down_Coordinate_Position, drafting_up_Coordinate_Position, scale = draft.drafting_welding_view_parameter_calculation(
                 par.A_15[i], par.B_15[i], par.H[i], par.S[i], par.Z[i], par.T[i])
+
         draft.change_Drawing_scale(1 / scale)
         # 副程式名稱須注意是否與立體圖相符
-        draft.Front_View_Drawing('SN1-110', drafting_down_Coordinate_Position['Right View'][0],
+        draft.Front_View_Drawing(type, drafting_down_Coordinate_Position['Right View'][0],
                                  drafting_down_Coordinate_Position['Right View'][1], scale)  # 左側試圖
-        draft.Right_View_Drawing('SN1-110', drafting_down_Coordinate_Position['Front View'][0],
+        draft.Right_View_Drawing(type, drafting_down_Coordinate_Position['Front View'][0],
                                  drafting_down_Coordinate_Position['Front View'][1], scale)  # 前視圖
-        draft.Right_Top_View_Drawing('SN1-110', drafting_up_Coordinate_Position['Top View'][0],
+        draft.Right_Top_View_Drawing(type, drafting_up_Coordinate_Position['Top View'][0],
                                      drafting_up_Coordinate_Position['Top View'][1], scale)  # 上視圖
         if l == 1:
             # 剖面圖座標
-            Section_Coordinate = {'A-A': [[float(0), float(-2900), float(0), float(600)], 1],
+            Section_Coordinate = {'A-A': [
+                [float(0), float(par.H[i] - par.S[i] - par.Z[i] + 150), float(0), float(-par.S[i] - par.Z[i] - 150)],
+                0],
                                   'B-B': [[float(par.B[i] + 100), float(520), float(par.B[i] + 100), float(-1200)], 0],
                                   'C-C': [
                                       [float(-195), float(-par.S[i] + 100), float(par.B[i] + 100), float(-par.S[i] + 100)],
@@ -1288,25 +1291,26 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
             # 產生防漏試驗之虛線
             leakproof_broken_line = {
-                'Front view': [[float(-par.A[i] / 2 + par.FRAME_6_7_width[i] + 50), float(0),
-                                float(-par.A[i] / 2 + 50 + par.FRAME_6_7_width[i]), float(-par.S[i] / 2 - 200)], 0,
+                'Front view': [[float(-par.R[i] / 2 - 20), float(0),
+                                float(-par.R[i] / 2 - 20), float(-par.S[i] / 2 - 200)], 0,
                                'Section view H-H']}
             draft.Section('Front view', drafting_down_Coordinate_Position['Section view A-A'][0],
                           drafting_down_Coordinate_Position['Section view A-A'][1], scale,
                           leakproof_broken_line['Front view'][0], leakproof_broken_line['Front view'][1],
                           leakproof_broken_line['Front view'][2])
-            Detail_view_leak_broken_line = [float(550), float(-552), float(550), float(-583), float(978), float(-583),
-                                            float(978),
-                                            float(-552)]
+            Detail_view_leak_broken_line = [float(550), float(par.FRAME_10_11_center_to_Y_1[i]), float(550), float(par.FRAME_10_11_center_to_Y_2[i]), float(978), float(par.FRAME_10_11_center_to_Y_2[i]),
+                                            float(978), float(par.FRAME_10_11_center_to_Y_1[i])]
             draft.Define_Polygonal_Cipping_View('Section view H-H', Detail_view_leak_broken_line)
             draft.selection_Search_delete('Front view', "Name='Callout (Section View).3', all")
 
             # 焊接符號生成
-            draft.symbol_of_weld('Front view', 3, -par.A[i] / 2 + 50 + 105, par.H[i] - par.S[i] - par.Z[i] - 32, 1,
+            draft.symbol_of_weld('Front view', 3, -par.R[i] / 2 - 140, par.H[i] - par.S[i] - par.Z[i] - 32, 1,
                                  par.drafting_Welding_text['A-A Top'])
         else:
             # 剖面圖座標
-            Section_Coordinate = {'A-A': [[float(0), float(-2900), float(0), float(600)], 1],
+            Section_Coordinate = {'A-A': [
+                [float(0), float(par.H[i] - par.S[i] - par.Z[i] + 150), float(0), float(-par.S[i] - par.Z[i] - 150)],
+                0],
                                   'B-B': [[float(par.B_15[i] + 100), float(520), float(par.B_15[i] + 100), float(-1200)], 0],
                                   'C-C': [
                                       [float(-195), float(-par.S[i] + 100), float(par.B_15[i] + 100),
@@ -1407,21 +1411,21 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
             # 產生防漏試驗之虛線
             leakproof_broken_line = {
-                'Front view': [[float(-par.A_15[i] / 2 + par.FRAME_6_7_width[i] + 50), float(0),
-                                float(-par.A_15[i] / 2 + 50 + par.FRAME_6_7_width[i]), float(-par.S[i] / 2 - 200)], 0,
+                'Front view': [[float(-par.R_15[i] / 2 - 20), float(0),
+                                float(-par.R_15[i] / 2 - 20), float(-par.S[i] / 2 - 200)], 0,
                                'Section view H-H']}
             draft.Section('Front view', drafting_down_Coordinate_Position['Section view A-A'][0],
                           drafting_down_Coordinate_Position['Section view A-A'][1], scale,
                           leakproof_broken_line['Front view'][0], leakproof_broken_line['Front view'][1],
                           leakproof_broken_line['Front view'][2])
-            Detail_view_leak_broken_line = [float(550), float(-552), float(550), float(-583), float(978), float(-583),
-                                            float(978),
-                                            float(-552)]
+            Detail_view_leak_broken_line = [float(550), float(par.FRAME_10_11_center_to_Y_1[i]), float(550), float(par.FRAME_10_11_center_to_Y_2[i]), float(978), float(par.FRAME_10_11_center_to_Y_2[i]),
+                                                    float(978),
+                                                    float(par.FRAME_10_11_center_to_Y_1[i])]
             draft.Define_Polygonal_Cipping_View('Section view H-H', Detail_view_leak_broken_line)
             draft.selection_Search_delete('Front view', "Name='Callout (Section View).3', all")
 
             # 焊接符號生成
-            draft.symbol_of_weld('Front view', 3, -par.A_15[i] / 2 + 50 + 105, par.H[i] - par.S[i] - par.Z[i] - 32, 1,
+            draft.symbol_of_weld('Front view', 3, -par.R_15[i] / 2 - 140, par.H[i] - par.S[i] - par.Z[i] - 32, 1,
                                  par.drafting_Welding_text['A-A Top'])
 
 if __name__ == "__main__":
