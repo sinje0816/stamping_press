@@ -17,7 +17,7 @@ isometric_view_center_X = 270
 isometric_view_center_Y = 600
 
 
-def drafting_parameter_calculation(width, height, depth, T):  # 電子型錄WHD, 比例
+def drafting_parameter_calculation(l, width, height, depth, T):  # 電子型錄WHD, 比例
     scale_p = 1
     drafting_area_centerX = draft_area_center_initX  # 前視圖中心
     drafting_area_centerY = draft_area_center_initY
@@ -34,7 +34,7 @@ def drafting_parameter_calculation(width, height, depth, T):  # 電子型錄WHD,
         h_scale = height * scale  # height after scaling
         d_scale = depth * scale
         drafting_area_X_range = w_scale + d_scale * 2 + draft_X_clearence * 6
-        drafting_area_Y_range = h_scale + draft_Y_clearence * 2
+        drafting_area_Y_range = h_scale + draft_Y_clearence * 6
         drafting_center_Y = (drafting_view_max_Y / 2 + drafting_view_min_Y)
         # ---------isometric view-------------
         drafting_isometric_X_range = w_scale * math.cos(math.radians(45)) * 3 + d_scale * math.cos(
@@ -53,15 +53,21 @@ def drafting_parameter_calculation(width, height, depth, T):  # 電子型錄WHD,
             scale_p += 1
         else:
             break
-    # ------------位置---------------
+    # -------------位置--------------
     # ------------三視圖-------------
     while True:
         drafting_area_X_range = w_scale + d_scale * 2 + draft_X_clearence * 6
         drafting_area_Y_range = h_scale + draft_Y_clearence * 2
-        drafting_area_extremum = [drafting_area_centerX - drafting_area_X_range / 2,  # X-min[0]
-                                  drafting_area_centerX + drafting_area_X_range / 2,  # X-max[1]
-                                  drafting_area_centerY - drafting_area_Y_range / 2 - h_scale * 1 / 3,  # Y-min[2]
-                                  drafting_area_centerY + drafting_area_Y_range / 2]  # Y-max[3]
+        if l == 0:
+            drafting_area_extremum = [drafting_area_centerX - drafting_area_X_range / 2,  # X-min[0]
+                                      drafting_area_centerX + drafting_area_X_range / 2,  # X-max[1]
+                                      drafting_area_centerY - drafting_area_Y_range / 2,  # Y-min[2]
+                                      drafting_area_centerY + drafting_area_Y_range / 2]  # Y-max[3]
+        else:
+            drafting_area_extremum = [drafting_area_centerX - drafting_area_X_range / 2,  # X-min[0]
+                                      drafting_area_centerX + drafting_area_X_range / 2,  # X-max[1]
+                                      drafting_area_centerY - drafting_area_Y_range / 2 - h_scale * 1 / 3,  # Y-min[2]
+                                      drafting_area_centerY + drafting_area_Y_range / 2]  # Y-max[3]
         drafting_center_Y = drafting_view_max_Y / 2 + drafting_view_min_Y
         drafting_root_X = drafting_view_min_X + 5  # 反迴圈框_X
         drafting_root_Y = drafting_view_min_Y + 5
@@ -111,18 +117,13 @@ def drafting_parameter_calculation(width, height, depth, T):  # 電子型錄WHD,
                                     'Right View': (
                                     drafting_area_centerX + w_scale / 2 + d_scale / 2, drafting_area_centerY)}
     # 等角圖位置
-    drafting_isometric_Coordinate_Position = {'exploded_1': (
-    drafting_area_centerX + 25 - (drafting_isometric_area_extremum[1] - drafting_isometric_area_extremum[0]) / 5,
-    drafting_view_max_Y - (drafting_isometric_area_extremum[3] - drafting_isometric_area_extremum[2]) * 2 / 3),
-                                              'exploded_2': (drafting_area_centerX + 50 + (
-                                                          drafting_isometric_area_extremum[1] -
-                                                          drafting_isometric_area_extremum[0]) / 5,
-                                                             drafting_view_max_Y - (
-                                                                         drafting_isometric_area_extremum[3] -
-                                                                         drafting_isometric_area_extremum[
-                                                                             2]) * 2 / 3 - 50)}
+    drafting_isometric_Coordinate_Position = {'exploded_1':
+                                                  (drafting_area_centerX + 25 - (drafting_isometric_area_extremum[1] - drafting_isometric_area_extremum[0]) / 5,
+                                                   drafting_view_max_Y - (drafting_isometric_area_extremum[3] - drafting_isometric_area_extremum[2]) * 2 / 3),
+                                              'exploded_2':
+                                                  (drafting_area_centerX + 50 + (drafting_isometric_area_extremum[1] - drafting_isometric_area_extremum[0]) / 5,
+                                                   drafting_view_max_Y - (drafting_isometric_area_extremum[3] - drafting_isometric_area_extremum[2]) * 2 / 3 - 50)}
     return drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale_p
-
 
 def change_Drawing_scale(value):
     catapp = win32.Dispatch('CATIA.Application')

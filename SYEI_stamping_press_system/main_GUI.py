@@ -897,10 +897,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.update()  # 更新
         mprog.OPEN_Drawing()
         if l == 1:
-            drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale = draft.drafting_parameter_calculation(par.A[i], par.B[i], par.H[i], par.T[i])  # 計算爆炸圖比例及位置
+            drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale = draft.drafting_parameter_calculation(1, par.A[i], par.B[i], par.H[i], par.T[i])  # 計算爆炸圖比例及位置
         else :
             drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale = draft.drafting_parameter_calculation(
-                par.A_15[i], par.B_15[i], par.H[i], par.T[i])  # 計算爆炸圖比例及位置
+                0, par.A_15[i], par.B_15[i], par.H[i], par.T[i])  # 計算爆炸圖比例及位置
 
         draft.change_Drawing_scale(1 / scale)  # 圖面比例
         draft.exploded_Drawing_1(type, drafting_isometric_Coordinate_Position['exploded_1'][0],
@@ -1151,9 +1151,9 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             draft.add_dimension_to_view('Left view', str(x), Left_view_list[x][0], Left_view_list[x][1], Left_view_list[x][2],
                                         Left_view_list[x][3], Left_view_list[x][4], Left_view_list[x][5])
         # -------------關閉虛框---------------
-        view_name = ['Isometric view1', 'Isometric view2', 'Front view', 'Left view', 'Right view']
-        for x in view_name:
-            draft.close_broken_line_block_diagram(x)
+        # view_name = ['Isometric view1', 'Isometric view2', 'Front view', 'Left view', 'Right view']
+        # for x in view_name:
+        #     draft.close_broken_line_block_diagram(x)
 
         #--------------存檔------------------
         mprog.PDF_save(path, "Exploded_Views")
@@ -1163,11 +1163,11 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # dp.Parts_drawing_generation(i , j , path)
 
         #-----------零件圖生成--------
-        mprog.OPEN_detail_drawing()
-        dp.Parts_drawing_generation(i, l, part_path)
-        dpc.bom_text_create()
-        mprog.PDF_save(path, "detail_drawing")
-        mprog.save_detail_drawing(path , "detail_drawing")
+        # mprog.OPEN_detail_drawing()
+        # dp.Parts_drawing_generation(i, l, part_path)
+        # dpc.bom_text_create()
+        # mprog.PDF_save(path, "detail_drawing")
+        # mprog.save_detail_drawing(path , "detail_drawing")
 
         # --------焊接圖---------
         # 隱藏機架外零件
@@ -1197,7 +1197,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             Section_Coordinate = {'A-A': [
                 [float(0), float(par.H[i] - par.S[i] - par.Z[i] + 150), float(0), float(-par.S[i] - par.Z[i] - 150)],
                 0],
-                                  'B-B': [[float(par.B[i] + 100), float(520), float(par.B[i] + 100), float(-1200)], 0],
+                                  'B-B': [[float(par.B[i] + 100), float(par.H[i] - par.S[i] - par.Z[i] + 150), float(par.B[i] + 100), float(-par.S[i] / 2 - 150)], 0],
                                   'C-C': [
                                       [float(-195), float(-par.S[i] + 100), float(par.B[i] + 100), float(-par.S[i] + 100)],
                                       0],
@@ -1427,6 +1427,8 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             # 焊接符號生成
             draft.symbol_of_weld('Front view', 3, -par.R_15[i] / 2 - 140, par.H[i] - par.S[i] - par.Z[i] - 32, 1,
                                  par.drafting_Welding_text['A-A Top'])
+        mprog.PDF_save(path, "Welding_diagram")
+        mprog.save_detail_drawing(path, "Welding_diagram")
 
 if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率
