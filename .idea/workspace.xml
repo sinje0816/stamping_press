@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="零件母檔更新及組立問題變更&#10;測試檔更改">
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="新建高度浮動值alpha組立程式">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/TEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/TEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/parameter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME1.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME1.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME10.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME10.CATPart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME11.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME11.CATPart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME2.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME2.CATPart" afterDir="false" />
     </list>
@@ -166,10 +166,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main_GUI" />
+        <item itemvalue="Python.TEST (1)" />
         <item itemvalue="Python.TEST_BOM" />
         <item itemvalue="Python.GUI" />
         <item itemvalue="Python.parameter" />
-        <item itemvalue="Python.TEST (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -575,26 +575,6 @@
           <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/drafting.py</url>
           <line>676</line>
           <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py</url>
-          <line>846</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py</url>
-          <line>1211</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py</url>
-          <line>1214</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py</url>
-          <line>1210</line>
-          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -4,8 +4,7 @@ import datetime, time
 import file_path as fp
 import zipfile as zf
 
-
-# 開啟CATIA(由學長提供之函式)
+# 開啟CATIA
 class set_CATIA_workbench_env:
     def __init__(self):
         # self.catapp = win32.Dispatch("CATIA.Application")

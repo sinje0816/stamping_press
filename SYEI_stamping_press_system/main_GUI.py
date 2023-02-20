@@ -62,11 +62,13 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         height = str(self.ui.comboBox_3.currentText())
         type = str(self.ui.comboBox_4.currentText())
         hole = str(self.ui.comboBox_5.currentText())
-        print(type, l, height, hole)
+        alpha = str(self.ui.lineEdit.text())
+        print(type, l, height, hole , alpha)
         self.create_dir(type)
+        self.aplha = int(alpha)
         self.l, self.h, self.i, self.j = self.choos(l, height, type, hole)
-        self.change_dir(self.l, self.h, self.i, self.j, self.part_path)
-        self.ass_(self.l, self.h, self.i, self.j, self.path , self.part_path)
+        self.change_dir(self.l, self.h, self.i, self.j, self.aplha, self.part_path)
+        self.ass_(self.l, self.h, self.i, self.j, self.path, self.part_path, self.aplha)
 
     def choos(self, l, height, type, hole):
         # 確認型號"輸入型號"
@@ -147,6 +149,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             j = 1
         elif hole == "模墊型平板":
             j = 2
+
         return h, i, l, j
 
     def add_item_for_comboBox(self):
@@ -166,10 +169,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         self.path = path
         self.part_path = part_path
 
-    def change_dir(self, h, i, l, j, path):
+    def change_dir(self, h, i, l, j, alpha, path):
+        print(alpha)
         # 開啟CATIA
         env = mprog.set_CATIA_workbench_env()
-        alpha = -10
         # 匯入零件檔
         file_name_list = ['BOLSTER1', 'BOLSTER2', 'BOLSTER3', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3', 'FRAME4',
                           'FRAME5', 'FRAME6', 'FRAME7', 'FRAME8', 'FRAME9', 'FRAME10', 'FRAME11', 'FRAME12', 'FRAME13',
@@ -185,7 +188,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # 開啟零件檔更改變數後儲存並關閉
         for name in file_name_list:
             mprog.import_part(fp.system_root + fp.part, name)
-
             if i == 4:
                 if name == 'SLIDE_UNIT_All':
                     mprog.axis_system()
@@ -314,11 +316,11 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     else:
                         mprog.save_file_part(path, name)
 
-    def ass_(self, h, i, l, j, path, part_path):
+    def ass_(self, h, i, l, j, path, part_path, alpha):
+        print(alpha)
         type = str(self.ui.comboBox_4.currentText())  # 沖床噸數類型
         # 開啟新組合檔
         mprog.assembly_create()
-        alpha = -10
 
         # 匯入待組合零件檔
         file_Assembly_name_list = ['BOLSTER1', 'BOLSTER2', 'BOLSTER3', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3',
@@ -1129,15 +1131,15 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                 '6': ['6', point_position['6'][0] - FRAME_TOP_LEFT_X, point_position['6'][1] + FRAME_TOP_LEFT_X_1]}
 
             draft.balloons('Isometric view1', circle_position['6'][0], circle_position['6'][1], circle_position['6'][2],
-                           point_position['6'][0], point_position['6'][1], circle_position['6'][1])
+                           point_position['6'][0], point_position['6'][1])
             draft.balloons('Isometric view1', circle_position['2'][0], circle_position['2'][1], circle_position['2'][2],
-                           point_position['2'][0], point_position['2'][1], circle_position['2'][1])
+                           point_position['2'][0], point_position['2'][1])
             draft.balloons('Isometric view1', circle_position['4'][0], circle_position['4'][1], circle_position['4'][2],
-                           point_position['4'][0], point_position['4'][1], circle_position['4'][1])
+                           point_position['4'][0], point_position['4'][1])
             draft.balloons('Isometric view1', circle_position['5'][0], circle_position['5'][1], circle_position['5'][2],
-                           point_position['5'][0], point_position['5'][1], circle_position['5'][1])
+                           point_position['5'][0], point_position['5'][1])
             draft.balloons('Isometric view1', circle_position['3'][0], circle_position['3'][1], circle_position['3'][2],
-                           point_position['3'][0], point_position['3'][1], circle_position['3'][1])
+                           point_position['3'][0], point_position['3'][1])
 
             # ------------中心線-------------
             draft.create_center_line('Isometric view1', 0, 0, -CLOCK_Pointer * cos45,
@@ -1171,15 +1173,15 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                 '6': ['6', point_position['6'][0] - FRAME_TOP_LEFT_X, point_position['6'][1] + FRAME_TOP_LEFT_X_1]}
 
             draft.balloons('Isometric view1', circle_position['6'][0], circle_position['6'][1], circle_position['6'][2],
-                           point_position['6'][0], point_position['6'][1], circle_position['6'][1])
+                           point_position['6'][0], point_position['6'][1])
             draft.balloons('Isometric view1', circle_position['2'][0], circle_position['2'][1], circle_position['2'][2],
-                           point_position['2'][0], point_position['2'][1], circle_position['2'][1])
+                           point_position['2'][0], point_position['2'][1])
             draft.balloons('Isometric view1', circle_position['4'][0], circle_position['4'][1], circle_position['4'][2],
-                           point_position['4'][0], point_position['4'][1], circle_position['4'][1])
+                           point_position['4'][0], point_position['4'][1])
             draft.balloons('Isometric view1', circle_position['5'][0], circle_position['5'][1], circle_position['5'][2],
-                           point_position['5'][0], point_position['5'][1], circle_position['5'][1])
+                           point_position['5'][0], point_position['5'][1])
             draft.balloons('Isometric view1', circle_position['3'][0], circle_position['3'][1], circle_position['3'][2],
-                           point_position['3'][0], point_position['3'][1], circle_position['3'][1])
+                           point_position['3'][0], point_position['3'][1])
 
             # ------------中心線-------------
             draft.create_center_line('Isometric view1', 0, 0, -CLOCK_Pointer * cos45,
@@ -1211,12 +1213,12 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         #-------------
         # dp.Parts_drawing_generation(i , j , path)
 
-        #-----------零件圖生成--------
-        # mprog.OPEN_detail_drawing()
-        # dp.Parts_drawing_generation(i, l, part_path)
-        # dpc.bom_text_create()
-        # mprog.PDF_save(path, "detail_drawing")
-        # mprog.save_detail_drawing(path , "detail_drawing")
+        # -----------零件圖生成--------
+        mprog.OPEN_detail_drawing()
+        dp.Parts_drawing_generation(i, l, part_path)
+        dpc.bom_text_create()
+        mprog.PDF_save(path, "detail_drawing")
+        mprog.save_detail_drawing(path , "detail_drawing")
 
         # --------焊接圖---------
         # 隱藏機架外零件
@@ -1351,10 +1353,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                                             float(978), float(par.FRAME_10_11_center_to_Y_1[i])]
             draft.Define_Polygonal_Cipping_View('Section view H-H', Detail_view_leak_broken_line)
             draft.selection_Search_delete('Front view', "Name='Callout (Section View).3', all")
-
-            # 焊接符號生成
-            draft.symbol_of_weld('Front view', 3, -par.R[i] / 2 - 140, par.H[i] - par.S[i] - par.Z[i] - 32, 1,
-                                 par.drafting_Welding_text['A-A Top'])
         else:
             # 剖面圖座標
             Section_Coordinate = {'A-A': [
@@ -1468,16 +1466,31 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                           leakproof_broken_line['Front view'][0], leakproof_broken_line['Front view'][1],
                           leakproof_broken_line['Front view'][2])
             Detail_view_leak_broken_line = [float(550), float(par.FRAME_10_11_center_to_Y_1[i]), float(550), float(par.FRAME_10_11_center_to_Y_2[i]), float(978), float(par.FRAME_10_11_center_to_Y_2[i]),
-                                                    float(978),
-                                                    float(par.FRAME_10_11_center_to_Y_1[i])]
+                                                    float(978), float(par.FRAME_10_11_center_to_Y_1[i])]
             draft.Define_Polygonal_Cipping_View('Section view H-H', Detail_view_leak_broken_line)
             draft.selection_Search_delete('Front view', "Name='Callout (Section View).3', all")
 
-            # 焊接符號生成
-            draft.symbol_of_weld('Front view', 3, -par.R_15[i] / 2 - 140, par.H[i] - par.S[i] - par.Z[i] - 32, 1,
-                                 par.drafting_Welding_text['A-A Top'])
+        # 焊接符號生成
+        if l == 0:
+            draft.symbol_of_weld('Front view', 3, -par.R_15[i] / 2 - 140, par.H[i] - par.S[i] - par.Z[i] - 32 + alpha, 1,
+                             par.drafting_Welding_text['A-A Top'])
+        else:
+            draft.symbol_of_weld('Front view', 3, -par.R[i] / 2 - 140, par.H[i] - par.S[i] - par.Z[i] - 32 + alpha,
+                                 1, par.drafting_Welding_text['A-A Top'])
+
+        # 圈碼圖生成
+        if l == 1:
+            draft.balloons('Front view', '1', -100 - (par.H[i] - par.S[i] - par.Z[i] - 32 - alpha) * par.cos30 / par.sin30,
+                           (par.H[i] - par.S[i] - par.Z[i] - 32 - alpha) / 2, -par.R[i] / 2 - 140, 0)
+        else:
+            draft.balloons('Front view', '1',
+                           -100 - (par.H[i] - par.S[i] - par.Z[i] - 32 - alpha) * par.cos30 / par.sin30,
+                           (par.H[i] - par.S[i] - par.Z[i] - 32 - alpha) / 2, -par.R_15[i] / 2 - 140, 0)
+        # 存檔關閉
         mprog.PDF_save(path, "Welding_diagram")
         mprog.save_detail_drawing(path, "Welding_diagram")
+
+        #恢復隱藏零配件
         for part_name in par.hide_part_name:
             mprog.hide_show_part(part_name, 0)
 

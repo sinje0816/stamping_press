@@ -309,7 +309,7 @@ def coordinate():
     catDrwSelLb = catDrwSel
 
 # 圈碼圖
-def balloons(view, content, circle_position_1, circle_position_2, point_position_1, point_position_2, leader_line_length):
+def balloons(view, content, circle_position_1, circle_position_2, point_position_1, point_position_2):
     catapp = win32.Dispatch("CATIA.Application")
     partdoc = catapp.ActiveDocument
     catapp = win32.Dispatch('CATIA.Application')
@@ -327,7 +327,7 @@ def balloons(view, content, circle_position_1, circle_position_2, point_position
     # 引線點標註位置
     DrawLeader_DrawTexts_balloons = DrawText.Leaders.Add(point_position_1, point_position_2)  # 圓點位置
     DrawLeader_DrawTexts_balloons.AllAround = 0
-    DrawLeader_DrawTexts_balloons.ModifyPoint(0, leader_line_length, 0)  # 選擇引線點 -> (0, 1, 2)並調整座標位置
+    DrawLeader_DrawTexts_balloons.ModifyPoint(0, circle_position_1, 0)  # 選擇引線點 -> (0, 1, 2)並調整座標位置
     DrawLeader_DrawTexts_balloons.HeadSymbol = 20  # 引號標點類型
 
 # 爆炸圖中心線
