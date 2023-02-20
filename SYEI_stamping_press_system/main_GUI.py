@@ -62,10 +62,12 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         height = str(self.ui.comboBox_3.currentText())
         type = str(self.ui.comboBox_4.currentText())
         hole = str(self.ui.comboBox_5.currentText())
-        print(type, l, height, hole)
+        alpha = str(self.ui.lineEdit.text())
+        print(type, l, height, hole , alpha)
         self.create_dir(type)
+        self.aplha = alpha
         self.l, self.h, self.i, self.j = self.choos(l, height, type, hole)
-        self.change_dir(self.l, self.h, self.i, self.j, self.part_path)
+        self.change_dir(self.l, self.h, self.i, self.j, self.aplha , self.part_path)
         self.ass_(self.l, self.h, self.i, self.j, self.path , self.part_path)
 
     def choos(self, l, height, type, hole):
@@ -147,6 +149,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             j = 1
         elif hole == "模墊型平板":
             j = 2
+
         return h, i, l, j
 
     def add_item_for_comboBox(self):
@@ -166,10 +169,9 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         self.path = path
         self.part_path = part_path
 
-    def change_dir(self, h, i, l, j, path):
+    def change_dir(self, h, i, l, j, alpha , path):
         # 開啟CATIA
         env = mprog.set_CATIA_workbench_env()
-        alpha = -10
         # 匯入零件檔
         file_name_list = ['BOLSTER1', 'BOLSTER2', 'BOLSTER3', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3', 'FRAME4',
                           'FRAME5', 'FRAME6', 'FRAME7', 'FRAME8', 'FRAME9', 'FRAME10', 'FRAME11', 'FRAME12', 'FRAME13',
