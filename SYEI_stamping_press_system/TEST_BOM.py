@@ -87,19 +87,44 @@ import win32com.client as win32
 #
 # # for i in BOM_list_name:
 # #     create_center_line(960, 102 + 12 * int(i), 1169, 102 + 12 * int(i))
-i = 6
-# FRAME2右邊角鐵
-l = 1
-mprog.OPEN_Drawing()
-if l == 1:
-            drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale = draft.drafting_parameter_calculation(par.A[i], par.B[i], par.H[i], par.T[i])  # 計算爆炸圖比例及位置
-else :
-            drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale = draft.drafting_parameter_calculation(
-                par.A_15[i], par.B_15[i], par.H[i], par.T[i])  # 計算爆炸圖比例及位置
+i = 4
+# mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1', -(par.H[i] - 34 - par.S[i] - par.Z[i] -80), 'XY.PLANE',
+#                                           0, 175)
+# #更改一
+if i == 4:
+    mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1', -(par.H[i] - 34 - par.S[i] - par.Z[i] - 80), 'XY.PLANE',
+                                      0, 175)
+else:
+    mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1', -(par.H[i] - 34 - par.S[i] - par.Z[i]), 'XY.PLANE',
+                                      0, 175)
 
-draft.Front_View_Drawing(SN1-160, drafting_Coordinate_Position['Front View'][0],
-                                 drafting_Coordinate_Position['Front View'][1], scale)
-draft.Left_View_Drawing(SN1-160, drafting_Coordinate_Position['Left View'][0],
-                                drafting_Coordinate_Position['Left View'][1], scale)
-draft.Right_View_Drawing(SN1-160, drafting_Coordinate_Position['Right View'][0],
-                                 drafting_Coordinate_Position['Right View'][1], scale)
+# mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', -(par.H[i] - par.Z[i] - par.S[i] - 34 - 5 + 448 - 80), 'XY.PLANE',
+#                                               0, 184)
+# #更改二
+if i == 4:
+    mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1',
+                                      -(par.H[i] - par.Z[i] - par.S[i] - 34 - 5 + 448 - 80), 'XY.PLANE',
+                                      0, 184)
+else:
+    mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1',
+                                      -(par.H[i] - par.Z[i] - par.S[i] - 34 - 5 + 448), 'XY.PLANE',
+                                      0, 184)
+
+# mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448 - 80), 'XY.PLANE', 0, 125)
+#更改三
+if i == 4:
+    mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448 - 80), 'XY.PLANE',
+                              0, 125)
+else:
+    mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448), 'XY.PLANE',
+                              0, 125)
+
+# mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1', -(par.H[i] - par.Z[i] - par.S[i] - 34 -80), 'XY.PLANE',
+#                                           0, 204)
+# #更改四
+if i == 4:
+    mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1',-(par.H[i] - par.Z[i] - par.S[i] - 34 - 80), 'XY.PLANE',
+                                      0, 204)
+else:
+    mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1',-(par.H[i] - par.Z[i] - par.S[i] - 34 - 80), 'XY.PLANE',
+                                      0, 204)

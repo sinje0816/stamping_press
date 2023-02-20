@@ -599,7 +599,14 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', 0, 'YZ.PLANE', 0, 123)
         # 後方大軸承
         mprog.add_offset_assembly('FRAME35.1', 'FRAME3.1', 0, 'XZ.PLANE', 1, 124)
-        mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448), 'XY.PLANE', 0, 125)
+        if i == 4:
+            mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448 - 80),
+                                      'XY.PLANE',
+                                      0, 125)
+        else:
+            mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448),
+                                      'XY.PLANE',
+                                      0, 125)
         mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -par.FRAME20_FRAME2_YZ[i] - 36, 'YZ.PLANE', 0, 126)
         # 後方馬達下支撐板
         mprog.add_offset_assembly('FRAME39.1', 'FRAME1.1', 50, 'XZ.PLANE', 0, 127)
@@ -638,7 +645,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # 後方馬達下支撐板上治具
         mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 95, 'XZ.PLANE', 0, 157)
         mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 22 + 18, 'XY.PLANE', 0, 158)
-        mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 312.5, 'YZ.PLANE', 0, 159)
+        if i == 4 and l == 1:
+            mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 312.5 - 185, 'YZ.PLANE', 0, 159)
+        else:
+            mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 312.5, 'YZ.PLANE', 0, 159)
         # 馬達下方板與後方橫板
         mprog.add_offset_assembly('FRAME42.1', 'FRAME41.1', 0, 'XZ.PLANE', 1, 160)
         mprog.add_offset_assembly('FRAME42.1', 'FRAME41.1', 71.5, 'XY.PLANE', 1, 161)
@@ -676,8 +686,14 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                                           173)
         mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1',  33, 'YZ.PLANE', 0,
                                           174)
-        mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1', -(par.H[i] - 34 - par.S[i] - par.Z[i]), 'XY.PLANE',
-                                          0, 175)
+        if i == 4:
+            mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1',
+                                              -(par.H[i] - 34 - par.S[i] - par.Z[i] - 80), 'XY.PLANE',
+                                              0, 175)
+        else:
+            mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1',
+                                              -(par.H[i] - 34 - par.S[i] - par.Z[i]), 'XY.PLANE',
+                                              0, 175)
         # 氣壓缸跟FRAME20組立
         if i == 4:
             mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -87.5,
@@ -732,7 +748,13 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', 260, 'YZ.PLANE',
                                               1, 183)
         # 離合器與FRAME20結合
-        mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', -(par.H[i] - par.Z[i] - par.S[i] - 34 - 5 + 448), 'XY.PLANE',
+        if i == 4:
+            mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1',
+                                              -(par.H[i] - par.Z[i] - par.S[i] - 34 - 5 + 448 - 80), 'XY.PLANE',
+                                              0, 184)
+        else:
+            mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1',
+                                              -(par.H[i] - par.Z[i] - par.S[i] - 34 - 5 + 448), 'XY.PLANE',
                                               0, 184)
         mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', 0, 'XZ.PLANE', 1,
                                           185)
@@ -755,7 +777,11 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('MAIN_GEAR1.1', 'FRAME20.1', 592.5 + 150, 'YZ.PLANE', 1, 195)
         # 機架20結合曲軸旁圓管
         mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', 0, 'XZ.PLANE', 0, 196)
-        mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', par.H[i] - par.Z[i] - par.S[i] - 34, 'XY.PLANE', 1, 197)
+        if i == 4:
+            mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', par.H[i] - par.Z[i] - par.S[i] - 34 - 80, 'XY.PLANE', 1, 197)
+        else:
+            mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', par.H[i] - par.Z[i] - par.S[i] - 34, 'XY.PLANE', 1,
+                                      197)
         mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', 520.5, 'YZ.PLANE', 1, 198)
         # 大齒輪結合長棒
         mprog.add_offset_assembly('MAIN_GEAR1.1', 'JOINT1.1', 0, 'XZ.PLANE', 0, 199)
@@ -766,8 +792,14 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                                           0, 202)
         mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1', 1010, 'YZ.PLANE',
                                           1, 203)
-        mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1', -(par.H[i] - par.Z[i] - par.S[i] - 34), 'XY.PLANE',
-                                          0, 204)
+        if i == 4:
+            mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1',
+                                              -(par.H[i] - par.Z[i] - par.S[i] - 34 - 80), 'XY.PLANE',
+                                              0, 204)
+        else:
+            mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1',
+                                              -(par.H[i] - par.Z[i] - par.S[i] - 34 - 80), 'XY.PLANE',
+                                              0, 204)
         # 大齒輪內套環
         mprog.add_offset_assembly('MAIN_GEAR2.1', 'MAIN_GEAR3.1', 0, 'XZ.PLANE', 1, 205)
         mprog.add_offset_assembly('MAIN_GEAR2.1', 'MAIN_GEAR3.1', 0, 'XY.PLANE', 0, 206)
