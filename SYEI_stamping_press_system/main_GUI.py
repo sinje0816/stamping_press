@@ -169,7 +169,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
     def change_dir(self, h, i, l, j, path):
         # 開啟CATIA
         env = mprog.set_CATIA_workbench_env()
-
+        alpha = -10
         # 匯入零件檔
         file_name_list = ['BOLSTER1', 'BOLSTER2', 'BOLSTER3', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3', 'FRAME4',
                           'FRAME5', 'FRAME6', 'FRAME7', 'FRAME8', 'FRAME9', 'FRAME10', 'FRAME11', 'FRAME12', 'FRAME13',
@@ -177,7 +177,8 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                           'FRAME22', 'FRAME23', 'FRAME24', 'FRAME25', 'FRAME26', 'FRAME27', 'FRAME28', 'FRAME29',
                           'FRAME30', 'FRAME31', 'FRAME32', 'FRAME33', 'FRAME34', 'FRAME35', 'FRAME36', 'FRAME36',
                           'FRAME37', 'FRAME38', 'FRAME39', 'FRAME40', 'FRAME41', 'FRAME42', 'FRAME43', 'FRAME44',
-                          'FRAME45', 'FRAME46', 'GIB1', 'GIB2', 'BALANCER_LEFT_All', 'BALANCER_RIGHT_ALL', 'CRANK_SHAFT_CLOCK',
+                          'FRAME45', 'FRAME46', 'GIB1', 'GIB2', 'BALANCER_LEFT_All', 'BALANCER_RIGHT_ALL',
+                          'CRANK_SHAFT_CLOCK',
                           'CLUCTH_ASSEMBLY_All', 'SLIDE_UNIT_All', 'CRANK_SHAFT', 'JOINT_All', 'MAIN_GEAR1',
                           'MAIN_GEAR2', 'MAIN_GEAR3', 'MAIN_GEAR4', 'JOINT1', 'FRAME47', 'FRAME48', 'FRAME49']
 
@@ -206,12 +207,16 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     if l == 0:
                         if name == 'FRAME1' or name == 'FRAME2' or name == 'FRAME44' or name == 'GIB1' or name == 'GIB2':  # 更改零件變數B
                             mprog.param_change(name, 'B', par.B_15[i])
+                            if name == 'FRAME1' or name == 'FRAME2':
+                                mprog.param_change(name, 'alpha', alpha)
                             mprog.save_file_part(path, name)
                         elif name == 'FRAME3' or name == 'FRAME4' or name == 'FRAME9' or name == 'FRAME32' or name == 'FRAME41' or name == 'FRAME43' or name == 'FRAME20' or name == 'FRAME30' or name == 'FRAME29' or name == 'FRAME42' or name == 'FRAME43' or name == 'FRAME45':  # 更改零件變數R
                             mprog.param_change(name, 'R', par.R_15[i])
                             mprog.save_file_part(path, name)
                         elif name == 'FRAME10' or name == 'FRAME11' or name == 'FRAME12' or name == 'FRAME13' or name == 'BOLSTER1':  # 更改零件變數E
                             mprog.param_change(name, 'E', par.E_15[i])
+                            if name == 'FRAME10' or name == 'FRAME11':
+                                mprog.param_change(name, 'alpha', alpha)
                             if name == 'BOLSTER1':
                                 mprog.param_change('BOLSTER1', "hole_type", par.hole_type[j])
                             mprog.save_file_part(path, name)
@@ -229,12 +234,16 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     else:
                         if name == 'FRAME1' or name == 'FRAME2' or name == 'FRAME44' or name == 'GIB1' or name == 'GIB2':  # 更改零件變數B
                             mprog.param_change(name, 'B', par.B[i])
+                            if name == 'FRAME1' or name == 'FRAME2':
+                                mprog.param_change(name, 'alpha', alpha)
                             mprog.save_file_part(path, name)
                         elif name == 'FRAME3' or name == 'FRAME4' or name == 'FRAME9' or name == 'FRAME32' or name == 'FRAME41' or name == 'FRAME43' or name == 'FRAME20' or name == 'FRAME30' or name == 'FRAME29' or name == 'FRAME42' or name == 'FRAME42' or name == 'FRAME43' or name == 'FRAME45':  # 更改零件變數R
                             mprog.param_change(name, 'R', par.R[i])
                             mprog.save_file_part(path, name)
                         elif name == 'FRAME10' or name == 'FRAME11' or name == 'FRAME12' or name == 'FRAME13' or name == 'BOLSTER1':  # 更改零件變數E
                             mprog.param_change(name, 'E', par.E[i])
+                            if name == 'FRAME10' or name == 'FRAME11':
+                                mprog.param_change(name, 'alpha', alpha)
                             if name == 'BOLSTER1':
                                 mprog.param_change('BOLSTER1', "hole_type", par.hole_type[j])
                             mprog.save_file_part(path, name)
@@ -253,12 +262,16 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                 if l == 0:
                     if name == 'FRAME1' or name == 'FRAME2' or name == 'FRAME44' or name == 'GIB1' or name == 'GIB2':  # 更改零件變數B
                         mprog.param_change(name, 'B', par.B_15[i])
+                        if name == 'FRAME1' or name == 'FRAME2':
+                            mprog.param_change(name, 'alpha', alpha)
                         mprog.save_file_part(path, name)
                     elif name == 'FRAME3' or name == 'FRAME4' or name == 'FRAME9' or name == 'FRAME32' or name == 'FRAME41' or name == 'FRAME43' or name == 'FRAME20' or name == 'FRAME30' or name == 'FRAME29' or name == 'FRAME42' or name == 'FRAME42' or name == 'FRAME43' or name == 'FRAME45':  # 更改零件變數R
                         mprog.param_change(name, 'R', par.R_15[i])
                         mprog.save_file_part(path, name)
                     elif name == 'FRAME10' or name == 'FRAME11' or name == 'FRAME12' or name == 'FRAME13' or name == 'BOLSTER1':  # 更改零件變數E
                         mprog.param_change(name, 'E', par.E_15[i])
+                        if name == 'FRAME10' or name == 'FRAME11':
+                            mprog.param_change(name, 'alpha', alpha)
                         if name == 'BOLSTER1':
                             mprog.param_change('BOLSTER1', "hole_type", par.hole_type[j])
                         mprog.save_file_part(path, name)
@@ -276,12 +289,16 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                 else:
                     if name == 'FRAME1' or name == 'FRAME2' or name == 'FRAME44' or name == 'GIB1' or name == 'GIB2':  # 更改零件變數B
                         mprog.param_change(name, 'B', par.B[i])
+                        if name == 'FRAME1' or name == 'FRAME2':
+                            mprog.param_change(name, 'alpha', alpha)
                         mprog.save_file_part(path, name)
                     elif name == 'FRAME3' or name == 'FRAME4' or name == 'FRAME9' or name == 'FRAME32' or name == 'FRAME41' or name == 'FRAME43' or name == 'FRAME20' or name == 'FRAME30' or name == 'FRAME29' or name == 'FRAME42' or name == 'FRAME42' or name == 'FRAME43' or name == 'FRAME45':  # 更改零件變數R
                         mprog.param_change(name, 'R', par.R[i])
                         mprog.save_file_part(path, name)
                     elif name == 'FRAME10' or name == 'FRAME11' or name == 'FRAME12' or name == 'FRAME13' or name == 'BOLSTER1':  # 更改零件變數E
                         mprog.param_change(name, 'E', par.E[i])
+                        if name == 'FRAME10' or name == 'FRAME11':
+                            mprog.param_change(name, 'alpha', alpha)
                         if name == 'BOLSTER1':
                             mprog.param_change('BOLSTER1', "hole_type", par.hole_type[j])
                         mprog.save_file_part(path, name)
@@ -297,10 +314,11 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     else:
                         mprog.save_file_part(path, name)
 
-    def ass_(self, h, i, l, j, path , part_path):
+    def ass_(self, h, i, l, j, path, part_path):
         type = str(self.ui.comboBox_4.currentText())  # 沖床噸數類型
         # 開啟新組合檔
         mprog.assembly_create()
+        alpha = -10
 
         # 匯入待組合零件檔
         file_Assembly_name_list = ['BOLSTER1', 'BOLSTER2', 'BOLSTER3', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3',
@@ -308,12 +326,15 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                                    'FRAME12', 'FRAME13', 'FRAME14', 'FRAME15', 'FRAME16', 'FRAME17', 'FRAME18',
                                    'FRAME19', 'FRAME20', 'FRAME21', 'FRAME22', 'FRAME23', 'FRAME24', 'FRAME25',
                                    'FRAME26', 'FRAME27', 'FRAME28', 'FRAME29', 'FRAME30', 'FRAME31', 'FRAME31',
-                                   'FRAME31', 'FRAME31', 'FRAME32', 'FRAME33', 'FRAME33', 'FRAME34', 'FRAME34', 'FRAME35',
+                                   'FRAME31', 'FRAME31', 'FRAME32', 'FRAME33', 'FRAME33', 'FRAME34', 'FRAME34',
+                                   'FRAME35',
                                    'FRAME36', 'FRAME36', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME38',
                                    'FRAME39', 'FRAME40', 'FRAME41', 'FRAME42', 'FRAME43', 'FRAME44', 'FRAME45',
                                    'FRAME46', 'FRAME47', 'FRAME47', 'FRAME48', 'FRAME49', 'GIB1', 'GIB2',
-                                   'BALANCER_LEFT_All', 'BALANCER_RIGHT_ALL', 'CRANK_SHAFT_CLOCK', 'CLUCTH_ASSEMBLY_All',
-                                   'SLIDE_UNIT_ALL', 'CRANK_SHAFT', 'JOINT_All', 'MAIN_GEAR1', 'MAIN_GEAR2', 'MAIN_GEAR3',
+                                   'BALANCER_LEFT_All', 'BALANCER_RIGHT_ALL', 'CRANK_SHAFT_CLOCK',
+                                   'CLUCTH_ASSEMBLY_All',
+                                   'SLIDE_UNIT_ALL', 'CRANK_SHAFT', 'JOINT_All', 'MAIN_GEAR1', 'MAIN_GEAR2',
+                                   'MAIN_GEAR3',
                                    'MAIN_GEAR4', 'JOINT1']
 
         for x in file_Assembly_name_list:  # 讀取串列名稱並匯入檔案
@@ -361,23 +382,23 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             mprog.add_offset_assembly('FRAME6.1', 'FRAME8.1', -par.B[i], 'YZ.PLANE', 0, 12)
         # 左右側板
         if l == 0:
-            mprog.add_offset_assembly('BOLSTER1.1', 'FRAME2.1', par.R_15[i] / 2 + 140, 'XZ.PLANE', 1, 13)
+            mprog.add_offset_assembly('BOLSTER1.1', 'FRAME2.1', par.R_15[i] / 2 + 140, 'XZ.PLANE', 0, 13)
         else:
-            mprog.add_offset_assembly('BOLSTER1.1', 'FRAME2.1', par.R[i] / 2 + 140, 'XZ.PLANE', 1, 13)
+            mprog.add_offset_assembly('BOLSTER1.1', 'FRAME2.1', par.R[i] / 2 + 140, 'XZ.PLANE', 0, 13)
         mprog.add_offset_assembly('FRAME8.1', 'FRAME2.1', par.H[i] / 2, 'XY.PLANE', 0, 14)
         if l == 0:
-            mprog.add_offset_assembly('FRAME8.1', 'FRAME2.1', par.B_15[i] / 2, 'YZ.PLANE', 0, 15)
+            mprog.add_offset_assembly('FRAME8.1', 'FRAME2.1', par.B_15[i] / 2, 'YZ.PLANE', 1, 15)
         else:
-            mprog.add_offset_assembly('FRAME8.1', 'FRAME2.1', par.B[i] / 2, 'YZ.PLANE', 0, 15)
+            mprog.add_offset_assembly('FRAME8.1', 'FRAME2.1', par.B[i] / 2, 'YZ.PLANE', 1, 15)
         if l == 0:
-            mprog.add_offset_assembly('BOLSTER1.1', 'FRAME1.1', -par.R_15[i] / 2 - 140, 'XZ.PLANE', 1, 16)
+            mprog.add_offset_assembly('BOLSTER1.1', 'FRAME1.1', -par.R_15[i] / 2 - 140, 'XZ.PLANE', 0, 16)
         else:
-            mprog.add_offset_assembly('BOLSTER1.1', 'FRAME1.1', -par.R[i] / 2 - 140, 'XZ.PLANE', 1, 16)
+            mprog.add_offset_assembly('BOLSTER1.1', 'FRAME1.1', -par.R[i] / 2 - 140, 'XZ.PLANE', 0, 16)
         mprog.add_offset_assembly('FRAME5.1', 'FRAME1.1', -par.H[i] / 2, 'XY.PLANE', 1, 17)
         if l == 0:
-            mprog.add_offset_assembly('FRAME5.1', 'FRAME1.1', -par.B_15[i] / 2, 'YZ.PLANE', 1, 18)
+            mprog.add_offset_assembly('FRAME5.1', 'FRAME1.1', -par.B_15[i] / 2, 'YZ.PLANE', 0, 18)
         else:
-            mprog.add_offset_assembly('FRAME5.1', 'FRAME1.1', -par.B[i] / 2, 'YZ.PLANE', 1, 18)
+            mprog.add_offset_assembly('FRAME5.1', 'FRAME1.1', -par.B[i] / 2, 'YZ.PLANE', 0, 18)
         # 底部前、中板
         if l == 0:
             mprog.add_offset_assembly('FRAME5.1', 'FRAME3.1', par.A_15[i] / 2, 'XZ.PLANE', 1, 19)
@@ -400,18 +421,18 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         if l == 0:
             if i == 4:
                 mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth_15[i] + 80, 'YZ.PLANE', 1, 27)
-            else :
+            else:
                 mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth_15[i], 'YZ.PLANE', 1, 27)
         else:
             if i == 4:
                 mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth[i] + 80, 'YZ.PLANE', 1, 27)
-            else :
+            else:
                 mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth[i], 'YZ.PLANE', 1, 27)
         if l == 0:
             mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -par.R_15[i] / 2 - 90, 'XZ.PLANE', 0, 28)
         else:
             mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -par.R[i] / 2 - 90, 'XZ.PLANE', 0, 28)
-        mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -par.T[i], 'XY.PLANE', 0, 29)
+        mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -par.T[i] - alpha, 'XY.PLANE', 0, 29)
         if l == 0:
             if i == 4:
                 mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', par.FRAME2_lower_depth_15[i] + 80, 'YZ.PLANE', 1, 30)
@@ -445,26 +466,26 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('BOLSTER1.1', 'FRAME13.1', 0, 'YZ.PLANE', 1, 39)
         # 前中上軸承板&角鐵
         mprog.add_offset_assembly('BOLSTER1.1', 'FRAME20.1', 0, 'XZ.PLANE', 1, 40)
-        mprog.add_offset_assembly('FRAME3.1', 'FRAME20.1', -par.H[i] + 40, 'XY.PLANE', 0, 41)
+        mprog.add_offset_assembly('FRAME3.1', 'FRAME20.1', -par.H[i] + 40 - alpha, 'XY.PLANE', 0, 41)
         mprog.add_offset_assembly('FRAME3.1', 'FRAME20.1', 0, 'YZ.PLANE', 0, 42)
         mprog.add_offset_assembly('FRAME30.1', 'FRAME20.1', 0, 'XZ.PLANE', 0, 43)
         mprog.add_offset_assembly('FRAME30.1', 'FRAME20.1', -5, 'XY.PLANE', 0, 44)
         mprog.add_offset_assembly('FRAME30.1', 'FRAME20.1', -550, 'YZ.PLANE', 0, 45)
         mprog.add_offset_assembly('FRAME29.1', 'FRAME20.1', 0, 'XZ.PLANE', 1, 46)
-        mprog.add_offset_assembly('FRAME29.1', 'FRAME20.1', -par.FRAME20_H[i], 'XY.PLANE', 0, 47)
+        mprog.add_offset_assembly('FRAME29.1', 'FRAME20.1', -par.FRAME20_H[i] + alpha, 'XY.PLANE', 0, 47)
         mprog.add_offset_assembly('FRAME29.1', 'FRAME20.1', 0, 'YZ.PLANE', 1, 48)
         # 氣壓缸鎖固板左右
         if i == 4:
-            mprog.add_offset_assembly('FRAME2.1', 'FRAME21.1', 183, 'XZ.PLANE', 1, 49)
+            mprog.add_offset_assembly('FRAME2.1', 'FRAME21.1', -183, 'XZ.PLANE', 0, 49)
         else:
-            mprog.add_offset_assembly('FRAME2.1', 'FRAME21.1', 242, 'XZ.PLANE', 1, 49)
-        mprog.add_offset_assembly('FRAME3.1', 'FRAME21.1', -par.H[i] + 40, 'XY.PLANE', 1, 50)
+            mprog.add_offset_assembly('FRAME2.1', 'FRAME21.1', -240, 'XZ.PLANE', 0, 49)
+        mprog.add_offset_assembly('FRAME3.1', 'FRAME21.1', -par.H[i] + 40 - alpha, 'XY.PLANE', 1, 50)
         mprog.add_offset_assembly('FRAME20.1', 'FRAME21.1', 280, 'YZ.PLANE', 1, 51)
         if i == 4:
-            mprog.add_offset_assembly('FRAME1.1', 'FRAME22.1', -183, 'XZ.PLANE', 1, 52)
+            mprog.add_offset_assembly('FRAME1.1', 'FRAME22.1', 183, 'XZ.PLANE', 0, 52)
         else:
-            mprog.add_offset_assembly('FRAME1.1', 'FRAME22.1', -242, 'XZ.PLANE', 1, 52)
-        mprog.add_offset_assembly('FRAME3.1', 'FRAME22.1', -par.H[i] + 40, 'XY.PLANE', 0, 53)
+            mprog.add_offset_assembly('FRAME1.1', 'FRAME22.1', 240, 'XZ.PLANE', 0, 52)
+        mprog.add_offset_assembly('FRAME3.1', 'FRAME22.1', -par.H[i] + 40 - alpha, 'XY.PLANE', 0, 53)
         mprog.add_offset_assembly('FRAME20.1', 'FRAME22.1', 280, 'YZ.PLANE', 1, 54)
         # 鎖固平板六兄弟
         mprog.add_offset_assembly('BOLSTER1.1', 'FRAME14.1', 0, 'XZ.PLANE', 0, 55)
@@ -502,32 +523,32 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             mprog.add_offset_assembly('GIB1.1', 'FRAME3.1', par.FRAME1_lower_high[i] + 40 - 34.5, 'XY.PLANE', 0, 73)
         else:
             mprog.add_offset_assembly('GIB1.1', 'FRAME3.1', par.FRAME1_lower_high[i] + 40, 'XY.PLANE', 0, 73)
-        mprog.add_offset_assembly('GIB1.1', 'FRAME1.1', 72.5, 'XZ.PLANE', 0, 74)
+        mprog.add_offset_assembly('GIB1.1', 'FRAME1.1', 72.5, 'XZ.PLANE', 1, 74)
         mprog.add_offset_assembly('GIB1.1', 'FRAME5.1', 334.65, 'YZ.PLANE', 0, 75)
         if i == 4:
             mprog.add_offset_assembly('GIB2.1', 'FRAME3.1', par.FRAME1_lower_high[i] + 40 - 34.5, 'XY.PLANE', 0, 76)
         else:
             mprog.add_offset_assembly('GIB2.1', 'FRAME3.1', par.FRAME1_lower_high[i] + 40, 'XY.PLANE', 0, 76)
-        mprog.add_offset_assembly('GIB2.1', 'FRAME2.1', -72.5, 'XZ.PLANE', 0, 77)
+        mprog.add_offset_assembly('GIB2.1', 'FRAME2.1', -72.5, 'XZ.PLANE', 1, 77)
         mprog.add_offset_assembly('GIB2.1', 'FRAME5.1', 334.65, 'YZ.PLANE', 0, 78)
         # 左GIB後鎖固用方塊
         if i == 4:
             mprog.add_offset_assembly('GIB2.1', 'FRAME23.1', -par.pocket_1_upper_hole[i] + 80 + 3, 'XY.PLANE', 1, 79)
         else:
             mprog.add_offset_assembly('GIB2.1', 'FRAME23.1', -par.pocket_1_upper_hole[i] + 80 + 3, 'XY.PLANE', 1, 79)
-        mprog.add_offset_assembly('FRAME2.1', 'FRAME23.1', 50 + 35, 'XZ.PLANE', 1, 80)
+        mprog.add_offset_assembly('FRAME2.1', 'FRAME23.1', -50 - 35, 'XZ.PLANE', 0, 80)
         mprog.add_offset_assembly('GIB2.1', 'FRAME23.1', 0, 'YZ.PLANE', 0, 81)
         if i == 4:
             mprog.add_offset_assembly('GIB2.1', 'FRAME24.1', -34.5, 'XY.PLANE', 1, 82)
         else:
             mprog.add_offset_assembly('GIB2.1', 'FRAME24.1', 0, 'XY.PLANE', 1, 82)
-        mprog.add_offset_assembly('FRAME2.1', 'FRAME24.1', 50 + 35, 'XZ.PLANE', 0, 83)
+        mprog.add_offset_assembly('FRAME2.1', 'FRAME24.1', -50 - 35, 'XZ.PLANE', 1, 83)
         mprog.add_offset_assembly('GIB2.1', 'FRAME24.1', 0, 'YZ.PLANE', 1, 84)
         if i == 4:
             mprog.add_offset_assembly('GIB2.1', 'FRAME27.1', -par.pocket_1_upper_hole[i] + 340 + 80, 'XY.PLANE', 1, 85)
         else:
             mprog.add_offset_assembly('GIB2.1', 'FRAME27.1', -par.pocket_1_upper_hole[i] + 340 + 80, 'XY.PLANE', 1, 85)
-        mprog.add_offset_assembly('FRAME2.1', 'FRAME27.1', 50, 'XZ.PLANE', 1, 86)
+        mprog.add_offset_assembly('FRAME2.1', 'FRAME27.1', -50, 'XZ.PLANE', 0, 86)
         mprog.add_offset_assembly('GIB2.1', 'FRAME27.1', 0, 'YZ.PLANE', 1, 87)
         if i == 4:
             mprog.add_offset_assembly('GIB2.1', 'FRAME31.1', -par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 88)
@@ -546,19 +567,19 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', -par.pocket_1_upper_hole[i] + 80 + 3, 'XY.PLANE', 1, 94)
         else:
             mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', -par.pocket_1_upper_hole[i] + 80 + 3, 'XY.PLANE', 1, 94)
-        mprog.add_offset_assembly('FRAME1.1', 'FRAME25.1', -50 - 35, 'XZ.PLANE', 0, 95)
+        mprog.add_offset_assembly('FRAME1.1', 'FRAME25.1', 50 + 35, 'XZ.PLANE', 1, 95)
         mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', 0, 'YZ.PLANE', 1, 96)
         if i == 4:
-            mprog.add_offset_assembly('GIB1.1', 'FRAME26.1', -34.5, 'XY.PLANE', 1, 97)
+            mprog.add_offset_assembly('GIB1.1', 'FRAME26.1', -34.5 - 3, 'XY.PLANE', 1, 97)
         else:
-            mprog.add_offset_assembly('GIB1.1', 'FRAME26.1', 0, 'XY.PLANE', 1, 97)
-        mprog.add_offset_assembly('FRAME1.1', 'FRAME26.1', -50 - 35, 'XZ.PLANE', 0, 98)
+            mprog.add_offset_assembly('GIB1.1', 'FRAME26.1', 3, 'XY.PLANE', 1, 97)
+        mprog.add_offset_assembly('FRAME1.1', 'FRAME26.1', 50 + 35, 'XZ.PLANE', 1, 98)
         mprog.add_offset_assembly('GIB1.1', 'FRAME26.1', 0, 'YZ.PLANE', 0, 99)
         if i == 4:
             mprog.add_offset_assembly('GIB1.1', 'FRAME28.1', -par.pocket_1_upper_hole[i] + 340 + 80, 'XY.PLANE', 1, 100)
         else:
             mprog.add_offset_assembly('GIB1.1', 'FRAME28.1', -par.pocket_1_upper_hole[i] + 340 + 80, 'XY.PLANE', 1, 100)
-        mprog.add_offset_assembly('FRAME1.1', 'FRAME28.1', -50, 'XZ.PLANE', 0, 101)
+        mprog.add_offset_assembly('FRAME1.1', 'FRAME28.1', 50, 'XZ.PLANE', 1, 101)
         mprog.add_offset_assembly('GIB1.1', 'FRAME28.1', 0, 'YZ.PLANE', 1, 102)
         if i == 4:
             mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', -par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 103)
@@ -567,7 +588,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', -35, 'XZ.PLANE', 1, 104)
         mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', 130.35 + 22.5, 'YZ.PLANE', 1, 105)
         if i == 4:
-            mprog.add_offset_assembly('GIB1.1', 'FRAME31.4', -150 - 34.5, 'XY.PLANE', 1, 106)
+            mprog.add_offset_assembly('GIB1.1', 'FRAME31.4', -150 - 34.5 - 3, 'XY.PLANE', 1, 106)
         else:
             mprog.add_offset_assembly('GIB1.1', 'FRAME31.4', -150, 'XY.PLANE', 1, 106)
         mprog.add_offset_assembly('FRAME31.3', 'FRAME31.4', 0, 'YZ.PLANE', 0, 107)
@@ -582,11 +603,11 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('FRAME41.1', 'FRAME4.1', 0, 'YZ.PLANE', 0, 114)
         # FRAME2中間下板子
         mprog.add_offset_assembly('FRAME32.1', 'BOLSTER1.1', 0, 'XZ.PLANE', 0, 115)
-        mprog.add_offset_assembly('FRAME32.1', 'FRAME3.1', par.FRAME_32_XY[i] + 20, 'XY.PLANE', 0, 116)
+        mprog.add_offset_assembly('FRAME32.1', 'FRAME3.1', par.FRAME_32_XY[i] + 20 + alpha, 'XY.PLANE', 0, 116)
         mprog.add_offset_assembly('FRAME32.1', 'FRAME30.1', 0, 'YZ.PLANE', 0, 117)
         # 後方大軸承支架
         mprog.add_offset_assembly('FRAME10.1', 'FRAME34.2', -485.543, 'YZ.PLANE', 1, 118)
-        mprog.add_offset_assembly('FRAME34.2', 'FRAME10.1', -(par.FRAME_10_H[i] + 40), 'XY.PLANE', 0, 119)
+        mprog.add_offset_assembly('FRAME34.2', 'FRAME10.1', -(par.FRAME_10_H[i] + 40 + alpha), 'XY.PLANE', 0, 119)
         if l == 0:
             mprog.add_offset_assembly('FRAME34.2', 'FRAME3.1', -par.R_15[i] / 2 - 90, 'XZ.PLANE', 0, 120)
         else:
@@ -601,19 +622,17 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('FRAME35.1', 'FRAME3.1', 0, 'XZ.PLANE', 1, 124)
         if i == 4:
             mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448 - 80),
-                                      'XY.PLANE',
-                                      0, 125)
+                                      'XY.PLANE', 0, 125)
         else:
             mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448),
-                                      'XY.PLANE',
-                                      0, 125)
+                                      'XY.PLANE', 0, 125)
         mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -par.FRAME20_FRAME2_YZ[i] - 36, 'YZ.PLANE', 0, 126)
         # 後方馬達下支撐板
-        mprog.add_offset_assembly('FRAME39.1', 'FRAME1.1', 50, 'XZ.PLANE', 0, 127)
+        mprog.add_offset_assembly('FRAME39.1', 'FRAME1.1', 50, 'XZ.PLANE', 1, 127)
         mprog.add_offset_assembly('FRAME39.1', 'FRAME20.1', -360, 'XY.PLANE', 0, 128)
         mprog.add_offset_assembly('FRAME39.1', 'FRAME7.1', 320, 'YZ.PLANE', 0, 129)
-        mprog.add_offset_assembly('FRAME38.1', 'FRAME2.1', -50, 'XZ.PLANE', 0, 130)
-        mprog.add_offset_assembly('FRAME38.1', 'FRAME20.1', 360, 'XY.PLANE', 1, 131)
+        mprog.add_offset_assembly('FRAME38.1', 'FRAME2.1', -50, 'XZ.PLANE', 1, 130)
+        mprog.add_offset_assembly('FRAME38.1', 'FRAME20.1', 360 + 19, 'XY.PLANE', 1, 131)
         mprog.add_offset_assembly('FRAME38.1', 'FRAME6.1', -320, 'YZ.PLANE', 1, 132)
         mprog.add_offset_assembly('FRAME37.1', 'FRAME39.1', 0, 'XZ.PLANE', 0, 133)
         mprog.add_offset_assembly('FRAME37.1', 'FRAME39.1', 19, 'XY.PLANE', 1, 134)
@@ -628,7 +647,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('FRAME37.4', 'FRAME38.1', 0, 'XY.PLANE', 0, 143)
         mprog.add_offset_assembly('FRAME37.4', 'FRAME38.1', 125, 'YZ.PLANE', 1, 144)
         # FRAME2右邊角鐵
-        mprog.add_offset_assembly('FRAME33.1', 'FRAME2.1', 140, 'XZ.PLANE', 1, 145)
+        mprog.add_offset_assembly('FRAME33.1', 'FRAME2.1', 140, 'XZ.PLANE', 0, 145)
         mprog.add_offset_assembly('FRAME33.1', 'FRAME15.1', -708, 'XY.PLANE', 0, 146)
         mprog.add_offset_assembly('FRAME33.1', 'FRAME11.1', 313.984, 'YZ.PLANE', 0, 147)
         # FRAME2中間半圓形零件
@@ -684,7 +703,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # 時鐘跟FRAME20組立
         mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1', 0, 'XZ.PLANE', 0,
                                           173)
-        mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1',  33, 'YZ.PLANE', 0,
+        mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1', 33, 'YZ.PLANE', 0,
                                           174)
         if i == 4:
             mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1',
@@ -750,12 +769,11 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # 離合器與FRAME20結合
         if i == 4:
             mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1',
-                                              -(par.H[i] - par.Z[i] - par.S[i] - 34 - 5 + 448 - 80), 'XY.PLANE',
-                                              0, 184)
+                                              -(par.H[i] - par.Z[i] - par.S[i] - 34 - 5 + 448 - 80), 'XY.PLANE', 0, 184)
         else:
             mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1',
-                                              -(par.H[i] - par.Z[i] - par.S[i] - 34 - 5 + 448), 'XY.PLANE',
-                                              0, 184)
+                                              -(par.H[i] - par.Z[i] - par.S[i] - 34 - 5 + 448), 'XY.PLANE', 0, 184)
+
         mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', 0, 'XZ.PLANE', 1,
                                           185)
         mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', 512, 'YZ.PLANE', 1,
@@ -763,7 +781,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # 曲軸與時鐘結合
         mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 0, 'XZ.PLANE',
                                           0, 187)
-        mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 3 , 'YZ.PLANE',
+        mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 3, 'YZ.PLANE',
                                           1, 188)
         mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 0, 'XY.PLANE',
                                           1, 189)
@@ -780,8 +798,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         if i == 4:
             mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', par.H[i] - par.Z[i] - par.S[i] - 34 - 80, 'XY.PLANE', 1, 197)
         else:
-            mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', par.H[i] - par.Z[i] - par.S[i] - 34, 'XY.PLANE', 1,
-                                      197)
+            mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', par.H[i] - par.Z[i] - par.S[i] - 34, 'XY.PLANE', 1, 197)
         mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', 520.5, 'YZ.PLANE', 1, 198)
         # 大齒輪結合長棒
         mprog.add_offset_assembly('MAIN_GEAR1.1', 'JOINT1.1', 0, 'XZ.PLANE', 0, 199)
@@ -817,10 +834,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 0, 'XZ.PLANE', 0, 215)
         mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 979, 'YZ.PLANE', 1, 216)
         #
-        mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', 29, 'XY.PLANE', 1, 217)
+        mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', 29 + 3, 'XY.PLANE', 1, 217)
         mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', 35, 'XZ.PLANE', 0, 218)
         mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', -99.35, 'YZ.PLANE', 1, 219)
-        mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', 29, 'XY.PLANE', 0, 220)
+        mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', 10, 'XY.PLANE', 0, 220)
         mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', -35, 'XZ.PLANE', 1, 221)
         mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', 099.35, 'YZ.PLANE', 0, 222)
         # 方管
@@ -831,8 +848,8 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', 220, 'XY.PLANE', 0, 226)
         mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', 145, 'XZ.PLANE', 0, 227)
         mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', -32, 'YZ.PLANE', 0, 228)
-        #2023/02/23更新 FRAME1左邊角鐵
-        mprog.add_offset_assembly('FRAME1.1', 'FRAME33.2', -140, 'XZ.PLANE', 0, 229)
+        # 2023/02/23更新 FRAME1左邊角鐵
+        mprog.add_offset_assembly('FRAME1.1', 'FRAME33.2', 140, 'XZ.PLANE', 1, 229)
         mprog.add_offset_assembly('FRAME19.1', 'FRAME33.2', 708, 'XY.PLANE', 0, 230)
         mprog.add_offset_assembly('FRAME10.1', 'FRAME33.2', -313.984, 'YZ.PLANE', 1, 231)
 
@@ -1461,6 +1478,8 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                                  par.drafting_Welding_text['A-A Top'])
         mprog.PDF_save(path, "Welding_diagram")
         mprog.save_detail_drawing(path, "Welding_diagram")
+        for part_name in par.hide_part_name:
+            mprog.hide_show_part(part_name, 0)
 
 if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率
