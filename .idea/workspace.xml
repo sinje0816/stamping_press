@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="更改與高度相關組立跟參數&#10;母檔更改">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="改FRAME11跟10的XY平面&#10;主程式修改">
       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/TEST_BOM.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/TEST_BOM.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME10.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME10.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME11.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME11.CATPart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,13 +175,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668131959961</updated>
-    </task>
-    <task id="LOCAL-00013" summary="新增test機架零件變數變換和機架組和更新">
-      <created>1668520455726</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1668520455726</updated>
     </task>
     <task id="LOCAL-00014" summary="新增test1機架組合和組合檔結合">
       <created>1668564901994</created>
@@ -522,7 +512,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676971608355</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="改FRAME11跟10的XY平面&#10;主程式修改">
+      <created>1676989576982</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1676989576982</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -538,7 +535,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="新增結合零件&#10;新增Product存檔" />
     <MESSAGE value="新增標準件偏移結合" />
     <MESSAGE value="新增:爆炸圖尺寸更改" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;123.py&#10;#&#9;GUI/main_GUI.py" />
@@ -563,7 +559,8 @@
     <MESSAGE value="零件母檔更新及組立問題變更&#10;測試檔更改" />
     <MESSAGE value="SN1-80部分母黨修改&#10;主程式組立部分新增SN1-80例外情形" />
     <MESSAGE value="更改與高度相關組立跟參數&#10;母檔更改" />
-    <option name="LAST_COMMIT_MESSAGE" value="更改與高度相關組立跟參數&#10;母檔更改" />
+    <MESSAGE value="改FRAME11跟10的XY平面&#10;主程式修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="改FRAME11跟10的XY平面&#10;主程式修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
