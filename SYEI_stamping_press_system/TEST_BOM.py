@@ -16,12 +16,8 @@ alpha = 20
 #                                               -(par.H[i] - par.Z[i] - par.S[i] - 34), 'XY.PLANE',
 #                                               0, 204)
 
-# self.ui.lineEdit.textChanged.connect(self.boundary_value)
-def boundary_value(self):
-    Form = QtWidgets.QWidget()
-    Form.setWindowTitle('oxxo.studio')
-    Form.resize(500, 200)
-    mbox = QtWidgets.QMessageBox(Form)
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     if int(self.ui.lineEdit.text()) > 10 or int(self.ui.lineEdit.text()) < -8:
         mbox.warning(Form, 'warning', '超出界限')
