@@ -25,7 +25,8 @@ box_1_Ymin = 25
 box_width_gap = 80+2*gap#虛擬方框一的寬度間隙
 box_heigth_gap = 150+2*gap#虛擬方框一的高度間隙
 
-def Parts_drawing_generation(i, l , path):
+
+def Parts_drawing_generation(i, l , path, alpha):
     scale, box_1_center , box_1_range = DP.scale_Adjustment(i, l)
     ALL_range , scale = DP.drafting_parameter_calculation(i, l , scale , box_1_range)#ALL_range = [方寬編號[Xmax , Xmin , Ymax , Ymin]]
     projection_file_name_list = ['FRAME1' , 'FRAME2' ,'FRAME30', 'FRAME44', 'FRAME41', 'FRAME34', 'FRAME9', 'FRAME45', 'FRAME43', 'FRAME7',
@@ -119,8 +120,8 @@ def Parts_drawing_generation(i, l , path):
                 number += 1
                 part_view_number = str(number)
                 DP.Parts_drafting_balloons(x , part_circle_position['1'][0] , part_circle_position['1'][1] , part_circle_position['1'][2] , '1' , scale)
-                draft.add_dimension_to_view('FRAME1_1' , '1' , 0 , par.B[i] / 2 , (par.H[i] - 80) / 2 , par.B[i] / 2 , -(par.H[i] - 80) / 2 , 90)
-                draft.add_dimension_to_view('FRAME1_1', '2', 0, -par.B[i] / 2, -(par.H[i] - 80) / 2, par.B[i] / 2, -(par.H[i] - 80) / 2, 0)
+                draft.add_dimension_to_view('FRAME1_1', '1', 0, par.B[i] / 2 + alpha, (par.H[i] - 72) / 2 + alpha, par.B[i] / 2, -(par.H[i] - 72) / 2 , 90)
+                draft.add_dimension_to_view('FRAME1_1', '2', 0, -par.B[i] / 2, -(par.H[i] - 72) / 2, par.B[i] / 2, -(par.H[i] - 72) / 2, 0)
                 mprog.save_file_part(path, x)
             elif x == 'FRAME2':
                 p = 4#左視圖投影

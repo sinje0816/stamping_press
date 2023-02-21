@@ -2,11 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="更改與高度相關組立跟參數&#10;母檔更改">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_14__03_33__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_14__04_37__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_14_下午_03_33_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_14_下午_04_37_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/TEST_BOM.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/TEST_BOM.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/TEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/TEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting_part.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/drafting_part.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/parameter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME1.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME1.CATPart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME10.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME10.CATPart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME11.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME11.CATPart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME2.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME2.CATPart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME20.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME20.CATPart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

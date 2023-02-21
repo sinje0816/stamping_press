@@ -2954,8 +2954,10 @@
 #     mprog.add_offset_assembly('FRAME10.1', 'FRAME33.2', -313.984, 'YZ.PLANE', 1, 231)
 import drafting as draft
 import parameter as par
+import main_program as mprog
 
-i = 5
-alpha = 10
-draft.balloons('Front view', '1', -100 - (par.H[i] - par.S[i] - par.Z[i] - 32 - alpha) * par.cos30 / par.sin30, (par.H[i] - par.S[i] - par.Z[i] - 32 - alpha) / 2, -par.R[i] / 2 - 140,
-               0)
+# i = 5
+# alpha = 10
+# draft.balloons('Front view', '1', -100 - (par.H[i] - par.S[i] - par.Z[i] - 32 - alpha) * par.cos30 / par.sin30, (par.H[i] - par.S[i] - par.Z[i] - 32 - alpha) / 2, -par.R[i] / 2 - 140,
+#                0)
+mprog.Close_All()
