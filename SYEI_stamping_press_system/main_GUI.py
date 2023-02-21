@@ -27,6 +27,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         self.setWindowIcon(QtGui.QIcon(BASE_DIR + '\\ico.ico'))
         self.a = int()
         self.ui.comboBox_4.currentIndexChanged.connect(self.change_combobox4)
+        # self.ui.lineEdit.textChanged.connect(self.boundary_value)
 
     def insert_data_combobox_change(self):
         data = {250: {230: [720, 1058], 200: [1080, 1587]},
@@ -41,6 +42,15 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                 3000: {500: [1760, 2700], 450: [2640, 4050]}
                 }
         return data
+
+    def boundary_value(self):
+        Form = QtWidgets.QWidget()
+        Form.setWindowTitle('oxxo.studio')
+        Form.resize(500, 200)
+        mbox = QtWidgets.QMessageBox(Form)
+
+        if int(self.ui.lineEdit.text()) > 10 or int(self.ui.lineEdit.text()) < -8:
+            mbox.warning(Form,'warning' , '超出界限')
 
     def change_combobox4(self):
         print(self.ui.comboBox_4.currentText())
