@@ -387,7 +387,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             mprog.add_offset_assembly('BOLSTER1.1', 'FRAME2.1', par.R_15[i] / 2 + 140, 'XZ.PLANE', 0, 13)
         else:
             mprog.add_offset_assembly('BOLSTER1.1', 'FRAME2.1', par.R[i] / 2 + 140, 'XZ.PLANE', 0, 13)
-        mprog.add_offset_assembly('FRAME8.1', 'FRAME2.1', par.H[i] / 2, 'XY.PLANE', 0, 14)
+        mprog.add_offset_assembly('FRAME8.1', 'FRAME2.1', (par.H[i] - 32 - 40) / 2 + 40, 'XY.PLANE', 0, 14)
         if l == 0:
             mprog.add_offset_assembly('FRAME8.1', 'FRAME2.1', par.B_15[i] / 2, 'YZ.PLANE', 1, 15)
         else:
@@ -396,7 +396,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             mprog.add_offset_assembly('BOLSTER1.1', 'FRAME1.1', -par.R_15[i] / 2 - 140, 'XZ.PLANE', 0, 16)
         else:
             mprog.add_offset_assembly('BOLSTER1.1', 'FRAME1.1', -par.R[i] / 2 - 140, 'XZ.PLANE', 0, 16)
-        mprog.add_offset_assembly('FRAME5.1', 'FRAME1.1', -par.H[i] / 2, 'XY.PLANE', 1, 17)
+        mprog.add_offset_assembly('FRAME5.1', 'FRAME1.1', -(par.H[i] -40 - 32) / 2 - 40, 'XY.PLANE', 1, 17)
         if l == 0:
             mprog.add_offset_assembly('FRAME5.1', 'FRAME1.1', -par.B_15[i] / 2, 'YZ.PLANE', 0, 18)
         else:
@@ -471,7 +471,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('FRAME3.1', 'FRAME20.1', -par.H[i] + 40 - alpha, 'XY.PLANE', 0, 41)
         mprog.add_offset_assembly('FRAME3.1', 'FRAME20.1', 0, 'YZ.PLANE', 0, 42)
         mprog.add_offset_assembly('FRAME30.1', 'FRAME20.1', 0, 'XZ.PLANE', 0, 43)
-        mprog.add_offset_assembly('FRAME30.1', 'FRAME20.1', -5, 'XY.PLANE', 0, 44)
+        mprog.add_offset_assembly('FRAME30.1', 'FRAME20.1', -9, 'XY.PLANE', 0, 44)
         mprog.add_offset_assembly('FRAME30.1', 'FRAME20.1', -550, 'YZ.PLANE', 0, 45)
         mprog.add_offset_assembly('FRAME29.1', 'FRAME20.1', 0, 'XZ.PLANE', 1, 46)
         mprog.add_offset_assembly('FRAME29.1', 'FRAME20.1', -par.FRAME20_H[i] + alpha, 'XY.PLANE', 0, 47)
@@ -817,7 +817,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                                               0, 204)
         else:
             mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1',
-                                              -(par.H[i] - par.Z[i] - par.S[i] - 34 - 80), 'XY.PLANE',
+                                              -(par.H[i] - par.Z[i] - par.S[i] - 34), 'XY.PLANE',
                                               0, 204)
         # 大齒輪內套環
         mprog.add_offset_assembly('MAIN_GEAR2.1', 'MAIN_GEAR3.1', 0, 'XZ.PLANE', 1, 205)
@@ -832,7 +832,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.add_offset_assembly('FRAME46.1', 'FRAME17.1', 0, 'XZ.PLANE', 0, 212)
         mprog.add_offset_assembly('FRAME46.1', 'FRAME17.1', 0, 'YZ.PLANE', 1, 213)
         #
-        mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 5, 'XY.PLANE', 0, 214)
+        mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 9, 'XY.PLANE', 0, 214)
         mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 0, 'XZ.PLANE', 0, 215)
         mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 979, 'YZ.PLANE', 1, 216)
         #
