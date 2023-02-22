@@ -37,9 +37,14 @@ def drafting_parameter_calculation(l, width, height, depth, T):  # 電子型錄W
         drafting_area_Y_range = h_scale + draft_Y_clearence * 6
         drafting_center_Y = (drafting_view_max_Y / 2 + drafting_view_min_Y)
         # ---------isometric view-------------
-        drafting_isometric_X_range = w_scale * math.cos(math.radians(45)) * 3 + d_scale * math.cos(
-            math.radians(45)) * 2 + scale * 4250 * math.cos(math.radians(45)) + 3500 * scale * math.cos(
-            math.radians(45)) + draft_X_clearence * 2  # W多乘2次為增長邊界長度
+        if l == 1:
+            drafting_isometric_X_range = w_scale * math.cos(math.radians(45)) * 3 + d_scale * math.cos(
+                math.radians(45)) * 2 + scale * 4250 * math.cos(math.radians(45)) + 3500 * scale * math.cos(
+                math.radians(45)) + draft_X_clearence * 2  # W多乘2次為增長邊界長度
+        else:
+            drafting_isometric_X_range = w_scale * math.cos(math.radians(45)) * 3 + d_scale * math.cos(
+                math.radians(45)) * 2 + scale * 4500 * math.cos(math.radians(45)) + 4250 * scale * math.cos(
+                math.radians(45)) + draft_X_clearence * 2  # W多乘2次為增長邊界長度
         drafting_isometric_Y_range = ((1700 + 500) * scale + T * scale + h_scale)  # h為增長邊界範圍(500為上下range)
         # ----------圖面比例位置判斷------------
         # ----------三視圖----------
