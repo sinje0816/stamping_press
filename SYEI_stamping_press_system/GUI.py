@@ -41,7 +41,7 @@ class Ui_Dialog(object):
         self.lineEdit.setSizePolicy(sizePolicy)
         self.lineEdit.setMaximumSize(QtCore.QSize(120, 16777215))
         font = QtGui.QFont()
-        font.setFamily("標楷體")
+        font.setFamily("微軟正黑體")
         font.setPointSize(12)
         self.lineEdit.setFont(font)
         self.lineEdit.setObjectName("lineEdit")
@@ -182,7 +182,7 @@ class Ui_Dialog(object):
         self.comboBox_2.setItemText(0, _translate("Dialog", "1050x1480"))
         self.comboBox_2.setItemText(1, _translate("Dialog", "1575x2220"))
         self.label_4.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">平板類型</span></p><p align=\"center\"><span style=\" font-weight:600;\">tablet type</span></p></body></html>"))
-        self.label_2.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">寬、深類型</span></p><p align=\"center\"><span style=\" font-weight:600;\">width and dipth type</span></p></body></html>"))
+        self.label_2.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">寬、深類型</span></p><p align=\"center\"><span style=\" font-weight:600;\">width and depth type</span></p></body></html>"))
         self.pushButton.setText(_translate("Dialog", "開始生成\n"
 "start generating"))
         self.comboBox_3.setItemText(0, _translate("Dialog", "330"))
