@@ -61,6 +61,18 @@ cos60 = math.cos(math.radians(60))
 cos35_267 = math.cos(math.radians(35.267))
 sin35_267 = math.sin(math.radians(35.267))
 
+# -------------開啟零件檔-------------
+file_name_list = ['BOLSTER1', 'BOLSTER2', 'BOLSTER3', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3', 'FRAME4',
+                  'FRAME5', 'FRAME6', 'FRAME7', 'FRAME8', 'FRAME9', 'FRAME10', 'FRAME11', 'FRAME12', 'FRAME13',
+                  'FRAME14', 'FRAME15', 'FRAME16', 'FRAME17', 'FRAME18', 'FRAME19', 'FRAME20', 'FRAME21',
+                  'FRAME22', 'FRAME23', 'FRAME24', 'FRAME25', 'FRAME26', 'FRAME27', 'FRAME28', 'FRAME29',
+                  'FRAME30', 'FRAME31', 'FRAME32', 'FRAME33', 'FRAME34', 'FRAME35', 'FRAME36', 'FRAME36',
+                  'FRAME37', 'FRAME38', 'FRAME39', 'FRAME40', 'FRAME41', 'FRAME42', 'FRAME43', 'FRAME44',
+                  'FRAME45', 'FRAME46', 'GIB1', 'GIB2', 'BALANCER_LEFT_All', 'BALANCER_RIGHT_ALL',
+                  'CRANK_SHAFT_CLOCK',
+                  'CLUCTH_ASSEMBLY_All', 'SLIDE_UNIT_All', 'CRANK_SHAFT', 'JOINT_All', 'MAIN_GEAR1',
+                  'MAIN_GEAR2', 'MAIN_GEAR3', 'MAIN_GEAR4', 'JOINT1', 'FRAME47', 'FRAME48', 'FRAME49']
+
 # -------------焊接圖---------------
 #隱藏part
 hide_part_name = ['BOLSTER1', 'BOLSTER2', 'BOLSTER3', 'BALANCER_LEFT_All', 'BALANCER_RIGHT_All', 'CRANK_SHAFT_CLOCK',
