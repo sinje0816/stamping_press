@@ -322,13 +322,16 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         mprog.save_file_part(path, name)
 
     def ass_(self, h, i, l, j, path, part_path, alpha):
+        print(l, h, i)
         type = str(self.ui.comboBox_4.currentText())  # 沖床噸數類型
 
         # ----------生成沖床組合圖---------
         Assdig.assembly_create(l, type, i, part_path, alpha, h)
+
         # ---------- 生成爆炸圖--------
-        eng.explosion_diagram(l, type, i)
-        #--------------存檔------------------
+        eng.explosion_diagram(l, type, i, h)
+        eng.balloons(i, l, h)
+        # 存檔
         mprog.PDF_save(path, "Exploded_Views")
         mprog.save_detail_drawing(path , "Exploded_Views")
 

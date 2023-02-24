@@ -276,7 +276,8 @@ def welding_drawing(l, type, i, alpha):
                        -100 - (par.H[i] - par.S[i] - par.Z[i] - 32 - alpha) * par.cos30 / par.sin30,
                        (par.H[i] - par.S[i] - par.Z[i] - 32 - alpha) / 2, -par.R_15[i] / 2 - 140, 0)
 
-def explosion_diagram(l, type, i):
+
+def explosion_diagram(l, type, i, h):
     # 重新定義拘束尺寸
     if l == 1:
         BOLSTER1_Offset_value = 1750
@@ -507,25 +508,29 @@ def explosion_diagram(l, type, i):
                             drafting_Coordinate_Position['Left View'][1], scale)
     draft.Right_View_Drawing(type, drafting_Coordinate_Position['Right View'][0],
                              drafting_Coordinate_Position['Right View'][1], scale)
-
-    # ------------圈碼圖------------
+# ------------標註------------
+def balloons(i, l, h):
+    # ---------圈碼圖----------
     if l == 1:
         BLOSTER1_center_Offset_Value = 1775
         GIB_Offset_value = -3000
         CLOCK_Offset_value = 2850
         BOLSTER1_Offset_value = 1750
+        Fixture_offset_value = 2850
+        CLUCTH_ASSEMBLY_offset_value = par.B[i] + 1650
     else:
         BLOSTER1_center_Offset_Value = 2625
         GIB_Offset_value = -4500
         CLOCK_Offset_value = 3500
         BOLSTER1_Offset_value = 2600
+        Fixture_offset_value = 3250
+        CLUCTH_ASSEMBLY_offset_value = par.B_15[i] + 2250
     BOLSTER1_XY_Z = -par.T[i]
     BOLSTER1_XY_T = par.Z[i] - par.T[i] + BOLSTER1_XY_Z
-
+    JOINT_ALL_offset_value = CLUCTH_ASSEMBLY_offset_value
     CLOCK_Pointer = 3325
     FRAME_TOP_LEFT_X = (par.R[i] + 90 + 50) * par.cos45 + 50
-    FRAME_TOP_LEFT_X_1 = FRAME_TOP_LEFT_X * par.sin30 / par.cos30
-
+    FRAME_TOP_LEFT_Y = FRAME_TOP_LEFT_X * par.sin30 / par.cos30
     # (將3D圖面尺寸轉換為2D尺寸, 將圖面x座標尺寸轉為R再將R轉為Y)
     # 引線點座標
     if l == 1:
@@ -541,12 +546,12 @@ def explosion_diagram(l, type, i):
                                 (GIB_Offset_value - (par.R[i] + 145) / 2) * par.cos45 * par.sin30 / par.cos30]}
         # 圈圈座標`
         circle_position = {
-            '2': ['2', point_position['2'][0] - FRAME_TOP_LEFT_X, point_position['2'][1] + FRAME_TOP_LEFT_X_1],
-            '3': ['3', point_position['3'][0] - FRAME_TOP_LEFT_X, point_position['3'][1] + FRAME_TOP_LEFT_X_1],
-            '4': ['4', point_position['4'][0] - FRAME_TOP_LEFT_X, point_position['4'][1] + FRAME_TOP_LEFT_X_1],
+            '2': ['2', point_position['2'][0] - FRAME_TOP_LEFT_X, point_position['2'][1] + FRAME_TOP_LEFT_Y],
+            '3': ['3', point_position['3'][0] - FRAME_TOP_LEFT_X, point_position['3'][1] + FRAME_TOP_LEFT_Y],
+            '4': ['4', point_position['4'][0] - FRAME_TOP_LEFT_X, point_position['4'][1] + FRAME_TOP_LEFT_Y],
             '5': ['5', point_position['5'][0] * 2 * 0.9 - FRAME_TOP_LEFT_X,
-                  point_position['5'][0] * 2 * 0.9 * par.sin30 / par.cos30 + FRAME_TOP_LEFT_X_1],
-            '6': ['6', point_position['6'][0] - FRAME_TOP_LEFT_X, point_position['6'][1] + FRAME_TOP_LEFT_X_1]}
+                  point_position['5'][0] * 2 * 0.9 * par.sin30 / par.cos30 + FRAME_TOP_LEFT_Y],
+            '6': ['6', point_position['6'][0] - FRAME_TOP_LEFT_X, point_position['6'][1] + FRAME_TOP_LEFT_Y]}
 
         draft.balloons('Isometric view1', circle_position['6'][0], circle_position['6'][1], circle_position['6'][2],
                        point_position['6'][0], point_position['6'][1])
@@ -571,69 +576,49 @@ def explosion_diagram(l, type, i):
                                  -(Fixture_offset_value + par.B[i]) * par.cos45,
                                  -(Fixture_offset_value + par.B[i]) * par.cos45 * par.sin30 / par.cos30 - 300)
     else:
+        if h == 0:
+            T_h = par.DH_S[i]
+        elif h == 1:
+            T_h = par.DH_H[i]
+        else:
+            T_h = par.DH_P[i]
+        print(T_h)
         point_position = {'2': [-CLOCK_Offset_value * par.cos45,
                                 -CLOCK_Offset_value * par.cos45 * par.sin30 / par.cos30],
                           '3': [(-1250) * par.cos45,
                                 (-1250) * par.cos45 * par.sin30 / par.cos30],
-                          '4': [(-BOLSTER1_Offset_value - par.R_15[i] / 2) * par.cos45,
-                                (-BOLSTER1_Offset_value - par.R_15[i] / 2) * par.cos45 * par.sin30 / par.cos30],
-                          '5': [(-BOLSTER1_Offset_value - par.R_15[i]) * par.cos45,
-                                (-BOLSTER1_Offset_value - par.R_15[i]) * par.cos45 * par.sin30 / par.cos30 - par.S[i] + par.T[
-                                    i]],
+                          '4': [(-BOLSTER1_Offset_value - par.P_15[i] / 3) * par.cos45,
+                                (-BOLSTER1_Offset_value) * par.cos45 * par.sin30 / par.cos30 - par.S[i] + par.T[
+                                    i] + T_h + 150],
+                          '5': [(-BOLSTER1_Offset_value - par.E_15[i] / 2) * par.cos45,
+                                (-BOLSTER1_Offset_value - par.E_15[i] / 2) * par.cos45 * par.sin30 / par.cos30 - par.S[
+                                    i] + par.T[i]],
                           '6': [(GIB_Offset_value - (par.R_15[i] + 145) / 2) * par.cos45,
                                 (GIB_Offset_value - (par.R_15[i] + 145) / 2) * par.cos45 * par.sin30 / par.cos30]}
         # 圈圈座標`
         circle_position = {
-            '2': ['2', point_position['2'][0] - FRAME_TOP_LEFT_X, point_position['2'][1] + FRAME_TOP_LEFT_X_1],
-            '3': ['3', point_position['3'][0] - FRAME_TOP_LEFT_X, point_position['3'][1] + FRAME_TOP_LEFT_X_1],
-            '4': ['4', point_position['4'][0] - FRAME_TOP_LEFT_X, point_position['4'][1] + FRAME_TOP_LEFT_X_1],
-            '5': ['5', point_position['5'][0] * 2 * 0.9 - FRAME_TOP_LEFT_X,
-                  point_position['5'][0] * 2 * 0.9 * par.sin30 / par.cos30 + FRAME_TOP_LEFT_X_1],
-            '6': ['6', point_position['6'][0] - FRAME_TOP_LEFT_X, point_position['6'][1] + FRAME_TOP_LEFT_X_1]}
+            '2': ['2', point_position['2'][0] - FRAME_TOP_LEFT_X, point_position['2'][1] + FRAME_TOP_LEFT_Y],
+            '3': ['3', point_position['3'][0] - FRAME_TOP_LEFT_X, point_position['3'][1] + FRAME_TOP_LEFT_Y],
+            '4': ['4', point_position['4'][0] - FRAME_TOP_LEFT_X * 2,
+                  point_position['4'][1] - (par.P_15[i] / 3) * par.cos45 * par.sin30 / par.cos30 + par.S[i] - par.T[
+                      i] - T_h - 150],
+            '5': ['5', point_position['5'][0] * 2 * 0.825 - FRAME_TOP_LEFT_X,
+                  point_position['5'][0] + par.T[i] / 2 + FRAME_TOP_LEFT_Y],
+            '6': ['6', point_position['6'][0] - FRAME_TOP_LEFT_X, point_position['6'][1] + FRAME_TOP_LEFT_Y]}
 
         draft.balloons('Isometric view1', circle_position['6'][0], circle_position['6'][1], circle_position['6'][2],
                        point_position['6'][0], point_position['6'][1])
         draft.balloons('Isometric view1', circle_position['2'][0], circle_position['2'][1], circle_position['2'][2],
                        point_position['2'][0], point_position['2'][1])
-        if type == 'SN1-200':
-            draft.balloons('Isometric view1', circle_position['4'][0], -2903.73, -877.31,
-                           -1767.767, -1606.456)
-            draft.balloons('Isometric view1', circle_position['5'][0], -3829.927,
-                           -1466.005, -2197.859, -2788.633)
-        elif type == 'SN1-300':
-            draft.balloons('Isometric view1', circle_position['4'][0], -13853.452, -2564.74,
-                           -12086.143, -3455.422)
-            draft.balloons('Isometric view1', circle_position['5'][0], -15155.394,
-                           -4703.283, -2197.859, -2788.633)
-        elif type == 'SN1-250':
-            draft.balloons('Isometric view1', circle_position['4'][0], -13063.86, -2423.374,
-                           -11381.711, -3337.585)
-            draft.balloons('Isometric view1', circle_position['5'][0], -14179.198,
-                           -3316.251, -12088.701, -4370.638)
-        else:
-            draft.balloons('Isometric view1', circle_position['4'][0], circle_position['4'][1],
-                           circle_position['4'][2],
-                           point_position['4'][0], point_position['4'][1])
-            draft.balloons('Isometric view1', circle_position['5'][0], circle_position['5'][1], circle_position['5'][2],
-                           point_position['5'][0], point_position['5'][1])
+        draft.balloons('Isometric view1', circle_position['4'][0], circle_position['4'][1], circle_position['4'][2],
+                       point_position['4'][0], point_position['4'][1])
+        draft.balloons('Isometric view1', circle_position['5'][0], circle_position['5'][1], circle_position['5'][2],
+                       point_position['5'][0], point_position['5'][1])
         draft.balloons('Isometric view1', circle_position['3'][0], circle_position['3'][1], circle_position['3'][2],
                        point_position['3'][0], point_position['3'][1])
-
-        # ------------中心線-------------
-        draft.create_center_line('Isometric view1', 0, 0, -CLOCK_Pointer * par.cos45,
-                                 -CLOCK_Pointer * par.cos45 * par.sin30 / par.cos30)
-        draft.create_center_line('Isometric view1', -BLOSTER1_center_Offset_Value * par.cos45,
-                                 -BLOSTER1_center_Offset_Value * par.cos45 * par.sin30 / par.cos30,
-                                 -BLOSTER1_center_Offset_Value * par.cos45, -par.S[i] - par.Z[i] - par.T[i])
-        draft.create_center_line('Isometric view2', -742.5 * par.cos45, -742.5 * par.cos45 * par.sin30 / par.cos30,
-                                 -JOINT_ALL_offset_value * par.cos45, -JOINT_ALL_offset_value * par.cos45 * par.sin30 / par.cos30)
-        draft.create_center_line('Isometric view2', -742.5 * par.cos45, -742.5 * par.cos45 * par.sin30 / par.cos30 - 300,
-                                 -(Fixture_offset_value + par.B_15[i]) * par.cos45,
-                                 -(Fixture_offset_value + par.B_15[i]) * par.cos45 * par.sin30 / par.cos30 - 300)
     Left_view_list = []
     for x in Left_view_list:
         Left_view_list.append(x)
-
     for x in Left_view_list:
         draft.add_dimension_to_view('Left view', str(x), Left_view_list[x][0], Left_view_list[x][1],
                                     Left_view_list[x][2],
