@@ -1,14 +1,17 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-import sys, datetime, os, math
 from GUI import Ui_Dialog
 import main_program as mprog
-import drafting as draft
 import drafting_part as dp
 import drafting_part_calculate as dpc
 import file_path as fp
 import parameter as par
 import engineering_drawing as eng
 import Assembly_diagram as Assdig
+
+import sys
+import datetime
+import os
+import time
 
 change = ()
 height = ()
@@ -169,6 +172,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
         return h, i, l, j
 
+
     def add_item_for_comboBox(self):
         print('insert')
         # data = ['sd1', 'sd2']
@@ -186,6 +190,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         self.path = path
         self.part_path = part_path
 
+    # 針對母檔零件進行變數變換
     def change_dir(self, h, i, l, j, alpha, path):
         print(alpha)
         # 開啟CATIA
@@ -201,24 +206,29 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         mprog.param_change(name, 'P', par.P_15[i])
                     else:
                         mprog.param_change(name, 'P', par.P[i])
-                    mprog.save_file_part(path, name)
+                        time.sleep(0.5)
+                        mprog.save_file_part(path, name)
                 elif name == 'BALANCER_LEFT_All' or name == 'BALANCER_RIGHT_ALL':
                     mprog.axis_system()
                     mprog.scaling(0.7)
+                    time.sleep(0.5)
                     mprog.save_file_part(path, name)
                 # elif name == 'GIB1' or name == 'GIB2':
                 #     mprog.axis_system()
                 #     mprog.scaling(0.9)
-                #     mprog.save_file_part(path, name)
+                #    time.sleep(0.5)
+                    mprog.save_file_part(path, name)
                 else:
                     if l == 0:
                         if name == 'FRAME1' or name == 'FRAME2' or name == 'FRAME44' or name == 'GIB1' or name == 'GIB2':  # 更改零件變數B
                             mprog.param_change(name, 'B', par.B_15[i])
                             if name == 'FRAME1' or name == 'FRAME2':
                                 mprog.param_change(name, 'alpha', alpha)
+                            time.sleep(0.5)
                             mprog.save_file_part(path, name)
                         elif name == 'FRAME3' or name == 'FRAME4' or name == 'FRAME9' or name == 'FRAME32' or name == 'FRAME41' or name == 'FRAME43' or name == 'FRAME20' or name == 'FRAME30' or name == 'FRAME29' or name == 'FRAME42' or name == 'FRAME43' or name == 'FRAME45':  # 更改零件變數R
                             mprog.param_change(name, 'R', par.R_15[i])
+                            time.sleep(0.5)
                             mprog.save_file_part(path, name)
                         elif name == 'FRAME10' or name == 'FRAME11' or name == 'FRAME12' or name == 'FRAME13' or name == 'BOLSTER1':  # 更改零件變數E
                             mprog.param_change(name, 'E', par.E_15[i])
@@ -226,26 +236,33 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                                 mprog.param_change(name, 'alpha', alpha)
                             if name == 'BOLSTER1':
                                 mprog.param_change('BOLSTER1', "hole_type", par.hole_type[j])
+                            time.sleep(0.5)
                             mprog.save_file_part(path, name)
                         elif name == 'FRAME29' or name == 'FRAME8' or name == 'FRAME5' or name == 'FRAME6' or name == 'FRAME7':  # 更改零件變數A
                             mprog.param_change(name, 'A', par.A_15[i])
+                            time.sleep(0.5)
                             mprog.save_file_part(path, name)
                         elif name == 'SLIDE_UNIT_All':  # 更改零件變數P
                             mprog.param_change(name, 'P', par.P_15[i])
+                            time.sleep(0.5)
                             mprog.save_file_part(path, name)
                         elif name == 'BOLSTER3' or name == 'BOLSTER2':  # 更改零件變數Q
                             mprog.param_change(name, 'Q', par.Q_15[i])
+                            time.sleep(0.5)
                             mprog.save_file_part(path, name)
                         else:
+                            time.sleep(0.5)
                             mprog.save_file_part(path, name)
                     else:
                         if name == 'FRAME1' or name == 'FRAME2' or name == 'FRAME44' or name == 'GIB1' or name == 'GIB2':  # 更改零件變數B
                             mprog.param_change(name, 'B', par.B[i])
                             if name == 'FRAME1' or name == 'FRAME2':
                                 mprog.param_change(name, 'alpha', alpha)
-                            mprog.save_file_part(path, name)
+                                time.sleep(0.5)
+                                mprog.save_file_part(path, name)
                         elif name == 'FRAME3' or name == 'FRAME4' or name == 'FRAME9' or name == 'FRAME32' or name == 'FRAME41' or name == 'FRAME43' or name == 'FRAME20' or name == 'FRAME30' or name == 'FRAME29' or name == 'FRAME42' or name == 'FRAME42' or name == 'FRAME43' or name == 'FRAME45':  # 更改零件變數R
                             mprog.param_change(name, 'R', par.R[i])
+                            time.sleep(0.5)
                             mprog.save_file_part(path, name)
                         elif name == 'FRAME10' or name == 'FRAME11' or name == 'FRAME12' or name == 'FRAME13' or name == 'BOLSTER1':  # 更改零件變數E
                             mprog.param_change(name, 'E', par.E[i])
@@ -253,17 +270,22 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                                 mprog.param_change(name, 'alpha', alpha)
                             if name == 'BOLSTER1':
                                 mprog.param_change('BOLSTER1', "hole_type", par.hole_type[j])
-                            mprog.save_file_part(path, name)
+                                time.sleep(0.5)
+                                mprog.save_file_part(path, name)
                         elif name == 'FRAME29' or name == 'FRAME8' or name == 'FRAME5' or name == 'FRAME6' or name == 'FRAME7':  # 更改零件變數A
                             mprog.param_change(name, 'A', par.A[i])
+                            time.sleep(0.5)
                             mprog.save_file_part(path, name)
                         elif name == 'SLIDE_UNIT_All':  # 更改零件變數P
                             mprog.param_change(name, 'P', par.P[i])
+                            time.sleep(0.5)
                             mprog.save_file_part(path, name)
                         elif name == 'BOLSTER3' or name == 'BOLSTER2':  # 更改零件變數Q
                             mprog.param_change(name, 'Q', par.Q[i])
+                            time.sleep(0.5)
                             mprog.save_file_part(path, name)
                         else:
+                            time.sleep(0.5)
                             mprog.save_file_part(path, name)
             else:
                 if l == 0:
@@ -271,9 +293,11 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         mprog.param_change(name, 'B', par.B_15[i])
                         if name == 'FRAME1' or name == 'FRAME2':
                             mprog.param_change(name, 'alpha', alpha)
-                        mprog.save_file_part(path, name)
+                            time.sleep(0.5)
+                            mprog.save_file_part(path, name)
                     elif name == 'FRAME3' or name == 'FRAME4' or name == 'FRAME9' or name == 'FRAME32' or name == 'FRAME41' or name == 'FRAME43' or name == 'FRAME20' or name == 'FRAME30' or name == 'FRAME29' or name == 'FRAME42' or name == 'FRAME42' or name == 'FRAME43' or name == 'FRAME45':  # 更改零件變數R
                         mprog.param_change(name, 'R', par.R_15[i])
+                        time.sleep(0.5)
                         mprog.save_file_part(path, name)
                     elif name == 'FRAME10' or name == 'FRAME11' or name == 'FRAME12' or name == 'FRAME13' or name == 'BOLSTER1':  # 更改零件變數E
                         mprog.param_change(name, 'E', par.E_15[i])
@@ -281,26 +305,33 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                             mprog.param_change(name, 'alpha', alpha)
                         if name == 'BOLSTER1':
                             mprog.param_change('BOLSTER1', "hole_type", par.hole_type[j])
-                        mprog.save_file_part(path, name)
+                            time.sleep(0.5)
+                            mprog.save_file_part(path, name)
                     elif name == 'FRAME29' or name == 'FRAME8' or name == 'FRAME5' or name == 'FRAME6' or name == 'FRAME7':  # 更改零件變數A
                         mprog.param_change(name, 'A', par.A_15[i])
+                        time.sleep(0.5)
                         mprog.save_file_part(path, name)
                     elif name == 'SLIDE_UNIT_All':  # 更改零件變數P
                         mprog.param_change(name, 'P', par.P_15[i])
+                        time.sleep(0.5)
                         mprog.save_file_part(path, name)
                     elif name == 'BOLSTER3' or name == 'BOLSTER2':  # 更改零件變數Q
                         mprog.param_change(name, 'Q', par.Q_15[i])
+                        time.sleep(0.5)
                         mprog.save_file_part(path, name)
                     else:
+                        time.sleep(0.5)
                         mprog.save_file_part(path, name)
                 else:
                     if name == 'FRAME1' or name == 'FRAME2' or name == 'FRAME44' or name == 'GIB1' or name == 'GIB2':  # 更改零件變數B
                         mprog.param_change(name, 'B', par.B[i])
                         if name == 'FRAME1' or name == 'FRAME2':
                             mprog.param_change(name, 'alpha', alpha)
+                        time.sleep(0.5)
                         mprog.save_file_part(path, name)
                     elif name == 'FRAME3' or name == 'FRAME4' or name == 'FRAME9' or name == 'FRAME32' or name == 'FRAME41' or name == 'FRAME43' or name == 'FRAME20' or name == 'FRAME30' or name == 'FRAME29' or name == 'FRAME42' or name == 'FRAME42' or name == 'FRAME43' or name == 'FRAME45':  # 更改零件變數R
                         mprog.param_change(name, 'R', par.R[i])
+                        time.sleep(0.5)
                         mprog.save_file_part(path, name)
                     elif name == 'FRAME10' or name == 'FRAME11' or name == 'FRAME12' or name == 'FRAME13' or name == 'BOLSTER1':  # 更改零件變數E
                         mprog.param_change(name, 'E', par.E[i])
@@ -308,17 +339,22 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                             mprog.param_change(name, 'alpha', alpha)
                         if name == 'BOLSTER1':
                             mprog.param_change('BOLSTER1', "hole_type", par.hole_type[j])
+                        time.sleep(0.5)
                         mprog.save_file_part(path, name)
                     elif name == 'FRAME29' or name == 'FRAME8' or name == 'FRAME5' or name == 'FRAME6' or name == 'FRAME7':  # 更改零件變數A
                         mprog.param_change(name, 'A', par.A[i])
+                        time.sleep(0.5)
                         mprog.save_file_part(path, name)
                     elif name == 'SLIDE_UNIT_All':  # 更改零件變數P
                         mprog.param_change(name, 'P', par.P[i])
+                        time.sleep(0.5)
                         mprog.save_file_part(path, name)
                     elif name == 'BOLSTER3' or name == 'BOLSTER2':  # 更改零件變數Q
                         mprog.param_change(name, 'Q', par.Q[i])
+                        time.sleep(0.5)
                         mprog.save_file_part(path, name)
                     else:
+                        time.sleep(0.5)
                         mprog.save_file_part(path, name)
 
     def ass_(self, h, i, l, j, path, part_path, alpha):
@@ -327,7 +363,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
         # ----------生成沖床組合圖---------
         Assdig.assembly_create(l, type, i, part_path, alpha, h)
-
         # ---------- 生成爆炸圖--------
         eng.explosion_diagram(l, type, i, h)
         eng.balloons(i, l, h)

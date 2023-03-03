@@ -15,8 +15,10 @@ def assembly_create(l, type, i, part_path, alpha, h):
                                'FRAME35',
                                'FRAME36', 'FRAME36', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME38',
                                'FRAME39', 'FRAME40', 'FRAME41', 'FRAME42', 'FRAME43', 'FRAME44', 'FRAME45',
-                               'FRAME46', 'FRAME47', 'FRAME47', 'FRAME48', 'FRAME49', 'GIB1', 'GIB2',
-                               'BALANCER_LEFT_All', 'BALANCER_RIGHT_ALL', 'CRANK_SHAFT_CLOCK',
+                               'FRAME46', 'FRAME47', 'FRAME47', 'FRAME48', 'FRAME49', 'FRAME50', 'FRAME51',
+                               'FRAME51', 'FRAME51', 'FRAME51', 'FRAME51', 'FRAME51', 'FRAME51', 'FRAME51',
+                               'FRAME52', 'GIB1', 'GIB2', 'MOTOR', 'BALANCER_LEFT_All', 'BALANCER_RIGHT_ALL',
+                               'CRANK_SHAFT_CLOCK',
                                'CLUCTH_ASSEMBLY_All',
                                'SLIDE_UNIT_ALL', 'CRANK_SHAFT', 'JOINT_All', 'MAIN_GEAR1', 'MAIN_GEAR2',
                                'MAIN_GEAR3',
@@ -538,6 +540,42 @@ def assembly_create(l, type, i, part_path, alpha, h):
     mprog.add_offset_assembly('FRAME1.1', 'FRAME33.2', 140, 'XZ.PLANE', 1, 229)
     mprog.add_offset_assembly('FRAME19.1', 'FRAME33.2', 708, 'XY.PLANE', 0, 230)
     mprog.add_offset_assembly('FRAME10.1', 'FRAME33.2', -313.984, 'YZ.PLANE', 1, 231)
+    # 馬達等零件
+    mprog.add_offset_assembly('FRAME39.1', 'FRAME50.1', -425, 'XZ.PLANE', 0, 232)
+    mprog.add_offset_assembly('FRAME39.1', 'FRAME50.1', -5, 'YZ.PLANE', 1, 233)
+    mprog.add_offset_assembly('FRAME39.1', 'FRAME50.1', 0, 'XY.PLANE', 1, 234)
+    #馬達黑色墊塊*8
+    mprog.add_offset_assembly('FRAME50.1', 'FRAME51.1', 108, 'XZ.PLANE', 1, 235)
+    mprog.add_offset_assembly('FRAME50.1', 'FRAME51.1', -87.201, 'YZ.PLANE', 1, 236)
+    mprog.add_offset_assembly('FRAME50.1', 'FRAME51.1', 39.5, 'XY.PLANE', 0, 237)
+    mprog.add_offset_assembly('FRAME51.1', 'FRAME51.2', 216, 'XZ.PLANE', 0, 238)
+    mprog.add_offset_assembly('FRAME51.1', 'FRAME51.2', 0, 'YZ.PLANE', 0, 239)
+    mprog.add_offset_assembly('FRAME51.1', 'FRAME51.2', 0, 'XY.PLANE', 0, 240)
+    mprog.add_offset_assembly('FRAME51.1', 'FRAME51.3', 0, 'XZ.PLANE', 0, 241)
+    mprog.add_offset_assembly('FRAME51.1', 'FRAME51.3', -178, 'YZ.PLANE', 0, 242)
+    mprog.add_offset_assembly('FRAME51.1', 'FRAME51.3', 0, 'XY.PLANE', 0, 243)
+    mprog.add_offset_assembly('FRAME51.1', 'FRAME51.4', 216, 'XZ.PLANE', 0, 244)
+    mprog.add_offset_assembly('FRAME51.1', 'FRAME51.4', -178, 'YZ.PLANE', 0, 245)
+    mprog.add_offset_assembly('FRAME51.1', 'FRAME51.4', 0, 'XY.PLANE', 0, 246)
+    mprog.add_offset_assembly('FRAME50.1', 'FRAME51.5', 108, 'XZ.PLANE', 0, 247)
+    mprog.add_offset_assembly('FRAME50.1', 'FRAME51.5', -87.201, 'YZ.PLANE', 0, 248)
+    mprog.add_offset_assembly('FRAME50.1', 'FRAME51.5', 39.5+16+17, 'XY.PLANE', 0, 249)
+    mprog.add_offset_assembly('FRAME51.5', 'FRAME51.6', -216, 'XZ.PLANE', 0, 250)
+    mprog.add_offset_assembly('FRAME51.5', 'FRAME51.6', 0, 'YZ.PLANE', 0, 251)
+    mprog.add_offset_assembly('FRAME51.5', 'FRAME51.6', 0, 'XY.PLANE', 0, 252)
+    mprog.add_offset_assembly('FRAME51.5', 'FRAME51.7', 0, 'XZ.PLANE', 0, 253)
+    mprog.add_offset_assembly('FRAME51.5', 'FRAME51.7', 178, 'YZ.PLANE', 0, 254)
+    mprog.add_offset_assembly('FRAME51.5', 'FRAME51.7', 0, 'XY.PLANE', 0, 255)
+    mprog.add_offset_assembly('FRAME51.5', 'FRAME51.8', -216, 'XZ.PLANE', 0, 256)
+    mprog.add_offset_assembly('FRAME51.5', 'FRAME51.8', 178, 'YZ.PLANE', 0, 257)
+    mprog.add_offset_assembly('FRAME51.5', 'FRAME51.8', 0, 'XY.PLANE', 0, 258)
+    #馬達
+    mprog.add_offset_assembly('FRAME50.1', 'MOTOR.1', 0, 'XZ.PLANE', 1, 259)
+    mprog.add_offset_assembly('FRAME50.1', 'MOTOR.1', 197, 'YZ.PLANE', 1, 260)
+    mprog.add_offset_assembly('FRAME50.1', 'MOTOR.1', 213, 'XY.PLANE', 1, 261)
+    mprog.add_offset_assembly('FRAME52.1', 'MOTOR.1', 0, 'XZ.PLANE', 1, 259)
+    mprog.add_offset_assembly('FRAME52.1', 'MOTOR.1', 0, 'YZ.PLANE', 1, 260)
+    mprog.add_offset_assembly('FRAME52.1', 'MOTOR.1', 0, 'XY.PLANE', 1, 261)
 
     # 更新
     mprog.update()

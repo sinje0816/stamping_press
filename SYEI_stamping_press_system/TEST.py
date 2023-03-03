@@ -1,10 +1,9 @@
-import engineering_drawing as eng
-import main_program as mprog
-path = 'C:\\Users\\User\\Desktop\\SN1-300_3_15_13_6'
-i = 9
-l = 0
-h = 0
+import win32com.client as win32
 
-eng.balloons(i, l, h)
-# 存檔
+def import_part(path, file_name):
+    catapp = win32.Dispatch('CATIA.Application')
+    documents1 = catapp.Documents
+    partDocument1 = documents1.Open(path + "\\" + file_name + ".stp")
+
+import_part("C:\\Users\\User\\Desktop\\佳馨學姊分析\\2_0_in\\SP\\", "SP_2_0_in")
 

@@ -174,6 +174,7 @@ def param_change(file_name, target, value):
     length = parameter.Item(target)
     length.Value = value
     productDocument = catapp.ActiveDocument
+    time.sleep(0.2)
     part.Update()
 
 # FRAME結合尺寸parameter, parameter_dimension, combined_number

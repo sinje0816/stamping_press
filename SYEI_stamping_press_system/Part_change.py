@@ -114,7 +114,7 @@ file_name_FRAME = ['BOLSTER1', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3', 'FRAME4'
                   'GIB2' ]
 new_file_name_FRAME = file_name_FRAME[::-1]
 for x in new_file_name_FRAME:
-    mprog.save_file(path,x)
+    mprog.save_file(path, x)
 
 
 import os

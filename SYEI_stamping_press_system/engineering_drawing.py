@@ -617,6 +617,7 @@ def balloons(i, l, h):
         draft.balloons('Isometric view1', circle_position['3'][0], circle_position['3'][1], circle_position['3'][2],
                        point_position['3'][0], point_position['3'][1])
     Left_view_list = []
+
     for x in Left_view_list:
         Left_view_list.append(x)
     for x in Left_view_list:
