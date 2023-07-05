@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="修改part_design中函式activatefeature()中，新增草圖激活">
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="修改part_design中函式activatefeature()">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/part_design.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/part_design.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -225,7 +226,14 @@
       <workItem from="1688384874942" duration="783000" />
       <workItem from="1688386030112" duration="395000" />
       <workItem from="1688436764965" duration="1100000" />
-      <workItem from="1688535179946" duration="6153000" />
+      <workItem from="1688535179946" duration="5715000" />
+    </task>
+    <task id="LOCAL-00020" summary="新增:標準件結合">
+      <created>1668843984942</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1668843984942</updated>
     </task>
     <task id="LOCAL-00021" summary="新增:平板與標準件連結">
       <created>1668844200933</created>
@@ -563,14 +571,7 @@
       <option name="project" value="LOCAL" />
       <updated>1688541815596</updated>
     </task>
-    <task id="LOCAL-00069" summary="修改part_design中函式activatefeature()中，新增草圖激活">
-      <created>1688542764600</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1688542764600</updated>
-    </task>
-    <option name="localTasksCounter" value="70" />
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,6 +597,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="完成爆炸圖前、左、右視圖" />
     <MESSAGE value="完成爆炸圖下半部比例位置自動調整" />
     <MESSAGE value="更改主檔爆炸圖下圖" />
     <MESSAGE value="完成爆炸圖比例位置偏移" />
@@ -620,8 +622,7 @@
     <MESSAGE value="1.修正大尺寸1.5倍爆炸圖投影生成位置問題&#10;2.修改爆炸圖執行式" />
     <MESSAGE value="新增part_design程式碼(移除remove內的特徵)" />
     <MESSAGE value="修改part_design中函式activatefeature()" />
-    <MESSAGE value="修改part_design中函式activatefeature()中，新增草圖激活" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改part_design中函式activatefeature()中，新增草圖激活" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改part_design中函式activatefeature()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -635,7 +636,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/stamping_press$part_design__1_.coverage" NAME="part_design (1) Coverage Results" MODIFIED="1688542721194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$part_design__1_.coverage" NAME="part_design (1) Coverage Results" MODIFIED="1688542452159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$main_GUI.coverage" NAME="main_GUI Coverage Results" MODIFIED="1688386245747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$activate_test.coverage" NAME="activate_test Coverage Results" MODIFIED="1688536708263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
   </component>
