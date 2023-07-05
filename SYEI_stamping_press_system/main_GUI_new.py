@@ -7,6 +7,7 @@ import file_path as fp
 import parameter as par
 import engineering_drawing as eng
 import Assembly_diagram as Assdig
+import part_TYPE_change1 as TPC
 
 import sys
 import datetime
@@ -192,13 +193,13 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
     # 針對母檔零件進行變數變換
     def change_dir(self, h, i, l, j, alpha, path):
-        print(alpha)
+        type = str(self.ui.comboBox_4.currentText())  # 沖床噸數類型
         # 開啟CATIA
         env = mprog.set_CATIA_workbench_env()
         # 開啟零件檔更改變數後儲存並關閉
         for name in par.file_name_list:
             mprog.import_part(fp.system_root + fp.part, name)
-
+            TPC.change_parameter(name, i)
     def ass_(self, h, i, l, j, path, part_path, alpha):
         print(l, h, i)
         type = str(self.ui.comboBox_4.currentText())  # 沖床噸數類型

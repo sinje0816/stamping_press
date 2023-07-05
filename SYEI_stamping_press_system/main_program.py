@@ -174,7 +174,6 @@ def param_change(file_name, target, value):
     length = parameter.Item(target)
     length.Value = value
     productDocument = catapp.ActiveDocument
-    time.sleep(0.2)
     part.Update()
 
 # FRAME結合尺寸parameter, parameter_dimension, combined_number
@@ -407,3 +406,48 @@ def hide_show_part(part_name, hide_show):  # 隱藏零件
     visPropertySet1 = visPropertySet1.Parent
     visPropertySet1.SetShow(hide_show)  # 隱藏1, 顯示0
     selection1.Clear()
+
+#
+def activatefeatrue(feature, howmany):
+    catapp = win32.Dispatch('CATIA.Application')
+    activedoc = catapp.ActiveDocument
+    part = activedoc.Part
+    bodies = part.Bodies
+    body = bodies.Item("PartBody")
+    shapes = body.Shapes
+    target = feature
+    remove = shapes.Item(target)
+    sub_body = remove.Body
+    sub_shapes = sub_body.Shapes
+    shapes_count = sub_shapes.Count
+
+    # here to start activating process
+    part.Activate(remove)
+    if howmany == 0:
+        for i in range(1, shapes_count + 1):
+            item_obj = sub_shapes.Item(i)
+
+            # 草圖激活
+            # noinspection PyBroadException
+            try:
+                sketch = item_obj.Sketch
+                part.Activate(sketch)
+            except:
+                pass
+            part.Activate(item_obj)
+    else:
+        for i in range(1, howmany+1):
+            item_obj = sub_shapes.Item(i)
+
+            # 草圖激活
+            # noinspection PyBroadException
+            try:
+                sketch = item_obj.Sketch
+                part.Activate(sketch)
+            except:
+                pass
+            part.Activate(item_obj)
+
+    part.Update()
+
+activatehfeatrue('5-M8通', 3)
