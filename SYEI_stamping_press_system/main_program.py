@@ -1,8 +1,8 @@
 import os
 import win32com.client as win32
-import datetime, time
+import datetime
 import file_path as fp
-import zipfile as zf
+
 
 # 開啟CATIA
 class set_CATIA_workbench_env:
@@ -174,7 +174,6 @@ def param_change(file_name, target, value):
     length = parameter.Item(target)
     length.Value = value
     productDocument = catapp.ActiveDocument
-    part.Update()
 
 # FRAME結合尺寸parameter, parameter_dimension, combined_number
 def combined_dimension(combination_number, combined_dimension):  # 組合編號, 組合尺寸
@@ -407,7 +406,7 @@ def hide_show_part(part_name, hide_show):  # 隱藏零件
     visPropertySet1.SetShow(hide_show)  # 隱藏1, 顯示0
     selection1.Clear()
 
-#
+# 啟動remove下body特徵
 def activatefeatrue(feature, howmany):
     catapp = win32.Dispatch('CATIA.Application')
     activedoc = catapp.ActiveDocument
@@ -417,16 +416,17 @@ def activatefeatrue(feature, howmany):
     shapes = body.Shapes
     target = feature
     remove = shapes.Item(target)
+    part.Activate(remove)
     sub_body = remove.Body
     sub_shapes = sub_body.Shapes
     shapes_count = sub_shapes.Count
 
     # here to start activating process
-    part.Activate(remove)
-    if howmany == 0:
-        for i in range(1, shapes_count + 1):
-            item_obj = sub_shapes.Item(i)
 
+
+    if howmany == 0:
+        for i in range(1, shapes_count+1):
+            item_obj = sub_shapes.Item(i)
             # 草圖激活
             # noinspection PyBroadException
             try:
@@ -450,4 +450,43 @@ def activatefeatrue(feature, howmany):
 
     part.Update()
 
-activatehfeatrue('5-M8通', 3)
+# 啟動partbody下特徵
+def partbodyfeatrueactivate(featrue, quantity):
+    catapp = win32.Dispatch('CATIA.Application')
+    doc = catapp.ActiveDocument
+    part = doc.Part
+    bodies = part.Bodies
+    body = bodies.Item("PartBody")
+    shapes = body.Shapes
+    target = featrue
+
+    if quantity == 0:
+        for i in range(1, shapes.count+1):
+            pocket = shapes.Item(i)
+            part.Activate(pocket)
+            # 草圖激活
+            # noinspection PyBroadException
+            try:
+                sketch = pocket.Sketch
+                part.Activate(sketch)
+            except:
+                pass
+        else:
+            for i in range(1, quantity+1):
+                pocket = shapes.Item(i)
+                part.Activate(pocket)
+                # 草圖激活
+                # noinspection PyBroadException
+                try:
+                    sketch = pocket.Sketch
+                    part.Activate(sketch)
+                except:
+                    pass
+
+# 零件更新
+def Update():
+    catapp = win32.Dispatch('CATIA.Application')
+    doc = catapp.ActiveDocument
+    part = doc.Part
+    part.Update()
+
