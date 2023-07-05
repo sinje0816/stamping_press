@@ -4,186 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="1.修正大尺寸1.5倍爆炸圖投影生成位置問題&#10;2.修改爆炸圖執行式">
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/labelimg.py" afterDir="false" />
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="新增part_design程式碼(移除remove內的特徵)">
+      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI_new.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/Assembly_diagram.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/Assembly_diagram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/Part_change.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/Part_change.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/TEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/TEST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/engineering_drawing.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/engineering_drawing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/parameter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/.idea/stamping_press.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BALANCER1.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BALANCER10.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BALANCER2.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BALANCER3.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BALANCER4.2.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BALANCER4.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BALANCER5.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BALANCER6.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BALANCER7.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BALANCER8.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BALANCER9.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BALANCER_LEFT.CATProduct" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BALANCER_LEFT_All.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BALANCER_LEFT_All.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BALANCER_RIGHT.CATProduct" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BALANCER_RIGHT_ALL.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BALANCER_RIGHT_ALL.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BALL CUP.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BEARING_HOUSING1.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BEARING_HOUSING2.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BEARING_HOUSING3.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BEARING_HOUSING4.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BEARING_HOUSING5.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BOLSTER1.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BOLSTER1.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BOLSTER2.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BOLSTER2.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BOLSTER3.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BOLSTER3.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BOLSTER4.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BOLSTER5.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/BUSH.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY.CATProduct" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY1.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY10.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY11.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY12.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY13.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY14.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY15.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY16.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY17.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY18.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY19.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY2.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY20.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY21.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY22.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY23.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY24.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY25.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY26.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY27.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY28.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY29.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY3.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY30.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY31.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY32.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY33.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY34.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY35.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY36.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY4.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY5.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY6.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY7.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY8.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY9.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY_All.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CLUCTH_ASSEMBLY_All.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/COUNTER_PARTS.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/COVER (BALL SCREW).CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CRANK_SHAFT.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CRANK_SHAFT.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CRANK_SHAFT.CATProduct" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CRANK_SHAFT_All.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CRANK_SHAFT_All_1.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CRANK_SHAFT_CLOCK.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CRANK_SHAFT_CLOCK.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/CRANK_SHAFT_HALF.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/Exploded_Views.CATDrawing" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FLYWHEEL BRAKE.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME.CATProduct" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME1.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME1.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME10.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME10.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME11.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME11.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME12.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME12.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME13.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME13.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME14.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME14.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME15.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME15.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME16.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME16.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME17.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME17.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME18.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME18.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME19.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME19.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME2.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME2.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME20.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME20.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME21.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME21.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME22.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME22.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME23.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME23.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME24.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME24.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME25.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME25.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME26.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME26.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME27.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME27.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME28.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME28.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME29.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME29.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME3.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME3.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME30.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME30.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME31.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME31.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME32.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME32.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME33.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME33.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME34.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME34.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME35.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME35.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME36.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME36.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME37.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME37.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME38.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME38.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME39.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME39.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME4.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME4.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME40.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME40.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME41.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME41.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME42.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME42.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME43.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME43.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME44.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME44.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME45.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME45.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME46.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME46.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME47.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME47.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME48.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME48.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME49.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME49.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME5.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME5.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME6.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME6.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME7.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME7.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME8.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME8.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME9.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/FRAME9.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/Fixture.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/Fixture.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/GIB1.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/GIB1.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/GIB2.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/GIB2.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/HOLD MOUNTING MANIFOLD.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/JOINT1.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/JOINT1.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/JOINT10.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/JOINT2.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/JOINT3.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/JOINT4.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/JOINT5.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/JOINT6.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/JOINT7.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/JOINT8.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/JOINT9.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/JOINT_All.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/JOINT_All.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/MAIN_GEAR1.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/MAIN_GEAR1.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/MAIN_GEAR2.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/MAIN_GEAR2.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/MAIN_GEAR3.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/MAIN_GEAR3.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/MAIN_GEAR4.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/MAIN_GEAR4.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/OVERLOAD PROTECTER.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/POINT.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/POINT2.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/POINT3.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/PRESSURE_PLATE.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/Pin.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/Product2.CATProduct" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/SLIDE.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/SLIDE_UNIT.CATProduct" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/SLIDE_UNIT_All.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/SLIDE_UNIT_All.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/SPROCKET.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/WORM GEAR COVER.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/WORM GEAR.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/WORM WHEEL COVER.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/WORM WHEEL.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/Welding_diagram.CATDrawing" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/detail_drawing.CATDrawing" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/inside the punch 9.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/washer left.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/washer right.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press/圖框.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/part_design.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/part_design.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,20 +51,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/PycharmProjects/stamping_press&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/User/PycharmProjects/PDAL_NSS_ADS_SUS316",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\PycharmProjects\stamping_press\SYEI_stamping_press_system" />
       <recent name="C:\Users\User\PycharmProjects\stamping_press" />
     </key>
   </component>
@@ -402,14 +228,7 @@
       <workItem from="1688384874942" duration="783000" />
       <workItem from="1688386030112" duration="395000" />
       <workItem from="1688436764965" duration="1100000" />
-      <workItem from="1688535179946" duration="2824000" />
-    </task>
-    <task id="LOCAL-00018" summary="FRAME_Assembly_change更改部分缺失結合尺寸及結合方式">
-      <created>1668698222569</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1668698222569</updated>
+      <workItem from="1688535179946" duration="4990000" />
     </task>
     <task id="LOCAL-00019" summary="新增:標準件結合">
       <created>1668781374862</created>
@@ -747,7 +566,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677832287384</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="新增part_design程式碼(移除remove內的特徵)">
+      <created>1688539798096</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1688539798096</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -758,14 +584,21 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ID_WIDTH">
+                <map>
+                  <entry key="Table.Default.Author.ColumnIdWidth" value="86" />
+                  <entry key="Table.Default.Date.ColumnIdWidth" value="145" />
+                  <entry key="Table.Space.CommitStatus.ColumnIdWidth" value="36" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="新增:比例判別, 生成2D視圖" />
     <MESSAGE value="比例調整及判斷" />
     <MESSAGE value="完成爆炸圖前、左、右視圖" />
     <MESSAGE value="完成爆炸圖下半部比例位置自動調整" />
@@ -790,7 +623,8 @@
     <MESSAGE value="爆改主程式" />
     <MESSAGE value="修整主程式資料位置" />
     <MESSAGE value="1.修正大尺寸1.5倍爆炸圖投影生成位置問題&#10;2.修改爆炸圖執行式" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.修正大尺寸1.5倍爆炸圖投影生成位置問題&#10;2.修改爆炸圖執行式" />
+    <MESSAGE value="新增part_design程式碼(移除remove內的特徵)" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增part_design程式碼(移除remove內的特徵)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
