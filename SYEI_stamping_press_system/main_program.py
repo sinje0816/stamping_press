@@ -449,5 +449,3 @@ def activatefeatrue(feature, howmany):
             part.Activate(item_obj)
 
     part.Update()
-
-activatehfeatrue('5-M8通', 3)
