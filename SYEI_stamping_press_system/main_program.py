@@ -1,8 +1,8 @@
 import os
 import win32com.client as win32
-import datetime
+import datetime, time
 import file_path as fp
-
+import zipfile as zf
 
 # 開啟CATIA
 class set_CATIA_workbench_env:
@@ -407,7 +407,7 @@ def hide_show_part(part_name, hide_show):  # 隱藏零件
     selection1.Clear()
 
 # 啟動remove下body特徵
-def activatefeatrue(feature, howmany):
+def activatefeature(feature, howmany):
     catapp = win32.Dispatch('CATIA.Application')
     activedoc = catapp.ActiveDocument
     part = activedoc.Part
@@ -416,17 +416,16 @@ def activatefeatrue(feature, howmany):
     shapes = body.Shapes
     target = feature
     remove = shapes.Item(target)
-    part.Activate(remove)
     sub_body = remove.Body
     sub_shapes = sub_body.Shapes
     shapes_count = sub_shapes.Count
 
     # here to start activating process
-
-
+    part.Activate(remove)
     if howmany == 0:
-        for i in range(1, shapes_count+1):
+        for i in range(1, shapes_count + 1):
             item_obj = sub_shapes.Item(i)
+
             # 草圖激活
             # noinspection PyBroadException
             try:
@@ -448,40 +447,24 @@ def activatefeatrue(feature, howmany):
                 pass
             part.Activate(item_obj)
 
-    part.Update()
-
 # 啟動partbody下特徵
-def partbodyfeatrueactivate(featrue, quantity):
+def partbodyfeatureactivate(feature):
     catapp = win32.Dispatch('CATIA.Application')
     doc = catapp.ActiveDocument
     part = doc.Part
     bodies = part.Bodies
     body = bodies.Item("PartBody")
     shapes = body.Shapes
-    target = featrue
-
-    if quantity == 0:
-        for i in range(1, shapes.count+1):
-            pocket = shapes.Item(i)
-            part.Activate(pocket)
-            # 草圖激活
-            # noinspection PyBroadException
-            try:
-                sketch = pocket.Sketch
-                part.Activate(sketch)
-            except:
-                pass
-        else:
-            for i in range(1, quantity+1):
-                pocket = shapes.Item(i)
-                part.Activate(pocket)
-                # 草圖激活
-                # noinspection PyBroadException
-                try:
-                    sketch = pocket.Sketch
-                    part.Activate(sketch)
-                except:
-                    pass
+    target = feature
+    pocket = shapes.Item(target)
+    part.Activate(pocket)
+    # 草圖激活
+    # noinspection PyBroadException
+    try:
+        sketch = pocket.Sketch
+        part.Activate(sketch)
+    except:
+        pass
 
 # 零件更新
 def Update():
@@ -489,4 +472,3 @@ def Update():
     doc = catapp.ActiveDocument
     part = doc.Part
     part.Update()
-

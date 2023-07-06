@@ -1,18 +1,25 @@
 import openpyxl as xl
+import main_program as mprog
 
 
-def excel_read():
-    wb = xl.load_workbook('尺寸整理表.xlsx')
-    parameter = []
-    value = []
-    worksheet = workbook['Sheet1']
-    for a in range(sheet.nrows):
-        cells = sheet.row_values(a)
-        parameter_name = cells[1]
-        parameter_value = cells[2]
-        parameter.append(parameter_name)
-        value.append(parameter_value)
-    return parameter, value
+class ExcelOp(object):
+    def __init__(self, sheet_name):
+        self.wb = xl.load_workbook('尺寸整理表.xlsx')
+        self.ws= self.wb[str(sheet_name)]
 
-a = excel_read()
-print(a[0][0])
+    def get_col_cell(self, column):
+        rows = self.ws.max_row
+        column_data = []
+
+        for i in range(2, rows+1):
+            cell_value = self.ws.cell(row=i, column=column).value
+            if cell_value is None:
+                break
+            column_data.append(cell_value)
+        return column_data
+
+    def part_parameter(self, part_name, i):
+        parameter_name = self.get_col_cell(1)
+        parameter_value = self.get_col_cell(i+2)
+        for n in range(0, len(parameter_name)):
+            mprog.param_change(part_name, parameter_name[n], str(parameter_value[n]))
