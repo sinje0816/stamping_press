@@ -16,4 +16,17 @@ alpha = 20
 #                                               -(par.H[i] - par.Z[i] - par.S[i] - 34), 'XY.PLANE',
 #                                               0, 204)
 
+# f = zipfile.ZipFile('C:\\Users\\USER\\Desktop\\text.zip','w',zipfile.ZIP_DEFLATED)
+# dirpath = "C:\\Users\\USER\\Desktop\\CATIA"
+# for path, dirnames, filenames in os.walk(dirpath):
+#     # 去掉目標根路徑，只對目標資料夾裡面的檔案進行壓縮
+#     fpath= path.replace(dirpath,'')
+#     for filename in filenames:
+#         f.write(os.path.join(path, filename), os.path.join(fpath, filename))
+
+
+catapp = win32.Dispatch('CATIA.Application')
+partdocuments = catapp.Documents
+part = partdocuments.part
+selection = partdocuments.selection
 
