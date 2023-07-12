@@ -1,0 +1,1254 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"16196f2d-2bed-4919-b6e6-decc4073d892\" name=\"Changes\" comment=\"新增FRAME5\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SYEI_stamping_press_system/excel_parameter_change.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SYEI_stamping_press_system/excel_parameter_change.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SYEI_stamping_press_system/homework0706_ex.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SYEI_stamping_press_system/homework0706_ex.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/FRAME1.CATPart\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/FRAME1.CATPart\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/FRAME5.CATPart\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/FRAME5.CATPart\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change1.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change1.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SYEI_stamping_press_system/尺寸整理表.xlsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SYEI_stamping_press_system/尺寸整理表.xlsx\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PREVIOUS_COMMIT_AUTHORS\">\r\n      <list>\r\n        <option value=\"USER &lt;c109104260@nkust.edu.tw&gt;\" />\r\n      </list>\r\n    </option>\r\n    <option name=\"PUSH_AUTO_UPDATE\" value=\"true\" />\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"RESET_MODE\" value=\"MIXED\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"file://$PROJECT_DIR$/SYEI_stamping_press_system/test2.py\" root0=\"SKIP_HIGHLIGHTING\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2HNiUWrGHo44xE9O4z5nXSKlf4K\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/PycharmProjects/stamping_press&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\User\\PycharmProjects\\stamping_press\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Python.part_TYPE_change1\">\r\n    <configuration name=\"excel_parameter_change\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Stamping press\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/SYEI_stamping_press_system/excel_parameter_change.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"homework0706_ex\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Stamping press\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/SYEI_stamping_press_system/homework0706_ex.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"main_program\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Stamping press\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"part_TYPE_change1\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Stamping press\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change1.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"part_TYPE_change2 (1)\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Stamping press\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change2.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Python.part_TYPE_change1\" />\r\n        <item itemvalue=\"Python.excel_parameter_change\" />\r\n        <item itemvalue=\"Python.homework0706_ex\" />\r\n        <item itemvalue=\"Python.part_TYPE_change2 (1)\" />\r\n        <item itemvalue=\"Python.main_program\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"16196f2d-2bed-4919-b6e6-decc4073d892\" name=\"Changes\" comment=\"\" />\r\n      <created>1668131959961</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1668131959961</updated>\r\n      <workItem from=\"1682341345768\" duration=\"1835000\" />\r\n      <workItem from=\"1682942531652\" duration=\"1764000\" />\r\n      <workItem from=\"1683006105957\" duration=\"2585000\" />\r\n      <workItem from=\"1683096366560\" duration=\"56000\" />\r\n      <workItem from=\"1683274382518\" duration=\"573000\" />\r\n      <workItem from=\"1683280867193\" duration=\"603000\" />\r\n      <workItem from=\"1683520397942\" duration=\"1795000\" />\r\n      <workItem from=\"1683531706018\" duration=\"2828000\" />\r\n      <workItem from=\"1683611242862\" duration=\"15685000\" />\r\n      <workItem from=\"1683711213299\" duration=\"628000\" />\r\n      <workItem from=\"1683870373204\" duration=\"2069000\" />\r\n      <workItem from=\"1684415680924\" duration=\"3435000\" />\r\n      <workItem from=\"1685010994799\" duration=\"523000\" />\r\n      <workItem from=\"1685025483336\" duration=\"637000\" />\r\n      <workItem from=\"1685071980999\" duration=\"604000\" />\r\n      <workItem from=\"1685360568219\" duration=\"1198000\" />\r\n      <workItem from=\"1685515326381\" duration=\"987000\" />\r\n      <workItem from=\"1685616492911\" duration=\"3715000\" />\r\n      <workItem from=\"1685775894376\" duration=\"3710000\" />\r\n      <workItem from=\"1685846437344\" duration=\"2424000\" />\r\n      <workItem from=\"1685860809323\" duration=\"3496000\" />\r\n      <workItem from=\"1685864353373\" duration=\"1120000\" />\r\n      <workItem from=\"1685956000855\" duration=\"6294000\" />\r\n      <workItem from=\"1686292753487\" duration=\"864000\" />\r\n      <workItem from=\"1688112881267\" duration=\"603000\" />\r\n      <workItem from=\"1688373144013\" duration=\"185000\" />\r\n      <workItem from=\"1688374980202\" duration=\"844000\" />\r\n      <workItem from=\"1688384874942\" duration=\"783000\" />\r\n      <workItem from=\"1688386030112\" duration=\"395000\" />\r\n      <workItem from=\"1688436764965\" duration=\"1100000\" />\r\n      <workItem from=\"1688535179946\" duration=\"2824000\" />\r\n      <workItem from=\"1688608400711\" duration=\"29109000\" />\r\n      <workItem from=\"1688693664803\" duration=\"12663000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"FRAME_Assembly_change更改部分缺失結合尺寸及結合方式\">\r\n      <created>1668698222569</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668698222569</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"新增:標準件結合\">\r\n      <created>1668781374862</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668781374862</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"新增:標準件結合\">\r\n      <created>1668843984942</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668843984942</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00021\" summary=\"新增:平板與標準件連結\">\r\n      <created>1668844200933</created>\r\n      <option name=\"number\" value=\"00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668844200933</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00022\" summary=\"新增:平板與標準件連結\">\r\n      <created>1668860563635</created>\r\n      <option name=\"number\" value=\"00022\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668860563635</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00023\" summary=\"新增:變數及結合判斷式\">\r\n      <created>1668860593088</created>\r\n      <option name=\"number\" value=\"00023\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668860593088</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00024\" summary=\"新增:變數與結合判斷式\">\r\n      <created>1668861100744</created>\r\n      <option name=\"number\" value=\"00024\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668861100744</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00025\" summary=\"修改部分YZ尺寸距離\">\r\n      <created>1668870166204</created>\r\n      <option name=\"number\" value=\"00025\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668870166204</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00026\" summary=\"80~250噸數OK\">\r\n      <created>1668942377027</created>\r\n      <option name=\"number\" value=\"00026\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668942377027</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00027\" summary=\"修改結合尺寸與判斷式\">\r\n      <created>1668947649149</created>\r\n      <option name=\"number\" value=\"00027\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00027\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668947649149</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00028\" summary=\"修改標準件判斷條件及新增噸數300尺寸\">\r\n      <created>1669042645660</created>\r\n      <option name=\"number\" value=\"00028\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00028\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1669042645660</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00029\" summary=\"修改氣壓缸尺寸\">\r\n      <created>1669043614548</created>\r\n      <option name=\"number\" value=\"00029\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00029\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1669043614548</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00030\" summary=\"修改FRAME32結合距離及尺寸、氣壓缸結合距離\">\r\n      <created>1669107668327</created>\r\n      <option name=\"number\" value=\"00030\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00030\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1669107668327</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00031\" summary=\"移除行程部分\">\r\n      <created>1669115571073</created>\r\n      <option name=\"number\" value=\"00031\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00031\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1669115571073</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00032\" summary=\"SP移除閉合部分&#10;main_GUI新增判斷條件\">\r\n      <created>1669119855900</created>\r\n      <option name=\"number\" value=\"00032\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00032\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1669119855900</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00033\" summary=\"新增結合零件&#10;新增Product存檔\">\r\n      <created>1670073006067</created>\r\n      <option name=\"number\" value=\"00033\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00033\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670073006067</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00034\" summary=\"新增標準件偏移結合\">\r\n      <created>1670086312963</created>\r\n      <option name=\"number\" value=\"00034\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00034\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670086312963</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00035\" summary=\"新增:爆炸圖尺寸更改\">\r\n      <created>1670253116158</created>\r\n      <option name=\"number\" value=\"00035\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00035\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670253116158</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00036\" summary=\"Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;123.py&#10;#&#9;GUI/main_GUI.py\">\r\n      <created>1670318199355</created>\r\n      <option name=\"number\" value=\"00036\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00036\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670318199355</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00037\" summary=\"新增:爆炸圖圖面\">\r\n      <created>1670318251316</created>\r\n      <option name=\"number\" value=\"00037\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00037\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670318251316</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00038\" summary=\"新增:爆炸圖圖面\">\r\n      <created>1670318256390</created>\r\n      <option name=\"number\" value=\"00038\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00038\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670318256390</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00039\" summary=\"新增:比例判別, 生成2D視圖\">\r\n      <created>1670337064813</created>\r\n      <option name=\"number\" value=\"00039\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00039\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670337064813</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00040\" summary=\"比例調整及判斷\">\r\n      <created>1670573601274</created>\r\n      <option name=\"number\" value=\"00040\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00040\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670573601274</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00041\" summary=\"完成爆炸圖下半部比例位置自動調整\">\r\n      <created>1670577732225</created>\r\n      <option name=\"number\" value=\"00041\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00041\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670577732225</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00042\" summary=\"更改主檔爆炸圖下圖\">\r\n      <created>1670918566295</created>\r\n      <option name=\"number\" value=\"00042\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00042\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670918566295</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00043\" summary=\"完成爆炸圖比例位置偏移\">\r\n      <created>1671034419443</created>\r\n      <option name=\"number\" value=\"00043\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00043\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1671034419443</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00044\" summary=\"修正爆炸圖比例偏移\">\r\n      <created>1671168366685</created>\r\n      <option name=\"number\" value=\"00044\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00044\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1671168366685</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00045\" summary=\"建立及測試圈碼圖&#10;(Y方向卡關)\">\r\n      <created>1671273349379</created>\r\n      <option name=\"number\" value=\"00045\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00045\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1671273349379</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00046\" summary=\"建立及測試圈碼圖&#10;(Y方向卡關)\">\r\n      <created>1671273358578</created>\r\n      <option name=\"number\" value=\"00046\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00046\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1671273358578</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00047\" summary=\"完成零件6圈碼圖建立\">\r\n      <created>1671354767706</created>\r\n      <option name=\"number\" value=\"00047\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00047\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1671354767706</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00048\" summary=\"修改爆炸圖偏移二變數&#10;新增更改視圖名稱\">\r\n      <created>1671878126103</created>\r\n      <option name=\"number\" value=\"00048\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00048\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1671878126103</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00049\" summary=\"N1及drafting_test更新\">\r\n      <created>1672144632891</created>\r\n      <option name=\"number\" value=\"00049\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00049\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672144632891</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00050\" summary=\"N1及drafting_test更新\">\r\n      <created>1672144785065</created>\r\n      <option name=\"number\" value=\"00050\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00050\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672144785065</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00051\" summary=\"N1及drafting_test更新\">\r\n      <created>1672153488883</created>\r\n      <option name=\"number\" value=\"00051\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00051\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672153488883</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00052\" summary=\"N1及N_test圈馬程式更新\">\r\n      <created>1672236353047</created>\r\n      <option name=\"number\" value=\"00052\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00052\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1672236353047</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00053\" summary=\"修改FRAME31.1~4的位置\">\r\n      <created>1675673976293</created>\r\n      <option name=\"number\" value=\"00053\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00053\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1675673976293</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00054\" summary=\"修改FRAME31.1~4的位置\">\r\n      <created>1675673982520</created>\r\n      <option name=\"number\" value=\"00054\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00054\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1675673982521</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00055\" summary=\"完成剖面圖投影&#10;局部放大圖Section view F-F需先切換視窗關閉零件再進行投影\">\r\n      <created>1675945568474</created>\r\n      <option name=\"number\" value=\"00055\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00055\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1675945568474</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00056\" summary=\"完成剖面圖投影&#10;局部放大圖Section view F-F需先切換視窗關閉零件再進行投影\">\r\n      <created>1675945584188</created>\r\n      <option name=\"number\" value=\"00056\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00056\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1675945584188</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00057\" summary=\"將py檔更換位置\">\r\n      <created>1675945931695</created>\r\n      <option name=\"number\" value=\"00057\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00057\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1675945931695</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00058\" summary=\"py檔更換位置\">\r\n      <created>1675993596851</created>\r\n      <option name=\"number\" value=\"00058\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00058\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1675993596851</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00059\" summary=\"零件母檔更新及組立問題變更&#10;測試檔更改\">\r\n      <created>1676272487469</created>\r\n      <option name=\"number\" value=\"00059\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00059\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676272487469</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00060\" summary=\"SN1-80部分母黨修改&#10;主程式組立部分新增SN1-80例外情形\">\r\n      <created>1676884533524</created>\r\n      <option name=\"number\" value=\"00060\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00060\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676884533524</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00061\" summary=\"更改與高度相關組立跟參數&#10;母檔更改\">\r\n      <created>1676971608355</created>\r\n      <option name=\"number\" value=\"00061\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00061\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676971608355</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00062\" summary=\"改FRAME11跟10的XY平面&#10;主程式修改\">\r\n      <created>1676989576982</created>\r\n      <option name=\"number\" value=\"00062\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00062\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676989576982</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00063\" summary=\"爆改主程式\">\r\n      <created>1677149449035</created>\r\n      <option name=\"number\" value=\"00063\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00063\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677149449035</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00064\" summary=\"修整主程式資料位置\">\r\n      <created>1677227068934</created>\r\n      <option name=\"number\" value=\"00064\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00064\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677227068935</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00065\" summary=\"修整主程式資料位置\">\r\n      <created>1677227076696</created>\r\n      <option name=\"number\" value=\"00065\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00065\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677227076696</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00066\" summary=\"1.修正大尺寸1.5倍爆炸圖投影生成位置問題&#10;2.修改爆炸圖執行式\">\r\n      <created>1677832287384</created>\r\n      <option name=\"number\" value=\"00066\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00066\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677832287384</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"67\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"新增:比例判別, 生成2D視圖\" />\r\n    <MESSAGE value=\"比例調整及判斷\" />\r\n    <MESSAGE value=\"完成爆炸圖前、左、右視圖\" />\r\n    <MESSAGE value=\"完成爆炸圖下半部比例位置自動調整\" />\r\n    <MESSAGE value=\"更改主檔爆炸圖下圖\" />\r\n    <MESSAGE value=\"完成爆炸圖比例位置偏移\" />\r\n    <MESSAGE value=\"修正爆炸圖比例偏移\" />\r\n    <MESSAGE value=\"建立及測試圈碼圖&#10;(Y方向卡關)\" />\r\n    <MESSAGE value=\"完成零件6圈碼圖建立\" />\r\n    <MESSAGE value=\"修改爆炸圖偏移二變數&#10;新增更改視圖名稱\" />\r\n    <MESSAGE value=\"N1及drafting_test更新\" />\r\n    <MESSAGE value=\"N1及N_test圈馬程式更新\" />\r\n    <MESSAGE value=\"修改main_GUI平板問題及離合器起飛問題\" />\r\n    <MESSAGE value=\"修改FRAME31.1~4的位置\" />\r\n    <MESSAGE value=\"完成剖面圖投影&#10;局部放大圖Section view F-F需先切換視窗關閉零件再進行投影\" />\r\n    <MESSAGE value=\"將py檔更換位置\" />\r\n    <MESSAGE value=\"py檔更換位置\" />\r\n    <MESSAGE value=\"零件母檔更新及組立問題變更&#10;測試檔更改\" />\r\n    <MESSAGE value=\"SN1-80部分母黨修改&#10;主程式組立部分新增SN1-80例外情形\" />\r\n    <MESSAGE value=\"更改與高度相關組立跟參數&#10;母檔更改\" />\r\n    <MESSAGE value=\"改FRAME11跟10的XY平面&#10;主程式修改\" />\r\n    <MESSAGE value=\"修改FRAME1,2,10,11之alpha值相關組立尺寸\" />\r\n    <MESSAGE value=\"爆改主程式\" />\r\n    <MESSAGE value=\"修整主程式資料位置\" />\r\n    <MESSAGE value=\"1.修正大尺寸1.5倍爆炸圖投影生成位置問題&#10;2.修改爆炸圖執行式\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"1.修正大尺寸1.5倍爆炸圖投影生成位置問題&#10;2.修改爆炸圖執行式\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"python-line\">\r\n          <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change1.py</url>\r\n          <line>1761</line>\r\n          <option name=\"timeStamp\" value=\"2\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"python-line\">\r\n          <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change1.py</url>\r\n          <line>1755</line>\r\n          <option name=\"timeStamp\" value=\"4\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/stamping_press$part_design__1_.coverage\" NAME=\"part_design (1) Coverage Results\" MODIFIED=\"1688543318871\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n    <SUITE FILE_PATH=\"coverage/stamping_press$main_program.coverage\" NAME=\"main_program Coverage Results\" MODIFIED=\"1688623227443\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n    <SUITE FILE_PATH=\"coverage/stamping_press$part_TYPE_change2__1_.coverage\" NAME=\"part_TYPE_change2 (1) Coverage Results\" MODIFIED=\"1688647602222\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n    <SUITE FILE_PATH=\"coverage/stamping_press$excel_parameter_change.coverage\" NAME=\"excel_parameter_change Coverage Results\" MODIFIED=\"1688709908034\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n    <SUITE FILE_PATH=\"coverage/stamping_press$part_TYPE_change1.coverage\" NAME=\"part_TYPE_change1 Coverage Results\" MODIFIED=\"1688710027280\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n    <SUITE FILE_PATH=\"coverage/stamping_press$part_type_change2.coverage\" NAME=\"part type change2 Coverage Results\" MODIFIED=\"1688558827455\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n    <SUITE FILE_PATH=\"coverage/stamping_press$parameter.coverage\" NAME=\"parameter Coverage Results\" MODIFIED=\"1683870399043\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n    <SUITE FILE_PATH=\"coverage/stamping_press$homework0706_ex.coverage\" NAME=\"homework0706_ex Coverage Results\" MODIFIED=\"1688706834397\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n    <SUITE FILE_PATH=\"coverage/stamping_press$main_GUI.coverage\" NAME=\"main_GUI Coverage Results\" MODIFIED=\"1688386245747\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n    <SUITE FILE_PATH=\"coverage/stamping_press$part_test.coverage\" NAME=\"part_test Coverage Results\" MODIFIED=\"1688634351637\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n    <SUITE FILE_PATH=\"coverage/stamping_press$activate_test.coverage\" NAME=\"activate_test Coverage Results\" MODIFIED=\"1688536708263\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/SYEI_stamping_press_system\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,14 +4,12 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="新增FRAME5">
++    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="FRAME1建立到噸數80完成">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/excel_parameter_change.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/excel_parameter_change.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/homework0706_ex.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/homework0706_ex.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/FRAME1.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/FRAME1.CATPart" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/FRAME5.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/FRAME5.CATPart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/FRAME2.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/FRAME2.CATPart" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change1.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change1.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/test2.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/test2.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/尺寸整理表.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/尺寸整理表.xlsx" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -117,7 +115,7 @@
+       <option name="INPUT_FILE" value="" />
+       <method v="2" />
+     </configuration>
+-    <configuration name="main_program" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++    <configuration name="part_TYPE_change1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="Stamping press" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+       <option name="PARENT_ENVS" value="true" />
+@@ -130,7 +128,7 @@
+       <option name="ADD_CONTENT_ROOTS" value="true" />
+       <option name="ADD_SOURCE_ROOTS" value="true" />
+       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change1.py" />
+       <option name="PARAMETERS" value="" />
+       <option name="SHOW_COMMAND_LINE" value="false" />
+       <option name="EMULATE_TERMINAL" value="false" />
+@@ -139,7 +137,7 @@
+       <option name="INPUT_FILE" value="" />
+       <method v="2" />
+     </configuration>
+-    <configuration name="part_TYPE_change1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++    <configuration name="part_TYPE_change2 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="Stamping press" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+       <option name="PARENT_ENVS" value="true" />
+@@ -152,7 +150,7 @@
+       <option name="ADD_CONTENT_ROOTS" value="true" />
+       <option name="ADD_SOURCE_ROOTS" value="true" />
+       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change1.py" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change2.py" />
+       <option name="PARAMETERS" value="" />
+       <option name="SHOW_COMMAND_LINE" value="false" />
+       <option name="EMULATE_TERMINAL" value="false" />
+@@ -161,7 +159,7 @@
+       <option name="INPUT_FILE" value="" />
+       <method v="2" />
+     </configuration>
+-    <configuration name="part_TYPE_change2 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++    <configuration name="test2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="Stamping press" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+       <option name="PARENT_ENVS" value="true" />
+@@ -174,7 +172,7 @@
+       <option name="ADD_CONTENT_ROOTS" value="true" />
+       <option name="ADD_SOURCE_ROOTS" value="true" />
+       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change2.py" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/test2.py" />
+       <option name="PARAMETERS" value="" />
+       <option name="SHOW_COMMAND_LINE" value="false" />
+       <option name="EMULATE_TERMINAL" value="false" />
+@@ -186,10 +184,10 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="Python.part_TYPE_change1" />
++        <item itemvalue="Python.test2" />
+         <item itemvalue="Python.excel_parameter_change" />
+         <item itemvalue="Python.homework0706_ex" />
+         <item itemvalue="Python.part_TYPE_change2 (1)" />
+-        <item itemvalue="Python.main_program" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -234,6 +232,7 @@
+       <workItem from="1688535179946" duration="2824000" />
+       <workItem from="1688608400711" duration="29109000" />
+       <workItem from="1688693664803" duration="12663000" />
++      <workItem from="1689130735231" duration="16144000" />
+     </task>
+     <task id="LOCAL-00018" summary="FRAME_Assembly_change更改部分缺失結合尺寸及結合方式">
+       <created>1668698222569</created>
+@@ -623,33 +622,18 @@
+     <MESSAGE value="1.修正大尺寸1.5倍爆炸圖投影生成位置問題&#10;2.修改爆炸圖執行式" />
+     <option name="LAST_COMMIT_MESSAGE" value="1.修正大尺寸1.5倍爆炸圖投影生成位置問題&#10;2.修改爆炸圖執行式" />
+   </component>
+-  <component name="XDebuggerManager">
+-    <breakpoint-manager>
+-      <breakpoints>
+-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+-          <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change1.py</url>
+-          <line>1761</line>
+-          <option name="timeStamp" value="2" />
+-        </line-breakpoint>
+-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+-          <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change1.py</url>
+-          <line>1755</line>
+-          <option name="timeStamp" value="4" />
+-        </line-breakpoint>
+-      </breakpoints>
+-    </breakpoint-manager>
+-  </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+     <SUITE FILE_PATH="coverage/stamping_press$part_design__1_.coverage" NAME="part_design (1) Coverage Results" MODIFIED="1688543318871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+     <SUITE FILE_PATH="coverage/stamping_press$main_program.coverage" NAME="main_program Coverage Results" MODIFIED="1688623227443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+     <SUITE FILE_PATH="coverage/stamping_press$part_TYPE_change2__1_.coverage" NAME="part_TYPE_change2 (1) Coverage Results" MODIFIED="1688647602222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+-    <SUITE FILE_PATH="coverage/stamping_press$excel_parameter_change.coverage" NAME="excel_parameter_change Coverage Results" MODIFIED="1688709908034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+-    <SUITE FILE_PATH="coverage/stamping_press$part_TYPE_change1.coverage" NAME="part_TYPE_change1 Coverage Results" MODIFIED="1688710027280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
++    <SUITE FILE_PATH="coverage/stamping_press$excel_parameter_change.coverage" NAME="excel_parameter_change Coverage Results" MODIFIED="1688974355333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
++    <SUITE FILE_PATH="coverage/stamping_press$part_TYPE_change1.coverage" NAME="part_TYPE_change1 Coverage Results" MODIFIED="1689161151631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+     <SUITE FILE_PATH="coverage/stamping_press$part_type_change2.coverage" NAME="part type change2 Coverage Results" MODIFIED="1688558827455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+     <SUITE FILE_PATH="coverage/stamping_press$parameter.coverage" NAME="parameter Coverage Results" MODIFIED="1683870399043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+     <SUITE FILE_PATH="coverage/stamping_press$homework0706_ex.coverage" NAME="homework0706_ex Coverage Results" MODIFIED="1688706834397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+     <SUITE FILE_PATH="coverage/stamping_press$main_GUI.coverage" NAME="main_GUI Coverage Results" MODIFIED="1688386245747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+     <SUITE FILE_PATH="coverage/stamping_press$part_test.coverage" NAME="part_test Coverage Results" MODIFIED="1688634351637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+     <SUITE FILE_PATH="coverage/stamping_press$activate_test.coverage" NAME="activate_test Coverage Results" MODIFIED="1688536708263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
++    <SUITE FILE_PATH="coverage/stamping_press$test2.coverage" NAME="test2 Coverage Results" MODIFIED="1689153554795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: SYEI_stamping_press_system/test2.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># if l == 0:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', par.A_15[i] / 2, 'XZ.PLANE', 1, 1)\r\n# else:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', par.A[i] / 2, 'XZ.PLANE', 1, 1)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', -par.Z[i], 'XY.PLANE', 1, 2)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', -80 - par.B_15[i] + par.F[i] / 2, 'YZ.PLANE', 1, 3)\r\n# else:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', -80 - par.B[i] + par.F[i] / 2, 'YZ.PLANE', 1, 3)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -par.A_15[i] / 2, 'XZ.PLANE', 0, 4)\r\n# else:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -par.A[i] / 2, 'XZ.PLANE', 0, 4)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -par.Z[i], 'XY.PLANE', 0, 5)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -80 - par.B_15[i] + par.F[i] / 2, 'YZ.PLANE', 1, 6)\r\n# else:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -80 - par.B[i] + par.F[i] / 2, 'YZ.PLANE', 1, 6)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME5.1', -par.A_15[i] / 2, 'XZ.PLANE', 0, 7)\r\n# else:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME5.1', -par.A[i] / 2, 'XZ.PLANE', 0, 7)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME5.1', -par.Z[i], 'XY.PLANE', 1, 8)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('FRAME7.1', 'FRAME5.1', -par.B_15[i], 'YZ.PLANE', 1, 9)\r\n# else:\r\n#     mprog.add_offset_assembly('FRAME7.1', 'FRAME5.1', -par.B[i], 'YZ.PLANE', 1, 9)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME8.1', par.A_15[i] / 2, 'XZ.PLANE', 0, 10)\r\n# else:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME8.1', par.A[i] / 2, 'XZ.PLANE', 0, 10)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME8.1', -par.Z[i], 'XY.PLANE', 0, 11)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('FRAME6.1', 'FRAME8.1', -par.B_15[i], 'YZ.PLANE', 0, 12)\r\n# else:\r\n#     mprog.add_offset_assembly('FRAME6.1', 'FRAME8.1', -par.B[i], 'YZ.PLANE', 0, 12)\r\n# # 左右側板\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME2.1', par.R_15[i] / 2 + 140, 'XZ.PLANE', 0, 13)\r\n# else:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME2.1', par.R[i] / 2 + 140, 'XZ.PLANE', 0, 13)\r\n# mprog.add_offset_assembly('FRAME8.1', 'FRAME2.1', (par.H[i] - 32 - 40) / 2 + 40, 'XY.PLANE', 0, 14)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('FRAME8.1', 'FRAME2.1', par.B_15[i] / 2, 'YZ.PLANE', 1, 15)\r\n# else:\r\n#     mprog.add_offset_assembly('FRAME8.1', 'FRAME2.1', par.B[i] / 2, 'YZ.PLANE', 1, 15)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME1.1', -par.R_15[i] / 2 - 140, 'XZ.PLANE', 0, 16)\r\n# else:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME1.1', -par.R[i] / 2 - 140, 'XZ.PLANE', 0, 16)\r\n# mprog.add_offset_assembly('FRAME5.1', 'FRAME1.1', -(par.H[i] - 40 - 32) / 2 - 40, 'XY.PLANE', 1, 17)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('FRAME5.1', 'FRAME1.1', -par.B_15[i] / 2, 'YZ.PLANE', 0, 18)\r\n# else:\r\n#     mprog.add_offset_assembly('FRAME5.1', 'FRAME1.1', -par.B[i] / 2, 'YZ.PLANE', 0, 18)\r\n# # 底部前、中板\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('FRAME5.1', 'FRAME3.1', par.A_15[i] / 2, 'XZ.PLANE', 1, 19)\r\n# else:\r\n#     mprog.add_offset_assembly('FRAME5.1', 'FRAME3.1', par.A[i] / 2, 'XZ.PLANE', 1, 19)\r\n# mprog.add_offset_assembly('FRAME5.1', 'FRAME3.1', 0, 'XY.PLANE', 0, 20)\r\n# mprog.add_offset_assembly('FRAME5.1', 'FRAME3.1', 0, 'YZ.PLANE', 1, 21)\r\n# mprog.add_offset_assembly('FRAME9.1', 'FRAME3.1', 0, 'XZ.PLANE', 0, 22)\r\n# mprog.add_offset_assembly('FRAME9.1', 'FRAME3.1', 0, 'XY.PLANE', 0, 23)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('FRAME9.1', 'FRAME3.1', -par.FRAME2_lower_depth_15[i] + 5, 'YZ.PLANE', 0, 24)\r\n# else:\r\n#     mprog.add_offset_assembly('FRAME9.1', 'FRAME3.1', -par.FRAME2_lower_depth[i] + 5, 'YZ.PLANE', 0, 24)\r\n# # 中間左右側板\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('FRAME11.1', 'FRAME3.1', par.R_15[i] / 2, 'XZ.PLANE', 0, 25)\r\n# else:\r\n#     mprog.add_offset_assembly('FRAME11.1', 'FRAME3.1', par.R[i] / 2, 'XZ.PLANE', 0, 25)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME11.1', -par.T[i], 'XY.PLANE', 1, 26)\r\n# if l == 0:\r\n#     if i == 4:\r\n#         mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth_15[i] + 80, 'YZ.PLANE', 1, 27)\r\n#     else:\r\n#         mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth_15[i], 'YZ.PLANE', 1, 27)\r\n# else:\r\n#     if i == 4:\r\n#         mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth[i] + 80, 'YZ.PLANE', 1, 27)\r\n#     else:\r\n#         mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth[i], 'YZ.PLANE', 1, 27)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -par.R_15[i] / 2 - 90, 'XZ.PLANE', 0, 28)\r\n# else:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -par.R[i] / 2 - 90, 'XZ.PLANE', 0, 28)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -par.T[i] - alpha, 'XY.PLANE', 0, 29)\r\n# if l == 0:\r\n#     if i == 4:\r\n#         mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', par.FRAME2_lower_depth_15[i] + 80, 'YZ.PLANE', 1, 30)\r\n#     else:\r\n#         mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', par.FRAME2_lower_depth_15[i], 'YZ.PLANE', 1, 30)\r\n# else:\r\n#     if i == 4:\r\n#         mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', par.FRAME2_lower_depth[i] + 80, 'YZ.PLANE', 1, 30)\r\n#     else:\r\n#         mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', par.FRAME2_lower_depth[i], 'YZ.PLANE', 1, 30)\r\n# # 底部後面ㄇ形角鐵\r\n# mprog.add_offset_assembly('FRAME3.1', 'FRAME4.1', 0, 'XZ.PLANE', 1, 31)\r\n# mprog.add_offset_assembly('FRAME3.1', 'FRAME4.1', 0, 'XY.PLANE', 0, 32)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('FRAME3.1', 'FRAME4.1', par.B_15[i], 'YZ.PLANE', 0, 33)\r\n# else:\r\n#     mprog.add_offset_assembly('FRAME3.1', 'FRAME4.1', par.B[i], 'YZ.PLANE', 0, 33)\r\n# # 平板底部零件\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME12.1', -par.R_15[i] / 2, 'XZ.PLANE', 1, 34)\r\n# else:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME12.1', -par.R[i] / 2, 'XZ.PLANE', 1, 34)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME12.1', -par.T[i], 'XY.PLANE', 0, 35)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME12.1', 0, 'YZ.PLANE', 1, 36)\r\n# # 平板底部零件\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME13.1', par.R_15[i] / 2, 'XZ.PLANE', 1, 37)\r\n# else:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME13.1', par.R[i] / 2, 'XZ.PLANE', 1, 37)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME13.1', -par.T[i], 'XY.PLANE', 0, 38)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME13.1', 0, 'YZ.PLANE', 1, 39)\r\n# # 前中上軸承板&角鐵\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME20.1', 0, 'XZ.PLANE', 1, 40)\r\n# mprog.add_offset_assembly('FRAME3.1', 'FRAME20.1', -par.H[i] + 40 - alpha - 8, 'XY.PLANE', 0, 41)\r\n# mprog.add_offset_assembly('FRAME3.1', 'FRAME20.1', 0, 'YZ.PLANE', 0, 42)\r\n# mprog.add_offset_assembly('FRAME30.1', 'FRAME20.1', 0, 'XZ.PLANE', 0, 43)\r\n# mprog.add_offset_assembly('FRAME30.1', 'FRAME20.1', -9, 'XY.PLANE', 0, 44)\r\n# mprog.add_offset_assembly('FRAME30.1', 'FRAME20.1', -550, 'YZ.PLANE', 0, 45)\r\n# mprog.add_offset_assembly('FRAME29.1', 'FRAME20.1', 0, 'XZ.PLANE', 1, 46)\r\n# mprog.add_offset_assembly('FRAME29.1', 'FRAME20.1', -par.FRAME20_H[i] + alpha, 'XY.PLANE', 0, 47)\r\n# mprog.add_offset_assembly('FRAME29.1', 'FRAME20.1', 0, 'YZ.PLANE', 1, 48)\r\n# # 氣壓缸鎖固板左右\r\n# if i == 4:\r\n#     mprog.add_offset_assembly('FRAME2.1', 'FRAME21.1', -183, 'XZ.PLANE', 0, 49)\r\n# else:\r\n#     mprog.add_offset_assembly('FRAME2.1', 'FRAME21.1', -240, 'XZ.PLANE', 0, 49)\r\n# mprog.add_offset_assembly('FRAME3.1', 'FRAME21.1', -par.H[i] + 40 - alpha - 8, 'XY.PLANE', 1, 50)\r\n# mprog.add_offset_assembly('FRAME20.1', 'FRAME21.1', 280, 'YZ.PLANE', 1, 51)\r\n# if i == 4:\r\n#     mprog.add_offset_assembly('FRAME1.1', 'FRAME22.1', 183, 'XZ.PLANE', 0, 52)\r\n# else:\r\n#     mprog.add_offset_assembly('FRAME1.1', 'FRAME22.1', 240, 'XZ.PLANE', 0, 52)\r\n# mprog.add_offset_assembly('FRAME3.1', 'FRAME22.1', -par.H[i] + 40 - alpha - 8, 'XY.PLANE', 0, 53)\r\n# mprog.add_offset_assembly('FRAME20.1', 'FRAME22.1', 280, 'YZ.PLANE', 1, 54)\r\n# # 鎖固平板六兄弟\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME14.1', 0, 'XZ.PLANE', 0, 55)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME14.1', -par.T[i], 'XY.PLANE', 0, 56)\r\n# mprog.add_offset_assembly('FRAME3.1', 'FRAME14.1', -75, 'YZ.PLANE', 1, 57)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME15.1', par.R_15[i] / 2 + 75 + 140, 'XZ.PLANE', 0, 58)\r\n# else:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME15.1', par.R[i] / 2 + 75 + 140, 'XZ.PLANE', 0, 58)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME15.1', -par.T[i], 'XY.PLANE', 0, 59)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME15.1', -par.F[i] / 2 + 80 + 37.5, 'YZ.PLANE', 1, 60)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME16.1', par.R_15[i] / 2 + 75 + 140, 'XZ.PLANE', 0, 61)\r\n# else:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME16.1', par.R[i] / 2 + 75 + 140, 'XZ.PLANE', 0, 61)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME16.1', -par.T[i], 'XY.PLANE', 0, 62)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME16.1', par.F[i] / 2 - 80 - 37.5, 'YZ.PLANE', 1, 63)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME18.1', -par.R_15[i] / 2 - 75 - 140, 'XZ.PLANE', 1, 64)\r\n# else:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME18.1', -par.R[i] / 2 - 75 - 140, 'XZ.PLANE', 1, 64)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME18.1', -par.T[i], 'XY.PLANE', 0, 65)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME18.1', par.F[i] / 2 - 80 - 37.5, 'YZ.PLANE', 0, 66)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME19.1', -par.R_15[i] / 2 - 75 - 140, 'XZ.PLANE', 1, 67)\r\n# else:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME19.1', -par.R[i] / 2 - 75 - 140, 'XZ.PLANE', 1, 67)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME19.1', -par.T[i], 'XY.PLANE', 0, 68)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME19.1', -par.F[i] / 2 + 80 + 37.5, 'YZ.PLANE', 0, 69)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME17.1', 0, 'XZ.PLANE', 1, 70)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME17.1', -par.T[i], 'XY.PLANE', 0, 71)\r\n# mprog.add_offset_assembly('FRAME9.1', 'FRAME17.1', 0, 'YZ.PLANE', 0, 72)\r\n# # 左右側板前GIB\r\n# if i == 4:\r\n#     mprog.add_offset_assembly('GIB1.1', 'FRAME3.1', par.FRAME1_lower_high[i] + 40 - 34.5 + alpha, 'XY.PLANE', 0, 73)\r\n# else:\r\n#     mprog.add_offset_assembly('GIB1.1', 'FRAME3.1', par.FRAME1_lower_high[i] + 40 + alpha, 'XY.PLANE', 0, 73)\r\n# mprog.add_offset_assembly('GIB1.1', 'FRAME1.1', 72.5, 'XZ.PLANE', 1, 74)\r\n# mprog.add_offset_assembly('GIB1.1', 'FRAME5.1', 334.65, 'YZ.PLANE', 0, 75)\r\n# if i == 4:\r\n#     mprog.add_offset_assembly('GIB2.1', 'FRAME3.1', par.FRAME1_lower_high[i] + 40 - 34.5 + alpha, 'XY.PLANE', 0, 76)\r\n# else:\r\n#     mprog.add_offset_assembly('GIB2.1', 'FRAME3.1', par.FRAME1_lower_high[i] + 40 + alpha, 'XY.PLANE', 0, 76)\r\n# mprog.add_offset_assembly('GIB2.1', 'FRAME2.1', -72.5, 'XZ.PLANE', 1, 77)\r\n# mprog.add_offset_assembly('GIB2.1', 'FRAME5.1', 334.65, 'YZ.PLANE', 0, 78)\r\n# # 左GIB後鎖固用方塊\r\n# if i == 4:\r\n#     mprog.add_offset_assembly('GIB2.1', 'FRAME23.1', -par.pocket_1_upper_hole[i] + 80 + 3, 'XY.PLANE', 1, 79)\r\n# else:\r\n#     mprog.add_offset_assembly('GIB2.1', 'FRAME23.1', -par.pocket_1_upper_hole[i] + 80 + 3, 'XY.PLANE', 1, 79)\r\n# mprog.add_offset_assembly('FRAME2.1', 'FRAME23.1', -50 - 35, 'XZ.PLANE', 0, 80)\r\n# mprog.add_offset_assembly('GIB2.1', 'FRAME23.1', 0, 'YZ.PLANE', 0, 81)\r\n# if i == 4:\r\n#     mprog.add_offset_assembly('GIB2.1', 'FRAME24.1', -34.5, 'XY.PLANE', 1, 82)\r\n# else:\r\n#     mprog.add_offset_assembly('GIB2.1', 'FRAME24.1', 0, 'XY.PLANE', 1, 82)\r\n# mprog.add_offset_assembly('FRAME2.1', 'FRAME24.1', -50 - 35, 'XZ.PLANE', 1, 83)\r\n# mprog.add_offset_assembly('GIB2.1', 'FRAME24.1', 0, 'YZ.PLANE', 1, 84)\r\n# if i == 4:\r\n#     mprog.add_offset_assembly('GIB2.1', 'FRAME27.1', -par.pocket_1_upper_hole[i] + 340 + 80, 'XY.PLANE', 1, 85)\r\n# else:\r\n#     mprog.add_offset_assembly('GIB2.1', 'FRAME27.1', -par.pocket_1_upper_hole[i] + 340 + 80, 'XY.PLANE', 1, 85)\r\n# mprog.add_offset_assembly('FRAME2.1', 'FRAME27.1', -50, 'XZ.PLANE', 0, 86)\r\n# mprog.add_offset_assembly('GIB2.1', 'FRAME27.1', 0, 'YZ.PLANE', 1, 87)\r\n# if i == 4:\r\n#     mprog.add_offset_assembly('GIB2.1', 'FRAME31.1', -par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 88)\r\n# else:\r\n#     mprog.add_offset_assembly('GIB2.1', 'FRAME31.1', -par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 88)\r\n# mprog.add_offset_assembly('FRAME23.1', 'FRAME31.1', -35, 'XZ.PLANE', 0, 89)\r\n# mprog.add_offset_assembly('FRAME23.1', 'FRAME31.1', -130.35 - 22.5, 'YZ.PLANE', 0, 90)\r\n# if i == 4:\r\n#     mprog.add_offset_assembly('GIB2.1', 'FRAME31.2', -150 - 34.5, 'XY.PLANE', 1, 91)\r\n# else:\r\n#     mprog.add_offset_assembly('GIB2.1', 'FRAME31.2', -150, 'XY.PLANE', 1, 91)\r\n# mprog.add_offset_assembly('FRAME23.1', 'FRAME31.2', -130.35 - 22.5, 'YZ.PLANE', 0, 92)\r\n# mprog.add_offset_assembly('FRAME23.1', 'FRAME31.2', -35, 'XZ.PLANE', 0, 93)\r\n# # 右GIB後鎖固用方塊\r\n# if i == 4:\r\n#     mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', -par.pocket_1_upper_hole[i] + 80 + 3, 'XY.PLANE', 1, 94)\r\n# else:\r\n#     mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', -par.pocket_1_upper_hole[i] + 80 + 3, 'XY.PLANE', 1, 94)\r\n# mprog.add_offset_assembly('FRAME1.1', 'FRAME25.1', 50 + 35, 'XZ.PLANE', 1, 95)\r\n# mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', 0, 'YZ.PLANE', 1, 96)\r\n# if i == 4:\r\n#     mprog.add_offset_assembly('GIB1.1', 'FRAME26.1', -34.5 - 3, 'XY.PLANE', 1, 97)\r\n# else:\r\n#     mprog.add_offset_assembly('GIB1.1', 'FRAME26.1', 3, 'XY.PLANE', 1, 97)\r\n# mprog.add_offset_assembly('FRAME1.1', 'FRAME26.1', 50 + 35, 'XZ.PLANE', 1, 98)\r\n# mprog.add_offset_assembly('GIB1.1', 'FRAME26.1', 0, 'YZ.PLANE', 0, 99)\r\n# if i == 4:\r\n#     mprog.add_offset_assembly('GIB1.1', 'FRAME28.1', -par.pocket_1_upper_hole[i] + 340 + 80, 'XY.PLANE', 1, 100)\r\n# else:\r\n#     mprog.add_offset_assembly('GIB1.1', 'FRAME28.1', -par.pocket_1_upper_hole[i] + 340 + 80, 'XY.PLANE', 1, 100)\r\n# mprog.add_offset_assembly('FRAME1.1', 'FRAME28.1', 50, 'XZ.PLANE', 1, 101)\r\n# mprog.add_offset_assembly('GIB1.1', 'FRAME28.1', 0, 'YZ.PLANE', 1, 102)\r\n# if i == 4:\r\n#     mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', -par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 103)\r\n# else:\r\n#     mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', -par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 103)\r\n# mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', -35, 'XZ.PLANE', 1, 104)\r\n# mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', 130.35 + 22.5, 'YZ.PLANE', 1, 105)\r\n# if i == 4:\r\n#     mprog.add_offset_assembly('GIB1.1', 'FRAME31.4', -150 - 34.5 - 3, 'XY.PLANE', 1, 106)\r\n# else:\r\n#     mprog.add_offset_assembly('GIB1.1', 'FRAME31.4', -150, 'XY.PLANE', 1, 106)\r\n# mprog.add_offset_assembly('FRAME31.3', 'FRAME31.4', 0, 'YZ.PLANE', 0, 107)\r\n# mprog.add_offset_assembly('FRAME31.3', 'FRAME31.4', 0, 'XZ.PLANE', 0, 108)\r\n# # 中間與平板鎖固方塊下板子\r\n# mprog.add_offset_assembly('FRAME43.1', 'FRAME17.1', -48, 'XY.PLANE', 1, 109)\r\n# mprog.add_offset_assembly('FRAME43.1', 'FRAME17.1', 0, 'XZ.PLANE', 0, 110)\r\n# mprog.add_offset_assembly('FRAME43.1', 'FRAME17.1', 0, 'YZ.PLANE', 1, 111)\r\n# # 後面安裝馬達下板子\r\n# mprog.add_offset_assembly('FRAME41.1', 'FRAME20.1', -1340, 'XY.PLANE', 0, 112)\r\n# mprog.add_offset_assembly('FRAME41.1', 'FRAME4.1', 0, 'XZ.PLANE', 0, 113)\r\n# mprog.add_offset_assembly('FRAME41.1', 'FRAME4.1', 0, 'YZ.PLANE', 0, 114)\r\n# # FRAME2中間下板子\r\n# mprog.add_offset_assembly('FRAME32.1', 'BOLSTER1.1', 0, 'XZ.PLANE', 0, 115)\r\n# mprog.add_offset_assembly('FRAME32.1', 'FRAME3.1', par.FRAME_32_XY[i] + 20 + alpha, 'XY.PLANE', 0, 116)\r\n# mprog.add_offset_assembly('FRAME32.1', 'FRAME30.1', 0, 'YZ.PLANE', 0, 117)\r\n# # 後方大軸承支架\r\n# mprog.add_offset_assembly('FRAME10.1', 'FRAME34.2', -485.543, 'YZ.PLANE', 1, 118)\r\n# mprog.add_offset_assembly('FRAME34.2', 'FRAME10.1', -(par.FRAME_10_H[i] + 40 + alpha), 'XY.PLANE', 0, 119)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('FRAME34.2', 'FRAME3.1', -par.R_15[i] / 2 - 90, 'XZ.PLANE', 0, 120)\r\n# else:\r\n#     mprog.add_offset_assembly('FRAME34.2', 'FRAME3.1', -par.R[i] / 2 - 90, 'XZ.PLANE', 0, 120)\r\n# if l == 0:\r\n#     mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', -par.R_15[i] - 180, 'XZ.PLANE', 1, 121)\r\n# else:\r\n#     mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', -par.R[i] - 180, 'XZ.PLANE', 1, 121)\r\n# mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', 0, 'XY.PLANE', 1, 122)\r\n# mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', 0, 'YZ.PLANE', 0, 123)\r\n# # 後方大軸承\r\n# mprog.add_offset_assembly('FRAME35.1', 'FRAME3.1', 0, 'XZ.PLANE', 1, 124)\r\n# if i == 4:\r\n#     mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448 - 80),\r\n#                               'XY.PLANE', 0, 125)\r\n# else:\r\n#     mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448),\r\n#                               'XY.PLANE', 0, 125)\r\n# mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -par.FRAME20_FRAME2_YZ[i] - 36, 'YZ.PLANE', 0, 126)\r\n# # 後方馬達下支撐板\r\n# mprog.add_offset_assembly('FRAME39.1', 'FRAME1.1', 50, 'XZ.PLANE', 1, 127)\r\n# mprog.add_offset_assembly('FRAME39.1', 'FRAME20.1', -360, 'XY.PLANE', 0, 128)\r\n# mprog.add_offset_assembly('FRAME39.1', 'FRAME7.1', 320, 'YZ.PLANE', 0, 129)\r\n# mprog.add_offset_assembly('FRAME38.1', 'FRAME2.1', -50, 'XZ.PLANE', 1, 130)\r\n# mprog.add_offset_assembly('FRAME38.1', 'FRAME20.1', 360 + 19, 'XY.PLANE', 1, 131)\r\n# mprog.add_offset_assembly('FRAME38.1', 'FRAME6.1', -320, 'YZ.PLANE', 1, 132)\r\n# mprog.add_offset_assembly('FRAME37.1', 'FRAME39.1', 0, 'XZ.PLANE', 0, 133)\r\n# mprog.add_offset_assembly('FRAME37.1', 'FRAME39.1', 19, 'XY.PLANE', 1, 134)\r\n# mprog.add_offset_assembly('FRAME37.1', 'FRAME39.1', 125, 'YZ.PLANE', 1, 135)\r\n# mprog.add_offset_assembly('FRAME37.2', 'FRAME39.1', 0, 'XZ.PLANE', 0, 136)\r\n# mprog.add_offset_assembly('FRAME37.2', 'FRAME39.1', 19, 'XY.PLANE', 1, 137)\r\n# mprog.add_offset_assembly('FRAME37.2', 'FRAME39.1', -125, 'YZ.PLANE', 1, 138)\r\n# mprog.add_offset_assembly('FRAME37.3', 'FRAME38.1', 0, 'XZ.PLANE', 1, 139)\r\n# mprog.add_offset_assembly('FRAME37.3', 'FRAME38.1', 0, 'XY.PLANE', 0, 140)\r\n# mprog.add_offset_assembly('FRAME37.3', 'FRAME38.1', -125, 'YZ.PLANE', 1, 141)\r\n# mprog.add_offset_assembly('FRAME37.4', 'FRAME38.1', 0, 'XZ.PLANE', 1, 142)\r\n# mprog.add_offset_assembly('FRAME37.4', 'FRAME38.1', 0, 'XY.PLANE', 0, 143)\r\n# mprog.add_offset_assembly('FRAME37.4', 'FRAME38.1', 125, 'YZ.PLANE', 1, 144)\r\n# # FRAME2右邊角鐵\r\n# mprog.add_offset_assembly('FRAME33.1', 'FRAME2.1', 140, 'XZ.PLANE', 0, 145)\r\n# mprog.add_offset_assembly('FRAME33.1', 'FRAME15.1', -708, 'XY.PLANE', 0, 146)\r\n# mprog.add_offset_assembly('FRAME33.1', 'FRAME11.1', 313.984, 'YZ.PLANE', 0, 147)\r\n# # FRAME2中間半圓形零件\r\n# mprog.add_offset_assembly('FRAME40.1', 'FRAME20.1', 130.5, 'XZ.PLANE', 0, 148)\r\n# mprog.add_offset_assembly('FRAME40.1', 'FRAME20.1', -320, 'XY.PLANE', 0, 149)\r\n# mprog.add_offset_assembly('FRAME40.1', 'FRAME20.1', par.FRAME20_FRAME2_YZ[i], 'YZ.PLANE', 1, 150)\r\n# # FRAME35上兩圓管\r\n# mprog.add_offset_assembly('FRAME36.1', 'FRAME35.1', -272.236, 'XZ.PLANE', 1, 151)\r\n# mprog.add_offset_assembly('FRAME36.1', 'FRAME35.1', 272.236, 'XY.PLANE', 0, 152)\r\n# mprog.add_offset_assembly('FRAME36.1', 'FRAME35.1', 41, 'YZ.PLANE', 0, 153)\r\n# mprog.add_offset_assembly('FRAME36.2', 'FRAME35.1', 272.236, 'XZ.PLANE', 1, 154)\r\n# mprog.add_offset_assembly('FRAME36.2', 'FRAME35.1', 272.236, 'XY.PLANE', 0, 155)\r\n# mprog.add_offset_assembly('FRAME36.2', 'FRAME35.1', 41, 'YZ.PLANE', 0, 156)\r\n# # 後方馬達下支撐板上治具\r\n# mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 95, 'XZ.PLANE', 0, 157)\r\n# mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 22 + 18, 'XY.PLANE', 0, 158)\r\n# if i == 4 and l == 1:\r\n#     mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 312.5 - 185, 'YZ.PLANE', 0, 159)\r\n# else:\r\n#     mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 312.5, 'YZ.PLANE', 0, 159)\r\n# # 馬達下方板與後方橫板\r\n# mprog.add_offset_assembly('FRAME42.1', 'FRAME41.1', 0, 'XZ.PLANE', 1, 160)\r\n# mprog.add_offset_assembly('FRAME42.1', 'FRAME41.1', 71.5, 'XY.PLANE', 1, 161)\r\n# mprog.add_offset_assembly('FRAME42.1', 'FRAME41.1', -19, 'YZ.PLANE', 1, 162)\r\n# # 平板2, 3組立\r\n# mprog.add_offset_assembly('BOLSTER2.1', 'BOLSTER3.1', 0, 'XZ.PLANE', 0, 163)\r\n# mprog.add_offset_assembly('BOLSTER2.1', 'BOLSTER3.1', 0, 'XY.PLANE', 0, 164)\r\n# mprog.add_offset_assembly('BOLSTER2.1', 'BOLSTER3.1', 0, 'YZ.PLANE', 0, 165)\r\n# # 平板1, 3組立\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', 0, 'XZ.PLANE', 0, 166)\r\n# mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', 0, 'YZ.PLANE', 0, 167)\r\n# # if k == 0:\r\n# if h == 0:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', par.DH_S[i] + alpha, 'XY.PLANE', 0, 168)\r\n# elif h == 1:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', par.DH_H[i] + alpha, 'XY.PLANE', 0, 168)\r\n# else:\r\n#     mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', par.DH_P[i] + alpha, 'XY.PLANE', 0, 168)\r\n# # SLIDE跟平板3組立\r\n# if i == 4:\r\n#     mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 267.38, 'XY.PLANE',\r\n#                                       1, 169)\r\n# else:\r\n#     mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 85, 'XY.PLANE', 1,\r\n#                                       170)\r\n# mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 0, 'XZ.PLANE', 1, 171)\r\n# if i == 4:\r\n#     mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 138.171,\r\n#                                       'YZ.PLANE', 0, 172)\r\n# else:\r\n#     mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 0, 'YZ.PLANE', 0,\r\n#                                       172)\r\n# # 時鐘跟FRAME20組立\r\n# mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1', 0, 'XZ.PLANE', 0,\r\n#                                   173)\r\n# mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1', 33, 'YZ.PLANE', 0,\r\n#                                   174)\r\n# if i == 4:\r\n#     mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1',\r\n#                                       -(par.H[i] - 34 - par.S[i] - par.Z[i] - 80), 'XY.PLANE',\r\n#                                       0, 175)\r\n# else:\r\n#     mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1',\r\n#                                       -(par.H[i] - 34 - par.S[i] - par.Z[i]), 'XY.PLANE',\r\n#                                       0, 175)\r\n# # 氣壓缸跟FRAME20組立\r\n# if i == 4:\r\n#     mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -87.5 - 8,\r\n#                                       'XY.PLANE', 1, 176)\r\n# else:\r\n#     mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -32, 'XY.PLANE',\r\n#                                       1, 176)\r\n# if i == 4:\r\n#     if l == 0:\r\n#         mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -500.5,\r\n#                                           'XZ.PLANE', 0, 177)\r\n#     else:\r\n#         mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -347,\r\n#                                           'XZ.PLANE', 0, 177)\r\n# else:\r\n#     if l == 0:\r\n#         mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1',\r\n#                                           -par.R_15[i] / 2 - 13, 'XZ.PLANE', 0, 178)\r\n#     else:\r\n#         mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1',\r\n#                                           -par.R[i] / 2 - 13, 'XZ.PLANE', 0, 178)\r\n# if i == 4:\r\n#     mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -261.248,\r\n#                                       'YZ.PLANE', 0, 179)\r\n# else:\r\n#     mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -260,\r\n#                                       'YZ.PLANE', 0, 179)\r\n# if i == 4:\r\n#     mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -21.8 - 8,\r\n#                                       'XY.PLANE', 1, 180)\r\n# else:\r\n#     mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -32, 'XY.PLANE',\r\n#                                       1, 180)\r\n# if i == 4:\r\n#     if l == 0:\r\n#         mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -500.5,\r\n#                                           'XZ.PLANE', 1, 181)\r\n#     else:\r\n#         mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -347,\r\n#                                           'XZ.PLANE', 1, 181)\r\n# else:\r\n#     if l == 0:\r\n#         mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1',\r\n#                                           -par.R_15[i] / 2 - 13, 'XZ.PLANE', 1, 182)\r\n#     else:\r\n#         mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1',\r\n#                                           -par.R[i] / 2 - 13, 'XZ.PLANE', 1, 182)\r\n# if i == 4:\r\n#     mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', 261.248,\r\n#                                       'YZ.PLANE', 1, 183)\r\n# else:\r\n#     mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', 260, 'YZ.PLANE',\r\n#                                       1, 183)\r\n# # 離合器與FRAME20結合\r\n# if i == 4:\r\n#     mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1',\r\n#                                       -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448 - 80), 'XY.PLANE', 0, 184)\r\n# else:\r\n#     mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1',\r\n#                                       -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448), 'XY.PLANE', 0, 184)\r\n#\r\n# mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', 0, 'XZ.PLANE', 1,\r\n#                                   185)\r\n# mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', 512, 'YZ.PLANE', 1,\r\n#                                   186)\r\n# # 曲軸與時鐘結合\r\n# mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 0, 'XZ.PLANE',\r\n#                                   0, 187)\r\n# mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 3, 'YZ.PLANE',\r\n#                                   1, 188)\r\n# mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 0, 'XY.PLANE',\r\n#                                   1, 189)\r\n# # 大齒輪結合\r\n# mprog.add_offset_assembly('MAIN_GEAR1.1', 'MAIN_GEAR4.1', 0, 'XZ.PLANE', 0, 190)\r\n# mprog.add_offset_assembly('MAIN_GEAR1.1', 'MAIN_GEAR4.1', 77.172, 'XY.PLANE', 0, 191)\r\n# mprog.add_offset_assembly('MAIN_GEAR1.1', 'MAIN_GEAR4.1', 0, 'YZ.PLANE', 1, 192)\r\n# # 大齒輪結合曲軸\r\n# mprog.add_offset_assembly('MAIN_GEAR1.1', 'CRANK_SHAFT.1.1', 0, 'XZ.PLANE', 1, 193)\r\n# mprog.add_offset_assembly('MAIN_GEAR1.1', 'CRANK_SHAFT.1.1', 0, 'XY.PLANE', 0, 194)\r\n# mprog.add_offset_assembly('MAIN_GEAR1.1', 'FRAME20.1', 592.5 + 150, 'YZ.PLANE', 1, 195)\r\n# # 機架20結合曲軸旁圓管\r\n# mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', 0, 'XZ.PLANE', 0, 196)\r\n# if i == 4:\r\n#     mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', par.H[i] - par.Z[i] - par.S[i] - 34 - 80, 'XY.PLANE', 1,\r\n#                               197)\r\n# else:\r\n#     mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', par.H[i] - par.Z[i] - par.S[i] - 34, 'XY.PLANE', 1, 197)\r\n# mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', 520.5, 'YZ.PLANE', 1, 198)\r\n# # 大齒輪結合長棒\r\n# mprog.add_offset_assembly('MAIN_GEAR1.1', 'JOINT1.1', 0, 'XZ.PLANE', 0, 199)\r\n# mprog.add_offset_assembly('MAIN_GEAR1.1', 'JOINT1.1', 0, 'XY.PLANE', 1, 200)\r\n# mprog.add_offset_assembly('MAIN_GEAR1.1', 'JOINT1.1', -84, 'YZ.PLANE', 1, 201)\r\n# #\r\n# mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1', 0, 'XZ.PLANE',\r\n#                                   0, 202)\r\n# mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1', 1010, 'YZ.PLANE',\r\n#                                   1, 203)\r\n# if i == 4:\r\n#     mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1',\r\n#                                       -(par.H[i] - par.Z[i] - par.S[i] - 34 - 80), 'XY.PLANE',\r\n#                                       0, 204)\r\n# else:\r\n#     mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1',\r\n#                                       -(par.H[i] - par.Z[i] - par.S[i] - 34), 'XY.PLANE',\r\n#                                       0, 204)\r\n# # 大齒輪內套環\r\n# mprog.add_offset_assembly('MAIN_GEAR2.1', 'MAIN_GEAR3.1', 0, 'XZ.PLANE', 1, 205)\r\n# mprog.add_offset_assembly('MAIN_GEAR2.1', 'MAIN_GEAR3.1', 0, 'XY.PLANE', 0, 206)\r\n# mprog.add_offset_assembly('MAIN_GEAR2.1', 'MAIN_GEAR3.1', 11, 'YZ.PLANE', 1, 207)\r\n# # BOLSTER後板\r\n# mprog.add_offset_assembly('FRAME45.1', 'FRAME17.1', 0, 'XZ.PLANE', 0, 208)\r\n# mprog.add_offset_assembly('FRAME45.1', 'FRAME17.1', -48, 'XY.PLANE', 1, 209)\r\n# mprog.add_offset_assembly('FRAME45.1', 'FRAME17.1', 0, 'YZ.PLANE', 1, 210)\r\n# #\r\n# mprog.add_offset_assembly('FRAME46.1', 'FRAME17.1', -48, 'XY.PLANE', 1, 211)\r\n# mprog.add_offset_assembly('FRAME46.1', 'FRAME17.1', 0, 'XZ.PLANE', 0, 212)\r\n# mprog.add_offset_assembly('FRAME46.1', 'FRAME17.1', 0, 'YZ.PLANE', 1, 213)\r\n# #\r\n# mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 9, 'XY.PLANE', 0, 214)\r\n# mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 0, 'XZ.PLANE', 0, 215)\r\n# mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 979, 'YZ.PLANE', 1, 216)\r\n# #\r\n# mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', 29 + 3, 'XY.PLANE', 1, 217)\r\n# mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', 35, 'XZ.PLANE', 0, 218)\r\n# mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', -99.35, 'YZ.PLANE', 1, 219)\r\n# mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', 10, 'XY.PLANE', 0, 220)\r\n# mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', -35, 'XZ.PLANE', 1, 221)\r\n# mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', 099.35, 'YZ.PLANE', 0, 222)\r\n# # 方管\r\n# mprog.add_offset_assembly('FRAME44.1', 'FRAME48.1', 124, 'XY.PLANE', 1, 223)\r\n# mprog.add_offset_assembly('FRAME44.1', 'FRAME48.1', 159 + 16, 'XZ.PLANE', 0, 224)\r\n# mprog.add_offset_assembly('FRAME44.1', 'FRAME48.1', -32, 'YZ.PLANE', 0, 225)\r\n# # 圓柱\r\n# mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', 220, 'XY.PLANE', 0, 226)\r\n# mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', 145, 'XZ.PLANE', 0, 227)\r\n# mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', -32, 'YZ.PLANE', 0, 228)\r\n# # 2023/02/23更新 FRAME1左邊角鐵\r\n# mprog.add_offset_assembly('FRAME1.1', 'FRAME33.2', 140, 'XZ.PLANE', 1, 229)\r\n# mprog.add_offset_assembly('FRAME19.1', 'FRAME33.2', 708, 'XY.PLANE', 0, 230)\r\n# mprog.add_offset_assembly('FRAME10.1', 'FRAME33.2', -313.984, 'YZ.PLANE', 1, 231)\r\n#\r\n# # 更新\r\n# mprog.update()\r\n# mprog.Close_All()\r\n# # 儲存Product檔\r\n\r\nimport win32com.client as win32\r\nimport time\r\nimport parameter as par\r\nimport file_path as fp\r\nimport main_program as mprog\r\n\r\n\r\n# # 你確定要挑戰玄學?\r\n# def StartCommand(name):  # 孤立元素\r\n#     catapp = win32.Dispatch(\"CATIA.Application\")\r\n#     selection = catapp.ActiveDocument.Selection\r\n#     # selection.Clear()\r\n#     # selection.Search(\"Name='\" + str(name) + \"', all\")\r\n#     catapp.StartCommand(\"isometric View\")\r\n#\r\ndef create():\r\n    partDocument1 = CATIA.ActiveDocument\r\n    part1 = partDocument1.Part\r\n    shapeFactory1 = part1.ShapeFactory\r\n    bodies1 = part1.Bodies\r\n    body1 = bodies1.Item(\"PartBody\")\r\n    sketches1 = body1.Sketches\r\n    sketch1 = sketches1.Item(\"Sketch.1\")\r\n    pad1 = shapeFactory1.AddNewPad(sketch1, 20)\r\n    part1.Update()\r\n\r\n\r\ncreate()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/SYEI_stamping_press_system/test2.py b/SYEI_stamping_press_system/test2.py
+--- a/SYEI_stamping_press_system/test2.py	
++++ b/SYEI_stamping_press_system/test2.py	
+@@ -1,543 +1,565 @@
+-# if l == 0:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', par.A_15[i] / 2, 'XZ.PLANE', 1, 1)
+-# else:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', par.A[i] / 2, 'XZ.PLANE', 1, 1)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', -par.Z[i], 'XY.PLANE', 1, 2)
+-# if l == 0:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', -80 - par.B_15[i] + par.F[i] / 2, 'YZ.PLANE', 1, 3)
+-# else:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', -80 - par.B[i] + par.F[i] / 2, 'YZ.PLANE', 1, 3)
+-# if l == 0:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -par.A_15[i] / 2, 'XZ.PLANE', 0, 4)
+-# else:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -par.A[i] / 2, 'XZ.PLANE', 0, 4)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -par.Z[i], 'XY.PLANE', 0, 5)
+-# if l == 0:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -80 - par.B_15[i] + par.F[i] / 2, 'YZ.PLANE', 1, 6)
+-# else:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -80 - par.B[i] + par.F[i] / 2, 'YZ.PLANE', 1, 6)
+-# if l == 0:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME5.1', -par.A_15[i] / 2, 'XZ.PLANE', 0, 7)
+-# else:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME5.1', -par.A[i] / 2, 'XZ.PLANE', 0, 7)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME5.1', -par.Z[i], 'XY.PLANE', 1, 8)
+-# if l == 0:
+-#     mprog.add_offset_assembly('FRAME7.1', 'FRAME5.1', -par.B_15[i], 'YZ.PLANE', 1, 9)
+-# else:
+-#     mprog.add_offset_assembly('FRAME7.1', 'FRAME5.1', -par.B[i], 'YZ.PLANE', 1, 9)
+-# if l == 0:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME8.1', par.A_15[i] / 2, 'XZ.PLANE', 0, 10)
+-# else:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME8.1', par.A[i] / 2, 'XZ.PLANE', 0, 10)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME8.1', -par.Z[i], 'XY.PLANE', 0, 11)
+-# if l == 0:
+-#     mprog.add_offset_assembly('FRAME6.1', 'FRAME8.1', -par.B_15[i], 'YZ.PLANE', 0, 12)
+-# else:
+-#     mprog.add_offset_assembly('FRAME6.1', 'FRAME8.1', -par.B[i], 'YZ.PLANE', 0, 12)
+-# # 左右側板
+-# if l == 0:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME2.1', par.R_15[i] / 2 + 140, 'XZ.PLANE', 0, 13)
+-# else:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME2.1', par.R[i] / 2 + 140, 'XZ.PLANE', 0, 13)
+-# mprog.add_offset_assembly('FRAME8.1', 'FRAME2.1', (par.H[i] - 32 - 40) / 2 + 40, 'XY.PLANE', 0, 14)
+-# if l == 0:
+-#     mprog.add_offset_assembly('FRAME8.1', 'FRAME2.1', par.B_15[i] / 2, 'YZ.PLANE', 1, 15)
+-# else:
+-#     mprog.add_offset_assembly('FRAME8.1', 'FRAME2.1', par.B[i] / 2, 'YZ.PLANE', 1, 15)
+-# if l == 0:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME1.1', -par.R_15[i] / 2 - 140, 'XZ.PLANE', 0, 16)
+-# else:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME1.1', -par.R[i] / 2 - 140, 'XZ.PLANE', 0, 16)
+-# mprog.add_offset_assembly('FRAME5.1', 'FRAME1.1', -(par.H[i] - 40 - 32) / 2 - 40, 'XY.PLANE', 1, 17)
+-# if l == 0:
+-#     mprog.add_offset_assembly('FRAME5.1', 'FRAME1.1', -par.B_15[i] / 2, 'YZ.PLANE', 0, 18)
+-# else:
+-#     mprog.add_offset_assembly('FRAME5.1', 'FRAME1.1', -par.B[i] / 2, 'YZ.PLANE', 0, 18)
+-# # 底部前、中板
+-# if l == 0:
+-#     mprog.add_offset_assembly('FRAME5.1', 'FRAME3.1', par.A_15[i] / 2, 'XZ.PLANE', 1, 19)
+-# else:
+-#     mprog.add_offset_assembly('FRAME5.1', 'FRAME3.1', par.A[i] / 2, 'XZ.PLANE', 1, 19)
+-# mprog.add_offset_assembly('FRAME5.1', 'FRAME3.1', 0, 'XY.PLANE', 0, 20)
+-# mprog.add_offset_assembly('FRAME5.1', 'FRAME3.1', 0, 'YZ.PLANE', 1, 21)
+-# mprog.add_offset_assembly('FRAME9.1', 'FRAME3.1', 0, 'XZ.PLANE', 0, 22)
+-# mprog.add_offset_assembly('FRAME9.1', 'FRAME3.1', 0, 'XY.PLANE', 0, 23)
+-# if l == 0:
+-#     mprog.add_offset_assembly('FRAME9.1', 'FRAME3.1', -par.FRAME2_lower_depth_15[i] + 5, 'YZ.PLANE', 0, 24)
+-# else:
+-#     mprog.add_offset_assembly('FRAME9.1', 'FRAME3.1', -par.FRAME2_lower_depth[i] + 5, 'YZ.PLANE', 0, 24)
+-# # 中間左右側板
+-# if l == 0:
+-#     mprog.add_offset_assembly('FRAME11.1', 'FRAME3.1', par.R_15[i] / 2, 'XZ.PLANE', 0, 25)
+-# else:
+-#     mprog.add_offset_assembly('FRAME11.1', 'FRAME3.1', par.R[i] / 2, 'XZ.PLANE', 0, 25)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME11.1', -par.T[i], 'XY.PLANE', 1, 26)
+-# if l == 0:
+-#     if i == 4:
+-#         mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth_15[i] + 80, 'YZ.PLANE', 1, 27)
+-#     else:
+-#         mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth_15[i], 'YZ.PLANE', 1, 27)
+-# else:
+-#     if i == 4:
+-#         mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth[i] + 80, 'YZ.PLANE', 1, 27)
+-#     else:
+-#         mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth[i], 'YZ.PLANE', 1, 27)
+-# if l == 0:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -par.R_15[i] / 2 - 90, 'XZ.PLANE', 0, 28)
+-# else:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -par.R[i] / 2 - 90, 'XZ.PLANE', 0, 28)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -par.T[i] - alpha, 'XY.PLANE', 0, 29)
+-# if l == 0:
+-#     if i == 4:
+-#         mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', par.FRAME2_lower_depth_15[i] + 80, 'YZ.PLANE', 1, 30)
+-#     else:
+-#         mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', par.FRAME2_lower_depth_15[i], 'YZ.PLANE', 1, 30)
+-# else:
+-#     if i == 4:
+-#         mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', par.FRAME2_lower_depth[i] + 80, 'YZ.PLANE', 1, 30)
+-#     else:
+-#         mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', par.FRAME2_lower_depth[i], 'YZ.PLANE', 1, 30)
+-# # 底部後面ㄇ形角鐵
+-# mprog.add_offset_assembly('FRAME3.1', 'FRAME4.1', 0, 'XZ.PLANE', 1, 31)
+-# mprog.add_offset_assembly('FRAME3.1', 'FRAME4.1', 0, 'XY.PLANE', 0, 32)
+-# if l == 0:
+-#     mprog.add_offset_assembly('FRAME3.1', 'FRAME4.1', par.B_15[i], 'YZ.PLANE', 0, 33)
+-# else:
+-#     mprog.add_offset_assembly('FRAME3.1', 'FRAME4.1', par.B[i], 'YZ.PLANE', 0, 33)
+-# # 平板底部零件
+-# if l == 0:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME12.1', -par.R_15[i] / 2, 'XZ.PLANE', 1, 34)
+-# else:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME12.1', -par.R[i] / 2, 'XZ.PLANE', 1, 34)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME12.1', -par.T[i], 'XY.PLANE', 0, 35)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME12.1', 0, 'YZ.PLANE', 1, 36)
+-# # 平板底部零件
+-# if l == 0:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME13.1', par.R_15[i] / 2, 'XZ.PLANE', 1, 37)
+-# else:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME13.1', par.R[i] / 2, 'XZ.PLANE', 1, 37)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME13.1', -par.T[i], 'XY.PLANE', 0, 38)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME13.1', 0, 'YZ.PLANE', 1, 39)
+-# # 前中上軸承板&角鐵
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME20.1', 0, 'XZ.PLANE', 1, 40)
+-# mprog.add_offset_assembly('FRAME3.1', 'FRAME20.1', -par.H[i] + 40 - alpha - 8, 'XY.PLANE', 0, 41)
+-# mprog.add_offset_assembly('FRAME3.1', 'FRAME20.1', 0, 'YZ.PLANE', 0, 42)
+-# mprog.add_offset_assembly('FRAME30.1', 'FRAME20.1', 0, 'XZ.PLANE', 0, 43)
+-# mprog.add_offset_assembly('FRAME30.1', 'FRAME20.1', -9, 'XY.PLANE', 0, 44)
+-# mprog.add_offset_assembly('FRAME30.1', 'FRAME20.1', -550, 'YZ.PLANE', 0, 45)
+-# mprog.add_offset_assembly('FRAME29.1', 'FRAME20.1', 0, 'XZ.PLANE', 1, 46)
+-# mprog.add_offset_assembly('FRAME29.1', 'FRAME20.1', -par.FRAME20_H[i] + alpha, 'XY.PLANE', 0, 47)
+-# mprog.add_offset_assembly('FRAME29.1', 'FRAME20.1', 0, 'YZ.PLANE', 1, 48)
+-# # 氣壓缸鎖固板左右
+-# if i == 4:
+-#     mprog.add_offset_assembly('FRAME2.1', 'FRAME21.1', -183, 'XZ.PLANE', 0, 49)
+-# else:
+-#     mprog.add_offset_assembly('FRAME2.1', 'FRAME21.1', -240, 'XZ.PLANE', 0, 49)
+-# mprog.add_offset_assembly('FRAME3.1', 'FRAME21.1', -par.H[i] + 40 - alpha - 8, 'XY.PLANE', 1, 50)
+-# mprog.add_offset_assembly('FRAME20.1', 'FRAME21.1', 280, 'YZ.PLANE', 1, 51)
+-# if i == 4:
+-#     mprog.add_offset_assembly('FRAME1.1', 'FRAME22.1', 183, 'XZ.PLANE', 0, 52)
+-# else:
+-#     mprog.add_offset_assembly('FRAME1.1', 'FRAME22.1', 240, 'XZ.PLANE', 0, 52)
+-# mprog.add_offset_assembly('FRAME3.1', 'FRAME22.1', -par.H[i] + 40 - alpha - 8, 'XY.PLANE', 0, 53)
+-# mprog.add_offset_assembly('FRAME20.1', 'FRAME22.1', 280, 'YZ.PLANE', 1, 54)
+-# # 鎖固平板六兄弟
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME14.1', 0, 'XZ.PLANE', 0, 55)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME14.1', -par.T[i], 'XY.PLANE', 0, 56)
+-# mprog.add_offset_assembly('FRAME3.1', 'FRAME14.1', -75, 'YZ.PLANE', 1, 57)
+-# if l == 0:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME15.1', par.R_15[i] / 2 + 75 + 140, 'XZ.PLANE', 0, 58)
+-# else:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME15.1', par.R[i] / 2 + 75 + 140, 'XZ.PLANE', 0, 58)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME15.1', -par.T[i], 'XY.PLANE', 0, 59)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME15.1', -par.F[i] / 2 + 80 + 37.5, 'YZ.PLANE', 1, 60)
+-# if l == 0:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME16.1', par.R_15[i] / 2 + 75 + 140, 'XZ.PLANE', 0, 61)
+-# else:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME16.1', par.R[i] / 2 + 75 + 140, 'XZ.PLANE', 0, 61)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME16.1', -par.T[i], 'XY.PLANE', 0, 62)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME16.1', par.F[i] / 2 - 80 - 37.5, 'YZ.PLANE', 1, 63)
+-# if l == 0:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME18.1', -par.R_15[i] / 2 - 75 - 140, 'XZ.PLANE', 1, 64)
+-# else:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME18.1', -par.R[i] / 2 - 75 - 140, 'XZ.PLANE', 1, 64)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME18.1', -par.T[i], 'XY.PLANE', 0, 65)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME18.1', par.F[i] / 2 - 80 - 37.5, 'YZ.PLANE', 0, 66)
+-# if l == 0:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME19.1', -par.R_15[i] / 2 - 75 - 140, 'XZ.PLANE', 1, 67)
+-# else:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME19.1', -par.R[i] / 2 - 75 - 140, 'XZ.PLANE', 1, 67)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME19.1', -par.T[i], 'XY.PLANE', 0, 68)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME19.1', -par.F[i] / 2 + 80 + 37.5, 'YZ.PLANE', 0, 69)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME17.1', 0, 'XZ.PLANE', 1, 70)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'FRAME17.1', -par.T[i], 'XY.PLANE', 0, 71)
+-# mprog.add_offset_assembly('FRAME9.1', 'FRAME17.1', 0, 'YZ.PLANE', 0, 72)
+-# # 左右側板前GIB
+-# if i == 4:
+-#     mprog.add_offset_assembly('GIB1.1', 'FRAME3.1', par.FRAME1_lower_high[i] + 40 - 34.5 + alpha, 'XY.PLANE', 0, 73)
+-# else:
+-#     mprog.add_offset_assembly('GIB1.1', 'FRAME3.1', par.FRAME1_lower_high[i] + 40 + alpha, 'XY.PLANE', 0, 73)
+-# mprog.add_offset_assembly('GIB1.1', 'FRAME1.1', 72.5, 'XZ.PLANE', 1, 74)
+-# mprog.add_offset_assembly('GIB1.1', 'FRAME5.1', 334.65, 'YZ.PLANE', 0, 75)
+-# if i == 4:
+-#     mprog.add_offset_assembly('GIB2.1', 'FRAME3.1', par.FRAME1_lower_high[i] + 40 - 34.5 + alpha, 'XY.PLANE', 0, 76)
+-# else:
+-#     mprog.add_offset_assembly('GIB2.1', 'FRAME3.1', par.FRAME1_lower_high[i] + 40 + alpha, 'XY.PLANE', 0, 76)
+-# mprog.add_offset_assembly('GIB2.1', 'FRAME2.1', -72.5, 'XZ.PLANE', 1, 77)
+-# mprog.add_offset_assembly('GIB2.1', 'FRAME5.1', 334.65, 'YZ.PLANE', 0, 78)
+-# # 左GIB後鎖固用方塊
+-# if i == 4:
+-#     mprog.add_offset_assembly('GIB2.1', 'FRAME23.1', -par.pocket_1_upper_hole[i] + 80 + 3, 'XY.PLANE', 1, 79)
+-# else:
+-#     mprog.add_offset_assembly('GIB2.1', 'FRAME23.1', -par.pocket_1_upper_hole[i] + 80 + 3, 'XY.PLANE', 1, 79)
+-# mprog.add_offset_assembly('FRAME2.1', 'FRAME23.1', -50 - 35, 'XZ.PLANE', 0, 80)
+-# mprog.add_offset_assembly('GIB2.1', 'FRAME23.1', 0, 'YZ.PLANE', 0, 81)
+-# if i == 4:
+-#     mprog.add_offset_assembly('GIB2.1', 'FRAME24.1', -34.5, 'XY.PLANE', 1, 82)
+-# else:
+-#     mprog.add_offset_assembly('GIB2.1', 'FRAME24.1', 0, 'XY.PLANE', 1, 82)
+-# mprog.add_offset_assembly('FRAME2.1', 'FRAME24.1', -50 - 35, 'XZ.PLANE', 1, 83)
+-# mprog.add_offset_assembly('GIB2.1', 'FRAME24.1', 0, 'YZ.PLANE', 1, 84)
+-# if i == 4:
+-#     mprog.add_offset_assembly('GIB2.1', 'FRAME27.1', -par.pocket_1_upper_hole[i] + 340 + 80, 'XY.PLANE', 1, 85)
+-# else:
+-#     mprog.add_offset_assembly('GIB2.1', 'FRAME27.1', -par.pocket_1_upper_hole[i] + 340 + 80, 'XY.PLANE', 1, 85)
+-# mprog.add_offset_assembly('FRAME2.1', 'FRAME27.1', -50, 'XZ.PLANE', 0, 86)
+-# mprog.add_offset_assembly('GIB2.1', 'FRAME27.1', 0, 'YZ.PLANE', 1, 87)
+-# if i == 4:
+-#     mprog.add_offset_assembly('GIB2.1', 'FRAME31.1', -par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 88)
+-# else:
+-#     mprog.add_offset_assembly('GIB2.1', 'FRAME31.1', -par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 88)
+-# mprog.add_offset_assembly('FRAME23.1', 'FRAME31.1', -35, 'XZ.PLANE', 0, 89)
+-# mprog.add_offset_assembly('FRAME23.1', 'FRAME31.1', -130.35 - 22.5, 'YZ.PLANE', 0, 90)
+-# if i == 4:
+-#     mprog.add_offset_assembly('GIB2.1', 'FRAME31.2', -150 - 34.5, 'XY.PLANE', 1, 91)
+-# else:
+-#     mprog.add_offset_assembly('GIB2.1', 'FRAME31.2', -150, 'XY.PLANE', 1, 91)
+-# mprog.add_offset_assembly('FRAME23.1', 'FRAME31.2', -130.35 - 22.5, 'YZ.PLANE', 0, 92)
+-# mprog.add_offset_assembly('FRAME23.1', 'FRAME31.2', -35, 'XZ.PLANE', 0, 93)
+-# # 右GIB後鎖固用方塊
+-# if i == 4:
+-#     mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', -par.pocket_1_upper_hole[i] + 80 + 3, 'XY.PLANE', 1, 94)
+-# else:
+-#     mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', -par.pocket_1_upper_hole[i] + 80 + 3, 'XY.PLANE', 1, 94)
+-# mprog.add_offset_assembly('FRAME1.1', 'FRAME25.1', 50 + 35, 'XZ.PLANE', 1, 95)
+-# mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', 0, 'YZ.PLANE', 1, 96)
+-# if i == 4:
+-#     mprog.add_offset_assembly('GIB1.1', 'FRAME26.1', -34.5 - 3, 'XY.PLANE', 1, 97)
+-# else:
+-#     mprog.add_offset_assembly('GIB1.1', 'FRAME26.1', 3, 'XY.PLANE', 1, 97)
+-# mprog.add_offset_assembly('FRAME1.1', 'FRAME26.1', 50 + 35, 'XZ.PLANE', 1, 98)
+-# mprog.add_offset_assembly('GIB1.1', 'FRAME26.1', 0, 'YZ.PLANE', 0, 99)
+-# if i == 4:
+-#     mprog.add_offset_assembly('GIB1.1', 'FRAME28.1', -par.pocket_1_upper_hole[i] + 340 + 80, 'XY.PLANE', 1, 100)
+-# else:
+-#     mprog.add_offset_assembly('GIB1.1', 'FRAME28.1', -par.pocket_1_upper_hole[i] + 340 + 80, 'XY.PLANE', 1, 100)
+-# mprog.add_offset_assembly('FRAME1.1', 'FRAME28.1', 50, 'XZ.PLANE', 1, 101)
+-# mprog.add_offset_assembly('GIB1.1', 'FRAME28.1', 0, 'YZ.PLANE', 1, 102)
+-# if i == 4:
+-#     mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', -par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 103)
+-# else:
+-#     mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', -par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 103)
+-# mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', -35, 'XZ.PLANE', 1, 104)
+-# mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', 130.35 + 22.5, 'YZ.PLANE', 1, 105)
+-# if i == 4:
+-#     mprog.add_offset_assembly('GIB1.1', 'FRAME31.4', -150 - 34.5 - 3, 'XY.PLANE', 1, 106)
+-# else:
+-#     mprog.add_offset_assembly('GIB1.1', 'FRAME31.4', -150, 'XY.PLANE', 1, 106)
+-# mprog.add_offset_assembly('FRAME31.3', 'FRAME31.4', 0, 'YZ.PLANE', 0, 107)
+-# mprog.add_offset_assembly('FRAME31.3', 'FRAME31.4', 0, 'XZ.PLANE', 0, 108)
+-# # 中間與平板鎖固方塊下板子
+-# mprog.add_offset_assembly('FRAME43.1', 'FRAME17.1', -48, 'XY.PLANE', 1, 109)
+-# mprog.add_offset_assembly('FRAME43.1', 'FRAME17.1', 0, 'XZ.PLANE', 0, 110)
+-# mprog.add_offset_assembly('FRAME43.1', 'FRAME17.1', 0, 'YZ.PLANE', 1, 111)
+-# # 後面安裝馬達下板子
+-# mprog.add_offset_assembly('FRAME41.1', 'FRAME20.1', -1340, 'XY.PLANE', 0, 112)
+-# mprog.add_offset_assembly('FRAME41.1', 'FRAME4.1', 0, 'XZ.PLANE', 0, 113)
+-# mprog.add_offset_assembly('FRAME41.1', 'FRAME4.1', 0, 'YZ.PLANE', 0, 114)
+-# # FRAME2中間下板子
+-# mprog.add_offset_assembly('FRAME32.1', 'BOLSTER1.1', 0, 'XZ.PLANE', 0, 115)
+-# mprog.add_offset_assembly('FRAME32.1', 'FRAME3.1', par.FRAME_32_XY[i] + 20 + alpha, 'XY.PLANE', 0, 116)
+-# mprog.add_offset_assembly('FRAME32.1', 'FRAME30.1', 0, 'YZ.PLANE', 0, 117)
+-# # 後方大軸承支架
+-# mprog.add_offset_assembly('FRAME10.1', 'FRAME34.2', -485.543, 'YZ.PLANE', 1, 118)
+-# mprog.add_offset_assembly('FRAME34.2', 'FRAME10.1', -(par.FRAME_10_H[i] + 40 + alpha), 'XY.PLANE', 0, 119)
+-# if l == 0:
+-#     mprog.add_offset_assembly('FRAME34.2', 'FRAME3.1', -par.R_15[i] / 2 - 90, 'XZ.PLANE', 0, 120)
+-# else:
+-#     mprog.add_offset_assembly('FRAME34.2', 'FRAME3.1', -par.R[i] / 2 - 90, 'XZ.PLANE', 0, 120)
+-# if l == 0:
+-#     mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', -par.R_15[i] - 180, 'XZ.PLANE', 1, 121)
+-# else:
+-#     mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', -par.R[i] - 180, 'XZ.PLANE', 1, 121)
+-# mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', 0, 'XY.PLANE', 1, 122)
+-# mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', 0, 'YZ.PLANE', 0, 123)
+-# # 後方大軸承
+-# mprog.add_offset_assembly('FRAME35.1', 'FRAME3.1', 0, 'XZ.PLANE', 1, 124)
+-# if i == 4:
+-#     mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448 - 80),
+-#                               'XY.PLANE', 0, 125)
+-# else:
+-#     mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448),
+-#                               'XY.PLANE', 0, 125)
+-# mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -par.FRAME20_FRAME2_YZ[i] - 36, 'YZ.PLANE', 0, 126)
+-# # 後方馬達下支撐板
+-# mprog.add_offset_assembly('FRAME39.1', 'FRAME1.1', 50, 'XZ.PLANE', 1, 127)
+-# mprog.add_offset_assembly('FRAME39.1', 'FRAME20.1', -360, 'XY.PLANE', 0, 128)
+-# mprog.add_offset_assembly('FRAME39.1', 'FRAME7.1', 320, 'YZ.PLANE', 0, 129)
+-# mprog.add_offset_assembly('FRAME38.1', 'FRAME2.1', -50, 'XZ.PLANE', 1, 130)
+-# mprog.add_offset_assembly('FRAME38.1', 'FRAME20.1', 360 + 19, 'XY.PLANE', 1, 131)
+-# mprog.add_offset_assembly('FRAME38.1', 'FRAME6.1', -320, 'YZ.PLANE', 1, 132)
+-# mprog.add_offset_assembly('FRAME37.1', 'FRAME39.1', 0, 'XZ.PLANE', 0, 133)
+-# mprog.add_offset_assembly('FRAME37.1', 'FRAME39.1', 19, 'XY.PLANE', 1, 134)
+-# mprog.add_offset_assembly('FRAME37.1', 'FRAME39.1', 125, 'YZ.PLANE', 1, 135)
+-# mprog.add_offset_assembly('FRAME37.2', 'FRAME39.1', 0, 'XZ.PLANE', 0, 136)
+-# mprog.add_offset_assembly('FRAME37.2', 'FRAME39.1', 19, 'XY.PLANE', 1, 137)
+-# mprog.add_offset_assembly('FRAME37.2', 'FRAME39.1', -125, 'YZ.PLANE', 1, 138)
+-# mprog.add_offset_assembly('FRAME37.3', 'FRAME38.1', 0, 'XZ.PLANE', 1, 139)
+-# mprog.add_offset_assembly('FRAME37.3', 'FRAME38.1', 0, 'XY.PLANE', 0, 140)
+-# mprog.add_offset_assembly('FRAME37.3', 'FRAME38.1', -125, 'YZ.PLANE', 1, 141)
+-# mprog.add_offset_assembly('FRAME37.4', 'FRAME38.1', 0, 'XZ.PLANE', 1, 142)
+-# mprog.add_offset_assembly('FRAME37.4', 'FRAME38.1', 0, 'XY.PLANE', 0, 143)
+-# mprog.add_offset_assembly('FRAME37.4', 'FRAME38.1', 125, 'YZ.PLANE', 1, 144)
+-# # FRAME2右邊角鐵
+-# mprog.add_offset_assembly('FRAME33.1', 'FRAME2.1', 140, 'XZ.PLANE', 0, 145)
+-# mprog.add_offset_assembly('FRAME33.1', 'FRAME15.1', -708, 'XY.PLANE', 0, 146)
+-# mprog.add_offset_assembly('FRAME33.1', 'FRAME11.1', 313.984, 'YZ.PLANE', 0, 147)
+-# # FRAME2中間半圓形零件
+-# mprog.add_offset_assembly('FRAME40.1', 'FRAME20.1', 130.5, 'XZ.PLANE', 0, 148)
+-# mprog.add_offset_assembly('FRAME40.1', 'FRAME20.1', -320, 'XY.PLANE', 0, 149)
+-# mprog.add_offset_assembly('FRAME40.1', 'FRAME20.1', par.FRAME20_FRAME2_YZ[i], 'YZ.PLANE', 1, 150)
+-# # FRAME35上兩圓管
+-# mprog.add_offset_assembly('FRAME36.1', 'FRAME35.1', -272.236, 'XZ.PLANE', 1, 151)
+-# mprog.add_offset_assembly('FRAME36.1', 'FRAME35.1', 272.236, 'XY.PLANE', 0, 152)
+-# mprog.add_offset_assembly('FRAME36.1', 'FRAME35.1', 41, 'YZ.PLANE', 0, 153)
+-# mprog.add_offset_assembly('FRAME36.2', 'FRAME35.1', 272.236, 'XZ.PLANE', 1, 154)
+-# mprog.add_offset_assembly('FRAME36.2', 'FRAME35.1', 272.236, 'XY.PLANE', 0, 155)
+-# mprog.add_offset_assembly('FRAME36.2', 'FRAME35.1', 41, 'YZ.PLANE', 0, 156)
+-# # 後方馬達下支撐板上治具
+-# mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 95, 'XZ.PLANE', 0, 157)
+-# mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 22 + 18, 'XY.PLANE', 0, 158)
+-# if i == 4 and l == 1:
+-#     mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 312.5 - 185, 'YZ.PLANE', 0, 159)
+-# else:
+-#     mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 312.5, 'YZ.PLANE', 0, 159)
+-# # 馬達下方板與後方橫板
+-# mprog.add_offset_assembly('FRAME42.1', 'FRAME41.1', 0, 'XZ.PLANE', 1, 160)
+-# mprog.add_offset_assembly('FRAME42.1', 'FRAME41.1', 71.5, 'XY.PLANE', 1, 161)
+-# mprog.add_offset_assembly('FRAME42.1', 'FRAME41.1', -19, 'YZ.PLANE', 1, 162)
+-# # 平板2, 3組立
+-# mprog.add_offset_assembly('BOLSTER2.1', 'BOLSTER3.1', 0, 'XZ.PLANE', 0, 163)
+-# mprog.add_offset_assembly('BOLSTER2.1', 'BOLSTER3.1', 0, 'XY.PLANE', 0, 164)
+-# mprog.add_offset_assembly('BOLSTER2.1', 'BOLSTER3.1', 0, 'YZ.PLANE', 0, 165)
+-# # 平板1, 3組立
+-# mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', 0, 'XZ.PLANE', 0, 166)
+-# mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', 0, 'YZ.PLANE', 0, 167)
+-# # if k == 0:
+-# if h == 0:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', par.DH_S[i] + alpha, 'XY.PLANE', 0, 168)
+-# elif h == 1:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', par.DH_H[i] + alpha, 'XY.PLANE', 0, 168)
+-# else:
+-#     mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', par.DH_P[i] + alpha, 'XY.PLANE', 0, 168)
+-# # SLIDE跟平板3組立
+-# if i == 4:
+-#     mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 267.38, 'XY.PLANE',
+-#                                       1, 169)
+-# else:
+-#     mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 85, 'XY.PLANE', 1,
+-#                                       170)
+-# mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 0, 'XZ.PLANE', 1, 171)
+-# if i == 4:
+-#     mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 138.171,
+-#                                       'YZ.PLANE', 0, 172)
+-# else:
+-#     mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 0, 'YZ.PLANE', 0,
+-#                                       172)
+-# # 時鐘跟FRAME20組立
+-# mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1', 0, 'XZ.PLANE', 0,
+-#                                   173)
+-# mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1', 33, 'YZ.PLANE', 0,
+-#                                   174)
+-# if i == 4:
+-#     mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1',
+-#                                       -(par.H[i] - 34 - par.S[i] - par.Z[i] - 80), 'XY.PLANE',
+-#                                       0, 175)
+-# else:
+-#     mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1',
+-#                                       -(par.H[i] - 34 - par.S[i] - par.Z[i]), 'XY.PLANE',
+-#                                       0, 175)
+-# # 氣壓缸跟FRAME20組立
+-# if i == 4:
+-#     mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -87.5 - 8,
+-#                                       'XY.PLANE', 1, 176)
+-# else:
+-#     mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -32, 'XY.PLANE',
+-#                                       1, 176)
+-# if i == 4:
+-#     if l == 0:
+-#         mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -500.5,
+-#                                           'XZ.PLANE', 0, 177)
+-#     else:
+-#         mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -347,
+-#                                           'XZ.PLANE', 0, 177)
+-# else:
+-#     if l == 0:
+-#         mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1',
+-#                                           -par.R_15[i] / 2 - 13, 'XZ.PLANE', 0, 178)
+-#     else:
+-#         mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1',
+-#                                           -par.R[i] / 2 - 13, 'XZ.PLANE', 0, 178)
+-# if i == 4:
+-#     mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -261.248,
+-#                                       'YZ.PLANE', 0, 179)
+-# else:
+-#     mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -260,
+-#                                       'YZ.PLANE', 0, 179)
+-# if i == 4:
+-#     mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -21.8 - 8,
+-#                                       'XY.PLANE', 1, 180)
+-# else:
+-#     mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -32, 'XY.PLANE',
+-#                                       1, 180)
+-# if i == 4:
+-#     if l == 0:
+-#         mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -500.5,
+-#                                           'XZ.PLANE', 1, 181)
+-#     else:
+-#         mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -347,
+-#                                           'XZ.PLANE', 1, 181)
+-# else:
+-#     if l == 0:
+-#         mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1',
+-#                                           -par.R_15[i] / 2 - 13, 'XZ.PLANE', 1, 182)
+-#     else:
+-#         mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1',
+-#                                           -par.R[i] / 2 - 13, 'XZ.PLANE', 1, 182)
+-# if i == 4:
+-#     mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', 261.248,
+-#                                       'YZ.PLANE', 1, 183)
+-# else:
+-#     mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', 260, 'YZ.PLANE',
+-#                                       1, 183)
+-# # 離合器與FRAME20結合
+-# if i == 4:
+-#     mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1',
+-#                                       -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448 - 80), 'XY.PLANE', 0, 184)
+-# else:
+-#     mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1',
+-#                                       -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448), 'XY.PLANE', 0, 184)
+-#
+-# mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', 0, 'XZ.PLANE', 1,
+-#                                   185)
+-# mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', 512, 'YZ.PLANE', 1,
+-#                                   186)
+-# # 曲軸與時鐘結合
+-# mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 0, 'XZ.PLANE',
+-#                                   0, 187)
+-# mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 3, 'YZ.PLANE',
+-#                                   1, 188)
+-# mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 0, 'XY.PLANE',
+-#                                   1, 189)
+-# # 大齒輪結合
+-# mprog.add_offset_assembly('MAIN_GEAR1.1', 'MAIN_GEAR4.1', 0, 'XZ.PLANE', 0, 190)
+-# mprog.add_offset_assembly('MAIN_GEAR1.1', 'MAIN_GEAR4.1', 77.172, 'XY.PLANE', 0, 191)
+-# mprog.add_offset_assembly('MAIN_GEAR1.1', 'MAIN_GEAR4.1', 0, 'YZ.PLANE', 1, 192)
+-# # 大齒輪結合曲軸
+-# mprog.add_offset_assembly('MAIN_GEAR1.1', 'CRANK_SHAFT.1.1', 0, 'XZ.PLANE', 1, 193)
+-# mprog.add_offset_assembly('MAIN_GEAR1.1', 'CRANK_SHAFT.1.1', 0, 'XY.PLANE', 0, 194)
+-# mprog.add_offset_assembly('MAIN_GEAR1.1', 'FRAME20.1', 592.5 + 150, 'YZ.PLANE', 1, 195)
+-# # 機架20結合曲軸旁圓管
+-# mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', 0, 'XZ.PLANE', 0, 196)
+-# if i == 4:
+-#     mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', par.H[i] - par.Z[i] - par.S[i] - 34 - 80, 'XY.PLANE', 1,
+-#                               197)
+-# else:
+-#     mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', par.H[i] - par.Z[i] - par.S[i] - 34, 'XY.PLANE', 1, 197)
+-# mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', 520.5, 'YZ.PLANE', 1, 198)
+-# # 大齒輪結合長棒
+-# mprog.add_offset_assembly('MAIN_GEAR1.1', 'JOINT1.1', 0, 'XZ.PLANE', 0, 199)
+-# mprog.add_offset_assembly('MAIN_GEAR1.1', 'JOINT1.1', 0, 'XY.PLANE', 1, 200)
+-# mprog.add_offset_assembly('MAIN_GEAR1.1', 'JOINT1.1', -84, 'YZ.PLANE', 1, 201)
++# # if l == 0:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', par.A_15[i] / 2, 'XZ.PLANE', 1, 1)
++# # else:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', par.A[i] / 2, 'XZ.PLANE', 1, 1)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', -par.Z[i], 'XY.PLANE', 1, 2)
++# # if l == 0:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', -80 - par.B_15[i] + par.F[i] / 2, 'YZ.PLANE', 1, 3)
++# # else:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME6.1', -80 - par.B[i] + par.F[i] / 2, 'YZ.PLANE', 1, 3)
++# # if l == 0:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -par.A_15[i] / 2, 'XZ.PLANE', 0, 4)
++# # else:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -par.A[i] / 2, 'XZ.PLANE', 0, 4)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -par.Z[i], 'XY.PLANE', 0, 5)
++# # if l == 0:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -80 - par.B_15[i] + par.F[i] / 2, 'YZ.PLANE', 1, 6)
++# # else:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME7.1', -80 - par.B[i] + par.F[i] / 2, 'YZ.PLANE', 1, 6)
++# # if l == 0:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME5.1', -par.A_15[i] / 2, 'XZ.PLANE', 0, 7)
++# # else:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME5.1', -par.A[i] / 2, 'XZ.PLANE', 0, 7)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME5.1', -par.Z[i], 'XY.PLANE', 1, 8)
++# # if l == 0:
++# #     mprog.add_offset_assembly('FRAME7.1', 'FRAME5.1', -par.B_15[i], 'YZ.PLANE', 1, 9)
++# # else:
++# #     mprog.add_offset_assembly('FRAME7.1', 'FRAME5.1', -par.B[i], 'YZ.PLANE', 1, 9)
++# # if l == 0:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME8.1', par.A_15[i] / 2, 'XZ.PLANE', 0, 10)
++# # else:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME8.1', par.A[i] / 2, 'XZ.PLANE', 0, 10)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME8.1', -par.Z[i], 'XY.PLANE', 0, 11)
++# # if l == 0:
++# #     mprog.add_offset_assembly('FRAME6.1', 'FRAME8.1', -par.B_15[i], 'YZ.PLANE', 0, 12)
++# # else:
++# #     mprog.add_offset_assembly('FRAME6.1', 'FRAME8.1', -par.B[i], 'YZ.PLANE', 0, 12)
++# # # 左右側板
++# # if l == 0:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME2.1', par.R_15[i] / 2 + 140, 'XZ.PLANE', 0, 13)
++# # else:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME2.1', par.R[i] / 2 + 140, 'XZ.PLANE', 0, 13)
++# # mprog.add_offset_assembly('FRAME8.1', 'FRAME2.1', (par.H[i] - 32 - 40) / 2 + 40, 'XY.PLANE', 0, 14)
++# # if l == 0:
++# #     mprog.add_offset_assembly('FRAME8.1', 'FRAME2.1', par.B_15[i] / 2, 'YZ.PLANE', 1, 15)
++# # else:
++# #     mprog.add_offset_assembly('FRAME8.1', 'FRAME2.1', par.B[i] / 2, 'YZ.PLANE', 1, 15)
++# # if l == 0:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME1.1', -par.R_15[i] / 2 - 140, 'XZ.PLANE', 0, 16)
++# # else:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME1.1', -par.R[i] / 2 - 140, 'XZ.PLANE', 0, 16)
++# # mprog.add_offset_assembly('FRAME5.1', 'FRAME1.1', -(par.H[i] - 40 - 32) / 2 - 40, 'XY.PLANE', 1, 17)
++# # if l == 0:
++# #     mprog.add_offset_assembly('FRAME5.1', 'FRAME1.1', -par.B_15[i] / 2, 'YZ.PLANE', 0, 18)
++# # else:
++# #     mprog.add_offset_assembly('FRAME5.1', 'FRAME1.1', -par.B[i] / 2, 'YZ.PLANE', 0, 18)
++# # # 底部前、中板
++# # if l == 0:
++# #     mprog.add_offset_assembly('FRAME5.1', 'FRAME3.1', par.A_15[i] / 2, 'XZ.PLANE', 1, 19)
++# # else:
++# #     mprog.add_offset_assembly('FRAME5.1', 'FRAME3.1', par.A[i] / 2, 'XZ.PLANE', 1, 19)
++# # mprog.add_offset_assembly('FRAME5.1', 'FRAME3.1', 0, 'XY.PLANE', 0, 20)
++# # mprog.add_offset_assembly('FRAME5.1', 'FRAME3.1', 0, 'YZ.PLANE', 1, 21)
++# # mprog.add_offset_assembly('FRAME9.1', 'FRAME3.1', 0, 'XZ.PLANE', 0, 22)
++# # mprog.add_offset_assembly('FRAME9.1', 'FRAME3.1', 0, 'XY.PLANE', 0, 23)
++# # if l == 0:
++# #     mprog.add_offset_assembly('FRAME9.1', 'FRAME3.1', -par.FRAME2_lower_depth_15[i] + 5, 'YZ.PLANE', 0, 24)
++# # else:
++# #     mprog.add_offset_assembly('FRAME9.1', 'FRAME3.1', -par.FRAME2_lower_depth[i] + 5, 'YZ.PLANE', 0, 24)
++# # # 中間左右側板
++# # if l == 0:
++# #     mprog.add_offset_assembly('FRAME11.1', 'FRAME3.1', par.R_15[i] / 2, 'XZ.PLANE', 0, 25)
++# # else:
++# #     mprog.add_offset_assembly('FRAME11.1', 'FRAME3.1', par.R[i] / 2, 'XZ.PLANE', 0, 25)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME11.1', -par.T[i], 'XY.PLANE', 1, 26)
++# # if l == 0:
++# #     if i == 4:
++# #         mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth_15[i] + 80, 'YZ.PLANE', 1, 27)
++# #     else:
++# #         mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth_15[i], 'YZ.PLANE', 1, 27)
++# # else:
++# #     if i == 4:
++# #         mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth[i] + 80, 'YZ.PLANE', 1, 27)
++# #     else:
++# #         mprog.add_offset_assembly('FRAME3.1', 'FRAME11.1', par.FRAME2_lower_depth[i], 'YZ.PLANE', 1, 27)
++# # if l == 0:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -par.R_15[i] / 2 - 90, 'XZ.PLANE', 0, 28)
++# # else:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -par.R[i] / 2 - 90, 'XZ.PLANE', 0, 28)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -par.T[i] - alpha, 'XY.PLANE', 0, 29)
++# # if l == 0:
++# #     if i == 4:
++# #         mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', par.FRAME2_lower_depth_15[i] + 80, 'YZ.PLANE', 1, 30)
++# #     else:
++# #         mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', par.FRAME2_lower_depth_15[i], 'YZ.PLANE', 1, 30)
++# # else:
++# #     if i == 4:
++# #         mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', par.FRAME2_lower_depth[i] + 80, 'YZ.PLANE', 1, 30)
++# #     else:
++# #         mprog.add_offset_assembly('FRAME3.1', 'FRAME10.1', par.FRAME2_lower_depth[i], 'YZ.PLANE', 1, 30)
++# # # 底部後面ㄇ形角鐵
++# # mprog.add_offset_assembly('FRAME3.1', 'FRAME4.1', 0, 'XZ.PLANE', 1, 31)
++# # mprog.add_offset_assembly('FRAME3.1', 'FRAME4.1', 0, 'XY.PLANE', 0, 32)
++# # if l == 0:
++# #     mprog.add_offset_assembly('FRAME3.1', 'FRAME4.1', par.B_15[i], 'YZ.PLANE', 0, 33)
++# # else:
++# #     mprog.add_offset_assembly('FRAME3.1', 'FRAME4.1', par.B[i], 'YZ.PLANE', 0, 33)
++# # # 平板底部零件
++# # if l == 0:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME12.1', -par.R_15[i] / 2, 'XZ.PLANE', 1, 34)
++# # else:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME12.1', -par.R[i] / 2, 'XZ.PLANE', 1, 34)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME12.1', -par.T[i], 'XY.PLANE', 0, 35)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME12.1', 0, 'YZ.PLANE', 1, 36)
++# # # 平板底部零件
++# # if l == 0:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME13.1', par.R_15[i] / 2, 'XZ.PLANE', 1, 37)
++# # else:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME13.1', par.R[i] / 2, 'XZ.PLANE', 1, 37)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME13.1', -par.T[i], 'XY.PLANE', 0, 38)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME13.1', 0, 'YZ.PLANE', 1, 39)
++# # # 前中上軸承板&角鐵
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME20.1', 0, 'XZ.PLANE', 1, 40)
++# # mprog.add_offset_assembly('FRAME3.1', 'FRAME20.1', -par.H[i] + 40 - alpha - 8, 'XY.PLANE', 0, 41)
++# # mprog.add_offset_assembly('FRAME3.1', 'FRAME20.1', 0, 'YZ.PLANE', 0, 42)
++# # mprog.add_offset_assembly('FRAME30.1', 'FRAME20.1', 0, 'XZ.PLANE', 0, 43)
++# # mprog.add_offset_assembly('FRAME30.1', 'FRAME20.1', -9, 'XY.PLANE', 0, 44)
++# # mprog.add_offset_assembly('FRAME30.1', 'FRAME20.1', -550, 'YZ.PLANE', 0, 45)
++# # mprog.add_offset_assembly('FRAME29.1', 'FRAME20.1', 0, 'XZ.PLANE', 1, 46)
++# # mprog.add_offset_assembly('FRAME29.1', 'FRAME20.1', -par.FRAME20_H[i] + alpha, 'XY.PLANE', 0, 47)
++# # mprog.add_offset_assembly('FRAME29.1', 'FRAME20.1', 0, 'YZ.PLANE', 1, 48)
++# # # 氣壓缸鎖固板左右
++# # if i == 4:
++# #     mprog.add_offset_assembly('FRAME2.1', 'FRAME21.1', -183, 'XZ.PLANE', 0, 49)
++# # else:
++# #     mprog.add_offset_assembly('FRAME2.1', 'FRAME21.1', -240, 'XZ.PLANE', 0, 49)
++# # mprog.add_offset_assembly('FRAME3.1', 'FRAME21.1', -par.H[i] + 40 - alpha - 8, 'XY.PLANE', 1, 50)
++# # mprog.add_offset_assembly('FRAME20.1', 'FRAME21.1', 280, 'YZ.PLANE', 1, 51)
++# # if i == 4:
++# #     mprog.add_offset_assembly('FRAME1.1', 'FRAME22.1', 183, 'XZ.PLANE', 0, 52)
++# # else:
++# #     mprog.add_offset_assembly('FRAME1.1', 'FRAME22.1', 240, 'XZ.PLANE', 0, 52)
++# # mprog.add_offset_assembly('FRAME3.1', 'FRAME22.1', -par.H[i] + 40 - alpha - 8, 'XY.PLANE', 0, 53)
++# # mprog.add_offset_assembly('FRAME20.1', 'FRAME22.1', 280, 'YZ.PLANE', 1, 54)
++# # # 鎖固平板六兄弟
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME14.1', 0, 'XZ.PLANE', 0, 55)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME14.1', -par.T[i], 'XY.PLANE', 0, 56)
++# # mprog.add_offset_assembly('FRAME3.1', 'FRAME14.1', -75, 'YZ.PLANE', 1, 57)
++# # if l == 0:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME15.1', par.R_15[i] / 2 + 75 + 140, 'XZ.PLANE', 0, 58)
++# # else:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME15.1', par.R[i] / 2 + 75 + 140, 'XZ.PLANE', 0, 58)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME15.1', -par.T[i], 'XY.PLANE', 0, 59)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME15.1', -par.F[i] / 2 + 80 + 37.5, 'YZ.PLANE', 1, 60)
++# # if l == 0:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME16.1', par.R_15[i] / 2 + 75 + 140, 'XZ.PLANE', 0, 61)
++# # else:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME16.1', par.R[i] / 2 + 75 + 140, 'XZ.PLANE', 0, 61)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME16.1', -par.T[i], 'XY.PLANE', 0, 62)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME16.1', par.F[i] / 2 - 80 - 37.5, 'YZ.PLANE', 1, 63)
++# # if l == 0:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME18.1', -par.R_15[i] / 2 - 75 - 140, 'XZ.PLANE', 1, 64)
++# # else:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME18.1', -par.R[i] / 2 - 75 - 140, 'XZ.PLANE', 1, 64)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME18.1', -par.T[i], 'XY.PLANE', 0, 65)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME18.1', par.F[i] / 2 - 80 - 37.5, 'YZ.PLANE', 0, 66)
++# # if l == 0:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME19.1', -par.R_15[i] / 2 - 75 - 140, 'XZ.PLANE', 1, 67)
++# # else:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'FRAME19.1', -par.R[i] / 2 - 75 - 140, 'XZ.PLANE', 1, 67)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME19.1', -par.T[i], 'XY.PLANE', 0, 68)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME19.1', -par.F[i] / 2 + 80 + 37.5, 'YZ.PLANE', 0, 69)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME17.1', 0, 'XZ.PLANE', 1, 70)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'FRAME17.1', -par.T[i], 'XY.PLANE', 0, 71)
++# # mprog.add_offset_assembly('FRAME9.1', 'FRAME17.1', 0, 'YZ.PLANE', 0, 72)
++# # # 左右側板前GIB
++# # if i == 4:
++# #     mprog.add_offset_assembly('GIB1.1', 'FRAME3.1', par.FRAME1_lower_high[i] + 40 - 34.5 + alpha, 'XY.PLANE', 0, 73)
++# # else:
++# #     mprog.add_offset_assembly('GIB1.1', 'FRAME3.1', par.FRAME1_lower_high[i] + 40 + alpha, 'XY.PLANE', 0, 73)
++# # mprog.add_offset_assembly('GIB1.1', 'FRAME1.1', 72.5, 'XZ.PLANE', 1, 74)
++# # mprog.add_offset_assembly('GIB1.1', 'FRAME5.1', 334.65, 'YZ.PLANE', 0, 75)
++# # if i == 4:
++# #     mprog.add_offset_assembly('GIB2.1', 'FRAME3.1', par.FRAME1_lower_high[i] + 40 - 34.5 + alpha, 'XY.PLANE', 0, 76)
++# # else:
++# #     mprog.add_offset_assembly('GIB2.1', 'FRAME3.1', par.FRAME1_lower_high[i] + 40 + alpha, 'XY.PLANE', 0, 76)
++# # mprog.add_offset_assembly('GIB2.1', 'FRAME2.1', -72.5, 'XZ.PLANE', 1, 77)
++# # mprog.add_offset_assembly('GIB2.1', 'FRAME5.1', 334.65, 'YZ.PLANE', 0, 78)
++# # # 左GIB後鎖固用方塊
++# # if i == 4:
++# #     mprog.add_offset_assembly('GIB2.1', 'FRAME23.1', -par.pocket_1_upper_hole[i] + 80 + 3, 'XY.PLANE', 1, 79)
++# # else:
++# #     mprog.add_offset_assembly('GIB2.1', 'FRAME23.1', -par.pocket_1_upper_hole[i] + 80 + 3, 'XY.PLANE', 1, 79)
++# # mprog.add_offset_assembly('FRAME2.1', 'FRAME23.1', -50 - 35, 'XZ.PLANE', 0, 80)
++# # mprog.add_offset_assembly('GIB2.1', 'FRAME23.1', 0, 'YZ.PLANE', 0, 81)
++# # if i == 4:
++# #     mprog.add_offset_assembly('GIB2.1', 'FRAME24.1', -34.5, 'XY.PLANE', 1, 82)
++# # else:
++# #     mprog.add_offset_assembly('GIB2.1', 'FRAME24.1', 0, 'XY.PLANE', 1, 82)
++# # mprog.add_offset_assembly('FRAME2.1', 'FRAME24.1', -50 - 35, 'XZ.PLANE', 1, 83)
++# # mprog.add_offset_assembly('GIB2.1', 'FRAME24.1', 0, 'YZ.PLANE', 1, 84)
++# # if i == 4:
++# #     mprog.add_offset_assembly('GIB2.1', 'FRAME27.1', -par.pocket_1_upper_hole[i] + 340 + 80, 'XY.PLANE', 1, 85)
++# # else:
++# #     mprog.add_offset_assembly('GIB2.1', 'FRAME27.1', -par.pocket_1_upper_hole[i] + 340 + 80, 'XY.PLANE', 1, 85)
++# # mprog.add_offset_assembly('FRAME2.1', 'FRAME27.1', -50, 'XZ.PLANE', 0, 86)
++# # mprog.add_offset_assembly('GIB2.1', 'FRAME27.1', 0, 'YZ.PLANE', 1, 87)
++# # if i == 4:
++# #     mprog.add_offset_assembly('GIB2.1', 'FRAME31.1', -par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 88)
++# # else:
++# #     mprog.add_offset_assembly('GIB2.1', 'FRAME31.1', -par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 88)
++# # mprog.add_offset_assembly('FRAME23.1', 'FRAME31.1', -35, 'XZ.PLANE', 0, 89)
++# # mprog.add_offset_assembly('FRAME23.1', 'FRAME31.1', -130.35 - 22.5, 'YZ.PLANE', 0, 90)
++# # if i == 4:
++# #     mprog.add_offset_assembly('GIB2.1', 'FRAME31.2', -150 - 34.5, 'XY.PLANE', 1, 91)
++# # else:
++# #     mprog.add_offset_assembly('GIB2.1', 'FRAME31.2', -150, 'XY.PLANE', 1, 91)
++# # mprog.add_offset_assembly('FRAME23.1', 'FRAME31.2', -130.35 - 22.5, 'YZ.PLANE', 0, 92)
++# # mprog.add_offset_assembly('FRAME23.1', 'FRAME31.2', -35, 'XZ.PLANE', 0, 93)
++# # # 右GIB後鎖固用方塊
++# # if i == 4:
++# #     mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', -par.pocket_1_upper_hole[i] + 80 + 3, 'XY.PLANE', 1, 94)
++# # else:
++# #     mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', -par.pocket_1_upper_hole[i] + 80 + 3, 'XY.PLANE', 1, 94)
++# # mprog.add_offset_assembly('FRAME1.1', 'FRAME25.1', 50 + 35, 'XZ.PLANE', 1, 95)
++# # mprog.add_offset_assembly('GIB1.1', 'FRAME25.1', 0, 'YZ.PLANE', 1, 96)
++# # if i == 4:
++# #     mprog.add_offset_assembly('GIB1.1', 'FRAME26.1', -34.5 - 3, 'XY.PLANE', 1, 97)
++# # else:
++# #     mprog.add_offset_assembly('GIB1.1', 'FRAME26.1', 3, 'XY.PLANE', 1, 97)
++# # mprog.add_offset_assembly('FRAME1.1', 'FRAME26.1', 50 + 35, 'XZ.PLANE', 1, 98)
++# # mprog.add_offset_assembly('GIB1.1', 'FRAME26.1', 0, 'YZ.PLANE', 0, 99)
++# # if i == 4:
++# #     mprog.add_offset_assembly('GIB1.1', 'FRAME28.1', -par.pocket_1_upper_hole[i] + 340 + 80, 'XY.PLANE', 1, 100)
++# # else:
++# #     mprog.add_offset_assembly('GIB1.1', 'FRAME28.1', -par.pocket_1_upper_hole[i] + 340 + 80, 'XY.PLANE', 1, 100)
++# # mprog.add_offset_assembly('FRAME1.1', 'FRAME28.1', 50, 'XZ.PLANE', 1, 101)
++# # mprog.add_offset_assembly('GIB1.1', 'FRAME28.1', 0, 'YZ.PLANE', 1, 102)
++# # if i == 4:
++# #     mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', -par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 103)
++# # else:
++# #     mprog.add_offset_assembly('GIB1.1', 'FRAME31.3', -par.pocket_1_upper_hole[i], 'XY.PLANE', 1, 103)
++# # mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', -35, 'XZ.PLANE', 1, 104)
++# # mprog.add_offset_assembly('FRAME25.1', 'FRAME31.3', 130.35 + 22.5, 'YZ.PLANE', 1, 105)
++# # if i == 4:
++# #     mprog.add_offset_assembly('GIB1.1', 'FRAME31.4', -150 - 34.5 - 3, 'XY.PLANE', 1, 106)
++# # else:
++# #     mprog.add_offset_assembly('GIB1.1', 'FRAME31.4', -150, 'XY.PLANE', 1, 106)
++# # mprog.add_offset_assembly('FRAME31.3', 'FRAME31.4', 0, 'YZ.PLANE', 0, 107)
++# # mprog.add_offset_assembly('FRAME31.3', 'FRAME31.4', 0, 'XZ.PLANE', 0, 108)
++# # # 中間與平板鎖固方塊下板子
++# # mprog.add_offset_assembly('FRAME43.1', 'FRAME17.1', -48, 'XY.PLANE', 1, 109)
++# # mprog.add_offset_assembly('FRAME43.1', 'FRAME17.1', 0, 'XZ.PLANE', 0, 110)
++# # mprog.add_offset_assembly('FRAME43.1', 'FRAME17.1', 0, 'YZ.PLANE', 1, 111)
++# # # 後面安裝馬達下板子
++# # mprog.add_offset_assembly('FRAME41.1', 'FRAME20.1', -1340, 'XY.PLANE', 0, 112)
++# # mprog.add_offset_assembly('FRAME41.1', 'FRAME4.1', 0, 'XZ.PLANE', 0, 113)
++# # mprog.add_offset_assembly('FRAME41.1', 'FRAME4.1', 0, 'YZ.PLANE', 0, 114)
++# # # FRAME2中間下板子
++# # mprog.add_offset_assembly('FRAME32.1', 'BOLSTER1.1', 0, 'XZ.PLANE', 0, 115)
++# # mprog.add_offset_assembly('FRAME32.1', 'FRAME3.1', par.FRAME_32_XY[i] + 20 + alpha, 'XY.PLANE', 0, 116)
++# # mprog.add_offset_assembly('FRAME32.1', 'FRAME30.1', 0, 'YZ.PLANE', 0, 117)
++# # # 後方大軸承支架
++# # mprog.add_offset_assembly('FRAME10.1', 'FRAME34.2', -485.543, 'YZ.PLANE', 1, 118)
++# # mprog.add_offset_assembly('FRAME34.2', 'FRAME10.1', -(par.FRAME_10_H[i] + 40 + alpha), 'XY.PLANE', 0, 119)
++# # if l == 0:
++# #     mprog.add_offset_assembly('FRAME34.2', 'FRAME3.1', -par.R_15[i] / 2 - 90, 'XZ.PLANE', 0, 120)
++# # else:
++# #     mprog.add_offset_assembly('FRAME34.2', 'FRAME3.1', -par.R[i] / 2 - 90, 'XZ.PLANE', 0, 120)
++# # if l == 0:
++# #     mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', -par.R_15[i] - 180, 'XZ.PLANE', 1, 121)
++# # else:
++# #     mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', -par.R[i] - 180, 'XZ.PLANE', 1, 121)
++# # mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', 0, 'XY.PLANE', 1, 122)
++# # mprog.add_offset_assembly('FRAME34.1', 'FRAME34.2', 0, 'YZ.PLANE', 0, 123)
++# # # 後方大軸承
++# # mprog.add_offset_assembly('FRAME35.1', 'FRAME3.1', 0, 'XZ.PLANE', 1, 124)
++# # if i == 4:
++# #     mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448 - 80),
++# #                               'XY.PLANE', 0, 125)
++# # else:
++# #     mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448),
++# #                               'XY.PLANE', 0, 125)
++# # mprog.add_offset_assembly('FRAME35.1', 'FRAME20.1', -par.FRAME20_FRAME2_YZ[i] - 36, 'YZ.PLANE', 0, 126)
++# # # 後方馬達下支撐板
++# # mprog.add_offset_assembly('FRAME39.1', 'FRAME1.1', 50, 'XZ.PLANE', 1, 127)
++# # mprog.add_offset_assembly('FRAME39.1', 'FRAME20.1', -360, 'XY.PLANE', 0, 128)
++# # mprog.add_offset_assembly('FRAME39.1', 'FRAME7.1', 320, 'YZ.PLANE', 0, 129)
++# # mprog.add_offset_assembly('FRAME38.1', 'FRAME2.1', -50, 'XZ.PLANE', 1, 130)
++# # mprog.add_offset_assembly('FRAME38.1', 'FRAME20.1', 360 + 19, 'XY.PLANE', 1, 131)
++# # mprog.add_offset_assembly('FRAME38.1', 'FRAME6.1', -320, 'YZ.PLANE', 1, 132)
++# # mprog.add_offset_assembly('FRAME37.1', 'FRAME39.1', 0, 'XZ.PLANE', 0, 133)
++# # mprog.add_offset_assembly('FRAME37.1', 'FRAME39.1', 19, 'XY.PLANE', 1, 134)
++# # mprog.add_offset_assembly('FRAME37.1', 'FRAME39.1', 125, 'YZ.PLANE', 1, 135)
++# # mprog.add_offset_assembly('FRAME37.2', 'FRAME39.1', 0, 'XZ.PLANE', 0, 136)
++# # mprog.add_offset_assembly('FRAME37.2', 'FRAME39.1', 19, 'XY.PLANE', 1, 137)
++# # mprog.add_offset_assembly('FRAME37.2', 'FRAME39.1', -125, 'YZ.PLANE', 1, 138)
++# # mprog.add_offset_assembly('FRAME37.3', 'FRAME38.1', 0, 'XZ.PLANE', 1, 139)
++# # mprog.add_offset_assembly('FRAME37.3', 'FRAME38.1', 0, 'XY.PLANE', 0, 140)
++# # mprog.add_offset_assembly('FRAME37.3', 'FRAME38.1', -125, 'YZ.PLANE', 1, 141)
++# # mprog.add_offset_assembly('FRAME37.4', 'FRAME38.1', 0, 'XZ.PLANE', 1, 142)
++# # mprog.add_offset_assembly('FRAME37.4', 'FRAME38.1', 0, 'XY.PLANE', 0, 143)
++# # mprog.add_offset_assembly('FRAME37.4', 'FRAME38.1', 125, 'YZ.PLANE', 1, 144)
++# # # FRAME2右邊角鐵
++# # mprog.add_offset_assembly('FRAME33.1', 'FRAME2.1', 140, 'XZ.PLANE', 0, 145)
++# # mprog.add_offset_assembly('FRAME33.1', 'FRAME15.1', -708, 'XY.PLANE', 0, 146)
++# # mprog.add_offset_assembly('FRAME33.1', 'FRAME11.1', 313.984, 'YZ.PLANE', 0, 147)
++# # # FRAME2中間半圓形零件
++# # mprog.add_offset_assembly('FRAME40.1', 'FRAME20.1', 130.5, 'XZ.PLANE', 0, 148)
++# # mprog.add_offset_assembly('FRAME40.1', 'FRAME20.1', -320, 'XY.PLANE', 0, 149)
++# # mprog.add_offset_assembly('FRAME40.1', 'FRAME20.1', par.FRAME20_FRAME2_YZ[i], 'YZ.PLANE', 1, 150)
++# # # FRAME35上兩圓管
++# # mprog.add_offset_assembly('FRAME36.1', 'FRAME35.1', -272.236, 'XZ.PLANE', 1, 151)
++# # mprog.add_offset_assembly('FRAME36.1', 'FRAME35.1', 272.236, 'XY.PLANE', 0, 152)
++# # mprog.add_offset_assembly('FRAME36.1', 'FRAME35.1', 41, 'YZ.PLANE', 0, 153)
++# # mprog.add_offset_assembly('FRAME36.2', 'FRAME35.1', 272.236, 'XZ.PLANE', 1, 154)
++# # mprog.add_offset_assembly('FRAME36.2', 'FRAME35.1', 272.236, 'XY.PLANE', 0, 155)
++# # mprog.add_offset_assembly('FRAME36.2', 'FRAME35.1', 41, 'YZ.PLANE', 0, 156)
++# # # 後方馬達下支撐板上治具
++# # mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 95, 'XZ.PLANE', 0, 157)
++# # mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 22 + 18, 'XY.PLANE', 0, 158)
++# # if i == 4 and l == 1:
++# #     mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 312.5 - 185, 'YZ.PLANE', 0, 159)
++# # else:
++# #     mprog.add_offset_assembly('Fixture.1', 'FRAME41.1', 312.5, 'YZ.PLANE', 0, 159)
++# # # 馬達下方板與後方橫板
++# # mprog.add_offset_assembly('FRAME42.1', 'FRAME41.1', 0, 'XZ.PLANE', 1, 160)
++# # mprog.add_offset_assembly('FRAME42.1', 'FRAME41.1', 71.5, 'XY.PLANE', 1, 161)
++# # mprog.add_offset_assembly('FRAME42.1', 'FRAME41.1', -19, 'YZ.PLANE', 1, 162)
++# # # 平板2, 3組立
++# # mprog.add_offset_assembly('BOLSTER2.1', 'BOLSTER3.1', 0, 'XZ.PLANE', 0, 163)
++# # mprog.add_offset_assembly('BOLSTER2.1', 'BOLSTER3.1', 0, 'XY.PLANE', 0, 164)
++# # mprog.add_offset_assembly('BOLSTER2.1', 'BOLSTER3.1', 0, 'YZ.PLANE', 0, 165)
++# # # 平板1, 3組立
++# # mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', 0, 'XZ.PLANE', 0, 166)
++# # mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', 0, 'YZ.PLANE', 0, 167)
++# # # if k == 0:
++# # if h == 0:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', par.DH_S[i] + alpha, 'XY.PLANE', 0, 168)
++# # elif h == 1:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', par.DH_H[i] + alpha, 'XY.PLANE', 0, 168)
++# # else:
++# #     mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', par.DH_P[i] + alpha, 'XY.PLANE', 0, 168)
++# # # SLIDE跟平板3組立
++# # if i == 4:
++# #     mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 267.38, 'XY.PLANE',
++# #                                       1, 169)
++# # else:
++# #     mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 85, 'XY.PLANE', 1,
++# #                                       170)
++# # mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 0, 'XZ.PLANE', 1, 171)
++# # if i == 4:
++# #     mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 138.171,
++# #                                       'YZ.PLANE', 0, 172)
++# # else:
++# #     mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 0, 'YZ.PLANE', 0,
++# #                                       172)
++# # # 時鐘跟FRAME20組立
++# # mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1', 0, 'XZ.PLANE', 0,
++# #                                   173)
++# # mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1', 33, 'YZ.PLANE', 0,
++# #                                   174)
++# # if i == 4:
++# #     mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1',
++# #                                       -(par.H[i] - 34 - par.S[i] - par.Z[i] - 80), 'XY.PLANE',
++# #                                       0, 175)
++# # else:
++# #     mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'FRAME20.1',
++# #                                       -(par.H[i] - 34 - par.S[i] - par.Z[i]), 'XY.PLANE',
++# #                                       0, 175)
++# # # 氣壓缸跟FRAME20組立
++# # if i == 4:
++# #     mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -87.5 - 8,
++# #                                       'XY.PLANE', 1, 176)
++# # else:
++# #     mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -32, 'XY.PLANE',
++# #                                       1, 176)
++# # if i == 4:
++# #     if l == 0:
++# #         mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -500.5,
++# #                                           'XZ.PLANE', 0, 177)
++# #     else:
++# #         mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -347,
++# #                                           'XZ.PLANE', 0, 177)
++# # else:
++# #     if l == 0:
++# #         mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1',
++# #                                           -par.R_15[i] / 2 - 13, 'XZ.PLANE', 0, 178)
++# #     else:
++# #         mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1',
++# #                                           -par.R[i] / 2 - 13, 'XZ.PLANE', 0, 178)
++# # if i == 4:
++# #     mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -261.248,
++# #                                       'YZ.PLANE', 0, 179)
++# # else:
++# #     mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -260,
++# #                                       'YZ.PLANE', 0, 179)
++# # if i == 4:
++# #     mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -21.8 - 8,
++# #                                       'XY.PLANE', 1, 180)
++# # else:
++# #     mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -32, 'XY.PLANE',
++# #                                       1, 180)
++# # if i == 4:
++# #     if l == 0:
++# #         mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -500.5,
++# #                                           'XZ.PLANE', 1, 181)
++# #     else:
++# #         mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -347,
++# #                                           'XZ.PLANE', 1, 181)
++# # else:
++# #     if l == 0:
++# #         mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1',
++# #                                           -par.R_15[i] / 2 - 13, 'XZ.PLANE', 1, 182)
++# #     else:
++# #         mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1',
++# #                                           -par.R[i] / 2 - 13, 'XZ.PLANE', 1, 182)
++# # if i == 4:
++# #     mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', 261.248,
++# #                                       'YZ.PLANE', 1, 183)
++# # else:
++# #     mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', 260, 'YZ.PLANE',
++# #                                       1, 183)
++# # # 離合器與FRAME20結合
++# # if i == 4:
++# #     mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1',
++# #                                       -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448 - 80), 'XY.PLANE', 0, 184)
++# # else:
++# #     mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1',
++# #                                       -(par.H[i] - par.Z[i] - par.S[i] - 34 + 448), 'XY.PLANE', 0, 184)
+ # #
+-# mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1', 0, 'XZ.PLANE',
+-#                                   0, 202)
+-# mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1', 1010, 'YZ.PLANE',
+-#                                   1, 203)
+-# if i == 4:
+-#     mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1',
+-#                                       -(par.H[i] - par.Z[i] - par.S[i] - 34 - 80), 'XY.PLANE',
+-#                                       0, 204)
+-# else:
+-#     mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1',
+-#                                       -(par.H[i] - par.Z[i] - par.S[i] - 34), 'XY.PLANE',
+-#                                       0, 204)
+-# # 大齒輪內套環
+-# mprog.add_offset_assembly('MAIN_GEAR2.1', 'MAIN_GEAR3.1', 0, 'XZ.PLANE', 1, 205)
+-# mprog.add_offset_assembly('MAIN_GEAR2.1', 'MAIN_GEAR3.1', 0, 'XY.PLANE', 0, 206)
+-# mprog.add_offset_assembly('MAIN_GEAR2.1', 'MAIN_GEAR3.1', 11, 'YZ.PLANE', 1, 207)
+-# # BOLSTER後板
+-# mprog.add_offset_assembly('FRAME45.1', 'FRAME17.1', 0, 'XZ.PLANE', 0, 208)
+-# mprog.add_offset_assembly('FRAME45.1', 'FRAME17.1', -48, 'XY.PLANE', 1, 209)
+-# mprog.add_offset_assembly('FRAME45.1', 'FRAME17.1', 0, 'YZ.PLANE', 1, 210)
++# # mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', 0, 'XZ.PLANE', 1,
++# #                                   185)
++# # mprog.add_offset_product_assembly('CLUCTH_ASSEMBLY_All.1', 'Geometrical Set.1', 'FRAME20.1', 512, 'YZ.PLANE', 1,
++# #                                   186)
++# # # 曲軸與時鐘結合
++# # mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 0, 'XZ.PLANE',
++# #                                   0, 187)
++# # mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 3, 'YZ.PLANE',
++# #                                   1, 188)
++# # mprog.add_offset_product_assembly('CRANK_SHAFT_CLOCK.1', 'Geometrical Set.2', 'CRANK_SHAFT.1.1', 0, 'XY.PLANE',
++# #                                   1, 189)
++# # # 大齒輪結合
++# # mprog.add_offset_assembly('MAIN_GEAR1.1', 'MAIN_GEAR4.1', 0, 'XZ.PLANE', 0, 190)
++# # mprog.add_offset_assembly('MAIN_GEAR1.1', 'MAIN_GEAR4.1', 77.172, 'XY.PLANE', 0, 191)
++# # mprog.add_offset_assembly('MAIN_GEAR1.1', 'MAIN_GEAR4.1', 0, 'YZ.PLANE', 1, 192)
++# # # 大齒輪結合曲軸
++# # mprog.add_offset_assembly('MAIN_GEAR1.1', 'CRANK_SHAFT.1.1', 0, 'XZ.PLANE', 1, 193)
++# # mprog.add_offset_assembly('MAIN_GEAR1.1', 'CRANK_SHAFT.1.1', 0, 'XY.PLANE', 0, 194)
++# # mprog.add_offset_assembly('MAIN_GEAR1.1', 'FRAME20.1', 592.5 + 150, 'YZ.PLANE', 1, 195)
++# # # 機架20結合曲軸旁圓管
++# # mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', 0, 'XZ.PLANE', 0, 196)
++# # if i == 4:
++# #     mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', par.H[i] - par.Z[i] - par.S[i] - 34 - 80, 'XY.PLANE', 1,
++# #                               197)
++# # else:
++# #     mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', par.H[i] - par.Z[i] - par.S[i] - 34, 'XY.PLANE', 1, 197)
++# # mprog.add_offset_assembly('MAIN_GEAR2.1', 'FRAME20.1', 520.5, 'YZ.PLANE', 1, 198)
++# # # 大齒輪結合長棒
++# # mprog.add_offset_assembly('MAIN_GEAR1.1', 'JOINT1.1', 0, 'XZ.PLANE', 0, 199)
++# # mprog.add_offset_assembly('MAIN_GEAR1.1', 'JOINT1.1', 0, 'XY.PLANE', 1, 200)
++# # mprog.add_offset_assembly('MAIN_GEAR1.1', 'JOINT1.1', -84, 'YZ.PLANE', 1, 201)
++# # #
++# # mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1', 0, 'XZ.PLANE',
++# #                                   0, 202)
++# # mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1', 1010, 'YZ.PLANE',
++# #                                   1, 203)
++# # if i == 4:
++# #     mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1',
++# #                                       -(par.H[i] - par.Z[i] - par.S[i] - 34 - 80), 'XY.PLANE',
++# #                                       0, 204)
++# # else:
++# #     mprog.add_offset_product_assembly('JOINT_All.1', 'Geometrical Set.1', 'FRAME20.1',
++# #                                       -(par.H[i] - par.Z[i] - par.S[i] - 34), 'XY.PLANE',
++# #                                       0, 204)
++# # # 大齒輪內套環
++# # mprog.add_offset_assembly('MAIN_GEAR2.1', 'MAIN_GEAR3.1', 0, 'XZ.PLANE', 1, 205)
++# # mprog.add_offset_assembly('MAIN_GEAR2.1', 'MAIN_GEAR3.1', 0, 'XY.PLANE', 0, 206)
++# # mprog.add_offset_assembly('MAIN_GEAR2.1', 'MAIN_GEAR3.1', 11, 'YZ.PLANE', 1, 207)
++# # # BOLSTER後板
++# # mprog.add_offset_assembly('FRAME45.1', 'FRAME17.1', 0, 'XZ.PLANE', 0, 208)
++# # mprog.add_offset_assembly('FRAME45.1', 'FRAME17.1', -48, 'XY.PLANE', 1, 209)
++# # mprog.add_offset_assembly('FRAME45.1', 'FRAME17.1', 0, 'YZ.PLANE', 1, 210)
++# # #
++# # mprog.add_offset_assembly('FRAME46.1', 'FRAME17.1', -48, 'XY.PLANE', 1, 211)
++# # mprog.add_offset_assembly('FRAME46.1', 'FRAME17.1', 0, 'XZ.PLANE', 0, 212)
++# # mprog.add_offset_assembly('FRAME46.1', 'FRAME17.1', 0, 'YZ.PLANE', 1, 213)
++# # #
++# # mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 9, 'XY.PLANE', 0, 214)
++# # mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 0, 'XZ.PLANE', 0, 215)
++# # mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 979, 'YZ.PLANE', 1, 216)
++# # #
++# # mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', 29 + 3, 'XY.PLANE', 1, 217)
++# # mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', 35, 'XZ.PLANE', 0, 218)
++# # mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', -99.35, 'YZ.PLANE', 1, 219)
++# # mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', 10, 'XY.PLANE', 0, 220)
++# # mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', -35, 'XZ.PLANE', 1, 221)
++# # mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', 099.35, 'YZ.PLANE', 0, 222)
++# # # 方管
++# # mprog.add_offset_assembly('FRAME44.1', 'FRAME48.1', 124, 'XY.PLANE', 1, 223)
++# # mprog.add_offset_assembly('FRAME44.1', 'FRAME48.1', 159 + 16, 'XZ.PLANE', 0, 224)
++# # mprog.add_offset_assembly('FRAME44.1', 'FRAME48.1', -32, 'YZ.PLANE', 0, 225)
++# # # 圓柱
++# # mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', 220, 'XY.PLANE', 0, 226)
++# # mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', 145, 'XZ.PLANE', 0, 227)
++# # mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', -32, 'YZ.PLANE', 0, 228)
++# # # 2023/02/23更新 FRAME1左邊角鐵
++# # mprog.add_offset_assembly('FRAME1.1', 'FRAME33.2', 140, 'XZ.PLANE', 1, 229)
++# # mprog.add_offset_assembly('FRAME19.1', 'FRAME33.2', 708, 'XY.PLANE', 0, 230)
++# # mprog.add_offset_assembly('FRAME10.1', 'FRAME33.2', -313.984, 'YZ.PLANE', 1, 231)
+ # #
+-# mprog.add_offset_assembly('FRAME46.1', 'FRAME17.1', -48, 'XY.PLANE', 1, 211)
+-# mprog.add_offset_assembly('FRAME46.1', 'FRAME17.1', 0, 'XZ.PLANE', 0, 212)
+-# mprog.add_offset_assembly('FRAME46.1', 'FRAME17.1', 0, 'YZ.PLANE', 1, 213)
+-# #
+-# mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 9, 'XY.PLANE', 0, 214)
+-# mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 0, 'XZ.PLANE', 0, 215)
+-# mprog.add_offset_assembly('FRAME20.1', 'FRAME44.1', 979, 'YZ.PLANE', 1, 216)
++# # # 更新
++# # mprog.update()
++# # mprog.Close_All()
++# # # 儲存Product檔
++#
++# import win32com.client as win32
++# import time
++# import parameter as par
++# import file_path as fp
++# import main_program as mprog
++#
++#
++# # # 你確定要挑戰玄學?
++# # def StartCommand(name):  # 孤立元素
++# #     catapp = win32.Dispatch("CATIA.Application")
++# #     selection = catapp.ActiveDocument.Selection
++# #     # selection.Clear()
++# #     # selection.Search("Name='" + str(name) + "', all")
++# #     catapp.StartCommand("isometric View")
+ # #
+-# mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', 29 + 3, 'XY.PLANE', 1, 217)
+-# mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', 35, 'XZ.PLANE', 0, 218)
+-# mprog.add_offset_assembly('FRAME26.1', 'FRAME47.1', -99.35, 'YZ.PLANE', 1, 219)
+-# mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', 10, 'XY.PLANE', 0, 220)
+-# mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', -35, 'XZ.PLANE', 1, 221)
+-# mprog.add_offset_assembly('FRAME24.1', 'FRAME47.2', 099.35, 'YZ.PLANE', 0, 222)
+-# # 方管
+-# mprog.add_offset_assembly('FRAME44.1', 'FRAME48.1', 124, 'XY.PLANE', 1, 223)
+-# mprog.add_offset_assembly('FRAME44.1', 'FRAME48.1', 159 + 16, 'XZ.PLANE', 0, 224)
+-# mprog.add_offset_assembly('FRAME44.1', 'FRAME48.1', -32, 'YZ.PLANE', 0, 225)
+-# # 圓柱
+-# mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', 220, 'XY.PLANE', 0, 226)
+-# mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', 145, 'XZ.PLANE', 0, 227)
+-# mprog.add_offset_assembly('FRAME44.1', 'FRAME49.1', -32, 'YZ.PLANE', 0, 228)
+-# # 2023/02/23更新 FRAME1左邊角鐵
+-# mprog.add_offset_assembly('FRAME1.1', 'FRAME33.2', 140, 'XZ.PLANE', 1, 229)
+-# mprog.add_offset_assembly('FRAME19.1', 'FRAME33.2', 708, 'XY.PLANE', 0, 230)
+-# mprog.add_offset_assembly('FRAME10.1', 'FRAME33.2', -313.984, 'YZ.PLANE', 1, 231)
++# def create():
++#     partDocument1 = CATIA.ActiveDocument
++#     part1 = partDocument1.Part
++#     shapeFactory1 = part1.ShapeFactory
++#     bodies1 = part1.Bodies
++#     body1 = bodies1.Item("PartBody")
++#     sketches1 = body1.Sketches
++#     sketch1 = sketches1.Item("Sketch.1")
++#     pad1 = shapeFactory1.AddNewPad(sketch1, 20)
++#     part1.Update()
+ #
+-# # 更新
+-# mprog.update()
+-# mprog.Close_All()
+-# # 儲存Product檔
+-
+-import win32com.client as win32
+-import time
+-import parameter as par
+-import file_path as fp
++#
++# create()
+ import main_program as mprog
+ 
+ 
+-# # 你確定要挑戰玄學?
+-# def StartCommand(name):  # 孤立元素
+-#     catapp = win32.Dispatch("CATIA.Application")
+-#     selection = catapp.ActiveDocument.Selection
+-#     # selection.Clear()
+-#     # selection.Search("Name='" + str(name) + "', all")
+-#     catapp.StartCommand("isometric View")
+-#
+-def create():
+-    partDocument1 = CATIA.ActiveDocument
+-    part1 = partDocument1.Part
+-    shapeFactory1 = part1.ShapeFactory
+-    bodies1 = part1.Bodies
+-    body1 = bodies1.Item("PartBody")
+-    sketches1 = body1.Sketches
+-    sketch1 = sketches1.Item("Sketch.1")
+-    pad1 = shapeFactory1.AddNewPad(sketch1, 20)
+-    part1.Update()
+-
+-
+-create()
+\ No newline at end of file
++mprog.partbodyfeatureactivate('before250_喉口')
++mprog.partbodyfeatureactivate('Z1')
++mprog.partbodyfeatureactivate('V1')
++mprog.partbodyfeatureactivate('V3')
++mprog.partbodyfeatureactivate('V5')
++mprog.partbodyfeatureactivate('Z倒角')
++mprog.partbodyfeatureactivate('喉口倒角_非B')
++mprog.partbodyfeatureactivate('喉口倒圓角_非B')
++mprog.partbodyfeatureactivate('喉口倒角補料_160')
++mprog.partbodyfeatureactivate('E_倒角')
++mprog.activatefeature('1-M5X10L(配管用)', 0)
++mprog.activatefeature('3-M5X10L(配管用)(r1)', 0)
++mprog.activatefeature('油面劑用', 0)
++mprog.activatefeature('60通孔', 0)
++mprog.activatefeature('電動黃油泵用', 0)
++mprog.activatefeature('吊孔', 0)
++mprog.activatefeature('6-M5X16L(配管)', 0)
++mprog.activatefeature('5-M5X10L(配管用)', 0)
++mprog.activatefeature('兩點組合', 0)
+\ No newline at end of file
