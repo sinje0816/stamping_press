@@ -1,6 +1,7 @@
 import win32com.client as win32
 import main_program as mprog
 import excel_parameter_change as epc
+import time
 
 # 母檔變數變換
 def change_parameter(name, i):
@@ -92,8 +93,8 @@ def change_parameter(name, i):
                 mprog.partbodyfeatureactivate('R倒角填料_1')
                 mprog.partbodyfeatureactivate('R倒角填料_2')
                 mprog.partbodyfeatureactivate('Z倒角')
-                mprog.partbodyfeatureactivate('喉口倒角_60')
-                mprog.partbodyfeatureactivate('喉口倒圓角_60')
+                mprog.partbodyfeatureactivate('喉口倒角_非B')
+                mprog.partbodyfeatureactivate('喉口倒圓角_非B')
                 mprog.partbodyfeatureactivate('喉口倒角補料_60')
                 mprog.partbodyfeatureactivate('E_倒角')
                 mprog.activatefeature('110通孔', 0)
@@ -113,7 +114,7 @@ def change_parameter(name, i):
                 mprog.partbodyfeatureactivate('Z倒角')
                 mprog.partbodyfeatureactivate('喉口倒角_B')
                 mprog.partbodyfeatureactivate('喉口倒角_B_圓角')
-                mprog.partbodyfeatureactivate('B倒角_E')
+                mprog.partbodyfeatureactivate('B倒角_E段')
                 mprog.partbodyfeatureactivate('喉口倒角補料_80')
                 mprog.activatefeature('1-M5X10L(配管用)', 0)
                 mprog.activatefeature('油面劑用', 0)
@@ -123,17 +124,126 @@ def change_parameter(name, i):
                 mprog.activatefeature('6-M5X16L(配管)', 5)
                 mprog.activatefeature('5-M5X10L(配管用)', 3)
                 mprog.activatefeature('兩點組合', 0)
+                mprog.activatefeature('3-M5X10L(配管用)(r1)', 1)
+
+            elif i == 5:
+                mprog.partbodyfeatureactivate('before250_喉口')
+                mprog.partbodyfeatureactivate('Z1')
+                mprog.partbodyfeatureactivate('V1')
+                mprog.partbodyfeatureactivate('V3')
+                mprog.partbodyfeatureactivate('V5')
+                mprog.partbodyfeatureactivate('Z倒角')
+                mprog.partbodyfeatureactivate('喉口倒角_非B')
+                mprog.partbodyfeatureactivate('喉口倒圓角_非B')
+                mprog.partbodyfeatureactivate('喉口倒角補料_110')
+                mprog.partbodyfeatureactivate('E_倒角')
+                mprog.activatefeature('1-M5X10L(配管用)', 0)
+                mprog.activatefeature('油面劑用', 0)
+                mprog.activatefeature('60通孔', 0)
+                mprog.activatefeature('電動黃油泵用', 0)
+                mprog.activatefeature('吊孔', 0)
+                mprog.activatefeature('6-M5X16L(配管)', 0)
+                mprog.activatefeature('5-M5X10L(配管用)', 3)
+                mprog.activatefeature('兩點組合', 0)
+                mprog.activatefeature('3-M5X10L(配管用)(r1)', 2)
+
+            elif i == 6:
+                mprog.partbodyfeatureactivate('before250_喉口')
+                mprog.partbodyfeatureactivate('Z1')
+                mprog.partbodyfeatureactivate('V1')
+                mprog.partbodyfeatureactivate('V3')
+                mprog.partbodyfeatureactivate('V5')
+                mprog.partbodyfeatureactivate('Z倒角')
+                mprog.partbodyfeatureactivate('喉口倒角_非B')
+                mprog.partbodyfeatureactivate('喉口倒圓角_非B')
+                mprog.partbodyfeatureactivate('喉口倒角補料_160')
+                mprog.partbodyfeatureactivate('E_倒角')
+                mprog.activatefeature('1-M5X10L(配管用)', 0)
+                mprog.activatefeature('3-M5X10L(配管用)(r1)', 0)
+                mprog.activatefeature('油面劑用', 0)
+                mprog.activatefeature('60通孔', 0)
+                mprog.activatefeature('電動黃油泵用', 0)
+                mprog.activatefeature('吊孔', 0)
+                mprog.activatefeature('6-M5X16L(配管)', 0)
+                mprog.activatefeature('5-M5X10L(配管用)', 5)
+                mprog.activatefeature('兩點組合', 0)
+            elif i == 7:
+                mprog.partbodyfeatureactivate('before250_喉口')
+                mprog.partbodyfeatureactivate('Z1')
+                mprog.partbodyfeatureactivate('V1')
+                mprog.partbodyfeatureactivate('V3')
+                mprog.partbodyfeatureactivate('V5')
+                mprog.partbodyfeatureactivate('Z倒角')
+                mprog.partbodyfeatureactivate('喉口倒角_非B')
+                mprog.partbodyfeatureactivate('喉口倒圓角_非B')
+                mprog.partbodyfeatureactivate('喉口倒角補料_200')
+                mprog.partbodyfeatureactivate('E_倒角')
+                mprog.activatefeature('1-M5X10L(配管用)', 0)
+                mprog.activatefeature('3-M5X10L(配管用)(r1)', 2)
+                mprog.activatefeature('油面劑用', 0)
+                mprog.activatefeature('60通孔', 0)
+                mprog.activatefeature('電動黃油泵用', 0)
+                mprog.activatefeature('吊孔', 0)
+                mprog.activatefeature('6-M5X16L(配管)', 0)
+                mprog.activatefeature('5-M5X10L(配管用)', 5)
+                mprog.activatefeature('兩點組合', 0)
+            elif i == 8:
+                mprog.partbodyfeatureactivate('T250')
+                mprog.partbodyfeatureactivate('Z1')
+                mprog.partbodyfeatureactivate('V1_250')
+                mprog.partbodyfeatureactivate('V3_250')
+                mprog.partbodyfeatureactivate('V5_250')
+                mprog.partbodyfeatureactivate('Z倒角')
+                mprog.partbodyfeatureactivate('喉口倒角_250')
+                mprog.partbodyfeatureactivate('喉口倒圓角_250')
+                mprog.partbodyfeatureactivate('喉口倒角補料_250')
+                mprog.partbodyfeatureactivate('E_倒角')
+                mprog.activatefeature('1-M5X10L(配管用)', 0)
+                mprog.activatefeature('3-M5X10L(配管用)(r1)', 0)
+                mprog.activatefeature('油面劑用', 0)
+                mprog.activatefeature('60通孔', 0)
+                mprog.activatefeature('電動黃油泵用', 0)
+                mprog.activatefeature('吊孔', 0)
+                mprog.activatefeature('6-M5X16L(配管)', 0)
+                mprog.activatefeature('5-M5X10L(配管用)', 0)
+                mprog.activatefeature('兩點組合', 0)
 
         except:
             print('FRAME1 Part activate error')
         finally:
             mprog.update()
             print('FRAME1 update success')
+    elif name == 'FRAME2':
+        start = time.time()
+        excel = epc.ExcelOp('FRAME2')
+        # try:
+        FRAME2_parameter_name, FRAME2_parameter_value = excel.part_parameter('FRAME2', i)
+        end = time.time()
+        print('FRAME2 Parameter change time: ', end - start)
+        #     print('FRAME2 Parameter change success')
+        # except:
+        #     print('FRAME2 Parameter change error')
+        if i == 0:
+            mprog.partbodyfeatureactivate('before250_喉口')
+            mprog.partbodyfeatureactivate('AA2')
+            mprog.partbodyfeatureactivate('Z1')
+            mprog.partbodyfeatureactivate('VV2')
+            mprog.partbodyfeatureactivate('VV4')
+            mprog.partbodyfeatureactivate('B1')
+            mprog.partbodyfeatureactivate('R倒角')
+            mprog.partbodyfeatureactivate('R倒角填料_1')
+            mprog.partbodyfeatureactivate('R倒角填料_2')
+            mprog.partbodyfeatureactivate('Z倒角')
+            mprog.partbodyfeatureactivate('小噸數E倒角_B')
+            mprog.partbodyfeatureactivate('小噸數Y倒角_B1')
+            mprog.partbodyfeatureactivate('喉口倒角_B')
+            mprog.partbodyfeatureactivate('喉口倒角補料_B')
+            mprog.partbodyfeatureactivate('喉口倒角_B_圓角')
+
 
     elif name == 'FRAME5':
         excel = epc.ExcelOp('FRAME5')
         try:
-            excel.part_parameter('FRAME5', i)
             FRAME5_parameter_name, FRAME5_parameter_value = excel.part_parameter('FRAME5', i)
             print('FRAME5 Parameter change success')
         except:
@@ -220,4 +330,4 @@ def change_parameter(name, i):
             except:
                 print('FRAME5 Update error')
 
-change_parameter('FRAME1', 4)
+change_parameter('FRAME2', 0)
