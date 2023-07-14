@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="完成FRAME11零件程式撰寫">
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="完成許多板件">
+      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/welding_part_TYPE_change1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change1.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/test2.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/test2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/main_GUI_new.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/FRAME1.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/FRAME1.CATPart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/FRAME2.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/FRAME2.CATPart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/FRAME2_new.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/FRAME2_new.CATPart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change1.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/machining_part_TYPE_change.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/尺寸整理表.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/尺寸整理表.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +68,7 @@
   &quot;keyToString&quot;: {
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/USER/PycharmProjects/stamping_press/SYEI_stamping_press_system&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/PycharmProjects/stamping_press&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -75,12 +79,13 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\PycharmProjects\stamping_press\SYEI_stamping_press_system" />
       <recent name="C:\Users\USER\PycharmProjects\stamping_press\SYEI_stamping_press_system" />
       <recent name="C:\Users\User\PycharmProjects\stamping_press" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.part_TYPE_change1">
-    <configuration name="excel_parameter_change" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.machining_part_TYPE_change">
+    <configuration name="machining_part_TYPE_change" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Stamping press" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -93,29 +98,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/excel_parameter_change.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="homework0706_ex" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Stamping press" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SYEI_stamping_press_system" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/homework0706_ex.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/machining_part_TYPE_change.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -146,28 +129,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="part_TYPE_change1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Stamping press" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SYEI_stamping_press_system" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="part_TYPE_change2 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Stamping press" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -190,13 +151,57 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="welding_part_TYPE_change1 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Stamping press" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SYEI_stamping_press_system" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/welding_part_TYPE_change1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="welding_part_TYPE_change1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Stamping press" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SYEI_stamping_press_system" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\User\PycharmProjects\stamping_press\SYEI_stamping_press_system\welding_part_TYPE_change1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.part_TYPE_change1" />
+        <item itemvalue="Python.machining_part_TYPE_change" />
+        <item itemvalue="Python.welding_part_TYPE_change1 (1)" />
+        <item itemvalue="Python.welding_part_TYPE_change1" />
         <item itemvalue="Python.part_TYPE_change2 (1)" />
         <item itemvalue="Python.main_program" />
-        <item itemvalue="Python.homework0706_ex" />
-        <item itemvalue="Python.excel_parameter_change" />
       </list>
     </recent_temporary>
   </component>
@@ -249,7 +254,12 @@
       <workItem from="1689210393966" duration="12867000" />
       <workItem from="1689236266473" duration="690000" />
       <workItem from="1689237150765" duration="11156000" />
-      <workItem from="1689297258933" duration="13819000" />
+      <workItem from="1689297258933" duration="14021000" />
+      <workItem from="1689333557676" duration="17000" />
+      <workItem from="1689558074371" duration="14076000" />
+      <workItem from="1689642575150" duration="611000" />
+      <workItem from="1689666750393" duration="9353000" />
+      <workItem from="1689731138915" duration="1230000" />
     </task>
     <task id="LOCAL-00019" summary="新增:標準件結合">
       <created>1668781374862</created>
@@ -594,7 +604,7 @@
       <option name="project" value="LOCAL" />
       <updated>1689165213213</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,7 +665,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="更改主檔爆炸圖下圖" />
     <MESSAGE value="完成爆炸圖比例位置偏移" />
     <MESSAGE value="修正爆炸圖比例偏移" />
     <MESSAGE value="建立及測試圈碼圖&#10;(Y方向卡關)" />
@@ -680,20 +689,34 @@
     <MESSAGE value="完成FRAME1程式撰寫；進行FRAME2噸數整理" />
     <MESSAGE value="完成FRAME2程式撰寫" />
     <MESSAGE value="完成FRAME11零件程式撰寫" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成FRAME11零件程式撰寫" />
+    <MESSAGE value="完成許多板件" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成許多板件" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/machining_part_TYPE_change.py</url>
+          <line>181</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/stamping_press$welding_part_TYPE_change1__1_.coverage" NAME="welding_part_TYPE_change1 (1) Coverage Results" MODIFIED="1689671636836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$part_type_change2.coverage" NAME="part type change2 Coverage Results" MODIFIED="1688558827455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$homework0706_ex.coverage" NAME="homework0706_ex Coverage Results" MODIFIED="1688706834397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$activate_test.coverage" NAME="activate_test Coverage Results" MODIFIED="1688536708263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$main_program.coverage" NAME="main_program Coverage Results" MODIFIED="1688623227443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$test2.coverage" NAME="test2 Coverage Results" MODIFIED="1689153554795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$machining_part_TYPE_change.coverage" NAME="machining_part_TYPE_change Coverage Results" MODIFIED="1689732295026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$part_TYPE_change2__1_.coverage" NAME="part_TYPE_change2 (1) Coverage Results" MODIFIED="1688647602222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$excel_parameter_change.coverage" NAME="excel_parameter_change Coverage Results" MODIFIED="1688974355333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$main_GUI.coverage" NAME="main_GUI Coverage Results" MODIFIED="1688386245747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$part_TYPE_change1.coverage" NAME="part_TYPE_change1 Coverage Results" MODIFIED="1689333304770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$part_design__1_.coverage" NAME="part_design (1) Coverage Results" MODIFIED="1688543318871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$parameter.coverage" NAME="parameter Coverage Results" MODIFIED="1683870399043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$activate_test.coverage" NAME="activate_test Coverage Results" MODIFIED="1688536708263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$main_program.coverage" NAME="main_program Coverage Results" MODIFIED="1688623227443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$excel_parameter_change.coverage" NAME="excel_parameter_change Coverage Results" MODIFIED="1688974355333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$main_GUI.coverage" NAME="main_GUI Coverage Results" MODIFIED="1688386245747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$part_TYPE_change1.coverage" NAME="part_TYPE_change1 Coverage Results" MODIFIED="1689588307468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$part_test.coverage" NAME="part_test Coverage Results" MODIFIED="1688634351637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
   </component>
 </project>
