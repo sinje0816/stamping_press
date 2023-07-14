@@ -1,4 +1,3 @@
-import win32com.client as win32
 import main_program as mprog
 import excel_parameter_change as epc
 import time
@@ -599,6 +598,57 @@ def change_parameter(name, i):
                 print('FRAME5 Update success')
             except:
                 print('FRAME5 Update error')
+    elif name == 'FRAME8':
+        excel = epc.ExcelOp('FRAME8')
+        # try:
+        FRAME8_parameter_name, FRAME8_parameter_value = excel.part_parameter('FRAME8', i)
+        #     print('FRAME8 Parameter change success')
+        # except:
+        #     print('FRAME8 Parameter change error')
+        try:
+            if i == 0:
+                mprog.partbodyfeatureactivate('上半倒角')
+            elif i == 1:
+                mprog.partbodyfeatureactivate('上半倒角')
+                # mprog.activatefeature('38孔通', 0)
+            elif i == 2:
+                mprog.partbodyfeatureactivate('上半倒角')
+            elif i == 3:
+                mprog.partbodyfeatureactivate('上半倒角')
+            elif i == 4:
+                mprog.partbodyfeatureactivate('上半倒角80')
+                mprog.partbodyfeatureactivate('R40特徵')
+                mprog.partbodyfeatureactivate('下半開槽')
+                mprog.activatefeature('38孔通', 0)
+            elif i == 5:
+                mprog.partbodyfeatureactivate('上半倒角')
+                mprog.partbodyfeatureactivate('下半倒角')
+                mprog.partbodyfeatureactivate('下半開槽')
+                mprog.partbodyfeatureactivate('R40特徵')
+                mprog.activatefeature('38孔通', 0)
+            elif i == 6:
+                mprog.partbodyfeatureactivate('上半倒角')
+                mprog.partbodyfeatureactivate('下半倒角')
+                mprog.partbodyfeatureactivate('下半開槽')
+                mprog.partbodyfeatureactivate('R40特徵')
+                mprog.activatefeature('38孔通', 0)
+            elif i == 7:
+                mprog.partbodyfeatureactivate('上半倒角')
+                mprog.partbodyfeatureactivate('下半開槽')
+                mprog.partbodyfeatureactivate('R40特徵')
+                mprog.activatefeature('38孔通', 0)
+            elif i == 8:
+                mprog.partbodyfeatureactivate('上半倒角')
+                mprog.partbodyfeatureactivate('R40特徵')
+                mprog.activatefeature('38孔通', 0)
+        except:
+            print('FRAME8 Parameter activate error')
+        finally:
+            try:
+                mprog.Update()
+                print('FRAME8 Update success')
+            except:
+                print('FRAME8 Update error')
     elif name == 'FRAME11':
         start = time.time()
         excel = epc.ExcelOp('FRAME11')
@@ -636,4 +686,198 @@ def change_parameter(name, i):
             print('FRAME11 Update success')
         except:
             print('FRAME11 Update error')
-change_parameter('FRAME11', 0)
+    elif name == 'FRAME26':
+        excel = epc.ExcelOp('FRAME26')
+        try:
+            FRAME26_parameter_name, FRAME26_parameter_value = excel.part_parameter('FRAME26', i)
+            print('FRAME26 Parameter change success')
+        except:
+            print('FRAME26 Parameter change error')
+        try:
+            mprog.Update()
+            print('FRAME26 Update success')
+        except:
+            print('FRAME26 Update error')
+    elif name == 'FRAME27':
+        excel = epc.ExcelOp('FRAME27')
+        try:
+            FRAME27_parameter_name, FRAME27_parameter_value = excel.part_parameter('FRAME27', i)
+            print('FRAME27 Parameter change success')
+        except:
+            print('FRAME27 Parameter change error')
+        if i == 0:
+            mprog.partbodyfeatureactivate('倒角C')
+            mprog.activatefeature('M5', 0)
+        elif i == 1:
+            mprog.partbodyfeatureactivate('倒角C')
+            mprog.activatefeature('M5', 0)
+        elif i == 2:
+            mprog.partbodyfeatureactivate('倒角C')
+            mprog.activatefeature('M5', 0)
+        elif i == 3:
+            mprog.partbodyfeatureactivate('倒角C')
+            mprog.activatefeature('M5', 0)
+        elif i == 4:
+            mprog.partbodyfeatureactivate('倒角C')
+            mprog.activatefeature('M5', 0)
+        elif i == 5:
+            mprog.partbodyfeatureactivate('倒角C')
+            mprog.activatefeature('M5', 0)
+        elif i == 6:
+            mprog.partbodyfeatureactivate('倒角C')
+            mprog.activatefeature('M5', 0)
+        elif i == 7:
+            mprog.partbodyfeatureactivate('倒角C')
+            mprog.activatefeature('M5', 0)
+        elif i == 8:
+            mprog.partbodyfeatureactivate('倒角C')
+            mprog.activatefeature('M5', 0)
+        try:
+            mprog.Update()
+            print('FRAME27 Update success')
+        except:
+            print('FRAME27 Update error')
+    elif name == 'FRAME31':
+        excel = epc.ExcelOp('FRAME31')
+        try:
+            FRAME31_parameter_name, FRAME31_parameter_value = excel.part_parameter('FRAME31', i)
+            print('FRAME31 Parameter change success')
+        except:
+            print('FRAME31 Parameter change error')
+        try:
+            mprog.Update()
+            print('FRAME31 Update success')
+        except:
+            print('FRAME31 Update error')
+    elif name == 'FRAME34':
+        excel = epc.ExcelOp('FRAME34')
+        try:
+            FRAME34_parameter_name, FRAME34_parameter_value = excel.part_parameter('FRAME34', i)
+            print('FRAME34 Parameter change success')
+        except:
+            print('FRAME34 Parameter change error')
+        try:
+            mprog.Update()
+            print('FRAME34 Update success')
+        except:
+            print('FRAME34 Update error')
+    elif name == 'FRAME41':
+        excel = epc.ExcelOp('FRAME41')
+        try:
+            FRAME41_parameter_name, FRAME41_parameter_value = excel.part_parameter('FRAME41', i)
+            print('FRAME41 Parameter change success')
+        except:
+            print('FRAME41 Parameter change error')
+        try:
+            mprog.Update()
+            print('FRAME41 Update success')
+        except:
+            print('FRAME41 Update error')
+    elif name == 'FRAME42':
+        excel = epc.ExcelOp('FRAME42')
+        try:
+            FRAME42_parameter_name, FRAME42_parameter_value = excel.part_parameter('FRAME42', i)
+            print('FRAME42 Parameter change success')
+        except:
+            print('FRAME42 Parameter change error')
+        try:
+            if i == 0:
+                mprog.partbodyfeatureactivate('Pad.1')
+            elif i == 1:
+                mprog.partbodyfeatureactivate('Pad.1')
+            elif i == 2:
+                mprog.partbodyfeatureactivate('Pad.1')
+            elif i == 3:
+                mprog.partbodyfeatureactivate('Pad.1')
+            elif i == 4:
+                pass
+            elif i == 5:
+                pass
+            elif i == 6:
+                mprog.activatefeature('角鐵', 0)
+            elif i == 7:
+                mprog.activatefeature('角鐵', 0)
+            elif i == 8:
+                mprog.activatefeature('角鐵', 0)
+        except:
+            print('FRAME42 Parameter activate error')
+        finally:
+            try:
+                mprog.Update()
+                print('FRAME42 Update success')
+            except:
+                print('FRAME42 Update error')
+    elif name == 'FRAME45':
+        excel = epc.ExcelOp('FRAME45')
+        try:
+            FRAME45_parameter_name, FRAME45_parameter_value = excel.part_parameter('FRAME45', i)
+            print('FRAME45 Parameter change success')
+        except:
+            print('FRAME45 Parameter change error')
+        if i == 0:
+            mprog.activatefeature('25', 0)
+        elif i == 1:
+            pass
+        elif i == 2:
+            mprog.partbodyfeatureactivate('Pad.1')
+            mprog.partbodyfeatureactivate('通孔B')
+        elif i == 3:
+            mprog.partbodyfeatureactivate('Pad.1')
+            mprog.partbodyfeatureactivate('通孔B')
+        elif i == 4:
+            pass
+        elif i == 5:
+            pass
+        elif i == 6:
+            mprog.partbodyfeatureactivate('Pad.1')
+        elif i == 7:
+            mprog.partbodyfeatureactivate('Pad.1')
+        elif i == 8:
+            mprog.partbodyfeatureactivate('Pad.1')
+        try:
+            mprog.Update()
+            print('FRAME45 Update success')
+        except:
+            print('FRAME45 Update error')
+    elif name == 'FRAME46':
+        excel = epc.ExcelOp('FRAME46')
+        try:
+            FRAME46_parameter_name, FRAME46_parameter_value = excel.part_parameter('FRAME46', i)
+            print('FRAME46 Parameter change success')
+        except:
+            print('FRAME46 Parameter change error')
+        if i == 0:
+            mprog.partbodyfeatureactivate('Pad.1')
+        elif i == 1:
+            mprog.partbodyfeatureactivate('Pad.1')
+        elif i == 2:
+            mprog.partbodyfeatureactivate('Pad.1')
+        elif i == 3:
+            mprog.partbodyfeatureactivate('Pad.1')
+        try:
+            mprog.Update()
+            print('FRAME46 Update success')
+        except:
+            print('FRAME46 Update error')
+    elif name == 'FRAME47':
+        excel = epc.ExcelOp('FRAME47')
+        try:
+            FRAME47_parameter_name, FRAME47_parameter_value = excel.part_parameter('FRAME47', i)
+            print('FRAME47 Parameter change success')
+        except:
+            print('FRAME47 Parameter change error')
+        if i == 0:
+            mprog.partbodyfeatureactivate('Pad.1')
+        elif i == 1:
+            mprog.partbodyfeatureactivate('Pad.1')
+        elif i == 2:
+            mprog.partbodyfeatureactivate('Pad.1')
+        elif i == 3:
+            mprog.activatefeature('60', 0)
+        try:
+            mprog.Update()
+            print('FRAME47 Update success')
+        except:
+            print('FRAME47 Update error')
+
+change_parameter('FRAME26', 8)
