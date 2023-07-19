@@ -466,6 +466,66 @@ def partbodyfeatureactivate(feature):
     except:
         pass
 
+# 抑制功能(partbody)
+def partdeactivate(feature):
+    catapp = win32.Dispatch('CATIA.Application')
+    doc = catapp.ActiveDocument
+    part = doc.Part
+    bodies = part.Bodies
+    body = bodies.Item("PartBody")
+    shapes = body.Shapes
+    target = feature
+    pocket = shapes.Item(target)
+    # 草圖激活
+    # noinspection PyBroadException
+    try:
+        sketch = pocket.Sketch
+        part.Inactivate(sketch)
+    except:
+        pass
+    part.Inactivate(pocket)
+
+# 抑制功能(body)
+def bodydeactivate(feature, howmany):
+    catapp = win32.Dispatch('CATIA.Application')
+    activedoc = catapp.ActiveDocument
+    part = activedoc.Part
+    bodies = part.Bodies
+    body = bodies.Item("PartBody")
+    shapes = body.Shapes
+    target = feature
+    remove = shapes.Item(target)
+    sub_body = remove.Body
+    sub_shapes = sub_body.Shapes
+    shapes_count = sub_shapes.Count
+
+    # here to start activating process
+    part.Inactivate(remove)
+    if howmany == 0:
+        for i in range(1, shapes_count + 1):
+            item_obj = sub_shapes.Item(i)
+
+            # 草圖激活
+            # noinspection PyBroadException
+            try:
+                sketch = item_obj.Sketch
+                part.Inactivate(sketch)
+            except:
+                pass
+            part.Inactivate(item_obj)
+    else:
+        for i in range(1, howmany+1):
+            item_obj = sub_shapes.Item(i)
+
+            # 草圖激活
+            # noinspection PyBroadException
+            try:
+                sketch = item_obj.Sketch
+                part.Inactivate(sketch)
+            except:
+                pass
+            part.Inactivate(item_obj)
+
 # 零件更新
 def Update():
     catapp = win32.Dispatch('CATIA.Application')

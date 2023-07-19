@@ -4,6 +4,7 @@ import time
 
 # 母檔變數變換
 def change_parameter(name, i):
+    # 已改
     if name == 'FRAME1':
         excel = epc.ExcelOp('FRAME1')
         try:
@@ -644,7 +645,6 @@ def change_parameter(name, i):
             except:
                 print('FRAME8 Update error')
     elif name == 'FRAME11':
-        start = time.time()
         excel = epc.ExcelOp('FRAME11')
         try:
             FRAME11_parameter_name, FRAME11_parameter_value = excel.part_parameter('FRAME11', i)
@@ -680,45 +680,13 @@ def change_parameter(name, i):
             print('FRAME11 Update success')
         except:
             print('FRAME11 Update error')
-    elif name == 'FRAME17':
-        excel = epc.ExcelOp('FRAME17')
+    elif name == 'FRAME24':
+        excel = epc.ExcelOp('FRAME24')
         try:
-            FRAME17_parameter_name, FRAME17_parameter_value = excel.part_parameter('FRAME17', i)
-            print('FRAME17 Parameter change success')
+            FRAME24_parameter_name, FRAME24_parameter_value = excel.part_parameter('FRAME24', i)
+            print('FRAME24 Parameter change success')
         except:
-            print('FRAME17 Parameter change error')
-
-    elif name == 'FRAME23':
-        excel = epc.ExcelOp('FRAME23')
-        try:
-            FRAME23_parameter_name, FRAME23_parameter_value = excel.part_parameter('FRAME23', i)
-            print('FRAME23 Parameter change success')
-        except:
-            print('FRAME23 Parameter change error')
-        try:
-            mprog.Update()
-            print('FRAME23 Update success')
-        except:
-            print('FRAME23 Update error')
-    elif name == 'FRAME26':
-        excel = epc.ExcelOp('FRAME26')
-        try:
-            FRAME26_parameter_name, FRAME26_parameter_value = excel.part_parameter('FRAME26', i)
-            print('FRAME26 Parameter change success')
-        except:
-            print('FRAME26 Parameter change error')
-        try:
-            mprog.Update()
-            print('FRAME26 Update success')
-        except:
-            print('FRAME26 Update error')
-    elif name == 'FRAME27':
-        excel = epc.ExcelOp('FRAME27')
-        try:
-            FRAME27_parameter_name, FRAME27_parameter_value = excel.part_parameter('FRAME27', i)
-            print('FRAME27 Parameter change success')
-        except:
-            print('FRAME27 Parameter change error')
+            print('FRAME24 Parameter change error')
         if i == 0:
             mprog.partbodyfeatureactivate('倒角C')
             mprog.activatefeature('M5', 0)
@@ -748,33 +716,83 @@ def change_parameter(name, i):
             mprog.activatefeature('M5', 0)
         try:
             mprog.Update()
-            print('FRAME27 Update success')
+            print('FRAME24 Update success')
         except:
-            print('FRAME27 Update error')
-    elif name == 'FRAME31':
-        excel = epc.ExcelOp('FRAME31')
+            print('FRAME24 Update error')
+    elif name == 'FRAME29':
+        excel = epc.ExcelOp('FRAME29')
         try:
-            FRAME31_parameter_name, FRAME31_parameter_value = excel.part_parameter('FRAME31', i)
-            print('FRAME31 Parameter change success')
+            FRAME29_parameter_name, FRAME29_parameter_value = excel.part_parameter('FRAME29', i)
+            print('FRAME29 Parameter change success')
         except:
-            print('FRAME31 Parameter change error')
+            print('FRAME29 Parameter change error')
+        try:
+            mprog.partdeactivate('Hole.1')
+        finally:
+            try:
+                mprog.Update()
+                print('FRAME29 Update success')
+            except:
+                print('FRAME29 Update error')
+    elif name == 'FRAME42':
+        excel = epc.ExcelOp('FRAME42')
+        try:
+            FRAME42_parameter_name, FRAME42_parameter_value = excel.part_parameter('FRAME42', i)
+            print('FRAME42 Parameter change success')
+        except:
+            print('FRAME42 Parameter change error')
+        try:
+            if i == 3:
+                mprog.partbodyfeatureactivate('Chamfer.1')
+        finally:
+            try:
+                mprog.Update()
+                print('FRAME42 Update success')
+            except:
+                print('FRAME42 Update error')
+    elif name == 'FRAME43':
+        excel = epc.ExcelOp('FRAME43')
+        try:
+            FRAME43_parameter_name, FRAME43_parameter_value = excel.part_parameter('FRAME43', i)
+            print('FRAME43 Parameter change success')
+        except:
+            print('FRAME43 Parameter change error')
+        try:
+            if i == 3:
+                mprog.partbodyfeatureactivate('Chamfer.1')
+            elif i == 4:
+                mprog.partbodyfeatureactivate('machining_Pocket')
+            else:
+                pass
+        except:
+            print('FRAME43 Parameter activate error')
+        finally:
+            try:
+                mprog.Update()
+                print('FRAME43 Update success')
+            except:
+                print('FRAME43 Update error')
+    elif name == 'FRAME53':
+        excel = epc.ExcelOp('FRAME53')
+        try:
+            FRAME53_parameter_name, FRAME53_parameter_value = excel.part_parameter('FRAME53', i)
+            print('FRAME53 Parameter change success')
+        except:
+            print('FRAME53 Parameter change error')
         try:
             mprog.Update()
-            print('FRAME31 Update success')
+            print('FRAME53 Update success')
         except:
-            print('FRAME31 Update error')
-    elif name == 'FRAME34':
-        excel = epc.ExcelOp('FRAME34')
+            print('FRAME53 Update error')
+
+    # 未改
+    elif name == 'FRAME17':
+        excel = epc.ExcelOp('FRAME17')
         try:
-            FRAME34_parameter_name, FRAME34_parameter_value = excel.part_parameter('FRAME34', i)
-            print('FRAME34 Parameter change success')
+            FRAME17_parameter_name, FRAME17_parameter_value = excel.part_parameter('FRAME17', i)
+            print('FRAME17 Parameter change success')
         except:
-            print('FRAME34 Parameter change error')
-        try:
-            mprog.Update()
-            print('FRAME34 Update success')
-        except:
-            print('FRAME34 Update error')
+            print('FRAME17 Parameter change error')
     elif name == 'FRAME41':
         excel = epc.ExcelOp('FRAME41')
         try:
@@ -787,7 +805,7 @@ def change_parameter(name, i):
             print('FRAME41 Update success')
         except:
             print('FRAME41 Update error')
-    elif name == 'FRAME42':
+    elif name == 'FRAME42_old':
         excel = epc.ExcelOp('FRAME42')
         try:
             FRAME42_parameter_name, FRAME42_parameter_value = excel.part_parameter('FRAME42', i)
@@ -880,23 +898,22 @@ def change_parameter(name, i):
             print('FRAME47 Parameter change success')
         except:
             print('FRAME47 Parameter change error')
-        if i == 0:
-            mprog.partbodyfeatureactivate('Pad.1')
-        elif i == 1:
-            mprog.partbodyfeatureactivate('Pad.1')
-        elif i == 2:
-            mprog.partbodyfeatureactivate('Pad.1')
-        elif i == 3:
-            mprog.activatefeature('60', 0)
         try:
-            mprog.Update()
-            print('FRAME47 Update success')
+            if i == 0:
+                mprog.partbodyfeatureactivate('Pad.1')
+            elif i == 1:
+                mprog.partbodyfeatureactivate('Pad.1')
+            elif i == 2:
+                mprog.partbodyfeatureactivate('Pad.1')
+            elif i == 3:
+                mprog.activatefeature('60', 0)
         except:
-            print('FRAME47 Update error')
+            print('FRAME47 Parameter activate error')
+        finally:
+            try:
+                mprog.Update()
+                print('FRAME47 Update success')
+            except:
+                print('FRAME47 Update error')
 
-change_parameter('FRAME2', 0)
-mprog.param_change('FRAME2', 'alpha', 10)
-mprog.param_change('FRAME2', 'beta', 10)
-mprog.param_change('FRAME2', 'gamma', 10)
-mprog.param_change('FRAME2', 'delta', 10)
-mprog.param_change('FRAME2', 'zeta', 10)
+change_parameter('FRAME29', 0)
