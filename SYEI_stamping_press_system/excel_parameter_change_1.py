@@ -23,3 +23,10 @@ class ExcelOp(object):
         parameter_value = self.get_col_cell(i+2)
         for n in range(0, len(parameter_name)):
             mprog.param_change(part_name, parameter_name[n], str(parameter_value[n]))
+
+    
+    def BALL_SCREW_parameter(self, BALL_SCREW_name, BALL_SCREW_number):
+        parameter_name = self.get_col_cell(1)
+        parameter_value = self.get_col_cell(BALL_SCREW_number+2)
+        for n in range(0, len(parameter_name)):
+            mprog.param_change(BALL_SCREW_name, parameter_name[n], str(parameter_value[n]))

@@ -72,48 +72,48 @@ def change_parameter2(name, i):
             if i== 0:
                 mprog.activatefeature('SN1_25250_Body', 0)
                 mprog.activatefeature('Hole_1', 3)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
             elif i== 1:
                 mprog.activatefeature('SN1_25250_Body', 0)
                 mprog.activatefeature('Hole_1', 2)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
             elif i== 2:
                 mprog.activatefeature('SN1_25250_Body', 0)
                 mprog.activatefeature('Hole_1', 1)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
             elif i== 3:
                 mprog.activatefeature('SN1_25250_Body', 0)
                 mprog.activatefeature('Hole_1', 1)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
                 mprog.activatefeature('Hole_3', 2)
             elif i== 4:
                 mprog.activatefeature('SN1_25250_Body', 0)
                 mprog.activatefeature('Hole_1', 1)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
                 mprog.activatefeature('Hole_3', 2)
                 mprog.activatefeature('Hole_4', 0)
             elif i== 5:
                 mprog.activatefeature('SN1_25250_Body', 0)
                 mprog.activatefeature('Hole_1', 1)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
                 mprog.activatefeature('Hole_3', 2)
                 mprog.activatefeature('Hole_4', 0)
             elif i== 6:
                 mprog.activatefeature('SN1_25250_Body', 0)
                 mprog.activatefeature('Hole_1', 1)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
                 mprog.activatefeature('Hole_3', 2)
                 mprog.activatefeature('Hole_4', 0)
             elif i== 7:
                 mprog.activatefeature('SN1_25250_Body', 0)
                 mprog.activatefeature('Hole_1', 1)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
                 mprog.activatefeature('Hole_3', 2)
                 mprog.activatefeature('Hole_4', 0)
             elif i== 8:
                 mprog.activatefeature('SN1_25250_Body', 0)
                 mprog.activatefeature('Hole_1', 1)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
                 mprog.activatefeature('Hole_3', 4)
                 mprog.activatefeature('Hole_4', 0)
         except:
@@ -289,68 +289,41 @@ def change_parameter2(name, i):
                 mprog.partbodyfeatureactivate('SN1_25_45_CD')
                 mprog.partbodyfeatureactivate('SN1_25_45_G')
                 mprog.partbodyfeatureactivate('F')
-                mprog.activatefeature('Hole_1', 1)
-                mprog.activatefeature('Hole_2', 0)
-                mprog.activatefeature('Hole_3', 0)
-                mprog.activatefeature('Hole_4', 0)
+                mprog.activatefeature('GIB_OIL_HOLE', 1)
             elif i== 1:
                 mprog.partbodyfeatureactivate('AB')
                 mprog.partbodyfeatureactivate('F')
-                mprog.activatefeature('Hole_1', 1)
-                mprog.activatefeature('Hole_2', 0)
-                mprog.activatefeature('Hole_3', 0)
-                mprog.activatefeature('Hole_4', 0)
+                mprog.activatefeature('GIB_OIL_HOLE', 1)
             elif i== 2:
                 mprog.partbodyfeatureactivate('AB')
                 mprog.partbodyfeatureactivate('SN1_25_45_CD')
                 mprog.partbodyfeatureactivate('SN1_25_45_G')
                 mprog.partbodyfeatureactivate('F')
-                mprog.activatefeature('Hole_1', 1)
-                mprog.activatefeature('Hole_2', 0)
-                mprog.activatefeature('Hole_3', 0)
-                mprog.activatefeature('Hole_4', 0)
+                mprog.activatefeature('GIB_OIL_HOLE', 1)
             elif i == 3:
                 mprog.partbodyfeatureactivate('AB')
                 mprog.partbodyfeatureactivate('F')
-                mprog.activatefeature('Hole_1', 1)
-                mprog.activatefeature('Hole_2', 0)
-                mprog.activatefeature('Hole_3', 0)
-                mprog.activatefeature('Hole_4', 0)
+                mprog.activatefeature('GIB_OIL_HOLE', 1)
             elif i == 4:
                 mprog.partbodyfeatureactivate('AB')
                 mprog.partbodyfeatureactivate('F')
-                mprog.activatefeature('Hole_1', 0)
-                mprog.activatefeature('Hole_2', 0)
-                mprog.activatefeature('Hole_3', 0)
-                mprog.activatefeature('Hole_4', 0)
+                mprog.activatefeature('GIB_OIL_HOLE', 0)
             elif i== 5:
                 mprog.partbodyfeatureactivate('AB')
                 mprog.partbodyfeatureactivate('F')
-                mprog.activatefeature('Hole_1', 0)
-                mprog.activatefeature('Hole_2', 0)
-                mprog.activatefeature('Hole_3', 0)
-                mprog.activatefeature('Hole_4', 0)
+                mprog.activatefeature('GIB_OIL_HOLE', 0)
             elif i== 6:
                 mprog.partbodyfeatureactivate('AB')
                 mprog.partbodyfeatureactivate('F')
-                mprog.activatefeature('Hole_1', 0)
-                mprog.activatefeature('Hole_2', 0)
-                mprog.activatefeature('Hole_3', 0)
-                mprog.activatefeature('Hole_4', 0)
+                mprog.activatefeature('GIB_OIL_HOLE', 0)
             elif i== 7:
                 mprog.partbodyfeatureactivate('AB')
                 mprog.partbodyfeatureactivate('F')
-                mprog.activatefeature('Hole_1', 0)
-                mprog.activatefeature('Hole_2', 0)
-                mprog.activatefeature('Hole_3', 0)
-                mprog.activatefeature('Hole_4', 0)
+                mprog.activatefeature('GIB_OIL_HOLE', 0)
             elif i== 8:
                 mprog.partbodyfeatureactivate('AB')
                 mprog.partbodyfeatureactivate('F')
-                mprog.activatefeature('Hole_1', 0)
-                mprog.activatefeature('Hole_2', 0)
-                mprog.activatefeature('Hole_3', 0)
-                mprog.activatefeature('Hole_4', 0)
+                mprog.activatefeature('GIB_OIL_HOLE', 0)
         except:
             print('FRAME13 Parameter activate error')
         finally:
@@ -368,16 +341,18 @@ def change_parameter2(name, i):
             print('FRAME19 Parameter change error')
         try:
             if i== 0:
-                mprog.activatefeature('SN1_2545_Body', 8)
+                mprog.activatefeature('SN1_2545_Body', 0)
                 mprog.partbodyfeatureactivate('SN1_25_X')
                 mprog.partbodyfeatureactivate('SN1_2535_Y')
             elif i == 1:
                 mprog.activatefeature('SN1_2545_Body', 0)
                 mprog.partbodyfeatureactivate('SN1_2535_Y')
+                mprog.partbodyfeatureactivate("SN1_3545_AD")
             elif i== 2:
                 mprog.activatefeature('SN1_2545_Body', 0)
                 mprog.partbodyfeatureactivate('SN1_45_Y')
                 mprog.partbodyfeatureactivate('SN1_45_X')
+                mprog.partbodyfeatureactivate("SN1_3545_AD")
             elif i== 3:
                 mprog.activatefeature('SN1_60_Body', 0)
             elif i== 4:
@@ -385,8 +360,7 @@ def change_parameter2(name, i):
             elif i== 5:
                 mprog.activatefeature('SN1_80110_Body', 0)
             elif i== 6:
-                mprog.activatefeature('FRMAE_SN1_160_Body', 0)
-                mprog.activatefeature('FRAME_34_Hole_1', 0)
+                mprog.activatefeature('SN1_160_Body', 0)
             elif i== 7:
                 mprog.activatefeature('SN1_200_Body', 0)
             elif i== 8:
@@ -409,23 +383,23 @@ def change_parameter2(name, i):
         try:
             if i== 0:
                 mprog.partbodyfeatureactivate('AB')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('MOTOR_FIX_ADJUSTMENT_HOLE', 0)
             elif i== 1:
                 mprog.partbodyfeatureactivate('AB')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('MOTOR_FIX_ADJUSTMENT_HOLE', 0)
             elif i== 2:
                 mprog.partbodyfeatureactivate('AB')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('MOTOR_FIX_ADJUSTMENT_HOLE', 0)
             elif i== 3:
                 mprog.partbodyfeatureactivate('AB')
                 mprog.partbodyfeatureactivate('SN1_45250_C')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('MOTOR_FIX_ADJUSTMENT_HOLE', 0)
             elif i== 4:
                 mprog.partbodyfeatureactivate('AB')
                 mprog.partbodyfeatureactivate('SN1_60250_C')
                 mprog.partbodyfeatureactivate('SN1_80250_DEF')
                 mprog.partbodyfeatureactivate('SN1_80250_G')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('MOTOR_FIX_ADJUSTMENT_HOLE', 0)
             elif i== 5:
                 mprog.partbodyfeatureactivate('AB')
                 mprog.partbodyfeatureactivate('SN1_60250_C')
@@ -475,26 +449,26 @@ def change_parameter2(name, i):
                 mprog.partbodyfeatureactivate('SN1-2560_BE')
                 mprog.partbodyfeatureactivate('SN1_2545_I')
                 mprog.partbodyfeatureactivate('SN1_2545_GH')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
             elif i== 1:
                 mprog.partbodyfeatureactivate('A(1)D')
                 mprog.partbodyfeatureactivate('SN1-2560_BE')
                 mprog.partbodyfeatureactivate('SN1_2545_I')
                 mprog.partbodyfeatureactivate('SN1_2545_GH')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
             elif i== 2:
                 mprog.partbodyfeatureactivate('A(1)D')
                 mprog.partbodyfeatureactivate('SN1-2560_BE')
                 mprog.partbodyfeatureactivate('SN1_2545_I')
                 mprog.partbodyfeatureactivate('SN1_2545_GH')
                 mprog.partbodyfeatureactivate('SN1_45_G(45)H(45)')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
             elif i== 3:
                 mprog.partbodyfeatureactivate('A(1)D')
                 mprog.partbodyfeatureactivate('SN1-2560_BE')
                 mprog.partbodyfeatureactivate('SN1_60_I')
                 mprog.partbodyfeatureactivate('SN1_60_JK')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
                 mprog.activatefeature('Hole_3', 0)
             elif i== 4:
                 mprog.partbodyfeatureactivate('A(1)D')
@@ -504,7 +478,7 @@ def change_parameter2(name, i):
                 mprog.partbodyfeatureactivate('SN1_80250_IN')
                 mprog.partbodyfeatureactivate('SN1_80250_LM1')
                 mprog.partbodyfeatureactivate('SN1_80250_LM2')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
                 mprog.activatefeature('Hole_2', 0)
                 mprog.activatefeature('Hole_3', 0)
             elif i== 5:
@@ -515,7 +489,7 @@ def change_parameter2(name, i):
                 mprog.partbodyfeatureactivate('SN1_80250_IN')
                 mprog.partbodyfeatureactivate('SN1_80250_LM1')
                 mprog.partbodyfeatureactivate('SN1_80250_LM2')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
                 mprog.activatefeature('Hole_2', 0)
                 mprog.activatefeature('Hole_3', 0)
             elif i== 6:
@@ -526,7 +500,7 @@ def change_parameter2(name, i):
                 mprog.partbodyfeatureactivate('SN1_80250_IN')
                 mprog.partbodyfeatureactivate('SN1_80250_LM1')
                 mprog.partbodyfeatureactivate('SN1_80250_LM2')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
                 mprog.activatefeature('Hole_2', 0)
                 mprog.activatefeature('Hole_3', 0)
             elif i== 7:
@@ -537,7 +511,7 @@ def change_parameter2(name, i):
                 mprog.partbodyfeatureactivate('SN1_80250_IN')
                 mprog.partbodyfeatureactivate('SN1_80250_LM1')
                 mprog.partbodyfeatureactivate('SN1_80250_LM2')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
                 mprog.activatefeature('Hole_2', 0)
                 mprog.activatefeature('Hole_3', 0)
             elif i== 8:
@@ -546,7 +520,7 @@ def change_parameter2(name, i):
                 mprog.partbodyfeatureactivate('SN1_80250_JK')
                 mprog.partbodyfeatureactivate('SN1_80250_GH')
                 mprog.partbodyfeatureactivate('SN1_80250_IN')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
                 mprog.activatefeature('Hole_2', 0)
                 mprog.activatefeature('Hole_3', 0)
         except:
@@ -589,6 +563,58 @@ def change_parameter2(name, i):
                 print('FRAME25 Update success')
             except:
                 print('FRAME25 Update error')
+    elif name== 'FRAME28':
+        excel = epc.ExcelOp('FRAME28')
+        try:
+            excel.part_parameter('FRAME28', i)
+            print('FRAME28 Parameter change success')
+        except:
+            print('FRAME28 Parameter change error')
+        try:
+            if i==0:
+                mprog.partbodyfeatureactivate('SN1_25250_ABD')
+                mprog.partbodyfeatureactivate('SN1_25250_E')
+                mprog.partbodyfeatureactivate('SN1_25250_F')
+            elif i==1:
+                mprog.partbodyfeatureactivate('SN1_25250_ABD')
+                mprog.partbodyfeatureactivate('SN1_25250_E')
+                mprog.partbodyfeatureactivate('SN1_25250_F')
+            elif i==2:
+                mprog.partbodyfeatureactivate('SN1_25250_ABD')
+                mprog.partbodyfeatureactivate('SN1_25250_E')
+                mprog.partbodyfeatureactivate('SN1_25250_F')
+            elif i==3:
+                mprog.partbodyfeatureactivate('SN1_25250_ABD')
+                mprog.partbodyfeatureactivate('SN1_25250_E')
+                mprog.partbodyfeatureactivate('SN1_25250_F')
+            elif i==4:
+                mprog.partbodyfeatureactivate('SN1_25250_ABD')
+                mprog.partbodyfeatureactivate('SN1_25250_E')
+                mprog.partbodyfeatureactivate('SN1_25250_F')
+            elif i==5:
+                mprog.partbodyfeatureactivate('SN1_25250_ABD')
+                mprog.partbodyfeatureactivate('SN1_25250_E')
+                mprog.partbodyfeatureactivate('SN1_25250_F')
+            elif i==6:
+                mprog.partbodyfeatureactivate('SN1_25250_ABD')
+                mprog.partbodyfeatureactivate('SN1_25250_E')
+                mprog.partbodyfeatureactivate('SN1_25250_F')
+            elif i==7:
+                mprog.partbodyfeatureactivate('SN1_25250_ABD')
+                mprog.partbodyfeatureactivate('SN1_25250_E')
+                mprog.partbodyfeatureactivate('SN1_25250_F')
+            elif i==8:
+                mprog.partbodyfeatureactivate('SN1_25250_ABD')
+                mprog.partbodyfeatureactivate('SN1_25250_E')
+                mprog.partbodyfeatureactivate('SN1_25250_F')
+        except:
+            print('FRAME28 Parameter activate error')
+        finally:
+            try:
+                mprog.Update()
+                print('FRAME28 Update success')
+            except:
+                print('FRAME28 Update error')
     elif name== 'FRAME30':#已更改
         excel = epc.ExcelOp('FRAME30')
         try:
@@ -601,83 +627,56 @@ def change_parameter2(name, i):
                 mprog.partbodyfeatureactivate('SN1_25250_AE')
                 mprog.partbodyfeatureactivate('SN1_25250_CD')
                 mprog.partbodyfeatureactivate('SN1_25250_FG')
-                mprog.partbodyfeatureactivate('SN1_25250_L')
-                mprog.partbodyfeatureactivate('SN1_25250_HIJ')
-                mprog.activatefeature('FRAME_CRANK_SHAFT', 0)
-                mprog.activatefeature('Hole_1', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('CRANK_SHAFT', 0)
+                mprog.activatefeature('Second_degree_drop_wire_threading_hole', 0)
             elif i== 1:
                 mprog.partbodyfeatureactivate('SN1_25250_AE')
                 mprog.partbodyfeatureactivate('SN1_25250_CD')
                 mprog.partbodyfeatureactivate('SN1_25250_FG')
-                mprog.partbodyfeatureactivate('SN1_25250_L')
-                mprog.partbodyfeatureactivate('SN1_25250_HIJ')
-                mprog.activatefeature('FRAME_CRANK_SHAFT', 0)
-                mprog.activatefeature('Hole_1', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('CRANK_SHAFT', 0)
+                mprog.activatefeature('Second_degree_drop_wire_threading_hole', 0)
             elif i== 2:
                 mprog.partbodyfeatureactivate('SN1_25250_AE')
                 mprog.partbodyfeatureactivate('SN1_25250_CD')
                 mprog.partbodyfeatureactivate('SN1_25250_FG')
-                mprog.partbodyfeatureactivate('SN1_25250_L')
-                mprog.partbodyfeatureactivate('SN1_25250_HIJ')
-                mprog.activatefeature('FRAME_CRANK_SHAFT', 0)
-                mprog.activatefeature('Hole_1', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('CRANK_SHAFT', 0)
+                mprog.activatefeature('Second_degree_drop_wire_threading_hole', 0)
             elif i== 3:
                 mprog.partbodyfeatureactivate('SN1_25250_AE')
                 mprog.partbodyfeatureactivate('SN1_25250_CD')
                 mprog.partbodyfeatureactivate('SN1_25250_FG')
-                mprog.partbodyfeatureactivate('SN1_25250_L')
-                mprog.partbodyfeatureactivate('SN1_25250_HIJ')
-                mprog.activatefeature('FRAME_CRANK_SHAFT', 0)
-                mprog.activatefeature('Hole_1', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('CRANK_SHAFT', 0)
+                mprog.activatefeature('Second_degree_drop_wire_threading_hole', 0)
             elif i== 4:
                 mprog.partbodyfeatureactivate('SN1_25250_AE')
                 mprog.partbodyfeatureactivate('SN1_25250_CD')
                 mprog.partbodyfeatureactivate('SN1_25250_FG')
-                mprog.partbodyfeatureactivate('SN1_25250_L')
-                mprog.partbodyfeatureactivate('SN1_25250_HIJ')
-                mprog.activatefeature('FRAME_CRANK_SHAFT', 0)
-                mprog.activatefeature('Hole_1', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('CRANK_SHAFT', 0)
+                mprog.activatefeature('Second_degree_drop_wire_threading_hole', 0)
             elif i== 5:
                 mprog.partbodyfeatureactivate('SN1_25250_AE')
                 mprog.partbodyfeatureactivate('SN1_25250_CD')
                 mprog.partbodyfeatureactivate('SN1_25250_FG')
-                mprog.partbodyfeatureactivate('SN1_25250_L')
-                mprog.partbodyfeatureactivate('SN1_25250_HIJ')
-                mprog.activatefeature('FRAME_CRANK_SHAFT', 0)
-                mprog.activatefeature('Hole_1', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('CRANK_SHAFT', 0)
+                mprog.activatefeature('Second_degree_drop_wire_threading_hole', 0)
             elif i== 6:
                 mprog.partbodyfeatureactivate('SN1_25250_AE')
                 mprog.partbodyfeatureactivate('SN1_25250_CD')
                 mprog.partbodyfeatureactivate('SN1_25250_FG')
-                mprog.partbodyfeatureactivate('SN1_25250_L')
-                mprog.partbodyfeatureactivate('SN1_25250_HIJ')
-                mprog.activatefeature('FRAME_CRANK_SHAFT', 0)
-                mprog.activatefeature('Hole_1', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('CRANK_SHAFT', 0)
+                mprog.activatefeature('Second_degree_drop_wire_threading_hole', 0)
             elif i== 7:
                 mprog.partbodyfeatureactivate('SN1_25250_AE')
                 mprog.partbodyfeatureactivate('SN1_25250_CD')
                 mprog.partbodyfeatureactivate('SN1_25250_FG')
-                mprog.partbodyfeatureactivate('SN1_25250_L')
-                mprog.partbodyfeatureactivate('SN1_25250_HIJ')
-                mprog.activatefeature('FRAME_CRANK_SHAFT', 0)
-                mprog.activatefeature('Hole_1', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('CRANK_SHAFT', 0)
+                mprog.activatefeature('Second_degree_drop_wire_threading_hole', 0)
             elif i== 8:
                 mprog.partbodyfeatureactivate('SN1_25250_AE')
                 mprog.partbodyfeatureactivate('SN1_25250_CD')
                 mprog.partbodyfeatureactivate('SN1_25250_FG')
-                mprog.partbodyfeatureactivate('SN1_25250_L')
-                mprog.partbodyfeatureactivate('SN1_25250_HIJ')
-                mprog.activatefeature('FRAME_CRANK_SHAFT', 0)
-                mprog.activatefeature('Hole_1', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('CRANK_SHAFT', 0)
+                mprog.activatefeature('Second_degree_drop_wire_threading_hole', 0)
 
 
         except:
@@ -698,13 +697,10 @@ def change_parameter2(name, i):
         try:
             if i== 0:
                 mprog.partbodyfeatureactivate('Body')
-                mprog.activatefeature('FRAME_Body', 2)
             elif i== 1:
                 mprog.partbodyfeatureactivate('Body')
-                mprog.activatefeature('FRAME_Body', 0)
             elif i== 2:
                 mprog.partbodyfeatureactivate('Body')
-                mprog.activatefeature('FRAME_Body', 0)
         except:
             print('FRAME31 Parameter activate error')
         finally:
@@ -713,6 +709,40 @@ def change_parameter2(name, i):
                 print('FRAME31 Update success')
             except:
                 print('FRAME31 Update error')
+    elif name== 'FRAME32':
+        excel = epc.ExcelOp('FRAME32')
+        try:
+            excel.part_parameter('FRAME32', i)
+            print('FRAME32 Parameter change success')
+        except:
+            print('FRAME32 Parameter change error')
+        try:
+            if i== 0:
+                mprog.partbodyfeatureactivate('Body')
+            elif i== 1:
+                mprog.partbodyfeatureactivate('Body')
+            elif i== 2:
+                mprog.partbodyfeatureactivate('Body')
+            elif i== 3:
+                mprog.partbodyfeatureactivate('Body')
+            elif i== 4:
+                mprog.partbodyfeatureactivate('Body')
+            elif i== 5:
+                mprog.partbodyfeatureactivate('Body')
+            elif i== 6:
+                mprog.partbodyfeatureactivate('Body')
+            elif i== 7:
+                mprog.partbodyfeatureactivate('Body')
+            elif i== 8:
+                mprog.partbodyfeatureactivate('Body')
+        except:
+            print('FRAME32 Parameter activate error')
+        finally:
+            try:
+                mprog.Update()
+                print('FRAME32 Update success')
+            except:
+                print('FRAME32 Update error')
     elif name== "FRAME33":
         excel = epc.ExcelOp('FRAME33')
         try:
@@ -760,26 +790,26 @@ def change_parameter2(name, i):
                 mprog.partbodyfeatureactivate('SN1_2545_CD')
                 mprog.partbodyfeatureactivate('SN1_2545_L')
                 mprog.partbodyfeatureactivate('SN1_2535_J')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('Air_pipe_wire_threading_hole', 0)
                 mprog.activatefeature('Hole_2', 0)
             elif i== 1:
                 mprog.partbodyfeatureactivate('AB')
                 mprog.partbodyfeatureactivate('SN1_2545_CD')
                 mprog.partbodyfeatureactivate('SN1_2545_L')
                 mprog.partbodyfeatureactivate('SN1_2535_J')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('Air_pipe_wire_threading_hole', 0)
                 mprog.activatefeature('Hole_2', 0)
             elif i== 2:
                 mprog.partbodyfeatureactivate('AB')
                 mprog.partbodyfeatureactivate('SN1_2545_CD')
                 mprog.partbodyfeatureactivate('SN1_2545_L')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('Air_pipe_wire_threading_hole', 0)
                 mprog.activatefeature('Hole_2', 0)
             elif i== 3:
                 mprog.partbodyfeatureactivate('AB')
                 mprog.partbodyfeatureactivate('SN1_60_NM')
                 mprog.partbodyfeatureactivate('SN1_60_L')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('Air_pipe_wire_threading_hole', 0)
                 mprog.activatefeature('Hole_2', 0)
 
         except:
@@ -834,6 +864,54 @@ def change_parameter2(name, i):
                 print('FRAME35 Update success')
             except:
                 print('FRAME35 Update error')
+    elif name== 'FRAME36':#已更改
+        excel = epc.ExcelOp('FRAME36')
+        try:
+            excel.part_parameter('FRAME36', i)
+            print('FRAME36 Parameter change success')
+        except:
+            print('FRAME36 Parameter change error')
+        try:
+            if i== 0:
+                mprog.partbodyfeatureactivate('SN1_2535_Body')
+            elif i== 1:
+                mprog.partbodyfeatureactivate('SN1_2535_Body')
+            elif i== 2:
+                mprog.partbodyfeatureactivate('SN1_4560_Body')
+            elif i== 3:
+                mprog.partbodyfeatureactivate('SN1_4560_Body')
+        except:
+            print('FRAME36 Parameter activate error')
+        finally:
+            try:
+                mprog.Update()
+                print('FRAME36 Update success')
+            except:
+                print('FRAME36 Update error')
+    elif name== 'FRAME37':#已更改
+        excel = epc.ExcelOp('FRAME37')
+        try:
+            excel.part_parameter('FRAME37', i)
+            print('FRAME37 Parameter change success')
+        except:
+            print('FRAME37 Parameter change error')
+        try:
+            if i== 0:
+                mprog.partbodyfeatureactivate('Body')
+            elif i== 1:
+                mprog.partbodyfeatureactivate('Body')
+            elif i== 2:
+                mprog.partbodyfeatureactivate('Body')
+            elif i== 3:
+                mprog.partbodyfeatureactivate('Body')
+        except:
+            print('FRAME37 Parameter activate error')
+        finally:
+            try:
+                mprog.Update()
+                print('FRAME37 Update success')
+            except:
+                print('FRAME37 Update error')
     elif name== 'FRAME38':
         excel = epc.ExcelOp('FRAME38')
         try:
@@ -844,31 +922,31 @@ def change_parameter2(name, i):
         try:
             if i==0:
                 mprog.partbodyfeatureactivate('ABD')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('AIR_TANK_FIX_HOLE', 0)
             elif i== 1:
                 mprog.partbodyfeatureactivate('ABD')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('AIR_TANK_FIX_HOLE', 0)
             elif i== 2:
                 mprog.partbodyfeatureactivate('ABD')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('AIR_TANK_FIX_HOLE', 0)
             elif i== 3:
                 mprog.partbodyfeatureactivate('ABD')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('AIR_TANK_FIX_HOLE', 0)
             elif i== 4:
                 mprog.partbodyfeatureactivate('ABD')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('AIR_TANK_FIX_HOLE', 0)
             elif i== 5:
                 mprog.partbodyfeatureactivate('ABD')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('AIR_TANK_FIX_HOLE', 0)
             elif i== 6:
                 mprog.partbodyfeatureactivate('ABD')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('AIR_TANK_FIX_HOLE', 0)
             elif i== 7:
                 mprog.partbodyfeatureactivate('ABD')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('AIR_TANK_FIX_HOLE', 0)
             elif i== 8:
                 mprog.partbodyfeatureactivate('ABD')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('AIR_TANK_FIX_HOLE', 0)
         except:
             print('FRAME38 Parameter activate error')
         finally:
@@ -887,19 +965,14 @@ def change_parameter2(name, i):
         try:
             if i== 4:
                 mprog.activatefeature('body', 0)
-                mprog.activatefeature('Hole_1', 0)
             elif i== 5:
                 mprog.activatefeature('body', 0)
-                mprog.activatefeature('Hole_1', 0)
             elif i== 6:
                 mprog.activatefeature('body', 0)
-                mprog.activatefeature('Hole_1', 0)
             elif i== 7:
                 mprog.activatefeature('body', 0)
-                mprog.activatefeature('Hole_1', 0)
             elif i== 8:
                 mprog.activatefeature('body', 0)
-                mprog.activatefeature('Hole_1', 0)
         except:
             print('FRAME49 Parameter activate error')
         finally:
@@ -918,19 +991,14 @@ def change_parameter2(name, i):
         try:
             if i == 4:
                 mprog.activatefeature('Body', 0)
-                mprog.activatefeature('Hole_1', 0)
             elif i == 5:
                 mprog.activatefeature('Body', 0)
-                mprog.activatefeature('Hole_1', 0)
             elif i== 6:
                 mprog.activatefeature('Body', 0)
-                mprog.activatefeature('Hole_1', 0)
             elif i== 7:
                 mprog.activatefeature('Body', 0)
-                mprog.activatefeature('Hole_1', 0)
             elif i == 8:
                 mprog.activatefeature('Body', 0)
-                mprog.activatefeature('Hole_1', 0)
         except:
             print('FRAME50 Parameter activate error')
         finally:
@@ -942,7 +1010,7 @@ def change_parameter2(name, i):
 
 
 
-change_parameter2('FRAME19', 0)
+change_parameter2('FRAME34', 0)
 
 
 
