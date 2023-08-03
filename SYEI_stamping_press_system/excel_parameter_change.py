@@ -4,7 +4,7 @@ import main_program as mprog
 
 class ExcelOp(object):
     def __init__(self, sheet_name):
-        self.wb = xl.load_workbook('尺寸整理表.xlsx')
+        self.wb = xl.load_workbook('尺寸整理表_2.xlsx')
         self.ws= self.wb[str(sheet_name)]
 
     def get_col_cell(self, column):

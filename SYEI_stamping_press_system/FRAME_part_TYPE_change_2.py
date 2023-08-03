@@ -150,25 +150,25 @@ def FRAME_change_parameter2(name, i):
         try:
             if i==0:
                 mprog.activatefeature('FRAME_SN1_2545_Body', 0)
-                mprog.activatefeature('Hole_1_i', 0)
+                mprog.activatefeature('M16_i', 0)
             elif i== 1:
                 mprog.activatefeature('FRAME_SN1_2545_Body', 0)
-                mprog.activatefeature('Hole_1_i', 0)
+                mprog.activatefeature('M16_i', 0)
             elif i== 2:
                 mprog.activatefeature('FRAME_SN1_2545_Body', 0)
-                mprog.activatefeature('Hole_1_i', 0)
+                mprog.activatefeature('M16_i', 0)
             elif i == 3:
                 mprog.activatefeature('FRAME_SN1_60_Body', 0)
-                mprog.activatefeature('Hole_1_h FRAME9_L', 0)
+                mprog.activatefeature('M16_h FRAME9_L', 0)
             elif i == 4:
                 mprog.activatefeature('FRAME_SN1_80110_Body', 0)
-                mprog.activatefeature('Hole_1_h FRAME9_L', 0)
+                mprog.activatefeature('M16_h FRAME9_L', 0)
             elif i == 5:
                 mprog.activatefeature('FRAME_SN1_80110_Body', 0)
-                mprog.activatefeature('Hole_1_h FRAME9_L', 0)
+                mprog.activatefeature('M16_h FRAME9_L', 0)
             elif i == 7:
                 mprog.activatefeature('FRAME_SN1_200_Body', 0)
-                mprog.activatefeature('Hole_1_h FRAME9_L', 0)
+                mprog.activatefeature('M16_h FRAME9_L', 0)
         except:
             print('FRAME6 Parameter activate error')
         finally:
@@ -195,19 +195,19 @@ def FRAME_change_parameter2(name, i):
             elif i== 3:
                 mprog.activatefeature('SN1_2560_Body', 1)
             elif i== 4:
-                mprog.activatefeature('SN1_80250_Body', 4)
+                mprog.activatefeature('FRAME_SN1_80250_Body', 4)
                 mprog.activatefeature('Hole_1', 0)
             elif i== 5:
-                mprog.activatefeature('SN1_80250_Body', 4)
+                mprog.activatefeature('FRAME_SN1_80250_Body', 4)
                 mprog.activatefeature('Hole_1', 0)
             elif i== 6:
-                mprog.activatefeature('SN1_80250_Body', 4)
+                mprog.activatefeature('FRAME_SN1_80250_Body', 4)
                 mprog.activatefeature('Hole_1', 0)
             elif i== 7:
-                mprog.activatefeature('SN1_80250_Body', 4)
+                mprog.activatefeature('FRAME_SN1_80250_Body', 4)
                 mprog.activatefeature('Hole_1', 0)
             elif i== 8:
-                mprog.activatefeature('SN1_80250_Body', 4)
+                mprog.activatefeature('FRAME_SN1_80250_Body', 4)
                 mprog.activatefeature('Hole_1', 0)
         except:
             print('FRAME7 Parameter activate error')
@@ -501,48 +501,48 @@ def FRAME_change_parameter2(name, i):
                 mprog.partbodyfeatureactivate('SN1-2560_BE')
                 mprog.partbodyfeatureactivate('SN1_2545_I')
                 mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
-                mprog.activatefeature('Hole_4', 0)
+                mprog.activatefeature('SN1_2560_6_M8X16L_底孔27L', 0)
             elif i== 1:
                 mprog.partbodyfeatureactivate('A(1)D')
                 mprog.partbodyfeatureactivate('SN1-2560_BE')
                 mprog.partbodyfeatureactivate('SN1_2545_I')
                 mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
-                mprog.activatefeature('Hole_4', 0)
+                mprog.activatefeature('SN1_2560_6_M8X16L_底孔27L', 0)
             elif i== 2:
                 mprog.partbodyfeatureactivate('A(1)D')
                 mprog.partbodyfeatureactivate('SN1-2560_BE')
                 mprog.partbodyfeatureactivate('SN1_2545_I')
                 mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
-                mprog.activatefeature('Hole_4', 0)
+                mprog.activatefeature('SN1_2560_6_M8X16L_底孔27L', 0)
             elif i== 3:
                 mprog.activatefeature('FRAME_SN1_60_Body', 0)
                 mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
                 mprog.activatefeature('Hole_3', 0)
-                mprog.activatefeature('Hole_4', 0)
+                mprog.activatefeature('SN1_2560_6_M8X16L_底孔27L', 0)
             elif i== 4:
                 mprog.activatefeature('FRAME_SN1_80250_Body', 0)
                 mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('SN1_80250_6_M8X16L_底孔27L', 0)
                 mprog.activatefeature('Hole_3', 0)
             elif i== 5:
                 mprog.activatefeature('FRAME_SN1_80250_Body', 0)
                 mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('SN1_80250_6_M8X16L_底孔27L', 0)
                 mprog.activatefeature('Hole_3', 0)
             elif i== 6:
                 mprog.activatefeature('FRAME_SN1_80250_Body', 0)
                 mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('SN1_80250_6_M8X16L_底孔27L', 0)
                 mprog.activatefeature('Hole_3', 0)
             elif i== 7:
                 mprog.activatefeature('FRAME_SN1_80250_Body', 0)
                 mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('SN1_80250_6_M8X16L_底孔27L', 0)
                 mprog.activatefeature('Hole_3', 0)
             elif i== 8:
                 mprog.activatefeature('FRAME_SN1_80250_Body', 0)
                 mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('SN1_80250_6_M8X16L_底孔27L', 0)
                 mprog.activatefeature('Hole_3', 0)
         except:
             print('FRAME22 Parameter activate error')
@@ -563,19 +563,19 @@ def FRAME_change_parameter2(name, i):
             if i==0:
                 mprog.partbodyfeatureactivate('AB')
                 mprog.activatefeature('Hole_1', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('3_M8通', 0)
             elif i==1:
                 mprog.partbodyfeatureactivate('AB')
                 mprog.activatefeature('Hole_1', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('3_M8通', 0)
             elif i==2:
                 mprog.partbodyfeatureactivate('AB')
                 mprog.activatefeature('Hole_1', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('3_M8通', 0)
             elif i==3:
                 mprog.partbodyfeatureactivate('AB')
                 mprog.activatefeature('Hole_1', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('3_M8通', 0)
         except:
             print('FRAME25 Parameter activate error')
         finally:
@@ -650,63 +650,63 @@ def FRAME_change_parameter2(name, i):
                 mprog.partbodyfeatureactivate('SN1_25250_HIJ')
                 mprog.activatefeature('FRAME_CRANK_SHAFT', 0)
                 mprog.activatefeature('Second_degree_drop_wire_threading_hole', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('4_M14通', 0)
             elif i== 1:
                 mprog.partbodyfeatureactivate('SN1_25250_AE')
                 mprog.partbodyfeatureactivate('SN1_25250_L')
                 mprog.partbodyfeatureactivate('SN1_25250_HIJ')
                 mprog.activatefeature('FRAME_CRANK_SHAFT', 0)
                 mprog.activatefeature('Second_degree_drop_wire_threading_hole', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('4_M14通', 0)
             elif i== 2:
                 mprog.partbodyfeatureactivate('SN1_25250_AE')
                 mprog.partbodyfeatureactivate('SN1_25250_L')
                 mprog.partbodyfeatureactivate('SN1_25250_HIJ')
                 mprog.activatefeature('FRAME_CRANK_SHAFT', 0)
                 mprog.activatefeature('Second_degree_drop_wire_threading_hole', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('4_M14通', 0)
             elif i== 3:
                 mprog.partbodyfeatureactivate('SN1_25250_AE')
                 mprog.partbodyfeatureactivate('SN1_25250_L')
                 mprog.partbodyfeatureactivate('SN1_25250_HIJ')
                 mprog.activatefeature('FRAME_CRANK_SHAFT', 0)
                 mprog.activatefeature('Second_degree_drop_wire_threading_hole', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('4_M14通', 0)
             elif i== 4:
                 mprog.partbodyfeatureactivate('SN1_25250_AE')
                 mprog.partbodyfeatureactivate('SN1_25250_L')
                 mprog.partbodyfeatureactivate('SN1_25250_HIJ')
                 mprog.activatefeature('FRAME_CRANK_SHAFT', 0)
                 mprog.activatefeature('Second_degree_drop_wire_threading_hole', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('4_M14通', 0)
             elif i== 5:
                 mprog.partbodyfeatureactivate('SN1_25250_AE')
                 mprog.partbodyfeatureactivate('SN1_25250_L')
                 mprog.partbodyfeatureactivate('SN1_25250_HIJ')
                 mprog.activatefeature('FRAME_CRANK_SHAFT', 0)
                 mprog.activatefeature('Second_degree_drop_wire_threading_hole', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('4_M14通', 0)
             elif i== 6:
                 mprog.partbodyfeatureactivate('SN1_25250_AE')
                 mprog.partbodyfeatureactivate('SN1_25250_L')
                 mprog.partbodyfeatureactivate('SN1_25250_HIJ')
                 mprog.activatefeature('FRAME_CRANK_SHAFT', 0)
                 mprog.activatefeature('Second_degree_drop_wire_threading_hole', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('4_M14通', 0)
             elif i== 7:
                 mprog.partbodyfeatureactivate('SN1_25250_AE')
                 mprog.partbodyfeatureactivate('SN1_25250_L')
                 mprog.partbodyfeatureactivate('SN1_25250_HIJ')
                 mprog.activatefeature('FRAME_CRANK_SHAFT', 0)
                 mprog.activatefeature('Second_degree_drop_wire_threading_hole', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('4_M14通', 0)
             elif i== 8:
                 mprog.partbodyfeatureactivate('SN1_25250_AE')
                 mprog.partbodyfeatureactivate('SN1_25250_L')
                 mprog.partbodyfeatureactivate('SN1_25250_HIJ')
                 mprog.activatefeature('FRAME_CRANK_SHAFT', 0)
                 mprog.activatefeature('Second_degree_drop_wire_threading_hole', 0)
-                mprog.activatefeature('Hole_2', 0)
+                mprog.activatefeature('4_M14通', 0)
 
 
         except:
@@ -1012,23 +1012,23 @@ def FRAME_change_parameter2(name, i):
             if i== 4:
                 mprog.activatefeature('body', 0)
                 mprog.partbodyfeatureactivate('FRAME_SN1_80250_c')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('M12通', 0)
             elif i== 5:
                 mprog.activatefeature('body', 0)
                 mprog.partbodyfeatureactivate('FRAME_SN1_80250_c')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('M12通', 0)
             elif i== 6:
                 mprog.activatefeature('body', 0)
                 mprog.partbodyfeatureactivate('FRAME_SN1_80250_c')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('M12通', 0)
             elif i== 7:
                 mprog.activatefeature('body', 0)
                 mprog.partbodyfeatureactivate('FRAME_SN1_80250_c')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('M12通', 0)
             elif i== 8:
                 mprog.activatefeature('body', 0)
                 mprog.partbodyfeatureactivate('FRAME_SN1_80250_c')
-                mprog.activatefeature('Hole_1', 0)
+                mprog.activatefeature('M12通', 0)
         except:
             print('FRAME49 Parameter activate error')
         finally:
@@ -1073,12 +1073,78 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME50 Update success')
             except:
                 print('FRAME50 Update error')
+    elif name== 'FRAME54':#已更改
+        excel = epc.ExcelOp('FRAME54')
+        try:
+            excel.part_parameter('FRAME54', i)
+            print('FRAME54 Parameter change success')
+        except:
+            print('FRAME54 Parameter change error')
+        try:
+            if i== 6:
+                mprog.partbodyfeatureactivate('Body')
+            elif i== 7:
+                mprog.partbodyfeatureactivate('Body')
+            elif i == 8:
+                mprog.partbodyfeatureactivate('Body')
+        except:
+            print('FRAME54 Parameter activate error')
+        finally:
+            try:
+                mprog.Update()
+                print('FRAME54 Update success')
+            except:
+                print('FRAME54 Update error')
 def BALL_SCREW_change(BALL_SCREW_name):
     excel = epc.ExcelOp('BALL_SCREW')
     if BALL_SCREW_name == '302B07S02':
         BALL_SCREW_number = 0
+    elif BALL_SCREW_name == '302B07S03':
+        BALL_SCREW_number = 1
+    elif BALL_SCREW_name == '322B07S02':
+        BALL_SCREW_number = 2
+    elif BALL_SCREW_name == '322B07S03':
+        BALL_SCREW_number = 3
+    elif BALL_SCREW_name == '342B07S01':
+        BALL_SCREW_number = 4
+    elif BALL_SCREW_name == '342B07':
+        BALL_SCREW_number = 5
+    elif BALL_SCREW_name == '372B07S02':
+        BALL_SCREW_number = 6
+    elif BALL_SCREW_name == '372B07S04':
+        BALL_SCREW_number = 7
+    elif BALL_SCREW_name == '372B07':
+        BALL_SCREW_number = 8
+    elif BALL_SCREW_name == '392B07S06':
+        BALL_SCREW_number = 9
+    elif BALL_SCREW_name == '392B07S07':
+        BALL_SCREW_number = 10
+    elif BALL_SCREW_name == '392B07S08':
+        BALL_SCREW_number = 11
+    elif BALL_SCREW_name == '412B07S01':
+        BALL_SCREW_number = 12
+    elif BALL_SCREW_name == '412B07S02':
+        BALL_SCREW_number = 13
+    elif BALL_SCREW_name == '412B07':
+        BALL_SCREW_number = 14
+    elif BALL_SCREW_name == '432B07S01':
+        BALL_SCREW_number = 15
+    elif BALL_SCREW_name == '432B07S02':
+        BALL_SCREW_number = 16
+    elif BALL_SCREW_name == '432B07':
+        BALL_SCREW_number = 17
+    elif BALL_SCREW_name == '452B07S03':
+        BALL_SCREW_number = 18
     elif BALL_SCREW_name == '452B07S04':
         BALL_SCREW_number = 19
+    elif BALL_SCREW_name == '452B07S05':
+        BALL_SCREW_number = 20
+    elif BALL_SCREW_name == '472B07S03':
+        BALL_SCREW_number = 21
+    elif BALL_SCREW_name == '472B07S04':
+        BALL_SCREW_number = 22
+    elif BALL_SCREW_name == '472B07S05':
+        BALL_SCREW_number = 23
     try:
         excel.part_parameter('BALL_SCREW', BALL_SCREW_number)
         print('BALL_SCREW Parameter change success')
@@ -1098,6 +1164,305 @@ def BALL_SCREW_change(BALL_SCREW_name):
             mprog.partbodyfeatureactivate('EdgeFillet_X')
             mprog.partbodyfeatureactivate('EdgeFillet_Y')
             mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "302B07S03":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_T')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "322B07S02":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_T')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "322B07S03":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_T')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "342B07S01":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_T')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "342B07":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_T')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "372B07S02":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('Chamfer_AUAV')
+            mprog.partbodyfeatureactivate('EdgeFillet_AW')
+            mprog.partbodyfeatureactivate('EdgeFillet_AX')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "372B07S04":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('Chamfer_AUAV')
+            mprog.partbodyfeatureactivate('EdgeFillet_AW')
+            mprog.partbodyfeatureactivate('EdgeFillet_AX')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "372B07":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('Chamfer_AUAV')
+            mprog.partbodyfeatureactivate('EdgeFillet_AW')
+            mprog.partbodyfeatureactivate('EdgeFillet_AX')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "392B07S06":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('Chamfer_AUAV')
+            mprog.partbodyfeatureactivate('EdgeFillet_AW')
+            mprog.partbodyfeatureactivate('EdgeFillet_AX')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "392B07S07":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('Chamfer_AUAV')
+            mprog.partbodyfeatureactivate('EdgeFillet_AW')
+            mprog.partbodyfeatureactivate('EdgeFillet_AX')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "392B07S08":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('Chamfer_AUAV')
+            mprog.partbodyfeatureactivate('EdgeFillet_AW')
+            mprog.partbodyfeatureactivate('EdgeFillet_AX')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "412B07S01":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('Chamfer_AUAV')
+            mprog.partbodyfeatureactivate('EdgeFillet_AW')
+            mprog.partbodyfeatureactivate('EdgeFillet_AX')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "412B07S02":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('Chamfer_AUAV')
+            mprog.partbodyfeatureactivate('EdgeFillet_AW')
+            mprog.partbodyfeatureactivate('EdgeFillet_AX')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "412B07":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('Chamfer_AUAV')
+            mprog.partbodyfeatureactivate('EdgeFillet_AW')
+            mprog.partbodyfeatureactivate('EdgeFillet_AX')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "432B07S01":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('Chamfer_AUAV')
+            mprog.partbodyfeatureactivate('EdgeFillet_AW')
+            mprog.partbodyfeatureactivate('EdgeFillet_AX')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "432B07S02":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('Chamfer_AUAV')
+            mprog.partbodyfeatureactivate('EdgeFillet_AW')
+            mprog.partbodyfeatureactivate('EdgeFillet_AX')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "432B07":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('Chamfer_AUAV')
+            mprog.partbodyfeatureactivate('EdgeFillet_AW')
+            mprog.partbodyfeatureactivate('EdgeFillet_AX')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "452B07S03":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('Chamfer_AUAV')
+            mprog.partbodyfeatureactivate('EdgeFillet_AW')
+            mprog.partbodyfeatureactivate('EdgeFillet_AX')
+            mprog.partbodyfeatureactivate('Groove_AY')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
         elif BALL_SCREW_name == "452B07S04":
             mprog.partbodyfeatureactivate('BALL_SCREW_Body')
             mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
@@ -1114,6 +1479,78 @@ def BALL_SCREW_change(BALL_SCREW_name):
             mprog.partbodyfeatureactivate('EdgeFillet_AW')
             mprog.partbodyfeatureactivate('EdgeFillet_AX')
             mprog.partbodyfeatureactivate('Groove_AY')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "452B07S05":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('Groove_AD')
+            mprog.partbodyfeatureactivate('Chamfer_AUAV')
+            mprog.partbodyfeatureactivate('EdgeFillet_AW')
+            mprog.partbodyfeatureactivate('EdgeFillet_AX')
+            mprog.partbodyfeatureactivate('Groove_AY')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "472B07S03":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('EdgeFillet_AD')
+            mprog.partbodyfeatureactivate('Chamfer_AUAV')
+            mprog.partbodyfeatureactivate('EdgeFillet_AW')
+            mprog.partbodyfeatureactivate('EdgeFillet_AX')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+            mprog.partbodyfeatureactivate('EdgeFillet_AZ')
+        elif BALL_SCREW_name == "472B07S04":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('EdgeFillet_AD')
+            mprog.partbodyfeatureactivate('Chamfer_AUAV')
+            mprog.partbodyfeatureactivate('EdgeFillet_AW')
+            mprog.partbodyfeatureactivate('EdgeFillet_AX')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
+        elif BALL_SCREW_name == "472B07S05":
+            mprog.partbodyfeatureactivate('BALL_SCREW_Body')
+            mprog.partbodyfeatureactivate('BALL_SCREW_Thread')
+            mprog.partbodyfeatureactivate('AE')
+            mprog.partbodyfeatureactivate('AB')
+            mprog.partbodyfeatureactivate('Hole_AAAC')
+            mprog.partbodyfeatureactivate('EdgeFillet_O')
+            mprog.partbodyfeatureactivate('Chamfer_P')
+            mprog.partbodyfeatureactivate('EdgeFillet_V')
+            mprog.partbodyfeatureactivate('EdgeFillet_X')
+            mprog.partbodyfeatureactivate('EdgeFillet_Y')
+            mprog.partbodyfeatureactivate('EdgeFillet_AD')
+            mprog.partbodyfeatureactivate('Chamfer_AUAV')
+            mprog.partbodyfeatureactivate('EdgeFillet_AW')
+            mprog.partbodyfeatureactivate('EdgeFillet_AX')
+            mprog.partbodyfeatureactivate('AFAH')
+            mprog.partbodyfeatureactivate('Hole_AJ')
     except:
         print('BALL_SCREW Parameter activate error')
     finally:
@@ -1125,4 +1562,4 @@ def BALL_SCREW_change(BALL_SCREW_name):
 
 
 
-BALL_SCREW_change('302B07S02')
+FRAME_change_parameter2("FRAME25", 0)
