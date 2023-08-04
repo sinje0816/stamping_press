@@ -1562,4 +1562,4 @@ def BALL_SCREW_change(BALL_SCREW_name):
 
 
 
-FRAME_change_parameter2("FRAME25", 0)
+FRAME_change_parameter2("FRAME3", 0)
