@@ -175,11 +175,9 @@ def change(name, i):
                     mprog.activatefeature('Hole', 0)
 
             elif i == 7:  # 200N
-                    mprog.partbodyfeatureactivate('250N')
                     mprog.activatefeature('Hole', 0)
 
-            elif i == 8:  # 250N
-                    mprog.partbodyfeatureactivate('250N')
+            elif i == 8:  # 250
                     mprog.activatefeature('Hole', 0)
         except:
             print('FRAME15 Parameter activate error')
@@ -296,28 +294,28 @@ def change(name, i):
             print('FRAME45 Parameter change error')
         try:
             if i == 3:  # 60N
-                mprog.partbodyfeatureactivate('Chamfer.G')
-                mprog.partbodyfeatureactivate('Chamfer.F')
+                mprog.partdeactivate('Chamfer.G')
+                mprog.partdeactivate('Chamfer.F')
 
             elif i == 4:  # 80N
                 mprog.partbodyfeatureactivate('Chamfer.G')
                 mprog.partbodyfeatureactivate('Chamfer.F')
 
             elif i == 5:  # 110N
-                mprog.partbodyfeatureactivate('Chamfer.G')
-                mprog.partbodyfeatureactivate('Chamfer.F')
+                mprog.partdeactivate('Chamfer.G')
+                mprog.partdeactivate('Chamfer.F')
 
             elif i == 6:  # 160N
-                mprog.partbodyfeatureactivate('Chamfer.G')
-                mprog.partbodyfeatureactivate('Chamfer.F')
+                mprog.partdeactivate('Chamfer.G')
+                mprog.partdeactivate('Chamfer.F')
 
             elif i == 7:  # 200N
-                mprog.partbodyfeatureactivate('Chamfer.G')
-                mprog.partbodyfeatureactivate('Chamfer.F')
+                mprog.partdeactivate('Chamfer.G')
+                mprog.partdeactivate('Chamfer.F')
 
             elif i == 8:  # 250N
-                mprog.partbodyfeatureactivate('Chamfer.G')
-                mprog.partbodyfeatureactivate('Chamfer.F')
+                mprog.partdeactivate('Chamfer.G')
+                mprog.partdeactivate('Chamfer.F')
 
         except:
             print('FRAME45 Parameter activate error')
@@ -388,4 +386,4 @@ def change(name, i):
                 print('FRAME52 Update error')
 
 
-change('FRAME14', 0)
+change('FRAME45', 3)

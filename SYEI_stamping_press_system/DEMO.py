@@ -11,6 +11,7 @@ import sys
 import datetime
 import os
 import time
+import excel_parameter_change_1 as epc
 
 
 
@@ -29,6 +30,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         beta = str(self.ui.lineEdit_2.text())
         zeta = str(self.ui.lineEdit_3.text())
         delta = str(self.ui.lineEdit_4.text())
+        processing = str(self.ui.comboBox.currentText())
         print(type, alpha, beta, zeta, delta)
         self.create_dir(type)
         if alpha == "":
@@ -47,10 +49,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             self.delta = 0
         else:
             self.delta = int(delta)
-        self.i= self.choos(type)
-        self.change_dir(self.i,self.aplha, self.beta, self.zeta, self.delta, self.part_path)
+        self.i , self.p= self.choos(type , processing)
+        self.change_dir(self.i, self.p, self.aplha, self.beta, self.zeta, self.delta, self.machining, self.welding)
 
-    def choos(self, type):
+    def choos(self, type, prossing):
         # 確認型號"輸入型號"
         if type == "SN1-25" or type == "sn1-25" or type == "25":
             i = 0
@@ -72,23 +74,171 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             i = 8
         elif type == "SN1-300" or type == "sn1-300" or type == "300":
             i = 9
+        if prossing == '是':
+            p = 0
+        elif prossing == '否':
+            p = 1
 
-        return i
+        return i , p
 
     def create_dir(self, type):  # 創建資料夾
         time_now = datetime.datetime.now()
         dir_name = '{}_{}_{}_{}_{}'.format(type, time_now.day, time_now.hour, time_now.minute, time_now.second)
         desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
-        path = desktop + '\\' + dir_name
+        test = os.path.join("Z:")
+        path = test + '\\' + dir_name
         os.mkdir(path)
-        part_path = path + "\\" + "part"
-        os.mkdir(part_path)
+        machining = path + "\\" + "machining"
+        os.mkdir(machining)
+        welding = path + "\\" + "welding"
+        os.mkdir(welding)
         self.path = path
-        self.part_path = part_path
+        self.machining = machining
+        self.welding = welding
 
-    def change_dir(self, i, alpha, beta, gamma, delta, path):
+    def change_dir(self, i, p, alpha, beta, zeta, delta, machining, welding):
         # 開啟CATIA
         env = mprog.set_CATIA_workbench_env()
+        # 開啟零件檔更改變數後儲存並關閉
+        for name in par.test_list:
+            mprog.import_part(fp.system_root + fp.DEMO_part, name)
+            if name == "FRAME3":
+                excel = epc.ExcelOp('FRAME3')
+                try:
+                    excel.part_parameter('FRAME3', i)
+                    print('FRAME3 Parameter change success')
+                except:
+                    print('FRAME3 Parameter change error')
+                try:
+                    if i == 0:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('SN1_25250_M', 0)
+                        mprog.activatefeature('Hole_1', 0)
+                        mprog.activatefeature('Hole_2', 1)
+                    elif i == 1:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('SN1_25250_M', 0)
+                        mprog.activatefeature('Hole_1', 0)
+                        mprog.activatefeature('Hole_2', 1)
+                    elif i == 2:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('SN1_25250_M', 0)
+                        mprog.activatefeature('Hole_1', 0)
+                        mprog.activatefeature('Hole_2', 1)
+                    elif i == 3:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('Hole_1', 0)
+                        mprog.activatefeature('Hole_2', 1)
+                    elif i == 4:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('SN1_25250_M', 0)
+                        mprog.activatefeature('Hole_1', 0)
+                        mprog.activatefeature('Hole_2', 1)
+                    elif i == 5:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('Hole_1', 0)
+                        mprog.activatefeature('Hole_2', 1)
+                    elif i == 6:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('SN1_25250_M', 0)
+                        mprog.activatefeature('Hole_1', 0)
+                        mprog.activatefeature('Hole_2', 1)
+                    elif i == 7:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('SN1_25250_M', 0)
+                        mprog.activatefeature('Hole_1', 0)
+                        mprog.activatefeature('Hole_2', 1)
+                    elif i == 8:
+                        mprog.activatefeature('SN1_25250_Body', 4)
+                        mprog.activatefeature('SN1_25250_M', 0)
+                        mprog.activatefeature('Hole_1', 0)
+                        mprog.activatefeature('Hole_2', 1)
+                except:
+                    print('FRAME3 Parameter activate error')
+                finally:
+                    try:
+                        mprog.Update()
+                        print('FRAME3 Update success')
+                        mprog.save_file_part(machining, name)
+                        mprog.save_file_stp(machining, name)
+                        mprog.bodydeactivate('SN1_25250_Body', 4)
+                        mprog.bodydeactivate('SN1_25250_M', 0)
+                        mprog.bodydeactivate('Hole_1', 0)
+                        mprog.bodydeactivate('Hole_2', 1)
+                    except:
+                        print('FRAME3 Update error')
+                try:
+                    if i == 0:
+                        mprog.activatefeature('SN1_25250_Body', 2)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('Hole_2', 0)
+                        mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
+                        mprog.partbodyfeatureactivate('FRAME_SN1_2560_S')
+                        mprog.partbodyfeatureactivate('FRAME_SN1_2560_U')
+                    elif i == 1:
+                        mprog.activatefeature('SN1_25250_Body', 2)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('Hole_2', 0)
+                        mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
+                        mprog.partbodyfeatureactivate('FRAME_SN1_2560_S')
+                        mprog.partbodyfeatureactivate('FRAME_SN1_2560_U')
+
+                    elif i == 2:
+                        mprog.activatefeature('SN1_25250_Body', 2)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('Hole_2', 0)
+                        mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
+                        mprog.partbodyfeatureactivate('FRAME_SN1_2560_S')
+                        mprog.partbodyfeatureactivate('FRAME_SN1_2560_U')
+                    elif i == 3:
+                        mprog.activatefeature('SN1_25250_Body', 2)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('Hole_2', 0)
+                        mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
+                        mprog.partbodyfeatureactivate('FRAME_SN1_2560_S')
+                        mprog.partbodyfeatureactivate('FRAME_SN1_2560_U')
+                    elif i == 4:
+                        mprog.activatefeature('SN1_25250_Body', 2)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('Hole_2', 0)
+                        mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
+                        mprog.partbodyfeatureactivate('FRAME_SN1_80250_R')
+                    elif i == 5:
+                        mprog.activatefeature('SN1_25250_Body', 2)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('Hole_2', 0)
+                        mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
+                        mprog.partbodyfeatureactivate('FRAME_SN1_80250_R')
+                    elif i == 6:
+                        mprog.activatefeature('SN1_25250_Body', 2)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('Hole_2', 0)
+                        mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
+                        mprog.partbodyfeatureactivate('FRAME_SN1_80250_R')
+                    elif i == 7:
+                        mprog.activatefeature('SN1_25250_Body', 2)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('Hole_2', 0)
+                        mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
+                        mprog.partbodyfeatureactivate('FRAME_SN1_80250_R')
+                    elif i == 8:
+                        mprog.activatefeature('SN1_25250_Body', 2)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('Hole_2', 0)
+                        mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
+                        mprog.partbodyfeatureactivate('FRAME_SN1_80250_R')
+                except:
+                    print('FRAME3 Parameter activate error')
+                finally:
+                    try:
+                        mprog.Update()
+                        print('FRAME3 Update success')
+                        mprog.save_file_part(welding, name)
+                        mprog.save_file_stp(welding, name)
+                    except:
+                        print('FRAME3 Update error')
+
+
 
 
 

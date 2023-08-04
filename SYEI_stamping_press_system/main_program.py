@@ -206,7 +206,16 @@ def save_file_part(path, file_name):
     partDocument1 = document.Item(file_name)
     # print(path + '\\' + file_name)
     partDocument1.SaveAs(path + '\\' + file_name)
-    partDocument1.Close()
+    # partDocument1.Close()
+def save_file_stp(path, file_name):
+    catapp = win32.Dispatch('CATIA.Application')
+    document = catapp.Documents
+    stp_file_name = file_name + ".stp"
+    file_name = file_name + '.CATPart'
+    partDocument1 = document.Item(file_name)
+    # print(path + '\\' + file_name)
+    partDocument1.SaveAs(path + '\\' + stp_file_name)
+    # partDocument1.Close()
 
 #組合檔存檔
 def save_file_product(path, file_name):

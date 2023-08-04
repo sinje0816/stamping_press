@@ -1035,7 +1035,7 @@ def change_parameter2(name, i):
 
 
 
-change_parameter2('FRAME22', 6)
+change_parameter2('FRAME3', 0)
 
 
 

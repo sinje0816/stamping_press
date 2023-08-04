@@ -151,11 +151,11 @@ def change(name, i):
                     mprog.activatefeature('Hole', 0)
 
             elif i == 7:  # 200N
-                    mprog.partbodyfeatureactivate('250N')
+                    mprog.partbodyfeatureactivate('SN1_200250')
                     mprog.activatefeature('Hole', 0)
 
             elif i == 8:  # 250N
-                    mprog.partbodyfeatureactivate('250N')
+                    mprog.partbodyfeatureactivate('SN1_200250')
                     mprog.activatefeature('Hole', 0)
         except:
             print('FRAME15 Parameter activate error')
@@ -315,9 +315,21 @@ def change(name, i):
         except:
             print('FRAME51 Parameter change error')
         try:
-            if i == 8:  # 250N
-                mprog.partbodyfeatureactivate('Chamfer.1', 0)
+            if i == 5:
                 mprog.activatefeature('Hole', 0)
+                mprog.partbodyfeatureactivate('Body')
+                mprog.partbodyfeatureactivate('Chamfer_FG_L')
+                mprog.partbodyfeatureactivate('Chamfer_HI')
+            elif i == 6:
+                mprog.activatefeature('Hole', 0)
+                mprog.partbodyfeatureactivate('Body')
+                mprog.partbodyfeatureactivate('Chamfer_FG_L')
+                mprog.partbodyfeatureactivate('Chamfer_HI')
+            elif i == 8:  # 250N
+                mprog.activatefeature('Hole', 0)
+                mprog.partbodyfeatureactivate('Body')
+                mprog.partbodyfeatureactivate('Chamfer_FG_L')
+                mprog.partbodyfeatureactivate('SN1_250_CD')
 
         except:
             print('FRAME51 Parameter activate error')
@@ -364,4 +376,4 @@ def change(name, i):
                 print('FRAME52 Update error')
 
 
-change('FRAME45', 6)
+change('FRAME51', 5)
