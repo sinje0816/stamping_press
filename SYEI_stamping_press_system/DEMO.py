@@ -111,70 +111,13 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     print('FRAME3 Parameter change error')
                 try:
                     if i == 0:
-                        mprog.activatefeature('SN1_25250_Body', 0)
-                        mprog.activatefeature('SN1_25250_M', 0)
-                        mprog.activatefeature('Hole_1', 0)
-                        mprog.activatefeature('Hole_2', 1)
-                    elif i == 1:
-                        mprog.activatefeature('SN1_25250_Body', 0)
-                        mprog.activatefeature('SN1_25250_M', 0)
-                        mprog.activatefeature('Hole_1', 0)
-                        mprog.activatefeature('Hole_2', 1)
-                    elif i == 2:
-                        mprog.activatefeature('SN1_25250_Body', 0)
-                        mprog.activatefeature('SN1_25250_M', 0)
-                        mprog.activatefeature('Hole_1', 0)
-                        mprog.activatefeature('Hole_2', 1)
-                    elif i == 3:
-                        mprog.activatefeature('SN1_25250_Body', 0)
-                        mprog.activatefeature('Hole_1', 0)
-                        mprog.activatefeature('Hole_2', 1)
-                    elif i == 4:
-                        mprog.activatefeature('SN1_25250_Body', 0)
-                        mprog.activatefeature('SN1_25250_M', 0)
-                        mprog.activatefeature('Hole_1', 0)
-                        mprog.activatefeature('Hole_2', 1)
-                    elif i == 5:
-                        mprog.activatefeature('SN1_25250_Body', 0)
-                        mprog.activatefeature('Hole_1', 0)
-                        mprog.activatefeature('Hole_2', 1)
-                    elif i == 6:
-                        mprog.activatefeature('SN1_25250_Body', 0)
-                        mprog.activatefeature('SN1_25250_M', 0)
-                        mprog.activatefeature('Hole_1', 0)
-                        mprog.activatefeature('Hole_2', 1)
-                    elif i == 7:
-                        mprog.activatefeature('SN1_25250_Body', 0)
-                        mprog.activatefeature('SN1_25250_M', 0)
-                        mprog.activatefeature('Hole_1', 0)
-                        mprog.activatefeature('Hole_2', 1)
-                    elif i == 8:
-                        mprog.activatefeature('SN1_25250_Body', 4)
-                        mprog.activatefeature('SN1_25250_M', 0)
-                        mprog.activatefeature('Hole_1', 0)
-                        mprog.activatefeature('Hole_2', 1)
-                except:
-                    print('FRAME3 Parameter activate error')
-                finally:
-                    try:
-                        mprog.Update()
-                        print('FRAME3 Update success')
-                        mprog.save_file_part(machining, name)
-                        mprog.save_file_stp(machining, name)
-                        mprog.bodydeactivate('SN1_25250_Body', 4)
-                        mprog.bodydeactivate('SN1_25250_M', 0)
-                        mprog.bodydeactivate('Hole_1', 0)
-                        mprog.bodydeactivate('Hole_2', 1)
-                    except:
-                        print('FRAME3 Update error')
-                try:
-                    if i == 0:
                         mprog.activatefeature('SN1_25250_Body', 2)
                         mprog.activatefeature('Hole_1', 1)
                         mprog.activatefeature('Hole_2', 0)
                         mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
                         mprog.partbodyfeatureactivate('FRAME_SN1_2560_S')
                         mprog.partbodyfeatureactivate('FRAME_SN1_2560_U')
+                        mprog.activatefeature('M10X20L(不可貫穿)', 0)
                     elif i == 1:
                         mprog.activatefeature('SN1_25250_Body', 2)
                         mprog.activatefeature('Hole_1', 1)
@@ -182,6 +125,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
                         mprog.partbodyfeatureactivate('FRAME_SN1_2560_S')
                         mprog.partbodyfeatureactivate('FRAME_SN1_2560_U')
+                        mprog.activatefeature('M10X20L(不可貫穿)', 0)
 
                     elif i == 2:
                         mprog.activatefeature('SN1_25250_Body', 2)
@@ -190,6 +134,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
                         mprog.partbodyfeatureactivate('FRAME_SN1_2560_S')
                         mprog.partbodyfeatureactivate('FRAME_SN1_2560_U')
+                        mprog.activatefeature('M10X20L(不可貫穿)', 0)
                     elif i == 3:
                         mprog.activatefeature('SN1_25250_Body', 2)
                         mprog.activatefeature('Hole_1', 1)
@@ -197,46 +142,263 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
                         mprog.partbodyfeatureactivate('FRAME_SN1_2560_S')
                         mprog.partbodyfeatureactivate('FRAME_SN1_2560_U')
+                        mprog.activatefeature('M10X20L(不可貫穿)', 0)
                     elif i == 4:
                         mprog.activatefeature('SN1_25250_Body', 2)
                         mprog.activatefeature('Hole_1', 1)
                         mprog.activatefeature('Hole_2', 0)
                         mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
                         mprog.partbodyfeatureactivate('FRAME_SN1_80250_R')
+                        mprog.activatefeature('M10X20L(不可貫穿)', 0)
                     elif i == 5:
                         mprog.activatefeature('SN1_25250_Body', 2)
                         mprog.activatefeature('Hole_1', 1)
                         mprog.activatefeature('Hole_2', 0)
                         mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
                         mprog.partbodyfeatureactivate('FRAME_SN1_80250_R')
+                        mprog.activatefeature('M10X20L(不可貫穿)', 0)
                     elif i == 6:
                         mprog.activatefeature('SN1_25250_Body', 2)
                         mprog.activatefeature('Hole_1', 1)
                         mprog.activatefeature('Hole_2', 0)
                         mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
                         mprog.partbodyfeatureactivate('FRAME_SN1_80250_R')
+                        mprog.activatefeature('M10X20L(不可貫穿)', 0)
                     elif i == 7:
                         mprog.activatefeature('SN1_25250_Body', 2)
                         mprog.activatefeature('Hole_1', 1)
                         mprog.activatefeature('Hole_2', 0)
                         mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
                         mprog.partbodyfeatureactivate('FRAME_SN1_80250_R')
+                        mprog.activatefeature('M10X20L(不可貫穿)', 0)
                     elif i == 8:
                         mprog.activatefeature('SN1_25250_Body', 2)
                         mprog.activatefeature('Hole_1', 1)
                         mprog.activatefeature('Hole_2', 0)
                         mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
                         mprog.partbodyfeatureactivate('FRAME_SN1_80250_R')
+                        mprog.activatefeature('M10X20L(不可貫穿)', 0)
                 except:
                     print('FRAME3 Parameter activate error')
                 finally:
                     try:
                         mprog.Update()
                         print('FRAME3 Update success')
-                        mprog.save_file_part(welding, name)
                         mprog.save_file_stp(welding, name)
+                        mprog.save_stpfile_part(welding, name)
+                        mprog.bodydeactivate('Hole_1', 0)
+                        mprog.bodydeactivate('Hole_2', 0)
                     except:
                         print('FRAME3 Update error')
+                try:
+                    if i == 0:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('SN1_25250_M', 0)
+                        mprog.activatefeature('Hole_1', 0)
+                        mprog.activatefeature('Hole_2', 1)
+                        mprog.partdeactivate('FRAME_SN1_25250_PQ')
+                        mprog.partdeactivate('FRAME_SN1_2560_S')
+                        mprog.partdeactivate('FRAME_SN1_2560_U')
+                        mprog.bodydeactivate('M10X20L(不可貫穿)', 0)
+                    elif i == 1:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('SN1_25250_M', 0)
+                        mprog.activatefeature('Hole_1', 0)
+                        mprog.activatefeature('Hole_2', 1)
+                        mprog.partdeactivate('FRAME_SN1_25250_PQ')
+                        mprog.partdeactivate('FRAME_SN1_2560_S')
+                        mprog.partdeactivate('FRAME_SN1_2560_U')
+                        mprog.bodydeactivate('M10X20L(不可貫穿)', 0)
+                    elif i == 2:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('SN1_25250_M', 0)
+                        mprog.activatefeature('Hole_1', 0)
+                        mprog.activatefeature('Hole_2', 1)
+                        mprog.partdeactivate('FRAME_SN1_25250_PQ')
+                        mprog.partdeactivate('FRAME_SN1_2560_S')
+                        mprog.partdeactivate('FRAME_SN1_2560_U')
+                        mprog.bodydeactivate('M10X20L(不可貫穿)', 0)
+                    elif i == 3:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('Hole_1', 0)
+                        mprog.activatefeature('Hole_2', 1)
+                        mprog.partdeactivate('FRAME_SN1_25250_PQ')
+                        mprog.partdeactivate('FRAME_SN1_2560_S')
+                        mprog.partdeactivate('FRAME_SN1_2560_U')
+                        mprog.bodydeactivate('M10X20L(不可貫穿)', 0)
+                    elif i == 4:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('SN1_25250_M', 0)
+                        mprog.activatefeature('Hole_1', 0)
+                        mprog.activatefeature('Hole_2', 1)
+                        mprog.partdeactivate('FRAME_SN1_25250_PQ')
+                        mprog.partdeactivate('FRAME_SN1_80250_R')
+                        mprog.bodydeactivate('M10X20L(不可貫穿)', 0)
+                    elif i == 5:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('Hole_1', 0)
+                        mprog.activatefeature('Hole_2', 1)
+                        mprog.partdeactivate('FRAME_SN1_25250_PQ')
+                        mprog.partdeactivate('FRAME_SN1_80250_R')
+                        mprog.bodydeactivate('M10X20L(不可貫穿)', 0)
+                    elif i == 6:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('SN1_25250_M', 0)
+                        mprog.activatefeature('Hole_1', 0)
+                        mprog.activatefeature('Hole_2', 1)
+                        mprog.partdeactivate('FRAME_SN1_25250_PQ')
+                        mprog.partdeactivate('FRAME_SN1_80250_R')
+                        mprog.bodydeactivate('M10X20L(不可貫穿)', 0)
+                    elif i == 7:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('SN1_25250_M', 0)
+                        mprog.activatefeature('Hole_1', 0)
+                        mprog.activatefeature('Hole_2', 1)
+                        mprog.partdeactivate('FRAME_SN1_25250_PQ')
+                        mprog.partdeactivate('FRAME_SN1_80250_R')
+                        mprog.bodydeactivate('M10X20L(不可貫穿)', 0)
+                    elif i == 8:
+                        mprog.activatefeature('SN1_25250_Body', 4)
+                        mprog.activatefeature('SN1_25250_M', 0)
+                        mprog.activatefeature('Hole_1', 0)
+                        mprog.activatefeature('Hole_2', 1)
+                        mprog.partdeactivate('FRAME_SN1_25250_PQ')
+                        mprog.partdeactivate('FRAME_SN1_80250_R')
+                        mprog.bodydeactivate('M10X20L(不可貫穿)', 0)
+                except:
+                    print('FRAME3 Parameter activate error')
+                finally:
+                    try:
+                        mprog.Update()
+                        print('FRAME3 Update success')
+                        mprog.save_file_stp(machining, name)
+                        mprog.save_stpfile_part(machining, name)
+                    except:
+                        print('FRAME3 Update error')
+            elif name == "FRAME4":
+                excel = epc.ExcelOp('FRAME4')
+                try:
+                    excel.part_parameter('FRAME4', i)
+                    print('FRAME4 Parameter change success')
+                except:
+                    print('FRAME4 Parameter change error')
+                try:
+                    if i == 0:
+                        mprog.activatefeature('SN1_25250_Body', 1)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                    elif i == 1:
+                        mprog.activatefeature('SN1_25250_Body', 1)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                    elif i == 2:
+                        mprog.activatefeature('SN1_25250_Body', 1)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                    elif i == 3:
+                        mprog.activatefeature('SN1_25250_Body', 1)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                        mprog.activatefeature('Hole_3', 2)
+                    elif i == 4:
+                        mprog.activatefeature('SN1_25250_Body', 1)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                        mprog.activatefeature('Hole_3', 2)
+                        mprog.activatefeature('Hole_4', 0)
+                    elif i == 5:
+                        mprog.activatefeature('SN1_25250_Body', 1)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                        mprog.activatefeature('Hole_3', 2)
+                        mprog.activatefeature('Hole_4', 0)
+                    elif i == 6:
+                        mprog.activatefeature('SN1_25250_Body', 1)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                        mprog.activatefeature('Hole_3', 2)
+                        mprog.activatefeature('Hole_4', 0)
+                    elif i == 7:
+                        mprog.activatefeature('SN1_25250_Body', 1)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                        mprog.activatefeature('Hole_3', 2)
+                        mprog.activatefeature('Hole_4', 0)
+                    elif i == 8:
+                        mprog.activatefeature('SN1_25250_Body', 1)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                        mprog.activatefeature('Hole_3', 4)
+                        mprog.activatefeature('Hole_4', 0)
+                except:
+                    print('FRAME4 Parameter activate error')
+                finally:
+                    try:
+                        mprog.Update()
+                        mprog.save_file_stp(welding, name)
+                        mprog.save_stpfile_part(welding, name)
+                        print('FRAME4 Update success')
+                    except:
+                        print('FRAME4 Update error')
+                try:
+                    if i == 0:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('Hole_1', 3)
+                        mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                    elif i == 1:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('Hole_1', 2)
+                        mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                    elif i == 2:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                    elif i == 3:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                        mprog.activatefeature('Hole_3', 2)
+                    elif i == 4:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                        mprog.activatefeature('Hole_3', 2)
+                        mprog.activatefeature('Hole_4', 0)
+                    elif i == 5:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                        mprog.activatefeature('Hole_3', 2)
+                        mprog.activatefeature('Hole_4', 0)
+                    elif i == 6:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                        mprog.activatefeature('Hole_3', 2)
+                        mprog.activatefeature('Hole_4', 0)
+                    elif i == 7:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                        mprog.activatefeature('Hole_3', 2)
+                        mprog.activatefeature('Hole_4', 0)
+                    elif i == 8:
+                        mprog.activatefeature('SN1_25250_Body', 0)
+                        mprog.activatefeature('Hole_1', 1)
+                        mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                        mprog.activatefeature('Hole_3', 4)
+                        mprog.activatefeature('Hole_4', 0)
+                except:
+                    print('FRAME4 Parameter activate error')
+                finally:
+                    try:
+                        mprog.Update()
+                        mprog.save_file_stp(welding, name)
+                        mprog.save_stpfile_part(welding, name)
+                        print('FRAME4 Update success')
+                    except:
+                        print('FRAME4 Update error')
+
 
 
 
