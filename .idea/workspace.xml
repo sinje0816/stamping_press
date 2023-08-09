@@ -4,46 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="合併零件檔案及程式，已完成加工圖合併">
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/old圈碼/FRAME53.CATPart" afterDir="false" />
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="DEMO更新及圖檔上傳">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/DEMO.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/DEMO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/excel_parameter_change.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/excel_parameter_change.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/file_path.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/file_path.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/machining_part_TYPE_change.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/machining_part_TYPE_change.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/parameter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change2.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/BALL_SCREW.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME10.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME13.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME15.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME19.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME20.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME22.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME25.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME28.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME3.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME30.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME31.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME32.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME33.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME34.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME35.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME36.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME37.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME38.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME4.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME45.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME49.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME50.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME51.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME54.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME6.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME7.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME9.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/welding_part_TYPE_change1.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/welding_part_TYPE_change1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/尺寸整理表.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/尺寸整理表.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME6.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME6.CATPart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +62,7 @@
   &quot;keyToString&quot;: {
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/PycharmProjects/Measurement_identification&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/USER/PycharmProjects/stamping_press&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -136,6 +100,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="DEMOGUI" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Stamping press" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/DEMOGUI.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="FRAME_part_TYPE_change_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Stamping press" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -150,50 +136,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/FRAME_part_TYPE_change_2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="change_part" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Stamping press" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SYEI_stamping_press_system" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/change_part.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="machining_part_TYPE_change" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Stamping press" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SYEI_stamping_press_system" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/machining_part_TYPE_change.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -224,12 +166,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="part_TYPE_change2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Stamping press" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SYEI_stamping_press_system" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/part_TYPE_change2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.DEMO" />
-        <item itemvalue="Python.machining_part_TYPE_change" />
-        <item itemvalue="Python.change_part" />
         <item itemvalue="Python.FRAME_part_TYPE_change_2" />
+        <item itemvalue="Python.part_TYPE_change2" />
+        <item itemvalue="Python.DEMOGUI" />
         <item itemvalue="Python.main_GUI" />
       </list>
     </recent_temporary>
@@ -295,22 +259,9 @@
       <workItem from="1690870234355" duration="11831000" />
       <workItem from="1690940394002" duration="3327000" />
       <workItem from="1690963234738" duration="7985000" />
-      <workItem from="1691026328401" duration="20597000" />
-      <workItem from="1691546138831" duration="10150000" />
-    </task>
-    <task id="LOCAL-00021" summary="新增:平板與標準件連結">
-      <created>1668844200933</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1668844200933</updated>
-    </task>
-    <task id="LOCAL-00022" summary="新增:平板與標準件連結">
-      <created>1668860563635</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1668860563635</updated>
+      <workItem from="1691026328401" duration="20665000" />
+      <workItem from="1691113716460" duration="17193000" />
+      <workItem from="1691545901265" duration="1652000" />
     </task>
     <task id="LOCAL-00023" summary="新增:變數及結合判斷式">
       <created>1668860593088</created>
@@ -641,23 +592,47 @@
       <option name="project" value="LOCAL" />
       <updated>1690802433501</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="DEMO人機介面更新&#10;尺寸統整&#10;加上學弟的py檔">
+      <created>1691065044070</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1691065044070</updated>
+    </task>
+    <task id="LOCAL-00073" summary="DEMO更新及圖檔上傳">
+      <created>1691546040487</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1691546040488</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="Branch">
           <value>
             <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="HEAD" />
-                </option>
-              </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
                   <option value="master" />
@@ -679,25 +654,8 @@
         </entry>
       </map>
     </option>
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="CUSTOM_BOOLEAN_PROPERTIES">
-                <map>
-                  <entry key="Show.Git.Branches" value="true" />
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修正爆炸圖比例偏移" />
-    <MESSAGE value="建立及測試圈碼圖&#10;(Y方向卡關)" />
     <MESSAGE value="完成零件6圈碼圖建立" />
     <MESSAGE value="修改爆炸圖偏移二變數&#10;新增更改視圖名稱" />
     <MESSAGE value="N1及drafting_test更新" />
@@ -721,31 +679,32 @@
     <MESSAGE value="完成FRAME11零件程式撰寫" />
     <MESSAGE value="FRAME_part_TYPE_change_2.py新增加工圖零件&#10;part_TYPE_change2.py改為顯示裁料圖" />
     <MESSAGE value="excel_parameter_change_1.py新增牙球(暫定)副程式&#10;FRAME_part_TYPE_change_2.py更新&#10;part_TYPE_change2.py更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="excel_parameter_change_1.py新增牙球(暫定)副程式&#10;FRAME_part_TYPE_change_2.py更新&#10;part_TYPE_change2.py更新" />
+    <MESSAGE value="DEMO人機介面更新&#10;尺寸統整&#10;加上學弟的py檔" />
+    <MESSAGE value="DEMO更新及圖檔上傳" />
+    <option name="LAST_COMMIT_MESSAGE" value="DEMO更新及圖檔上傳" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/stamping_press$welding_part_TYPE_change1__1_.coverage" NAME="welding_part_TYPE_change1 (1) Coverage Results" MODIFIED="1691119169429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$part_type_change2.coverage" NAME="part type change2 Coverage Results" MODIFIED="1688558827455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$homework0706_ex.coverage" NAME="homework0706_ex Coverage Results" MODIFIED="1688706834397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$TEST.coverage" NAME="TEST Coverage Results" MODIFIED="1689771239930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$DEMOGUI.coverage" NAME="DEMOGUI Coverage Results" MODIFIED="1691032230709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/stamping_press$test2.coverage" NAME="test2 Coverage Results" MODIFIED="1689153554795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$DEMOGUI__1_.coverage" NAME="DEMOGUI (1) Coverage Results" MODIFIED="1691043528757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GUI" />
-    <SUITE FILE_PATH="coverage/stamping_press$excel_parameter_change_1.coverage" NAME="excel_parameter_change_1 Coverage Results" MODIFIED="1689250106079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$machining_part_TYPE_change.coverage" NAME="machining_part_TYPE_change Coverage Results" MODIFIED="1691578554765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$part_TYPE_change2__1_.coverage" NAME="part_TYPE_change2 (1) Coverage Results" MODIFIED="1688647602222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$part_design__1_.coverage" NAME="part_design (1) Coverage Results" MODIFIED="1688543318871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$parameter.coverage" NAME="parameter Coverage Results" MODIFIED="1683870399043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$activate_test.coverage" NAME="activate_test Coverage Results" MODIFIED="1688536708263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$drafting.coverage" NAME="drafting Coverage Results" MODIFIED="1691036316640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$GUI.coverage" NAME="GUI Coverage Results" MODIFIED="1691032569159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$main_program.coverage" NAME="main_program Coverage Results" MODIFIED="1689766224304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$FRAME_part_TYPE_change_2.coverage" NAME="FRAME_part_TYPE_change_2 Coverage Results" MODIFIED="1691049839734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$DEMO.coverage" NAME="DEMO Coverage Results" MODIFIED="1691580278272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$change_part.coverage" NAME="change_part Coverage Results" MODIFIED="1691064434406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$main_GUI.coverage" NAME="main_GUI Coverage Results" MODIFIED="1688386245747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$excel_parameter_change.coverage" NAME="excel_parameter_change Coverage Results" MODIFIED="1691570757162" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$part_TYPE_change1.coverage" NAME="part_TYPE_change1 Coverage Results" MODIFIED="1689588307468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$DEMO.coverage" NAME="DEMO Coverage Results" MODIFIED="1691142193114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$homework0706_ex.coverage" NAME="homework0706_ex Coverage Results" MODIFIED="1688706834397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$change_process.coverage" NAME="change_process Coverage Results" MODIFIED="1691115662119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$part_design__1_.coverage" NAME="part_design (1) Coverage Results" MODIFIED="1688543599026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$main_GUI.coverage" NAME="main_GUI Coverage Results" MODIFIED="1691127974622" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$FRAME_part_TYPE_change_2.coverage" NAME="FRAME_part_TYPE_change_2 Coverage Results" MODIFIED="1691136353010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$part_test.coverage" NAME="part_test Coverage Results" MODIFIED="1688634351637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$excel_parameter_change_1.coverage" NAME="excel_parameter_change_1 Coverage Results" MODIFIED="1689250106079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$drafting.coverage" NAME="drafting Coverage Results" MODIFIED="1691036316640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$activate_test.coverage" NAME="activate_test Coverage Results" MODIFIED="1688536708263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$excel_parameter_change.coverage" NAME="excel_parameter_change Coverage Results" MODIFIED="1688709908034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$change_part.coverage" NAME="change_part Coverage Results" MODIFIED="1691126597865" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$part_TYPE_change1.coverage" NAME="part_TYPE_change1 Coverage Results" MODIFIED="1688631057703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$DEMOGUI__1_.coverage" NAME="DEMOGUI (1) Coverage Results" MODIFIED="1691043528757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GUI" />
+    <SUITE FILE_PATH="coverage/stamping_press$part_TYPE_change2.coverage" NAME="part_TYPE_change2 Coverage Results" MODIFIED="1691136279562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$DEMOGUI.coverage" NAME="DEMOGUI Coverage Results" MODIFIED="1691129720961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GUI" />
+    <SUITE FILE_PATH="coverage/stamping_press$part_type_change2.coverage" NAME="part type change2 Coverage Results" MODIFIED="1688558827455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$GUI.coverage" NAME="GUI Coverage Results" MODIFIED="1691127961895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$main_program.coverage" NAME="main_program Coverage Results" MODIFIED="1688698266369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$parameter.coverage" NAME="parameter Coverage Results" MODIFIED="1683870399043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$part_TYPE_change2__1_.coverage" NAME="part_TYPE_change2 (1) Coverage Results" MODIFIED="1690965158149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
   </component>
 </project>
