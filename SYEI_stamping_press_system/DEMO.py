@@ -128,7 +128,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         sys.stdout = original_stdout
                         # 从捕获的输出中获取文本
                         output_text = captured_output.getvalue()
-                        print(output_text)
                         # 判断文本内容
                         if "error" in output_text:
                             machining_file_change_error.append(name)
@@ -147,7 +146,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
                         sys.stdout = original_stdout
                         output_text = captured_output.getvalue()
-                        print(output_text)
                         # 判断文本内容
                         if "error" in output_text:
                             machining_file_change_error.append(name)
@@ -168,11 +166,13 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     mprog.close_file(name)
                 except:
                     pass
+        print(i)
         print('machining_file_change_error', machining_file_change_error)
         print('machining_file_change_pass', machining_file_change_pass)
         print('welding_file_change_error', welding_file_change_error)
         print('welding_file_change_pass', welding_file_change_pass)
         print('總用時%s' % (time.time()-start_time))
+
 if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率
     app = QtWidgets.QApplication([])
