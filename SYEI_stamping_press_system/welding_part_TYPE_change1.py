@@ -590,6 +590,92 @@ def change_welding_feature(name, i):
             print('FRAME11 Update success')
         except BaseException:
             print('FRAME11 Update error')
+    elif name == 'FRAME18':   # Add el
+        try:
+            if i == 0:
+                mprog.partbodyfeatureactivate('Pad.2')
+                mprog.partbodyfeatureactivate('HollowCylinder')
+            elif i == 1:
+                mprog.partbodyfeatureactivate('Pad.2')
+                mprog.partbodyfeatureactivate('HollowCylinder')
+            elif i == 2:
+                mprog.partbodyfeatureactivate('Pad.2')
+                mprog.partbodyfeatureactivate('HollowCylinder')
+            elif i == 3:
+                mprog.partbodyfeatureactivate('Pad.2')
+                mprog.partbodyfeatureactivate('HollowCylinder')
+            elif i == 4:
+                mprog.partbodyfeatureactivate('Pad.2')
+                mprog.partbodyfeatureactivate('HollowCylinder')
+            elif i == 5:
+                mprog.activatefeature('Hole.1', 0)
+                mprog.partbodyfeatureactivate('EdgeFillet.1')
+            elif i == 6:
+                mprog.activatefeature('Hole.1', 0)
+                mprog.partbodyfeatureactivate('EdgeFillet.1')
+            elif i == 7:
+                mprog.activatefeature('Hole.1', 0)
+                mprog.partbodyfeatureactivate('EdgeFillet.1')
+            elif i == 8:
+                mprog.activatefeature('Hole.1', 0)
+                mprog.partbodyfeatureactivate('EdgeFillet.1')
+        except:
+            print('FRAME18 Parameter activate error')
+        finally:
+            try:
+                mprog.Update()
+                print('FRAME18 Update success')
+            except:
+                print('FRAME18 Update error')
+    elif name == 'FRAME21':
+        try:
+            if i == 0:  # 25
+                mprog.activatefeature('Hole', 0)
+            elif i == 1:  # 35
+                mprog.activatefeature('Hole', 0)
+        except:
+            print('FRAME21 Parameter activate error')
+        finally:
+            try:
+                mprog.Update()
+                print('FRAME21 Update success')
+            except:
+                print('FRAME21 Update error')
+    elif name == 'FRAME23':
+        try:
+            if i == 0:
+                mprog.partbodyfeatureactivate('25至60除料')
+                mprog.partbodyfeatureactivate('25至60導圓角')
+            elif i == 1:
+                mprog.partbodyfeatureactivate('25至60除料')
+                mprog.partbodyfeatureactivate('25至60導圓角')
+            elif i == 2:
+                mprog.partbodyfeatureactivate('25至60除料')
+                mprog.partbodyfeatureactivate('25至60導圓角')
+            elif i == 3:
+                mprog.partbodyfeatureactivate('25至60除料')
+                mprog.partbodyfeatureactivate('25至60導圓角')
+            elif i == 4:
+                mprog.partbodyfeatureactivate('80至250除料')
+                mprog.partbodyfeatureactivate('80至250導圓角(除160和200)')
+            elif i == 5:
+                mprog.partbodyfeatureactivate('80至250除料')
+                mprog.partbodyfeatureactivate('80至250導圓角(除160和200)')
+            elif i == 6:
+                mprog.partbodyfeatureactivate('80至250除料')
+            elif i == 7:
+                mprog.partbodyfeatureactivate('80至250除料')
+            elif i == 8:
+                mprog.partbodyfeatureactivate('80至250除料')
+                mprog.partbodyfeatureactivate('80至250導圓角(除160和200)')
+        except:
+            print('FRAME23 Parameter activate error')
+        finally:
+            try:
+                mprog.Update()
+                print('FRAME23 Update success')
+            except:
+                print('FRAME23 Update error')
     elif name == 'FRAME24':
         if i == 0:
             mprog.partbodyfeatureactivate('倒角C')
@@ -623,6 +709,49 @@ def change_welding_feature(name, i):
             print('FRAME24 Update success')
         except BaseException:
             print('FRAME24 Update error')
+    elif name == 'FRAME26':
+        excel = epc.ExcelOp('FRAME26')
+        try:
+            excel.part_parameter('FRAME26', i)
+            FRAME26_parameter_name, FRAME26_parameter_value = excel.part_parameter('FRAME26', i)
+            print('FRAME26 Parameter change success')
+        except:
+            print('FRAME26 Parameter change error')
+
+        try:
+            if i == 0:
+                mprog.partbodyfeatureactivate('F')
+                mprog.partbodyfeatureactivate('G')
+            elif i == 1:
+                mprog.partbodyfeatureactivate('F')
+                mprog.partbodyfeatureactivate('G')
+            elif i == 2:
+                mprog.partbodyfeatureactivate('F')
+                mprog.partbodyfeatureactivate('G')
+            elif i == 3:
+                mprog.partbodyfeatureactivate('F')
+                mprog.partbodyfeatureactivate('G')
+            elif i == 4:
+                mprog.partbodyfeatureactivate('F')
+                mprog.partbodyfeatureactivate('G')
+            elif i == 5:
+                mprog.partbodyfeatureactivate('F')
+            elif i == 6:
+                mprog.partbodyfeatureactivate('F')
+                mprog.partbodyfeatureactivate('G')
+            elif i == 7:
+                mprog.partbodyfeatureactivate('F')
+                mprog.partbodyfeatureactivate('G')
+            elif i == 8:
+                mprog.partbodyfeatureactivate('250除料')
+        except:
+            print('FRAME26 Parameter activate error')
+        finally:
+            try:
+                mprog.Update()
+                print('FRAME26 Update success')
+            except:
+                print('FRAME26 Update error')
     elif name == 'FRAME27':
         try:
             if i == 0:
@@ -672,6 +801,27 @@ def change_welding_feature(name, i):
                 print('FRAME29 Update success')
             except BaseException:
                 print('FRAME29 Update error')
+    elif name == 'FRAME41':
+        excel = epc.ExcelOp('FRAME41')
+        try:
+            excel.part_parameter('FRAME41', i)
+            FRAME41_parameter_name, FRAME41_parameter_value = excel.part_parameter('FRAME41', i)
+            print('FRAME41 Parameter change success')
+        except:
+            print('FRAME41 Parameter change error')
+        try:
+            if i == 1:  # 35
+                pass
+        except:
+            print('FRAME41 Parameter activate error')
+        finally:
+            try:
+                mprog.Update()
+                print('FRAME41 Update success')
+            except:
+                print('FRAME41 Update error')
+    elif name == 'FRAME42':
+        pass
     elif name == 'FRAME43':
         try:
             if i == 3:
@@ -688,6 +838,62 @@ def change_welding_feature(name, i):
                 print('FRAME43 Update success')
             except BaseException:
                 print('FRAME43 Update error')
+    elif name == 'FRAME47':
+        excel = epc.ExcelOp('FRAME47')
+        try:
+            excel.part_parameter('FRAME47', i)
+            FRAME47_parameter_name, FRAME47_parameter_value = excel.part_parameter('FRAME47', i)
+            print('FRAME47 Parameter change success')
+        except:
+            print('FRAME47 Parameter change error')
+
+        try:
+            if i == 4:    # 80
+                pass
+            elif i == 5:  # 110
+                pass
+            elif i == 6:  # 160
+                pass
+            elif i == 7:  # 200
+                pass
+            elif i == 8:  # 250
+                pass
+        except:
+            print('FRAME47 Parameter activate error')
+        finally:
+            try:
+                mprog.Update()
+                print('FRAME47 Update success')
+            except:
+                print('FRAME47 Update error')
+    elif name == 'FRAME48':
+        excel = epc.ExcelOp('FRAME48')
+        try:
+            excel.part_parameter('FRAME48', i)
+            FRAME48_parameter_name, FRAME48_parameter_value = excel.part_parameter('FRAME48', i)
+            print('FRAME48 Parameter change success')
+        except:
+            print('FRAME48 Parameter change error')
+
+        try:
+            if i == 4:    # 80
+                pass
+            elif i == 5:  # 110
+                pass
+            elif i == 6:  # 160
+                pass
+            elif i == 7:  # 200
+                pass
+            elif i == 8:  # 250
+                pass
+        except:
+            print('FRAME48 Parameter activate error')
+        finally:
+            try:
+                mprog.Update()
+                print('FRAME48 Update success')
+            except:
+                print('FRAME48 Update error')
     elif name == 'FRAME52':
         excel = epc.ExcelOp('FRAME52')
         try:
