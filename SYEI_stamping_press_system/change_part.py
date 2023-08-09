@@ -261,15 +261,7 @@ def change(name, i):
                 print('FRAME27 Update error')
 
         ###############################################################
-    if name == 'FRAME45':
-        excel = epc.ExcelOp('FRAME45')
-
-        try:
-            excel.part_parameter('FRAME45', i)
-            FRAME45_parameter_name, FRAME45_parameter_value = excel.part_parameter('FRAME45', i)
-            print('FRAME45 Parameter change success')
-        except:
-            print('FRAME45 Parameter change error')
+    elif name == 'FRAME45':
         try:
             if i == 3:  # 60N
                 mprog.partbodyfeatureactivate('Chamfer.G')
@@ -306,14 +298,6 @@ def change(name, i):
 
 ###############################################################
     if name == 'FRAME51':
-        excel = epc.ExcelOp('FRAME51')
-
-        try:
-            excel.part_parameter('FRAME51', i)
-            FRAME51_parameter_name, FRAME51_parameter_value = excel.part_parameter('FRAME51', i)
-            print('FRAME51 Parameter change success')
-        except:
-            print('FRAME51 Parameter change error')
         try:
             if i == 5:
                 mprog.activatefeature('Hole', 0)

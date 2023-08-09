@@ -332,15 +332,21 @@ def change(name, i):
 
         try:
             excel.part_parameter('FRAME51', i)
-            FRAME51_parameter_name, FRAME51_parameter_value = excel.part_parameter('FRAME51', i)
             print('FRAME51 Parameter change success')
         except:
             print('FRAME51 Parameter change error')
-        try:
-            if i == 8:  # 250N
-                mprog.partbodyfeatureactivate('Chamfer.1', 0)
-                mprog.activatefeature('Hole', 0)
 
+        try:
+            if i == 5:
+                mprog.activatefeature('Hole', 0)
+                mprog.partbodyfeatureactivate('Body')
+            elif i == 6:
+                mprog.activatefeature('Hole', 0)
+                mprog.partbodyfeatureactivate('Body')
+            elif i == 8:  # 250N
+                mprog.activatefeature('Hole', 0)
+                mprog.partbodyfeatureactivate('Body')
+                mprog.partbodyfeatureactivate('SN1_250_CD')
         except:
             print('FRAME51 Parameter activate error')
         finally:
@@ -355,7 +361,6 @@ def change(name, i):
 
         try:
             excel.part_parameter('FRAME52', i)
-            FRAME52_parameter_name, FRAME52_parameter_value = excel.part_parameter('FRAME52', i)
             print('FRAME52 Parameter change success')
         except:
             print('FRAME52 Parameter change error')
@@ -386,4 +391,4 @@ def change(name, i):
                 print('FRAME52 Update error')
 
 
-change('FRAME45', 3)
+change('FRAME51', 5)
