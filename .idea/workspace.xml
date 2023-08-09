@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="DEMO人機介面更新&#10;尺寸統整&#10;加上學弟的py檔&#10;檔案的開啟跟儲存">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_4__04_56__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_4__04_56__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_4__04_56__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_4__04_56__Changes_1.xml" afterDir="false" />
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="DEMO更新及圖檔上傳">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/DEMO.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/DEMO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/main_program.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/尺寸整理表_1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/尺寸整理表_1.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME6.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/stamping_press_new/FRAME6.CATPart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,13 +261,7 @@
       <workItem from="1690963234738" duration="7985000" />
       <workItem from="1691026328401" duration="20665000" />
       <workItem from="1691113716460" duration="17193000" />
-    </task>
-    <task id="LOCAL-00022" summary="新增:平板與標準件連結">
-      <created>1668860563635</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1668860563635</updated>
+      <workItem from="1691545901265" duration="1652000" />
     </task>
     <task id="LOCAL-00023" summary="新增:變數及結合判斷式">
       <created>1668860593088</created>
@@ -608,7 +599,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691065044070</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="DEMO更新及圖檔上傳">
+      <created>1691546040487</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1691546040488</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -658,7 +656,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="建立及測試圈碼圖&#10;(Y方向卡關)" />
     <MESSAGE value="完成零件6圈碼圖建立" />
     <MESSAGE value="修改爆炸圖偏移二變數&#10;新增更改視圖名稱" />
     <MESSAGE value="N1及drafting_test更新" />
@@ -683,7 +680,8 @@
     <MESSAGE value="FRAME_part_TYPE_change_2.py新增加工圖零件&#10;part_TYPE_change2.py改為顯示裁料圖" />
     <MESSAGE value="excel_parameter_change_1.py新增牙球(暫定)副程式&#10;FRAME_part_TYPE_change_2.py更新&#10;part_TYPE_change2.py更新" />
     <MESSAGE value="DEMO人機介面更新&#10;尺寸統整&#10;加上學弟的py檔" />
-    <option name="LAST_COMMIT_MESSAGE" value="DEMO人機介面更新&#10;尺寸統整&#10;加上學弟的py檔" />
+    <MESSAGE value="DEMO更新及圖檔上傳" />
+    <option name="LAST_COMMIT_MESSAGE" value="DEMO更新及圖檔上傳" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/stamping_press$test2.coverage" NAME="test2 Coverage Results" MODIFIED="1689153554795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />

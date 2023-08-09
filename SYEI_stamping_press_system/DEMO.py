@@ -398,6 +398,86 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         print('FRAME4 Update success')
                     except:
                         print('FRAME4 Update error')
+            elif name == "FRAME6":
+                excel = epc.ExcelOp('FRAME4')
+                try:
+                    excel.part_parameter('FRAME4', i)
+                    print('FRAME4 Parameter change success')
+                except:
+                    print('FRAME4 Parameter change error')
+                try:
+                    if i == 0:
+                        mprog.activatefeature('FRAME_SN1_2545_Body', 0)
+                        mprog.activatefeature('M16_i', 0)
+                    elif i == 1:
+                        mprog.activatefeature('FRAME_SN1_2545_Body', 0)
+                        mprog.activatefeature('M16_i', 0)
+                    elif i == 2:
+                        mprog.activatefeature('FRAME_SN1_2545_Body', 0)
+                        mprog.activatefeature('M16_i', 0)
+                    elif i == 3:
+                        mprog.activatefeature('FRAME_SN1_60_Body', 0)
+                        mprog.activatefeature('M16_h FRAME9_L', 0)
+                    elif i == 4:
+                        mprog.activatefeature('FRAME_SN1_80110_Body', 0)
+                        mprog.activatefeature('M16_h FRAME9_L', 0)
+                    elif i == 5:
+                        mprog.activatefeature('FRAME_SN1_80110_Body', 0)
+                        mprog.activatefeature('M16_h FRAME9_L', 0)
+                    elif i == 7:
+                        mprog.activatefeature('FRAME_SN1_200_Body', 0)
+                        mprog.activatefeature('M16_h FRAME9_L', 0)
+                except:
+                    print('FRAME6 Parameter activate error')
+                finally:
+                    try:
+                        mprog.Update()
+                        mprog.save_file_stp(welding, name)
+                        mprog.save_stpfile_part(welding, name)
+                        print('FRAME6 Update success')
+                    except:
+                        print('FRAME6 Update error')
+                try:
+                    if i == 0:
+                        mprog.bodydeactivate('FRAME_SN1_2545_Body', 0)
+                        mprog.bodydeactivate('M16_i', 0)
+                        mprog.activatefeature('SN1_2545_Body', 0)
+                    elif i == 1:
+                        mprog.bodydeactivate('FRAME_SN1_2545_Body', 0)
+                        mprog.bodydeactivate('M16_i', 0)
+                        mprog.activatefeature('SN1_2545_Body', 0)
+                    elif i == 2:
+                        mprog.bodydeactivate('FRAME_SN1_2545_Body', 0)
+                        mprog.bodydeactivate('M16_i', 0)
+                        mprog.activatefeature('SN1_2545_Body', 0)
+                    elif i == 3:
+                        mprog.bodydeactivate('FRAME_SN1_60_Body', 0)
+                        mprog.bodydeactivate('M16_h FRAME9_L', 0)
+                        mprog.activatefeature('SN1_60_Body', 0)
+                    elif i == 4:
+                        mprog.bodydeactivate('FRAME_SN1_80110_Body', 0)
+                        mprog.bodydeactivate('M16_h FRAME9_L', 0)
+                        mprog.activatefeature('SN1_80110_Body', 0)
+                    elif i == 5:
+                        mprog.bodydeactivate('FRAME_SN1_80110_Body', 0)
+                        mprog.bodydeactivate('M16_h FRAME9_L', 0)
+                        mprog.activatefeature('SN1_80110_Body', 0)
+                    elif i == 7:
+                        mprog.bodydeactivate('FRAME_SN1_200_Body', 0)
+                        mprog.bodydeactivate('M16_h FRAME9_L', 0)
+                        mprog.activatefeature('SN1_200_Body', 0)
+                except:
+                    print('FRAME6 Parameter activate error')
+                finally:
+                    try:
+                        mprog.Update()
+                        mprog.save_file_stp(welding, name)
+                        mprog.save_stpfile_part(welding, name)
+                        print('FRAME6 Update success')
+                    except:
+                        print('FRAME6 Update error')
+
+
 
 
 
