@@ -2,7 +2,7 @@ import win32com.client as win32
 import main_program as mprog
 import excel_parameter_change_1 as epc
 def change_parameter2(name, i):
-    if name== 'FRAME3':
+    if name == 'FRAME3':
         try:
             mprog.bodydeactivate('Hole_1', 0)
             mprog.bodydeactivate('Hole_2', 0)
@@ -90,7 +90,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME3 Update error')
-    elif name== 'FRAME4':#已更改
+    elif name == 'FRAME4':#已更改
         try:
             if i == 0:
                 mprog.activatefeature('SN1_25250_Body', 0)
@@ -146,7 +146,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME4 Update error')
-    elif name== 'FRAME6':
+    elif name == 'FRAME6':
         try:
             if i == 0:
                 mprog.bodydeactivate('FRAME_SN1_2545_Body', 0)
@@ -183,7 +183,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME6 Update error')
-    elif name== 'FRAME7':
+    elif name == 'FRAME7':
         try:
             if i== 0:
                 mprog.activatefeature('SN1_2560_Body', 0)
@@ -220,7 +220,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME7 Update error')
-    elif name== 'FRAME9':
+    elif name == 'FRAME9':
         try:
             if i== 0:
                 mprog.activatefeature('SN1_2580_Body', 0)
@@ -247,7 +247,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME9 Update error')
-    elif name== 'FRAME10':
+    elif name == 'FRAME10':
         try:
             if i== 0:
                 mprog.activatefeature('SN1_2545_Body', 0)
@@ -298,7 +298,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME10 Update error')
-    elif name== 'FRAME13':
+    elif name == 'FRAME13':
         try:
             if i== 0:
                 mprog.partbodyfeatureactivate('AB')
@@ -374,7 +374,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME13 Update error')
-    elif name== 'FRAME15':
+    elif name == 'FRAME15':
         try:
             if i == 0:  # 25N
                     mprog.activatefeature('Hole', 0)
@@ -403,7 +403,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME15 Update error')
-    elif name== 'FRAME19':
+    elif name == 'FRAME19':
         try:
             if i== 0:
                 mprog.activatefeature('SN1_2545_Body', 0)
@@ -439,7 +439,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME19 Update error')
-    elif name== 'FRAME20':
+    elif name == 'FRAME20':
         try:
             if i== 0:
                 mprog.partbodyfeatureactivate('AB')
@@ -495,7 +495,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME20 Update error')
-    elif name== 'FRAME22':
+    elif name == 'FRAME22':
         try:
             if i== 0:
                 mprog.partbodyfeatureactivate('A(1)D')
@@ -593,7 +593,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME22 Update error')
-    elif name== 'FRAME25':
+    elif name == 'FRAME25':
         try:
             if i==0:
                 mprog.partbodyfeatureactivate('AB')
@@ -618,7 +618,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME25 Update error')
-    elif name== 'FRAME28':
+    elif name == 'FRAME28':
         try:
             if i==0:
                 mprog.partbodyfeatureactivate('SN1_25250_ABD')
@@ -663,7 +663,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME28 Update error')
-    elif name== 'FRAME30':
+    elif name == 'FRAME30':
         try:
             if i== 0:
                 mprog.partbodyfeatureactivate('SN1_25250_AE')
@@ -755,7 +755,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME30 Update error')
-    elif name== 'FRAME31':
+    elif name == 'FRAME31':
         try:
             if i== 0:
                 mprog.partbodyfeatureactivate('Body')
@@ -773,7 +773,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME31 Update error')
-    elif name== 'FRAME32':
+    elif name == 'FRAME32':
         try:
             if i== 0:
                 mprog.partbodyfeatureactivate('Body')
@@ -800,7 +800,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME32 Update error')
-    elif name== "FRAME33":
+    elif name == "FRAME33":
         try:
             if i== 0:
                 mprog.partbodyfeatureactivate('AB')
@@ -832,7 +832,7 @@ def change_parameter2(name, i):
                 print('FRAME33 Update success')
             except:
                 print('FRAME33 Update error')
-    elif name== 'FRAME34':
+    elif name == 'FRAME34':
         try:
             if i== 0:
                 mprog.partbodyfeatureactivate('AB')
@@ -873,7 +873,7 @@ def change_parameter2(name, i):
                 print('FRAME34 Update success')
             except:
                 print('FRAME34 Update error')
-    elif name== 'FRAME35':
+    elif name == 'FRAME35':
         try:
             if i== 0:
                 mprog.activatefeature('SN1_2545_Body', 0)
@@ -919,7 +919,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME35 Update error')
-    elif name== 'FRAME36':
+    elif name == 'FRAME36':
         try:
             if i== 0:
                 mprog.partbodyfeatureactivate('SN1_2535_Body')
@@ -940,7 +940,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME36 Update error')
-    elif name== 'FRAME37':#已更改
+    elif name == 'FRAME37':#已更改
         excel = epc.ExcelOp('FRAME37')
         try:
             excel.part_parameter('FRAME37', i)
@@ -968,7 +968,7 @@ def change_parameter2(name, i):
                 print('FRAME37 Update success')
             except:
                 print('FRAME37 Update error')
-    elif name== 'FRAME38':
+    elif name == 'FRAME38':
         try:
             if i==0:
                 mprog.partbodyfeatureactivate('ABD')
@@ -1004,7 +1004,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME38 Update error')
-    elif name== 'FRAME45':
+    elif name == 'FRAME45':
         try:
             if i == 3:  # 60N
                 mprog.partbodyfeatureactivate('Chamfer.G')
@@ -1031,7 +1031,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME45 Update error')
-    elif name== 'FRAME49':
+    elif name == 'FRAME49':
         try:
             if i== 4:
                 mprog.activatefeature('body', 0)
@@ -1060,7 +1060,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME49 Update error')
-    elif name== 'FRAME50':
+    elif name == 'FRAME50':
         try:
             if i == 4:
                 mprog.activatefeature('Body', 0)
@@ -1089,7 +1089,7 @@ def change_parameter2(name, i):
                 mprog.Update()
             except:
                 print('FRAME50 Update error')
-    elif name== 'FRAME54':
+    elif name == 'FRAME54':
         try:
             if i== 6:
                 mprog.partbodyfeatureactivate('Body')

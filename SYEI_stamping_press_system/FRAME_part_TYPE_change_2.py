@@ -2,7 +2,7 @@ import win32com.client as win32
 import main_program as mprog
 import excel_parameter_change_1 as epc
 def FRAME_change_parameter2(name, i):
-    if name== 'FRAME3':
+    if name == 'FRAME3':
         excel = epc.ExcelOp('FRAME3')
         try:
             excel.part_parameter('FRAME3', i)
@@ -77,7 +77,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME3 Update success')
             except:
                 print('FRAME3 Update error')
-    elif name== 'FRAME4':#已更改
+    elif name == 'FRAME4':#已更改
         excel = epc.ExcelOp('FRAME4')
         try:
             excel.part_parameter('FRAME4', i)
@@ -140,7 +140,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME4 Update success')
             except:
                 print('FRAME4 Update error')
-    elif name== 'FRAME6':
+    elif name == 'FRAME6':
         excel = epc.ExcelOp('FRAME6')
         try:
             excel.part_parameter('FRAME6', i)
@@ -177,7 +177,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME6 Update success')
             except:
                 print('FRAME6 Update error')
-    elif name== 'FRAME7':#已更改
+    elif name == 'FRAME7':#已更改
         excel = epc.ExcelOp('FRAME7')
         try:
             excel.part_parameter('FRAME7', i)
@@ -217,7 +217,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME7 Update success')
             except:
                 print('FRAME7 Update error')
-    elif name== 'FRAME9':
+    elif name == 'FRAME9':
         excel = epc.ExcelOp('FRAME9')
         try:
             excel.part_parameter('FRAME9', i)
@@ -251,7 +251,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME9 Update success')
             except:
                 print('FRAME9 Update error')
-    elif name== 'FRAME10':#已更改
+    elif name == 'FRAME10':#已更改
         excel = epc.ExcelOp('FRAME10')
         try:
             excel.part_parameter('FRAME10', i)
@@ -309,7 +309,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME10 Update success')
             except:
                 print('FRAME10 Update error')
-    elif name== 'FRAME13':
+    elif name == 'FRAME13':
         excel = epc.ExcelOp('FRAME13')
         try:
             excel.part_parameter('FRAME13', i)
@@ -383,7 +383,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME13 Update success')
             except:
                 print('FRAME13 Update error')
-    elif name== 'FRAME19':#已更改
+    elif name == 'FRAME19':#已更改
         excel = epc.ExcelOp('FRAME19')
         try:
             excel.part_parameter('FRAME19', i)
@@ -425,7 +425,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME19 Update success')
             except:
                 print('FRAME19 Update error')
-    elif name== 'FRAME20':
+    elif name == 'FRAME20':
         excel = epc.ExcelOp('FRAME20')
         try:
             excel.part_parameter('FRAME20', i)
@@ -488,7 +488,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME20 Update success')
             except:
                 print('FRAME20 Update error')
-    elif name== 'FRAME22':#已更改
+    elif name == 'FRAME22':#已更改
         excel = epc.ExcelOp('FRAME22')
         try:
             excel.part_parameter('FRAME22', i)
@@ -552,7 +552,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME22 Update success')
             except:
                 print('FRAME22 Update error')
-    elif name== 'FRAME25':
+    elif name == 'FRAME25':
         excel = epc.ExcelOp('FRAME25')
         try:
             excel.part_parameter('FRAME25', i)
@@ -584,7 +584,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME25 Update success')
             except:
                 print('FRAME25 Update error')
-    elif name== 'FRAME28':
+    elif name == 'FRAME28':
         excel = epc.ExcelOp('FRAME28')
         try:
             excel.part_parameter('FRAME28', i)
@@ -636,7 +636,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME28 Update success')
             except:
                 print('FRAME28 Update error')
-    elif name== 'FRAME30':#已更改
+    elif name == 'FRAME30':#已更改
         excel = epc.ExcelOp('FRAME30')
         try:
             excel.part_parameter('FRAME30', i)
@@ -717,7 +717,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME30 Update success')
             except:
                 print('FRAME30 Update error')
-    elif name== 'FRAME31':
+    elif name == 'FRAME31':
         excel = epc.ExcelOp('FRAME31')
         try:
             excel.part_parameter('FRAME31', i)
@@ -742,7 +742,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME31 Update success')
             except:
                 print('FRAME31 Update error')
-    elif name== 'FRAME32':
+    elif name == 'FRAME32':
         excel = epc.ExcelOp('FRAME32')
         try:
             excel.part_parameter('FRAME32', i)
@@ -776,7 +776,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME32 Update success')
             except:
                 print('FRAME32 Update error')
-    elif name== "FRAME33":
+    elif name == "FRAME33":
         excel = epc.ExcelOp('FRAME33')
         try:
             excel.part_parameter('FRAME33', i)
@@ -811,7 +811,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME33 Update success')
             except:
                 print('FRAME33 Update error')
-    elif name== 'FRAME34':
+    elif name == 'FRAME34':
         excel = epc.ExcelOp('FRAME34')
         try:
             excel.part_parameter('FRAME34', i)
@@ -853,7 +853,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME34 Update success')
             except:
                 print('FRAME34 Update error')
-    elif name== 'FRAME35':#已更改
+    elif name == 'FRAME35':#已更改
         excel = epc.ExcelOp('FRAME35')
         try:
             excel.part_parameter('FRAME35', i)
@@ -906,7 +906,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME35 Update success')
             except:
                 print('FRAME35 Update error')
-    elif name== 'FRAME36':#已更改
+    elif name == 'FRAME36':#已更改
         excel = epc.ExcelOp('FRAME36')
         try:
             excel.part_parameter('FRAME36', i)
@@ -930,7 +930,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME36 Update success')
             except:
                 print('FRAME36 Update error')
-    elif name== 'FRAME37':#已更改
+    elif name == 'FRAME37':#已更改
         excel = epc.ExcelOp('FRAME37')
         try:
             excel.part_parameter('FRAME37', i)
@@ -958,7 +958,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME37 Update success')
             except:
                 print('FRAME37 Update error')
-    elif name== 'FRAME38':
+    elif name == 'FRAME38':
         excel = epc.ExcelOp('FRAME38')
         try:
             excel.part_parameter('FRAME38', i)
@@ -1001,7 +1001,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME38 Update success')
             except:
                 print('FRAME38 Update error')
-    elif name== 'FRAME49':#已更改
+    elif name == 'FRAME49':#已更改
         excel = epc.ExcelOp('FRAME49')
         try:
             excel.part_parameter('FRAME49', i)
@@ -1037,7 +1037,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME49 Update success')
             except:
                 print('FRAME49 Update error')
-    elif name== 'FRAME50':#已更改
+    elif name == 'FRAME50':#已更改
         excel = epc.ExcelOp('FRAME50')
         try:
             excel.part_parameter('FRAME50', i)
@@ -1073,7 +1073,7 @@ def FRAME_change_parameter2(name, i):
                 print('FRAME50 Update success')
             except:
                 print('FRAME50 Update error')
-    elif name== 'FRAME54':#已更改
+    elif name == 'FRAME54':#已更改
         excel = epc.ExcelOp('FRAME54')
         try:
             excel.part_parameter('FRAME54', i)

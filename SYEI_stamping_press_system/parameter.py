@@ -74,7 +74,6 @@ file_name_list = ['BOLSTER1', 'BOLSTER2', 'BOLSTER3', 'Fixture', 'FRAME1', 'FRAM
                   'MAIN_GEAR2', 'MAIN_GEAR3', 'MAIN_GEAR4', 'JOINT1', 'FRAME47', 'FRAME48', 'FRAME49',
                   'FRAME50', 'FRAME51', 'FRAME52', 'MOTOR',
                   ]
-test_list = ["FRAME3", "FRAME4"]
 
 # -------------焊接圖---------------
 #隱藏part
