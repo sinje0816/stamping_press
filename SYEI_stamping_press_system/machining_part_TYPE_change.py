@@ -575,88 +575,76 @@ def change_machining_parameter(name, i, machiningdiepad):
                     print('FRAME4 Update success')
                 except:
                     print('FRAME4 Update error')
-        elif name == 'FRAME5':
-            excel = epc.ExcelOp('FRAME5')
-            try:
-                FRAME5_parameter_name, FRAME5_parameter_value = excel.get_sheet_par(
-                    'FRAME5', i)
-                print('FRAME5 Parameter change success')
-            except BaseException:
-                print('FRAME5 Parameter change error')
+        elif name == 'FRAME5':  # 已更改
             try:
                 if i == 0:
                     mprog.partbodyfeatureactivate('SN1-25_X')
-                    mprog.partbodyfeatureactivate('before80_I')
-                    mprog.partbodyfeatureactivate('before80_R')
-                    mprog.partbodyfeatureactivate('Y')
+                    mprog.partbodyfeatureactivate('CD')
+                    mprog.partbodyfeatureactivate("Y")
+                    mprog.partbodyfeatureactivate('SN1_25_H')
                     mprog.activatefeature('2-M8通孔', 0)
                     mprog.activatefeature('TY牌電磁閥用', 0)
                     mprog.activatefeature('M6通孔LED', 0)
                     mprog.activatefeature('PT1/2', 0)
                 elif i == 1:
-                    mprog.partbodyfeatureactivate('before80_I')
-                    mprog.partbodyfeatureactivate('before80_R')
-                    mprog.partbodyfeatureactivate('Y')
-                    mprog.partbodyfeatureactivate('AA')
+                    mprog.partbodyfeatureactivate('CD')
+                    mprog.partbodyfeatureactivate("Y")
+                    mprog.partbodyfeatureactivate("SN1_3545_H")
                     mprog.activatefeature('2-M8通孔', 0)
                     mprog.activatefeature('TY牌電磁閥用', 0)
                     mprog.activatefeature('M6通孔LED', 0)
                     mprog.activatefeature('PT1/2', 0)
                 elif i == 2:
-                    mprog.partbodyfeatureactivate('before80_I')
-                    mprog.partbodyfeatureactivate('before80_R')
-                    mprog.partbodyfeatureactivate('Y')
-                    mprog.partbodyfeatureactivate('AA')
+                    mprog.partbodyfeatureactivate('CD')
+                    mprog.partbodyfeatureactivate("Y")
+                    mprog.partbodyfeatureactivate("SN1_3545_H")
                     mprog.activatefeature('2-M8通孔', 0)
                     mprog.activatefeature('TY牌電磁閥用', 0)
                     mprog.activatefeature('M6通孔LED', 0)
                     mprog.activatefeature('PT1/2', 0)
                 elif i == 3:
-                    mprog.partbodyfeatureactivate('before80_I')
-                    mprog.partbodyfeatureactivate('before80_R')
-                    mprog.partbodyfeatureactivate('S')
-                    mprog.partbodyfeatureactivate('Rx2')
-                    mprog.partbodyfeatureactivate('SN1-60_R')
-                    mprog.partbodyfeatureactivate('Chamfer.2')
+                    mprog.partbodyfeatureactivate('CD')
+                    mprog.partbodyfeatureactivate("Y")
+                    mprog.partbodyfeatureactivate('NM')
+                    mprog.partbodyfeatureactivate('SN1_60_R')
                     mprog.activatefeature('2-M8通孔', 0)
                     mprog.activatefeature('TY牌電磁閥用', 0)
                     mprog.activatefeature('M6通孔LED', 0)
                 elif i == 4:
-                    mprog.partbodyfeatureactivate('after80_S')
-                    mprog.partbodyfeatureactivate('after80_R')
-                    mprog.partbodyfeatureactivate('Chamfer.3')
+                    mprog.partbodyfeatureactivate('SN1_80250_I')
+                    mprog.partbodyfeatureactivate('SN1_80250_OP')
+                    mprog.partbodyfeatureactivate('SN1_80250_Q')
                     mprog.activatefeature('2-M8通孔', 0)
                     mprog.activatefeature('TY牌電磁閥用', 0)
                     mprog.activatefeature('M6通孔LED', 0)
                 elif i == 5:
-                    mprog.partbodyfeatureactivate('after80_S')
-                    mprog.partbodyfeatureactivate('after80_R')
-                    mprog.partbodyfeatureactivate('Chamfer.3')
+                    mprog.partbodyfeatureactivate('SN1_80250_I')
+                    mprog.partbodyfeatureactivate('SN1_80250_OP')
+                    mprog.partbodyfeatureactivate('SN1_80250_Q')
                     mprog.partbodyfeatureactivate('6-M6通C5')
                     mprog.activatefeature('6-M6通', 0)
                     mprog.activatefeature('M6通孔LED', 0)
                 elif i == 6:
-                    mprog.partbodyfeatureactivate('after80_S')
-                    mprog.partbodyfeatureactivate('after80_R')
-                    mprog.partbodyfeatureactivate('Chamfer.3')
+                    mprog.partbodyfeatureactivate('SN1_80250_I')
+                    mprog.partbodyfeatureactivate('SN1_80250_OP')
+                    mprog.partbodyfeatureactivate('SN1_80250_Q')
                     mprog.partbodyfeatureactivate('3-M8通_C5')
                     mprog.activatefeature('3-M8通', 0)
                     mprog.activatefeature('M6通孔LED', 0)
                 elif i == 7:
-                    mprog.partbodyfeatureactivate('after80_S')
-                    mprog.partbodyfeatureactivate('after80_R')
-                    mprog.partbodyfeatureactivate('Chamfer.3')
+                    mprog.partbodyfeatureactivate('SN1_80250_I')
+                    mprog.partbodyfeatureactivate('SN1_80250_OP')
+                    mprog.partbodyfeatureactivate('SN1_80250_Q')
                     mprog.partbodyfeatureactivate('5-M8通_C5')
                     mprog.activatefeature('5-M8通', 0)
                     mprog.activatefeature('M6通孔LED', 0)
                 elif i == 8:
-                    mprog.partbodyfeatureactivate('after80_S')
-                    mprog.partbodyfeatureactivate('after80_R')
-                    mprog.partbodyfeatureactivate('Chamfer.3')
+                    mprog.partbodyfeatureactivate('SN1_80250_I')
+                    mprog.partbodyfeatureactivate('SN1_80250_OP')
+                    mprog.partbodyfeatureactivate('SN1_80250_Q')
                     mprog.partbodyfeatureactivate('5-M8通_C5')
                     mprog.activatefeature('5-M8通', 0)
                     mprog.activatefeature('M6通孔LED', 0)
-                print('FRAME5 machining success')
             except BaseException:
                 print('FRAME5 Parameter activate error')
             finally:
@@ -1975,7 +1963,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     print('FRAME34 Update success')
                 except:
                     print('FRAME34 Update error')
-        elif name == 'FRAME35':#已更改
+        elif name == 'FRAME35':  # 已更改
             excel = epc.ExcelOp('FRAME35')
             try:
                 excel.get_sheet_par('FRAME35', i)
@@ -1983,39 +1971,39 @@ def change_machining_parameter(name, i, machiningdiepad):
             except:
                 print('FRAME35 Parameter change error')
             try:
-                if i== 0:
+                if i == 0:
                     mprog.activatefeature('SN1_2545_Body', 0)
                     mprog.activatefeature('Hole', 2)
                     mprog.partbodyfeatureactivate('SN1_25250_L')
-                elif i== 1:
+                elif i == 1:
                     mprog.activatefeature('SN1_2545_Body', 0)
                     mprog.activatefeature('Hole', 2)
                     mprog.partbodyfeatureactivate('SN1_25250_L')
-                elif i== 2:
+                elif i == 2:
                     mprog.activatefeature('SN1_2545_Body', 0)
                     mprog.activatefeature('Hole', 2)
                     mprog.partbodyfeatureactivate('SN1_25250_L')
-                elif i== 3:
+                elif i == 3:
                     mprog.activatefeature('SN1_60_Body', 0)
                     mprog.activatefeature('Hole', 2)
                     mprog.partbodyfeatureactivate('SN1_25250_L')
-                elif i== 4:
+                elif i == 4:
                     mprog.activatefeature('SN1_80200_Body', 0)
                     mprog.activatefeature('Hole', 2)
                     mprog.partbodyfeatureactivate('SN1_25250_L')
-                elif i== 5:
+                elif i == 5:
                     mprog.activatefeature('SN1_80200_Body', 0)
                     mprog.activatefeature('Hole', 2)
                     mprog.partbodyfeatureactivate('SN1_25250_L')
-                elif i== 6:
+                elif i == 6:
                     mprog.activatefeature('SN1_80200_Body', 0)
                     mprog.activatefeature('Hole', 2)
                     mprog.partbodyfeatureactivate('SN1_25250_L')
-                elif i== 7:
+                elif i == 7:
                     mprog.activatefeature('SN1_80200_Body', 6)
                     mprog.activatefeature('Hole', 2)
                     mprog.partbodyfeatureactivate('SN1_25250_L')
-                elif i== 8:
+                elif i == 8:
                     mprog.activatefeature('SN1_250_Body', 0)
                     mprog.activatefeature('Hole', 3)
             except:
@@ -2403,5 +2391,3 @@ def change_machining_parameter(name, i, machiningdiepad):
     except Exception as e:
         s = sys.exc_info()
         print('報錯行數：{}\n報錯內容：{}'.format(__file__, s[2].tb_lineno, s[1]))
-
-

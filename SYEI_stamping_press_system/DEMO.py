@@ -156,6 +156,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     mprog.save_stpfile_part(machining, name)
                     # 進行裁料圖特徵變更
                     wptc.change_welding_feature(name, i)
+                    print(output_text)
                     if "error" in output_text:
                         welding_file_change_error.append(name)
                     else:
