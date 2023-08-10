@@ -2046,3 +2046,7 @@ def change_welding_feature(name, i):
     except Exception as e:
         s = sys.exc_info()
         print('報錯行數：{}\n報錯內容：{}'.format(__file__, s[2].tb_lineno, s[1]))
+
+
+
+# 2023/08/11
