@@ -444,7 +444,7 @@ def FRAME_change_parameter2(name, i):
                 mprog.activatefeature('MOTOR_FIX_ADJUSTMENT_HOLE', 0)
             elif i== 3:
                 mprog.partbodyfeatureactivate('AB')
-                mprog.partbodyfeatureactivate('SN1_45250_C')
+                mprog.partbodyfeatureactivate('SN1_60250_C')
                 mprog.activatefeature('MOTOR_FIX_ADJUSTMENT_HOLE', 0)
             elif i== 4:
                 mprog.partbodyfeatureactivate('AB')
@@ -1562,4 +1562,4 @@ def BALL_SCREW_change(BALL_SCREW_name):
 
 
 
-FRAME_change_parameter2("FRAME3", 0)
+FRAME_change_parameter2("FRAME20", 0)

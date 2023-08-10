@@ -452,7 +452,7 @@ def change_parameter2(name, i):
                 mprog.activatefeature('MOTOR_FIX_ADJUSTMENT_HOLE', 0)
             elif i== 3:
                 mprog.partbodyfeatureactivate('AB')
-                mprog.partbodyfeatureactivate('SN1_45250_C')
+                mprog.partbodyfeatureactivate('SN1_60250_C')
                 mprog.activatefeature('MOTOR_FIX_ADJUSTMENT_HOLE', 0)
             elif i== 4:
                 mprog.partbodyfeatureactivate('AB')
@@ -1110,7 +1110,7 @@ def change_parameter2(name, i):
 
 
 
-change_parameter2('FRAME54', 6)
+change_parameter2('FRAME20', 0)
 
 
 
