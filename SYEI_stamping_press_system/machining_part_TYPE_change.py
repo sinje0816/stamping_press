@@ -576,11 +576,16 @@ def change_machining_parameter(name, i, machiningdiepad):
                 except:
                     print('FRAME4 Update error')
         elif name == 'FRAME5':  # 已更改
+            excel = epc.ExcelOp('FRAME5')
+            try:
+                FRAME4_parameter_name, FRAME4_parameter_value = excel.get_sheet_par('FRAME5', i)
+                print('FRAME5 Parameter change success')
+            except:
+                print('FRAME5 Parameter change error')
             try:
                 if i == 0:
                     mprog.partbodyfeatureactivate('SN1-25_X')
                     mprog.partbodyfeatureactivate('CD')
-                    mprog.partbodyfeatureactivate("Y")
                     mprog.partbodyfeatureactivate('SN1_25_H')
                     mprog.activatefeature('2-M8通孔', 0)
                     mprog.activatefeature('TY牌電磁閥用', 0)
@@ -588,7 +593,6 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('PT1/2', 0)
                 elif i == 1:
                     mprog.partbodyfeatureactivate('CD')
-                    mprog.partbodyfeatureactivate("Y")
                     mprog.partbodyfeatureactivate("SN1_3545_H")
                     mprog.activatefeature('2-M8通孔', 0)
                     mprog.activatefeature('TY牌電磁閥用', 0)
@@ -596,7 +600,6 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('PT1/2', 0)
                 elif i == 2:
                     mprog.partbodyfeatureactivate('CD')
-                    mprog.partbodyfeatureactivate("Y")
                     mprog.partbodyfeatureactivate("SN1_3545_H")
                     mprog.activatefeature('2-M8通孔', 0)
                     mprog.activatefeature('TY牌電磁閥用', 0)
@@ -604,42 +607,36 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('PT1/2', 0)
                 elif i == 3:
                     mprog.partbodyfeatureactivate('CD')
-                    mprog.partbodyfeatureactivate("Y")
                     mprog.partbodyfeatureactivate('NM')
                     mprog.partbodyfeatureactivate('SN1_60_R')
                     mprog.activatefeature('2-M8通孔', 0)
                     mprog.activatefeature('TY牌電磁閥用', 0)
                     mprog.activatefeature('M6通孔LED', 0)
                 elif i == 4:
-                    mprog.partbodyfeatureactivate('SN1_80250_I')
                     mprog.partbodyfeatureactivate('SN1_80250_OP')
                     mprog.partbodyfeatureactivate('SN1_80250_Q')
                     mprog.activatefeature('2-M8通孔', 0)
                     mprog.activatefeature('TY牌電磁閥用', 0)
                     mprog.activatefeature('M6通孔LED', 0)
                 elif i == 5:
-                    mprog.partbodyfeatureactivate('SN1_80250_I')
                     mprog.partbodyfeatureactivate('SN1_80250_OP')
                     mprog.partbodyfeatureactivate('SN1_80250_Q')
                     mprog.partbodyfeatureactivate('6-M6通C5')
                     mprog.activatefeature('6-M6通', 0)
                     mprog.activatefeature('M6通孔LED', 0)
                 elif i == 6:
-                    mprog.partbodyfeatureactivate('SN1_80250_I')
                     mprog.partbodyfeatureactivate('SN1_80250_OP')
                     mprog.partbodyfeatureactivate('SN1_80250_Q')
                     mprog.partbodyfeatureactivate('3-M8通_C5')
                     mprog.activatefeature('3-M8通', 0)
                     mprog.activatefeature('M6通孔LED', 0)
                 elif i == 7:
-                    mprog.partbodyfeatureactivate('SN1_80250_I')
                     mprog.partbodyfeatureactivate('SN1_80250_OP')
                     mprog.partbodyfeatureactivate('SN1_80250_Q')
                     mprog.partbodyfeatureactivate('5-M8通_C5')
                     mprog.activatefeature('5-M8通', 0)
                     mprog.activatefeature('M6通孔LED', 0)
                 elif i == 8:
-                    mprog.partbodyfeatureactivate('SN1_80250_I')
                     mprog.partbodyfeatureactivate('SN1_80250_OP')
                     mprog.partbodyfeatureactivate('SN1_80250_Q')
                     mprog.partbodyfeatureactivate('5-M8通_C5')
