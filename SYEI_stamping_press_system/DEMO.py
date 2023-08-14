@@ -23,12 +23,13 @@ class main(QtWidgets.QWidget, Ui_Dialog):
     def start(self):
         type = str(self.ui.comboBox_4.currentText())
         travel_type = str(self.ui.comboBox_2.currentText())
-        travel = str(self.ui.lineEdit.text())
+        travel = str(self.ui.label_7.text())
         specifications_travel_value = str(self.ui.lineEdit_5.text())
         specifications_close_working_height_value = str(self.ui.lineEdit_2.text())
+        close_working_height = str(self.ui.label_9.text())
         delta = str(self.ui.lineEdit_4.text())
         processing = str(self.ui.comboBox.currentText())
-        print(type, travel_type, travel, specifications_travel_value, specifications_close_working_height_value, delta)
+        print(type, travel_type, travel, specifications_travel_value, specifications_close_working_height_value, close_working_height, delta)
         self.create_dir(type)
         if specifications_travel_value == "":
             self.specifications_travel_value = 0
@@ -154,6 +155,18 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         self.path = path
         self.machining = machining
         self.welding = welding
+
+    def boundary_value(self):
+        Form = QtWidgets.QWidget()
+        Form.setWindowTitle('oxxo.studio')
+        Form.resize(500, 200)
+        mbox = QtWidgets.QMessageBox(Form)
+        try:
+            if int(self.ui.lineEdit.text()) > 10 or int(self.ui.lineEdit.text()) < -10:
+                mbox.warning(Form,'warning' , '超出界限')
+                self.ui.lineEdit.clear()
+        except:
+            alpha = str(self.ui.lineEdit.text())
 
     def change_dir(self, i, p, alpha, beta, delta, machining, welding):
         start_time = time.time()
