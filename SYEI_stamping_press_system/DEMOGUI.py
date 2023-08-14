@@ -56,7 +56,9 @@ class Ui_Dialog(object):
         self.label_6.setMinimumSize(QtCore.QSize(225, 300))
         self.label_6.setMaximumSize(QtCore.QSize(225, 300))
         self.label_6.setText("")
-        self.label_6.setPixmap(QtGui.QPixmap("../../../Downloads/messageImage_1669128161993.jpg"))
+        import os
+        dir = os.path.dirname(os.path.realpath(__file__))
+        self.label_6.setPixmap(QtGui.QPixmap(dir + "\\stamping.jpg"))
         self.label_6.setScaledContents(True)
         self.label_6.setObjectName("label_6")
         self.gridLayout.addWidget(self.label_6, 1, 0, 6, 1)
