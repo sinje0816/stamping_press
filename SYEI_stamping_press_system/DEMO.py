@@ -42,7 +42,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             self.delta = 0
         else:
             self.delta = int(delta)
-        self.i , self.p= self.choos(type , processing)
+        self.i, self.p = self.choos(type, processing)
         self.create_txt(self.path, type, travel_type, self.aplha, self.beta, self.delta)
         self.change_dir(self.i, self.p, self.aplha, self.beta, self.delta, self.machining, self.welding)
 
@@ -75,15 +75,70 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
         return i, p
 
+    def frame_calculate(self, i, specifications_travel_value, specifications_close_working_height_value, zeta, delta):
+        Form = QtWidgets.QWidget()
+        Form.setWindowTitle('warning.studio')
+        Form.resize(400, 300)
+        mbox = QtWidgets.QMessageBox(Form)
+
+        excel = epc.ExcelOp('標準資料')
+        type_name, travel_value, close_working_height_value, specifications_travel_min_value, specifications_travel_max_value, specifications_close_working_height_min_value, specifications_close_working_height_max_value = excel.get_standard_parts(
+            i)
+
+        # 行程
+        alpha = specifications_travel_value - travel_value
+        # 牙球伸長量
+        epsilon = (alpha / 2) + (close_working_height_value - specifications_close_working_height_value)
+        if epsilon <= 0:
+            epsilon = 0
+        else:
+            pass
+        # 喉部拉高量
+        zeta = (alpha / 2) + epsilon + specifications_close_working_height_value - close_working_height_value
+        # 閉合工作高度驗證公式
+        verification_specifications_close_working_height_value = close_working_height_value - (
+                alpha / 2) - epsilon + specifications_close_working_height_value - close_working_height_value
+        try:
+            # 驗證行程
+            if specifications_travel_value < specifications_travel_min_value or specifications_travel_value > specifications_travel_max_value:
+                mbox.warning(Form, '警告', '行程超出範圍')
+                self.ui.lineEdit.clear()
+            # 驗證閉合工作高度
+            if specifications_close_working_height_value >= specifications_close_working_height_min_value and specifications_close_working_height_value <= specifications_close_working_height_max_value:
+                pass
+            else:
+                mbox.warning(Form, '警告', '閉合工作高度超出範圍')
+                self.ui.lineEdit_2.clear()
+            # 驗證閉合工作高度是否符合客戶需求
+            if verification_specifications_close_working_height_value == specifications_close_working_height_value:
+                pass
+            else:
+                mbox.warning(Form, '警告', '閉合工作高度不符合客戶需求')
+                self.ui.lineEdit_2.clear()
+            # 驗證牙球伸長量
+            if epsilon < 0:
+                mbox.warning(Form, '警告', '牙球伸長量小於0')
+                self.ui.lineEdit_3.clear()
+            else:
+                pass
+            # 驗證喉部拉高量
+            if epsilon >= (alpha/2):
+                pass
+            else:
+                mbox.warning(Form, '警告', '衝頭縮進導軌內部')
+                self.ui.lineEdit_4.clear()
+        except:
+            alpha = specifications_travel_value - travel_value  # 行程差
+
     def create_txt(self, path, travel_type, type, alpha, beta, delta):
         file_txt = path
         txt_name = "生成參數.txt"
-        with open(file_txt + "\\" + txt_name,"w") as f:
-            f.write("噸數=%s\n" %type)
-            f.write("型式:%s\n" %travel_type)
-            f.write("行程=%s\n" %alpha)
-            f.write("閉合工作高度=%s\n" %beta)
-            f.write("平板前後=%s\n" %delta)
+        with open(file_txt + "\\" + txt_name, "w") as f:
+            f.write("噸數=%s\n" % type)
+            f.write("型式:%s\n" % travel_type)
+            f.write("行程=%s\n" % alpha)
+            f.write("閉合工作高度=%s\n" % beta)
+            f.write("平板前後=%s\n" % delta)
 
     def create_dir(self, type):  # 創建資料夾
         time_now = datetime.datetime.now()
@@ -178,7 +233,8 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         print('machining_file_change_pass', machining_file_change_pass)
         print('welding_file_change_error', welding_file_change_error)
         print('welding_file_change_pass', welding_file_change_pass)
-        print('總用時%s' % (time.time()-start_time))
+        print('總用時%s' % (time.time() - start_time))
+
 
 if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率
