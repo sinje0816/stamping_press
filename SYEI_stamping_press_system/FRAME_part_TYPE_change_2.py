@@ -1019,7 +1019,6 @@ def FRAME_change_parameter2(name, i):
                 mprog.activatefeature('M12通', 0)
             elif i== 6:
                 mprog.activatefeature('body', 0)
-                mprog.partbodyfeatureactivate('FRAME_SN1_80250_c')
                 mprog.activatefeature('M12通', 0)
             elif i== 7:
                 mprog.activatefeature('body', 0)

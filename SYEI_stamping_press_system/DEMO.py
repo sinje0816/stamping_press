@@ -22,31 +22,29 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
     def start(self):
         type = str(self.ui.comboBox_4.currentText())
-        alpha = str(self.ui.lineEdit.text())
-        beta = str(self.ui.lineEdit_2.text())
-        zeta = str(self.ui.lineEdit_3.text())
+        travel_type = str(self.ui.comboBox_2.currentText())
+        travel = str(self.ui.lineEdit.text())
+        specifications_travel_value = str(self.ui.lineEdit_5.text())
+        specifications_close_working_height_value = str(self.ui.lineEdit_2.text())
         delta = str(self.ui.lineEdit_4.text())
         processing = str(self.ui.comboBox.currentText())
-        print(type, alpha, beta, zeta, delta)
+        print(type, travel_type, travel, specifications_travel_value, specifications_close_working_height_value, delta)
         self.create_dir(type)
-        if alpha == "":
-            self.aplha = 0
+        if specifications_travel_value == "":
+            self.specifications_travel_value = 0
         else:
-            self.aplha = int(alpha)
-        if beta == "":
-            self.beta = 0
+            self.specifications_travel_value = int(specifications_travel_value)
+        if specifications_close_working_height_value == "":
+            self.specifications_close_working_height_value = 0
         else:
-            self.beta = int(beta)
-        if zeta == "":
-            self.zeta = 0
-        else:
-            self.zeta = int(zeta)
+            self.specifications_close_working_height_value = int(specifications_close_working_height_value)
         if delta == "":
             self.delta = 0
         else:
             self.delta = int(delta)
         self.i , self.p= self.choos(type , processing)
-        self.change_dir(self.i, self.p, self.aplha, self.beta, self.zeta, self.delta, self.machining, self.welding)
+        self.create_txt(self.path, type, travel_type, self.aplha, self.beta, self.delta)
+        self.change_dir(self.i, self.p, self.aplha, self.beta, self.delta, self.machining, self.welding)
 
     def choos(self, type, prossing):
         # 確認型號"輸入型號"
@@ -77,6 +75,16 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
         return i, p
 
+    def create_txt(self, path, travel_type, type, alpha, beta, delta):
+        file_txt = path
+        txt_name = "生成參數.txt"
+        with open(file_txt + "\\" + txt_name,"w") as f:
+            f.write("噸數=%s\n" %type)
+            f.write("型式:%s\n" %travel_type)
+            f.write("行程=%s\n" %alpha)
+            f.write("閉合工作高度=%s\n" %beta)
+            f.write("平板前後=%s\n" %delta)
+
     def create_dir(self, type):  # 創建資料夾
         time_now = datetime.datetime.now()
         dir_name = '{}_{}_{}_{}_{}'.format(type, time_now.day, time_now.hour, time_now.minute, time_now.second)
@@ -92,7 +100,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         self.machining = machining
         self.welding = welding
 
-    def change_dir(self, i, p, alpha, beta, zeta, delta, machining, welding):
+    def change_dir(self, i, p, alpha, beta, delta, machining, welding):
         start_time = time.time()
         # 開啟CATIA
         env = mprog.set_CATIA_workbench_env()
@@ -119,7 +127,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         try:
                             mprog.param_change(name, "alpha", alpha)
                             mprog.param_change(name, "beta", beta)
-                            mprog.param_change(name, "zeta", zeta)
                             mprog.param_change(name, "delta", delta)
                         except:
                             pass
@@ -138,7 +145,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         try:
                             mprog.param_change(name, "alpha", alpha)
                             mprog.param_change(name, "beta", beta)
-                            mprog.param_change(name, "zeta", zeta)
                             mprog.param_change(name, "delta", delta)
                         except:
                             pass
