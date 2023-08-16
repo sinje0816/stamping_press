@@ -2,9 +2,13 @@ import main_program as mprog
 import excel_parameter_change as epc
 import sys
 
+def modify_list_elements(enter_text, input_list):
+    modified_list = [f'{item}%s' % (enter_text) for item in input_list]
+    return modified_list
 
 # 母檔變數變換
 def change_machining_parameter(name, i, machiningdiepad):
+    all_part_list = epc.ExcelOp('沖床機架零件清單').get_col_cell(1)
     try:
         if name == 'FRAME1':
             excel = epc.ExcelOp('FRAME1')
@@ -2383,8 +2387,14 @@ def change_machining_parameter(name, i, machiningdiepad):
                     print('FRAME54 Update success')
                 except:
                     print('FRAME54 Update error')
-
+        all_parameter_name = modify_list_elements('_parameter_name', all_part_list)
+        all_parameter_value = modify_list_elements('_parameter_value', all_part_list)
+        for name in all_parameter_name:
+            return name
+        for value in all_parameter_value:
+            return value
     # print出跳錯欄位
     except Exception as e:
         s = sys.exc_info()
         print('報錯行數：{}\n報錯內容：{}'.format(__file__, s[2].tb_lineno, s[1]))
+
