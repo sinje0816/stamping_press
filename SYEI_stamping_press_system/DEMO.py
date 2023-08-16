@@ -19,6 +19,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
         self.ui.pushButton.clicked.connect(self.start)
+        self.ui.comboBox_4.currentIndexChanged.connect(lambda :self.change_label_7())
+        self.ui.comboBox_2.currentIndexChanged.connect(lambda :self.change_label_7())
+        self.ui.comboBox_4.currentIndexChanged.connect(lambda :self.change_label_9())
+        self.ui.comboBox_2.currentIndexChanged.connect(lambda :self.change_label_9())
 
     def start(self):
         type = str(self.ui.comboBox_4.currentText())
@@ -44,8 +48,9 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         else:
             self.delta = int(delta)
         self.i, self.p = self.choos(type, processing)
-        self.create_txt(self.path, type, travel_type, self.aplha, self.beta, self.delta)
-        self.change_dir(self.i, self.p, self.aplha, self.beta, self.delta, self.machining, self.welding)
+        self.create_txt(self.path, type, travel_type, self.alpha, self.beta, self.delta)
+        self.machining_file_change_error,self.welding_file_change_error= self.change_dir(self.i, self.p, self.alpha, self.beta, self.delta, self.machining, self.welding)
+        self.finish(self.machining_file_change_error, self.welding_file_change_error)
 
     def choos(self, type, prossing):
         # 確認型號"輸入型號"
@@ -156,17 +161,62 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         self.machining = machining
         self.welding = welding
 
-    def boundary_value(self):
+    def finish(self, machining_file_change_error, welding_file_change_error):
         Form = QtWidgets.QWidget()
         Form.setWindowTitle('oxxo.studio')
         Form.resize(500, 200)
         mbox = QtWidgets.QMessageBox(Form)
-        try:
-            if int(self.ui.lineEdit.text()) > 10 or int(self.ui.lineEdit.text()) < -10:
-                mbox.warning(Form,'warning' , '超出界限')
-                self.ui.lineEdit.clear()
-        except:
-            alpha = str(self.ui.lineEdit.text())
+        mbox.information(Form, '完成', '生成完成\nmachining_file_change_error:%s\nwelding_file_change_error:%s\n' %(machining_file_change_error, welding_file_change_error))
+        self.ui.lineEdit_5.clear()
+        self.ui.lineEdit_2.clear()
+        self.ui.lineEdit_4.clear()
+
+    def label_7_change_data(self):
+        label_7_data = {250: {"S": ("標準:80"), "H": ("標準:50"), "P": ("標準:35")},
+                350: {"S": ("標準:90"), "H": ("標準:60"), "P": ("標準:40")},
+                450: {"S": ("標準:110"), "H": ("標準:70"), "P": ("標準:45")},
+                600: {"S": ("標準:130"), "H": ("標準:80"), "P": ("標準:50")},
+                800: {"S": ("標準:150"), "H": ("標準:100"), "P": ("標準:60")},
+                1100: {"S": ("標準:180"), "H": ("標準:110"), "P": ("標準:70")},
+                1600: {"S": ("標準:200"), "H": ("標準:130"), "P": ("標準:80")},
+                2000: {"S": ("標準:220"), "H": ("標準:150"), "P": ("標準:90")},
+                2500: {"S": ("標準:250"), "H": ("標準:180"), "P": ("標準:100")},
+                }
+        return label_7_data
+    def change_label_7(self):
+        label_7_data = self.label_7_change_data()
+        type = str(self.ui.comboBox_4.currentText())
+        travel_type = str(self.ui.comboBox_2.currentText())
+        ton = int(type.split('-')[-1] + '0')
+        travel_standard = label_7_data[ton][travel_type]
+        travel_standard = str(travel_standard)
+
+        self.ui.label_7.clear()
+        self.ui.label_7.setText(travel_standard)
+
+    def label_9_data(self):
+        label_9_data = {250: {"S": ("標準:230"), "H": ("標準:200"), "P": ("標準:200")},
+                350: {"S": ("標準:250"), "H": ("標準:220"), "P": ("標準:220")},
+                450: {"S": ("標準:270"), "H": ("標準:240"), "P": ("標準:240")},
+                600: {"S": ("標準:300"), "H": ("標準:270"), "P": ("標準:270")},
+                800: {"S": ("標準:330"), "H": ("標準:300"), "P": ("標準:300")},
+                1100: {"S": ("標準:350"), "H": ("標準:320"), "P": ("標準:320")},
+                1600: {"S": ("標準:400"), "H": ("標準:360"), "P": ("標準:360")},
+                2000: {"S": ("標準:450"), "H": ("標準:400"), "P": ("標準:400")},
+                2500: {"S": ("標準:450"), "H": ("標準:400"), "P": ("標準:400")},}
+
+        return label_9_data
+
+    def change_label_9(self):
+        label_9_data = self.label_9_data()
+        type = str(self.ui.comboBox_4.currentText())
+        travel_type = str(self.ui.comboBox_2.currentText())
+        ton = int(type.split('-')[-1] + '0')
+        close_h = label_9_data[ton][travel_type]
+        close_h = str(close_h)
+
+        self.ui.label_9.clear()
+        self.ui.label_9.setText(close_h)
 
     def change_dir(self, i, p, alpha, beta, delta, machining, welding):
         start_time = time.time()
@@ -247,6 +297,8 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         print('welding_file_change_error', welding_file_change_error)
         print('welding_file_change_pass', welding_file_change_pass)
         print('總用時%s' % (time.time() - start_time))
+
+        return machining_file_change_error, welding_file_change_error
 
 
 if __name__ == "__main__":
