@@ -1162,10 +1162,11 @@ def change_welding_feature(name, i):
                     mprog.partbodyfeatureactivate('SN1_60_I')
                     mprog.partbodyfeatureactivate('SN1_60_JK')
                     mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
+                    mprog.partdeactivate('A(2)')
                     mprog.activatefeature('Hole_3', 0)
-                    mprog.bodydeactivate('FRAME_SN1_60_Body', 0)
                     mprog.bodydeactivate('SN1_2560_6_M8X16L_底孔27L', 0)
                 elif i == 4:
+                    mprog.partdeactivate('A(2)')
                     mprog.partbodyfeatureactivate('SN1_80250_A(1)D')
                     mprog.partbodyfeatureactivate('SN1_80250_FEBC')
                     mprog.partbodyfeatureactivate('SN1_80250_JK')
@@ -1176,8 +1177,8 @@ def change_welding_feature(name, i):
                     mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
                     mprog.activatefeature('SN1_80250_6_M8X16L_底孔27L', 0)
                     mprog.activatefeature('Hole_3', 0)
-                    mprog.bodydeactivate('FRAME_SN1_80250_Body', 0)
                 elif i == 5:
+                    mprog.partdeactivate('A(2)')
                     mprog.partbodyfeatureactivate('SN1_80250_A(1)D')
                     mprog.partbodyfeatureactivate('SN1_80250_FEBC')
                     mprog.partbodyfeatureactivate('SN1_80250_JK')
@@ -1188,8 +1189,8 @@ def change_welding_feature(name, i):
                     mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
                     mprog.activatefeature('SN1_80250_6_M8X16L_底孔27L', 0)
                     mprog.activatefeature('Hole_3', 0)
-                    mprog.bodydeactivate('FRAME_SN1_80250_Body', 0)
                 elif i == 6:
+                    mprog.partdeactivate('A(2)')
                     mprog.partbodyfeatureactivate('SN1_80250_A(1)D')
                     mprog.partbodyfeatureactivate('SN1_80250_FEBC')
                     mprog.partbodyfeatureactivate('SN1_80250_JK')
@@ -1200,8 +1201,8 @@ def change_welding_feature(name, i):
                     mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
                     mprog.activatefeature('SN1_80250_6_M8X16L_底孔27L', 0)
                     mprog.activatefeature('Hole_3', 0)
-                    mprog.bodydeactivate('FRAME_SN1_80250_Body', 0)
                 elif i == 7:
+                    mprog.partdeactivate('A(2)')
                     mprog.partbodyfeatureactivate('SN1_80250_A(1)D')
                     mprog.partbodyfeatureactivate('SN1_80250_FEBC')
                     mprog.partbodyfeatureactivate('SN1_80250_JK')
@@ -1212,8 +1213,8 @@ def change_welding_feature(name, i):
                     mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
                     mprog.activatefeature('SN1_80250_6_M8X16L_底孔27L', 0)
                     mprog.activatefeature('Hole_3', 0)
-                    mprog.bodydeactivate('FRAME_SN1_80250_Body', 0)
                 elif i == 8:
+                    mprog.partdeactivate('A(2)')
                     mprog.partbodyfeatureactivate('SN1_80250_A(1)D')
                     mprog.partbodyfeatureactivate('SN1_80250_FEBC')
                     mprog.partbodyfeatureactivate('SN1_80250_JK')
@@ -1222,7 +1223,6 @@ def change_welding_feature(name, i):
                     mprog.activatefeature('OPERATION_BOX_FIX_HOLE', 0)
                     mprog.activatefeature('SN1_80250_6_M8X16L_底孔27L', 0)
                     mprog.activatefeature('Hole_3', 0)
-                    mprog.bodydeactivate('FRAME_SN1_80250_Body', 0)
             except:
                 print('FRAME22 Parameter activate error')
             finally:
@@ -2042,4 +2042,6 @@ def change_welding_feature(name, i):
     except Exception as e:
         s = sys.exc_info()
         print('報錯行數：{}\n報錯內容：{}'.format(__file__, s[2].tb_lineno, s[1]))
+
+change_welding_feature("FRAME22", 5)
 
