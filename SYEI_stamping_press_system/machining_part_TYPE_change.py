@@ -1918,20 +1918,23 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate('SN1_2545_CEF')
                     mprog.activatefeature('Hole_1', 0)
                     mprog.partbodyfeatureactivate('FRAME_2545_LMN')
+                    mprog.partbodyfeatureactivate("O")
                 elif i == 1:
                     mprog.partbodyfeatureactivate('AB')
                     mprog.partbodyfeatureactivate('SN1_2545_CEF')
                     mprog.activatefeature('Hole_1', 0)
                     mprog.partbodyfeatureactivate('FRAME_2545_LMN')
+                    mprog.partbodyfeatureactivate("O")
                 elif i == 2:
                     mprog.partbodyfeatureactivate('AB')
                     mprog.partbodyfeatureactivate('SN1_2545_CEF')
                     mprog.activatefeature('Hole_1', 0)
                     mprog.partbodyfeatureactivate('FRAME_2545_LMN')
+                    mprog.partbodyfeatureactivate("O")
                 elif i == 3:
                     mprog.partbodyfeatureactivate('AB')
                     mprog.activatefeature('Hole_1', 0)
-                    mprog.partbodyfeatureactivate('FRAME_60_LMN')
+                    mprog.partbodyfeatureactivate("O")
             except:
                 print('FRAME33 Parameter activate error')
             finally:
@@ -1955,6 +1958,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('Air_pipe_wire_threading_hole', 0)
                     mprog.activatefeature('Hole_2', 0)
                     mprog.partbodyfeatureactivate('FRAME_1_2545_PQR')
+                    mprog.partbodyfeatureactivate("S")
                 elif i == 1:
                     mprog.partbodyfeatureactivate('AB')
                     mprog.partbodyfeatureactivate('SN1_2545_CD')
@@ -1962,18 +1966,20 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('Air_pipe_wire_threading_hole', 0)
                     mprog.activatefeature('Hole_2', 0)
                     mprog.partbodyfeatureactivate('FRAME_1_2545_PQR')
+                    mprog.partbodyfeatureactivate("S")
                 elif i == 2:
                     mprog.partbodyfeatureactivate('AB')
                     mprog.partbodyfeatureactivate('SN1_2545_CD')
                     mprog.activatefeature('Air_pipe_wire_threading_hole', 0)
                     mprog.activatefeature('Hole_2', 0)
                     mprog.partbodyfeatureactivate('FRAME_1_2545_PQR')
+                    mprog.partbodyfeatureactivate("S")
                 elif i == 3:
                     mprog.partbodyfeatureactivate('AB')
                     mprog.partbodyfeatureactivate('SN1_60_NM')
                     mprog.activatefeature('Air_pipe_wire_threading_hole', 0)
                     mprog.activatefeature('Hole_2', 0)
-                    mprog.partbodyfeatureactivate('FRAME_1_60_PQR')
+                    mprog.partbodyfeatureactivate("S")
             except:
                 print('FRAME34 Parameter activate error')
             finally:
