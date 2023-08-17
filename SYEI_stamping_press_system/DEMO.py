@@ -6,7 +6,7 @@ import main_program as mprog
 import file_path as fp
 import parameter as par
 import machining_part_TYPE_change as mptc
-import welding_part_TYPE_change1 as wptc
+import welding_part_TYPE_change as wptc
 import excel_parameter_change as epc
 import sys
 import datetime
@@ -104,9 +104,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         excel = epc.ExcelOp('標準資料')
         type_name, travel_value, close_working_height_value, specifications_travel_min_value, specifications_travel_max_value, specifications_close_working_height_min_value, specifications_close_working_height_max_value = excel.get_standard_parts(
             i * 3)
-        print(type_name, travel_value, close_working_height_value, specifications_travel_min_value,
-              specifications_travel_max_value, specifications_close_working_height_min_value,
-              specifications_close_working_height_max_value)
 
         # 噸數&行程類型
         all_type = i * 3 + travel_type - 1
@@ -159,7 +156,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
         # 驗證閉合工作高度是否符合客戶需求
         if verification_specifications_close_working_height_value == specifications_close_working_height_value:
-            pass
+            print('閉合工作高度符合要求: %s = %s' % (verification_specifications_close_working_height_value, specifications_close_working_height_value))
         else:
             print(
                 'verification_specifications_close_working_height_value: %s；specifications_close_working_height_value: %s' % (

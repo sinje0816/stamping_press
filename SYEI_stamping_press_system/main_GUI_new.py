@@ -7,7 +7,7 @@ import file_path as fp
 import parameter as par
 import engineering_drawing as eng
 import Assembly_diagram as Assdig
-import welding_part_TYPE_change1 as TPC
+import welding_part_TYPE_change as TPC
 
 import sys
 import datetime
