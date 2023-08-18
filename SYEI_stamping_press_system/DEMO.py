@@ -56,7 +56,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                                                                                   self.travel_type)
         if test_stop == False:
             self.create_txt(self.path, type, travel_type, self.specifications_travel_value, self.specifications_close_working_height_value, self.alpha, self.beta, self.delta, self.zeta, self.epsilon)
-            self.change_dir(self.i, self.p, self.alpha, self.beta, self.delta, self.machining, self.welding)
+            self.change_dir(self.i, self.p, self.alpha, self.beta, self.delta,self.zeta, self.epsilon , self.machining, self.welding)
 
     def choos(self, type, prossing, travel_type):
         # 確認型號"輸入型號"
@@ -295,7 +295,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         self.ui.label_9.clear()
         self.ui.label_9.setText(close_h)
 
-    def change_dir(self, i, p, alpha, beta, delta, machining, welding):
+    def change_dir(self, i, p, alpha, beta, delta, zeta, epsilon, machining, welding):
         start_time = time.time()
         all_part_name = {}
         all_part_value = {}
@@ -325,6 +325,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                             mprog.param_change(name, "alpha", alpha)
                             mprog.param_change(name, "beta", beta)
                             mprog.param_change(name, "delta", delta)
+                            mprog.param_change(name, 'zeta', zeta)
                         except:
                             pass
                         # 加工圖零件
@@ -348,6 +349,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                             mprog.param_change(name, "alpha", alpha)
                             mprog.param_change(name, "beta", beta)
                             mprog.param_change(name, "delta", delta)
+                            mprog.param_change(name, 'zeta', zeta)
                         except:
                             pass
 

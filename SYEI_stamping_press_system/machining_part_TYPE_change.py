@@ -712,19 +712,19 @@ def change_machining_parameter(name, i, machiningdiepad):
                 elif i == 3:
                     mprog.activatefeature('SN1_2560_Body', 1)
                 elif i == 4:
-                    mprog.activatefeature('FRAME_SN1_80250_Body', 4)
+                    mprog.activatefeature('SN1_80250_Body', 4)
                     mprog.activatefeature('Hole_1', 0)
                 elif i == 5:
-                    mprog.activatefeature('FRAME_SN1_80250_Body', 4)
+                    mprog.activatefeature('SN1_80250_Body', 4)
                     mprog.activatefeature('Hole_1', 0)
                 elif i == 6:
-                    mprog.activatefeature('FRAME_SN1_80250_Body', 4)
+                    mprog.activatefeature('SN1_80250_Body', 4)
                     mprog.activatefeature('Hole_1', 0)
                 elif i == 7:
-                    mprog.activatefeature('FRAME_SN1_80250_Body', 4)
+                    mprog.activatefeature('SN1_80250_Body', 4)
                     mprog.activatefeature('Hole_1', 0)
                 elif i == 8:
-                    mprog.activatefeature('FRAME_SN1_80250_Body', 4)
+                    mprog.activatefeature('SN1_80250_Body', 4)
                     mprog.activatefeature('Hole_1', 0)
                 print('FRAME7 machining success')
             except:
@@ -747,12 +747,11 @@ def change_machining_parameter(name, i, machiningdiepad):
                 if i == 0:
                     mprog.partbodyfeatureactivate('上半倒角')
                 elif i == 1:
-                    mprog.partbodyfeatureactivate('上半倒角')
-                    # mprog.activatefeature('38孔通', 0)
+                    mprog.partbodyfeatureactivate("Pad.2")
                 elif i == 2:
-                    mprog.partbodyfeatureactivate('上半倒角')
+                    mprog.partbodyfeatureactivate("Pad.2")
                 elif i == 3:
-                    mprog.partbodyfeatureactivate('上半倒角')
+                    mprog.partbodyfeatureactivate("Pad.2")
                 elif i == 4:
                     mprog.partbodyfeatureactivate('上半倒角80')
                     mprog.partbodyfeatureactivate('R40特徵')
@@ -2420,3 +2419,5 @@ def change_machining_parameter(name, i, machiningdiepad):
         print('報錯行數：{}\n報錯內容：{}'.format(__file__, s[2].tb_lineno, s[1]))
 
     return parameter_name, parameter_value
+
+change_machining_parameter("FRAME8", 6, 0)
