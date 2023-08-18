@@ -2,9 +2,11 @@ import main_program as mprog
 import excel_parameter_change as epc
 import sys
 
+
 def modify_list_elements(enter_text, input_list):
     modified_list = [f'{item}%s' % (enter_text) for item in input_list]
     return modified_list
+
 
 # 母檔變數變換
 def change_machining_parameter(name, i, machiningdiepad):
@@ -13,7 +15,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         if name == 'FRAME1':
             excel = epc.ExcelOp('FRAME1')
             try:
-                FRAME1_parameter_name, FRAME1_parameter_value = excel.get_sheet_par('FRAME1', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME1', i)
                 print('FRAME1 Parameter change success')
             except BaseException:
                 print('FRAME1 Parameter change error')
@@ -178,7 +180,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME2':
             excel = epc.ExcelOp('FRAME2')
             try:
-                FRAME2_parameter_name, FRAME2_parameter_value = excel.get_sheet_par(
+                parameter_name, parameter_value = excel.get_sheet_par(
                     'FRAME2', i)
                 print('FRAME2 Parameter change success')
             except BaseException:
@@ -443,7 +445,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME3':
             excel = epc.ExcelOp('FRAME3')
             try:
-                FRAME3_parameter_name, FRAME3_parameter_value = excel.get_sheet_par('FRAME3', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME3', i)
                 print('FRAME3 Parameter change success')
             except:
                 print('FRAME3 Parameter change error')
@@ -518,7 +520,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME4':  # 已更改
             excel = epc.ExcelOp('FRAME4')
             try:
-                FRAME4_parameter_name, FRAME4_parameter_value = excel.get_sheet_par('FRAME4', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME4', i)
                 print('FRAME4 Parameter change success')
             except:
                 print('FRAME4 Parameter change error')
@@ -582,7 +584,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME5':  # 已更改
             excel = epc.ExcelOp('FRAME5')
             try:
-                FRAME4_parameter_name, FRAME4_parameter_value = excel.get_sheet_par('FRAME5', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME5', i)
                 print('FRAME5 Parameter change success')
             except:
                 print('FRAME5 Parameter change error')
@@ -657,7 +659,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME6':
             excel = epc.ExcelOp('FRAME6')
             try:
-                FRAME6_parameter_name, FRAME6_parameter_value = excel.get_sheet_par('FRAME6', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME6', i)
                 print('FRAME6 Parameter change success')
             except:
                 print('FRAME6 Parameter change error')
@@ -695,7 +697,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME7':  # 已更改
             excel = epc.ExcelOp('FRAME7')
             try:
-                FRAME7_parameter_name, FRAME7_parameter_value = excel.get_sheet_par('FRAME7', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME7', i)
                 print('FRAME7 Parameter change success')
             except:
                 print('FRAME7 Parameter change error')
@@ -736,7 +738,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME8':
             excel = epc.ExcelOp('FRAME8')
             try:
-                FRAME8_parameter_name, FRAME8_parameter_value = excel.get_sheet_par(
+                parameter_name, parameter_value = excel.get_sheet_par(
                     'FRAME8', i)
                 print('FRAME8 Parameter change success')
             except:
@@ -789,7 +791,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME9':
             excel = epc.ExcelOp('FRAME9')
             try:
-                FRAME9_parameter_name, FRAME9_parameter_value = excel.get_sheet_par('FRAME9', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME9', i)
                 print('FRAME9 Parameter change success')
             except:
                 print('FRAME9 Parameter change error')
@@ -824,7 +826,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME10':  # 已更改
             excel = epc.ExcelOp('FRAME10')
             try:
-                FRAME10_parameter_name, FRAME10_parameter_value = excel.get_sheet_par('FRAME10', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME10', i)
                 print('FRAME10 Parameter change success')
             except:
                 print('FRAME10 Parameter change error')
@@ -883,7 +885,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME11':
             excel = epc.ExcelOp('FRAME11')
             try:
-                FRAME11_parameter_name, FRAME11_parameter_value = excel.get_sheet_par(
+                parameter_name, parameter_value = excel.get_sheet_par(
                     'FRAME11', i)
                 print('FRAME11 Parameter change success')
             except BaseException:
@@ -924,7 +926,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME12':
             excel = epc.ExcelOp('FRAME12')
             try:
-                FRAME12_parameter_name, FRAME12_parameter_value = excel.get_sheet_par('FRAME12', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME12', i)
                 print('FRAME12 Parameter change success')
             except:
                 print('FRAME12 Parameter change error')
@@ -976,7 +978,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME13':
             excel = epc.ExcelOp('FRAME13')
             try:
-                FRAME13_parameter_name, FRAME13_parameter_value = excel.get_sheet_par('FRAME13', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME13', i)
                 print('FRAME13 Parameter change success')
             except:
                 print('FRAME13 Parameter change error')
@@ -1050,7 +1052,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME14':
             excel = epc.ExcelOp('FRAME14')
             try:
-                FRAME14_parameter_name, FRAME14_parameter_value = excel.get_sheet_par('FRAME14', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME14', i)
                 print('FRAME14 Parameter change success')
             except:
                 print('FRAME14 Parameter change error')
@@ -1116,7 +1118,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME15':
             excel = epc.ExcelOp('FRAME15')
             try:
-                FRAME15_parameter_name, FRAME15_parameter_value = excel.get_sheet_par('FRAME15', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME15', i)
                 print('FRAME15 Parameter change success')
             except:
                 print('FRAME15 Parameter change error')
@@ -1151,7 +1153,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME17':
             excel = epc.ExcelOp('FRAME17')
             try:
-                FRAME17_parameter_name, FRAME17_parameter_value = excel.get_sheet_par('FRAME17', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME17', i)
                 print('FRAME17 Parameter change success')
             except:
                 print('FRAME17 Parameter change error')
@@ -1217,7 +1219,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME18':
             excel = epc.ExcelOp('FRAME18')
             try:
-                FRAME18_parameter_name, FRAME18_parameter_value = excel.get_sheet_par('FRAME18', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME18', i)
                 print('FRAME18 Parameter change success')
             except:
                 print('FRAME18 Parameter change error')
@@ -1262,7 +1264,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME19':  # 已更改
             excel = epc.ExcelOp('FRAME19')
             try:
-                FRAME19_parameter_name, FRAME19_parameter_value = excel.get_sheet_par('FRAME19', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME19', i)
                 print('FRAME19 Parameter change success')
             except:
                 print('FRAME19 Parameter change error')
@@ -1305,7 +1307,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME20':
             excel = epc.ExcelOp('FRAME20')
             try:
-                FRAME20_parameter_name, FRAME20_parameter_value = excel.get_sheet_par('FRAME20', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME20', i)
                 print('FRAME20 Parameter change success')
             except:
                 print('FRAME20 Parameter change error')
@@ -1368,7 +1370,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME21':
             excel = epc.ExcelOp('FRAME21')
             try:
-                FRAME21_parameter_name, FRAME21_parameter_value = excel.get_sheet_par('FRAME21', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME21', i)
                 print('FRAME21 Parameter change success')
             except:
                 print('FRAME21 Parameter change error')
@@ -1389,7 +1391,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME22':
             excel = epc.ExcelOp('FRAME22')
             try:
-                excel.get_sheet_par('FRAME22', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME22', i)
                 print('FRAME22 Parameter change success')
             except:
                 print('FRAME22 Parameter change error')
@@ -1471,7 +1473,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME23':
             excel = epc.ExcelOp('FRAME23')
             try:
-                FRAME23_parameter_name, FRAME23_parameter_value = excel.get_sheet_par('FRAME23', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME23', i)
                 print('FRAME23 Parameter change success')
             except:
                 print('FRAME23 Parameter change error')
@@ -1512,7 +1514,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME24':
             excel = epc.ExcelOp('FRAME24')
             try:
-                FRAME24_parameter_name, FRAME24_parameter_value = excel.get_sheet_par(
+                parameter_name, parameter_value = excel.get_sheet_par(
                     'FRAME24', i)
                 print('FRAME24 Parameter change success')
             except BaseException:
@@ -1552,7 +1554,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME25':
             excel = epc.ExcelOp('FRAME25')
             try:
-                FRAME25_parameter_name, FRAME25_parameter_value = excel.get_sheet_par('FRAME25', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME25', i)
                 print('FRAME25 Parameter change success')
             except:
                 print('FRAME25 Parameter change error')
@@ -1584,7 +1586,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME26':
             excel = epc.ExcelOp('FRAME26')
             try:
-                FRAME26_parameter_name, FRAME26_parameter_value = excel.get_sheet_par('FRAME26', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME26', i)
                 print('FRAME26 Parameter change success')
             except:
                 print('FRAME26 Parameter change error')
@@ -1626,7 +1628,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME27':
             excel = epc.ExcelOp('FRAME27')
             try:
-                FRAME27_parameter_name, FRAME27_parameter_value = excel.get_sheet_par('FRAME27', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME27', i)
                 print('FRAME27 Parameter change success')
             except:
                 print('FRAME27 Parameter change error')
@@ -1664,7 +1666,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME27_1':
             excel = epc.ExcelOp('FRAME27_1')
             try:
-                FRAME27_1_parameter_name, FRAME27_1_parameter_value = excel.get_sheet_par('FRAME27_1', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME27_1', i)
                 print('FRAME27_1 Parameter change success')
             except:
                 print('FRAME27_1 Parameter change error')
@@ -1702,7 +1704,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME28':
             excel = epc.ExcelOp('FRAME28')
             try:
-                FRAME28_parameter_name, FRAME28_parameter_value = excel.get_sheet_par('FRAME28', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME28', i)
                 print('FRAME28 Parameter change success')
             except:
                 print('FRAME28 Parameter change error')
@@ -1754,7 +1756,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME29':
             excel = epc.ExcelOp('FRAME29')
             try:
-                FRAME29_parameter_name, FRAME29_parameter_value = excel.get_sheet_par(
+                parameter_name, parameter_value = excel.get_sheet_par(
                     'FRAME29', i)
                 print('FRAME29 Parameter change success')
             except BaseException:
@@ -1770,7 +1772,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME30':  # 已更改
             excel = epc.ExcelOp('FRAME30')
             try:
-                FRAME30_parameter_name, FRAME30_parameter_value = excel.get_sheet_par('FRAME30', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME30', i)
                 print('FRAME30 Parameter change success')
             except:
                 print('FRAME30 Parameter change error')
@@ -1849,7 +1851,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME31':
             excel = epc.ExcelOp('FRAME31')
             try:
-                FRAME31_parameter_name, FRAME31_parameter_value = excel.get_sheet_par('FRAME31', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME31', i)
                 print('FRAME31 Parameter change success')
             except:
                 print('FRAME31 Parameter change error')
@@ -1874,7 +1876,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME32':
             excel = epc.ExcelOp('FRAME32')
             try:
-                FRAME32_parameter_name, FRAME32_parameter_value = excel.get_sheet_par('FRAME32', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME32', i)
                 print('FRAME32 Parameter change success')
             except:
                 print('FRAME32 Parameter change error')
@@ -1908,7 +1910,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == "FRAME33":
             excel = epc.ExcelOp('FRAME33')
             try:
-                FRAME33_parameter_name, FRAME33_parameter_value = excel.get_sheet_par('FRAME33', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME33', i)
                 print('FRAME33 Parameter change success')
             except:
                 print('FRAME33 Parameter change error')
@@ -1946,7 +1948,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME34':
             excel = epc.ExcelOp('FRAME34')
             try:
-                FRAME34_parameter_name, FRAME34_parameter_value = excel.get_sheet_par('FRAME34', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME34', i)
                 print('FRAME34 Parameter change success')
             except:
                 print('FRAME34 Parameter change error')
@@ -1991,7 +1993,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME35':  # 已更改
             excel = epc.ExcelOp('FRAME35')
             try:
-                excel.get_sheet_par('FRAME35', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME35', i)
                 print('FRAME35 Parameter change success')
             except:
                 print('FRAME35 Parameter change error')
@@ -2042,7 +2044,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME36':  # 已更改
             excel = epc.ExcelOp('FRAME36')
             try:
-                FRAME36_parameter_name, FRAME36_parameter_value = excel.get_sheet_par('FRAME36', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME36', i)
                 print('FRAME36 Parameter change success')
             except:
                 print('FRAME36 Parameter change error')
@@ -2066,7 +2068,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME37':  # 已更改
             excel = epc.ExcelOp('FRAME37')
             try:
-                FRAME37_parameter_name, FRAME37_parameter_value = excel.get_sheet_par('FRAME37', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME37', i)
                 print('FRAME37 Parameter change success')
             except:
                 print('FRAME37 Parameter change error')
@@ -2094,7 +2096,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME38':
             excel = epc.ExcelOp('FRAME38')
             try:
-                FRAME38_parameter_name, FRAME38_parameter_value = excel.get_sheet_par('FRAME38', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME38', i)
                 print('FRAME38 Parameter change success')
             except:
                 print('FRAME38 Parameter change error')
@@ -2137,7 +2139,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME41':
             excel = epc.ExcelOp('FRAME41')
             try:
-                FRAME41_parameter_name, FRAME41_parameter_value = excel.get_sheet_par('FRAME41', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME41', i)
                 print('FRAME41 Parameter change success')
             except:
                 print('FRAME41 Parameter change error')
@@ -2155,7 +2157,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME42':
             excel = epc.ExcelOp('FRAME42')
             try:
-                FRAME42_parameter_name, FRAME42_parameter_value = excel.get_sheet_par('FRAME42', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME42', i)
                 print('FRAME42 Parameter change success')
             except:
                 print('FRAME42 Parameter change error')
@@ -2178,7 +2180,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME43':
             excel = epc.ExcelOp('FRAME43')
             try:
-                FRAME43_parameter_name, FRAME43_parameter_value = excel.get_sheet_par(
+                parameter_name, parameter_value = excel.get_sheet_par(
                     'FRAME43', i)
                 print('FRAME43 Parameter change success')
             except BaseException:
@@ -2199,7 +2201,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME45':
             excel = epc.ExcelOp('FRAME45')
             try:
-                FRAME45_parameter_name, FRAME45_parameter_value = excel.get_sheet_par('FRAME45', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME45', i)
                 print('FRAME45 Parameter change success')
             except:
                 print('FRAME45 Parameter change error')
@@ -2233,7 +2235,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME47':
             excel = epc.ExcelOp('FRAME47')
             try:
-                FRAME47_parameter_name, FRAME47_parameter_value = excel.get_sheet_par('FRAME47', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME47', i)
                 print('FRAME47 Parameter change success')
             except:
                 print('FRAME47 Parameter change error')
@@ -2260,7 +2262,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME48':
             excel = epc.ExcelOp('FRAME48')
             try:
-                FRAME48_parameter_name, FRAME48_parameter_value = excel.get_sheet_par('FRAME48', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME48', i)
                 print('FRAME48 Parameter change success')
             except:
                 print('FRAME48 Parameter change error')
@@ -2287,7 +2289,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME49':  # 已更改
             excel = epc.ExcelOp('FRAME49')
             try:
-                FRAME49_parameter_name, FRAME49_parameter_value = excel.get_sheet_par('FRAME49', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME49', i)
                 print('FRAME49 Parameter change success')
             except:
                 print('FRAME49 Parameter change error')
@@ -2322,7 +2324,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME50':  # 已更改
             excel = epc.ExcelOp('FRAME50')
             try:
-                FRAME50_parameter_name, FRAME50_parameter_value = excel.get_sheet_par('FRAME50', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME50', i)
                 print('FRAME50 Parameter change success')
             except:
                 print('FRAME50 Parameter change error')
@@ -2358,7 +2360,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME52':
             excel = epc.ExcelOp('FRAME52')
             try:
-                FRAME52_parameter_name, FRAME52_parameter_value = excel.get_sheet_par('FRAME52', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME52', i)
                 print('FRAME52 Parameter change success')
             except:
                 print('FRAME52 Parameter change error')
@@ -2379,7 +2381,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME53':
             excel = epc.ExcelOp('FRAME53')
             try:
-                FRAME53_parameter_name, FRAME53_parameter_value = excel.get_sheet_par(
+                parameter_name, parameter_value = excel.get_sheet_par(
                     'FRAME53', i)
                 print('FRAME53 Parameter change success')
             except BaseException:
@@ -2392,7 +2394,7 @@ def change_machining_parameter(name, i, machiningdiepad):
         elif name == 'FRAME54':  # 已更改
             excel = epc.ExcelOp('FRAME54')
             try:
-                FRAME54_parameter_name, FRAME54_parameter_value = excel.get_sheet_par('FRAME54', i)
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME54', i)
                 print('FRAME54 Parameter change success')
             except:
                 print('FRAME54 Parameter change error')
@@ -2411,14 +2413,10 @@ def change_machining_parameter(name, i, machiningdiepad):
                     print('FRAME54 Update success')
                 except:
                     print('FRAME54 Update error')
-        all_parameter_name = modify_list_elements('_parameter_name', all_part_list)
-        all_parameter_value = modify_list_elements('_parameter_value', all_part_list)
-        for name in all_parameter_name:
-            return name
-        for value in all_parameter_value:
-            return value
+
     # print出跳錯欄位
     except Exception as e:
         s = sys.exc_info()
         print('報錯行數：{}\n報錯內容：{}'.format(__file__, s[2].tb_lineno, s[1]))
 
+    return parameter_name, parameter_value

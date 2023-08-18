@@ -22,7 +22,8 @@ class ExcelOp(object):
         parameter_value = self.get_col_cell(i+2)
         if part_name != '沖床機架零件清單' and part_name != '標準資料':
             for n in range(0, len(parameter_name)):
-                print(parameter_name[n], parameter_value[n])
+                # 確認生成變數
+                # print(parameter_name[n], parameter_value[n])
                 mprog.param_change(part_name, parameter_name[n], str(parameter_value[n]))
         else:
             pass
