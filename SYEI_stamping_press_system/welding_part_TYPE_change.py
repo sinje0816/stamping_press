@@ -448,6 +448,8 @@ def change_welding_feature(name, i):
                     mprog.partdeactivate('FRAME_SN1_25250_PQ')
                     mprog.partdeactivate('FRAME_SN1_2560_S')
                     mprog.partdeactivate('FRAME_SN1_2560_U')
+                    mprog.partdeactivate('machining_AA')
+                    mprog.partdeactivate('machining_L')
                     mprog.bodydeactivate('M10X20L(不可貫穿)', 0)
                 elif i == 1:
                     mprog.activatefeature('SN1_25250_Body', 0)
@@ -457,6 +459,8 @@ def change_welding_feature(name, i):
                     mprog.partdeactivate('FRAME_SN1_25250_PQ')
                     mprog.partdeactivate('FRAME_SN1_2560_S')
                     mprog.partdeactivate('FRAME_SN1_2560_U')
+                    mprog.partdeactivate('machining_AA')
+                    mprog.partdeactivate('machining_L')
                     mprog.bodydeactivate('M10X20L(不可貫穿)', 0)
                 elif i == 2:
                     mprog.activatefeature('SN1_25250_Body', 0)
@@ -466,6 +470,8 @@ def change_welding_feature(name, i):
                     mprog.partdeactivate('FRAME_SN1_25250_PQ')
                     mprog.partdeactivate('FRAME_SN1_2560_S')
                     mprog.partdeactivate('FRAME_SN1_2560_U')
+                    mprog.partdeactivate('machining_AA')
+                    mprog.partdeactivate('machining_L')
                     mprog.bodydeactivate('M10X20L(不可貫穿)', 0)
                 elif i == 3:
                     mprog.activatefeature('SN1_25250_Body', 0)
@@ -474,6 +480,8 @@ def change_welding_feature(name, i):
                     mprog.partdeactivate('FRAME_SN1_25250_PQ')
                     mprog.partdeactivate('FRAME_SN1_2560_S')
                     mprog.partdeactivate('FRAME_SN1_2560_U')
+                    mprog.partdeactivate('machining_AA')
+                    mprog.partdeactivate('machining_L')
                     mprog.bodydeactivate('M10X20L(不可貫穿)', 0)
                 elif i == 4:
                     mprog.activatefeature('SN1_25250_Body', 0)
@@ -482,6 +490,8 @@ def change_welding_feature(name, i):
                     mprog.activatefeature('Hole_2', 1)
                     mprog.partdeactivate('FRAME_SN1_25250_PQ')
                     mprog.partdeactivate('FRAME_SN1_80250_R')
+                    mprog.partdeactivate('machining_AA')
+                    mprog.partdeactivate('machining_L')
                     mprog.bodydeactivate('M10X20L(不可貫穿)', 0)
                 elif i == 5:
                     mprog.activatefeature('SN1_25250_Body', 0)
@@ -489,6 +499,8 @@ def change_welding_feature(name, i):
                     mprog.activatefeature('Hole_2', 1)
                     mprog.partdeactivate('FRAME_SN1_25250_PQ')
                     mprog.partdeactivate('FRAME_SN1_80250_R')
+                    mprog.partdeactivate('machining_AA')
+                    mprog.partdeactivate('machining_L')
                     mprog.bodydeactivate('M10X20L(不可貫穿)', 0)
                 elif i == 6:
                     mprog.activatefeature('SN1_25250_Body', 0)
@@ -497,6 +509,8 @@ def change_welding_feature(name, i):
                     mprog.activatefeature('Hole_2', 1)
                     mprog.partdeactivate('FRAME_SN1_25250_PQ')
                     mprog.partdeactivate('FRAME_SN1_80250_R')
+                    mprog.partdeactivate('machining_AA')
+                    mprog.partdeactivate('machining_L')
                     mprog.bodydeactivate('M10X20L(不可貫穿)', 0)
                 elif i == 7:
                     mprog.activatefeature('SN1_25250_Body', 0)
@@ -505,6 +519,8 @@ def change_welding_feature(name, i):
                     mprog.activatefeature('Hole_2', 1)
                     mprog.partdeactivate('FRAME_SN1_25250_PQ')
                     mprog.partdeactivate('FRAME_SN1_80250_R')
+                    mprog.partdeactivate('machining_AA')
+                    mprog.partdeactivate('machining_L')
                     mprog.bodydeactivate('M10X20L(不可貫穿)', 0)
                 elif i == 8:
                     mprog.activatefeature('SN1_25250_Body', 4)
@@ -513,6 +529,8 @@ def change_welding_feature(name, i):
                     mprog.activatefeature('Hole_2', 1)
                     mprog.partdeactivate('FRAME_SN1_25250_PQ')
                     mprog.partdeactivate('FRAME_SN1_80250_R')
+                    mprog.partdeactivate('machining_AA')
+                    mprog.partdeactivate('machining_L')
                     mprog.bodydeactivate('M10X20L(不可貫穿)', 0)
             except:
                 print('FRAME3 Parameter activate error')
@@ -527,49 +545,76 @@ def change_welding_feature(name, i):
                     mprog.activatefeature('SN1_25250_Body', 0)
                     mprog.activatefeature('Hole_1', 3)
                     mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                    mprog.partdeactivate("machining_P")
                 elif i == 1:
                     mprog.activatefeature('SN1_25250_Body', 0)
                     mprog.activatefeature('Hole_1', 2)
                     mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                    mprog.partdeactivate("machining_P")
                 elif i == 2:
                     mprog.activatefeature('SN1_25250_Body', 0)
                     mprog.activatefeature('Hole_1', 1)
                     mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
+                    mprog.partdeactivate("machining_P")
                 elif i == 3:
                     mprog.activatefeature('SN1_25250_Body', 0)
                     mprog.activatefeature('Hole_1', 1)
                     mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
                     mprog.activatefeature('Hole_3', 2)
+                    mprog.partdeactivate("machining_N")
+                    mprog.partdeactivate("machining_O")
+                    mprog.partdeactivate("machining_M")
+                    mprog.partdeactivate("machining_P")
                 elif i == 4:
                     mprog.activatefeature('SN1_25250_Body', 0)
                     mprog.activatefeature('Hole_1', 1)
                     mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
                     mprog.activatefeature('Hole_3', 2)
                     mprog.activatefeature('Hole_4', 0)
+                    mprog.partdeactivate("machining_N")
+                    mprog.partdeactivate("machining_O")
+                    mprog.partdeactivate("machining_M")
+                    mprog.partdeactivate("machining_P")
                 elif i == 5:
                     mprog.activatefeature('SN1_25250_Body', 0)
                     mprog.activatefeature('Hole_1', 1)
                     mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
                     mprog.activatefeature('Hole_3', 2)
                     mprog.activatefeature('Hole_4', 0)
+                    mprog.partdeactivate("machining_N")
+                    mprog.partdeactivate("machining_O")
+                    mprog.partdeactivate("machining_M")
+                    mprog.partdeactivate("machining_P")
                 elif i == 6:
                     mprog.activatefeature('SN1_25250_Body', 0)
                     mprog.activatefeature('Hole_1', 1)
                     mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
                     mprog.activatefeature('Hole_3', 2)
                     mprog.activatefeature('Hole_4', 0)
+                    mprog.partdeactivate("machining_N")
+                    mprog.partdeactivate("machining_O")
+                    mprog.partdeactivate("machining_M")
+                    mprog.partdeactivate("machining_P")
                 elif i == 7:
                     mprog.activatefeature('SN1_25250_Body', 0)
                     mprog.activatefeature('Hole_1', 1)
                     mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
                     mprog.activatefeature('Hole_3', 2)
                     mprog.activatefeature('Hole_4', 0)
+                    mprog.partdeactivate("machining_N")
+                    mprog.partdeactivate("machining_O")
+                    mprog.partdeactivate("machining_M")
+                    mprog.partdeactivate("machining_P")
                 elif i == 8:
                     mprog.activatefeature('SN1_25250_Body', 0)
                     mprog.activatefeature('Hole_1', 1)
                     mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
                     mprog.activatefeature('Hole_3', 4)
                     mprog.activatefeature('Hole_4', 0)
+                    mprog.partdeactivate("machining_N")
+                    mprog.partdeactivate("machining_O")
+                    mprog.partdeactivate("machining_M")
+                    mprog.partdeactivate("machining_P")
             except:
                 print('FRAME4 Parameter activate error')
             finally:
@@ -745,38 +790,46 @@ def change_welding_feature(name, i):
         elif name == 'FRAME8':
             try:
                 if i == 0:
-                    mprog.partbodyfeatureactivate('上半倒角')
+                    mprog.partbodyfeatureactivate('上半倒角_25')
+                    mprog.partbodyfeatureactivate('上半倒角_2')
                 elif i == 1:
-                    mprog.partbodyfeatureactivate('上半倒角')
+                    mprog.partbodyfeatureactivate('上半倒角_1')
+                    mprog.partbodyfeatureactivate('上半倒角_2')
                     # mprog.activatefeature('38孔通', 0)
                 elif i == 2:
-                    mprog.partbodyfeatureactivate('上半倒角')
+                    mprog.partbodyfeatureactivate('上半倒角_1')
+                    mprog.partbodyfeatureactivate('上半倒角_2')
                 elif i == 3:
-                    mprog.partbodyfeatureactivate('上半倒角')
+                    mprog.partbodyfeatureactivate('上半倒角_1')
+                    mprog.partbodyfeatureactivate('上半倒角_2')
                 elif i == 4:
                     mprog.partbodyfeatureactivate('上半倒角80')
                     mprog.partbodyfeatureactivate('R40特徵')
                     mprog.partbodyfeatureactivate('下半開槽')
                     mprog.activatefeature('38孔通', 0)
                 elif i == 5:
-                    mprog.partbodyfeatureactivate('上半倒角')
+                    mprog.partbodyfeatureactivate('上半倒角_1')
+                    mprog.partbodyfeatureactivate('上半倒角_2')
                     mprog.partbodyfeatureactivate('下半倒角')
                     mprog.partbodyfeatureactivate('下半開槽')
                     mprog.partbodyfeatureactivate('R40特徵')
                     mprog.activatefeature('38孔通', 0)
                 elif i == 6:
-                    mprog.partbodyfeatureactivate('上半倒角')
+                    mprog.partbodyfeatureactivate('上半倒角_1')
+                    mprog.partbodyfeatureactivate('上半倒角_2')
                     mprog.partbodyfeatureactivate('下半倒角')
                     mprog.partbodyfeatureactivate('下半開槽')
                     mprog.partbodyfeatureactivate('R40特徵')
                     mprog.activatefeature('38孔通', 0)
                 elif i == 7:
-                    mprog.partbodyfeatureactivate('上半倒角')
+                    mprog.partbodyfeatureactivate('上半倒角_1')
+                    mprog.partbodyfeatureactivate('上半倒角_2')
                     mprog.partbodyfeatureactivate('下半開槽')
                     mprog.partbodyfeatureactivate('R40特徵')
                     mprog.activatefeature('38孔通', 0)
                 elif i == 8:
-                    mprog.partbodyfeatureactivate('上半倒角')
+                    mprog.partbodyfeatureactivate('上半倒角_1')
+                    mprog.partbodyfeatureactivate('上半倒角_2')
                     mprog.partbodyfeatureactivate('R40特徵')
                     mprog.activatefeature('38孔通', 0)
             except BaseException:
@@ -2061,3 +2114,5 @@ def change_welding_feature(name, i):
     except Exception as e:
         s = sys.exc_info()
         print('報錯行數：{}\n報錯內容：{}'.format(__file__, s[2].tb_lineno, s[1]))
+
+change_welding_feature("FRAME3", 0)
