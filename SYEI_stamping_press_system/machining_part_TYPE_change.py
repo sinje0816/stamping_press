@@ -1562,37 +1562,113 @@ def change_machining_parameter(name, i, machiningdiepad):
             except BaseException:
                 print('FRAME24 Parameter change error')
             if i == 0:
-                mprog.partbodyfeatureactivate('倒角C')
+                mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
+                mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.activatefeature('machining_Hole_1', 0)
             elif i == 1:
-                mprog.partbodyfeatureactivate('倒角C')
+                mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
+                mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.activatefeature('machining_Hole_1', 0)
             elif i == 2:
-                mprog.partbodyfeatureactivate('倒角C')
+                mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
+                mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.activatefeature('machining_Hole_1', 0)
             elif i == 3:
-                mprog.partbodyfeatureactivate('倒角C')
+                mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
+                mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.activatefeature('machining_Hole_1', 0)
             elif i == 4:
-                mprog.partbodyfeatureactivate('倒角C')
+                mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
+                mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.activatefeature('machining_Hole_1', 0)
             elif i == 5:
-                mprog.partbodyfeatureactivate('倒角C')
+                mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
+                mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.activatefeature('machining_Hole_1', 0)
             elif i == 6:
-                mprog.partbodyfeatureactivate('倒角C')
+                mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
+                mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.activatefeature('machining_Hole_1', 0)
             elif i == 7:
-                mprog.partbodyfeatureactivate('倒角C')
+                mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
+                mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.activatefeature('machining_Hole_1', 0)
             elif i == 8:
-                mprog.partbodyfeatureactivate('倒角C')
+                mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
+                mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.activatefeature('machining_Hole_1', 0)
             try:
                 mprog.Update()
                 print('FRAME24 Update success')
             except BaseException:
                 print('FRAME24 Update error')
+        elif name == 'FRAME24_1':
+            excel = epc.ExcelOp('FRAME24_1')
+            try:
+                parameter_name, parameter_value = excel.get_sheet_par(
+                    'FRAME24_1', i)
+                print('FRAME24_1 Parameter change success')
+            except BaseException:
+                print('FRAME24_1 Parameter change error')
+            if i == 0:
+                mprog.partbodyfeatureactivate('Pad.2')
+                mprog.activatefeature('M5', 0)
+                mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.activatefeature('machining_Hole_1', 0)
+            elif i == 1:
+                mprog.partbodyfeatureactivate('Pad.2')
+                mprog.activatefeature('M5', 0)
+                mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.activatefeature('machining_Hole_1', 0)
+            elif i == 2:
+                mprog.partbodyfeatureactivate('Pad.2')
+                mprog.activatefeature('M5', 0)
+                mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.activatefeature('machining_Hole_1', 0)
+            elif i == 3:
+                mprog.partbodyfeatureactivate('Pad.2')
+                mprog.activatefeature('M5', 0)
+                mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.activatefeature('machining_Hole_1', 0)
+            elif i == 4:
+                mprog.partbodyfeatureactivate('Pad.2')
+                mprog.activatefeature('M5', 0)
+                mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.activatefeature('machining_Hole_1', 0)
+            elif i == 5:
+                mprog.partbodyfeatureactivate('Pad.2')
+                mprog.activatefeature('M5', 0)
+                mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.activatefeature('machining_Hole_1', 0)
+            elif i == 6:
+                mprog.partbodyfeatureactivate('Pad.2')
+                mprog.activatefeature('M5', 0)
+                mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.activatefeature('machining_Hole_1', 0)
+            elif i == 7:
+                mprog.partbodyfeatureactivate('Pad.2')
+                mprog.activatefeature('M5', 0)
+                mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.activatefeature('machining_Hole_1', 0)
+            elif i == 8:
+                mprog.partbodyfeatureactivate('Pad.2')
+                mprog.activatefeature('M5', 0)
+                mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.activatefeature('machining_Hole_1', 0)
+            try:
+                mprog.Update()
+                print('FRAME24_1 Update success')
+            except BaseException:
+                print('FRAME24_1 Update error')
         elif name == 'FRAME25':
             excel = epc.ExcelOp('FRAME25')
             try:
@@ -2463,4 +2539,4 @@ def change_machining_parameter(name, i, machiningdiepad):
 
     return parameter_name, parameter_value
 
-change_machining_parameter("FRAME4", 0, 0)
+change_machining_parameter("FRAME24", 0, 0)

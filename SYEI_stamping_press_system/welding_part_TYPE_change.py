@@ -1369,37 +1369,142 @@ def change_welding_feature(name, i):
                     print('FRAME23 Update error')
         elif name == 'FRAME24':
             if i == 0:
+                mprog.partdeactivate('Pad.2')
+                mprog.partbodyfeatureactivate('Pad.1')
                 mprog.partbodyfeatureactivate('倒角C')
                 mprog.activatefeature('M5', 0)
+                mprog.partdeactivate('machining_bbbbb')
+                mprog.bodydeactivate('machining_Hole_1', 0)
             elif i == 1:
+                mprog.partdeactivate('Pad.2')
+                mprog.partbodyfeatureactivate('Pad.1')
                 mprog.partbodyfeatureactivate('倒角C')
                 mprog.activatefeature('M5', 0)
+                mprog.partdeactivate('machining_bbbbb')
+                mprog.bodydeactivate('machining_Hole_1', 0)
             elif i == 2:
+                mprog.partdeactivate('Pad.2')
+                mprog.partbodyfeatureactivate('Pad.1')
                 mprog.partbodyfeatureactivate('倒角C')
                 mprog.activatefeature('M5', 0)
+                mprog.partdeactivate('machining_bbbbb')
+                mprog.bodydeactivate('machining_Hole_1', 0)
             elif i == 3:
+                mprog.partdeactivate('Pad.2')
+                mprog.partbodyfeatureactivate('Pad.1')
                 mprog.partbodyfeatureactivate('倒角C')
                 mprog.activatefeature('M5', 0)
+                mprog.partdeactivate('machining_bbbbb')
+                mprog.bodydeactivate('machining_Hole_1', 0)
             elif i == 4:
+                mprog.partdeactivate('Pad.2')
+                mprog.partbodyfeatureactivate('Pad.1')
                 mprog.partbodyfeatureactivate('倒角C')
                 mprog.activatefeature('M5', 0)
+                mprog.partdeactivate('machining_bbbbb')
+                mprog.bodydeactivate('machining_Hole_1', 0)
             elif i == 5:
+                mprog.partdeactivate('Pad.2')
+                mprog.partbodyfeatureactivate('Pad.1')
                 mprog.partbodyfeatureactivate('倒角C')
                 mprog.activatefeature('M5', 0)
+                mprog.partdeactivate('machining_bbbbb')
+                mprog.bodydeactivate('machining_Hole_1', 0)
             elif i == 6:
+                mprog.partdeactivate('Pad.2')
+                mprog.partbodyfeatureactivate('Pad.1')
                 mprog.partbodyfeatureactivate('倒角C')
                 mprog.activatefeature('M5', 0)
+                mprog.partdeactivate('machining_bbbbb')
+                mprog.bodydeactivate('machining_Hole_1', 0)
             elif i == 7:
+                mprog.partdeactivate('Pad.2')
+                mprog.partbodyfeatureactivate('Pad.1')
                 mprog.partbodyfeatureactivate('倒角C')
                 mprog.activatefeature('M5', 0)
+                mprog.partdeactivate('machining_bbbbb')
+                mprog.bodydeactivate('machining_Hole_1', 0)
             elif i == 8:
+                mprog.partdeactivate('Pad.2')
+                mprog.partbodyfeatureactivate('Pad.1')
                 mprog.partbodyfeatureactivate('倒角C')
                 mprog.activatefeature('M5', 0)
+                mprog.partdeactivate('machining_bbbbb')
+                mprog.bodydeactivate('machining_Hole_1', 0)
             try:
                 mprog.Update()
                 print('FRAME24 Update success')
             except BaseException:
                 print('FRAME24 Update error')
+        elif name == 'FRAME24_1':
+            if i == 0:
+                mprog.partdeactivate('Pad.2')
+                mprog.partbodyfeatureactivate('Pad.1')
+                mprog.partbodyfeatureactivate('倒角C')
+                mprog.activatefeature('M5', 0)
+                mprog.partdeactivate('machining_bbbbb')
+                mprog.bodydeactivate('machining_Hole_1', 0)
+            elif i == 1:
+                mprog.partdeactivate('Pad.2')
+                mprog.partbodyfeatureactivate('Pad.1')
+                mprog.partbodyfeatureactivate('倒角C')
+                mprog.activatefeature('M5', 0)
+                mprog.partdeactivate('machining_bbbbb')
+                mprog.bodydeactivate('machining_Hole_1', 0)
+            elif i == 2:
+                mprog.partdeactivate('Pad.2')
+                mprog.partbodyfeatureactivate('Pad.1')
+                mprog.partbodyfeatureactivate('倒角C')
+                mprog.activatefeature('M5', 0)
+                mprog.partdeactivate('machining_bbbbb')
+                mprog.bodydeactivate('machining_Hole_1', 0)
+            elif i == 3:
+                mprog.partdeactivate('Pad.2')
+                mprog.partbodyfeatureactivate('Pad.1')
+                mprog.partbodyfeatureactivate('倒角C')
+                mprog.activatefeature('M5', 0)
+                mprog.partdeactivate('machining_bbbbb')
+                mprog.bodydeactivate('machining_Hole_1', 0)
+            elif i == 4:
+                mprog.partdeactivate('Pad.2')
+                mprog.partbodyfeatureactivate('Pad.1')
+                mprog.partbodyfeatureactivate('倒角C')
+                mprog.activatefeature('M5', 0)
+                mprog.partdeactivate('machining_bbbbb')
+                mprog.bodydeactivate('machining_Hole_1', 0)
+            elif i == 5:
+                mprog.partdeactivate('Pad.2')
+                mprog.partbodyfeatureactivate('Pad.1')
+                mprog.partbodyfeatureactivate('倒角C')
+                mprog.activatefeature('M5', 0)
+                mprog.partdeactivate('machining_bbbbb')
+                mprog.bodydeactivate('machining_Hole_1', 0)
+            elif i == 6:
+                mprog.partdeactivate('Pad.2')
+                mprog.partbodyfeatureactivate('Pad.1')
+                mprog.partbodyfeatureactivate('倒角C')
+                mprog.activatefeature('M5', 0)
+                mprog.partdeactivate('machining_bbbbb')
+                mprog.bodydeactivate('machining_Hole_1', 0)
+            elif i == 7:
+                mprog.partdeactivate('Pad.2')
+                mprog.partbodyfeatureactivate('Pad.1')
+                mprog.partbodyfeatureactivate('倒角C')
+                mprog.activatefeature('M5', 0)
+                mprog.partdeactivate('machining_bbbbb')
+                mprog.bodydeactivate('machining_Hole_1', 0)
+            elif i == 8:
+                mprog.partdeactivate('Pad.2')
+                mprog.partbodyfeatureactivate('Pad.1')
+                mprog.partbodyfeatureactivate('倒角C')
+                mprog.activatefeature('M5', 0)
+                mprog.partdeactivate('machining_bbbbb')
+                mprog.bodydeactivate('machining_Hole_1', 0)
+            try:
+                mprog.Update()
+                print('FRAME24_1 Update success')
+            except BaseException:
+                print('FRAME24_1 Update error')
         elif name == 'FRAME25':
             try:
                 if i == 0:
@@ -2115,4 +2220,4 @@ def change_welding_feature(name, i):
         s = sys.exc_info()
         print('報錯行數：{}\n報錯內容：{}'.format(__file__, s[2].tb_lineno, s[1]))
 
-change_welding_feature("FRAME3", 0)
+change_welding_feature("FRAME24", 0)
