@@ -459,6 +459,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate('FRAME_SN1_2560_U')
                     mprog.partbodyfeatureactivate('machining_AA')
                     mprog.partbodyfeatureactivate('machining_L')
+                    mprog.partbodyfeatureactivate('machining_bbbbb')
                     mprog.activatefeature('M10X20L(不可貫穿)', 0)
                 elif i == 1:
                     mprog.activatefeature('SN1_25250_Body', 1)
@@ -469,6 +470,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate('FRAME_SN1_2560_U')
                     mprog.partbodyfeatureactivate('machining_AA')
                     mprog.partbodyfeatureactivate('machining_L')
+                    mprog.partbodyfeatureactivate('machining_bbbbb')
                     mprog.activatefeature('M10X20L(不可貫穿)', 0)
                 elif i == 2:
                     mprog.activatefeature('SN1_25250_Body', 1)
@@ -479,6 +481,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate('FRAME_SN1_2560_U')
                     mprog.partbodyfeatureactivate('machining_AA')
                     mprog.partbodyfeatureactivate('machining_L')
+                    mprog.partbodyfeatureactivate('machining_bbbbb')
                     mprog.activatefeature('M10X20L(不可貫穿)', 0)
                 elif i == 3:
                     mprog.activatefeature('SN1_25250_Body', 1)
@@ -489,6 +492,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate('FRAME_SN1_2560_U')
                     mprog.partbodyfeatureactivate('machining_AA')
                     mprog.partbodyfeatureactivate('machining_L')
+                    mprog.partbodyfeatureactivate('machining_bbbbb')
                     mprog.activatefeature('M10X20L(不可貫穿)', 0)
                 elif i == 4:
                     mprog.activatefeature('SN1_25250_Body', 1)
@@ -498,6 +502,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate('FRAME_SN1_80250_R')
                     mprog.partbodyfeatureactivate('machining_AA')
                     mprog.partbodyfeatureactivate('machining_L')
+                    mprog.partbodyfeatureactivate('machining_bbbbb')
                     mprog.activatefeature('M10X20L(不可貫穿)', 0)
                 elif i == 5:
                     mprog.activatefeature('SN1_25250_Body', 1)
@@ -507,6 +512,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate('FRAME_SN1_80250_R')
                     mprog.partbodyfeatureactivate('machining_AA')
                     mprog.partbodyfeatureactivate('machining_L')
+                    mprog.partbodyfeatureactivate('machining_bbbbb')
                     mprog.activatefeature('M10X20L(不可貫穿)', 0)
                 elif i == 6:
                     mprog.activatefeature('SN1_25250_Body', 1)
@@ -515,6 +521,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
                     mprog.partbodyfeatureactivate('FRAME_SN1_80250_R')
                     mprog.partbodyfeatureactivate('machining_AA')
+                    mprog.partbodyfeatureactivate('machining_bbbbb')
                     mprog.partbodyfeatureactivate('machining_L')
                     mprog.activatefeature('M10X20L(不可貫穿)', 0)
                 elif i == 7:
@@ -524,6 +531,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate('FRAME_SN1_25250_PQ')
                     mprog.partbodyfeatureactivate('FRAME_SN1_80250_R')
                     mprog.partbodyfeatureactivate('machining_AA')
+                    mprog.partbodyfeatureactivate('machining_bbbbb')
                     mprog.partbodyfeatureactivate('machining_L')
                 elif i == 8:
                     mprog.activatefeature('SN1_25250_Body', 1)
@@ -533,6 +541,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate('FRAME_SN1_80250_R')
                     mprog.partbodyfeatureactivate('machining_AA')
                     mprog.partbodyfeatureactivate('machining_L')
+                    mprog.partbodyfeatureactivate('machining_bbbbb')
                 print('FRAME3 machining success')
             except:
                 print('FRAME3 Parameter activate error')
@@ -555,16 +564,19 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('Hole_1', 1)
                     mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
                     mprog.partbodyfeatureactivate("machining_P")
+                    mprog.partbodyfeatureactivate("machining_bbbbb")
                 elif i == 1:
                     mprog.activatefeature('SN1_25250_Body', 1)
                     mprog.activatefeature('Hole_1', 1)
                     mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
                     mprog.partbodyfeatureactivate("machining_P")
+                    mprog.partbodyfeatureactivate("machining_bbbbb")
                 elif i == 2:
                     mprog.activatefeature('SN1_25250_Body', 1)
                     mprog.activatefeature('Hole_1', 1)
                     mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
                     mprog.partbodyfeatureactivate("machining_P")
+                    mprog.partbodyfeatureactivate("machining_bbbbb")
                 elif i == 3:
                     mprog.activatefeature('SN1_25250_Body', 1)
                     mprog.activatefeature('Hole_1', 1)
@@ -574,6 +586,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate("machining_O")
                     mprog.partbodyfeatureactivate("machining_M")
                     mprog.partbodyfeatureactivate("machining_P")
+                    mprog.partbodyfeatureactivate("machining_bbbbb")
                 elif i == 4:
                     mprog.activatefeature('SN1_25250_Body', 1)
                     mprog.activatefeature('Hole_1', 1)
@@ -584,6 +597,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate("machining_O")
                     mprog.partbodyfeatureactivate("machining_M")
                     mprog.partbodyfeatureactivate("machining_P")
+                    mprog.partbodyfeatureactivate("machining_bbbbb")
                 elif i == 5:
                     mprog.activatefeature('SN1_25250_Body', 1)
                     mprog.activatefeature('Hole_1', 1)
@@ -594,6 +608,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate("machining_O")
                     mprog.partbodyfeatureactivate("machining_M")
                     mprog.partbodyfeatureactivate("machining_P")
+                    mprog.partbodyfeatureactivate("machining_bbbbb")
                 elif i == 6:
                     mprog.activatefeature('SN1_25250_Body', 1)
                     mprog.activatefeature('Hole_1', 1)
@@ -604,6 +619,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate("machining_O")
                     mprog.partbodyfeatureactivate("machining_M")
                     mprog.partbodyfeatureactivate("machining_P")
+                    mprog.partbodyfeatureactivate("machining_bbbbb")
                 elif i == 7:
                     mprog.activatefeature('SN1_25250_Body', 1)
                     mprog.activatefeature('Hole_1', 1)
@@ -614,6 +630,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate("machining_O")
                     mprog.partbodyfeatureactivate("machining_M")
                     mprog.partbodyfeatureactivate("machining_P")
+                    mprog.partbodyfeatureactivate("machining_bbbbb")
                 elif i == 8:
                     mprog.activatefeature('SN1_25250_Body', 1)
                     mprog.activatefeature('Hole_1', 1)
@@ -624,6 +641,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate("machining_O")
                     mprog.partbodyfeatureactivate("machining_M")
                     mprog.partbodyfeatureactivate("machining_P")
+                    mprog.partbodyfeatureactivate("machining_bbbbb")
                 print('FRAME4 machining success')
             except:
                 print('FRAME4 Parameter activate error')
@@ -1565,46 +1583,55 @@ def change_machining_parameter(name, i, machiningdiepad):
                 mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
                 mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.partbodyfeatureactivate('machining_bbbbb_2')
                 mprog.activatefeature('machining_Hole_1', 0)
             elif i == 1:
                 mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
                 mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.partbodyfeatureactivate('machining_bbbbb_2')
                 mprog.activatefeature('machining_Hole_1', 0)
             elif i == 2:
                 mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
                 mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.partbodyfeatureactivate('machining_bbbbb_2')
                 mprog.activatefeature('machining_Hole_1', 0)
             elif i == 3:
                 mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
                 mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.partbodyfeatureactivate('machining_bbbbb_2')
                 mprog.activatefeature('machining_Hole_1', 0)
             elif i == 4:
                 mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
                 mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.partbodyfeatureactivate('machining_bbbbb_2')
                 mprog.activatefeature('machining_Hole_1', 0)
             elif i == 5:
                 mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
                 mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.partbodyfeatureactivate('machining_bbbbb_2')
                 mprog.activatefeature('machining_Hole_1', 0)
             elif i == 6:
                 mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
                 mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.partbodyfeatureactivate('machining_bbbbb_2')
                 mprog.activatefeature('machining_Hole_1', 0)
             elif i == 7:
                 mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
                 mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.partbodyfeatureactivate('machining_bbbbb_2')
                 mprog.activatefeature('machining_Hole_1', 0)
             elif i == 8:
                 mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
                 mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.partbodyfeatureactivate('machining_bbbbb_2')
                 mprog.activatefeature('machining_Hole_1', 0)
             try:
                 mprog.Update()
@@ -1623,46 +1650,55 @@ def change_machining_parameter(name, i, machiningdiepad):
                 mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
                 mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.partbodyfeatureactivate('machining_bbbbb_2')
                 mprog.activatefeature('machining_Hole_1', 0)
             elif i == 1:
                 mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
                 mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.partbodyfeatureactivate('machining_bbbbb_2')
                 mprog.activatefeature('machining_Hole_1', 0)
             elif i == 2:
                 mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
                 mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.partbodyfeatureactivate('machining_bbbbb_2')
                 mprog.activatefeature('machining_Hole_1', 0)
             elif i == 3:
                 mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
                 mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.partbodyfeatureactivate('machining_bbbbb_2')
                 mprog.activatefeature('machining_Hole_1', 0)
             elif i == 4:
                 mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
                 mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.partbodyfeatureactivate('machining_bbbbb_2')
                 mprog.activatefeature('machining_Hole_1', 0)
             elif i == 5:
                 mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
                 mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.partbodyfeatureactivate('machining_bbbbb_2')
                 mprog.activatefeature('machining_Hole_1', 0)
             elif i == 6:
                 mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
                 mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.partbodyfeatureactivate('machining_bbbbb_2')
                 mprog.activatefeature('machining_Hole_1', 0)
             elif i == 7:
                 mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
                 mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.partbodyfeatureactivate('machining_bbbbb_2')
                 mprog.activatefeature('machining_Hole_1', 0)
             elif i == 8:
                 mprog.partbodyfeatureactivate('Pad.2')
                 mprog.activatefeature('M5', 0)
                 mprog.partbodyfeatureactivate('machining_bbbbb')
+                mprog.partbodyfeatureactivate('machining_bbbbb_2')
                 mprog.activatefeature('machining_Hole_1', 0)
             try:
                 mprog.Update()
@@ -2538,5 +2574,3 @@ def change_machining_parameter(name, i, machiningdiepad):
         print('報錯行數：{}\n報錯內容：{}'.format(__file__, s[2].tb_lineno, s[1]))
 
     return parameter_name, parameter_value
-
-change_machining_parameter("FRAME24", 0, 0)
