@@ -1074,42 +1074,7 @@ def change_welding_feature(name, i):
                 except:
                     print('FRAME15 Update error')
         elif name == 'FRAME18':
-            try:
-                if i == 0:
-                    mprog.partbodyfeatureactivate('Pad.2')
-                    mprog.partbodyfeatureactivate('HollowCylinder')
-                elif i == 1:
-                    mprog.partbodyfeatureactivate('Pad.2')
-                    mprog.partbodyfeatureactivate('HollowCylinder')
-                elif i == 2:
-                    mprog.partbodyfeatureactivate('Pad.2')
-                    mprog.partbodyfeatureactivate('HollowCylinder')
-                elif i == 3:
-                    mprog.partbodyfeatureactivate('Pad.2')
-                    mprog.partbodyfeatureactivate('HollowCylinder')
-                elif i == 4:
-                    mprog.partbodyfeatureactivate('Pad.2')
-                    mprog.partbodyfeatureactivate('HollowCylinder')
-                elif i == 5:
-                    mprog.activatefeature('Hole.1', 0)
-                    mprog.partbodyfeatureactivate('EdgeFillet.1')
-                elif i == 6:
-                    mprog.activatefeature('Hole.1', 0)
-                    mprog.partbodyfeatureactivate('EdgeFillet.1')
-                elif i == 7:
-                    mprog.activatefeature('Hole.1', 0)
-                    mprog.partbodyfeatureactivate('EdgeFillet.1')
-                elif i == 8:
-                    mprog.activatefeature('Hole.1', 0)
-                    mprog.partbodyfeatureactivate('EdgeFillet.1')
-            except:
-                print('FRAME18 Parameter activate error')
-            finally:
-                try:
-                    mprog.Update()
-                    print('FRAME18 Update success')
-                except:
-                    print('FRAME18 Update error')
+            pass
         elif name == 'FRAME19':
             try:
                 if i == 0:

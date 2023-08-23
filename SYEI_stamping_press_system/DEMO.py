@@ -110,11 +110,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # 行程
         alpha = int(specifications_travel_value) - travel_value[all_type]
         # 牙球伸長量
-        epsilon = (-alpha / 2) + (close_working_height_value[all_type] - int(specifications_close_working_height_value))
-        if epsilon <= 0:
-            epsilon = 0
-        else:
-            pass
+        epsilon_1 = (-alpha / 2) + (close_working_height_value[all_type] - int(specifications_close_working_height_value))
+        elsilon_2 = (alpha / 2)
+        epsilon_3 = 0
+        epsilon = max(epsilon_1, elsilon_2, epsilon_3)
         # 喉部拉高量
         zeta = (alpha / 2) + epsilon + specifications_close_working_height_value - close_working_height_value[all_type]
         print(zeta)
