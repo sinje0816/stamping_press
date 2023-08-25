@@ -1210,6 +1210,80 @@ def change_machining_parameter(name, i, machiningdiepad):
                     print('FRAME15 Update success')
                 except:
                     print('FRAME15 Update error')
+        elif name == 'FRAME16':
+            excel = epc.ExcelOp('FRAME16')
+            try:
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME16', i)
+                print('FRAME16 Parameter change success')
+            except:
+                print('FRAME16 Parameter change error')
+            try:
+                if i == 0:
+                    mprog.partbodyfeatureactivate('AB')
+                    mprog.partbodyfeatureactivate('SN1_25_45_CD')
+                    mprog.partbodyfeatureactivate('SN1_25_45_G')
+                    mprog.activatefeature('GIB_OIL_HOLE', 1)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_1', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_2', 0)
+                    mprog.activatefeature('Hole_4', 0)
+                elif i == 1:
+                    mprog.partbodyfeatureactivate('AB')
+                    mprog.activatefeature('GIB_OIL_HOLE', 1)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_1', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_2', 0)
+                    mprog.activatefeature('Hole_4', 0)
+                elif i == 2:
+                    mprog.partbodyfeatureactivate('AB')
+                    mprog.partbodyfeatureactivate('SN1_25_45_CD')
+                    mprog.partbodyfeatureactivate('SN1_25_45_G')
+                    mprog.activatefeature('GIB_OIL_HOLE', 1)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_1', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_2', 0)
+                    mprog.activatefeature('Hole_4', 0)
+                elif i == 3:
+                    mprog.partbodyfeatureactivate('AB')
+                    mprog.activatefeature('GIB_OIL_HOLE', 1)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_1', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_2', 0)
+                    mprog.activatefeature('Hole_4', 0)
+                elif i == 4:
+                    mprog.partbodyfeatureactivate('AB')
+                    mprog.activatefeature('GIB_OIL_HOLE', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_1', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_2', 0)
+                    mprog.activatefeature('Hole_4', 0)
+                elif i == 5:
+                    mprog.partbodyfeatureactivate('AB')
+                    mprog.activatefeature('GIB_OIL_HOLE', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_1', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_2', 0)
+                    mprog.activatefeature('Hole_4', 0)
+                elif i == 6:
+                    mprog.partbodyfeatureactivate('AB')
+                    mprog.activatefeature('GIB_OIL_HOLE', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_1', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_2', 0)
+                    mprog.activatefeature('Hole_4', 0)
+                elif i == 7:
+                    mprog.partbodyfeatureactivate('AB')
+                    mprog.activatefeature('GIB_OIL_HOLE', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_1', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_2', 0)
+                    mprog.activatefeature('Hole_4', 0)
+                elif i == 8:
+                    mprog.partbodyfeatureactivate('AB')
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_1', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_2', 0)
+                    mprog.activatefeature('GIB_OIL_HOLE', 0)
+                    mprog.activatefeature('Hole_4', 0)
+            except:
+                print('FRAME16 Parameter activate error')
+            finally:
+                try:
+                    mprog.Update()
+                    print('FRAME16 Update success')
+                except:
+                    print('FRAME16 Update error')
         elif name == 'FRAME17':
             excel = epc.ExcelOp('FRAME17')
             try:

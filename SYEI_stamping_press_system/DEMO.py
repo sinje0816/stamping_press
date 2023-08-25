@@ -33,30 +33,28 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         specifications_travel_value = str(self.ui.lineEdit_5.text())
         specifications_close_working_height_value = str(self.ui.lineEdit_2.text())
         close_working_height = str(self.ui.label_9.text())
-        delta = str(self.ui.lineEdit_4.text())
         processing = str(self.ui.comboBox.currentText())
         print(type, travel_type, travel, specifications_travel_value, specifications_close_working_height_value,
-              close_working_height, delta)
+              close_working_height)
         self.create_dir(type)
         if specifications_travel_value == "":
-            self.specifications_travel_value = 0
+            label_7_data = self.label_7_user_data()
+            self.specifications_travel_value = int(label_7_data[type][travel_type])
+
         else:
             self.specifications_travel_value = int(specifications_travel_value)
         if specifications_close_working_height_value == "":
-            self.specifications_close_working_height_value = 0
+            label_9_data = self.label_9_user_data()
+            self.specifications_close_working_height_value = int(label_9_data[type][travel_type])
         else:
             self.specifications_close_working_height_value = int(specifications_close_working_height_value)
-        if delta == "":
-            self.delta = 0
-        else:
-            self.delta = int(delta)
         self.i, self.p, self.travel_type = self.choos(type, processing, travel_type)
         self.alpha, self.beta, self.zeta, self.epsilon = self.frame_calculate(self.i, self.specifications_travel_value,
                                                                                   self.specifications_close_working_height_value,
                                                                                   self.travel_type)
         if test_stop == False:
-            self.create_txt(self.path, type, travel_type, self.specifications_travel_value, self.specifications_close_working_height_value, self.alpha, self.beta, self.delta, self.zeta, self.epsilon)
-            self.change_dir(self.i, self.p, self.alpha, self.beta, self.delta,self.zeta, self.epsilon , self.machining, self.welding)
+            self.create_txt(self.path, travel_type, self.specifications_travel_value, self.specifications_close_working_height_value, self.alpha, self.beta, self.zeta, self.epsilon)
+            self.change_dir(self.i, self.p, self.alpha, self.beta,self.zeta, self.epsilon , self.machining, self.welding)
 
     def choos(self, type, prossing, travel_type):
         # 確認型號"輸入型號"
@@ -207,17 +205,15 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
 
 # 建立txt檔
-    def create_txt(self, path, travel_type, specifications_travel_value, specifications_close_working_height_value, type, alpha, beta, delta, zeta, epsilon):
+    def create_txt(self, path, travel_type, specifications_travel_value, specifications_close_working_height_value, alpha, beta, zeta, epsilon):
         file_txt = path
         txt_name = "生成參數.txt"
         with open(file_txt + "\\" + txt_name, "w") as f:
-            f.write("噸數=%s\n" % type)
             f.write("型式:%s\n" % travel_type)
             f.write("本次行程=%s\n" % specifications_travel_value)
             f.write("本次閉合工作高度=%s\n" % specifications_close_working_height_value)
             f.write("行程=%s\n" % alpha)
             f.write("閉合工作高度=%s\n" % beta)
-            f.write("平板前後=%s\n" % delta)
             f.write("喉部拉高量=%s\n" % zeta)
             f.write("牙球伸長量=%s\n" % epsilon)
 
@@ -245,7 +241,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mbox.information(Form, '完成', '生成完成\nmachining_file_change_error:%s\nwelding_file_change_error:%s\n' %(machining_file_change_error, welding_file_change_error))
         self.ui.lineEdit_5.clear()
         self.ui.lineEdit_2.clear()
-        self.ui.lineEdit_4.clear()
 
     def label_7_change_data(self):
         label_7_data = {250: {"S": ("標準:80"), "H": ("標準:50"), "P": ("標準:35")},
@@ -257,6 +252,18 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                 1600: {"S": ("標準:200"), "H": ("標準:130"), "P": ("標準:80")},
                 2000: {"S": ("標準:220"), "H": ("標準:150"), "P": ("標準:90")},
                 2500: {"S": ("標準:250"), "H": ("標準:180"), "P": ("標準:100")},
+                }
+        return label_7_data
+    def label_7_user_data(self):
+        label_7_data = {"SN1-25": {"S": ("80"), "H": ("50"), "P": ("35")},
+                "SN1-35": {"S": ("90"), "H": ("60"), "P": ("40")},
+                "SN1-45": {"S": ("110"), "H": ("70"), "P": ("45")},
+                "SN1-60": {"S": ("130"), "H": ("80"), "P": ("50")},
+                "SN1-80": {"S": ("150"), "H": ("100"), "P": ("60")},
+                "SN1-110": {"S": ("180"), "H": ("110"), "P": ("70")},
+                "SN1-160": {"S": ("200"), "H": ("130"), "P": ("80")},
+                "SN1-200": {"S": ("220"), "H": ("150"), "P": ("90")},
+                "SN1-250": {"S": ("250"), "H": ("180"), "P": ("100")},
                 }
         return label_7_data
     def change_label_7(self):
@@ -282,6 +289,18 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                 2500: {"S": ("標準:450"), "H": ("標準:400"), "P": ("標準:400")},}
 
         return label_9_data
+    def label_9_user_data(self):
+        label_9_data = {"SN1-25": {"S": ("230"), "H": ("200"), "P": ("200")},
+                "SN1-35": {"S": ("250"), "H": ("220"), "P": ("220")},
+                "SN1-45": {"S": ("270"), "H": ("240"), "P": ("240")},
+                "SN1-60": {"S": ("300"), "H": ("270"), "P": ("270")},
+                "SN1-80": {"S": ("330"), "H": ("300"), "P": ("300")},
+                "SN1-110": {"S": ("350"), "H": ("320"), "P": ("320")},
+                "SN1-160": {"S": ("400"), "H": ("360"), "P": ("360")},
+                "SN1-200": {"S": ("450"), "H": ("400"), "P": ("400")},
+                "SN1-250": {"S": ("450"), "H": ("400"), "P": ("400")},}
+
+        return label_9_data
 
     def change_label_9(self):
         label_9_data = self.label_9_data()
@@ -294,7 +313,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         self.ui.label_9.clear()
         self.ui.label_9.setText(close_h)
 
-    def change_dir(self, i, p, alpha, beta, delta, zeta, epsilon, machining, welding):
+    def change_dir(self, i, p, alpha, beta, zeta, epsilon, machining, welding):
         start_time = time.time()
         all_part_name = {}
         all_part_value = {}
@@ -323,7 +342,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         try:
                             mprog.param_change(name, "alpha", alpha)
                             mprog.param_change(name, "beta", beta)
-                            mprog.param_change(name, "delta", delta)
                             mprog.param_change(name, 'zeta', zeta)
                         except:
                             pass
@@ -347,7 +365,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         try:
                             mprog.param_change(name, "alpha", alpha)
                             mprog.param_change(name, "beta", beta)
-                            mprog.param_change(name, "delta", delta)
                             mprog.param_change(name, 'zeta', zeta)
                         except:
                             pass

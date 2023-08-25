@@ -4,166 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="應該都De完了吧?">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_23__06_30__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_23__06_30__Changes_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PADGUI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/PADGUI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/T溝詳圖.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME1.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME10.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME11.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME12.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME13.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME14.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME15.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME17.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME19.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME19_new.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME1_new.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME2.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME20.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME21.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME22.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME23.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME24.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME25.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME26.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME27.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME27_1.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME28.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME29.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME2_new.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME3.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME30.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME31.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME32.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME33.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME34.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME35.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME36.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME37.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME38.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME4.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME41.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME42.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME43.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME45.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME47.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME48.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME49.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME5.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME50.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME51.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME52.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME53.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME54.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME6.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME7.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME8.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/new/FRAME9.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME1.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME11.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME11_new.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME17.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME1_new.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME2.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME24.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME27.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME27_new.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME29.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME2_new.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME31.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME31_new.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME34.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME34_new.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME41.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME41_new.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME42.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME42_new.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME43.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME45.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME45_new.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME46.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME46_new.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME47.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME47_new.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME5.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME53.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME8.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/old圈碼/FRAME8_new.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/BALL_SCREW.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME10.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME13.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME15.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME19.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME22.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME25.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME28.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME3.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME30.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME31.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME32.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME33.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME34.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME35.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME36.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME37.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME38.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME4.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME45.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME49.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME50.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME51.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME54.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME6.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME7.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME9.CATPart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/stamping.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/尺寸整理表.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/新零件變數命名.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/新零件變數命名.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/pad.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/untitled.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/平板垂直.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/平板水平.png" afterDir="false" />
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="FRAME11、24、27、27_1變更及加工圖程式更改，新增FRAME24_1">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_17__01_55__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_17__02_18__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_17__02_43__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_17__09_35__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_17_上午_09_35_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_17_上午_09_35_[Changes]/尺寸整理表.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_17_下午_01_55_[Changes]/FRAME19.CATPart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_17_下午_01_55_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_17_下午_02_18_[Changes]/FRAME1.CATPart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_17_下午_02_18_[Changes]/FRAME19.CATPart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_17_下午_02_18_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_17_下午_02_43_[Changes]1/FRAME6.CATPart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_17_下午_02_43_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_23__06_30__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_8_23__06_30__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/DEMOGUI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/DEMOGUI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/DEMOGUI.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/DEMO.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/DEMO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/Analysis-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/COLLECT-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/COLLECT-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/DEMO.exe" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/DEMO.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/DEMO.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/DEMO.pkg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/EXE-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/PYZ-00.pyz" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/PYZ-00.pyz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/PYZ-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/base_library.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/warn-DEMO.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/warn-DEMO.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/xref-DEMO.html" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/xref-DEMO.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/DEMO.exe" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/DEMO.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/base_library.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME1.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME1.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME10.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME10.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME11.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME11.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME18.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME19.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME19.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME22.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME22.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME24.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME24.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME27.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME27.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME27_1.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME27_1.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME3.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME3.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME33.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME33.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME34.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME34.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME4.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME4.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME5.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME5.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME6.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME6.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME7.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME7.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME8.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME8.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME9.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/new/FRAME9.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/new_stamping_press/stamping_press_new/FRAME20.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/build/DEMO/new_stamping_press/stamping_press_new/FRAME20.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/尺寸整理表.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/dist/DEMO/尺寸整理表.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME18.CATPart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/welding_part_TYPE_change.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/welding_part_TYPE_change.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/DEMOGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/DEMOGUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/machining_part_TYPE_change.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/machining_part_TYPE_change.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME14.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME14.CATPart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME15.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME15.CATPart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME17.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME17.CATPart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME25.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME25.CATPart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME26.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME26.CATPart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME29.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME29.CATPart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME6.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME6.CATPart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/尺寸整理表.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/尺寸整理表.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/新零件變數命名.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/新零件變數命名.pptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/組立尺寸.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/組立尺寸.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,15 +82,13 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2HNiUWrGHo44xE9O4z5nXSKlf4K" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ToolWindowGit.ShowToolbar&quot;: &quot;false&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/User/PycharmProjects/stamping_press&quot;,
@@ -226,7 +96,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.language&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -262,6 +132,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="DEMOGUI" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Stamping press" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/DEMOGUI.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="machining_part_TYPE_change" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Stamping press" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -276,28 +168,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SYEI_stamping_press_system/machining_part_TYPE_change.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Stamping press" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -355,8 +225,8 @@
         <item itemvalue="Python.DEMO" />
         <item itemvalue="Python.machining_part_TYPE_change" />
         <item itemvalue="Python.welding_part_TYPE_change" />
+        <item itemvalue="Python.DEMOGUI" />
         <item itemvalue="Python.testGUI" />
-        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -429,28 +299,10 @@
       <workItem from="1691976516131" duration="7358000" />
       <workItem from="1692065846397" duration="626000" />
       <workItem from="1692157542321" duration="8770000" />
-      <workItem from="1692324850889" duration="4659000" />
-    </task>
-    <task id="LOCAL-00024" summary="新增:變數與結合判斷式">
-      <created>1668861100744</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1668861100744</updated>
-    </task>
-    <task id="LOCAL-00025" summary="修改部分YZ尺寸距離">
-      <created>1668870166204</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1668870166204</updated>
-    </task>
-    <task id="LOCAL-00026" summary="80~250噸數OK">
-      <created>1668942377027</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1668942377027</updated>
+      <workItem from="1692583749407" duration="12025000" />
+      <workItem from="1692669715393" duration="7403000" />
+      <workItem from="1692759344619" duration="9190000" />
+      <workItem from="1692928520240" duration="4719000" />
     </task>
     <task id="LOCAL-00027" summary="修改結合尺寸與判斷式">
       <created>1668947649149</created>
@@ -774,7 +626,28 @@
       <option name="project" value="LOCAL" />
       <updated>1692253090291</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00079" summary="FRAME1、7、9、19變更及加工圖程式更改">
+      <created>1692356649335</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1692356649336</updated>
+    </task>
+    <task id="LOCAL-00080" summary="FRAME3、4、8變更及加工圖程式更改">
+      <created>1692620972764</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1692620972764</updated>
+    </task>
+    <task id="LOCAL-00081" summary="FRAME11、24、27、27_1變更及加工圖程式更改，新增FRAME24_1">
+      <created>1692706868669</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1692706868670</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -792,6 +665,32 @@
     </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="Branch">
@@ -823,35 +722,8 @@
         </entry>
       </map>
     </option>
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="CUSTOM_BOOLEAN_PROPERTIES">
-                <map>
-                  <entry key="Show.Git.Branches" value="true" />
-                </map>
-              </option>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="py檔更換位置" />
     <MESSAGE value="零件母檔更新及組立問題變更&#10;測試檔更改" />
     <MESSAGE value="SN1-80部分母黨修改&#10;主程式組立部分新增SN1-80例外情形" />
     <MESSAGE value="更改與高度相關組立跟參數&#10;母檔更改" />
@@ -874,9 +746,10 @@
     <MESSAGE value="更新介面圖片" />
     <MESSAGE value="FRAME22更新" />
     <MESSAGE value="FRAME22、33、34更新" />
-    <MESSAGE value="重新上傳打包後DEMO檔，我有刪除幾個垃圾py檔" />
-    <MESSAGE value="應該都De完了吧?" />
-    <option name="LAST_COMMIT_MESSAGE" value="應該都De完了吧?" />
+    <MESSAGE value="FRAME1、7、9、19變更及加工圖程式更改" />
+    <MESSAGE value="FRAME3、4、8變更及加工圖程式更改" />
+    <MESSAGE value="FRAME11、24、27、27_1變更及加工圖程式更改，新增FRAME24_1" />
+    <option name="LAST_COMMIT_MESSAGE" value="FRAME11、24、27、27_1變更及加工圖程式更改，新增FRAME24_1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -888,47 +761,45 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/DEMO.py</url>
-          <line>52</line>
-          <option name="timeStamp" value="18" />
+          <line>41</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/stamping_press$welding_part_TYPE_change1__1_.coverage" NAME="welding_part_TYPE_change1 (1) Coverage Results" MODIFIED="1691119169429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$DEMO.coverage" NAME="DEMO Coverage Results" MODIFIED="1692952439949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$TotalFRAME_hanj.coverage" NAME="TotalFRAME_hanj Coverage Results" MODIFIED="1691571818165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$part_TYPE_change2.coverage" NAME="part_TYPE_change2 Coverage Results" MODIFIED="1691644595509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$test2.coverage" NAME="test2 Coverage Results" MODIFIED="1691670560902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$test.coverage" NAME="test Coverage Results" MODIFIED="1692172239353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GUI" />
-    <SUITE FILE_PATH="coverage/stamping_press$machining_part_TYPE_change.coverage" NAME="machining_part_TYPE_change Coverage Results" MODIFIED="1692342633833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$part_TYPE_change2__1_.coverage" NAME="part_TYPE_change2 (1) Coverage Results" MODIFIED="1688647602222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$TotalFRAME_part.coverage" NAME="TotalFRAME_part Coverage Results" MODIFIED="1691583186087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$part_design__1_.coverage" NAME="part_design (1) Coverage Results" MODIFIED="1688543318871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$testGUI.coverage" NAME="testGUI Coverage Results" MODIFIED="1692172444154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GUI" />
-    <SUITE FILE_PATH="coverage/stamping_press$activate_test.coverage" NAME="activate_test Coverage Results" MODIFIED="1688536708263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$change_process.coverage" NAME="change_process Coverage Results" MODIFIED="1691565546964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$drafting.coverage" NAME="drafting Coverage Results" MODIFIED="1691036316640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$GUI.coverage" NAME="GUI Coverage Results" MODIFIED="1691032569159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$change_part.coverage" NAME="change_part Coverage Results" MODIFIED="1691064434406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$welding_part_TYPE_change1.coverage" NAME="welding_part_TYPE_change1 Coverage Results" MODIFIED="1691727126587" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$test_T.coverage" NAME="test_T Coverage Results" MODIFIED="1692613309833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$excel_parameter_change.coverage" NAME="excel_parameter_change Coverage Results" MODIFIED="1692177750023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$part_TYPE_change1.coverage" NAME="part_TYPE_change1 Coverage Results" MODIFIED="1689588307468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$part_design__1_.coverage" NAME="part_design (1) Coverage Results" MODIFIED="1688543599026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$part_test.coverage" NAME="part_test Coverage Results" MODIFIED="1688634351637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$part_type_change2.coverage" NAME="part type change2 Coverage Results" MODIFIED="1688558827455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$homework0706_ex.coverage" NAME="homework0706_ex Coverage Results" MODIFIED="1688706834397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$activate_test.coverage" NAME="activate_test Coverage Results" MODIFIED="1688536708263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$excel_parameter_change.coverage" NAME="excel_parameter_change Coverage Results" MODIFIED="1688709908034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$change_part.coverage" NAME="change_part Coverage Results" MODIFIED="1691565523555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$TotalFRAME_part.coverage" NAME="TotalFRAME_part Coverage Results" MODIFIED="1691583186087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$welding_part_TYPE_change1.coverage" NAME="welding_part_TYPE_change1 Coverage Results" MODIFIED="1691727825199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$TEST.coverage" NAME="TEST Coverage Results" MODIFIED="1689771239930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$DEMOGUI.coverage" NAME="DEMOGUI Coverage Results" MODIFIED="1691032230709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/stamping_press$TotalFRAME_FRAME.coverage" NAME="TotalFRAME_FRAME Coverage Results" MODIFIED="1691582968493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$DEMOGUI__1_.coverage" NAME="DEMOGUI (1) Coverage Results" MODIFIED="1691043528757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GUI" />
+    <SUITE FILE_PATH="coverage/stamping_press$part_TYPE_change2.coverage" NAME="part_TYPE_change2 Coverage Results" MODIFIED="1691644595509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$machining_part_TYPE_change.coverage" NAME="machining_part_TYPE_change Coverage Results" MODIFIED="1692936235567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$DEMOGUI.coverage" NAME="DEMOGUI Coverage Results" MODIFIED="1692355685255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GUI" />
+    <SUITE FILE_PATH="coverage/stamping_press$part_TYPE_change2__1_.coverage" NAME="part_TYPE_change2 (1) Coverage Results" MODIFIED="1690965158149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$test2.coverage" NAME="test2 Coverage Results" MODIFIED="1691999553027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$test.coverage" NAME="test Coverage Results" MODIFIED="1692172239353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GUI" />
+    <SUITE FILE_PATH="coverage/stamping_press$homework0706_ex.coverage" NAME="homework0706_ex Coverage Results" MODIFIED="1688706834397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$change_process.coverage" NAME="change_process Coverage Results" MODIFIED="1691565546964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$FRAME_part_TYPE_change_2.coverage" NAME="FRAME_part_TYPE_change_2 Coverage Results" MODIFIED="1691666029356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$main_GUI.coverage" NAME="main_GUI Coverage Results" MODIFIED="1692016716580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$welding_part_TYPE_change.coverage" NAME="welding_part_TYPE_change Coverage Results" MODIFIED="1692785763110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$excel_parameter_change_1.coverage" NAME="excel_parameter_change_1 Coverage Results" MODIFIED="1689250106079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$drafting.coverage" NAME="drafting Coverage Results" MODIFIED="1691036316640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$testGUI.coverage" NAME="testGUI Coverage Results" MODIFIED="1692172444154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GUI" />
     <SUITE FILE_PATH="coverage/stamping_press$TotalFRAME_fromExcel.coverage" NAME="TotalFRAME_fromExcel Coverage Results" MODIFIED="1691571840146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$part_TYPE_change1.coverage" NAME="part_TYPE_change1 Coverage Results" MODIFIED="1688631057703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$welding_part_TYPE_change1__1_.coverage" NAME="welding_part_TYPE_change1 (1) Coverage Results" MODIFIED="1691119169429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$DEMOGUI__1_.coverage" NAME="DEMOGUI (1) Coverage Results" MODIFIED="1691043528757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GUI" />
+    <SUITE FILE_PATH="coverage/stamping_press$part_type_change2.coverage" NAME="part type change2 Coverage Results" MODIFIED="1688558827455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$GUI.coverage" NAME="GUI Coverage Results" MODIFIED="1691127961895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$main_program.coverage" NAME="main_program Coverage Results" MODIFIED="1691579250376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$parameter.coverage" NAME="parameter Coverage Results" MODIFIED="1683870399043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$welding_part_TYPE_change.coverage" NAME="welding_part_TYPE_change Coverage Results" MODIFIED="1692243434185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$main_program.coverage" NAME="main_program Coverage Results" MODIFIED="1689766224304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$FRAME_part_TYPE_change_2.coverage" NAME="FRAME_part_TYPE_change_2 Coverage Results" MODIFIED="1691049839734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$DEMO.coverage" NAME="DEMO Coverage Results" MODIFIED="1692794695891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$FRAME_Assembly_change.coverage" NAME="FRAME_Assembly_change Coverage Results" MODIFIED="1692238585677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$main_GUI.coverage" NAME="main_GUI Coverage Results" MODIFIED="1688386245747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$TotalFRAME_FRAME.coverage" NAME="TotalFRAME_FRAME Coverage Results" MODIFIED="1691582968493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
   </component>
 </project>
