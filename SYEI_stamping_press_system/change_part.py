@@ -5,7 +5,6 @@ import excel_parameter_change as epc
 def change(name, i):
     if name == 'FRAME12':
         excel = epc.ExcelOp('FRAME12')
-
         try:
             excel.part_parameter('FRAME12', i)
             FRAME12_parameter_name, FRAME12_parameter_value = excel.part_parameter('FRAME12', i)

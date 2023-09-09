@@ -1,6 +1,10 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QPushButton, QLineEdit, QLabel, QTableWidget, QTableWidgetItem
 from PyQt5.QtCore import QObject
 from DEMOGUI import Ui_Dialog
+from PAD_main import Ui_Form as pad_main_Form
+from PAD_MACHINING import Ui_Form as pad_machining_Form
+from PAD_dimension import Ui_Form as pad_dimension_Form
 from io import StringIO
 import main_program as mprog
 import file_path as fp
@@ -8,10 +12,14 @@ import parameter as par
 import machining_part_TYPE_change as mptc
 import welding_part_TYPE_change as wptc
 import excel_parameter_change as epc
+import parameter_design_part as pdp
+import test_T as tT
 import sys
 import datetime
 import os
 import time
+
+
 
 test_stop = False
 class main(QtWidgets.QWidget, Ui_Dialog):
@@ -20,13 +28,16 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
         self.ui.pushButton.clicked.connect(self.start)
+        self.ui.pushButton_2.clicked.connect(self.showPadwindows)
         self.ui.comboBox_4.currentIndexChanged.connect(lambda :self.change_label_7())
         self.ui.comboBox_2.currentIndexChanged.connect(lambda :self.change_label_7())
         self.ui.comboBox_4.currentIndexChanged.connect(lambda :self.change_label_9())
         self.ui.comboBox_2.currentIndexChanged.connect(lambda :self.change_label_9())
 
+
     def start(self):
         global test_stop
+        global type
         type = str(self.ui.comboBox_4.currentText())
         travel_type = str(self.ui.comboBox_2.currentText())
         travel = str(self.ui.label_7.text())
@@ -51,12 +62,20 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         else:
             self.delta = int(delta)
         self.i, self.p, self.travel_type = self.choos(type, processing, travel_type)
+        global i
+
         self.alpha, self.beta, self.zeta, self.epsilon = self.frame_calculate(self.i, self.specifications_travel_value,
                                                                                   self.specifications_close_working_height_value,
                                                                                   self.travel_type)
         if test_stop == False:
             self.create_txt(self.path, type, travel_type, self.specifications_travel_value, self.specifications_close_working_height_value, self.alpha, self.beta, self.delta, self.zeta, self.epsilon)
             self.change_dir(self.i, self.p, self.alpha, self.beta, self.delta,self.zeta, self.epsilon , self.machining, self.welding)
+
+    def showPadwindows(self):
+        self.hide()
+        self.nw = padwindows()
+        self.nw.show()
+
 
     def choos(self, type, prossing, travel_type):
         # 確認型號"輸入型號"
@@ -96,12 +115,12 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
     def frame_calculate(self, i, specifications_travel_value, specifications_close_working_height_value, travel_type):
         Form = QtWidgets.QWidget()
-        Form.setWindowTitle('oxxo.studio')
+        # Form.setWindowTitle('警告')
         Form.resize(400, 300)
         mbox = QtWidgets.QMessageBox(Form)
 
         # 讀取標準資料
-        excel = epc.ExcelOp('標準資料')
+        excel = epc.ExcelOp('尺寸整理表', '標準資料')
         type_name, travel_value, close_working_height_value, specifications_travel_min_value, specifications_travel_max_value, specifications_close_working_height_min_value, specifications_close_working_height_max_value = excel.get_standard_parts(
             i * 3)
 
@@ -194,7 +213,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             self.ui.lineEdit_2.clear()
             self.ui.lineEdit_5.clear()
 
-
         if error == True:
             global test_stop
             test_stop = True
@@ -205,8 +223,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         epsilon = epsilon  # 牙球伸長量
         return alpha, beta, zeta, epsilon
 
-
-# 建立txt檔
+    # 建立txt檔
     def create_txt(self, path, travel_type, specifications_travel_value, specifications_close_working_height_value, type, alpha, beta, delta, zeta, epsilon):
         file_txt = path
         txt_name = "生成參數.txt"
@@ -220,7 +237,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             f.write("平板前後=%s\n" % delta)
             f.write("喉部拉高量=%s\n" % zeta)
             f.write("牙球伸長量=%s\n" % epsilon)
-
 
     def create_dir(self, type):  # 創建資料夾
         time_now = datetime.datetime.now()
@@ -248,7 +264,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         self.ui.lineEdit_4.clear()
 
     def label_7_change_data(self):
-        label_7_data = {250: {"S": ("標準:80"), "H": ("標準:50"), "P": ("標準:35")},
+        label_7_data = {250: {"S": "標準:80", "H": ("標準:50"), "P": ("標準:35")},
                 350: {"S": ("標準:90"), "H": ("標準:60"), "P": ("標準:40")},
                 450: {"S": ("標準:110"), "H": ("標準:70"), "P": ("標準:45")},
                 600: {"S": ("標準:130"), "H": ("標準:80"), "P": ("標準:50")},
@@ -259,6 +275,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                 2500: {"S": ("標準:250"), "H": ("標準:180"), "P": ("標準:100")},
                 }
         return label_7_data
+
     def change_label_7(self):
         label_7_data = self.label_7_change_data()
         type = str(self.ui.comboBox_4.currentText())
@@ -305,9 +322,9 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         welding_file_change_error = []
         welding_file_change_pass = []
         # 開啟零件檔更改變數後儲存並關閉
-        for name in epc.ExcelOp('沖床機架零件清單').get_col_cell(1):
+        for name in epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_col_cell(1):
             print(name)
-            file_list_name, file_list_value = epc.ExcelOp('沖床機架零件清單').get_sheet_par('沖床機架零件清單', i)
+            file_list_name, file_list_value = epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_sheet_par('沖床機架零件清單', i)
             file_list_name_index = file_list_name.index(name)
             if file_list_value[file_list_name_index] == 0:
                 pass
@@ -391,6 +408,194 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         print('總用時%s' % (time.time() - start_time))
 
         return machining_file_change_error, welding_file_change_error
+
+# 平板主頁面
+class padwindows(QtWidgets.QWidget):
+    def __init__(self):
+        super().__init__()
+        self.ui = pad_main_Form()
+        self.ui.setupUi(self)
+        self.setWindowTitle('平板')
+        self.ui.t_dimension.clicked.connect(self.showpaddimensionwindows)
+        self.ui.t_machining.clicked.connect(self.showpadmachiningwindows)
+        self.ui.plate_start.clicked.connect(self.start)
+
+    def showpaddimensionwindows(self):
+        self.hide()
+        self.nw = pad_dimension()
+        self.nw.show()
+
+    def showpadmachiningwindows(self):
+        self.hide()
+        self.nw = pad_machining()
+        self.nw.show()
+    def start(self, i):
+        pad_type = str(self.ui.pad_type.currentText())
+        # 對平板進行變數變換
+        self.create_dir('plate')
+        mprog.import_part(fp.system_root + fp.DEMO_part, 'plate')
+        plate_name, plate_value = pdp.padchange(i)
+        if pad_type == '標準':
+            pass
+        elif pad_type == '加大一型':
+            epc.ExcelOp('平板', '平板尺寸').get_single_data_sheet_par('平板尺寸', 'LV1', i)
+        elif pad_type == '加大二型':
+            epc.ExcelOp('平板', '平板尺寸').get_single_data_sheet_par('平板尺寸', 'LV2', i)
+        mprog.save_file_stp(self.path, 'plate')
+        mprog.save_stpfile_part(self.path, 'plate')
+        # # 對T型槽進行變數變換
+        mprog.import_part(fp.system_root + fp.DEMO_part, 'T')
+        pdp.padchange(i)
+        for t in par.t_all_dimension:
+            for t_name in range(len(par.t_all_dimension_name)+1):
+                print(par.t_all_dimension_name[t_name], t)
+                mprog.param_change('T', par.t_all_dimension_name[t_name], t)
+                break
+        mprog.Update()
+        mprog.save_file_stp(self.path, 'T')
+        mprog.save_stpfile_part(self.path, 'T')
+        mprog.close_file('T')
+        # 將T型槽移至平板上進行除料
+        for turn in par.total_pierce:
+            mprog.import_part(self.path, 'T')
+            if par.total_pierce[turn] == '是':
+                mprog.partbodyfeatureactivate('Mirror.3')
+            else:
+                pass
+            if par.total_clearance_hole[turn] == '是':
+                mprog.partbodyfeatureactivate('讓孔')
+                mprog.partbodyfeatureactivate('讓孔倒圓角')
+            else:
+                pass
+            if par.total_t_direction[turn] == '前後':
+                t_direction = 90
+            else:
+                t_direction = 0
+            tT.create_t_solt(par.t_all_dimension, t_direction)
+
+
+
+
+    def create_dir(self, type):  # 創建資料夾
+        time_now = datetime.datetime.now()
+        dir_name = '{}_{}_{}_{}_{}'.format(type, time_now.day, time_now.hour, time_now.minute, time_now.second)
+        desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+        test = os.path.join("Z:")
+        path = test + '\\' + dir_name
+        os.mkdir(path)
+        machining = path + "\\" + "machining"
+        os.mkdir(machining)
+        welding = path + "\\" + "welding"
+        os.mkdir(welding)
+        self.path = path
+        self.machining = machining
+        self.welding = welding
+
+# T型槽外型尺寸
+class pad_dimension(QtWidgets.QWidget):
+    def __init__(self):
+        super().__init__()
+        self.ui = pad_dimension_Form()
+        self.ui.setupUi(self)
+        self.setWindowTitle('平板')
+        self.ui.setup_value.clicked.connect(self.setup)
+        self.ui.escape.clicked.connect(self.showpadwindows)
+        self.ui.reset_value.clicked.connect(self.reset)
+
+    def setup(self):
+        t_a = str(self.ui.A.text())
+        t_b = str(self.ui.B.text())
+        t_c = str(self.ui.C.text())
+        t_d = str(self.ui.D.text())
+        par.t_all_dimension = [t_a, t_b, t_c, t_d]
+        print("T型槽外型尺寸:", par.t_all_dimension)
+        self.hide()
+        self.nw = padwindows()
+        self.nw.show()
+
+    def reset(self):
+        self.ui.A.clear()
+        self.ui.B.clear()
+        self.ui.C.clear()
+        self.ui.D.clear()
+
+    def showpadwindows(self):
+        self.hide()
+        self.nw = padwindows()
+        self.nw.show()
+
+# T型槽加工
+class pad_machining(QtWidgets.QWidget):
+    def __init__(self):
+        super().__init__()
+        self.ui = pad_machining_Form()
+        self.ui.setupUi(self)
+        self.setWindowTitle('平板加工設定')
+        self.ui.escape.clicked.connect(self.showpadwindows)
+        self.ui.new_order.clicked.connect(self.inputneworder)
+        self.ui.setup.clicked.connect(self.start)
+        self.ui.reset.clicked.connect(self.removeAction)
+
+    def showpadwindows(self):
+        data_entries = []
+        self.hide()
+        self.nw = padwindows()
+        self.nw.show()
+
+    def inputneworder(self):
+        pierce = str(self.ui.pierce.currentText())  # 貫穿
+        clearance_hole = str(self.ui.clearance_hole.currentText())  # 間隙孔(讓孔)
+        t_direction = str(self.ui.direction.currentText())  # T形槽方向
+        t_dimension = str(self.ui.position_dimension.text())  # T形槽尺寸
+        if t_dimension == "":
+            t_dimension = 0
+        data_entries = [pierce, clearance_hole, t_direction, t_dimension]
+        self.add_data(data_entries)
+
+    def add_data(self, data_entries):
+        # 取得目前表單的行數
+        row_position = self.ui.tableWidget.rowCount()
+        # 在表單中插入新的一行
+        self.ui.tableWidget.insertRow(row_position)
+        # 將手動輸入的四個資料新增到表單的下一列中
+        for col, entry in enumerate(data_entries):
+            item = QTableWidgetItem(entry)
+            self.ui.tableWidget.setItem(row_position, col, item)
+            self.ui.position_dimension.clear()
+
+    def start(self):
+        # 將表單資料存至parameter.py指定串列
+        for row in range(self.ui.tableWidget.rowCount()):
+            pierce = self.ui.tableWidget.item(row, 0).text()
+            clearance_hole = self.ui.tableWidget.item(row, 1).text()
+            t_direction = self.ui.tableWidget.item(row, 2).text()
+            t_dimension = self.ui.tableWidget.item(row, 3).text()
+            par.total_pierce.append(pierce)
+            par.total_clearance_hole.append(clearance_hole)
+            par.total_t_direction.append(t_direction)
+            par.total_t_dimension.append(t_dimension)
+        print("T形槽方向:", par.total_t_direction)
+        print("貫穿:", par.total_pierce)
+        print("間隙孔(讓孔):", par.total_clearance_hole)
+        print("T形槽尺寸:", par.total_t_dimension)
+
+        self.hide()
+        self.nw = padwindows()
+        self.nw.show()
+
+    def removeAction(self):
+        # 取得目前表單的行數
+        row_position = self.ui.tableWidget.rowCount()
+        # 在表單中刪除最後一行
+        self.ui.tableWidget.removeRow(row_position)
+
+
+
+
+
+
+
+
 
 
 if __name__ == "__main__":

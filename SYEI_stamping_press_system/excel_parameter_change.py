@@ -3,8 +3,8 @@ import main_program as mprog
 
 
 class ExcelOp(object):
-    def __init__(self, sheet_name):
-        self.wb = xl.load_workbook('尺寸整理表.xlsx')
+    def __init__(self, file_name, sheet_name):
+        self.wb = xl.load_workbook('%s.xlsx' % file_name)
         self.ws= self.wb[str(sheet_name)]
 
     def get_col_cell(self, column):
@@ -23,7 +23,7 @@ class ExcelOp(object):
         if part_name != '沖床機架零件清單' and part_name != '標準資料':
             for n in range(0, len(parameter_name)):
                 # 確認生成變數
-                # print(parameter_name[n], parameter_value[n])
+                print(parameter_name[n], parameter_value[n])
                 mprog.param_change(part_name, parameter_name[n], str(parameter_value[n]))
         else:
             pass
@@ -38,3 +38,12 @@ class ExcelOp(object):
         specifications_close_working_height_min_value = self.get_col_cell(6)
         specifications_close_working_height_max_value = self.get_col_cell(7)
         return type_name, travel_value, close_working_height_value, specifications_travel_min_value, specifications_travel_max_value, specifications_close_working_height_min_value, specifications_close_working_height_max_value
+
+    def get_single_data_sheet_par(self, data_name, part_name, i):
+        parameter_name = self.get_col_cell(1)
+        parameter_value = self.get_col_cell(i+2)
+        position = parameter_name.index(data_name)
+        if part_name != '沖床機架零件清單' and part_name != '標準資料':
+            mprog.param_change(part_name, parameter_name[position], str(parameter_value[i]))
+        else:
+            pass

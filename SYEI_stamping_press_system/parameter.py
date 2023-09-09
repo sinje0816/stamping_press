@@ -103,3 +103,21 @@ drafting_down_min_Y = 65
 drafting_Welding_text = {'A-A Top': ['', '15', '', '6處\n頂面焊道要用砂輪磨平', '', '', '', '', '', '', '35°'],
                          'test': ['', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']}
 # 圈碼座標
+
+
+# -------------平板相關參數---------------
+# T型槽相關參數
+total_pierce = []
+total_clearance_hole = []
+total_t_direction = []
+total_t_dimension = []
+# T型槽外型尺寸
+t_all_dimension = []
+t_all_dimension = [22, 38, 23, 16]
+t_all_dimension_name = ['tw2', 'tw1', 'th2', 'th1']
+# 平板外型尺寸
+plate_dimension = []
+# 除料孔(待補齊)
+plate_hole_type = []
+plate_hole_position = []
+plate_hole_dimension = []
