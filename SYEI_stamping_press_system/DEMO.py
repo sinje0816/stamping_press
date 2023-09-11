@@ -315,6 +315,8 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         start_time = time.time()
         all_part_name = {}
         all_part_value = {}
+        all_parameter_list = {}
+        all_parameter_value = {}
         # 開啟CATIA
         env = mprog.set_CATIA_workbench_env()
         machining_file_change_error = []
@@ -348,6 +350,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         parameter_name, parameter_value = mptc.change_machining_parameter(name, i, 0)
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
+                        for x in range(len(parameter_name)):
+                            all_parameter_list[parameter_name[x]] = parameter_value[x]
+                            all_parameter_value[name] = all_parameter_list
+                            apv = all_parameter_value
 
                         # 恢复原始的sys.stdout
                         sys.stdout = original_stdout
@@ -373,6 +379,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         parameter_name, parameter_value = mptc.change_machining_parameter(name, i, 1)
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
+                        for x in range(len(parameter_name)):
+                            all_parameter_list[parameter_name[x]] = parameter_value[x]
+                            all_parameter_value[name] = all_parameter_list
+                            apv = all_parameter_value
 
                         # 恢复原始的sys.stdout
                         sys.stdout = original_stdout
