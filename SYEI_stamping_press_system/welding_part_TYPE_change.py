@@ -1081,29 +1081,38 @@ def change_welding_feature(name, i):
                     mprog.activatefeature('SN1_2545_Body', 0)
                     mprog.partbodyfeatureactivate('SN1_25_X')
                     mprog.partbodyfeatureactivate('SN1_2535_Y')
+                    mprog.partdeactivate("machining_AI")
                 elif i == 1:
                     mprog.activatefeature('SN1_2545_Body', 0)
                     mprog.partbodyfeatureactivate('SN1_2535_Y')
                     mprog.partbodyfeatureactivate("SN1_3545_AD")
+                    mprog.partdeactivate("machining_AI")
                 elif i == 2:
                     mprog.activatefeature('SN1_2545_Body', 0)
                     mprog.partbodyfeatureactivate('SN1_45_Y')
                     mprog.partbodyfeatureactivate('SN1_45_X')
                     mprog.partbodyfeatureactivate("SN1_3545_AD")
+                    mprog.partdeactivate("machining_AI")
                 elif i == 3:
                     mprog.activatefeature('SN1_60_Body', 0)
+                    mprog.partdeactivate("machining_AI")
                 elif i == 4:
                     mprog.activatefeature('SN1_80110_Body', 0)
+                    mprog.partdeactivate("machining_AI")
                 elif i == 5:
                     mprog.activatefeature('SN1_80110_Body', 0)
+                    mprog.partdeactivate("machining_AI")
                 elif i == 6:
                     mprog.activatefeature('SN1_160_Body', 0)
                     mprog.bodydeactivate('FRMAE_SN1_160_Body', 0)
                     mprog.bodydeactivate('FRAME_34_Hole_1', 0)
+                    mprog.partdeactivate("machining_AI")
                 elif i == 7:
                     mprog.activatefeature('SN1_200_Body', 0)
+                    mprog.partdeactivate("machining_AI")
                 elif i == 8:
                     mprog.activatefeature('SN1_250_Body', 0)
+                    mprog.partdeactivate("machining_AI")
             except:
                 print('FRAME19 Parameter activate error')
             finally:

@@ -1211,7 +1211,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                 except:
                     print('FRAME15 Update error')
         elif name == 'FRAME16':
-            excel = epc.ExcelOp('FRAME16')
+            excel = epc.ExcelOp('尺寸整理表', 'FRAME16')
             try:
                 parameter_name, parameter_value = excel.get_sheet_par('FRAME16', i)
                 print('FRAME16 Parameter change success')
@@ -1407,28 +1407,37 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('SN1_2545_Body', 6)
                     mprog.partbodyfeatureactivate('SN1_25_X')
                     mprog.partbodyfeatureactivate('SN1_2535_Y')
+                    mprog.partbodyfeatureactivate("machining_AI")
                 elif i == 1:
                     mprog.activatefeature('SN1_2545_Body', 6)
                     mprog.partbodyfeatureactivate('SN1_2535_Y')
                     mprog.partbodyfeatureactivate("SN1_3545_AD")
+                    mprog.partbodyfeatureactivate("machining_AI")
                 elif i == 2:
                     mprog.activatefeature('SN1_2545_Body', 6)
                     mprog.partbodyfeatureactivate('SN1_45_Y')
                     mprog.partbodyfeatureactivate('SN1_45_X')
                     mprog.partbodyfeatureactivate("SN1_3545_AD")
+                    mprog.partbodyfeatureactivate("machining_AI")
                 elif i == 3:
                     mprog.activatefeature('SN1_60_Body', 8)
+                    mprog.partbodyfeatureactivate("machining_AI")
                 elif i == 4:
                     mprog.activatefeature('SN1_80110_Body', 5)
+                    mprog.partbodyfeatureactivate("machining_AI")
                 elif i == 5:
                     mprog.activatefeature('SN1_80110_Body', 5)
+                    mprog.partbodyfeatureactivate("machining_AI")
                 elif i == 6:
                     mprog.activatefeature('FRMAE_SN1_160_Body', 0)
                     mprog.activatefeature('FRAME_34_Hole_1', 0)
+                    mprog.partbodyfeatureactivate("machining_AI")
                 elif i == 7:
                     mprog.activatefeature('SN1_200_Body', 4)
+                    mprog.partbodyfeatureactivate("machining_AI")
                 elif i == 8:
-                    mprog.activatefeature('SN1_250_Body', 0)
+                    mprog.activatefeature('SN1_250_Body', 3)
+                    mprog.partbodyfeatureactivate("machining_AI")
                 print('FRAME19 machining success')
             except:
                 print('FRAME19 Parameter activate error')
