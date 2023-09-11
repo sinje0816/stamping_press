@@ -315,8 +315,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         start_time = time.time()
         all_part_name = {}
         all_part_value = {}
-        all_parameter_list = {}
-        all_parameter_value = {}
         # 開啟CATIA
         env = mprog.set_CATIA_workbench_env()
         machining_file_change_error = []
@@ -350,10 +348,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         parameter_name, parameter_value = mptc.change_machining_parameter(name, i, 0)
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
-                        for x in range(len(parameter_name)):
-                            all_parameter_list[parameter_name[x]] = parameter_value[x]
-                            all_parameter_value[name] = all_parameter_list
-                            apv = all_parameter_value
 
                         # 恢复原始的sys.stdout
                         sys.stdout = original_stdout
@@ -379,10 +373,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         parameter_name, parameter_value = mptc.change_machining_parameter(name, i, 1)
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
-                        for x in range(len(parameter_name)):
-                            all_parameter_list[parameter_name[x]] = parameter_value[x]
-                            all_parameter_value[name] = all_parameter_list
-                            apv = all_parameter_value
 
                         # 恢复原始的sys.stdout
                         sys.stdout = original_stdout
@@ -445,46 +435,72 @@ class padwindows(QtWidgets.QWidget):
         self.create_dir('plate')
         mprog.import_part(fp.system_root + fp.DEMO_part, 'plate')
         plate_name, plate_value = pdp.padchange(i)
-        if pad_type == '標準':
-            pass
-        elif pad_type == '加大一型':
-            epc.ExcelOp('平板', '平板尺寸').get_single_data_sheet_par('平板尺寸', 'LV1', i)
-        elif pad_type == '加大二型':
-            epc.ExcelOp('平板', '平板尺寸').get_single_data_sheet_par('平板尺寸', 'LV2', i)
-        mprog.save_file_stp(self.path, 'plate')
-        mprog.save_stpfile_part(self.path, 'plate')
-        # # 對T型槽進行變數變換
+        for name in plate_name:
+            par.plate_all_parameter[name] = plate_value[plate_name.index(name)]
+        print(par.plate_all_parameter)
+
+        try:
+            if pad_type == '標準':
+                lv = 0
+            elif pad_type == '加大一型':
+                lv = epc.ExcelOp('平板', '平板尺寸').get_single_data_sheet_par('平板尺寸', 'LV1', i)
+            elif pad_type == '加大二型':
+                lv = epc.ExcelOp('平板', '平板尺寸').get_single_data_sheet_par('平板尺寸', 'LV2', i)
+            print('plate type LV update successfully')
+        except:
+            print('plate type LV update error')
+
+        # 對T型槽進行變數變換
         mprog.import_part(fp.system_root + fp.DEMO_part, 'T')
         pdp.padchange(i)
-        for t in par.t_all_dimension:
-            for t_name in range(len(par.t_all_dimension_name)+1):
-                print(par.t_all_dimension_name[t_name], t)
-                mprog.param_change('T', par.t_all_dimension_name[t_name], t)
-                break
+        try:
+            for t in par.t_all_dimension:
+                for t_name in range(len(par.t_all_dimension_name)+1):
+                    print(par.t_all_dimension_name[t_name], t)
+                    mprog.param_change('T', par.t_all_dimension_name[t_name], t)
+                    break
+            print('T-slot parameter change successfully')
+        except:
+            print('T-slot parameter change error')
         mprog.Update()
         mprog.save_file_stp(self.path, 'T')
         mprog.save_stpfile_part(self.path, 'T')
-        mprog.close_file('T')
         # 將T型槽移至平板上進行除料
-        for turn in par.total_pierce:
+        for turn in range(0, len(par.total_pierce)):
             mprog.import_part(self.path, 'T')
             if par.total_pierce[turn] == '是':
-                mprog.partbodyfeatureactivate('Mirror.3')
+                if par.total_t_direction[turn] == '前後':
+                    mprog.param_change('T', 'Depth', par.plate_all_parameter['B'])
+                elif par.total_t_direction[turn] == '左右':
+                    mprog.param_change('T', 'Depth', (par.plate_all_parameter['A']+lv))
             else:
-                pass
+                mprog.param_change('T', 'Depth', par.total_unpierce[turn])
+                if par.total_t_direction[turn] == '前後':
+                    mprog.param_change('T', 'mirror', par.plate_all_parameter['B'])
+                    print(par.plate_all_parameter['B']/2)
+                elif par.total_t_direction[turn] == '左右':
+                    mprog.param_change('T', 'mirror', (par.plate_all_parameter['A']+lv))
+                    print((par.plate_all_parameter['A']+lv)/2)
+                mprog.partbodyfeatureactivate('Mirror.3')
+
             if par.total_clearance_hole[turn] == '是':
                 mprog.partbodyfeatureactivate('讓孔')
                 mprog.partbodyfeatureactivate('讓孔倒圓角')
             else:
                 pass
+
             if par.total_t_direction[turn] == '前後':
-                t_direction = 90
+                tT.changerotate(-90)
             else:
-                t_direction = 0
-            tT.create_t_solt(par.t_all_dimension, t_direction)
+                tT.changerotate(0)
 
-
-
+            mprog.Update()
+            if par.total_t_direction[turn] == '前後':
+                tT.create_t_solt(-par.total_t_dimension[turn], turn)
+            elif par.total_t_direction[turn] == '左右':
+                tT.create_t_solt(par.total_t_dimension[turn], turn)
+        mprog.save_file_stp(self.path, 'plate')
+        mprog.save_stpfile_part(self.path, 'plate')
 
     def create_dir(self, type):  # 創建資料夾
         time_now = datetime.datetime.now()
@@ -557,9 +573,10 @@ class pad_machining(QtWidgets.QWidget):
         clearance_hole = str(self.ui.clearance_hole.currentText())  # 間隙孔(讓孔)
         t_direction = str(self.ui.direction.currentText())  # T形槽方向
         t_dimension = str(self.ui.position_dimension.text())  # T形槽尺寸
+        unpierce = str(self.ui.unpierce.text())  # 非貫穿尺寸
         if t_dimension == "":
             t_dimension = 0
-        data_entries = [pierce, clearance_hole, t_direction, t_dimension]
+        data_entries = [pierce, clearance_hole, t_direction, t_dimension, unpierce]
         self.add_data(data_entries)
 
     def add_data(self, data_entries):
@@ -572,6 +589,7 @@ class pad_machining(QtWidgets.QWidget):
             item = QTableWidgetItem(entry)
             self.ui.tableWidget.setItem(row_position, col, item)
             self.ui.position_dimension.clear()
+            self.ui.unpierce.clear()
 
     def start(self):
         # 將表單資料存至parameter.py指定串列
@@ -580,14 +598,18 @@ class pad_machining(QtWidgets.QWidget):
             clearance_hole = self.ui.tableWidget.item(row, 1).text()
             t_direction = self.ui.tableWidget.item(row, 2).text()
             t_dimension = self.ui.tableWidget.item(row, 3).text()
+            unpierce = self.ui.tableWidget.item(row, 4).text()
             par.total_pierce.append(pierce)
             par.total_clearance_hole.append(clearance_hole)
             par.total_t_direction.append(t_direction)
-            par.total_t_dimension.append(t_dimension)
+            par.total_t_dimension.append(int(t_dimension))
+            par.total_unpierce.append(unpierce)
+
         print("T形槽方向:", par.total_t_direction)
         print("貫穿:", par.total_pierce)
         print("間隙孔(讓孔):", par.total_clearance_hole)
         print("T形槽尺寸:", par.total_t_dimension)
+        print("非貫穿尺寸:", par.total_unpierce)
 
         self.hide()
         self.nw = padwindows()

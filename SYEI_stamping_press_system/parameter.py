@@ -111,6 +111,7 @@ total_pierce = []
 total_clearance_hole = []
 total_t_direction = []
 total_t_dimension = []
+total_unpierce = []
 # T型槽外型尺寸
 t_all_dimension = []
 t_all_dimension = [22, 38, 23, 16]
@@ -121,3 +122,7 @@ plate_dimension = []
 plate_hole_type = []
 plate_hole_position = []
 plate_hole_dimension = []
+# 平板變數大全
+plate_all_parameter = {}
+plate_parameter_name = []
+plate_parameter_value = []

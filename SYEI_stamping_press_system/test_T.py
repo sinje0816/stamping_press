@@ -31,7 +31,7 @@ def copybody():
     selection1.Add(body1)
     selection1.Copy()
 
-def pastebody():
+def pastebody(count):
     catapp = win32.Dispatch('CATIA.Application')
     part_document1 = catapp.ActiveDocument
     selection1 = part_document1.Selection
@@ -41,10 +41,10 @@ def pastebody():
     body1 = bodies1.Item("PartBody")
     selection1.Add(body1)
     selection1.Paste()
-    body = bodies1.Item("Body.17")
-    body.name = "123"
+    body = bodies1.Item("Body."+str(9+count))
+    body.name = "T-solt"+str(count)
 
-def removebody():
+def removebody(count):
     catapp = win32.Dispatch('CATIA.Application')
     partDocument1 = catapp.ActiveDocument
     part = partDocument1.Part
@@ -52,7 +52,7 @@ def removebody():
     bodies = part.Bodies
     partbody = bodies.Item("PartBody")
     part.InWorkObject = partbody
-    body = bodies.Item("123")
+    body = bodies.Item("T-solt"+str(count))
     shapeFactory1.AddNewRemove(body)
     part.Update()
 
@@ -87,12 +87,13 @@ def changerotate(rotate_value):
     angle1.Value = rotate_value
     part1.Update()
 
-def create_t_solt(translate,rotate):
+def create_t_solt(translate, count):
     changetranslate(translate)
-    changerotate(rotate)
     copybody()
-    switch_to_window_by_name("plate")
-    pastebody()
-    removebody()
+    switch_to_window_by_name("plate.CATPart")
+    pastebody(count)
+    removebody(count)
     mprog.Update()
-    mprog.close_file('T')
+    switch_to_window_by_name("T.CATPart")
+    mprog.close_window()
+

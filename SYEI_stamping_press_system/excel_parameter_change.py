@@ -23,7 +23,7 @@ class ExcelOp(object):
         if part_name != '沖床機架零件清單' and part_name != '標準資料':
             for n in range(0, len(parameter_name)):
                 # 確認生成變數
-                print(parameter_name[n], parameter_value[n])
+                # print(parameter_name[n], parameter_value[n])
                 mprog.param_change(part_name, parameter_name[n], str(parameter_value[n]))
         else:
             pass
@@ -47,3 +47,4 @@ class ExcelOp(object):
             mprog.param_change(part_name, parameter_name[position], str(parameter_value[i]))
         else:
             pass
+        return parameter_value
