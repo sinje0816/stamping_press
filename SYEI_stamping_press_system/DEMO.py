@@ -9,6 +9,7 @@ from io import StringIO
 import main_program as mprog
 import file_path as fp
 import parameter as par
+import Assmebly_design as Ad
 import machining_part_TYPE_change as mptc
 import welding_part_TYPE_change as wptc
 import excel_parameter_change as epc
@@ -315,6 +316,8 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         start_time = time.time()
         all_part_name = {}
         all_part_value = {}
+        all_parameter_list = {}
+        all_parameter_value = {}
         # 開啟CATIA
         env = mprog.set_CATIA_workbench_env()
         machining_file_change_error = []
@@ -348,6 +351,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         parameter_name, parameter_value = mptc.change_machining_parameter(name, i, 0)
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
+                        for x in range(len(parameter_name)):
+                            all_parameter_list[parameter_name[x]] = parameter_value[x]
+                            all_parameter_value[name] = all_parameter_list
+                            apv = all_parameter_value
 
                         # 恢复原始的sys.stdout
                         sys.stdout = original_stdout
@@ -373,6 +380,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         parameter_name, parameter_value = mptc.change_machining_parameter(name, i, 1)
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
+                        for x in range(len(parameter_name)):
+                            all_parameter_list[parameter_name[x]] = parameter_value[x]
+                            all_parameter_value[name] = all_parameter_list
+                            apv = all_parameter_value
 
                         # 恢复原始的sys.stdout
                         sys.stdout = original_stdout
@@ -405,7 +416,8 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         print('machining_file_change_pass', machining_file_change_pass)
         print('welding_file_change_error', welding_file_change_error)
         print('welding_file_change_pass', welding_file_change_pass)
-        print('總用時%s' % (time.time() - start_time))
+        print('總用時%s' % (time.time() - start_time))#建立3D組立
+        Ad.assembly(i, apv)
 
         return machining_file_change_error, welding_file_change_error
 

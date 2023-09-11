@@ -29,6 +29,19 @@ class ExcelOp(object):
             pass
         return parameter_name, parameter_value
 
+    def get_assmebly_sheet_par(self, i):
+        assmebly_par_list = {}
+        part_name = self.get_col_cell(1)
+        part_value = self.get_col_cell(i+2)
+        for x in range(len(part_name)):
+            assmebly_par_list[part_name[x]] = part_value[x]
+        return assmebly_par_list
+
+    def get_assmebly_quantity(self, i):
+        part_name = self.get_col_cell(1)
+        part_quantity = self.get_col_cell(i+2)
+        return part_name, part_quantity
+
     def get_standard_parts(self, i):
         type_name = self.get_col_cell(1)
         travel_value = self.get_col_cell(2)
