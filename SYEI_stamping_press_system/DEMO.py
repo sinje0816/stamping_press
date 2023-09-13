@@ -45,10 +45,9 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         specifications_travel_value = str(self.ui.lineEdit_5.text())
         specifications_close_working_height_value = str(self.ui.lineEdit_2.text())
         close_working_height = str(self.ui.label_9.text())
-        delta = str(self.ui.lineEdit_4.text())
         processing = str(self.ui.comboBox.currentText())
         print(type, travel_type, travel, specifications_travel_value, specifications_close_working_height_value,
-              close_working_height, delta)
+              close_working_height)
         self.create_dir(type)
         if specifications_travel_value == "":
             self.specifications_travel_value = 0
@@ -58,10 +57,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             self.specifications_close_working_height_value = 0
         else:
             self.specifications_close_working_height_value = int(specifications_close_working_height_value)
-        if delta == "":
-            self.delta = 0
-        else:
-            self.delta = int(delta)
         self.i, self.p, self.travel_type = self.choos(type, processing, travel_type)
         global i
 
@@ -69,8 +64,8 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                                                                                   self.specifications_close_working_height_value,
                                                                                   self.travel_type)
         if test_stop == False:
-            self.create_txt(self.path, type, travel_type, self.specifications_travel_value, self.specifications_close_working_height_value, self.alpha, self.beta, self.delta, self.zeta, self.epsilon)
-            self.change_dir(self.i, self.p, self.alpha, self.beta, self.delta,self.zeta, self.epsilon , self.machining, self.welding)
+            self.create_txt(self.path, type, travel_type, self.specifications_travel_value, self.specifications_close_working_height_value, self.alpha, self.beta, self.zeta, self.epsilon)
+            self.change_dir(self.i, self.p, self.alpha, self.beta,self.zeta, self.epsilon , self.machining, self.welding)
 
     def showPadwindows(self):
         self.hide()
@@ -225,7 +220,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         return alpha, beta, zeta, epsilon
 
     # 建立txt檔
-    def create_txt(self, path, travel_type, specifications_travel_value, specifications_close_working_height_value, type, alpha, beta, delta, zeta, epsilon):
+    def create_txt(self, path, travel_type, specifications_travel_value, specifications_close_working_height_value, type, alpha, beta, zeta, epsilon):
         file_txt = path
         txt_name = "生成參數.txt"
         with open(file_txt + "\\" + txt_name, "w") as f:
@@ -235,7 +230,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
             f.write("本次閉合工作高度=%s\n" % specifications_close_working_height_value)
             f.write("行程=%s\n" % alpha)
             f.write("閉合工作高度=%s\n" % beta)
-            f.write("平板前後=%s\n" % delta)
             f.write("喉部拉高量=%s\n" % zeta)
             f.write("牙球伸長量=%s\n" % epsilon)
 
@@ -262,7 +256,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mbox.information(Form, '完成', '生成完成\nmachining_file_change_error:%s\nwelding_file_change_error:%s\n' %(machining_file_change_error, welding_file_change_error))
         self.ui.lineEdit_5.clear()
         self.ui.lineEdit_2.clear()
-        self.ui.lineEdit_4.clear()
 
     def label_7_change_data(self):
         label_7_data = {250: {"S": "標準:80", "H": ("標準:50"), "P": ("標準:35")},
@@ -312,11 +305,11 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         self.ui.label_9.clear()
         self.ui.label_9.setText(close_h)
 
-    def change_dir(self, i, p, alpha, beta, delta, zeta, epsilon, machining, welding):
+    def change_dir(self, i, p, alpha, beta, zeta, epsilon, machining, welding):
         start_time = time.time()
         all_part_name = {}
         all_part_value = {}
-        all_parameter_list = {}
+        all_parameter_save = {}
         all_parameter_value = {}
         # 開啟CATIA
         env = mprog.set_CATIA_workbench_env()
@@ -343,7 +336,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         try:
                             mprog.param_change(name, "alpha", alpha)
                             mprog.param_change(name, "beta", beta)
-                            mprog.param_change(name, "delta", delta)
                             mprog.param_change(name, 'zeta', zeta)
                         except:
                             pass
@@ -352,7 +344,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
                         for x in range(len(parameter_name)):
-                            all_parameter_list[parameter_name[x]] = parameter_value[x]
+                            all_parameter_list.setdefault(parameter_name[x], parameter_value[x])
                             all_parameter_value[name] = all_parameter_list
                             apv = all_parameter_value
 
@@ -371,7 +363,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         try:
                             mprog.param_change(name, "alpha", alpha)
                             mprog.param_change(name, "beta", beta)
-                            mprog.param_change(name, "delta", delta)
                             mprog.param_change(name, 'zeta', zeta)
                         except:
                             pass
@@ -381,9 +372,11 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
                         for x in range(len(parameter_name)):
-                            all_parameter_list[parameter_name[x]] = parameter_value[x]
+                            all_parameter_save.setdefault(parameter_name[x], parameter_value[x])
+                            all_parameter_list = all_parameter_save.copy()
                             all_parameter_value[name] = all_parameter_list
                             apv = all_parameter_value
+                        all_parameter_save.clear()
 
                         # 恢复原始的sys.stdout
                         sys.stdout = original_stdout
@@ -417,7 +410,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         print('welding_file_change_error', welding_file_change_error)
         print('welding_file_change_pass', welding_file_change_pass)
         print('總用時%s' % (time.time() - start_time))#建立3D組立
-        Ad.assembly(i, apv)
+        Ad.assembly(i, apv, self.path)
 
         return machining_file_change_error, welding_file_change_error
 
