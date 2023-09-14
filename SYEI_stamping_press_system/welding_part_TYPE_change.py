@@ -36,6 +36,7 @@ def change_welding_feature(name, i):
                 mprog.bodydeactivate('machining_2x8_12通孔', 0)
                 mprog.bodydeactivate('machining_aaaaa2', 0)
                 mprog.bodydeactivate('machining_aaaaa4', 0)
+                mprog.partbodyfeatureactivate("welding_喉口")
             elif i == 1:
                 mprog.partbodyfeatureactivate('before250_喉口')
                 mprog.partbodyfeatureactivate('Z1')
@@ -63,6 +64,7 @@ def change_welding_feature(name, i):
                 mprog.bodydeactivate('machining_2x8_12通孔', 0)
                 mprog.bodydeactivate('machining_aaaaa2', 0)
                 mprog.bodydeactivate('machining_aaaaa4', 0)
+                mprog.partbodyfeatureactivate("welding_喉口")
             elif i == 2:
                 mprog.partbodyfeatureactivate('before250_喉口')
                 mprog.partbodyfeatureactivate('Z1')
@@ -90,6 +92,7 @@ def change_welding_feature(name, i):
                 mprog.bodydeactivate('machining_2x8_12通孔', 0)
                 mprog.bodydeactivate('machining_aaaaa2', 0)
                 mprog.bodydeactivate('machining_aaaaa4', 0)
+                mprog.partbodyfeatureactivate("welding_喉口")
             elif i == 3:
                 mprog.partbodyfeatureactivate('before250_喉口')
                 mprog.partbodyfeatureactivate('Z1')
@@ -117,6 +120,7 @@ def change_welding_feature(name, i):
                 mprog.bodydeactivate('machining_2x8_12通孔', 0)
                 mprog.bodydeactivate('machining_aaaaa2', 0)
                 mprog.bodydeactivate('machining_aaaaa4', 0)
+                mprog.partbodyfeatureactivate("welding_喉口")
             elif i == 4:
                 mprog.partbodyfeatureactivate('before250_喉口')
                 mprog.partbodyfeatureactivate('Z1')
@@ -142,6 +146,7 @@ def change_welding_feature(name, i):
                 mprog.bodydeactivate('machining_2x8_12通孔', 0)
                 mprog.bodydeactivate('machining_aaaaa2', 0)
                 mprog.bodydeactivate('machining_aaaaa4', 0)
+                mprog.partbodyfeatureactivate("welding_喉口")
             elif i == 5:
                 mprog.partbodyfeatureactivate('before250_喉口')
                 mprog.partbodyfeatureactivate('Z1')
@@ -167,6 +172,7 @@ def change_welding_feature(name, i):
                 mprog.bodydeactivate('machining_2x8_12通孔', 0)
                 mprog.bodydeactivate('machining_aaaaa2', 0)
                 mprog.bodydeactivate('machining_aaaaa4', 0)
+                mprog.partbodyfeatureactivate("welding_喉口")
             elif i == 6:
                 mprog.partbodyfeatureactivate('before250_喉口')
                 mprog.partbodyfeatureactivate('Z1')
@@ -192,6 +198,7 @@ def change_welding_feature(name, i):
                 mprog.bodydeactivate('machining_2x8_12通孔', 0)
                 mprog.bodydeactivate('machining_aaaaa2', 0)
                 mprog.bodydeactivate('machining_aaaaa4', 0)
+                mprog.partbodyfeatureactivate("welding_喉口")
             elif i == 7:
                 mprog.partbodyfeatureactivate('before250_喉口')
                 mprog.partbodyfeatureactivate('Z1')
@@ -217,6 +224,7 @@ def change_welding_feature(name, i):
                 mprog.bodydeactivate('machining_2x8_12通孔', 0)
                 mprog.bodydeactivate('machining_aaaaa2', 0)
                 mprog.bodydeactivate('machining_aaaaa4', 0)
+                mprog.partbodyfeatureactivate("welding_喉口")
             elif i == 8:
                 mprog.partbodyfeatureactivate('T250')
                 mprog.partbodyfeatureactivate('Z1')
@@ -242,6 +250,7 @@ def change_welding_feature(name, i):
                 mprog.bodydeactivate('machining_2x8_12通孔', 0)
                 mprog.bodydeactivate('machining_aaaaa2', 0)
                 mprog.bodydeactivate('machining_aaaaa4', 0)
+                mprog.partbodyfeatureactivate("welding_喉口")
             try:
                 mprog.update()
                 print('FRAME1 update success')
