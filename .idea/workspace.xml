@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="DEMOparameter讀值修改，組立更新">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_9_14__07_20__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_9_14__07_20__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/machining_part_TYPE_change.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/machining_part_TYPE_change.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME1.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME1.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME2.CATPart" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/new_stamping_press/new/FRAME2.CATPart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/welding_part_TYPE_change.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/welding_part_TYPE_change.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/尺寸整理表.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/尺寸整理表.xlsx" afterDir="false" />
-    </list>
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="FRAME1、2修改，組立更新" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -289,13 +281,6 @@
       <workItem from="1694572473564" duration="4479000" />
       <workItem from="1694584318165" duration="12135000" />
       <workItem from="1694667303901" duration="2923000" />
-    </task>
-    <task id="LOCAL-00029" summary="修改氣壓缸尺寸">
-      <created>1669043614548</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1669043614548</updated>
     </task>
     <task id="LOCAL-00030" summary="修改FRAME32結合距離及尺寸、氣壓缸結合距離">
       <created>1669107668327</created>
@@ -633,7 +618,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694581171616</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="FRAME1、2修改，組立更新">
+      <created>1694699442038</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1694699442038</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -699,7 +691,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="爆改主程式" />
     <MESSAGE value="修整主程式資料位置" />
     <MESSAGE value="1.修正大尺寸1.5倍爆炸圖投影生成位置問題&#10;2.修改爆炸圖執行式" />
     <MESSAGE value="FRAME1建立到噸數80完成" />
@@ -724,7 +715,8 @@
     <MESSAGE value="螺栓尺寸表更新" />
     <MESSAGE value="DEMO組立部份上傳" />
     <MESSAGE value="DEMOparameter讀值修改，組立更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="DEMOparameter讀值修改，組立更新" />
+    <MESSAGE value="FRAME1、2修改，組立更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="FRAME1、2修改，組立更新" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
