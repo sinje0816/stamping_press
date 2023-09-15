@@ -1,6 +1,8 @@
 import win32com.client as win32
 import win32com.client
 import main_program as mprog
+import parameter as par
+
 
 def switch_to_window_by_name(window_name):
     try:
@@ -63,7 +65,7 @@ def changetranslate(offset_value):
     bodies1 = part1.Bodies
     body1 = bodies1.Item("PartBody")
     hybridShapes1 = body1.HybridShapes
-    hybridShapeTranslate1 = hybridShapes1.Item("Translate")
+    hybridShapeTranslate1 = hybridShapes1.Item("Translate.10")
     length1 = hybridShapeTranslate1.Distance
     length1.Value = offset_value
     hybridShapeDirection = hybridShapeTranslate1.Direction
@@ -82,16 +84,31 @@ def changerotate(rotate_value):
     bodies1 = part1.Bodies
     body1 = bodies1.Item("PartBody")
     hybridShapes1 = body1.HybridShapes
-    hybridShapeRotate = hybridShapes1.Item("Rotate")
+    hybridShapeRotate = hybridShapes1.Item("Rotate.3")
     angle1 = hybridShapeRotate.Angle
     angle1.Value = rotate_value
     part1.Update()
 
-def create_t_solt(translate, count):
+def create_t_solt(translate, count, pierce, clearance_hole, direction, LV):
+    try:
+        if pierce == '否':
+            mprog.partdeactivate('讓孔')
+            mprog.partdeactivate('讓孔倒圓角')
+    except:
+        pass
+    try:
+        if clearance_hole == '否':
+            mprog.partdeactivate('Mirror.4')
+    except:
+        pass
     changetranslate(translate)
+    mprog.Update()
     copybody()
     switch_to_window_by_name("plate.CATPart")
-    pastebody(count)
+    if direction == '縱向':
+        pastebody(count + par.plate_all_parameter['B'])
+    else:
+        pastebody(count + par.plate_all_parameter['A'] + LV)
     removebody(count)
     mprog.Update()
     switch_to_window_by_name("T.CATPart")

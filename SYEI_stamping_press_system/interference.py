@@ -1,14 +1,14 @@
 import openpyxl as exl
 
-a = [10, 12, 30, 30, 840, 870, 80, 160, 150, 800, 5, 1390, 1207, 1218]
-b = [180, 270, 90, 270, 270, 0, 90, 90, 90, 90, 0, 180, 0, 180]
-c = 50
+# a = [10, 12, 30, 30, 840, 870, 80, 160, 150, 800, 5, 1390, 1207, 1218]
+# b = [180, 270, 90, 270, 270, 0, 90, 90, 90, 90, 0, 180, 0, 180]
+# c = 50
 border = []
 
-def interference(n, lv):
+def interference(n, lv, a, b, c):
     # n是噸數，0~8、lv是加大型，0~2
-    wb = exl.load_workbook('尺寸整理表.xlsx')
-    sheet1 = wb['plate']
+    wb = exl.load_workbook('平板.xlsx')
+    sheet1 = wb['平板']
     # 抓變數A的row
     for row_number_a, row in enumerate(sheet1.iter_rows(values_only=True), start=1):
         for column_number, cell_value in enumerate(row, start=1):
@@ -177,4 +177,4 @@ def interference(n, lv):
         print("-----------------------------")
 
 
-interference(8, 2)
+# interference(8, 2)

@@ -107,11 +107,11 @@ drafting_Welding_text = {'A-A Top': ['', '15', '', '6處\n頂面焊道要用砂�
 
 # -------------平板相關參數---------------
 # T型槽相關參數
-total_pierce = []
-total_clearance_hole = []
-total_t_direction = []
-total_t_dimension = []
-total_unpierce = []
+total_pierce = []  # 貫穿
+total_clearance_hole = []  # 讓孔
+total_t_direction = []  # 方向
+total_t_dimension = []  # 偏移位置尺寸
+total_unpierce = []  # 非貫穿長度尺寸
 # T型槽外型尺寸
 t_all_dimension = []
 t_all_dimension = [22, 38, 23, 16]
@@ -126,3 +126,6 @@ plate_hole_dimension = []
 plate_all_parameter = {}
 plate_parameter_name = []
 plate_parameter_value = []
+lv = []
+# 下料孔位置尺寸
+feeding_hole_position = []
