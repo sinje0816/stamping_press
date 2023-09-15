@@ -126,6 +126,9 @@ plate_hole_dimension = []
 plate_all_parameter = {}
 plate_parameter_name = []
 plate_parameter_value = []
+# 下料孔參數
+cutout_hole_machining_X = []
+cutout_hole_machining_Y = []
 lv = []
 # 下料孔位置尺寸
 feeding_hole_position = []

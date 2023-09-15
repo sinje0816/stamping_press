@@ -6,6 +6,7 @@ from PAD_main import Ui_Form as pad_main_Form
 from PAD_MACHINING import Ui_Form as pad_machining_Form
 from PAD_dimension import Ui_Form as pad_dimension_Form
 from pad_feeding_hole import Ui_Form as pad_feeding_hole_Form
+from cutout_hole_GUI import Ui_Form as cutout_hole_machining_form
 from io import StringIO
 import main_program as mprog
 import file_path as fp
@@ -428,6 +429,7 @@ class padwindows(QtWidgets.QWidget):
         self.ui.t_dimension.clicked.connect(self.showpaddimensionwindows)
         self.ui.t_machining.clicked.connect(self.showpadmachiningwindows)
         self.ui.plate_start.clicked.connect(self.start)
+        self.ui.remove_machining.clicked.connect(self.showcutoutmachiningwindows)
         self.ui.remove_machining.clicked.connect(self.showremovemachiningwindows)
 
     def showpaddimensionwindows(self):
@@ -439,6 +441,13 @@ class padwindows(QtWidgets.QWidget):
         self.hide()
         self.nw = pad_machining()
         self.nw.show()
+
+    def showcutoutmachiningwindows(self):
+        par.plate_hole_type = [self.ui.remove_type.currentText()]
+        self.hide()
+        self.nw = cutout_hole_machining()
+        self.nw.show()
+
 
     def showremovemachiningwindows(self):
         self.hide()
@@ -690,6 +699,36 @@ class pad_machining(QtWidgets.QWidget):
         row_position = self.ui.tableWidget.rowCount()
         # 在表單中刪除最後一行
         self.ui.tableWidget.removeRow(row_position)
+
+
+
+class cutout_hole_machining(QtWidgets.QWidget):
+    def __init__(self):
+        super().__init__()
+        self.ui = cutout_hole_machining_form()
+        self.ui.setupUi(self)
+        self.setWindowTitle('下料口位置')
+        if par.plate_hole_type[0] != '無孔':
+            if par.plate_hole_type[0] == '圓孔':
+                self.ui.picture.setPixmap(QtGui.QPixmap("feeding_hole_A.png"))
+            elif par.plate_hole_type[0] == '方孔':
+                self.ui.picture.setPixmap(QtGui.QPixmap("feeding_hole_B.png"))
+            elif par.plate_hole_type[0] == '漏斗型':
+                self.ui.picture.setPixmap(QtGui.QPixmap("feeding_hole_C.png"))
+        self.ui.setup.clicked.connect(self.setup)
+        self.ui.esc.clicked.connect(self.esc)
+
+    def setup(self):
+        par.cutout_hole_machining_X = self.ui.X.text()
+        par.cutout_hole_machining_Y = self.ui.Y.text()
+        self.esc()
+
+    def esc(self):
+        self.hide()
+        self.nw = padwindows()
+        self.nw.show()
+
+
 
 
 class remove_machining(QtWidgets.QWidget):
