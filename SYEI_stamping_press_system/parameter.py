@@ -129,3 +129,5 @@ plate_parameter_value = []
 lv = []
 # 下料孔位置尺寸
 feeding_hole_position = []
+# 下料孔須讓孔尺寸
+feeding_hole_limit = {}

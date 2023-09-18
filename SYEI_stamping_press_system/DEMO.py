@@ -515,14 +515,12 @@ class padwindows(QtWidgets.QWidget):
                     mprog.partbodyfeatureactivate('讓孔倒圓角')
                 else:
                     pass
-
                 if par.total_t_direction[turn] == '前後':
                     tT.changerotate(-90)
                 elif par.total_t_direction[turn] == '左右':
                     tT.changerotate(0)
                 else:
                     tT.changerotate(45)
-
                 mprog.Update()
                 if par.total_t_direction[turn] == '前後':
                     tT.create_t_solt(-par.total_t_dimension[turn], turn, par.total_pierce[turn], par.total_clearance_hole[turn], par.total_t_direction[turn], par.lv[0])

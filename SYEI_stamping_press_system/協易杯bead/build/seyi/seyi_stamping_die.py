@@ -12,10 +12,10 @@ def holder_extract1():
     part1.InWorkObject = body1
     hybridShapeFactory1 = part1.HybridShapeFactory
     shapes1 = body1.Shapes
-    slot1 = shapes1.Item("Slot.3")
+    pad1 = shapes1.Item("Pad.1")
     reference1 = part1.CreateReferenceFromBRepName(
-        "RSur:(Face:(Brp:(Extrude4;7);None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
-        slot1)
+        "RSur:(Face:(Brp:((Brp:(Pad.1;1);Brp:(Extrude4;7)));None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
+        pad1)
     hybridShapeExtract1 = hybridShapeFactory1.AddNewExtract(reference1)
     hybridShapeExtract1.PropagationType = 2
     hybridShapeExtract1.ComplementaryExtract = False
@@ -37,7 +37,7 @@ def holder_extract2():
     shapes1 = body1.Shapes
     slot1 = shapes1.Item("Slot.3")
     reference1 = part1.CreateReferenceFromBRepName(
-        "RSur:(Face:(Brp:(Slot.1;0:(Brp:(Sketch.1;54);Brp:(Sketch.1;58);Brp:(Sketch.1;59);Brp:(Sketch.1;60);Brp:(Sketch.1;61);Brp:(Sketch.1;62);Brp:(Sketch.1;63);Brp:(Sketch.2;3);Brp:(Sketch.1;51)));None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
+        "RSur:(Face:(Brp:(Slot.3;0:(Brp:(Sketch.3;59);Brp:(Sketch.3;56);Brp:(Sketch.5;3);Brp:(Sketch.3;62)));None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
         slot1)
     hybridShapeExtract1 = hybridShapeFactory1.AddNewExtract(reference1)
     hybridShapeExtract1.PropagationType = 2
@@ -60,7 +60,7 @@ def holder_extract3():
     shapes1 = body1.Shapes
     slot1 = shapes1.Item("Slot.3")
     reference1 = part1.CreateReferenceFromBRepName(
-        "RSur:(Face:(Brp:(Slot.3;0:(Brp:(Sketch.3;43);Brp:(Sketch.3;50);Brp:(Sketch.3;51);Brp:(Sketch.3;52);Brp:(Sketch.3;53);Brp:(Sketch.3;54);Brp:(Sketch.3;55);Brp:(Sketch.5;3);Brp:(Sketch.3;46)));None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
+        "RSur:(Face:(Brp:(Slot.1;0:(Brp:(Sketch.1;64);Brp:(Sketch.1;67);Brp:(Sketch.2;3);Brp:(Sketch.1;70)));None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
         slot1)
     hybridShapeExtract1 = hybridShapeFactory1.AddNewExtract(reference1)
     hybridShapeExtract1.PropagationType = 2
@@ -83,7 +83,7 @@ def holder_extract4():
     shapes1 = body1.Shapes
     slot1 = shapes1.Item("Slot.3")
     reference1 = part1.CreateReferenceFromBRepName(
-        "RSur:(Face:(Brp:(Slot.3;2);None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
+        "RSur:(Face:(Brp:(Slot.3;1);None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
         slot1)
     hybridShapeExtract1 = hybridShapeFactory1.AddNewExtract(reference1)
     hybridShapeExtract1.PropagationType = 2
@@ -106,7 +106,7 @@ def holder_extract5():
     shapes1 = body1.Shapes
     slot1 = shapes1.Item("Slot.3")
     reference1 = part1.CreateReferenceFromBRepName(
-        "RSur:(Face:(Brp:(Slot.3;1);None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
+        "RSur:(Face:(Brp:(Slot.1;2);None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
         slot1)
     hybridShapeExtract1 = hybridShapeFactory1.AddNewExtract(reference1)
     hybridShapeExtract1.PropagationType = 2
@@ -129,7 +129,7 @@ def holder_extract6():
     shapes1 = body1.Shapes
     slot1 = shapes1.Item("Slot.3")
     reference1 = part1.CreateReferenceFromBRepName(
-        "RSur:(Face:(Brp:(Slot.1;1);None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
+        "RSur:(Face:(Brp:(Slot.3;2);None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
         slot1)
     hybridShapeExtract1 = hybridShapeFactory1.AddNewExtract(reference1)
     hybridShapeExtract1.PropagationType = 2
@@ -152,7 +152,7 @@ def holder_extract7():
     shapes1 = body1.Shapes
     slot1 = shapes1.Item("Slot.3")
     reference1 = part1.CreateReferenceFromBRepName(
-        "RSur:(Face:(Brp:(Slot.1;2);None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
+        "RSur:(Face:(Brp:(Slot.1;1);None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
         slot1)
     hybridShapeExtract1 = hybridShapeFactory1.AddNewExtract(reference1)
     hybridShapeExtract1.PropagationType = 2
@@ -275,10 +275,10 @@ def die_extract1():
     bodies1 = part1.Bodies
     body1 = bodies1.Item("Fillet2")
     shapes1 = body1.Shapes
-    rib1 = shapes1.Item("Rib.4")
+    pad1 = shapes1.Item("Pad.1")
     reference1 = part1.CreateReferenceFromBRepName(
-        "RSur:(Face:(Brp:(Fillet2;10);None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
-        rib1)
+        "RSur:(Face:(Brp:((Brp:(Pad.1;1);Brp:(Fillet2;10)));None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
+        pad1)
     hybridShapeExtract1 = hybridShapeFactory1.AddNewExtract(reference1)
     hybridShapeExtract1.PropagationType = 2
     hybridShapeExtract1.ComplementaryExtract = False
@@ -299,7 +299,7 @@ def die_extract2():
     shapes1 = body1.Shapes
     rib1 = shapes1.Item("Rib.4")
     reference1 = part1.CreateReferenceFromBRepName(
-        "RSur:(Face:(Brp:(Rib.4;0:(Brp:(Sketch.13;2);Brp:(Sketch.11;29)));None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
+        "RSur:(Face:(Brp:(Rib.4;0:(Brp:(Sketch.13;2);Brp:(Sketch.11;38)));None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
         rib1)
     hybridShapeExtract1 = hybridShapeFactory1.AddNewExtract(reference1)
     hybridShapeExtract1.PropagationType = 2
@@ -321,7 +321,7 @@ def die_extract3():
     shapes1 = body1.Shapes
     rib1 = shapes1.Item("Rib.4")
     reference1 = part1.CreateReferenceFromBRepName(
-        "RSur:(Face:(Brp:(Rib.3;0:(Brp:(Sketch.9;2);Brp:(Sketch.7;48)));None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
+        "RSur:(Face:(Brp:(Rib.3;0:(Brp:(Sketch.9;2);Brp:(Sketch.7;63)));None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
         rib1)
     hybridShapeExtract1 = hybridShapeFactory1.AddNewExtract(reference1)
     hybridShapeExtract1.PropagationType = 2
@@ -342,7 +342,7 @@ def die_extract4():
     shapes1 = body1.Shapes
     rib1 = shapes1.Item("Rib.4")
     reference1 = part1.CreateReferenceFromBRepName(
-        "RSur:(Face:(Brp:(Rib.3;2);None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
+        "RSur:(Face:(Brp:(Rib.3;1);None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
         rib1)
     hybridShapeExtract1 = hybridShapeFactory1.AddNewExtract(reference1)
     hybridShapeExtract1.PropagationType = 2
@@ -363,7 +363,7 @@ def die_extract5():
     shapes1 = body1.Shapes
     rib1 = shapes1.Item("Rib.4")
     reference1 = part1.CreateReferenceFromBRepName(
-        "RSur:(Face:(Brp:(Rib.3;1);None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
+        "RSur:(Face:(Brp:(Rib.4;2);None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
         rib1)
     hybridShapeExtract1 = hybridShapeFactory1.AddNewExtract(reference1)
     hybridShapeExtract1.PropagationType = 2
@@ -384,7 +384,7 @@ def die_extract6():
     shapes1 = body1.Shapes
     rib1 = shapes1.Item("Rib.4")
     reference1 = part1.CreateReferenceFromBRepName(
-        "RSur:(Face:(Brp:(Rib.4;2);None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
+        "RSur:(Face:(Brp:(Rib.4;1);None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
         rib1)
     hybridShapeExtract1 = hybridShapeFactory1.AddNewExtract(reference1)
     hybridShapeExtract1.PropagationType = 2
@@ -405,7 +405,7 @@ def die_extract7():
     shapes1 = body1.Shapes
     rib1 = shapes1.Item("Rib.4")
     reference1 = part1.CreateReferenceFromBRepName(
-        "RSur:(Face:(Brp:(Rib.4;1);None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
+        "RSur:(Face:(Brp:(Rib.3;2);None:();Cf11:());WithPermanentBody;WithoutBuildError;WithSelectingFeatureSupport;MFBRepVersion_CXR15)",
         rib1)
     hybridShapeExtract1 = hybridShapeFactory1.AddNewExtract(reference1)
     hybridShapeExtract1.PropagationType = 2
@@ -611,12 +611,16 @@ def Update():
     part = doc.Part
     part.Update()
 
-def create_new(H1, R1, R2, new_path):
+def create_new(H1, R1, R2, A, B, C, new_path):
+
     system_root = os.path.dirname(os.path.realpath(__file__))
     for name in ['holder', 'die-2', 'blank', 'punch']:
         import_part(system_root + '\\seyi_stamping_die', name)
         if name == 'holder':
             param_change(name, 'R2', R2)
+            param_change(name, 'A', A)
+            param_change(name, 'B', B)
+            param_change(name, 'C', C)
             holder_extract1()
             holder_extract2()
             holder_extract3()
@@ -632,6 +636,9 @@ def create_new(H1, R1, R2, new_path):
             # die曲面投影
             param_change('die-2', 'R1', R1)
             param_change('die-2', 'H1', H1)
+            param_change('die-2', 'A', A)
+            param_change('die-2', 'B', B)
+            param_change('die-2', 'C', C)
             die_extract1()
             die_extract2()
             die_extract3()

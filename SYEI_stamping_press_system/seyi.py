@@ -6,6 +6,7 @@ import seyi_stamping_die as ssd
 import datetime
 import os
 import sys
+import pathlib
 
 class windows(QtWidgets.QWidget):
     def __init__(self):
@@ -23,11 +24,18 @@ class windows(QtWidgets.QWidget):
         H1 = self.ui.H1.text()
         R1 = self.ui.R1.text()
         R2 = self.ui.R2.text()
+        A = self.ui.A.text()
+        B = self.ui.B.text()
+        C = self.ui.C.text()
+        if C == '':
+            C = 4
+        if B == '':
+            B = 4
         print(H1,R1,R2)
         self.create_dir('crank_bead')
         env = ssd.set_CATIA_workbench_env()
-        ssd.create_new(H1, R1, R2, self.path)
-        # ssd.saveas(self.path, 'Product1', '.CATProduct', '.CATProduct')
+        ssd.create_new(H1, R1, R2, A, B, C, self.path)
+        ssd.saveas(self.path, 'Product1', '.CATProduct', '.CATProduct')
         ssd.saveas(self.path, 'Product1', '.CATProduct', '.igs')
         ssd.close_window()
         self.finish()
@@ -43,6 +51,9 @@ class windows(QtWidgets.QWidget):
         self.ui.H1.setText('')
         self.ui.R1.setText('')
         self.ui.R2.setText('')
+        self.ui.A.setText('')
+        self.ui.B.setText('')
+        self.ui.C.setText('')
 
     def out(self):
         sys.exit(app.exec_())
@@ -50,10 +61,12 @@ class windows(QtWidgets.QWidget):
     def create_dir(self, type):  # 創建資料夾
         time_now = datetime.datetime.now()
         dir_name = '{}_{}_{}_{}_{}'.format(type, time_now.day, time_now.hour, time_now.minute, time_now.second)
-        desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+        desktop = str(pathlib.Path.home() / 'Desktop')
         path = desktop + '\\' + dir_name
+        print(path)
         os.mkdir(path)
         self.path = path
+        
 
 if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率

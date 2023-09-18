@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1116</width>
-    <height>507</height>
+    <width>1136</width>
+    <height>965</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,14 +19,26 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QTableWidget" name="tableWidget">
+  <widget class="QLabel" name="label_29">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>20</y>
-     <width>501</width>
-     <height>391</height>
+     <x>40</x>
+     <y>740</y>
+     <width>541</width>
+     <height>32</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>12121212</width>
+     <height>40</height>
+    </size>
    </property>
    <property name="font">
     <font>
@@ -34,475 +46,333 @@
      <pointsize>12</pointsize>
     </font>
    </property>
-   <column>
-    <property name="text">
-     <string>方向</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>是否貫穿</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>是否讓孔</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>偏移距離</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>非貫穿長度</string>
-    </property>
-   </column>
+   <property name="text">
+    <string>X&gt;0表示T溝位於平板中心右方；X=0表示T溝位於平板中心；X&lt;0表示T溝位於平板中心左方</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QLabel" name="label_31">
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>330</y>
-     <width>441</width>
-     <height>111</height>
+     <y>700</y>
+     <width>541</width>
+     <height>32</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout_2">
-    <item row="0" column="0">
-     <widget class="QPushButton" name="new_order">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>200</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>新增一筆資料</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QPushButton" name="setup">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>200</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>設定參數</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QPushButton" name="reset">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>200</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>重設參數</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QPushButton" name="escape">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>200</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>離開</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>12121212</width>
+     <height>40</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>微軟正黑體</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>註:Y&gt;0表示T溝位於平板中心後方；Y=0表示T溝位於平板中心；Y&lt;0表示T溝位於平板中心前方</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="setup">
+   <property name="geometry">
+    <rect>
+     <x>860</x>
+     <y>790</y>
+     <width>200</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>200</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>微軟正黑體</family>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>設定參數</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>180</y>
+     <width>531</width>
+     <height>381</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>T_slot_position.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>70</y>
-     <width>491</width>
-     <height>214</height>
+     <x>650</x>
+     <y>40</y>
+     <width>421</width>
+     <height>731</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="0">
-     <widget class="QLabel" name="label_23">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>150</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>1.方向</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QComboBox" name="direction">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>250</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="contextMenuPolicy">
-       <enum>Qt::ActionsContextMenu</enum>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="maxVisibleItems">
-       <number>10</number>
-      </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <property name="text">
-        <string>前後</string>
-       </property>
+       <widget class="QLabel" name="label_23">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>250</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>微軟正黑體</family>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>橫向T溝</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </item>
       <item>
-       <property name="text">
-        <string>左右</string>
-       </property>
-      </item>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_25">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>150</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>2.是否貫穿</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QComboBox" name="pierce">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>250</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="contextMenuPolicy">
-       <enum>Qt::ActionsContextMenu</enum>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="maxVisibleItems">
-       <number>10</number>
-      </property>
-      <item>
-       <property name="text">
-        <string>是</string>
-       </property>
+       <widget class="QLabel" name="label_24">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>微軟正黑體</family>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>數量</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </item>
       <item>
-       <property name="text">
-        <string>否</string>
-       </property>
+       <widget class="QLineEdit" name="T_slot_horizonal">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>微軟正黑體</family>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
+       </widget>
       </item>
-     </widget>
+     </layout>
     </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="label_27">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>150</width>
-        <height>40</height>
-       </size>
-      </property>
+    <item>
+     <widget class="QTableWidget" name="tableWidget">
       <property name="font">
        <font>
         <family>微軟正黑體</family>
-        <pointsize>18</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
-      <property name="text">
-       <string>3.是否讓孔</string>
+      <property name="sortingEnabled">
+       <bool>false</bool>
       </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-      </property>
+      <column>
+       <property name="text">
+        <string>編號</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>位置(Y)</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>形式</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>LL</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>LR</string>
+       </property>
+      </column>
      </widget>
     </item>
-    <item row="3" column="1">
-     <widget class="QComboBox" name="clearance_hole">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>250</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="contextMenuPolicy">
-       <enum>Qt::ActionsContextMenu</enum>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="maxVisibleItems">
-       <number>10</number>
-      </property>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <property name="text">
-        <string>是</string>
-       </property>
+       <widget class="QLabel" name="label_26">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>250</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>微軟正黑體</family>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>縱向T溝</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </item>
       <item>
-       <property name="text">
-        <string>否</string>
-       </property>
+       <widget class="QLabel" name="label_30">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>微軟正黑體</family>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>數量</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </item>
-     </widget>
+      <item>
+       <widget class="QLineEdit" name="T_slot_horizonal_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>微軟正黑體</family>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="label_28">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>150</width>
-        <height>40</height>
-       </size>
-      </property>
+    <item>
+     <widget class="QTableWidget" name="tableWidget_2">
       <property name="font">
        <font>
         <family>微軟正黑體</family>
-        <pointsize>18</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
-      <property name="text">
-       <string>4.位置尺寸</string>
+      <property name="sortingEnabled">
+       <bool>false</bool>
       </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QLineEdit" name="position_dimension">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
-     <widget class="QLabel" name="label_29">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>150</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>5.非貫穿長度</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
-     <widget class="QLineEdit" name="unpierce">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0" colspan="3">
-     <widget class="QLabel" name="label">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <family>微軟正黑體</family>
-        <pointsize>18</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>b.加工設定</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2" rowspan="5">
-     <widget class="QLabel" name="picture">
-      <property name="text">
-       <string/>
-      </property>
+      <column>
+       <property name="text">
+        <string>編號</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>位置(Y)</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>形式</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>LL</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>LR</string>
+       </property>
+      </column>
      </widget>
     </item>
    </layout>
