@@ -415,7 +415,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         print('welding_file_change_error', welding_file_change_error)
         print('welding_file_change_pass', welding_file_change_pass)
         print('總用時%s' % (time.time() - start_time))#建立3D組立
-        Ad.assembly(i, apv, self.path)
+        Ad.assembly(i, apv, self.path, alpha, beta, zeta)
 
         return machining_file_change_error, welding_file_change_error
 
