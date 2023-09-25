@@ -212,6 +212,8 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('變頻器用', 0)
                     mprog.activatefeature('解角器護蓋用', 0)
                     mprog.activatefeature('解碼器電線(蛇管)固定孔', 0)
+                    mprog.partbodyfeatureactivate('part_S')
+                    mprog.partbodyfeatureactivate('MM')
                     mprog.activatefeature('解角器固定架用', 0)
                     mprog.activatefeature('解角器固定架用_2', 0)
                 elif i == 1:
@@ -241,6 +243,8 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('解碼器電線(蛇管)固定孔', 0)
                     mprog.activatefeature('1-M5X10L(配管用)', 0)
                     mprog.activatefeature('1-M5X10L底孔20L配管用', 0)
+                    mprog.partbodyfeatureactivate('part_S')
+                    mprog.partbodyfeatureactivate('MM')
                     mprog.activatefeature('解角器固定架用', 0)
                     mprog.activatefeature('解角器固定架用_2', 0)
                 elif i == 2:
@@ -269,6 +273,8 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('解角器護蓋用', 0)
                     mprog.activatefeature('解碼器電線(蛇管)固定孔', 0)
                     mprog.activatefeature('1-M5X10L底孔20L配管用', 0)
+                    mprog.partbodyfeatureactivate('part_S')
+                    mprog.partbodyfeatureactivate('MM')
                     mprog.activatefeature('解角器固定架用', 0)
                     mprog.activatefeature('解角器固定架用_2', 0)
                 elif i == 3:
@@ -297,6 +303,8 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('解角器護蓋用', 0)
                     mprog.activatefeature('解碼器電線(蛇管)固定孔', 0)
                     mprog.activatefeature('1-M5X10L(配管用)', 0)
+                    mprog.partbodyfeatureactivate('part_S')
+                    mprog.partbodyfeatureactivate('MM')
                     mprog.activatefeature('解角器固定架用', 0)
                     mprog.activatefeature('解角器固定架用_2', 0)
                 elif i == 4:
