@@ -280,6 +280,8 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('machining_aaaaa2', 0)
                     mprog.bodydeactivate('machining_aaaaa4', 0)
                     mprog.partbodyfeatureactivate("welding_喉口")
+                    mprog.bodydeactivate('解角器固定架用', 0)
+                    mprog.bodydeactivate('解角器固定架用_2', 0)
                 elif i == 1:
                     mprog.partbodyfeatureactivate('before250_喉口')
                     mprog.partbodyfeatureactivate('AA2')
@@ -302,6 +304,8 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('machining_aaaaa2', 0)
                     mprog.bodydeactivate('machining_aaaaa4', 0)
                     mprog.partbodyfeatureactivate("welding_喉口")
+                    mprog.bodydeactivate('解角器固定架用', 0)
+                    mprog.bodydeactivate('解角器固定架用_2', 0)
                 elif i == 2:
                     mprog.partbodyfeatureactivate('before250_喉口')
                     mprog.partbodyfeatureactivate('AA2')
@@ -324,6 +328,8 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('machining_aaaaa2', 0)
                     mprog.bodydeactivate('machining_aaaaa4', 0)
                     mprog.partbodyfeatureactivate("welding_喉口")
+                    mprog.bodydeactivate('解角器固定架用', 0)
+                    mprog.bodydeactivate('解角器固定架用_2', 0)
                 elif i == 3:
                     mprog.partbodyfeatureactivate('before250_喉口')
                     mprog.partbodyfeatureactivate('AA2')
@@ -345,6 +351,8 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('machining_aaaaa2', 0)
                     mprog.bodydeactivate('machining_aaaaa4', 0)
                     mprog.partbodyfeatureactivate("welding_喉口")
+                    mprog.bodydeactivate('解角器固定架用', 0)
+                    mprog.bodydeactivate('解角器固定架用_2', 0)
                 elif i == 4:
                     mprog.partbodyfeatureactivate('before250_喉口')
                     mprog.partbodyfeatureactivate('Z1')
@@ -993,6 +1001,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('Hole_4', 0)
                     mprog.activatefeature('GIB_OIL_HOLE', 1)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 1:
                     mprog.partbodyfeatureactivate('AB')
                     mprog.partbodyfeatureactivate('F')
@@ -1001,6 +1010,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('Hole_4', 0)
                     mprog.activatefeature('GIB_OIL_HOLE', 1)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 2:
                     mprog.partbodyfeatureactivate('AB')
                     mprog.partbodyfeatureactivate('SN1_25_45_CD')
@@ -1011,6 +1021,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('Hole_4', 0)
                     mprog.activatefeature('GIB_OIL_HOLE', 1)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 3:
                     mprog.partbodyfeatureactivate('AB')
                     mprog.partbodyfeatureactivate('F')
@@ -1019,6 +1030,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('Hole_4', 0)
                     mprog.activatefeature('GIB_OIL_HOLE', 1)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 4:
                     mprog.partbodyfeatureactivate('AB')
                     mprog.partbodyfeatureactivate('F')
@@ -1027,6 +1039,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('Hole_4', 0)
                     mprog.activatefeature('GIB_OIL_HOLE', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 5:
                     mprog.partbodyfeatureactivate('AB')
                     mprog.partbodyfeatureactivate('F')
@@ -1035,6 +1048,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('Hole_4', 0)
                     mprog.activatefeature('GIB_OIL_HOLE', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 6:
                     mprog.partbodyfeatureactivate('AB')
                     mprog.partbodyfeatureactivate('F')
@@ -1043,6 +1057,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('Hole_4', 0)
                     mprog.activatefeature('GIB_OIL_HOLE', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 7:
                     mprog.partbodyfeatureactivate('AB')
                     mprog.partbodyfeatureactivate('F')
@@ -1051,6 +1066,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('Hole_4', 0)
                     mprog.activatefeature('GIB_OIL_HOLE', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 8:
                     mprog.partbodyfeatureactivate('AB')
                     mprog.partbodyfeatureactivate('F')
@@ -1059,6 +1075,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('Hole_4', 0)
                     mprog.activatefeature('GIB_OIL_HOLE', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
             except:
                 print('FRAME13 Parameter activate error')
             finally:
@@ -1074,24 +1091,28 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('processing_i', 0)
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 1:  # 35N
                     mprog.activatefeature('inside_hole', 0)
                     mprog.bodydeactivate('processing_h', 0)
                     mprog.bodydeactivate('processing_i', 0)
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 2:  # 45N
                     mprog.activatefeature('inside_hole', 0)
                     mprog.bodydeactivate('processing_h', 0)
                     mprog.bodydeactivate('processing_i', 0)
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 3:  # 60N
                     mprog.activatefeature('inside_hole', 0)
                     mprog.bodydeactivate('processing_h', 0)
                     mprog.bodydeactivate('processing_i', 0)
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 4:  # 80N
                     mprog.activatefeature('inside_hole', 0)
                     mprog.activatefeature('outside_hole', 0)
@@ -1100,6 +1121,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('processing_i', 0)
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 5:  # 110N
                     mprog.activatefeature('inside_hole', 0)
                     mprog.activatefeature('outside_hole', 0)
@@ -1107,6 +1129,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('processing_i', 0)
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 6:  # 160N
                     mprog.activatefeature('inside_hole', 0)
                     mprog.activatefeature('outside_hole', 0)
@@ -1114,6 +1137,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('processing_i', 0)
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 7:  # 200N
                     mprog.activatefeature('outside_hole', 0)
                     mprog.activatefeature('outside_hole_E', 0)
@@ -1121,6 +1145,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('processing_i', 0)
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 8:  # 250N
                     mprog.partbodyfeatureactivate('250N')
                     mprog.activatefeature('inside_hole', 0)
@@ -1129,6 +1154,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('processing_i', 0)
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 print('FRAME14 machining success')
             except:
                 print('FRAME14 Parameter activate error')
@@ -1142,24 +1168,33 @@ def change_welding_feature(name, i):
             try:
                 if i == 0:  # 25N
                     mprog.activatefeature('Hole', 0)
+                    mprog.partdeactivate('F')
                 elif i == 1:  # 35N
                     mprog.activatefeature('Hole', 0)
+                    mprog.partdeactivate('F')
                 elif i == 2:  # 45N
                     mprog.activatefeature('Hole', 0)
+                    mprog.partdeactivate('F')
                 elif i == 3:  # 60N
                     mprog.activatefeature('Hole', 0)
+                    mprog.partdeactivate('F')
                 elif i == 4:  # 80N
                     mprog.activatefeature('Hole', 0)
+                    mprog.partdeactivate('F')
                 elif i == 5:  # 110N
                     mprog.activatefeature('Hole', 0)
+                    mprog.partdeactivate('F')
                 elif i == 6:  # 160N
                     mprog.activatefeature('Hole', 0)
+                    mprog.partdeactivate('F')
                 elif i == 7:  # 200N
                     mprog.partbodyfeatureactivate('SN1_200250')
                     mprog.activatefeature('Hole', 0)
+                    mprog.partdeactivate('F')
                 elif i == 8:  # 250N
                     mprog.partbodyfeatureactivate('SN1_200250')
                     mprog.activatefeature('Hole', 0)
+                    mprog.partdeactivate('F')
             except:
                 print('FRAME15 Parameter activate error')
             finally:
@@ -1175,24 +1210,28 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('processing_i', 0)
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 1:  # 35N
                     mprog.activatefeature('inside_hole', 0)
                     mprog.bodydeactivate('processing_h', 0)
                     mprog.bodydeactivate('processing_i', 0)
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 2:  # 45N
                     mprog.activatefeature('inside_hole', 0)
                     mprog.bodydeactivate('processing_h', 0)
                     mprog.bodydeactivate('processing_i', 0)
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 3:  # 60N
                     mprog.activatefeature('inside_hole', 0)
                     mprog.bodydeactivate('processing_h', 0)
                     mprog.bodydeactivate('processing_i', 0)
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 4:  # 80N
                     mprog.activatefeature('inside_hole', 0)
                     mprog.activatefeature('outside_hole', 0)
@@ -1201,6 +1240,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('processing_i', 0)
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 5:  # 110N
                     mprog.activatefeature('inside_hole', 0)
                     mprog.activatefeature('outside_hole', 0)
@@ -1208,6 +1248,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('processing_i', 0)
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 6:  # 160N
                     mprog.activatefeature('inside_hole', 0)
                     mprog.activatefeature('outside_hole', 0)
@@ -1215,6 +1256,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('processing_i', 0)
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 7:  # 200N
                     mprog.activatefeature('outside_hole', 0)
                     mprog.activatefeature('outside_hole_E', 0)
@@ -1222,6 +1264,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('processing_i', 0)
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 elif i == 8:  # 250N
                     mprog.partbodyfeatureactivate('250N')
                     mprog.activatefeature('inside_hole', 0)
@@ -1230,6 +1273,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('processing_i', 0)
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
+                    mprog.partdeactivate("I")
                 print('FRAME17 machining success')
             except:
                 print('FRAME17 Parameter activate error')
@@ -1344,6 +1388,7 @@ def change_welding_feature(name, i):
                     print('FRAME20 Update error')
         elif name == 'FRAME21':
             try:
+                mprog.partdeactivate("H")
                 if i == 0:  # 25
                     mprog.activatefeature('Hole', 0)
                 elif i == 1:  # 35
@@ -1685,19 +1730,19 @@ def change_welding_feature(name, i):
             try:
                 if i == 0:
                     mprog.partbodyfeatureactivate('AB')
-                    mprog.activatefeature('Hole_1', 0)
+                    mprog.activatefeature('Hole_1', 1)
                     mprog.activatefeature('3_M8通', 0)
                 elif i == 1:
                     mprog.partbodyfeatureactivate('AB')
-                    mprog.activatefeature('Hole_1', 0)
+                    mprog.activatefeature('Hole_1', 1)
                     mprog.activatefeature('3_M8通', 0)
                 elif i == 2:
                     mprog.partbodyfeatureactivate('AB')
-                    mprog.activatefeature('Hole_1', 0)
+                    mprog.activatefeature('Hole_1', 1)
                     mprog.activatefeature('3_M8通', 0)
                 elif i == 3:
                     mprog.partbodyfeatureactivate('AB')
-                    mprog.activatefeature('Hole_1', 0)
+                    mprog.activatefeature('Hole_1', 1)
                     mprog.activatefeature('3_M8通', 0)
             except:
                 print('FRAME25 Parameter activate error')
@@ -1846,6 +1891,7 @@ def change_welding_feature(name, i):
         elif name == 'FRAME29':
             try:
                 mprog.partdeactivate('Hole.1')
+                mprog.partdeactivate("F")
             finally:
                 try:
                     mprog.Update()
@@ -2403,3 +2449,5 @@ def change_welding_feature(name, i):
     except Exception as e:
         s = sys.exc_info()
         print('報錯行數：{}\n報錯內容：{}'.format(__file__, s[2].tb_lineno, s[1]))
+
+change_welding_feature("FRAME21", 0)
