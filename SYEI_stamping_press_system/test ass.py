@@ -1,9 +1,8 @@
 import main_program as mprog
 
-mprog.add_offset_assembly('FRAME13.2', 'FRAME1.1',-1136, 'XY plane', 0, 124)
-mprog.add_offset_assembly('FRAME13.2', 'FRAME1.1',866, 'YZ plane', 1, 125)
-mprog.add_offset_assembly('FRAME13.2', 'FRAME1.1',47.5, 'ZX plane', 1, 126)
-
+mprog.add_offset_assembly('FRAME31.1', 'FRAME4.1', -12, 'YZ plane', 1, 50)
+mprog.add_offset_assembly('FRAME31.1', 'FRAME4.1', 375, 'XY plane', 1, 49)
+mprog.add_offset_assembly('FRAME31.1', 'FRAME4.1', 168, 'ZX plane', 0, 51)
 
 
 

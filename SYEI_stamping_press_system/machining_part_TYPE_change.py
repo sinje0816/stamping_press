@@ -586,12 +586,14 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('Hole_1', 1)
                     mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
                     mprog.partbodyfeatureactivate("machining_P")
+                    mprog.partbodyfeatureactivate("machining_O")
                     mprog.partbodyfeatureactivate("machining_bbbbb")
                 elif i == 2:
                     mprog.activatefeature('SN1_25250_Body', 1)
                     mprog.activatefeature('Hole_1', 1)
                     mprog.activatefeature('CLUCTH_AIR_HOLE', 0)
                     mprog.partbodyfeatureactivate("machining_P")
+                    mprog.partbodyfeatureactivate("machining_O")
                     mprog.partbodyfeatureactivate("machining_bbbbb")
                 elif i == 3:
                     mprog.activatefeature('SN1_25250_Body', 1)
@@ -791,27 +793,36 @@ def change_machining_parameter(name, i, machiningdiepad):
                 if i == 0:
                     mprog.activatefeature('SN1_2560_Body', 1)
                     mprog.partbodyfeatureactivate('SN1_25_VWX')
+                    mprog.partbodyfeatureactivate('DD')
                 elif i == 1:
                     mprog.activatefeature('SN1_2560_Body', 1)
+                    mprog.partbodyfeatureactivate('DD')
                 elif i == 2:
                     mprog.activatefeature('SN1_2560_Body', 1)
+                    mprog.partbodyfeatureactivate('DD')
                 elif i == 3:
                     mprog.activatefeature('SN1_2560_Body', 1)
+                    mprog.partbodyfeatureactivate('DD')
                 elif i == 4:
                     mprog.activatefeature('SN1_80250_Body', 4)
                     mprog.activatefeature('Hole_1', 0)
+                    mprog.partbodyfeatureactivate('DD')
                 elif i == 5:
                     mprog.activatefeature('SN1_80250_Body', 4)
                     mprog.activatefeature('Hole_1', 0)
+                    mprog.partbodyfeatureactivate('DD')
                 elif i == 6:
                     mprog.activatefeature('SN1_80250_Body', 4)
                     mprog.activatefeature('Hole_1', 0)
+                    mprog.partbodyfeatureactivate('DD')
                 elif i == 7:
                     mprog.activatefeature('SN1_80250_Body', 4)
                     mprog.activatefeature('Hole_1', 0)
+                    mprog.partbodyfeatureactivate('DD')
                 elif i == 8:
                     mprog.activatefeature('SN1_80250_Body', 4)
                     mprog.activatefeature('Hole_1', 0)
+                    mprog.partbodyfeatureactivate('DD')
                 print('FRAME7 machining success')
             except:
                 print('FRAME7 Parameter activate error')

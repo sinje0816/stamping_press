@@ -784,41 +784,50 @@ def change_welding_feature(name, i):
                     mprog.partbodyfeatureactivate("SN1_2545_D")
                     mprog.partbodyfeatureactivate("SN1_2545_E")
                     mprog.partdeactivate('SN1_25_VWX')
+                    mprog.partdeactivate('DD')
                 elif i == 1:
                     mprog.activatefeature('SN1_2560_Body', 0)
                     mprog.partbodyfeatureactivate("SN1_2545_C")
                     mprog.partbodyfeatureactivate("SN1_2545_D")
                     mprog.partbodyfeatureactivate("SN1_2545_E")
+                    mprog.partdeactivate('DD')
                 elif i == 2:
                     mprog.activatefeature('SN1_2560_Body', 0)
                     mprog.partbodyfeatureactivate("SN1_2545_C")
                     mprog.partbodyfeatureactivate("SN1_2545_D")
                     mprog.partbodyfeatureactivate("SN1_2545_E")
+                    mprog.partdeactivate('DD')
                 elif i == 3:
                     mprog.activatefeature('SN1_2560_Body', 1)
                     mprog.partbodyfeatureactivate("SN1_60_C")
                     mprog.partbodyfeatureactivate("SN1_60_D")
                     mprog.partbodyfeatureactivate("SN1_60_E")
+                    mprog.partdeactivate('DD')
                 elif i == 4:
                     mprog.activatefeature('SN1_80250_Body', 7)
                     mprog.activatefeature('Hole_1', 0)
                     mprog.partdeactivate("Y")
+                    mprog.partdeactivate('DD')
                 elif i == 5:
                     mprog.partdeactivate("Y")
                     mprog.activatefeature('SN1_80250_Body', 0)
                     mprog.activatefeature('Hole_1', 0)
+                    mprog.partdeactivate('DD')
                 elif i == 6:
                     mprog.partdeactivate("Y")
                     mprog.activatefeature('SN1_80250_Body', 0)
                     mprog.activatefeature('Hole_1', 0)
+                    mprog.partdeactivate('DD')
                 elif i == 7:
                     mprog.partdeactivate("Y")
                     mprog.activatefeature('SN1_80250_Body', 0)
                     mprog.activatefeature('Hole_1', 0)
+                    mprog.partdeactivate('DD')
                 elif i == 8:
                     mprog.partdeactivate("Y")
                     mprog.activatefeature('SN1_80250_Body', 0)
                     mprog.activatefeature('Hole_1', 0)
+                    mprog.partdeactivate('DD')
             except:
                 print('FRAME7 Parameter activate error')
             finally:
