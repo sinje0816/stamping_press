@@ -76,7 +76,7 @@ file_name_list = ['BOLSTER1', 'BOLSTER2', 'BOLSTER3', 'Fixture', 'FRAME1', 'FRAM
                   ]
 
 # -------------焊接圖---------------
-#隱藏part
+# 隱藏part
 hide_part_name = ['BOLSTER1', 'BOLSTER2', 'BOLSTER3', 'BALANCER_LEFT_All', 'BALANCER_RIGHT_All', 'CRANK_SHAFT_CLOCK',
                   'CLUCTH_ASSEMBLY_All', 'SLIDE_UNIT_All', 'CRANK_SHAFT.1', 'JOINT_All', 'MAIN_GEAR1',
                   'MAIN_GEAR3', 'MAIN_GEAR4', 'JOINT1', 'GIB1', 'GIB2', 'FRAME35', 'FRAME40', 'Fixture']
@@ -119,7 +119,7 @@ t_all_dimension_name = ['tw2', 'tw1', 'th2', 'th1']
 # 平板外型尺寸
 plate_dimension = []
 # 除料孔(待補齊)
-plate_hole_type = []
+plate_hole_type = ['']
 plate_hole_position = []
 plate_hole_dimension = []
 # 平板變數大全
@@ -127,10 +127,19 @@ plate_all_parameter = {}
 plate_parameter_name = []
 plate_parameter_value = []
 # 下料孔參數
-cutout_hole_machining_X = []
-cutout_hole_machining_Y = []
+cutout_hole_machining_X = 0
+cutout_hole_machining_Y = 0
 lv = []
 # 下料孔位置尺寸
 feeding_hole_position = []
 # 下料孔須讓孔尺寸
 feeding_hole_limit = {}
+# 下料孔界線
+cutout_all_limit = {}
+# 下料孔外型尺寸
+cutout_part_dimension = ['', '', '', '', '']
+
+#下料孔各形狀變數名稱
+cutout_parameter_circle = ['HD']
+cutout_parameter_square = ['HLR', 'HFB']
+cutout_parameter_funnel = ['HULR', 'HDLR', 'HUFB', 'HDFB', 'HH']

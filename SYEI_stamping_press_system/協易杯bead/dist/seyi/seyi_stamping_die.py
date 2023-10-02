@@ -2,6 +2,7 @@ import win32com.client as win32
 import main_program as mprog
 import os
 
+
 def holder_extract1():
     catapp = win32.Dispatch('CATIA.Application')
     documents1 = catapp.Documents
@@ -249,7 +250,6 @@ def hidebody2():
     selection1.Clear()
 
 
-
 def param_change(file_name, target, value):
     catapp = win32.Dispatch("CATIA.Application")
     productDocument = catapp.ActiveDocument
@@ -331,6 +331,7 @@ def die_extract3():
     part1.InWorkObject = hybridShapeExtract1
     part1.Update()
 
+
 def die_extract4():
     catapp = win32.Dispatch('CATIA.Application')
     documents1 = catapp.Documents
@@ -351,6 +352,7 @@ def die_extract4():
     body1.InsertHybridShape(hybridShapeExtract1)
     part1.InWorkObject = hybridShapeExtract1
     part1.Update()
+
 
 def die_extract5():
     catapp = win32.Dispatch('CATIA.Application')
@@ -373,6 +375,7 @@ def die_extract5():
     part1.InWorkObject = hybridShapeExtract1
     part1.Update()
 
+
 def die_extract6():
     catapp = win32.Dispatch('CATIA.Application')
     documents1 = catapp.Documents
@@ -394,6 +397,7 @@ def die_extract6():
     part1.InWorkObject = hybridShapeExtract1
     part1.Update()
 
+
 def die_extract7():
     catapp = win32.Dispatch('CATIA.Application')
     documents1 = catapp.Documents
@@ -414,6 +418,7 @@ def die_extract7():
     body1.InsertHybridShape(hybridShapeExtract1)
     part1.InWorkObject = hybridShapeExtract1
     part1.Update()
+
 
 def joindie():
     catapp = win32.Dispatch('CATIA.Application')
@@ -455,6 +460,7 @@ def joindie():
     body1.InsertHybridShape(hybridShapeAssemble1)
     part1.InWorkObject = hybridShapeAssemble1
     part1.Update()
+
 
 def hidebodydie(name):
     catapp = win32.Dispatch('CATIA.Application')
@@ -510,6 +516,7 @@ def save_file_product(path):
     partDocument1.SaveAs(path + '\\' + file_name)
     # partDocument1.Close()
 
+
 def saveas(save_dir, target, data_type, data_type2):
     catapp = win32.Dispatch('CATIA.Application')
     document = catapp.Documents
@@ -523,6 +530,7 @@ def saveas(save_dir, target, data_type, data_type2):
     finally:
         saveas.Save()
 
+
 def save_file_igs(path):
     catapp = win32.Dispatch('CATIA.Application')
     document = catapp.Documents
@@ -531,6 +539,7 @@ def save_file_igs(path):
     partDocument1 = document.Item(file_name_Product)
     # print(path + '\\' + file_name)
     partDocument1.SaveAs(path + '\\' + file_name)
+
 
 def save_file_part(path, file_name):
     catapp = win32.Dispatch('CATIA.Application')
@@ -542,16 +551,17 @@ def save_file_part(path, file_name):
     partDocument1.Close()
 
 
-
 def import_product(path, file_name):
     catapp = win32.Dispatch('CATIA.Application')
     documents1 = catapp.Documents
     partDocument1 = documents1.Open(path + "\\" + file_name + ".CATProduct")
 
+
 def import_part(path, file_name):
     catapp = win32.Dispatch('CATIA.Application')
     documents1 = catapp.Documents
     partDocument1 = documents1.Open(path + "\\" + file_name + ".CATPart")
+
 
 def add_offset_assembly(element1, element2, dist, relation, binding_conditions,
                         name):  # (組合檔1, 零件1, 組合檔2, 零件2, 距離, 結合面, 拘束條件)
@@ -570,6 +580,7 @@ def add_offset_assembly(element1, element2, dist, relation, binding_conditions,
     productDocument.Save()
     return True
 
+
 def base_lock(element1, element2, name):  # 定海神針, 固定基準零件
     catapp = win32.Dispatch('CATIA.Application')
     productDocument = catapp.ActiveDocument
@@ -582,6 +593,7 @@ def base_lock(element1, element2, name):  # 定海神針, 固定基準零件
     productDocument.Save()
     return True
 
+
 def add_offset():
     base_lock('PUNCH.1', 'PUNCH.1', 0)
     add_offset_assembly('blank.1', 'holder.1', -2, 'zx plane', 0, 'offset1')
@@ -590,10 +602,12 @@ def add_offset():
     add_offset_assembly('blank.1', 'PUNCH.1', -35.179, 'yz plane', 1, 'offset4')
     add_offset_assembly('blank.1', 'PUNCH.1', 28.215, 'xy plane', 1, 'offset5')
 
+
 def assembly_create():
     catapp = win32.Dispatch('CATIA.Application')
     documents1 = catapp.Documents
     productDocument1 = documents1.Add("Product")
+
 
 def import_file_Part(path, file_name):  # (資料夾路徑，檔案名稱)
     catapp = win32.Dispatch('CATIA.Application')
@@ -605,14 +619,15 @@ def import_file_Part(path, file_name):  # (資料夾路徑，檔案名稱)
     combination_file.append(path + '\\' + file_name + '.CATPart')
     products1Variant.AddComponentsFromFiles(combination_file, "All")
 
+
 def Update():
     catapp = win32.Dispatch('CATIA.Application')
     doc = catapp.ActiveDocument
     part = doc.Part
     part.Update()
 
-def create_new(H1, R1, R2, A, B, C, new_path):
 
+def create_new(H1, R1, R2, A, B, C, new_path):
     system_root = os.path.dirname(os.path.realpath(__file__))
     for name in ['holder', 'die-2', 'blank', 'punch']:
         import_part(system_root + '\\seyi_stamping_die', name)
@@ -660,10 +675,12 @@ def create_new(H1, R1, R2, A, B, C, new_path):
 
     add_offset()
 
+
 def close_window():
     catapp = win32.Dispatch('CATIA.Application')
     specsAndGeomWindow1 = catapp.ActiveWindow
     specsAndGeomWindow1.Close()
+
 
 class set_CATIA_workbench_env:
     def __init__(self):
