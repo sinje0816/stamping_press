@@ -19,7 +19,7 @@
      <x>340</x>
      <y>930</y>
      <width>631</width>
-     <height>27</height>
+     <height>30</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -64,13 +64,13 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>340</x>
-     <y>630</y>
+     <y>590</y>
      <width>621</width>
-     <height>272</height>
+     <height>314</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_4">
@@ -183,6 +183,9 @@
       </item>
       <item row="2" column="0">
        <widget class="QPushButton" name="remove_machining">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="font">
          <font>
           <family>微軟正黑體</family>
@@ -250,6 +253,12 @@
       <property name="text">
        <string/>
       </property>
+      <property name="pixmap">
+       <pixmap>cutout_shape_A.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
@@ -261,7 +270,7 @@
    <property name="geometry">
     <rect>
      <x>340</x>
-     <y>350</y>
+     <y>310</y>
      <width>621</width>
      <height>272</height>
     </rect>
@@ -451,99 +460,6 @@
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QTableWidget" name="removetable_3">
-   <property name="geometry">
-    <rect>
-     <x>600</x>
-     <y>-30</y>
-     <width>305</width>
-     <height>192</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>微軟正黑體</family>
-     <pointsize>18</pointsize>
-    </font>
-   </property>
-   <row>
-    <property name="text">
-     <string>A</string>
-    </property>
-    <property name="font">
-     <font>
-      <family>微軟正黑體</family>
-      <pointsize>18</pointsize>
-     </font>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>B</string>
-    </property>
-    <property name="font">
-     <font>
-      <family>微軟正黑體</family>
-      <pointsize>18</pointsize>
-     </font>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>C</string>
-    </property>
-    <property name="font">
-     <font>
-      <family>微軟正黑體</family>
-      <pointsize>18</pointsize>
-     </font>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>D</string>
-    </property>
-    <property name="font">
-     <font>
-      <family>微軟正黑體</family>
-      <pointsize>18</pointsize>
-     </font>
-    </property>
-   </row>
-   <column>
-    <property name="text">
-     <string>尺寸代號</string>
-    </property>
-    <property name="font">
-     <font>
-      <family>微軟正黑體</family>
-      <pointsize>18</pointsize>
-     </font>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>尺寸</string>
-    </property>
-    <property name="font">
-     <font>
-      <family>微軟正黑體</family>
-      <pointsize>18</pointsize>
-     </font>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>公差</string>
-    </property>
-    <property name="font">
-     <font>
-      <family>微軟正黑體</family>
-      <pointsize>18</pointsize>
-     </font>
-    </property>
-   </column>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">

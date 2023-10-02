@@ -118,17 +118,25 @@ def drafting_parameter_calculation(l, width, height, depth, T):  # 電子型錄W
     # 三視圖位置
     drafting_Coordinate_Position = {'Front View': (drafting_area_centerX, drafting_area_centerY),
                                     'Left View': (
-                                    drafting_area_centerX - w_scale / 2 - d_scale / 2, drafting_area_centerY),
+                                        drafting_area_centerX - w_scale / 2 - d_scale / 2, drafting_area_centerY),
                                     'Right View': (
-                                    drafting_area_centerX + w_scale / 2 + d_scale / 2, drafting_area_centerY)}
+                                        drafting_area_centerX + w_scale / 2 + d_scale / 2, drafting_area_centerY)}
     # 等角圖位置
     drafting_isometric_Coordinate_Position = {'exploded_1':
-                                                  (drafting_area_centerX + 25 - (drafting_isometric_area_extremum[1] - drafting_isometric_area_extremum[0]) / 5,
-                                                   drafting_view_max_Y - (drafting_isometric_area_extremum[3] - drafting_isometric_area_extremum[2]) * 2 / 3),
+                                                  (drafting_area_centerX + 25 - (drafting_isometric_area_extremum[1] -
+                                                                                 drafting_isometric_area_extremum[
+                                                                                     0]) / 5,
+                                                   drafting_view_max_Y - (drafting_isometric_area_extremum[3] -
+                                                                          drafting_isometric_area_extremum[2]) * 2 / 3),
                                               'exploded_2':
-                                                  (drafting_area_centerX + 50 + (drafting_isometric_area_extremum[1] - drafting_isometric_area_extremum[0]) / 5,
-                                                   drafting_view_max_Y - (drafting_isometric_area_extremum[3] - drafting_isometric_area_extremum[2]) * 2 / 3 - 50)}
+                                                  (drafting_area_centerX + 50 + (drafting_isometric_area_extremum[1] -
+                                                                                 drafting_isometric_area_extremum[
+                                                                                     0]) / 5,
+                                                   drafting_view_max_Y - (drafting_isometric_area_extremum[3] -
+                                                                          drafting_isometric_area_extremum[
+                                                                              2]) * 2 / 3 - 50)}
     return drafting_Coordinate_Position, drafting_isometric_Coordinate_Position, scale_p
+
 
 def change_Drawing_scale(value):
     catapp = win32.Dispatch('CATIA.Application')
@@ -169,6 +177,7 @@ def exploded_Drawing_1(Type, X_coordinate, Y_coordinate, scale):
     selection.Delete()
     selection.Clear()
 
+
 def exploded_Drawing_2(Type, X_coordinate, Y_coordinate, scale):
     catapp = win32.Dispatch('CATIA.Application')
     drawingDocument = catapp.ActiveDocument
@@ -198,6 +207,7 @@ def exploded_Drawing_2(Type, X_coordinate, Y_coordinate, scale):
     selection.Delete()
     selection.Clear()
 
+
 def Front_View_Drawing(Type, X_coordinate, Y_coordinate, scale):
     catapp = win32.Dispatch('CATIA.Application')
     drawingDocument = catapp.ActiveDocument
@@ -223,6 +233,7 @@ def Front_View_Drawing(Type, X_coordinate, Y_coordinate, scale):
     selection.Add(catapp.ActiveDocument.sheets.ActiveSheet.Views.ActiveView)
     selection.Search("Drafting.Text,sel")
     selection.Delete()
+
 
 def Left_View_Drawing(Type, X_coordinate, Y_coordinate, scale):
     catapp = win32.Dispatch('CATIA.Application')
@@ -307,11 +318,13 @@ def Right_Top_View_Drawing(Type, X_coordinate, Y_coordinate, scale):
     selection.Search("Drafting.Text,sel")
     selection.Delete()
 
+
 def coordinate():
     catapp = win32.Dispatch('CATIA.Application')
     catDrwDoc = catapp.ActiveDocument
     catDrwSel = catDrwDoc.Selection
     catDrwSelLb = catDrwSel
+
 
 # 圈碼圖
 def balloons(view, content, circle_position_1, circle_position_2, point_position_1, point_position_2):
@@ -334,6 +347,7 @@ def balloons(view, content, circle_position_1, circle_position_2, point_position
     DrawLeader_DrawTexts_balloons.AllAround = 0
     DrawLeader_DrawTexts_balloons.ModifyPoint(0, circle_position_1, 0)  # 選擇引線點 -> (0, 1, 2)並調整座標位置
     DrawLeader_DrawTexts_balloons.HeadSymbol = 20  # 引號標點類型
+
 
 # 爆炸圖中心線
 def create_center_line(view_name, x_value_1, y_value_1, x_value_2, y_value_2):
@@ -363,6 +377,7 @@ def close_broken_line_block_diagram(view_name):
     drawingViews1 = drawingSheet1.Views
     drawingView1 = drawingViews1.Item(view_name)
     drawingView1.FrameVisualization = False
+
 
 # 尺寸標註
 def add_dimension_to_view(view_name, item_name, catDimDistance, x_value_1, y_value_1, x_value_2, y_value_2,
@@ -520,17 +535,26 @@ def drafting_welding_view_parameter_calculation(width, height, depth, S, Z, T): 
     drafting_down_Coordinate_Position = {
         'Right View': (drafting_area_centerX - drafting_area_X_left_range, drafting_down_area_centerY),
         'Front View': (drafting_area_centerX, drafting_down_area_centerY),
-        'Section view A-A': (drafting_area_centerX + drafting_area_X_left_range + (d_scale - w_scale) / 5, drafting_down_area_centerY),
-        'Section view B-B': (drafting_area_centerX + drafting_area_X_left_range * 2 + (d_scale - w_scale) / 5, drafting_down_area_centerY),
-        'Section view F-F': (drafting_area_centerX + drafting_area_X_left_range * 2 + (d_scale - w_scale) / 5 - w_scale / 3, drafting_down_area_centerY - h_scale / 3),
-        'Section view G-G': (drafting_area_centerX + drafting_area_X_left_range * 2 + (d_scale - w_scale) / 5 + w_scale / 3, drafting_down_area_centerY - h_scale / 3)}
+        'Section view A-A': (
+        drafting_area_centerX + drafting_area_X_left_range + (d_scale - w_scale) / 5, drafting_down_area_centerY),
+        'Section view B-B': (
+        drafting_area_centerX + drafting_area_X_left_range * 2 + (d_scale - w_scale) / 5, drafting_down_area_centerY),
+        'Section view F-F': (
+        drafting_area_centerX + drafting_area_X_left_range * 2 + (d_scale - w_scale) / 5 - w_scale / 3,
+        drafting_down_area_centerY - h_scale / 3),
+        'Section view G-G': (
+        drafting_area_centerX + drafting_area_X_left_range * 2 + (d_scale - w_scale) / 5 + w_scale / 3,
+        drafting_down_area_centerY - h_scale / 3)}
     # 上圖位置
     drafting_up_Coordinate_Position = {
         'Section view D-D': (drafting_area_centerX - drafting_area_X_left_range, drafting_up_area_centerY),
         'Top View': (drafting_area_centerX, drafting_up_area_centerY),
-        'Section view C-C': (drafting_area_centerX + drafting_area_X_left_range + (d_scale - w_scale) / 5, drafting_up_area_centerY),
-        'Section view E-E': (drafting_area_centerX + drafting_area_X_left_range * 2 + (d_scale - w_scale) * 1 / 2, drafting_up_area_centerY)}
+        'Section view C-C': (
+        drafting_area_centerX + drafting_area_X_left_range + (d_scale - w_scale) / 5, drafting_up_area_centerY),
+        'Section view E-E': (
+        drafting_area_centerX + drafting_area_X_left_range * 2 + (d_scale - w_scale) * 1 / 2, drafting_up_area_centerY)}
     return drafting_down_Coordinate_Position, drafting_up_Coordinate_Position, scale_p
+
 
 # 剖面圖
 def Section(view_name, Coordinate_X, Coordinate_Y, Scale, Coordinate, change_direction, new_create_view_name):
@@ -551,9 +575,10 @@ def Section(view_name, Coordinate_X, Coordinate_Y, Scale, Coordinate, change_dir
     drawingView2.Y = Coordinate_Y
     drawingView2.Scale = 1 / Scale
     drawingView2.Angle = 0
-    SectionProfile =Coordinate
+    SectionProfile = Coordinate
     drawingViewGenerativeBehavior2Variant = drawingViewGenerativeBehavior2
-    drawingViewGenerativeBehavior2Variant.DefineSectionView(SectionProfile, "SectionView", "Offset", change_direction, drawingViewGenerativeBehavior1)
+    drawingViewGenerativeBehavior2Variant.DefineSectionView(SectionProfile, "SectionView", "Offset", change_direction,
+                                                            drawingViewGenerativeBehavior1)
     drawingViewGenerativeLinks1 = drawingView2.GenerativeLinks
     drawingViewGenerativeLinks2 = drawingView1.GenerativeLinks
     drawingViewGenerativeLinks2.CopyLinksTo(drawingViewGenerativeLinks1)
@@ -573,6 +598,7 @@ def Section(view_name, Coordinate_X, Coordinate_Y, Scale, Coordinate, change_dir
     selection.Add(catapp.ActiveDocument.sheets.ActiveSheet.Views.ActiveView)
     selection.Search("Drafting.Text,sel")
     selection.Delete()
+
 
 def Define_Polygonal_Detail_View(view_name, Coordinate, Coordinate_X, Coordinate_Y):  # 留下框選範圍圖面
     catapp = win32.Dispatch('CATIA.Application')
@@ -600,6 +626,7 @@ def Define_Polygonal_Detail_View(view_name, Coordinate, Coordinate_X, Coordinate
     # except:
     #     pass
 
+
 def break_line(view_name, Coordinate, X_direction, Y_direction):
     catapp = win32.Dispatch('CATIA.Application')
     drawingDocument = catapp.ActiveDocument
@@ -620,6 +647,7 @@ def break_line(view_name, Coordinate, X_direction, Y_direction):
     # drawingViewGenerativeBehavior1Variant.SetRealLineType(8, 0.2)
     # drawingViewGenerativeBehavior1Variant.visProperties1.SetRealWidth(2, 0.25)
 
+
 def close_all_Generated_Shape():
     catapp = win32.Dispatch('CATIA.Application')
     selection = catapp.ActiveDocument.Selection
@@ -628,6 +656,7 @@ def close_all_Generated_Shape():
     selection.Search("Drafting.Generated Shape,all")
     selection.Delete()
 
+
 def close_selection_text():
     catapp = win32.Dispatch('CATIA.Application')
     selection = catapp.ActiveDocument.Selection
@@ -635,6 +664,7 @@ def close_selection_text():
     selection.Add(catapp.ActiveDocument.sheets.ActiveSheet.Views.ActiveView)
     selection.Search("Drafting.text, sel")
     selection.Delete()
+
 
 def move_view_Position(view_name, X_Position, Y_Position):
     catapp = win32.Dispatch('CATIA.Application')
@@ -646,6 +676,7 @@ def move_view_Position(view_name, X_Position, Y_Position):
     drawingView.Activate()
     drawingView.X = X_Position
     drawingView.Y = Y_Position
+
 
 def Define_Polygonal_Cipping_View(view_name, Coordinate):
     catapp = win32.Dispatch('CATIA.Application')
@@ -666,6 +697,7 @@ def Define_Polygonal_Cipping_View(view_name, Coordinate):
     drawingViewGenerativeBehavior1Variant.DefinePolygonalClippingView(SectionProfile[0:])
     drawingViewGenerativeBehavior1 = drawingView.GenerativeBehavior
     drawingViewGenerativeBehavior1.ForceUpdate()
+
 
 # 指定type種類全部刪除
 # 使用方法:"⌈輸入type⌋',all"

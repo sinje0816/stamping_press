@@ -98,9 +98,9 @@ class Ui_Form(object):
         self.gridLayout_3.addLayout(self.gridLayout_2, 2, 1, 1, 1)
         self.frame = QtWidgets.QFrame(self.layoutWidget)
         self.frame.setStyleSheet("#frame{\n"
-"    border: 1px solid block；\n"
-"}\n"
-"")
+                                 "    border: 1px solid block；\n"
+                                 "}\n"
+                                 "")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -160,10 +160,10 @@ class Ui_Form(object):
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label_8.setText(_translate("Form", "下料孔位置設定"))
         self.label_9.setText(_translate("Form", "備註：\n"
-"X>0：表示向右偏移\n"
-"X>0：表示向左偏移\n"
-"Y>0：表示向後偏移\n"
-"Y>0：表示向前偏移"))
+                                                "X>0：表示向右偏移\n"
+                                                "X>0：表示向左偏移\n"
+                                                "Y>0：表示向後偏移\n"
+                                                "Y>0：表示向前偏移"))
         self.label_7.setText(_translate("Form", "Y："))
         self.label_6.setText(_translate("Form", "X："))
         self.setup.setText(_translate("Form", "確定"))
@@ -176,6 +176,7 @@ class Ui_Form(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Ui_Form()

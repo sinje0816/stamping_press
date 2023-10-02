@@ -178,21 +178,26 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.label_3.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">閉合工作高度</span></p><p align=\"center\"><span style=\" font-weight:600;\">closed working height</span></p></body></html>"))
+        self.label_3.setText(_translate("Dialog",
+                                        "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">閉合工作高度</span></p><p align=\"center\"><span style=\" font-weight:600;\">closed working height</span></p></body></html>"))
         self.comboBox_2.setItemText(0, _translate("Dialog", "1050x1480"))
         self.comboBox_2.setItemText(1, _translate("Dialog", "1575x2220"))
-        self.label_4.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">平板類型</span></p><p align=\"center\"><span style=\" font-weight:600;\">tablet type</span></p></body></html>"))
-        self.label_2.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">寬、深類型</span></p><p align=\"center\"><span style=\" font-weight:600;\">width and depth type</span></p></body></html>"))
+        self.label_4.setText(_translate("Dialog",
+                                        "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">平板類型</span></p><p align=\"center\"><span style=\" font-weight:600;\">tablet type</span></p></body></html>"))
+        self.label_2.setText(_translate("Dialog",
+                                        "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">寬、深類型</span></p><p align=\"center\"><span style=\" font-weight:600;\">width and depth type</span></p></body></html>"))
         self.pushButton.setText(_translate("Dialog", "開始生成\n"
-"start generating"))
+                                                     "start generating"))
         self.comboBox_3.setItemText(0, _translate("Dialog", "330"))
         self.comboBox_3.setItemText(1, _translate("Dialog", "300"))
         # self.comboBox_3.setItemText(2, _translate("Dialog", "P"))
         self.comboBox_5.setItemText(0, _translate("Dialog", "圓型平板"))
         self.comboBox_5.setItemText(1, _translate("Dialog", "方型平板"))
         self.comboBox_5.setItemText(2, _translate("Dialog", "模墊型平板"))
-        self.label_5.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">SEYI SN1系列C型曲軸沖床自動化生成系統</span></p><p align=\"center\"><span style=\" font-weight:600;\">SEYI SN1 series C-type crankshaft punch automatic generation system</span></p></body></html>"))
-        self.label.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">型號選擇</span></p><p align=\"center\"><span style=\" font-weight:600;\">Type selection</span></p></body></html>"))
+        self.label_5.setText(_translate("Dialog",
+                                        "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">SEYI SN1系列C型曲軸沖床自動化生成系統</span></p><p align=\"center\"><span style=\" font-weight:600;\">SEYI SN1 series C-type crankshaft punch automatic generation system</span></p></body></html>"))
+        self.label.setText(_translate("Dialog",
+                                      "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">型號選擇</span></p><p align=\"center\"><span style=\" font-weight:600;\">Type selection</span></p></body></html>"))
         # self.comboBox_4.setItemText(0, _translate("Dialog", "SN1-25"))
         # self.comboBox_4.setItemText(1, _translate("Dialog", "SN1-35"))
         # self.comboBox_4.setItemText(2, _translate("Dialog", "SN1-45"))

@@ -19,6 +19,7 @@ type = ()
 hole = ()
 close = ()
 
+
 class main(QtWidgets.QWidget, Ui_Dialog):
     def __init__(self):
         super(main, self).__init__()
@@ -55,7 +56,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mbox = QtWidgets.QMessageBox(Form)
         try:
             if int(self.ui.lineEdit.text()) > 10 or int(self.ui.lineEdit.text()) < -10:
-                mbox.warning(Form,'warning' , '超出界限')
+                mbox.warning(Form, 'warning', '超出界限')
                 self.ui.lineEdit.clear()
         except:
             alpha = str(self.ui.lineEdit.text())
@@ -81,7 +82,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         type = str(self.ui.comboBox_4.currentText())
         hole = str(self.ui.comboBox_5.currentText())
         alpha = str(self.ui.lineEdit.text())
-        print(type, l, height, hole , alpha)
+        print(type, l, height, hole, alpha)
         self.create_dir(type)
         if alpha == "":
             self.aplha = 0
@@ -172,7 +173,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
         return h, i, l, j
 
-
     def add_item_for_comboBox(self):
         print('insert')
         # data = ['sd1', 'sd2']
@@ -213,10 +213,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     mprog.scaling(0.7)
                     time.sleep(0.5)
                     mprog.save_file_part(path, name)
-                # elif name == 'GIB1' or name == 'GIB2':
-                #     mprog.axis_system()
-                #     mprog.scaling(0.9)
-                #    time.sleep(0.5)
+                    # elif name == 'GIB1' or name == 'GIB2':
+                    #     mprog.axis_system()
+                    #     mprog.scaling(0.9)
+                    #    time.sleep(0.5)
                     mprog.save_file_part(path, name)
                 else:
                     if l == 0:
@@ -368,14 +368,14 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         eng.balloons(i, l, h)
         # 存檔
         mprog.PDF_save(path, "Exploded_Views")
-        mprog.save_detail_drawing(path , "Exploded_Views")
+        mprog.save_detail_drawing(path, "Exploded_Views")
 
         # -----------零件圖生成--------
-        mprog.OPEN_detail_drawing()#開啟零件圖
+        mprog.OPEN_detail_drawing()  # 開啟零件圖
         dp.Parts_drawing_generation(i, l, part_path, alpha)
         dpc.bom_text_create()
         mprog.PDF_save(path, "detail_drawing")
-        mprog.save_detail_drawing(path , "detail_drawing")
+        mprog.save_detail_drawing(path, "detail_drawing")
 
         # -------------焊接圖----------
         eng.welding_drawing(l, type, i, alpha)
@@ -383,9 +383,10 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         mprog.PDF_save(path, "Welding_diagram")
         mprog.save_detail_drawing(path, "Welding_diagram")
 
-        #恢復隱藏零配件
+        # 恢復隱藏零配件
         for part_name in par.hide_part_name:
             mprog.hide_show_part(part_name, 0)
+
 
 if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率

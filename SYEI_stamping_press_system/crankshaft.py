@@ -2,6 +2,7 @@ import win32com.client as win32
 import main_program as mprog, main_GUI
 import excel_parameter_change as epc
 
+
 def change_parameter(name, file_sheet_name, i):
     if name == 'crankshaft_S':
         excel = epc.ExcelOp('尺寸整理表_曲軸', 'crankshaft_S')
@@ -12,7 +13,7 @@ def change_parameter(name, file_sheet_name, i):
             print('%s Parameter change error' % file_sheet_name)
 
         try:
-            if i == 0:      # 302CC7S
+            if i == 0:  # 302CC7S
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('AALLr', 0)
                 mprog.partbodyfeatrueactivate('BALLr外1', 0)
@@ -22,7 +23,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_6M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_1M', 0)
-            elif i == 1:    # 322CC7S
+            elif i == 1:  # 322CC7S
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('BALLr外1', 0)
                 mprog.partbodyfeatrueactivate('BALLr內1', 0)
@@ -31,7 +32,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_6M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_1M', 0)
-            elif i == 2:    # 342CC7S
+            elif i == 2:  # 342CC7S
                 mprog.partbodyfeatrueactivate('Bex', 0)
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('AALLr', 0)
@@ -41,7 +42,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_6M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_1M', 0)
-            elif i == 3:    # 372CC7S
+            elif i == 3:  # 372CC7S
                 mprog.partbodyfeatrueactivate('Bex', 0)
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('AALLr', 0)
@@ -52,7 +53,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_4M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_1M', 0)
-            elif i == 4:    # 395CC7S
+            elif i == 4:  # 395CC7S
                 mprog.partbodyfeatrueactivate('Bex', 0)
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('Ar1', 0)
@@ -63,7 +64,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_4M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_4M', 0)
-            elif i == 5:    # 412CC7S
+            elif i == 5:  # 412CC7S
                 mprog.partbodyfeatrueactivate('Bex', 0)
                 mprog.partbodyfeatrueactivate('AALLr', 0)
                 mprog.partbodyfeatrueactivate('BALLr外2', 0)
@@ -77,7 +78,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_4M', 0)
                 mprog.activatefeatrue('Dex(SN1_110_S)', 0)
-            elif i == 6:    # 435CC7S
+            elif i == 6:  # 435CC7S
                 mprog.partbodyfeatrueactivate('Bex', 0)
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('Ar1', 0)
@@ -88,7 +89,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_4M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_4M', 0)
-            elif i == 7:    # 455CC7S
+            elif i == 7:  # 455CC7S
                 mprog.partbodyfeatrueactivate('Bex', 0)
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('Ar1', 0)
@@ -99,7 +100,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_4M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_4M', 0)
-            elif i == 8:    # 475CC7S
+            elif i == 8:  # 475CC7S
                 mprog.partbodyfeatrueactivate('Bex', 0)
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('Ar1', 0)
@@ -128,7 +129,7 @@ def change_parameter(name, file_sheet_name, i):
             print('%s Parameter change error' % file_sheet_name)
 
         try:
-            if i == 0:      # 302CC7H
+            if i == 0:  # 302CC7H
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('AALLr', 0)
                 mprog.partbodyfeatrueactivate('BALLr外1', 0)
@@ -138,7 +139,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_6M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_1M', 0)
-            elif i == 1:    # 322CC7H
+            elif i == 1:  # 322CC7H
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('BALLr外1', 0)
                 mprog.partbodyfeatrueactivate('BALLr內1', 0)
@@ -147,7 +148,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_6M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_1M', 0)
-            elif i == 2:    # 342CC7H
+            elif i == 2:  # 342CC7H
                 mprog.partbodyfeatrueactivate('Bex', 0)
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('AALLr', 0)
@@ -157,7 +158,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_6M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_1M', 0)
-            elif i == 3:    # 372CC7H
+            elif i == 3:  # 372CC7H
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('AALLr', 0)
                 mprog.partbodyfeatrueactivate('BALLr外1', 0)
@@ -167,7 +168,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_4M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_1M', 0)
-            elif i == 4:    # 395CC7H
+            elif i == 4:  # 395CC7H
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('Ar1', 0)
                 mprog.partbodyfeatrueactivate('AALLr', 0)
@@ -177,7 +178,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_4M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_4M', 0)
-            elif i == 5:    # 415CC7H
+            elif i == 5:  # 415CC7H
                 mprog.partbodyfeatrueactivate('Bex', 0)
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('AALLr', 0)
@@ -189,7 +190,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_4M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_4M', 0)
-            elif i == 6:    # 435CC7H
+            elif i == 6:  # 435CC7H
                 mprog.partbodyfeatrueactivate('Bex', 0)
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('Ar1', 0)
@@ -200,7 +201,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_4M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_4M', 0)
-            elif i == 7:    # 455CC7H
+            elif i == 7:  # 455CC7H
                 mprog.partbodyfeatrueactivate('Bex', 0)
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('Ar1', 0)
@@ -211,7 +212,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_4M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_4M', 0)
-            elif i == 8:    # 475CC7H
+            elif i == 8:  # 475CC7H
                 mprog.partbodyfeatrueactivate('Bex', 0)
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('Ar1', 0)
@@ -240,7 +241,7 @@ def change_parameter(name, file_sheet_name, i):
             print('%s Parameter change error' % file_sheet_name)
 
         try:
-            if i == 0:      # 302CC7P
+            if i == 0:  # 302CC7P
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('AALLr', 0)
                 mprog.partbodyfeatrueactivate('BALLr外1', 0)
@@ -250,7 +251,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_6M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_1M', 0)
-            elif i == 1:    # 322CC7P
+            elif i == 1:  # 322CC7P
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('BALLr外1', 0)
                 mprog.partbodyfeatrueactivate('BALLr內1', 0)
@@ -259,7 +260,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_6M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_1M', 0)
-            elif i == 2:    # 342CC7P
+            elif i == 2:  # 342CC7P
                 mprog.partbodyfeatrueactivate('Bex', 0)
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('AALLr', 0)
@@ -269,7 +270,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_6M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_1M', 0)
-            elif i == 3:    # 372CC7P
+            elif i == 3:  # 372CC7P
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('Aex(SN1_60_P)', 0)
                 mprog.partbodyfeatrueactivate('AALLr', 0)
@@ -281,7 +282,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_4M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_1M', 0)
-            elif i == 4:    # 395CC7P
+            elif i == 4:  # 395CC7P
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('Ar1', 0)
                 mprog.partbodyfeatrueactivate('AALLr', 0)
@@ -303,7 +304,7 @@ def change_parameter(name, file_sheet_name, i):
             #     mprog.activatefeatrue('D2_4M', 0)
             #     mprog.activatefeatrue('D3_4M', 0)
             #     mprog.activatefeatrue('D4_4M', 0)
-            elif i == 6:    # 435CC7P
+            elif i == 6:  # 435CC7P
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('Ar1', 0)
                 mprog.partbodyfeatrueactivate('AALLr', 0)
@@ -313,7 +314,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_4M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_4M', 0)
-            elif i == 7:    # 455CC7P
+            elif i == 7:  # 455CC7P
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('Ar1', 0)
                 mprog.partbodyfeatrueactivate('AALLr', 0)
@@ -323,7 +324,7 @@ def change_parameter(name, file_sheet_name, i):
                 mprog.activatefeatrue('D2_4M', 0)
                 mprog.activatefeatrue('D3_4M', 0)
                 mprog.activatefeatrue('D4_4M', 0)
-            elif i == 8:    # 475CC7P
+            elif i == 8:  # 475CC7P
                 mprog.partbodyfeatrueactivate('Bex', 0)
                 mprog.partbodyfeatrueactivate('C5', 0)
                 mprog.partbodyfeatrueactivate('Ar1', 0)
@@ -342,5 +343,6 @@ def change_parameter(name, file_sheet_name, i):
                 print('crankshaft_P Update success')
             except:
                 print('crankshaft_P Update error')
+
 
 change_parameter('crankshaft_S', 'crankshaft', 0)

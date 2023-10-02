@@ -80,7 +80,7 @@ elif type == "SN1-300" or type == "sn1-300" or type == "300":
     i = 9
 print(i)
 
-#高度類型選擇
+# 高度類型選擇
 print('請輸入高度類型(S = 0 , H_P = 1)')
 height = input()
 if height == '0':
@@ -89,7 +89,7 @@ elif height == '1':
     h = 1
 print(h)
 
-#判斷是否長寬
+# 判斷是否長寬
 print('請輸入是否變更長寬(0 = 1.5H , 1 = H)')
 l = input()
 if l == '0':
@@ -257,14 +257,16 @@ for y in file_name_list:
 mprog.assembly_create()
 
 # 匯入待組合零件檔
-file_Assembly_name_list = ['BOLSTER1', 'BOLSTER2', 'BOLSTER3', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3', 'FRAME4', 'FRAME5',
-                        'FRAME6', 'FRAME7', 'FRAME8', 'FRAME9', 'FRAME10', 'FRAME11', 'FRAME12', 'FRAME13', 'FRAME14',
-                        'FRAME15', 'FRAME16', 'FRAME17', 'FRAME18', 'FRAME19', 'FRAME20', 'FRAME21', 'FRAME22',
-                        'FRAME23', 'FRAME24', 'FRAME25', 'FRAME26', 'FRAME27', 'FRAME28', 'FRAME29', 'FRAME30',
-                        'FRAME31', 'FRAME31', 'FRAME31', 'FRAME31', 'FRAME32', 'FRAME33', 'FRAME34', 'FRAME34',
-                        'FRAME35', 'FRAME36', 'FRAME36', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME38',
-                        'FRAME39', 'FRAME40', 'FRAME41', 'FRAME42', 'FRAME43', 'GIB1', 'GIB2', 'BALANCER_LEFT_All',
-                        'BALANCER_RIGHT_ALL', 'CRANK_SHAFT_All', 'CLUCTH_ASSEMBLY_All', 'SLIDE_UNIT_All']
+file_Assembly_name_list = ['BOLSTER1', 'BOLSTER2', 'BOLSTER3', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3', 'FRAME4',
+                           'FRAME5',
+                           'FRAME6', 'FRAME7', 'FRAME8', 'FRAME9', 'FRAME10', 'FRAME11', 'FRAME12', 'FRAME13',
+                           'FRAME14',
+                           'FRAME15', 'FRAME16', 'FRAME17', 'FRAME18', 'FRAME19', 'FRAME20', 'FRAME21', 'FRAME22',
+                           'FRAME23', 'FRAME24', 'FRAME25', 'FRAME26', 'FRAME27', 'FRAME28', 'FRAME29', 'FRAME30',
+                           'FRAME31', 'FRAME31', 'FRAME31', 'FRAME31', 'FRAME32', 'FRAME33', 'FRAME34', 'FRAME34',
+                           'FRAME35', 'FRAME36', 'FRAME36', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME37', 'FRAME38',
+                           'FRAME39', 'FRAME40', 'FRAME41', 'FRAME42', 'FRAME43', 'GIB1', 'GIB2', 'BALANCER_LEFT_All',
+                           'BALANCER_RIGHT_ALL', 'CRANK_SHAFT_All', 'CLUCTH_ASSEMBLY_All', 'SLIDE_UNIT_All']
 for x in file_Assembly_name_list:  # 讀取串列名稱並匯入檔案
     # print('import' + str(x) + 'part')
     mprog.import_file_Part(path, x)
@@ -604,7 +606,7 @@ else:
 #         mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_H[i] + D_H[i], 'XY.PLANE', 0)
 #     else:
 #         mprog.add_offset_assembly('BOLSTER1.1', 'BOLSTER3.1', DH_P[i] + D_P[i], 'XY.PLANE', 0)
-#SLIDE跟平板3組立
+# SLIDE跟平板3組立
 if i == 4:
     mprog.add_offset_product_assembly('SLIDE_UNIT_All.1', 'Geometrical Set.1', 'BOLSTER3.1', 267.38, 'XY.PLANE', 1)
 else:
@@ -628,14 +630,17 @@ else:
     mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -32, 'XY.PLANE', 1)
 if i == 4:
     if l == 0:
-        mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1',  -500.5, 'XZ.PLANE', 0)
+        mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -500.5, 'XZ.PLANE',
+                                          0)
     else:
-        mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1',  -347, 'XZ.PLANE', 0)
+        mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -347, 'XZ.PLANE', 0)
 else:
     if l == 0:
-        mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1',  -R_15[i] / 2 - 13, 'XZ.PLANE', 0)
+        mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -R_15[i] / 2 - 13,
+                                          'XZ.PLANE', 0)
     else:
-        mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1',  -R[i] / 2 - 13, 'XZ.PLANE', 0)
+        mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -R[i] / 2 - 13,
+                                          'XZ.PLANE', 0)
 if i == 4:
     mprog.add_offset_product_assembly('BALANCER_RIGHT_All.1', 'Geometrical Set.1', 'FRAME20.1', -261.248, 'YZ.PLANE', 0)
 else:
@@ -646,14 +651,17 @@ else:
     mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -32, 'XY.PLANE', 1)
 if i == 4:
     if l == 0:
-        mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1',  -500.5, 'XZ.PLANE', 1)
+        mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -500.5, 'XZ.PLANE',
+                                          1)
     else:
         mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -347, 'XZ.PLANE', 1)
 else:
     if l == 0:
-        mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1',  -R_15[i] / 2 - 13, 'XZ.PLANE', 1)
+        mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -R_15[i] / 2 - 13,
+                                          'XZ.PLANE', 1)
     else:
-        mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -R[i] / 2 - 13, 'XZ.PLANE', 1)
+        mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', -R[i] / 2 - 13,
+                                          'XZ.PLANE', 1)
 if i == 4:
     mprog.add_offset_product_assembly('BALANCER_LEFT_All.1', 'Geometrical Set.1', 'FRAME20.1', 261.248, 'YZ.PLANE', 1)
 else:

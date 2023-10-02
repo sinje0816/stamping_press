@@ -65,7 +65,7 @@ def change(name, i):
                 print('FRAME12 Update success')
             except:
                 print('FRAME12 Update error')
-# -------------------------------------------------------------------------------
+    # -------------------------------------------------------------------------------
     if name == 'FRAME14':
         excel = epc.ExcelOp('FRAME14')
 
@@ -118,7 +118,7 @@ def change(name, i):
             except:
                 print('FRAME14 Update error')
 
-# -------------------------------------------------------------------------------
+    # -------------------------------------------------------------------------------
     if name == 'FRAME15':
         excel = epc.ExcelOp('FRAME15')
 
@@ -130,32 +130,32 @@ def change(name, i):
             print('FRAME15 Parameter change error')
         try:
             if i == 0:  # 25N
-                    mprog.activatefeatrue('Hole', 0)
+                mprog.activatefeatrue('Hole', 0)
 
             elif i == 1:  # 35N
-                    mprog.activatefeatrue('Hole', 0)
+                mprog.activatefeatrue('Hole', 0)
 
             elif i == 2:  # 45N
-                    mprog.activatefeatrue('Hole', 0)
+                mprog.activatefeatrue('Hole', 0)
 
             elif i == 3:  # 60N
-                    mprog.activatefeatrue('Hole', 0)
+                mprog.activatefeatrue('Hole', 0)
 
             elif i == 4:  # 80N
-                    mprog.activatefeatrue('Hole', 0)
+                mprog.activatefeatrue('Hole', 0)
 
             elif i == 5:  # 110N
-                    mprog.activatefeatrue('Hole', 0)
+                mprog.activatefeatrue('Hole', 0)
 
             elif i == 6:  # 160N
-                    mprog.activatefeatrue('Hole', 0)
+                mprog.activatefeatrue('Hole', 0)
 
             elif i == 7:  # 200N
-                    mprog.activatefeatrue('Hole', 0)
+                mprog.activatefeatrue('Hole', 0)
 
             elif i == 8:  # 250N
-                    mprog.partbodyfeatrueactivate('250N', 0)
-                    mprog.activatefeatrue('Hole', 0)
+                mprog.partbodyfeatrueactivate('250N', 0)
+                mprog.activatefeatrue('Hole', 0)
         except:
             print('FRAME15 Parameter activate error')
         finally:
@@ -165,7 +165,7 @@ def change(name, i):
             except:
                 print('FRAME15 Update error')
 
-# -------------------------------------------------------------------------------
+    # -------------------------------------------------------------------------------
     if name == 'FRAME17':
         excel = epc.ExcelOp('FRAME17')
 
@@ -218,8 +218,7 @@ def change(name, i):
             except:
                 print('FRAME17 Update error')
 
-
-# -------------------------------------------------------------------------------
+    # -------------------------------------------------------------------------------
     if name == 'FRAME27':
         excel = epc.ExcelOp('FRAME27')
 
@@ -259,7 +258,7 @@ def change(name, i):
             except:
                 print('FRAME27 Update error')
 
-# -------------------------------------------------------------------------------
+    # -------------------------------------------------------------------------------
     if name == 'FRAME45':
         excel = epc.ExcelOp('FRAME45')
 
@@ -303,7 +302,7 @@ def change(name, i):
             except:
                 print('FRAME45 Update error')
 
-# -------------------------------------------------------------------------------
+    # -------------------------------------------------------------------------------
     if name == 'FRAME51':
         excel = epc.ExcelOp('FRAME51')
 
@@ -326,7 +325,7 @@ def change(name, i):
                 print('FRAME51 Update success')
             except:
                 print('FRAME51 Update error')
-# -------------------------------------------------------------------------------
+    # -------------------------------------------------------------------------------
     if name == 'FRAME52':
         excel = epc.ExcelOp('FRAME52')
 
@@ -361,7 +360,7 @@ def change(name, i):
                 print('FRAME52 Update success')
             except:
                 print('FRAME52 Update error')
-# -------------------------------------------------------------------------------
+    # -------------------------------------------------------------------------------
     if name == 'plate':
         excel = epc.ExcelOp('plate')
 

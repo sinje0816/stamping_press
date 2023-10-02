@@ -1,6 +1,7 @@
 import main_program as mprog
 import excel_parameter_change as epc
 
+
 def anti_vibration_bolt_parameter_design_part(anti_vibration_bolt_tpye):
     excel = epc.ExcelOp('螺栓尺寸表', '防震螺栓_SN1用')
     if anti_vibration_bolt_tpye == 'CRMA201506KK':
@@ -21,5 +22,6 @@ def anti_vibration_bolt_parameter_design_part(anti_vibration_bolt_tpye):
             print('anti_vibration_bolt update success')
         except:
             print('anti_vibration_bolt update error')
+
 
 anti_vibration_bolt_parameter_design_part('CRMA323710YS')

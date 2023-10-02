@@ -3,6 +3,7 @@ import main_program as mprog
 import drafting as draft
 import math
 
+
 def welding_drawing(l, type, i, alpha):
     # --------焊接圖---------
     # 隱藏機架外零件
@@ -508,6 +509,8 @@ def explosion_diagram(l, type, i, h):
                             drafting_Coordinate_Position['Left View'][1], scale)
     draft.Right_View_Drawing(type, drafting_Coordinate_Position['Right View'][0],
                              drafting_Coordinate_Position['Right View'][1], scale)
+
+
 # ------------標註------------
 def balloons(i, l, h):
     # ---------圈碼圖----------
@@ -541,7 +544,8 @@ def balloons(i, l, h):
                           '4': [(-BOLSTER1_Offset_value - par.R[i] / 2) * par.cos45,
                                 (-BOLSTER1_Offset_value - par.R[i] / 2) * par.cos45 * par.sin30 / par.cos30],
                           '5': [(-BOLSTER1_Offset_value - par.R[i]) * par.cos45,
-                                (-BOLSTER1_Offset_value - par.R[i]) * par.cos45 * par.sin30 / par.cos30 - par.S[i] + par.T[i]],
+                                (-BOLSTER1_Offset_value - par.R[i]) * par.cos45 * par.sin30 / par.cos30 - par.S[i] +
+                                par.T[i]],
                           '6': [(GIB_Offset_value - (par.R[i] + 145) / 2) * par.cos45,
                                 (GIB_Offset_value - (par.R[i] + 145) / 2) * par.cos45 * par.sin30 / par.cos30]}
         # 圈圈座標`
@@ -571,8 +575,10 @@ def balloons(i, l, h):
                                  -BLOSTER1_center_Offset_Value * par.cos45 * par.sin30 / par.cos30,
                                  -BLOSTER1_center_Offset_Value * par.cos45, -par.S[i] - par.Z[i] - par.T[i])
         draft.create_center_line('Isometric view2', -742.5 * par.cos45, -742.5 * par.cos45 * par.sin30 / par.cos30,
-                                 -JOINT_ALL_offset_value * par.cos45, -JOINT_ALL_offset_value * par.cos45 * par.sin30 / par.cos30)
-        draft.create_center_line('Isometric view2', -742.5 * par.cos45, -742.5 * par.cos45 * par.sin30 / par.cos30 - 300,
+                                 -JOINT_ALL_offset_value * par.cos45,
+                                 -JOINT_ALL_offset_value * par.cos45 * par.sin30 / par.cos30)
+        draft.create_center_line('Isometric view2', -742.5 * par.cos45,
+                                 -742.5 * par.cos45 * par.sin30 / par.cos30 - 300,
                                  -(Fixture_offset_value + par.B[i]) * par.cos45,
                                  -(Fixture_offset_value + par.B[i]) * par.cos45 * par.sin30 / par.cos30 - 300)
     else:

@@ -51,7 +51,7 @@ class Ui_Form(object):
         font.setFamily("微軟正黑體")
         font.setPointSize(18)
         self.label_28.setFont(font)
-        self.label_28.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_28.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.label_28.setObjectName("label_28")
         self.gridLayout.addWidget(self.label_28, 1, 0, 2, 1)
         self.label_29 = QtWidgets.QLabel(self.widget)
@@ -65,7 +65,7 @@ class Ui_Form(object):
         font.setFamily("微軟正黑體")
         font.setPointSize(18)
         self.label_29.setFont(font)
-        self.label_29.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_29.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.label_29.setObjectName("label_29")
         self.gridLayout.addWidget(self.label_29, 1, 1, 1, 1)
         self.X = QtWidgets.QLineEdit(self.widget)
@@ -91,7 +91,7 @@ class Ui_Form(object):
         font.setFamily("微軟正黑體")
         font.setPointSize(18)
         self.label_30.setFont(font)
-        self.label_30.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_30.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.label_30.setObjectName("label_30")
         self.gridLayout.addWidget(self.label_30, 2, 1, 1, 1)
         self.Y = QtWidgets.QLineEdit(self.widget)
@@ -166,6 +166,7 @@ class Ui_Form(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Ui_Form()

@@ -65,7 +65,7 @@ def change(name, i):
                 print('FRAME12 Update success')
             except:
                 print('FRAME12 Update error')
-#######################################################################################################
+    #######################################################################################################
     if name == 'FRAME14':
         excel = epc.ExcelOp('FRAME14')
 
@@ -143,7 +143,7 @@ def change(name, i):
                 print('FRAME14 Update error')
 
         #######################################################################################################
-    if name == 'FRAME15':#已更改
+    if name == 'FRAME15':  # 已更改
         excel = epc.ExcelOp('FRAME15')
 
         try:
@@ -154,31 +154,31 @@ def change(name, i):
             print('FRAME15 Parameter change error')
         try:
             if i == 0:  # 25N
-                    mprog.activatefeature('Hole', 0)
+                mprog.activatefeature('Hole', 0)
 
             elif i == 1:  # 35N
-                    mprog.activatefeature('Hole', 0)
+                mprog.activatefeature('Hole', 0)
 
             elif i == 2:  # 45N
-                    mprog.activatefeature('Hole', 0)
+                mprog.activatefeature('Hole', 0)
 
             elif i == 3:  # 60N
-                    mprog.activatefeature('Hole', 0)
+                mprog.activatefeature('Hole', 0)
 
             elif i == 4:  # 80N
-                    mprog.activatefeature('Hole', 0)
+                mprog.activatefeature('Hole', 0)
 
             elif i == 5:  # 110N
-                    mprog.activatefeature('Hole', 0)
+                mprog.activatefeature('Hole', 0)
 
             elif i == 6:  # 160N
-                    mprog.activatefeature('Hole', 0)
+                mprog.activatefeature('Hole', 0)
 
             elif i == 7:  # 200N
-                    mprog.activatefeature('Hole', 0)
+                mprog.activatefeature('Hole', 0)
 
             elif i == 8:  # 250
-                    mprog.activatefeature('Hole', 0)
+                mprog.activatefeature('Hole', 0)
         except:
             print('FRAME15 Parameter activate error')
         finally:
@@ -188,7 +188,7 @@ def change(name, i):
             except:
                 print('FRAME15 Update error')
 
-###############################################################################
+    ###############################################################################
     if name == 'FRAME17':
         excel = epc.ExcelOp('FRAME17')
 
@@ -241,8 +241,7 @@ def change(name, i):
             except:
                 print('FRAME17 Update error')
 
-
-##############################################################
+    ##############################################################
     if name == 'FRAME27':
         excel = epc.ExcelOp('FRAME27')
 
@@ -326,7 +325,7 @@ def change(name, i):
             except:
                 print('FRAME45 Update error')
 
-###############################################################
+    ###############################################################
     if name == 'FRAME51':
         excel = epc.ExcelOp('FRAME51')
 
@@ -355,7 +354,7 @@ def change(name, i):
                 print('FRAME51 Update success')
             except:
                 print('FRAME51 Update error')
-###############################################################################################
+    ###############################################################################################
     if name == 'FRAME52':
         excel = epc.ExcelOp('FRAME52')
 

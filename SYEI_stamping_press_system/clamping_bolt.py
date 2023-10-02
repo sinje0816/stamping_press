@@ -1,6 +1,7 @@
 import main_program as mprog
 import excel_parameter_change as epc
 
+
 def clamping_bolt_parameter_design_part(i):
     excel = epc.ExcelOp('螺栓尺寸表', '鎖模螺栓')
     try:
@@ -15,5 +16,5 @@ def clamping_bolt_parameter_design_part(i):
         except:
             print('bolt update error')
 
-clamping_bolt_parameter_design_part(8)
 
+clamping_bolt_parameter_design_part(8)

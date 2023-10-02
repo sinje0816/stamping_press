@@ -114,7 +114,7 @@ class Ui_Form(object):
         font.setFamily("微軟正黑體")
         font.setPointSize(18)
         self.label_23.setFont(font)
-        self.label_23.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_23.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.label_23.setObjectName("label_23")
         self.gridLayout.addWidget(self.label_23, 1, 0, 1, 1)
         self.direction = QtWidgets.QComboBox(self.widget)
@@ -146,7 +146,7 @@ class Ui_Form(object):
         font.setFamily("微軟正黑體")
         font.setPointSize(18)
         self.label_25.setFont(font)
-        self.label_25.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_25.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.label_25.setObjectName("label_25")
         self.gridLayout.addWidget(self.label_25, 2, 0, 1, 1)
         self.pierce = QtWidgets.QComboBox(self.widget)
@@ -178,7 +178,7 @@ class Ui_Form(object):
         font.setFamily("微軟正黑體")
         font.setPointSize(18)
         self.label_27.setFont(font)
-        self.label_27.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_27.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.label_27.setObjectName("label_27")
         self.gridLayout.addWidget(self.label_27, 3, 0, 1, 1)
         self.clearance_hole = QtWidgets.QComboBox(self.widget)
@@ -210,7 +210,7 @@ class Ui_Form(object):
         font.setFamily("微軟正黑體")
         font.setPointSize(18)
         self.label_28.setFont(font)
-        self.label_28.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_28.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.label_28.setObjectName("label_28")
         self.gridLayout.addWidget(self.label_28, 4, 0, 1, 1)
         self.position_dimension = QtWidgets.QLineEdit(self.widget)
@@ -236,7 +236,7 @@ class Ui_Form(object):
         font.setFamily("微軟正黑體")
         font.setPointSize(18)
         self.label_29.setFont(font)
-        self.label_29.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_29.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.label_29.setObjectName("label_29")
         self.gridLayout.addWidget(self.label_29, 5, 0, 1, 1)
         self.unpierce = QtWidgets.QLineEdit(self.widget)
@@ -306,6 +306,7 @@ class Ui_Form(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Ui_Form()

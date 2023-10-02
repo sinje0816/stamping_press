@@ -1,12 +1,13 @@
 import os
 import win32com.client as win32
 import main_program as mprog
+
 i = ()
-j= ()
+j = ()
 type = ()
 hole = ()
 
-#電子型錄規格
+# 電子型錄規格
 A = [720, 830, 890, 940, 1050, 1160, 1300, 1480, 1560]
 B = [1058, 1125, 1210, 1315, 1480, 1680, 1985, 2113, 2400]
 H = [2060, 2185, 2290, 2540, 2755, 2990, 3270, 3725, 4005]
@@ -16,9 +17,9 @@ D_DH = [250, 280, 330, 350, 380, 430, 490, 550, 580]
 S = [983, 1068, 1158, 1285, 1445, 1630, 1809, 2067, 2262]
 H_Z = [1260, 1385, 1490, 1640, 1855, 2086.933, 2370, 2725, 3005]
 O = [1045, 1075, 1125, 1145, 1175, 1225, 1285, 1345, 1375]
-hole_type = [0 , 1 , 2]
-P = [330 , 380 , 430 , 480 , 560 , 650 , 720 , 860 , 960]
-Q = [250 , 300 , 350 , 400 , 460 , 520 , 580 , 650 , 720]
+hole_type = [0, 1, 2]
+P = [330, 380, 430, 480, 560, 650, 720, 860, 960]
+Q = [250, 300, 350, 400, 460, 520, 580, 650, 720]
 T = [85, 100, 115, 130, 140, 155, 165, 180, 180]
 Z = [800, 800, 800, 900, 900, 900, 900, 1000, 1000]
 FRAME1_cutout_bottom = [197, 277, 317, 397, 477, 557, 637, 717, 797]
@@ -26,38 +27,38 @@ F = [320, 400, 440, 520, 600, 680, 760, 840, 900]
 FRAME1_cutout = [655 + 370, 675 + 415, 695 + 450, 715 + 577.5, 735 + 670, 755 + 770, 775 + 895, 795 + 1080, 815 + 1210]
 FRAME20_H = [280, 355, 420, 437.5, 550, 680, 825, 990, 1120]
 
-#新增資料夾
-path, dir =mprog.new_Folder()
+# 新增資料夾
+path, dir = mprog.new_Folder()
 print(path)
 
-#開啟零件檔
+# 開啟零件檔
 # mprog.open_part()
 # catapp = win32.Dispatch('CATIA.Application')
 
-#確認型號
+# 確認型號
 print("輸入型號")
 type = input()
-if type == "SN1-25" :
-    i=0
+if type == "SN1-25":
+    i = 0
 elif type == "SN1-35":
-    i=1
+    i = 1
 elif type == "SN1-45":
-    i=2
+    i = 2
 elif type == "SN1-60":
-    i=3
+    i = 3
 elif type == "SN1-80":
-    i=4
+    i = 4
 elif type == "SN1-110":
-    i=5
+    i = 5
 elif type == "SN1-160":
-    i=6
+    i = 6
 elif type == "SN1-200":
-    i=7
+    i = 7
 elif type == "SN1-250":
-    i=8
+    i = 8
 print(i)
 
-#輸入平板型號
+# 輸入平板型號
 print("請輸入平板型式(0 = 圓形平板 , 1 = 方形平板 , 2 = 模墊型平板)")
 hole = input()
 if hole == "0":
@@ -70,58 +71,57 @@ elif hole == "2":
 # 開啟CATIA
 env = mprog.set_CATIA_workbench_env()
 
-#匯入零件檔
-file_name_FRAME = ['BOLSTER1', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3', 'FRAME4', 'FRAME5', 'FRAME6', 'FRAME7', 'FRAME8',
-                  'FRAME9', 'FRAME10', 'FRAME11', 'FRAME12', 'FRAME13', 'FRAME14', 'FRAME15', 'FRAME16', 'FRAME17',
-                  'FRAME18', 'FRAME19', 'FRAME20', 'FRAME21', 'FRAME22', 'FRAME23', 'FRAME24', 'FRAME25', 'FRAME26',
-                  'FRAME27', 'FRAME28', 'FRAME29', 'FRAME30', 'FRAME31', 'FRAME32','FRAME33', 'FRAME34', 'FRAME35',
-                  'FRAME36', 'FRAME37', 'FRAME38', 'FRAME39', 'FRAME40', 'FRAME41', 'FRAME43', 'GIB1',
-                  'GIB2' ]
+# 匯入零件檔
+file_name_FRAME = ['BOLSTER1', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3', 'FRAME4', 'FRAME5', 'FRAME6', 'FRAME7',
+                   'FRAME8',
+                   'FRAME9', 'FRAME10', 'FRAME11', 'FRAME12', 'FRAME13', 'FRAME14', 'FRAME15', 'FRAME16', 'FRAME17',
+                   'FRAME18', 'FRAME19', 'FRAME20', 'FRAME21', 'FRAME22', 'FRAME23', 'FRAME24', 'FRAME25', 'FRAME26',
+                   'FRAME27', 'FRAME28', 'FRAME29', 'FRAME30', 'FRAME31', 'FRAME32', 'FRAME33', 'FRAME34', 'FRAME35',
+                   'FRAME36', 'FRAME37', 'FRAME38', 'FRAME39', 'FRAME40', 'FRAME41', 'FRAME43', 'GIB1',
+                   'GIB2']
 for x in file_name_FRAME:
-    mprog.import_part("C:\\Users\\USER\\Desktop\\stamping_press",x)
+    mprog.import_part("C:\\Users\\USER\\Desktop\\stamping_press", x)
 
-#如果file_name_FRAME 等於串列內容則對什麼變數進行更改
-if file_name_FRAME == 'FRAME1' or 'FRAME2' or 'FRAME20' or 'FRAME30':#更改零件變數H
+# 如果file_name_FRAME 等於串列內容則對什麼變數進行更改
+if file_name_FRAME == 'FRAME1' or 'FRAME2' or 'FRAME20' or 'FRAME30':  # 更改零件變數H
     for x in file_name_FRAME:
         mprog.param_change(x, 'H', H[i])
-elif file_name_FRAME == 'FRAME3' or 'FRAME4' or 'FRAME9' or 'FRAME32' or 'FRAME41' or 'FRAME43':#更改零件變數R
+elif file_name_FRAME == 'FRAME3' or 'FRAME4' or 'FRAME9' or 'FRAME32' or 'FRAME41' or 'FRAME43':  # 更改零件變數R
     for x in file_name_FRAME:
         mprog.param_change(x, 'R', R[i])
-elif file_name_FRAME == 'FRAME10' or 'FRAME11' or 'FRAME12' or 'FRAME13' or 'BOLSTER1':#更改零件變數E
+elif file_name_FRAME == 'FRAME10' or 'FRAME11' or 'FRAME12' or 'FRAME13' or 'BOLSTER1':  # 更改零件變數E
     for x in file_name_FRAME:
         mprog.param_change(x, 'E', E[i])
-elif file_name_FRAME == 'FRAME29': #更改零件變數A
+elif file_name_FRAME == 'FRAME29':  # 更改零件變數A
     for x in file_name_FRAME:
         mprog.param_change(x, 'A', A[i])
-elif file_name_FRAME == 'BOLSTER2' or 'SLIDE':#更改零件變數P
+elif file_name_FRAME == 'BOLSTER2' or 'SLIDE':  # 更改零件變數P
     for x in file_name_FRAME:
         mprog.param_change(x, 'P', P[i])
-elif file_name_FRAME== 'BOLSTER3':#更改零件變數Q
+elif file_name_FRAME == 'BOLSTER3':  # 更改零件變數Q
     for x in file_name_FRAME:
         mprog.param_change(x, 'Q', Q[i])
 else:
     pass
 
-#更改平板變數
-mprog.param_change('BOLSTER1' , "hole_type" , hole_type[j])
+# 更改平板變數
+mprog.param_change('BOLSTER1', "hole_type", hole_type[j])
 
-#儲存零件並關閉
-file_name_FRAME = ['BOLSTER1', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3', 'FRAME4', 'FRAME5', 'FRAME6', 'FRAME7', 'FRAME8',
-                  'FRAME9', 'FRAME10', 'FRAME11', 'FRAME12', 'FRAME13', 'FRAME14', 'FRAME15', 'FRAME16', 'FRAME17',
-                  'FRAME18', 'FRAME19', 'FRAME20', 'FRAME21', 'FRAME22', 'FRAME23', 'FRAME24', 'FRAME25', 'FRAME26',
-                  'FRAME27', 'FRAME28', 'FRAME29', 'FRAME30', 'FRAME31', 'FRAME32','FRAME33', 'FRAME34', 'FRAME35',
-                  'FRAME36', 'FRAME37', 'FRAME38', 'FRAME39', 'FRAME40', 'FRAME41', 'FRAME43', 'GIB1',
-                  'GIB2' ]
+# 儲存零件並關閉
+file_name_FRAME = ['BOLSTER1', 'Fixture', 'FRAME1', 'FRAME2', 'FRAME3', 'FRAME4', 'FRAME5', 'FRAME6', 'FRAME7',
+                   'FRAME8',
+                   'FRAME9', 'FRAME10', 'FRAME11', 'FRAME12', 'FRAME13', 'FRAME14', 'FRAME15', 'FRAME16', 'FRAME17',
+                   'FRAME18', 'FRAME19', 'FRAME20', 'FRAME21', 'FRAME22', 'FRAME23', 'FRAME24', 'FRAME25', 'FRAME26',
+                   'FRAME27', 'FRAME28', 'FRAME29', 'FRAME30', 'FRAME31', 'FRAME32', 'FRAME33', 'FRAME34', 'FRAME35',
+                   'FRAME36', 'FRAME37', 'FRAME38', 'FRAME39', 'FRAME40', 'FRAME41', 'FRAME43', 'GIB1',
+                   'GIB2']
 new_file_name_FRAME = file_name_FRAME[::-1]
 for x in new_file_name_FRAME:
     mprog.save_file(path, x)
 
-
 import os
 import win32com.client as win32
 import main_program as mprog
-
-
 
 # 開啟新組合檔
 mprog.assembly_create()
@@ -167,7 +167,7 @@ mprog.add_offset_assembly('FRAME9.1', 'FRAME3.1', 0, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('FRAME9.1', 'FRAME3.1', 0, 'XY.PLANE', 0)
 mprog.add_offset_assembly('FRAME9.1', 'FRAME3.1', -FRAME1_cutout_bottom[8], 'YZ.PLANE', 0)
 # 中間左右側板
-mprog.add_offset_assembly('FRAME11.1', 'BOLSTER1.1', -R[8] / 2 , 'XZ.PLANE', 0)
+mprog.add_offset_assembly('FRAME11.1', 'BOLSTER1.1', -R[8] / 2, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('BOLSTER1.1', 'FRAME11.1', T[8], 'XY.PLANE', 0)
 mprog.add_offset_assembly('FRAME8.1', 'FRAME11.1', FRAME1_cutout_bottom[8], 'YZ.PLANE', 0)
 mprog.add_offset_assembly('BOLSTER1.1', 'FRAME10.1', -R[8] / 2 - 90, 'XZ.PLANE', 0)
@@ -275,10 +275,10 @@ mprog.add_offset_assembly('FRAME32.1', 'FRAME30.1', 0, 'YZ.PLANE', 0)
 # 後方大軸承支架
 mprog.add_offset_assembly('FRAME34.1', 'BOLSTER1.1', -R[8] / 2 - 90, 'XZ.PLANE', 1)
 mprog.add_offset_assembly('FRAME34.1', 'FRAME3.1', -2390.5, 'XY.PLANE', 1)  # 要找他所有變數
-mprog.add_offset_assembly('FRAME34.1', 'FRAME7.1', 1141, 'YZ.PLANE', 0)# 要找他所有變數
+mprog.add_offset_assembly('FRAME34.1', 'FRAME7.1', 1141, 'YZ.PLANE', 0)  # 要找他所有變數
 mprog.add_offset_assembly('FRAME34.2', 'BOLSTER1.1', -R[8] / 2 - 90, 'XZ.PLANE', 0)
 mprog.add_offset_assembly('FRAME34.2', 'FRAME3.1', 2390.5, 'XY.PLANE', 0)  # 要找他所有變數
-mprog.add_offset_assembly('FRAME34.2', 'FRAME7.1', 1141, 'YZ.PLANE', 0)# 要找他所有變數
+mprog.add_offset_assembly('FRAME34.2', 'FRAME7.1', 1141, 'YZ.PLANE', 0)  # 要找他所有變數
 # 後方大軸承
 mprog.add_offset_assembly('FRAME35.1', 'FRAME3.1', 0, 'XZ.PLANE', 1)
 mprog.add_offset_assembly('FRAME35.1', 'FRAME34.1', 272.236, 'XY.PLANE', 1)  # 要找他所有變數

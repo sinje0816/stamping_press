@@ -544,7 +544,7 @@ def assembly_create(l, type, i, part_path, alpha, h):
     mprog.add_offset_assembly('FRAME39.1', 'FRAME50.1', -425, 'XZ.PLANE', 0, 232)
     mprog.add_offset_assembly('FRAME39.1', 'FRAME50.1', -5, 'YZ.PLANE', 1, 233)
     mprog.add_offset_assembly('FRAME39.1', 'FRAME50.1', 0, 'XY.PLANE', 1, 234)
-    #馬達黑色墊塊*8
+    # 馬達黑色墊塊*8
     mprog.add_offset_assembly('FRAME50.1', 'FRAME51.1', 108, 'XZ.PLANE', 1, 235)
     mprog.add_offset_assembly('FRAME50.1', 'FRAME51.1', -87.201, 'YZ.PLANE', 1, 236)
     mprog.add_offset_assembly('FRAME50.1', 'FRAME51.1', 39.5, 'XY.PLANE', 0, 237)
@@ -559,7 +559,7 @@ def assembly_create(l, type, i, part_path, alpha, h):
     mprog.add_offset_assembly('FRAME51.1', 'FRAME51.4', 0, 'XY.PLANE', 0, 246)
     mprog.add_offset_assembly('FRAME50.1', 'FRAME51.5', 108, 'XZ.PLANE', 0, 247)
     mprog.add_offset_assembly('FRAME50.1', 'FRAME51.5', -87.201, 'YZ.PLANE', 0, 248)
-    mprog.add_offset_assembly('FRAME50.1', 'FRAME51.5', 39.5+16+17, 'XY.PLANE', 0, 249)
+    mprog.add_offset_assembly('FRAME50.1', 'FRAME51.5', 39.5 + 16 + 17, 'XY.PLANE', 0, 249)
     mprog.add_offset_assembly('FRAME51.5', 'FRAME51.6', -216, 'XZ.PLANE', 0, 250)
     mprog.add_offset_assembly('FRAME51.5', 'FRAME51.6', 0, 'YZ.PLANE', 0, 251)
     mprog.add_offset_assembly('FRAME51.5', 'FRAME51.6', 0, 'XY.PLANE', 0, 252)
@@ -569,7 +569,7 @@ def assembly_create(l, type, i, part_path, alpha, h):
     mprog.add_offset_assembly('FRAME51.5', 'FRAME51.8', -216, 'XZ.PLANE', 0, 256)
     mprog.add_offset_assembly('FRAME51.5', 'FRAME51.8', 178, 'YZ.PLANE', 0, 257)
     mprog.add_offset_assembly('FRAME51.5', 'FRAME51.8', 0, 'XY.PLANE', 0, 258)
-    #馬達
+    # 馬達
     mprog.add_offset_assembly('FRAME50.1', 'MOTOR.1', 0, 'XZ.PLANE', 1, 259)
     mprog.add_offset_assembly('FRAME50.1', 'MOTOR.1', 197, 'YZ.PLANE', 1, 260)
     mprog.add_offset_assembly('FRAME50.1', 'MOTOR.1', 213, 'XY.PLANE', 1, 261)

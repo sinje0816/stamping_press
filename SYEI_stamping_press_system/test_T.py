@@ -22,6 +22,7 @@ def switch_to_window_by_name(window_name):
     except Exception as e:
         print("Error:", e)
 
+
 def copybody():
     catapp = win32.Dispatch('CATIA.Application')
     part_document1 = catapp.ActiveDocument
@@ -33,7 +34,8 @@ def copybody():
     selection1.Add(body1)
     selection1.Copy()
 
-def pastebody(count):
+
+def pastebody(count, parameter_name):
     catapp = win32.Dispatch('CATIA.Application')
     part_document1 = catapp.ActiveDocument
     selection1 = part_document1.Selection
@@ -43,10 +45,11 @@ def pastebody(count):
     body1 = bodies1.Item("PartBody")
     selection1.Add(body1)
     selection1.Paste()
-    body = bodies1.Item("Body."+str(9+count))
-    body.name = "T-solt"+str(count)
+    body = bodies1.Item("Body." + str(9 + count))
+    body.name = parameter_name + str(count)
 
-def removebody(count):
+
+def removebody(count, parameter_name):
     catapp = win32.Dispatch('CATIA.Application')
     partDocument1 = catapp.ActiveDocument
     part = partDocument1.Part
@@ -54,9 +57,10 @@ def removebody(count):
     bodies = part.Bodies
     partbody = bodies.Item("PartBody")
     part.InWorkObject = partbody
-    body = bodies.Item("T-solt"+str(count))
+    body = bodies.Item(parameter_name + str(count))
     shapeFactory1.AddNewRemove(body)
     part.Update()
+
 
 def changetranslate(offset_value):
     catapp = win32.Dispatch('CATIA.Application')
@@ -77,6 +81,7 @@ def changetranslate(offset_value):
     realParam.Value = 0
     part1.Update()
 
+
 def changerotate(rotate_value):
     catapp = win32.Dispatch('CATIA.Application')
     partDocument1 = catapp.ActiveDocument
@@ -88,6 +93,7 @@ def changerotate(rotate_value):
     angle1 = hybridShapeRotate.Angle
     angle1.Value = rotate_value
     part1.Update()
+
 
 def create_t_solt(translate, count, pierce, clearance_hole, direction, LV):
     try:
@@ -113,4 +119,3 @@ def create_t_solt(translate, count, pierce, clearance_hole, direction, LV):
     mprog.Update()
     switch_to_window_by_name("T.CATPart")
     mprog.close_window()
-

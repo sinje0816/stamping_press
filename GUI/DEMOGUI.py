@@ -204,15 +204,19 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.label_8.setText(_translate("Dialog", "模墊加工"))
         self.label_9.setText(_translate("Dialog", "標準:230"))
-        self.label_3.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">閉合工作高度</span></p></body></html>"))
-        self.label_2.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">行程</span></p></body></html>"))
-        self.label_5.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">SEYI SN1系列C型曲軸沖床自動化生成系統</span></p><p align=\"center\"><span style=\" font-weight:600;\">SEYI SN1 series C-type crankshaft punch automatic generation system</span></p></body></html>"))
+        self.label_3.setText(_translate("Dialog",
+                                        "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">閉合工作高度</span></p></body></html>"))
+        self.label_2.setText(_translate("Dialog",
+                                        "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">行程</span></p></body></html>"))
+        self.label_5.setText(_translate("Dialog",
+                                        "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">SEYI SN1系列C型曲軸沖床自動化生成系統</span></p><p align=\"center\"><span style=\" font-weight:600;\">SEYI SN1 series C-type crankshaft punch automatic generation system</span></p></body></html>"))
         self.pushButton.setText(_translate("Dialog", "開始生成\n"
-"start generating"))
+                                                     "start generating"))
         self.comboBox_2.setItemText(0, _translate("Dialog", "S"))
         self.comboBox_2.setItemText(1, _translate("Dialog", "H"))
         self.comboBox_2.setItemText(2, _translate("Dialog", "P"))
-        self.label.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">型號選擇</span></p></body></html>"))
+        self.label.setText(_translate("Dialog",
+                                      "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">型號選擇</span></p></body></html>"))
         self.comboBox.setCurrentText(_translate("Dialog", "是"))
         self.comboBox.setItemText(0, _translate("Dialog", "是"))
         self.comboBox.setItemText(1, _translate("Dialog", "否"))
@@ -230,6 +234,7 @@ class Ui_Dialog(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
     ui = Ui_Dialog()

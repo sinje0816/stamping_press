@@ -131,9 +131,9 @@ class Ui_Form(object):
         self.gridLayout_4.setObjectName("gridLayout_4")
         self.frame_3 = QtWidgets.QFrame(self.widget)
         self.frame_3.setStyleSheet("#frame_3\n"
-"{\n"
-"    border: 1px solid block；\n"
-"}")
+                                   "{\n"
+                                   "    border: 1px solid block；\n"
+                                   "}")
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
@@ -152,7 +152,7 @@ class Ui_Form(object):
         self.label_18.setFont(font)
         self.label_18.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
         self.label_18.setToolTipDuration(0)
-        self.label_18.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_18.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.label_18.setObjectName("label_18")
         self.gridLayout_3.addWidget(self.label_18, 0, 0, 1, 1)
         self.plate_type = QtWidgets.QComboBox(self.frame_3)
@@ -177,11 +177,11 @@ class Ui_Form(object):
         self.gridLayout_4.addWidget(self.frame_3, 0, 0, 1, 1)
         self.frame_2 = QtWidgets.QFrame(self.widget)
         self.frame_2.setStyleSheet("#frame_2{\n"
-"    border: 1px solid block；\n"
-"}\n"
-"#frame_3{\n"
-"    border: 1px solid block；\n"
-"}")
+                                   "    border: 1px solid block；\n"
+                                   "}\n"
+                                   "#frame_3{\n"
+                                   "    border: 1px solid block；\n"
+                                   "}")
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
@@ -200,7 +200,7 @@ class Ui_Form(object):
         self.label_19.setFont(font)
         self.label_19.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
         self.label_19.setToolTipDuration(0)
-        self.label_19.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_19.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.label_19.setObjectName("label_19")
         self.gridLayout_2.addWidget(self.label_19, 0, 0, 2, 1)
         self.label_20 = QtWidgets.QLabel(self.frame_2)
@@ -278,8 +278,8 @@ class Ui_Form(object):
         self.gridLayout_4.addWidget(self.frame_2, 1, 0, 1, 1)
         self.frame = QtWidgets.QFrame(self.widget)
         self.frame.setStyleSheet("#frame{\n"
-"    border: 1px solid block；\n"
-"}")
+                                 "    border: 1px solid block；\n"
+                                 "}")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -298,7 +298,7 @@ class Ui_Form(object):
         self.label_22.setFont(font)
         self.label_22.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
         self.label_22.setToolTipDuration(0)
-        self.label_22.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_22.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.label_22.setObjectName("label_22")
         self.gridLayout.addWidget(self.label_22, 0, 0, 10, 1)
         self.label_24 = QtWidgets.QLabel(self.frame)
@@ -690,6 +690,7 @@ class Ui_Form(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Ui_Form()

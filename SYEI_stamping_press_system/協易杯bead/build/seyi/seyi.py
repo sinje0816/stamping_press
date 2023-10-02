@@ -1,12 +1,14 @@
 from seyi_stamping_die_GUI import Ui_Form
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QPushButton, QLineEdit, QLabel, QTableWidget, QTableWidgetItem
+from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QPushButton, QLineEdit, QLabel, \
+    QTableWidget, QTableWidgetItem
 from PyQt5.QtCore import QObject
 import seyi_stamping_die as ssd
 import datetime
 import os
 import sys
 import pathlib
+
 
 class windows(QtWidgets.QWidget):
     def __init__(self):
@@ -31,7 +33,7 @@ class windows(QtWidgets.QWidget):
             C = 4
         if B == '':
             B = 4
-        print(H1,R1,R2)
+        print(H1, R1, R2)
         self.create_dir('crank_bead')
         env = ssd.set_CATIA_workbench_env()
         ssd.create_new(H1, R1, R2, A, B, C, self.path)
@@ -66,7 +68,7 @@ class windows(QtWidgets.QWidget):
         print(path)
         os.mkdir(path)
         self.path = path
-        
+
 
 if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率

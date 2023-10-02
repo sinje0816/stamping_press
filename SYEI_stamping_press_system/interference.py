@@ -5,6 +5,7 @@ import openpyxl as exl
 # c = 50
 border = []
 
+
 def interference(n, lv, a, b, c):
     # n是噸數，0~8、lv是加大型，0~2
     wb = exl.load_workbook('平板.xlsx')
@@ -175,6 +176,5 @@ def interference(n, lv, a, b, c):
                 # print(border[indices_270[j1]])
                 # print(border[indices_270[k1]])
         print("-----------------------------")
-
 
 # interference(8, 2)

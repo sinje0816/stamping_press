@@ -1,5 +1,7 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QPushButton, QLineEdit, QLabel, QTableWidget, QTableWidgetItem
+from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QPushButton, QLineEdit, QLabel, \
+    QTableWidget, QTableWidgetItem
+
 
 class DataEntryApp(QMainWindow):
     def __init__(self):
@@ -16,7 +18,7 @@ class DataEntryApp(QMainWindow):
         self.data_entries = [None] * 4
 
         for i in range(4):
-            label = QLabel(f"資料 {i+1}: ")
+            label = QLabel(f"資料 {i + 1}: ")
             entry = QLineEdit()
             self.layout.addWidget(label)
             self.layout.addWidget(entry)
@@ -39,6 +41,7 @@ class DataEntryApp(QMainWindow):
             value = entry.text()
             self.table_widget.setItem(row_position, col, QTableWidgetItem(value))
             entry.clear()
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

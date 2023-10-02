@@ -608,6 +608,7 @@ def close_file(file_name):
     partDocument = document.Item(file_name)
     partDocument.Close()
 
+
 def close_window():
     catapp = win32.Dispatch('CATIA.Application')
     specsAndGeomWindow1 = catapp.ActiveWindow

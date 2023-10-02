@@ -1,6 +1,7 @@
 import main_program as mprog
 import excel_parameter_change as epc
 
+
 def chuck_parameter_design_part(chuck_type):
     excel = epc.ExcelOp('鎖模夾頭尺寸表', '鎖模夾頭')
     if chuck_type == '302B16':
@@ -49,5 +50,6 @@ def chuck_parameter_design_part(chuck_type):
             print('chuck update success')
         except:
             print('chuck update error')
+
 
 chuck_parameter_design_part('412B16')
