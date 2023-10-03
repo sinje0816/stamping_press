@@ -36,6 +36,8 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('machining_2x8_12通孔', 0)
                     mprog.activatefeature('machining_aaaaa2', 0)
                     mprog.activatefeature('machining_aaaaa4', 0)
+                    mprog.activatefeature('6_M10X12L', 0)
+                    mprog.partbodyfeatureactivate('JJ')
                 elif i == 1:
                     mprog.partbodyfeatureactivate('before250_喉口')
                     mprog.partbodyfeatureactivate('Z1')
@@ -52,6 +54,8 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('machining_2x8_12通孔', 0)
                     mprog.activatefeature('machining_aaaaa2', 0)
                     mprog.activatefeature('machining_aaaaa4', 0)
+                    mprog.activatefeature('6_M10X12L', 0)
+                    mprog.partbodyfeatureactivate('JJ')
                 elif i == 2:
                     mprog.partbodyfeatureactivate('before250_喉口')
                     mprog.partbodyfeatureactivate('Z1')
@@ -68,6 +72,8 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('光電裝置電線固定孔', 5)
                     mprog.activatefeature('配管用(電動黃油泵→潤滑分配塊用)', 2)
                     mprog.activatefeature('兩點組合', 0)
+                    mprog.activatefeature('6_M10X12L', 0)
+                    mprog.partbodyfeatureactivate('JJ')
                 elif i == 3:
                     mprog.partbodyfeatureactivate('before250_喉口')
                     mprog.partbodyfeatureactivate('Z1')
@@ -84,6 +90,8 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('光電裝置電線固定孔', 5)
                     mprog.activatefeature('配管用(電動黃油泵→潤滑分配塊用)', 2)
                     mprog.activatefeature('兩點組合', 0)
+                    mprog.activatefeature('6_M10X12L', 0)
+                    mprog.partbodyfeatureactivate('JJ')
                 elif i == 4:
                     mprog.partbodyfeatureactivate('before250_喉口')
                     mprog.partbodyfeatureactivate('Z1')
