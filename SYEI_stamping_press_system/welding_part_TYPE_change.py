@@ -282,6 +282,8 @@ def change_welding_feature(name, i):
                     mprog.partbodyfeatureactivate("welding_喉口")
                     mprog.bodydeactivate('解角器固定架用', 0)
                     mprog.bodydeactivate('解角器固定架用_2', 0)
+                    mprog.bodydeactivate('6_M10*12L', 0)
+                    mprog.partdeactivate('JJ')
                 elif i == 1:
                     mprog.partbodyfeatureactivate('before250_喉口')
                     mprog.partbodyfeatureactivate('AA2')
@@ -306,6 +308,8 @@ def change_welding_feature(name, i):
                     mprog.partbodyfeatureactivate("welding_喉口")
                     mprog.bodydeactivate('解角器固定架用', 0)
                     mprog.bodydeactivate('解角器固定架用_2', 0)
+                    mprog.bodydeactivate('6_M10*12L', 0)
+                    mprog.partdeactivate('JJ')
                 elif i == 2:
                     mprog.partbodyfeatureactivate('before250_喉口')
                     mprog.partbodyfeatureactivate('AA2')
@@ -330,6 +334,8 @@ def change_welding_feature(name, i):
                     mprog.partbodyfeatureactivate("welding_喉口")
                     mprog.bodydeactivate('解角器固定架用', 0)
                     mprog.bodydeactivate('解角器固定架用_2', 0)
+                    mprog.bodydeactivate('6_M10*12L', 0)
+                    mprog.partdeactivate('JJ')
                 elif i == 3:
                     mprog.partbodyfeatureactivate('before250_喉口')
                     mprog.partbodyfeatureactivate('AA2')
@@ -353,6 +359,8 @@ def change_welding_feature(name, i):
                     mprog.partbodyfeatureactivate("welding_喉口")
                     mprog.bodydeactivate('解角器固定架用', 0)
                     mprog.bodydeactivate('解角器固定架用_2', 0)
+                    mprog.bodydeactivate('6_M10*12L', 0)
+                    mprog.partdeactivate('JJ')
                 elif i == 4:
                     mprog.partbodyfeatureactivate('before250_喉口')
                     mprog.partbodyfeatureactivate('Z1')
