@@ -143,3 +143,10 @@ cutout_part_dimension = ['', '', '', '', '']
 cutout_parameter_circle = ['HD']
 cutout_parameter_square = ['HLR', 'HFB']
 cutout_parameter_funnel = ['HULR', 'HDLR', 'HUFB', 'HDFB', 'HH']
+
+#模墊頂桿孔
+cutout_molded_cushion_A = [26, 32]
+cutout_molded_cushion_B = [33.4, 40]
+cutout_molded_cushion_L = [8.5, 10.5]
+cutout_molded_cushion_i = [5, 5, 5, 5, 6, 6, 6, 7, 8]
+cutout_molded_cushion_j = [3, 3, 3, 3, 4, 4, 4, 5, 6]

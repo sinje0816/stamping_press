@@ -77,9 +77,15 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                             self.welding)
 
     def showPadwindows(self):
-        # self.choos()
+        type = str(self.ui.comboBox_4.currentText())
+        travel_type = str(self.ui.comboBox_2.currentText())
+        processing = str(self.ui.comboBox.currentText())
+        self.i, self.p, self.travel_type = self.choos(type, processing, travel_type)
+        global i
+        # i = self.i
+        # print(i)
         self.hide()
-        self.nw = padwindows()
+        self.nw = padwindows(self.i)
         self.nw.show()
 
     def choos(self, type, prossing, travel_type):
@@ -430,7 +436,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
 # 平板主頁面
 class padwindows(QtWidgets.QWidget):
-    def __init__(self):
+    def __init__(self, i):
         super().__init__()
         self.ui = pad_main_Form()
         self.ui.setupUi(self)
@@ -438,7 +444,8 @@ class padwindows(QtWidgets.QWidget):
         self.ui.remove_type.currentIndexChanged.connect(self.cutout_parameter_change)
         self.ui.removetable.verticalHeader().setVisible(False)  # 刪除垂直表頭
         self.ui.t_machining.clicked.connect(self.showpadmachiningwindows)
-        self.ui.plate_start.clicked.connect(self.start)
+        print(i)
+        self.ui.plate_start.clicked.connect(lambda: self.start(i))
         self.ui.remove_machining.clicked.connect(self.showcutoutmachiningwindows)
         if par.plate_hole_type[0] != '':
             if par.plate_hole_type[0] == '圓孔':
@@ -540,6 +547,7 @@ class padwindows(QtWidgets.QWidget):
         mprog.set_CATIA_workbench_env()
         mprog.import_part(fp.system_root + fp.DEMO_part, 'plate')
         plate_name, plate_value = pdp.padchange(i)
+        print(i)
         for name in plate_name:
             par.plate_all_parameter[name] = plate_value[plate_name.index(name)]
         print(par.plate_all_parameter)
@@ -626,40 +634,68 @@ class padwindows(QtWidgets.QWidget):
         #     errMsg = "File \"{}\", line {}, in {}: [{}] {}".format(fileName, lineNum, funcName, error_class, detail)
         #     print(errMsg)
 
-        par.plate_hole_type = [self.ui.remove_type.currentText()]
-        for i in range(0, 5):
-            par.cutout_part_dimension[i] = (self.ui.removetable.item(i, 1).text())
-        print(par.cutout_part_dimension)
-        ch.edge_test(i)
-        # 開下料孔檔案+變數變換
-        if par.plate_hole_type[0] == '圓孔':
-            mprog.import_part(fp.system_root + fp.DEMO_part, 'cutout_hole_circle')
-            mprog.param_change('cutout_hole_circle', par.cutout_parameter_circle[0], int(par.cutout_part_dimension[0]))
-            par.plate_hole_type[0] = 'cutout_hole_circle'
-        elif par.plate_hole_type[0] == '方孔':
-            mprog.import_part(fp.system_root + fp.DEMO_part, 'cutout_hole_square')
-            for n in range(0, 2):
-                mprog.param_change('cutout_hole_square', par.cutout_parameter_square[n],
-                                   int(par.cutout_part_dimension[n]))
-            par.plate_hole_type[0] = 'cutout_hole_square'
-        elif par.plate_hole_type[0] == '漏斗型':
-            mprog.import_part(fp.system_root + fp.DEMO_part, 'cutout_funnel')
-            for n in range(0, 5):
-                mprog.param_change('cutout_funnel', par.cutout_parameter_funnel[n], int(par.cutout_part_dimension[n]))
-            par.plate_hole_type[0] = 'cutout_funnel'
-        elif par.plate_hole_type[0] == '模墊型':
-            mprog.import_part(fp.system_root + fp.DEMO_part, 'cutout_molded_cushion')
-            par.plate_hole_type[0] = 'cutout_molded_cushion'
-        mprog.Update()
-        mprog.save_file_stp(self.path, par.plate_hole_type[0]) #存檔(stp)
-        mprog.save_stpfile_part(self.path, par.plate_hole_type[0]) #存檔(part)
-        tT.copybody()
-        tT.switch_to_window_by_name('plate.CATPart')
-        tT.pastebody(0, par.plate_hole_type[0]) #count??
-        tT.removebody(0, par.plate_hole_type[0]) #count??
-        mprog.Update()
-        tT.switch_to_window_by_name(par.plate_hole_type[0] + ".CATPart")
-        mprog.close_window()
+        #下料孔生成
+        if par.plate_hole_type[0] != '無孔':
+            par.plate_hole_type = [self.ui.remove_type.currentText()]
+            print(i)
+            for x in range(0, 5):
+                par.cutout_part_dimension[x] = (self.ui.removetable.item(x, 1).text())
+            print(par.cutout_part_dimension)
+            print(i)
+            ch.edge_test(i)
+            # 開下料孔檔案+變數變換
+            if par.plate_hole_type[0] == '圓孔':
+                mprog.import_part(fp.system_root + fp.DEMO_part, 'cutout_hole_circle')
+                mprog.param_change('cutout_hole_circle', par.cutout_parameter_circle[0], int(par.cutout_part_dimension[0]))
+                mprog.param_change('cutout_hole_circle', 'C', par.plate_all_parameter['C'])
+                mprog.param_change('cutout_hole_circle', 'X', par.cutout_hole_machining_X - par.plate_all_parameter['A']/2 - par.lv[0]/2)
+                mprog.param_change('cutout_hole_circle', 'Y', par.plate_all_parameter['B']/2 + par.cutout_hole_machining_Y)
+                par.plate_hole_type[0] = 'cutout_hole_circle'
+            elif par.plate_hole_type[0] == '方孔':
+                mprog.import_part(fp.system_root + fp.DEMO_part, 'cutout_hole_square')
+                for n in range(0, 2):
+                    mprog.param_change('cutout_hole_square', par.cutout_parameter_square[n],
+                                       int(par.cutout_part_dimension[n]))
+                mprog.param_change('cutout_hole_square', 'C', par.plate_all_parameter['C'])
+                mprog.param_change('cutout_hole_square', 'X', par.cutout_hole_machining_X - par.plate_all_parameter['A']/2 - par.lv[0]/2)
+                mprog.param_change('cutout_hole_square', 'Y', par.plate_all_parameter['B']/2 + par.cutout_hole_machining_Y)
+                par.plate_hole_type[0] = 'cutout_hole_square'
+            elif par.plate_hole_type[0] == '漏斗型':
+                mprog.import_part(fp.system_root + fp.DEMO_part, 'cutout_funnel')
+                for n in range(0, 5):
+                    mprog.param_change('cutout_funnel', par.cutout_parameter_funnel[n], int(par.cutout_part_dimension[n]))
+                mprog.param_change('cutout_funnel', 'C', par.plate_all_parameter['C'])
+                mprog.param_change('cutout_funnel', 'X',
+                                   par.cutout_hole_machining_X - par.plate_all_parameter['A'] / 2 - par.lv[0] / 2)
+                mprog.param_change('cutout_funnel', 'Y',
+                                   par.plate_all_parameter['B'] / 2 + par.cutout_hole_machining_Y)
+                par.plate_hole_type[0] = 'cutout_funnel'
+            elif par.plate_hole_type[0] == '模墊型':
+                mprog.import_part(fp.system_root + fp.DEMO_part, 'cutout_molded_cushion')
+                mprog.param_change('cutout_molded_cushion', 'C', par.plate_all_parameter['C'])
+                if i < 5:
+                    mprog.param_change('cutout_molded_cushion', 'A', par.cutout_molded_cushion_A[0])
+                    mprog.param_change('cutout_molded_cushion', 'B', par.cutout_molded_cushion_B[0])
+                    mprog.param_change('cutout_molded_cushion', 'D', par.cutout_molded_cushion_L[0])
+                else:
+                    mprog.param_change('cutout_molded_cushion', 'A', par.cutout_molded_cushion_A[1])
+                    mprog.param_change('cutout_molded_cushion', 'B', par.cutout_molded_cushion_B[1])
+                    mprog.param_change('cutout_molded_cushion', 'D', par.cutout_molded_cushion_L[1])
+                mprog.param_change('cutout_molded_cushion', 'i', par.cutout_molded_cushion_i[i])
+                mprog.param_change('cutout_molded_cushion', 'j', par.cutout_molded_cushion_j[i])
+                mprog.param_change('cutout_molded_cushion', 'X', 65 * (par.cutout_molded_cushion_i[i] - 1) / 2 - par.plate_all_parameter['A'] / 2 - par.lv[0] / 2)
+                mprog.param_change('cutout_molded_cushion', 'Y', par.plate_all_parameter['B'] / 2 - 60 * (par.cutout_molded_cushion_j[i] - 1) / 2)
+                par.plate_hole_type[0] = 'cutout_molded_cushion'
+            mprog.Update()
+            mprog.save_file_stp(self.path, par.plate_hole_type[0]) #存檔(stp)
+            mprog.save_stpfile_part(self.path, par.plate_hole_type[0]) #存檔(part)
+            tT.copybody()
+            tT.switch_to_window_by_name('plate.CATPart')
+            tT.pastebody(0, par.plate_hole_type[0]) #count??
+            tT.removebody(0, par.plate_hole_type[0]) #count??
+            mprog.Update()
+            tT.switch_to_window_by_name(par.plate_hole_type[0] + ".CATPart")
+            mprog.close_window()
 
 
 
@@ -684,7 +720,7 @@ class pad_dimension(QtWidgets.QWidget):
         par.t_all_dimension = [t_a, t_b, t_c, t_d]
         print("T型槽外型尺寸:", par.t_all_dimension)
         self.hide()
-        self.nw = padwindows()
+        self.nw = padwindows(i)
         self.nw.show()
 
     def reset(self):
@@ -695,7 +731,7 @@ class pad_dimension(QtWidgets.QWidget):
 
     def showpadwindows(self):
         self.hide()
-        self.nw = padwindows()
+        self.nw = padwindows(i)
         self.nw.show()
 
 
@@ -714,7 +750,7 @@ class pad_machining(QtWidgets.QWidget):
     def showpadwindows(self):
         data_entries = []
         self.hide()
-        self.nw = padwindows()
+        self.nw = padwindows(i)
         self.nw.show()
 
     def inputneworder(self):
@@ -762,7 +798,7 @@ class pad_machining(QtWidgets.QWidget):
         # itf.interference(i, par.lv[0], par.total_t_dimension, par.total_t_direction, par.plate_all_parameter['tw1'])
 
         self.hide()
-        self.nw = padwindows()
+        self.nw = padwindows(i)
         self.nw.show()
 
     def removeAction(self):
@@ -829,7 +865,7 @@ class cutout_hole_machining(QtWidgets.QWidget):
 
     def esc(self):
         self.hide()
-        self.nw = padwindows()
+        self.nw = padwindows(i)
         self.nw.show()
 
 
@@ -849,7 +885,7 @@ class remove_machining(QtWidgets.QWidget):
         par.feeding_hole_position = [X, Y]
         print("下料口位置:", par.feeding_hole_position)
         self.hide()
-        self.nw = padwindows()
+        self.nw = padwindows(i)
         self.nw.show()
 
     def clean_data(self):
@@ -859,7 +895,7 @@ class remove_machining(QtWidgets.QWidget):
     def showpadwindows(self):
         data_entries = []
         self.hide()
-        self.nw = padwindows()
+        self.nw = padwindows(i)
         self.nw.show()
 
 
