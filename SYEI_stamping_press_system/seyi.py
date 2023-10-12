@@ -15,7 +15,7 @@ class windows(QtWidgets.QWidget):
         super().__init__()
         self.ui = Ui_Form()
         self.ui.setupUi(self)
-        self.setWindowTitle('bead自動化設計')
+        self.setWindowTitle('模型自動化設計系統')
         dir = os.path.dirname(os.path.realpath(__file__))
         self.ui.picture.setPixmap(QtGui.QPixmap(dir + "\\bead.png"))
         self.ui.reset_value.clicked.connect(self.reset)
@@ -39,7 +39,7 @@ class windows(QtWidgets.QWidget):
         ssd.create_new(H1, R1, R2, A, B, C, self.path)
         ssd.saveas(self.path, 'Product1', '.CATProduct', '.CATProduct')
         ssd.saveas(self.path, 'Product1', '.CATProduct', '.igs')
-        ssd.close_window()
+        # ssd.close_window()
         self.finish()
 
     def finish(self):

@@ -442,11 +442,75 @@ class padwindows(QtWidgets.QWidget):
         self.ui.setupUi(self)
         self.setWindowTitle('平板')
         self.ui.remove_type.currentIndexChanged.connect(self.cutout_parameter_change)
-        self.ui.removetable.verticalHeader().setVisible(False)  # 刪除垂直表頭
+        # 刪除垂直表頭
+        self.ui.removetable.verticalHeader().setVisible(False)
         self.ui.t_machining.clicked.connect(self.showpadmachiningwindows)
         print(i)
         self.ui.plate_start.clicked.connect(lambda: self.start(i))
         self.ui.remove_machining.clicked.connect(self.showcutoutmachiningwindows)
+        self.chack_plate_table()
+
+    def T_solt_table_normel_setup(self):
+        # 設定T_solt表格內容
+        # 第一行
+        self.ui.t_solttable.setSpan(0, 0, 1, 1)
+        newItem = QTableWidgetItem("尺寸代號")
+        self.ui.t_solttable.setItem(0, 0, newItem)
+        self.ui.t_solttable.setSpan(0, 0, 1, 1)
+        newItem = QTableWidgetItem("尺寸")
+        self.ui.t_solttable.setItem(0, 1, newItem)
+        self.ui.t_solttable.setSpan(0, 0, 1, 1)
+        newItem = QTableWidgetItem("公差")
+        self.ui.t_solttable.setItem(0, 2, newItem)
+        # 第一列
+        self.ui.t_solttable.setSpan(1, 0, 2, 1)
+        newItem = QTableWidgetItem("A")
+        self.ui.t_solttable.setItem(1, 0, newItem)
+        self.ui.t_solttable.setSpan(3, 0, 2, 1)
+        newItem = QTableWidgetItem("B")
+        self.ui.t_solttable.setItem(3, 0, newItem)
+        self.ui.t_solttable.setSpan(5, 0, 2, 1)
+        newItem = QTableWidgetItem("C")
+        self.ui.t_solttable.setItem(5, 0, newItem)
+        self.ui.t_solttable.setSpan(7, 0, 2, 1)
+        newItem = QTableWidgetItem("D")
+        self.ui.t_solttable.setItem(7, 0, newItem)
+        # 第二列
+        self.ui.t_solttable.setSpan(1, 1, 2, 1)
+        self.ui.t_solttable.setSpan(3, 1, 2, 1)
+        self.ui.t_solttable.setSpan(5, 1, 2, 1)
+        self.ui.t_solttable.setSpan(7, 1, 2, 1)
+        # 第三列
+        newItem = QTableWidgetItem("+1")
+        self.ui.t_solttable.setItem(1, 2, newItem)
+        newItem = QTableWidgetItem("0")
+        self.ui.t_solttable.setItem(2, 2, newItem)
+        newItem = QTableWidgetItem("+1")
+        self.ui.t_solttable.setItem(3, 2, newItem)
+        newItem = QTableWidgetItem("-1")
+        self.ui.t_solttable.setItem(4, 2, newItem)
+        newItem = QTableWidgetItem("+0.25")
+        self.ui.t_solttable.setItem(5, 2, newItem)
+        newItem = QTableWidgetItem("-0.25")
+        self.ui.t_solttable.setItem(6, 2, newItem)
+        newItem = QTableWidgetItem("+2")
+        self.ui.t_solttable.setItem(7, 2, newItem)
+        newItem = QTableWidgetItem("0")
+        self.ui.t_solttable.setItem(8, 2, newItem)
+
+
+    def T_solt_combobox_change(self):
+        t_solt_type = self.ui.t_solt_type.currentText()
+        if t_solt_type == "T型槽代號:F(SN1-25~60標準)" or t_solt_type == "T型槽代號:G(SN180~250標準)":
+            for number in range(1, 10):
+                newItem = QTableWidgetItem("-")
+                self.ui.t_solttable.setItem(number, 1, newItem)
+        elif t_solt_type == "特殊T型槽":
+            for number in range(1, 10):
+                newItem = QTableWidgetItem(" ")
+                self.ui.t_solttable.setItem(number, 1, newItem)
+
+    def chack_plate_table(self):
         if par.plate_hole_type[0] != '':
             if par.plate_hole_type[0] == '圓孔':
                 self.ui.remove_type.setCurrentIndex(1)
@@ -547,7 +611,6 @@ class padwindows(QtWidgets.QWidget):
         mprog.set_CATIA_workbench_env()
         mprog.import_part(fp.system_root + fp.DEMO_part, 'plate')
         plate_name, plate_value = pdp.padchange(i)
-        print(i)
         for name in plate_name:
             par.plate_all_parameter[name] = plate_value[plate_name.index(name)]
         print(par.plate_all_parameter)
@@ -563,76 +626,9 @@ class padwindows(QtWidgets.QWidget):
         except:
             print('plate type LV update error')
 
-        # # 對T型槽進行變數變換
-        # mprog.import_part(fp.system_root + fp.DEMO_part, 'T')
-        # pdp.padchange(i)
-        # try:
-        #     for t in par.t_all_dimension:
-        #         for t_name in range(len(par.t_all_dimension_name) + 1):
-        #             print(par.t_all_dimension_name[t_name], t)
-        #             mprog.param_change('T', par.t_all_dimension_name[t_name], t)
-        #             break
-        #     print('T-slot parameter change successfully')
-        # except:
-        #     print('T-slot parameter change error')
-        # mprog.Update()
-        # mprog.save_file_stp(self.path, 'T')
-        # mprog.save_stpfile_part(self.path, 'T')
-        # mprog.close_window()
-        # 將T型槽移至平板上進行除料
-        # try:
-        #     for turn in range(0, len(par.total_pierce)):
-        #         print("T形槽方向:", par.total_t_direction[turn])
-        #         print("貫穿:", par.total_pierce[turn])
-        #         print("間隙孔(讓孔):", par.total_clearance_hole[turn])
-        #         print("T形槽尺寸:", par.total_t_dimension[turn])
-        #         print("非貫穿尺寸:", par.total_unpierce[turn])
-        #         mprog.import_part(self.path, 'T')
-        #         if par.total_pierce[turn] == '是':
-        #             if par.total_t_direction[turn] == '前後':
-        #                 mprog.param_change('T', 'Depth', par.plate_all_parameter['B'])
-        #             elif par.total_t_direction[turn] == '左右':
-        #                 mprog.param_change('T', 'Depth', (par.plate_all_parameter['A'] + par.lv[0]))
-        #         else:
-        #             mprog.param_change('T', 'Depth', par.total_unpierce[turn])
-        #             if par.total_t_direction[turn] == '前後':
-        #                 mprog.param_change('T', 'mirror', par.plate_all_parameter['B'])
-        #                 print(par.plate_all_parameter['B'] / 2)
-        #             elif par.total_t_direction[turn] == '左右':
-        #                 mprog.param_change('T', 'mirror', (par.plate_all_parameter['A'] + par.lv[0]))
-        #                 print((par.plate_all_parameter['A'] + par.lv[0]) / 2)
-        #             mprog.partbodyfeatureactivate('Mirror.3')
-        #
-        #         if par.total_clearance_hole[turn] == '是':
-        #             mprog.partbodyfeatureactivate('讓孔')
-        #             mprog.partbodyfeatureactivate('讓孔倒圓角')
-        #         else:
-        #             pass
-        #         if par.total_t_direction[turn] == '前後':
-        #             tT.changerotate(-90)
-        #         elif par.total_t_direction[turn] == '左右':
-        #             tT.changerotate(0)
-        #         else:
-        #             tT.changerotate(45)
-        #         mprog.Update()
-        #         if par.total_t_direction[turn] == '前後':
-        #             tT.create_t_solt(-par.total_t_dimension[turn], turn, par.total_pierce[turn],
-        #                              par.total_clearance_hole[turn], par.total_t_direction[turn], par.lv[0])
-        #         elif par.total_t_direction[turn] == '左右':
-        #             tT.create_t_solt(par.total_t_dimension[turn], turn, par.total_pierce[turn],
-        #                              par.total_clearance_hole[turn], par.total_t_direction[turn], par.lv[0])
-        #     print('T-slot create successfully')
-        # except Exception as e:
-        #     print('T-slot create error:', e)
-        #     error_class = e.__class__.__name__  # 取得錯誤類型
-        #     detail = e.args[0]  # 取得詳細內容
-        #     cl, exc, tb = sys.exc_info()  # 取得Call Stack
-        #     lastCallStack = traceback.extract_tb(tb)[-1]  # 取得Call Stack的最後一筆資料
-        #     fileName = lastCallStack[0]  # 取得發生的檔案名稱
-        #     lineNum = lastCallStack[1]  # 取得發生的行號
-        #     funcName = lastCallStack[2]  # 取得發生的函數名稱
-        #     errMsg = "File \"{}\", line {}, in {}: [{}] {}".format(fileName, lineNum, funcName, error_class, detail)
-        #     print(errMsg)
+        # T溝程式
+        self.T_solt()
+
 
         #下料孔生成
         if par.plate_hole_type[0] != '無孔':
@@ -697,7 +693,77 @@ class padwindows(QtWidgets.QWidget):
             tT.switch_to_window_by_name(par.plate_hole_type[0] + ".CATPart")
             mprog.close_window()
 
+    def T_solt(self):
+        # 對T型槽進行變數變換
+        mprog.import_part(fp.system_root + fp.DEMO_part, 'T')
+        pdp.padchange(i)
+        try:
+            for t in par.t_all_dimension:
+                for t_name in range(len(par.t_all_dimension_name) + 1):
+                    print(par.t_all_dimension_name[t_name], t)
+                    mprog.param_change('T', par.t_all_dimension_name[t_name], t)
+                    break
+            print('T-slot parameter change successfully')
+        except:
+            print('T-slot parameter change error')
+        mprog.Update()
+        mprog.save_file_stp(self.path, 'T')
+        mprog.save_stpfile_part(self.path, 'T')
+        mprog.close_window()
+        # 將T型槽移至平板上進行除料
+        try:
+            for turn in range(0, len(par.total_pierce)):
+                print("T形槽方向:", par.total_t_direction[turn])
+                print("貫穿:", par.total_pierce[turn])
+                print("間隙孔(讓孔):", par.total_clearance_hole[turn])
+                print("T形槽尺寸:", par.total_t_dimension[turn])
+                print("非貫穿尺寸:", par.total_unpierce[turn])
+                mprog.import_part(self.path, 'T')
+                if par.total_pierce[turn] == '是':
+                    if par.total_t_direction[turn] == '前後':
+                        mprog.param_change('T', 'Depth', par.plate_all_parameter['B'])
+                    elif par.total_t_direction[turn] == '左右':
+                        mprog.param_change('T', 'Depth', (par.plate_all_parameter['A'] + par.lv[0]))
+                else:
+                    mprog.param_change('T', 'Depth', par.total_unpierce[turn])
+                    if par.total_t_direction[turn] == '前後':
+                        mprog.param_change('T', 'mirror', par.plate_all_parameter['B'])
+                        print(par.plate_all_parameter['B'] / 2)
+                    elif par.total_t_direction[turn] == '左右':
+                        mprog.param_change('T', 'mirror', (par.plate_all_parameter['A'] + par.lv[0]))
+                        print((par.plate_all_parameter['A'] + par.lv[0]) / 2)
+                    mprog.partbodyfeatureactivate('Mirror.3')
 
+                if par.total_clearance_hole[turn] == '是':
+                    mprog.partbodyfeatureactivate('讓孔')
+                    mprog.partbodyfeatureactivate('讓孔倒圓角')
+                else:
+                    pass
+                if par.total_t_direction[turn] == '前後':
+                    tT.changerotate(-90)
+                elif par.total_t_direction[turn] == '左右':
+                    tT.changerotate(0)
+                else:
+                    tT.changerotate(45)
+                mprog.Update()
+                if par.total_t_direction[turn] == '前後':
+                    tT.create_t_solt(-par.total_t_dimension[turn], turn, par.total_pierce[turn],
+                                     par.total_clearance_hole[turn], par.total_t_direction[turn], par.lv[0])
+                elif par.total_t_direction[turn] == '左右':
+                    tT.create_t_solt(par.total_t_dimension[turn], turn, par.total_pierce[turn],
+                                     par.total_clearance_hole[turn], par.total_t_direction[turn], par.lv[0])
+            print('T-slot create successfully')
+        except Exception as e:
+            print('T-slot create error:', e)
+            error_class = e.__class__.__name__  # 取得錯誤類型
+            detail = e.args[0]  # 取得詳細內容
+            cl, exc, tb = sys.exc_info()  # 取得Call Stack
+            lastCallStack = traceback.extract_tb(tb)[-1]  # 取得Call Stack的最後一筆資料
+            fileName = lastCallStack[0]  # 取得發生的檔案名稱
+            lineNum = lastCallStack[1]  # 取得發生的行號
+            funcName = lastCallStack[2]  # 取得發生的函數名稱
+            errMsg = "File \"{}\", line {}, in {}: [{}] {}".format(fileName, lineNum, funcName, error_class, detail)
+            print(errMsg)
 
 
 

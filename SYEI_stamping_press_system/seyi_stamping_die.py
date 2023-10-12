@@ -1,6 +1,8 @@
 import win32com.client as win32
 import main_program as mprog
 import os
+import time
+
 
 
 def holder_extract1():
@@ -598,7 +600,7 @@ def add_offset():
     base_lock('PUNCH.1', 'PUNCH.1', 0)
     add_offset_assembly('blank.1', 'holder.1', -2, 'zx plane', 0, 'offset1')
     add_offset_assembly('die-2.1', 'blank.1', -0.9, 'zx plane', 0, 'offset2')
-    add_offset_assembly('holder.1', 'PUNCH.1', -100, 'zx plane', 0, 'offset3')
+    add_offset_assembly('holder.1', 'PUNCH.1', -79, 'zx plane', 0, 'offset3')
     add_offset_assembly('blank.1', 'PUNCH.1', -35.179, 'yz plane', 1, 'offset4')
     add_offset_assembly('blank.1', 'PUNCH.1', 28.215, 'xy plane', 1, 'offset5')
 
@@ -666,6 +668,7 @@ def create_new(H1, R1, R2, A, B, C, new_path):
                 hidebodydie("Extract." + str(i))
             hidebodydie2()
         save_file_part(new_path, name)
+        time.sleep(1)
 
     assembly_create()
     saveas(new_path, 'Product1', '.CATProduct', '.CATProduct')
@@ -674,6 +677,7 @@ def create_new(H1, R1, R2, A, B, C, new_path):
         import_file_Part(new_path, name)
 
     add_offset()
+    time.sleep(1)
 
 
 def close_window():

@@ -144,6 +144,10 @@ cutout_parameter_circle = ['HD']
 cutout_parameter_square = ['HLR', 'HFB']
 cutout_parameter_funnel = ['HULR', 'HDLR', 'HUFB', 'HDFB', 'HH']
 
+
+# T型槽主頁表格
+t_table_dimension_parameter = ['A', 'B', 'C', 'D']
+
 #模墊頂桿孔
 cutout_molded_cushion_A = [26, 32]
 cutout_molded_cushion_B = [33.4, 40]
