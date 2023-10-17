@@ -1587,6 +1587,77 @@ def change_welding_feature(name, i):
                     print('FRAME23 Update success')
                 except:
                     print('FRAME23 Update error')
+        elif name == 'FRAME23_1':
+            try:
+                if i == 0:
+                    mprog.partbodyfeatureactivate('D1')
+                    mprog.partbodyfeatureactivate('D2')
+                    mprog.partbodyfeatureactivate('J1')
+                    mprog.partbodyfeatureactivate('J2')
+                    mprog.partbodyfeatureactivate('25至60除料')
+                    mprog.partbodyfeatureactivate('25至60導圓角')
+                elif i == 1:
+                    mprog.partbodyfeatureactivate('D1')
+                    mprog.partbodyfeatureactivate('D2')
+                    mprog.partbodyfeatureactivate('J1')
+                    mprog.partbodyfeatureactivate('J2')
+                    mprog.partbodyfeatureactivate('25至60除料')
+                    mprog.partbodyfeatureactivate('25至60導圓角')
+                elif i == 2:
+                    mprog.partbodyfeatureactivate('D1')
+                    mprog.partbodyfeatureactivate('D2')
+                    mprog.partbodyfeatureactivate('J1')
+                    mprog.partbodyfeatureactivate('J2')
+                    mprog.partbodyfeatureactivate('25至60除料')
+                    mprog.partbodyfeatureactivate('25至60導圓角')
+                elif i == 3:
+                    mprog.partbodyfeatureactivate('D1')
+                    mprog.partbodyfeatureactivate('D2')
+                    mprog.partbodyfeatureactivate('J1')
+                    mprog.partbodyfeatureactivate('J2')
+                    mprog.partbodyfeatureactivate('25至60除料')
+                    mprog.partbodyfeatureactivate('25至60導圓角')
+                elif i == 4:
+                    mprog.partbodyfeatureactivate('D1')
+                    mprog.partbodyfeatureactivate('D2')
+                    mprog.partbodyfeatureactivate('J1')
+                    mprog.partbodyfeatureactivate('J2')
+                    mprog.partbodyfeatureactivate('80至250除料')
+                    mprog.partbodyfeatureactivate('80至250導圓角(除160和200)')
+                elif i == 5:
+                    mprog.partbodyfeatureactivate('D1')
+                    mprog.partbodyfeatureactivate('D2')
+                    mprog.partbodyfeatureactivate('J1')
+                    mprog.partbodyfeatureactivate('J2')
+                    mprog.partbodyfeatureactivate('80至250除料')
+                    mprog.partbodyfeatureactivate('80至250導圓角(除160和200)')
+                elif i == 6:
+                    mprog.partbodyfeatureactivate('D1')
+                    mprog.partbodyfeatureactivate('D2')
+                    mprog.partbodyfeatureactivate('J1')
+                    mprog.partbodyfeatureactivate('J2')
+                    mprog.partbodyfeatureactivate('80至250除料')
+                elif i == 7:
+                    mprog.partbodyfeatureactivate('D1')
+                    mprog.partbodyfeatureactivate('D2')
+                    mprog.partbodyfeatureactivate('J1')
+                    mprog.partbodyfeatureactivate('J2')
+                    mprog.partbodyfeatureactivate('80至250除料')
+                elif i == 8:
+                    mprog.partbodyfeatureactivate('D1')
+                    mprog.partbodyfeatureactivate('D2')
+                    mprog.partbodyfeatureactivate('J1')
+                    mprog.partbodyfeatureactivate('J2')
+                    mprog.partbodyfeatureactivate('80至250除料')
+                    mprog.partbodyfeatureactivate('80至250導圓角(除160和200)')
+            except:
+                print('FRAME23_1 Parameter activate error')
+            finally:
+                try:
+                    mprog.Update()
+                    print('FRAME23_1 Update success')
+                except:
+                    print('FRAME23_1 Update error')
         elif name == 'FRAME24':
             if i == 0:
                 mprog.partdeactivate('Pad.2')
@@ -2290,7 +2361,23 @@ def change_welding_feature(name, i):
                 if i == 3:
                     mprog.partbodyfeatureactivate('Chamfer.1')
                 elif i == 4:
-                    mprog.partbodyfeatureactivate('machining_Pocket')
+                    mprog.partdeactivate('machining_Pocket')
+                    mprog.bodydeactivate("Hole_1", 0)
+                elif i == 3:
+                    mprog.partdeactivate('machining_Pocket')
+                    mprog.bodydeactivate("Hole_1", 0)
+                elif i == 5:
+                    mprog.partdeactivate('machining_Pocket')
+                    mprog.bodydeactivate("Hole_1", 0)
+                elif i == 6:
+                    mprog.partdeactivate('machining_Pocket')
+                    mprog.bodydeactivate("Hole_1", 0)
+                elif i == 7:
+                    mprog.partdeactivate('machining_Pocket')
+                    mprog.bodydeactivate("Hole_1", 0)
+                elif i == 8:
+                    mprog.partdeactivate('machining_Pocket')
+                    mprog.bodydeactivate("Hole_1", 0)
             except BaseException:
                 print('FRAME43 Parameter activate error')
             finally:

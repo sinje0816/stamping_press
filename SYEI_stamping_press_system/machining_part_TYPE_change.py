@@ -1268,16 +1268,16 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate('F')
                 elif i == 3:  # 60N
                     mprog.activatefeature('Hole', 0)
-                    mprog.partbodyfeatureactivate('F')
+                    # mprog.partbodyfeatureactivate('F')
                 elif i == 4:  # 80N
                     mprog.activatefeature('Hole', 0)
-                    mprog.partbodyfeatureactivate('F')
+                    # mprog.partbodyfeatureactivate('F')
                 elif i == 5:  # 110N
                     mprog.activatefeature('Hole', 0)
                     mprog.partbodyfeatureactivate('F')
                 elif i == 6:  # 160N
                     mprog.activatefeature('Hole', 0)
-                    mprog.partbodyfeatureactivate('F')
+                    # mprog.partbodyfeatureactivate('F')
                 elif i == 7:  # 200N
                     mprog.activatefeature('Hole', 0)
                     mprog.partbodyfeatureactivate('F')
@@ -1759,6 +1759,47 @@ def change_machining_parameter(name, i, machiningdiepad):
                     print('FRAME23 Update success')
                 except:
                     print('FRAME23 Update error')
+        elif name == 'FRAME23_1':
+            excel = epc.ExcelOp('尺寸整理表', 'FRAME23_1')
+            try:
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME23_1', i)
+                print('FRAME23_1 Parameter change success')
+            except:
+                print('FRAME23_1 Parameter change error')
+            try:
+                if i == 0:
+                    mprog.partbodyfeatureactivate('25至60除料')
+                    mprog.partbodyfeatureactivate('25至60導圓角')
+                elif i == 1:
+                    mprog.partbodyfeatureactivate('25至60除料')
+                    mprog.partbodyfeatureactivate('25至60導圓角')
+                elif i == 2:
+                    mprog.partbodyfeatureactivate('25至60除料')
+                    mprog.partbodyfeatureactivate('25至60導圓角')
+                elif i == 3:
+                    mprog.partbodyfeatureactivate('25至60除料')
+                    mprog.partbodyfeatureactivate('25至60導圓角')
+                elif i == 4:
+                    mprog.partbodyfeatureactivate('80至250除料')
+                    mprog.partbodyfeatureactivate('80至250導圓角(除160和200)')
+                elif i == 5:
+                    mprog.partbodyfeatureactivate('80至250除料')
+                    mprog.partbodyfeatureactivate('80至250導圓角(除160和200)')
+                elif i == 6:
+                    mprog.partbodyfeatureactivate('80至250除料')
+                elif i == 7:
+                    mprog.partbodyfeatureactivate('80至250除料')
+                elif i == 8:
+                    mprog.partbodyfeatureactivate('80至250除料')
+                    mprog.partbodyfeatureactivate('80至250導圓角(除160和200)')
+            except:
+                print('FRAME23_1 Parameter activate error')
+            finally:
+                try:
+                    mprog.Update()
+                    print('FRAME23_1 Update success')
+                except:
+                    print('FRAME23_1 Update error')
         elif name == 'FRAME24':
             excel = epc.ExcelOp('尺寸整理表', 'FRAME24')
             try:
@@ -2104,8 +2145,11 @@ def change_machining_parameter(name, i, machiningdiepad):
             except BaseException:
                 print('FRAME29 Parameter change error')
             try:
-                mprog.partbodyfeatureactivate('Hole.1')
-                mprog.partbodyfeatureactivate("F")
+                if i == 5:
+                    mprog.partbodyfeatureactivate('Hole.1')
+                else:
+                    mprog.partbodyfeatureactivate('Hole.1')
+                    mprog.partbodyfeatureactivate("F")
             finally:
                 try:
                     mprog.Update()
@@ -2531,6 +2575,22 @@ def change_machining_parameter(name, i, machiningdiepad):
             try:
                 if i == 4:
                     mprog.partbodyfeatureactivate('machining_Pocket')
+                    mprog.activatefeature("Hole_1", 0)
+                elif i == 3:
+                    mprog.partbodyfeatureactivate('machining_Pocket')
+                    mprog.activatefeature("Hole_1", 0)
+                elif i == 5:
+                    mprog.partbodyfeatureactivate('machining_Pocket')
+                    mprog.activatefeature("Hole_1", 0)
+                elif i == 6:
+                    mprog.partbodyfeatureactivate('machining_Pocket')
+                    mprog.activatefeature("Hole_1", 0)
+                elif i == 7:
+                    mprog.partbodyfeatureactivate('machining_Pocket')
+                    mprog.activatefeature("Hole_1", 0)
+                elif i == 8:
+                    mprog.partbodyfeatureactivate('machining_Pocket')
+                    mprog.activatefeature("Hole_1", 0)
                 else:
                     pass
             except BaseException:
