@@ -107,15 +107,32 @@ drafting_Welding_text = {'A-A Top': ['', '15', '', '6處\n頂面焊道要用砂�
 
 # -------------平板相關參數---------------
 # T型槽相關參數
-total_pierce = []  # 貫穿
-total_clearance_hole = []  # 讓孔
-total_t_direction = []  # 方向
-total_t_dimension = []  # 偏移位置尺寸
-total_unpierce = []  # 非貫穿長度尺寸
+total_t_slot_h_type = []  # 型式(分段、貫穿)
+total_position_y = []  # T形槽位置
+total_LL = []  # 分段LL尺寸
+total_LR = []  # 分段LR尺寸
+total_SL = []  # 讓槽SL尺寸
+total_SR = []  # 讓槽SR尺寸
+total_t_slot_v_type = []  # 型式(分段、貫穿)
+total_position_x = []  # T形槽位置
+total_LF = []  # 分段LL尺寸
+total_LB = []  # 分段LR尺寸
+total_SF = []  # 讓槽SL尺寸
+total_SB = []  # 讓槽SR尺寸
+
+# 機架外板喉部位置
+t1 = [19, 22, 25, 28, 45, 50, 55, 60, 65]
+t2 = [50, 50, 55, 60, 65, 90, 105, 105, 105]
+B2 = [388, 486, 516, 544, 614, 670, 730, 900, 970]
+B1 = []
 # T型槽外型尺寸
 t_all_dimension = []
-t_all_dimension = [22, 38, 23, 16]
+# t_all_dimension = [22, 38, 23, 16]
 t_all_dimension_name = ['tw2', 'tw1', 'th2', 'th1']
+# T型槽主頁表格
+t_table_dimension_parameter = ['A', 'B', 'C', 'D']
+
+
 # 平板外型尺寸
 plate_dimension = []
 # 除料孔(待補齊)
@@ -143,10 +160,6 @@ cutout_part_dimension = ['', '', '', '', '']
 cutout_parameter_circle = ['HD']
 cutout_parameter_square = ['HLR', 'HFB']
 cutout_parameter_funnel = ['HULR', 'HDLR', 'HUFB', 'HDFB', 'HH']
-
-
-# T型槽主頁表格
-t_table_dimension_parameter = ['A', 'B', 'C', 'D']
 
 #模墊頂桿孔
 cutout_molded_cushion_A = [26, 32]

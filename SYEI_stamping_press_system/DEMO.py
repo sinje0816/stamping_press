@@ -1,7 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QPushButton, QLineEdit, QLabel, \
-    QTableWidget, QTableWidgetItem
-from PyQt5.QtCore import QObject
+    QTableWidget, QTableWidgetItem, QHeaderView, QSpinBox, QComboBox, QAbstractItemView
+from PyQt5.QtCore import QObject, QTimer, Qt
+from PyQt5.QtGui import QColor, QBrush
 from DEMOGUI import Ui_Dialog
 from PAD_main import Ui_Form as pad_main_Form
 from PAD_MACHINING import Ui_Form as pad_machining_Form
@@ -64,7 +65,6 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         else:
             self.specifications_close_working_height_value = int(specifications_close_working_height_value)
         self.i, self.p, self.travel_type = self.choos(type, processing, travel_type)
-        global i
 
         self.alpha, self.beta, self.zeta, self.epsilon = self.frame_calculate(self.i, self.specifications_travel_value,
                                                                               self.specifications_close_working_height_value,
@@ -444,9 +444,20 @@ class padwindows(QtWidgets.QWidget):
         self.ui.remove_type.currentIndexChanged.connect(self.cutout_parameter_change)
         # 刪除垂直表頭
         self.ui.removetable.verticalHeader().setVisible(False)
-        self.ui.t_machining.clicked.connect(self.showpadmachiningwindows)
-        print(i)
+        for number in range(0, 4):
+            self.ui.t_solttable.setItem(number, 0, QTableWidgetItem(par.t_table_dimension_parameter[number]))
+        # 刪除垂直及水平表頭
+        self.ui.t_solttable.verticalHeader().setVisible(False)
+        self.ui.t_solttable.horizontalHeader().setVisible(False)
+        # 設定T_solt表格內容
+        self.T_solt_table_normel_setup()
+        for number in range(1, 10):
+            newItem = QTableWidgetItem("-")
+            self.ui.t_solttable.setItem(number, 1, newItem)
+        self.ui.t_solt_type.currentIndexChanged.connect(self.T_solt_combobox_change)
         self.ui.plate_start.clicked.connect(lambda: self.start(i))
+        self.ui.t_machining.clicked.connect(lambda: self.showpadmachiningwindows(i))
+
         self.ui.remove_machining.clicked.connect(self.showcutoutmachiningwindows)
         self.chack_plate_table()
 
@@ -507,7 +518,7 @@ class padwindows(QtWidgets.QWidget):
                 self.ui.t_solttable.setItem(number, 1, newItem)
         elif t_solt_type == "特殊T型槽":
             for number in range(1, 10):
-                newItem = QTableWidgetItem(" ")
+                newItem = QTableWidgetItem("")
                 self.ui.t_solttable.setItem(number, 1, newItem)
 
     def chack_plate_table(self):
@@ -532,9 +543,12 @@ class padwindows(QtWidgets.QWidget):
         self.nw = pad_dimension()
         self.nw.show()
 
-    def showpadmachiningwindows(self):
+    def showpadmachiningwindows(self, i):
+        for value in range(1, 9, 2):
+            par.t_all_dimension.append(self.ui.t_solttable.item(value, 1).text())
+        print("par.t_all_dimension:", par.t_all_dimension)
         self.hide()
-        self.nw = pad_machining()
+        self.nw = t_machining(i)
         self.nw.show()
 
     def showcutoutmachiningwindows(self):
@@ -801,17 +815,212 @@ class pad_dimension(QtWidgets.QWidget):
         self.nw.show()
 
 
-# T型槽加工
-class pad_machining(QtWidgets.QWidget):
-    def __init__(self):
+class t_machining(QWidget):
+    def __init__(self, i):
         super().__init__()
         self.ui = pad_machining_Form()
         self.ui.setupUi(self)
         self.setWindowTitle('平板加工設定')
-        self.ui.escape.clicked.connect(self.showpadwindows)
-        self.ui.new_order.clicked.connect(self.inputneworder)
-        self.ui.setup.clicked.connect(self.start)
-        self.ui.reset.clicked.connect(self.removeAction)
+        # 橫向T型槽
+        self.ui.t_slot_table_h.verticalHeader().setVisible(False)
+        self.ui.t_slot_table_h.horizontalHeader().setVisible(False)
+        self.ui.t_slot_table_h.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.ui.t_slot_table_h.setEditTriggers(QAbstractItemView.AllEditTriggers)
+        self.t_slot_table_h_setup()
+        self.ui.t_slot_h_number.textChanged.connect(self.check_slot_number)
+        self.table_h_combo_boxes = {}
+        # 縱向T型槽
+        self.ui.t_slot_table_v.verticalHeader().setVisible(False)
+        self.ui.t_slot_table_v.horizontalHeader().setVisible(False)
+        self.ui.t_slot_table_v.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.ui.t_slot_table_v.setEditTriggers(QAbstractItemView.AllEditTriggers)
+        self.t_slot_table_v_setup()
+        self.ui.t_slot_v_number.textChanged.connect(self.check_slot_v_number)
+        self.table_v_combo_boxes = {}
+        # 確定按鈕
+        self.ui.setup.clicked.connect(self.setup)
+        # 重製按鈕
+        self.ui.reset.clicked.connect(self.reset)
+        # 重新排列
+        self.ui.rearrange_the_order.clicked.connect(self.rearrange_the_order)
+
+
+    def change_table_h_clear_table(self):
+        while self.ui.t_slot_table_h.rowCount() > 1:
+            self.ui.t_slot_table_h.removeRow(1)
+
+    def check_slot_number(self, current_value):
+        try:
+            if current_value == '':
+                current_value = 0
+            current_value = int(current_value)  # 尝试将文本转换为整数
+            self.add_rows_to_table(current_value)  # 插入新行
+        except ValueError:
+            print("Invalid input. Please enter a valid number")
+
+    def add_rows_to_table(self, num_rows):
+        self.change_table_h_clear_table()  # 清除表格内容
+        col_count = self.ui.t_slot_table_h.columnCount()
+        for row in range(num_rows):
+            row_position = self.ui.t_slot_table_h.rowCount()
+            self.ui.t_slot_table_h.insertRow(row_position)
+            for col in range(col_count):
+                item = QTableWidgetItem("H" + str(row_position) if (row_position == 0 or col == 0) else "")
+                if col == 0 or row_position == 0:
+                    # 如果是第一行或第一列，设置单元格不可编辑
+                    item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+                else:
+                    # 其他单元格默认不可编辑，会在后续根据条件进行修改
+                    item.setFlags(item.flags() | Qt.ItemIsEditable)
+                self.ui.t_slot_table_h.setItem(row_position, col, item)
+            # 创建 QComboBox 并添加到新行的第三列
+            combo_box = QComboBox()
+            combo_box.addItem("")
+            combo_box.addItem("貫穿")
+            combo_box.addItem("分段")
+            combo_box.currentIndexChanged.connect(lambda index, row=row_position: self.combo_box_changed(row, index))
+            self.ui.t_slot_table_h.setCellWidget(row_position, 2, combo_box)
+            self.table_h_combo_boxes[row_position] = combo_box  # 存储QComboBox
+            # 初始化选项状态为不可编辑
+            for col in range(3, 5):
+                item = QTableWidgetItem("")
+                item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+                color = QColor(192, 192, 192)
+                brush = QBrush(color)
+                item.setBackground(brush)
+                self.ui.t_slot_table_h.setItem(row_position, col, item)
+
+    def combo_box_changed(self, row, index):
+        combo_box = self.table_h_combo_boxes.get(row)
+        if combo_box:
+            if index == 2:  # 如果选择了"分段"
+                self.set_editable_cells(row, is_editable=True)
+            else:
+                self.set_editable_cells(row, is_editable=False)
+
+    def set_editable_cells(self, row, is_editable=True):
+        for col in range(3, 5):
+            item = self.ui.t_slot_table_h.item(row, col)
+            if item:
+                if is_editable and row != 0:  # 如果选择了"分段"且不是第一行
+                    item.setFlags(item.flags() | Qt.ItemIsEditable)
+                    item.setBackground(QBrush(QColor(255, 255, 255)))
+                else:
+                    item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+                    item.setBackground(QBrush(QColor(192, 192, 192)))
+
+    def t_slot_table_h_setup(self):
+        # 第一行
+        self.ui.t_slot_table_h.setSpan(0, 0, 1, 1)
+        newItem = QTableWidgetItem("編號")
+        self.ui.t_slot_table_h.setItem(0, 0, newItem)
+        self.ui.t_slot_table_h.setSpan(0, 0, 1, 1)
+        newItem = QTableWidgetItem("位置(Y)")
+        self.ui.t_slot_table_h.setItem(0, 1, newItem)
+        self.ui.t_slot_table_h.setSpan(0, 0, 1, 1)
+        newItem = QTableWidgetItem("形式")
+        self.ui.t_slot_table_h.setItem(0, 2, newItem)
+        self.ui.t_slot_table_h.setSpan(0, 0, 1, 1)
+        newItem = QTableWidgetItem("LL")
+        self.ui.t_slot_table_h.setItem(0, 3, newItem)
+        self.ui.t_slot_table_h.setSpan(0, 0, 1, 1)
+        newItem = QTableWidgetItem("LR")
+        self.ui.t_slot_table_h.setItem(0, 4, newItem)
+        self.ui.t_slot_table_h.setSpan(0, 0, 1, 1)
+        newItem = QTableWidgetItem("SL")
+        self.ui.t_slot_table_h.setItem(0, 5, newItem)
+        self.ui.t_slot_table_h.setSpan(0, 0, 1, 1)
+        newItem = QTableWidgetItem("SR")
+        self.ui.t_slot_table_h.setItem(0, 6, newItem)
+
+    def combo_box_changed_v(self, row, index):
+        combo_box = self.table_v_combo_boxes.get(row)
+        if combo_box:
+            if index == 2:  # 如果选择了"分段"
+                self.set_editable_v_cells(row, is_editable=True)
+            else:
+                self.set_editable_v_cells(row, is_editable=False)
+
+    def change_table_v_clear_table(self):
+        while self.ui.t_slot_table_v.rowCount() > 1:
+            self.ui.t_slot_table_v.removeRow(1)
+
+    def check_slot_v_number(self, current_value):
+        try:
+            if current_value == '':
+                current_value = 0
+            current_value = int(current_value)  # 尝试将文本转换为整数
+            self.add_rows_to_table_v(current_value)  # 插入新行
+        except ValueError:
+            print("Invalid input. Please enter a valid number")
+
+    def add_rows_to_table_v(self, num_rows):
+        self.change_table_v_clear_table()  # 清除表格内容
+        col_count = self.ui.t_slot_table_v.columnCount()
+        for row in range(num_rows):
+            row_position = self.ui.t_slot_table_v.rowCount()
+            self.ui.t_slot_table_v.insertRow(row_position)
+            for col in range(col_count):
+                item = QTableWidgetItem("V" + str(row_position) if (row_position == 0 or col == 0) else "")
+                if col == 0 or row_position == 0:
+                    # 如果是第一行或第一列，设置单元格不可编辑
+                    item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+                else:
+                    # 其他单元格默认不可编辑，会在后续根据条件进行修改
+                    item.setFlags(item.flags() | Qt.ItemIsEditable)
+                self.ui.t_slot_table_v.setItem(row_position, col, item)
+
+            # 创建 QComboBox 并添加到新行的第三列
+            combo_box = QComboBox()
+            combo_box.addItem("")
+            combo_box.addItem("貫穿")
+            combo_box.addItem("分段")
+            combo_box.currentIndexChanged.connect(lambda index, row=row_position: self.combo_box_changed_v(row, index))
+            self.ui.t_slot_table_v.setCellWidget(row_position, 2, combo_box)
+            self.table_v_combo_boxes[row_position] = combo_box  # 存储QComboBox
+            # 初始化选项状态为不可编辑
+            for col in range(3, 5):
+                item = QTableWidgetItem("")
+                item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+                color = QColor(192, 192, 192)
+                brush = QBrush(color)
+                item.setBackground(brush)
+                self.ui.t_slot_table_v.setItem(row_position, col, item)
+
+    def set_editable_v_cells(self, row, is_editable=True):
+        for col in range(3, 5):
+            item = self.ui.t_slot_table_v.item(row, col)
+            if item:
+                if is_editable and row != 0:  # 如果选择了"分段"且不是第一行
+                    item.setFlags(item.flags() | Qt.ItemIsEditable)
+                    item.setBackground(QBrush(QColor(255, 255, 255)))
+                else:
+                    item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+                    item.setBackground(QBrush(QColor(192, 192, 192)))
+
+    def t_slot_table_v_setup(self):
+        # 第一行
+        self.ui.t_slot_table_v.setSpan(0, 0, 1, 1)
+        newItem = QTableWidgetItem("編號")
+        self.ui.t_slot_table_v.setItem(0, 0, newItem)
+        self.ui.t_slot_table_v.setSpan(0, 0, 1, 1)
+        newItem = QTableWidgetItem("位置(Y)")
+        self.ui.t_slot_table_v.setItem(0, 1, newItem)
+        self.ui.t_slot_table_v.setSpan(0, 0, 1, 1)
+        newItem = QTableWidgetItem("形式")
+        self.ui.t_slot_table_v.setItem(0, 2, newItem)
+        self.ui.t_slot_table_v.setSpan(0, 0, 1, 1)
+        newItem = QTableWidgetItem("LF")
+        self.ui.t_slot_table_v.setItem(0, 3, newItem)
+        self.ui.t_slot_table_v.setSpan(0, 0, 1, 1)
+        newItem = QTableWidgetItem("LB")
+        self.ui.t_slot_table_v.setItem(0, 4, newItem)
+        self.ui.t_slot_table_v.setSpan(0, 0, 1, 1)
+        newItem = QTableWidgetItem("SF")
+        self.ui.t_slot_table_v.setItem(0, 5, newItem)
+        self.ui.t_slot_table_v.setSpan(0, 0, 1, 1)
+        newItem = QTableWidgetItem("SB")
+        self.ui.t_slot_table_v.setItem(0, 6, newItem)
 
     def showpadwindows(self):
         data_entries = []
@@ -819,59 +1028,150 @@ class pad_machining(QtWidgets.QWidget):
         self.nw = padwindows(i)
         self.nw.show()
 
-    def inputneworder(self):
-        pierce = str(self.ui.pierce.currentText())  # 貫穿
-        clearance_hole = str(self.ui.clearance_hole.currentText())  # 間隙孔(讓孔)
-        t_direction = str(self.ui.direction.currentText())  # T形槽方向
-        t_dimension = str(self.ui.position_dimension.text())  # T形槽尺寸
-        unpierce = str(self.ui.unpierce.text())  # 非貫穿尺寸
-        if t_dimension == "":
-            t_dimension = 0
-        data_entries = [pierce, clearance_hole, t_direction, t_dimension, unpierce]
-        self.add_data(data_entries)
-
-    def add_data(self, data_entries):
-        # 取得目前表單的行數
-        row_position = self.ui.tableWidget.rowCount()
-        # 在表單中插入新的一行
-        self.ui.tableWidget.insertRow(row_position)
-        # 將手動輸入的四個資料新增到表單的下一列中
-        for col, entry in enumerate(data_entries):
-            item = QTableWidgetItem(entry)
-            self.ui.tableWidget.setItem(row_position, col, item)
-            self.ui.position_dimension.clear()
-            self.ui.unpierce.clear()
-
-    def start(self):
-        # 將表單資料存至parameter.py指定串列
-        for row in range(self.ui.tableWidget.rowCount()):
-            pierce = self.ui.tableWidget.item(row, 0).text()
-            clearance_hole = self.ui.tableWidget.item(row, 1).text()
-            t_direction = self.ui.tableWidget.item(row, 2).text()
-            t_dimension = self.ui.tableWidget.item(row, 3).text()
-            unpierce = self.ui.tableWidget.item(row, 4).text()
-            par.total_pierce.append(pierce)
-            par.total_clearance_hole.append(clearance_hole)
-            par.total_t_direction.append(t_direction)
-            par.total_t_dimension.append(int(t_dimension))
-            par.total_unpierce.append(unpierce)
-
-        print("T形槽方向:", par.total_t_direction)
-        print("貫穿:", par.total_pierce)
-        print("間隙孔(讓孔):", par.total_clearance_hole)
-        print("T形槽尺寸:", par.total_t_dimension)
-        print("非貫穿尺寸:", par.total_unpierce)
-        # itf.interference(i, par.lv[0], par.total_t_dimension, par.total_t_direction, par.plate_all_parameter['tw1'])
-
+    def setup(self, i):
         self.hide()
         self.nw = padwindows(i)
         self.nw.show()
 
-    def removeAction(self):
-        # 取得目前表單的行數
-        row_position = self.ui.tableWidget.rowCount()
-        # 在表單中刪除最後一行
-        self.ui.tableWidget.removeRow(row_position)
+    def rearrange_the_order(self):
+        par.total_position_y.clear()
+        par.total_t_slot_h_type.clear()
+        par.total_LL.clear()
+        par.total_LR.clear()
+        par.total_SL.clear()
+        par.total_SR.clear()
+        par.total_position_x.clear()
+        par.total_t_slot_v_type.clear()
+        par.total_LF.clear()
+        par.total_LB.clear()
+        par.total_SF.clear()
+        par.total_SB.clear()
+
+        if self.ui.t_slot_table_h.rowCount() != 0:
+            for row in range(1, self.ui.t_slot_table_h.rowCount()):
+                position_y = self.ui.t_slot_table_h.item(row, 1).text()
+                t_slot_type = self.ui.t_slot_table_h.cellWidget(row, 2).currentText()
+                LL = self.ui.t_slot_table_h.item(row, 3).text()
+                LR = self.ui.t_slot_table_h.item(row, 4).text()
+                SL = self.ui.t_slot_table_h.item(row, 5).text()
+                SR = self.ui.t_slot_table_h.item(row, 6).text()
+                par.total_position_y.append(position_y)
+                par.total_t_slot_h_type.append(t_slot_type)
+                par.total_LL.append(LL)
+                par.total_LR.append(LR)
+                par.total_SL.append(SL)
+                par.total_SR.append(SR)
+            par.total_position_y = [int(x) for x in par.total_position_y]
+            position_y_change_position = sorted(enumerate(par.total_position_y), key=lambda x: x[1], reverse=True)
+            print('position_y_change_position:', position_y_change_position)
+            rearrange = [position[0] for position in position_y_change_position]
+            print('rearrange:', rearrange)
+            par.total_position_y = [par.total_position_y[order_position] for order_position in rearrange]
+            par.total_LL = [par.total_LL[order_position] for order_position in rearrange]
+            par.total_LR = [par.total_LR[order_position] for order_position in rearrange]
+            par.total_SL = [par.total_SL[order_position] for order_position in rearrange]
+            par.total_SR = [par.total_SR[order_position] for order_position in rearrange]
+            par.total_t_slot_h_type = [par.total_t_slot_h_type[order_position] for order_position in rearrange]
+
+            print('total_position_y:', par.total_position_y)
+            print('total_t_slot_h_type:', par.total_t_slot_h_type)
+            print('total_LL:', par.total_LL)
+            print('total_LR:', par.total_LR)
+            print('total_SL:', par.total_SL)
+            print('total_SR:', par.total_SR)
+            for position, item in enumerate(par.total_position_y):
+                # 將整數轉換為字串，然後設定為表格的項目文本
+                item_text = str(item)
+                table_item = QtWidgets.QTableWidgetItem(item_text)
+                self.ui.t_slot_table_h.setItem(position + 1, 1, table_item)
+            for position, item in enumerate(par.total_LL):
+                item = QtWidgets.QTableWidgetItem(item)
+                self.ui.t_slot_table_h.setItem(position + 1, 3, item)
+            for position, item in enumerate(par.total_LR):
+                item = QtWidgets.QTableWidgetItem(item)
+                self.ui.t_slot_table_h.setItem(position + 1, 4, item)
+            for position, item in enumerate(par.total_SL):
+                item = QtWidgets.QTableWidgetItem(item)
+                self.ui.t_slot_table_h.setItem(position + 1, 5, item)
+            for position, item in enumerate(par.total_SR):
+                item = QtWidgets.QTableWidgetItem(item)
+                self.ui.t_slot_table_h.setItem(position + 1, 6, item)
+            for position, item in enumerate(par.total_t_slot_h_type):
+                combo_box = self.ui.t_slot_table_h.cellWidget(position + 1, 2)  # 從表格中獲取 ComboBox
+                combo_box.setCurrentText(item)
+                self.combo_box_changed(position + 1, combo_box.currentIndex())
+
+
+        if self.ui.t_slot_table_v.rowCount() != 0:
+            for row in range(1, self.ui.t_slot_table_v.rowCount()):
+                position_x = self.ui.t_slot_table_v.item(row, 1).text()
+                t_slot_type = self.ui.t_slot_table_v.cellWidget(row, 2).currentText()
+                LF = self.ui.t_slot_table_v.item(row, 3).text()
+                LB = self.ui.t_slot_table_v.item(row, 4).text()
+                SF = self.ui.t_slot_table_v.item(row, 5).text()
+                SB = self.ui.t_slot_table_v.item(row, 6).text()
+                par.total_position_x.append(position_x)
+                par.total_t_slot_v_type.append(t_slot_type)
+                par.total_LF.append(LF)
+                par.total_LB.append(LB)
+                par.total_SF.append(SF)
+                par.total_SB.append(SB)
+            par.total_position_x = [int(x) for x in par.total_position_x]
+            position_x_change_position = sorted(enumerate(par.total_position_x), key=lambda x: x[1], reverse=True)
+            print('position_x_change_position:', position_x_change_position)
+            rearrange = [position[0] for position in position_x_change_position]
+            print('rearrange:', rearrange)
+            par.total_position_x = [par.total_position_x[order_position] for order_position in rearrange]
+            par.total_LF = [par.total_LF[order_position] for order_position in rearrange]
+            par.total_LB = [par.total_LB[order_position] for order_position in rearrange]
+            par.total_SF = [par.total_SF[order_position] for order_position in rearrange]
+            par.total_SB = [par.total_SB[order_position] for order_position in rearrange]
+            par.total_t_slot_v_type = [par.total_t_slot_v_type[order_position] for order_position in rearrange]
+            print('total_position_x:', par.total_position_x)
+            print('total_t_slot_v_type:', par.total_t_slot_v_type)
+            print('total_LF:', par.total_LF)
+            print('total_LB:', par.total_LB)
+            print('total_SF:', par.total_SF)
+            print('total_SB:', par.total_SB)
+            for position, item in enumerate(par.total_position_x):
+                # 將整數轉換為字串，然後設定為表格的項目文本
+                item_text = str(item)
+                table_item = QtWidgets.QTableWidgetItem(item_text)
+                self.ui.t_slot_table_v.setItem(position + 1, 1, table_item)
+            for position, item in enumerate(par.total_LF):
+                item = QtWidgets.QTableWidgetItem(item)
+                self.ui.t_slot_table_v.setItem(position + 1, 3, item)
+            for position, item in enumerate(par.total_LB):
+                item = QtWidgets.QTableWidgetItem(item)
+                self.ui.t_slot_table_v.setItem(position + 1, 4, item)
+            for position, item in enumerate(par.total_SF):
+                item = QtWidgets.QTableWidgetItem(item)
+                self.ui.t_slot_table_v.setItem(position + 1, 5, item)
+            for position, item in enumerate(par.total_SB):
+                item = QtWidgets.QTableWidgetItem(item)
+                self.ui.t_slot_table_v.setItem(position + 1, 6, item)
+            for position, item in enumerate(par.total_t_slot_v_type):
+                combo_box = self.ui.t_slot_table_v.cellWidget(position + 1, 2)
+                combo_box.setCurrentText(item)
+                self.combo_box_changed_v(position + 1, combo_box.currentIndex())
+
+
+
+    def reset(self):
+        self.ui.t_slot_h_number.clear()
+        self.ui.t_slot_v_number.clear()
+        par.total_position_y.clear()
+        par.total_t_slot_h_type.clear()
+        par.total_LL.clear()
+        par.total_LR.clear()
+        par.total_SL.clear()
+        par.total_SR.clear()
+        par.total_position_x.clear()
+        par.total_t_slot_v_type.clear()
+        par.total_LF.clear()
+        par.total_LB.clear()
+        par.total_SF.clear()
+        par.total_SB.clear()
 
 
 # 下料孔設定介面

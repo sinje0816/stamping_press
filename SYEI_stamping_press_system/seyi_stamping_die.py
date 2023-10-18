@@ -600,7 +600,7 @@ def add_offset():
     base_lock('PUNCH.1', 'PUNCH.1', 0)
     add_offset_assembly('blank.1', 'holder.1', -2, 'zx plane', 0, 'offset1')
     add_offset_assembly('die-2.1', 'blank.1', -0.9, 'zx plane', 0, 'offset2')
-    add_offset_assembly('holder.1', 'PUNCH.1', -79, 'zx plane', 0, 'offset3')
+    add_offset_assembly('holder.1', 'PUNCH.1', -83, 'zx plane', 0, 'offset3')
     add_offset_assembly('blank.1', 'PUNCH.1', -35.179, 'yz plane', 1, 'offset4')
     add_offset_assembly('blank.1', 'PUNCH.1', 28.215, 'xy plane', 1, 'offset5')
 
