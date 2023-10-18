@@ -1007,9 +1007,11 @@ def change_machining_parameter(name, i, machiningdiepad):
                 elif i == 6:
                     mprog.activatefeature('挖孔', 0)
                 elif i == 7:
-                    pass
+                    mprog.activatefeature('挖孔', 0)
+                    mprog.activatefeature('RC1/8', 0)
                 elif i == 8:
-                    pass
+                    mprog.activatefeature('挖孔', 0)
+                    mprog.activatefeature('RC1/8', 0)
                 print('FRAME11 machining success')
             except BaseException:
                 print('FRAME11 machining activate error')
@@ -1162,6 +1164,98 @@ def change_machining_parameter(name, i, machiningdiepad):
                     print('FRAME13 Update success')
                 except:
                     print('FRAME13 Update error')
+        elif name == 'FRAME13_1':
+            excel = epc.ExcelOp('尺寸整理表', 'FRAME13_1')
+            try:
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME13_1', i)
+                print('FRAME13_1 Parameter change success')
+            except:
+                print('FRAME13_1 Parameter change error')
+            try:
+                if i == 0:
+                    mprog.partbodyfeatureactivate('AB')
+                    mprog.partbodyfeatureactivate('SN1_25_45_CD')
+                    mprog.partbodyfeatureactivate('SN1_25_45_G')
+                    mprog.activatefeature('GIB_OIL_HOLE', 1)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_1', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_2', 0)
+                    mprog.activatefeature('Hole_4', 0)
+                    mprog.partbodyfeatureactivate("H")
+                    mprog.partbodyfeatureactivate("I")
+                elif i == 1:
+                    mprog.partbodyfeatureactivate('AB')
+                    mprog.activatefeature('GIB_OIL_HOLE', 1)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_1', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_2', 0)
+                    mprog.activatefeature('Hole_4', 0)
+                    mprog.partbodyfeatureactivate("H")
+                    mprog.partbodyfeatureactivate("I")
+                elif i == 2:
+                    mprog.partbodyfeatureactivate('AB')
+                    mprog.partbodyfeatureactivate('SN1_25_45_CD')
+                    mprog.partbodyfeatureactivate('SN1_25_45_G')
+                    mprog.activatefeature('GIB_OIL_HOLE', 1)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_1', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_2', 0)
+                    mprog.activatefeature('Hole_4', 0)
+                    mprog.partbodyfeatureactivate("H")
+                    mprog.partbodyfeatureactivate("I")
+                elif i == 3:
+                    mprog.partbodyfeatureactivate('AB')
+                    mprog.activatefeature('GIB_OIL_HOLE', 1)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_1', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_2', 0)
+                    mprog.activatefeature('Hole_4', 0)
+                    mprog.partbodyfeatureactivate("H")
+                    mprog.partbodyfeatureactivate("I")
+                elif i == 4:
+                    mprog.partbodyfeatureactivate('AB')
+                    mprog.activatefeature('GIB_OIL_HOLE', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_1', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_2', 0)
+                    mprog.activatefeature('Hole_4', 0)
+                    mprog.partbodyfeatureactivate("H")
+                    mprog.partbodyfeatureactivate("I")
+                elif i == 5:
+                    mprog.partbodyfeatureactivate('AB')
+                    mprog.activatefeature('GIB_OIL_HOLE', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_1', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_2', 0)
+                    mprog.activatefeature('Hole_4', 0)
+                    mprog.partbodyfeatureactivate("H")
+                    mprog.partbodyfeatureactivate("I")
+                elif i == 6:
+                    mprog.partbodyfeatureactivate('AB')
+                    mprog.activatefeature('GIB_OIL_HOLE', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_1', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_2', 0)
+                    mprog.activatefeature('Hole_4', 0)
+                    mprog.partbodyfeatureactivate("H")
+                    mprog.partbodyfeatureactivate("I")
+                elif i == 7:
+                    mprog.partbodyfeatureactivate('AB')
+                    mprog.activatefeature('GIB_OIL_HOLE', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_1', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_2', 0)
+                    mprog.activatefeature('Hole_4', 0)
+                    mprog.partbodyfeatureactivate("H")
+                    mprog.partbodyfeatureactivate("I")
+                elif i == 8:
+                    mprog.partbodyfeatureactivate('AB')
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_1', 0)
+                    mprog.activatefeature('SLIDE_LINER_FIX_HOLE_2', 0)
+                    mprog.activatefeature('GIB_OIL_HOLE', 0)
+                    mprog.activatefeature('Hole_4', 0)
+                    mprog.partbodyfeatureactivate("H")
+                    mprog.partbodyfeatureactivate("I")
+            except:
+                print('FRAME13_1 Parameter activate error')
+            finally:
+                try:
+                    mprog.Update()
+                    print('FRAME13_1 Update success')
+                except:
+                    print('FRAME13_1 Update error')
         elif name == 'FRAME14':
             excel = epc.ExcelOp('尺寸整理表', 'FRAME14')
             try:
@@ -1232,7 +1326,6 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate("H")
                     mprog.partbodyfeatureactivate("I")
                 elif i == 8:  # 250N
-                    mprog.partbodyfeatureactivate('250N')
                     mprog.activatefeature('inside_hole', 0)
                     mprog.activatefeature('outside_hole', 0)
                     mprog.activatefeature('processing_h', 0)
@@ -1437,7 +1530,6 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate("H")
                     mprog.partbodyfeatureactivate("I")
                 elif i == 8:  # 250N
-                    mprog.partbodyfeatureactivate('250N')
                     mprog.activatefeature('inside_hole', 0)
                     mprog.activatefeature('outside_hole', 0)
                     mprog.activatefeature('processing_h', 0)
@@ -1533,7 +1625,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('SN1_80110_Body', 5)
                     mprog.partbodyfeatureactivate("machining_AI")
                 elif i == 6:
-                    mprog.activatefeature('FRMAE_SN1_160_Body', 0)
+                    mprog.activatefeature('FRAME_SN1_160_Body', 0)
                     mprog.activatefeature('FRAME_34_Hole_1', 0)
                     mprog.partbodyfeatureactivate("machining_AI")
                 elif i == 7:
@@ -2147,6 +2239,8 @@ def change_machining_parameter(name, i, machiningdiepad):
             try:
                 if i == 5:
                     mprog.partbodyfeatureactivate('Hole.1')
+                elif i == 8:
+                    mprog.partbodyfeatureactivate('Hole.1')
                 else:
                     mprog.partbodyfeatureactivate('Hole.1')
                     mprog.partbodyfeatureactivate("F")
@@ -2583,13 +2677,11 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate('machining_Pocket')
                     mprog.activatefeature("Hole_1", 0)
                 elif i == 6:
-                    mprog.partbodyfeatureactivate('machining_Pocket')
                     mprog.activatefeature("Hole_1", 0)
                 elif i == 7:
                     mprog.partbodyfeatureactivate('machining_Pocket')
                     mprog.activatefeature("Hole_1", 0)
                 elif i == 8:
-                    mprog.partbodyfeatureactivate('machining_Pocket')
                     mprog.activatefeature("Hole_1", 0)
                 else:
                     pass
@@ -2760,6 +2852,48 @@ def change_machining_parameter(name, i, machiningdiepad):
                     print('FRAME50 Update success')
                 except:
                     print('FRAME50 Update error')
+        elif name == 'FRAME51':
+            excel = epc.ExcelOp('尺寸整理表', 'FRAME51')
+            try:
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME51', i)
+                print('FRAME51 Parameter change success')
+            except:
+                print('FRAME51 Parameter change error')
+            # 判斷是否需要模墊加工
+            try:
+                if i == 8:
+                    mprog.partbodyfeatureactivate('Body')
+                    mprog.partbodyfeatureactivate('SN1_250_CD')
+                    mprog.activatefeature('M10*35L', 0)
+                else:
+                    print('FRAME51 feature activate error')
+            finally:
+                try:
+                    mprog.Update()
+                    print('FRAME51 Update success')
+                except:
+                    print('FRAME51 Update error')
+        elif name == 'FRAME51_1':
+            excel = epc.ExcelOp('尺寸整理表', 'FRAME51_1')
+            try:
+                parameter_name, parameter_value = excel.get_sheet_par('FRAME51_1', i)
+                print('FRAME51_1 Parameter change success')
+            except:
+                print('FRAME51_1 Parameter change error')
+            # 判斷是否需要模墊加工
+            try:
+                if i == 8:
+                    mprog.partbodyfeatureactivate('Body')
+                    mprog.partbodyfeatureactivate('SN1_250_CD')
+                    mprog.activatefeature('M10*35L', 0)
+                else:
+                    print('FRAME51_1 feature activate error')
+            finally:
+                try:
+                    mprog.Update()
+                    print('FRAME51_1 Update success')
+                except:
+                    print('FRAME51_1 Update error')
         elif name == 'FRAME52':
             excel = epc.ExcelOp('尺寸整理表', 'FRAME52')
             try:
@@ -2794,6 +2928,19 @@ def change_machining_parameter(name, i, machiningdiepad):
                 print('FRAME53 Update success')
             except BaseException:
                 print('FRAME53 Update error')
+        elif name == 'FRAME53_1':
+            excel = epc.ExcelOp('尺寸整理表', 'FRAME53_1')
+            try:
+                parameter_name, parameter_value = excel.get_sheet_par(
+                    'FRAME53_1', i)
+                print('FRAME53_1 Parameter change success')
+            except BaseException:
+                print('FRAME53_1 Parameter change error')
+            try:
+                mprog.Update()
+                print('FRAME53_1 Update success')
+            except BaseException:
+                print('FRAME53_1 Update error')
         elif name == 'FRAME54':  # 已更改
             excel = epc.ExcelOp('尺寸整理表', 'FRAME54')
             try:

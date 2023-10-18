@@ -363,9 +363,11 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
                         for x in range(len(parameter_name)):
-                            all_parameter_list.setdefault(parameter_name[x], parameter_value[x])
+                            all_parameter_save.setdefault(parameter_name[x], parameter_value[x])
+                            all_parameter_list = all_parameter_save.copy()
                             all_parameter_value[name] = all_parameter_list
                             apv = all_parameter_value
+                        all_parameter_save.clear()
 
                         # 恢复原始的sys.stdout
                         sys.stdout = original_stdout
@@ -377,7 +379,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                             machining_file_change_error.append(name)
                         else:
                             machining_file_change_pass.append(name)
-                            mprog.close_file(name)
+                            # mprog.close_file(name)
                     else:
                         try:
                             mprog.param_change(name, "alpha", alpha)

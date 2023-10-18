@@ -84,13 +84,13 @@ def assembly(i, apv, path, alpha, beta, zeta):
     mprog.add_offset_assembly('FRAME13.1', 'FRAME2.1', apv['FRAME2']['F'] - apv['FRAME2']['G'] - apv['FRAME2']['FF']+zeta,
                               'YZ plane', 1, 122)
     mprog.add_offset_assembly('FRAME13.1', 'FRAME2.1', -apv['FRAME1']['CC'] / 2, 'ZX plane', 1, 123)
-    mprog.add_offset_assembly('FRAME13.2', 'FRAME1.1', -(
+    mprog.add_offset_assembly('FRAME13_1.1', 'FRAME1.1', -(
                 apv['FRAME2']['A'] - apv['FRAME30']['A'] - (apv['FRAME17']['g3'] - apv['FRAME17']['g2']) -
                 apv['FRAME13']['k'] - apv['FRAME13']['j'] - assmebly_par['Ass_V'] - assmebly_par['Ass_S'])-beta, 'XY plane',
                               0, 124)
-    mprog.add_offset_assembly('FRAME13.2', 'FRAME1.1', apv['FRAME2']['F'] - apv['FRAME2']['G'] - apv['FRAME2']['FF']+zeta,
+    mprog.add_offset_assembly('FRAME13_1.1', 'FRAME1.1', apv['FRAME2']['F'] - apv['FRAME2']['G'] - apv['FRAME2']['FF']+zeta,
                               'YZ plane', 1, 125)
-    mprog.add_offset_assembly('FRAME13.2', 'FRAME1.1', apv['FRAME1']['CC'] / 2 + apv['FRAME13']['E'] - (apv['FRAME13']['E'] - apv['FRAME13']['I']), 'ZX plane', 1,
+    mprog.add_offset_assembly('FRAME13_1.1', 'FRAME1.1', apv['FRAME1']['CC'] / 2 + apv['FRAME13']['E'] - (apv['FRAME13']['E'] - apv['FRAME13']['I']), 'ZX plane', 1,
                               126)
     mprog.add_offset_assembly('FRAME14.1', 'FRAME2.1', -(
                 apv['FRAME2']['A'] - apv['FRAME30']['A'] - assmebly_par['Ass_S'] - apv['FRAME14']['g3'])-beta, 'XY plane', 0,
@@ -837,7 +837,7 @@ def assembly(i, apv, path, alpha, beta, zeta):
                                   115)
         mprog.add_offset_assembly('FRAME15.1', 'FRAME1.1',
                                   -(apv['FRAME1']['F'] - apv['FRAME1']['G'] - apv['FRAME2']['FF'] - assmebly_par[
-                                      'Ass_T'] - apv['FRAME15']['C'] + zeta),
+                                      'Ass_T'] - apv['FRAME15']['F'] + zeta),
                                   'YZ plane', 0, 116)
         mprog.add_offset_assembly('FRAME15.1', 'FRAME1.1',
                                   -(apv['FRAME3']['B'] / 2 - assmebly_par['Ass_U'] + apv['FRAME1']['CC'] / 2), 'ZX plane', 0, 117)
@@ -847,7 +847,7 @@ def assembly(i, apv, path, alpha, beta, zeta):
                                   118)
         mprog.add_offset_assembly('FRAME15.2', 'FRAME2.1',
                                   -(apv['FRAME2']['F'] - apv['FRAME2']['G'] - apv['FRAME2']['FF'] - assmebly_par[
-                                      'Ass_T'] - apv['FRAME15']['C'] + zeta),
+                                      'Ass_T'] - apv['FRAME15']['F'] + zeta),
                                   'YZ plane', 0, 119)
         mprog.add_offset_assembly('FRAME15.2', 'FRAME2.1',
                                   (apv['FRAME3']['B'] / 2 - assmebly_par['Ass_U'] + apv['FRAME1']['CC'] / 2 - apv['FRAME15']['B']),
@@ -858,7 +858,7 @@ def assembly(i, apv, path, alpha, beta, zeta):
                                   assmebly_par['Ass_V'] - assmebly_par['Ass_S'] + apv['FRAME15']['A'] + beta, 'XY plane', 1, 127)
         mprog.add_offset_assembly('FRAME15.3', 'FRAME1.1', -(
                     apv['FRAME2']['F'] - apv['FRAME2']['G'] - apv['FRAME2']['FF'] - assmebly_par['Ass_T'] -
-                    apv['FRAME15']['C']) - zeta, 'YZ plane', 0, 128)
+                    apv['FRAME15']['F']) - zeta, 'YZ plane', 0, 128)
         mprog.add_offset_assembly('FRAME15.3', 'FRAME1.1', (
                     apv['FRAME3']['B'] / 2 - assmebly_par['Ass_U'] + apv['FRAME1']['CC'] / 2 - apv['FRAME15']['B']),
                                   'ZX plane', 1, 129)
@@ -867,7 +867,7 @@ def assembly(i, apv, path, alpha, beta, zeta):
                                   assmebly_par['Ass_V'] - assmebly_par['Ass_S'] + apv['FRAME15']['A'] + beta, 'XY plane', 1, 130)
         mprog.add_offset_assembly('FRAME15.4', 'FRAME2.1', -(
                     apv['FRAME2']['F'] - apv['FRAME2']['G'] - apv['FRAME2']['FF'] - assmebly_par['Ass_T'] -
-                    apv['FRAME15']['C']) - zeta, 'YZ plane', 0, 131)
+                    apv['FRAME15']['F']) - zeta, 'YZ plane', 0, 131)
         mprog.add_offset_assembly('FRAME15.4', 'FRAME2.1',
                                   -(apv['FRAME3']['B'] / 2 - assmebly_par['Ass_U'] + apv['FRAME1']['CC'] / 2),
                                   'ZX plane', 1, 132)
@@ -912,7 +912,146 @@ def assembly(i, apv, path, alpha, beta, zeta):
                                   0, 156)
         mprog.add_offset_assembly('FRAME50.1', 'FRAME4.1',
                                   -(apv["FRAME4"]["k"] + assmebly_par['Ass_AC'] - apv["FRAME50"]["B"]/2), 'XY plane', 0, 173)
-        mprog.add_offset_assembly('FRAME50.1', 'FRAME4.1', -(apv["FRAME50"]["A"]),
+        mprog.add_offset_assembly('FRAME50.1', 'FRAME4.1', -(apv["FRAME50"]["c"]),
+                                  'YZ plane', 1, 174)
+        mprog.add_offset_assembly('FRAME50.1', 'FRAME4.1', -(apv['FRAME4']['B'] / 2 - assmebly_par['Ass_AB'] + apv['FRAME50']['B']/2), 'ZX plane',
+                                  1, 175)
+        mprog.add_offset_assembly('FRAME49.1', 'FRAME4.1',-(apv["FRAME4"]["k"] + assmebly_par['Ass_AE']), 'XY plane', 0, 176)
+        mprog.add_offset_assembly('FRAME49.1', 'FRAME4.1', 0,
+                                  'YZ plane', 1, 177)
+        mprog.add_offset_assembly('FRAME49.1', 'FRAME4.1',
+                                  -(apv['FRAME4']['B'] / 2 - assmebly_par['Ass_AD']),'ZX plane',1, 178)
+        mprog.add_offset_assembly('FRAME48.1', 'FRAME8.1', (apv["FRAME48"]["B"]), 'XY plane', 0, 179)
+        mprog.add_offset_assembly('FRAME48.1', 'FRAME8.1', apv["FRAME48"]["C"],'YZ plane', 1, 180)
+        mprog.add_offset_assembly('FRAME48.1', 'FRAME8.1',0, 'ZX plane', 1, 181)
+        mprog.add_offset_assembly('FRAME48.2', 'FRAME8.1', (apv["FRAME48"]["B"]), 'XY plane', 0, 182)
+        mprog.add_offset_assembly('FRAME48.2', 'FRAME8.1', (assmebly_par['Ass_AF'] + apv["FRAME48"]["C"]), 'YZ plane', 1, 183)
+        mprog.add_offset_assembly('FRAME48.2', 'FRAME8.1', 0, 'ZX plane', 1, 184)
+        mprog.add_offset_assembly('FRAME23_1.1', 'FRAME22.1', -(apv["FRAME22"]["A(1)"] - apv["FRAME22"]["A(2)"] - apv["FRAME23"]["I"]), 'XY plane', 0, 185)
+        mprog.add_offset_assembly('FRAME23_1.1', 'FRAME22.1', -(apv["FRAME22"]["O"] + apv["FRAME23"]["A"]), 'YZ plane',
+                                  0, 186)
+        mprog.add_offset_assembly('FRAME23_1.1', 'FRAME22.1', (apv["FRAME22"]["D"]/2 + apv["FRAME23"]["B"]/2), 'ZX plane', 0, 187)
+        mprog.add_offset_assembly('FRAME47.1', 'FRAME22.1', -(apv["FRAME22"]["A(1)"] - apv["FRAME22"]["A(2)"] - apv["FRAME47"]["E"]), 'XY plane',
+                                  0, 188)
+        mprog.add_offset_assembly('FRAME47.1', 'FRAME7.1', -apv["FRAME47"]["B"], 'YZ plane',
+                                  1, 189)
+        mprog.add_offset_assembly('FRAME47.1', 'FRAME22.1', -(apv["FRAME22"]["D"] / 2 - apv["FRAME47"]["B"] / 2),
+                                  'ZX plane', 1, 190)
+        mprog.add_offset_assembly('FRAME45.1', 'FRAME13.1', 0, 'XY plane', 0, 191)
+        mprog.add_offset_assembly('FRAME45.1', 'FRAME13.1', apv["FRAME45"]["A"] + apv["FRAME13"]["H"], 'YZ plane',
+                                  1, 192)
+        mprog.add_offset_assembly('FRAME45.1', 'FRAME13.1', -apv["FRAME45"]["C"],
+                                  'ZX plane', 0, 193)
+        mprog.add_offset_assembly('FRAME45.2', 'FRAME13_1.1', apv["FRAME45"]["H"], 'XY plane',
+                                  1, 194)
+        mprog.add_offset_assembly('FRAME45.2', 'FRAME13_1.1', apv["FRAME45"]["A"] + apv["FRAME13"]["H"], 'YZ plane',
+                                  1, 195)
+        mprog.add_offset_assembly('FRAME45.2', 'FRAME13_1.1', -(apv["FRAME45"]["C"] - apv["FRAME13"]["I"]),
+                                  'ZX plane', 1, 196)
+        mprog.add_offset_assembly('FRAME43.1', 'FRAME13.1', apv["FRAME13"]["j"] + apv["FRAME13"]["k"] + assmebly_par['Ass_AI'] + apv["FRAME43"]["C"]/2, 'XY plane',
+                                  1, 197)
+        mprog.add_offset_assembly('FRAME43.1', 'FRAME13.1', apv["FRAME43"]["B"], 'YZ plane',1, 198)
+        mprog.add_offset_assembly('FRAME43.1', 'FRAME13.1', 0, 'ZX plane', 0, 199)
+        mprog.add_offset_assembly('FRAME43.2', 'FRAME13_1.1',
+                                  -(apv["FRAME13"]["j"] + apv["FRAME13"]["k"] + assmebly_par['Ass_AI'] - apv["FRAME43"][
+                                      "C"]) , 'XY plane',
+                                  0, 200)
+        mprog.add_offset_assembly('FRAME43.2', 'FRAME13_1.1', apv["FRAME43"]["B"], 'YZ plane', 1, 201)
+        mprog.add_offset_assembly('FRAME43.2', 'FRAME13_1.1', apv["FRAME13"]["I"], 'ZX plane', 1, 202)
+        mprog.add_offset_assembly('FRAME52.1', 'FRAME22.1',
+                                  -(apv["FRAME22"]["A(1)"] - apv["FRAME22"]["A(2)"] - apv["FRAME52"]["C"]), 'XY plane',
+                                  0, 212)
+        mprog.add_offset_assembly('FRAME52.1', 'FRAME22.1', 0, 'YZ plane', 0, 213)
+        mprog.add_offset_assembly('FRAME52.1', 'FRAME22.1', apv["FRAME22"]["D"] - apv["FRAME19"]["AH"], 'ZX plane', 0, 214)
+        mprog.add_offset_assembly('FRAME52.2', 'FRAME22.1',
+                                  -(apv["FRAME22"]["A(1)"] - apv["FRAME22"]["A(2)"] - apv["FRAME52"]["C"]), 'XY plane',
+                                  0, 215)
+        mprog.add_offset_assembly('FRAME52.2', 'FRAME22.1', -(apv["FRAME52"]["B"]), 'YZ plane', 1, 216)
+        mprog.add_offset_assembly('FRAME52.2', 'FRAME22.1', -(apv["FRAME19"]["AH"]), 'ZX plane', 1,
+                                  217)
+    elif i == 8:
+        mprog.add_offset_assembly('FRAME15.1', 'FRAME1.1', -(
+                apv['FRAME1']['A'] - apv['FRAME30']['A'] - assmebly_par['Ass_S'] - apv['FRAME17']['g3']) - beta,
+                                  'XY plane', 0,
+                                  115)
+        mprog.add_offset_assembly('FRAME15.1', 'FRAME1.1',
+                                  -(apv['FRAME1']['F'] - apv['FRAME1']['G'] - apv['FRAME2']['FF'] - assmebly_par[
+                                      'Ass_T'] - apv['FRAME15']['F'] + zeta),
+                                  'YZ plane', 0, 116)
+        mprog.add_offset_assembly('FRAME15.1', 'FRAME1.1',
+                                  -(apv['FRAME3']['B'] / 2 - assmebly_par['Ass_U'] + apv['FRAME1']['CC'] / 2), 'ZX plane', 0, 117)
+        mprog.add_offset_assembly('FRAME15.2', 'FRAME2.1', -(
+                apv['FRAME2']['A'] - apv['FRAME30']['A'] - assmebly_par['Ass_S'] - apv['FRAME17']['g3']) - beta,
+                                  'XY plane', 0,
+                                  118)
+        mprog.add_offset_assembly('FRAME15.2', 'FRAME2.1',
+                                  -(apv['FRAME2']['F'] - apv['FRAME2']['G'] - apv['FRAME2']['FF'] - assmebly_par[
+                                      'Ass_T'] - apv['FRAME15']['F'] + zeta),
+                                  'YZ plane', 0, 119)
+        mprog.add_offset_assembly('FRAME15.2', 'FRAME2.1',
+                                  (apv['FRAME3']['B'] / 2 - assmebly_par['Ass_U'] + apv['FRAME1']['CC'] / 2 - apv['FRAME15']['B']),
+                                  'ZX plane',
+                                  0, 120)
+        mprog.add_offset_assembly('FRAME51.1', 'FRAME1.1', -(apv['FRAME2']['A'] - apv['FRAME30']['A'] - (
+                    apv['FRAME17']['g3'] - apv['FRAME17']['g2']) - apv['FRAME13']['k'] - apv['FRAME13']['j'] -
+                                  assmebly_par['Ass_V'] - assmebly_par['Ass_S'] + apv['FRAME15']['A'] - apv['FRAME51']['A']  + beta), 'XY plane', 0, 127)
+        mprog.add_offset_assembly('FRAME51.1', 'FRAME1.1', -(
+            apv['FRAME2']['F'] - apv['FRAME2']['G'] - apv['FRAME2']['FF'] - assmebly_par[
+                'Ass_T'] - apv['FRAME15']['F'] + zeta), 'YZ plane', 0, 128)
+        mprog.add_offset_assembly('FRAME51.1', 'FRAME1.1', -(
+                    apv['FRAME3']['B'] / 2 - assmebly_par['Ass_U'] + apv['FRAME1']['CC'] / 2 - apv['FRAME15']['B']+apv['FRAME51']['E']),
+                                  'ZX plane', 0, 129)
+        mprog.add_offset_assembly('FRAME51_1.1', 'FRAME2.1', -(apv['FRAME2']['A'] - apv['FRAME30']['A'] - (
+                    apv['FRAME17']['g3'] - apv['FRAME17']['g2']) - apv['FRAME13']['k'] - apv['FRAME13']['j'] -
+                                  assmebly_par['Ass_V'] - assmebly_par['Ass_S'] + apv['FRAME15']['A'] - apv['FRAME51']['A'] + beta), 'XY plane', 0, 130)
+        mprog.add_offset_assembly('FRAME51_1.1', 'FRAME2.1', -(
+            apv['FRAME2']['F'] - apv['FRAME2']['G'] - apv['FRAME2']['FF'] - assmebly_par[
+                'Ass_T'] - apv['FRAME15']['F'] + zeta), 'YZ plane', 0, 131)
+        mprog.add_offset_assembly('FRAME51_1.1', 'FRAME2.1',
+                                  (apv['FRAME3']['B'] / 2 - assmebly_par['Ass_U'] + apv['FRAME1']['CC'] / 2 - apv['FRAME51']['E']),
+                                  'ZX plane', 0, 132)
+        mprog.add_offset_assembly('FRAME29.1', 'FRAME4.1', -(
+                assmebly_par['Ass_Q'] + (apv['FRAME4']['A'] - apv['FRAME4']['a']) - apv['FRAME29']['A'] / 2),
+                                  'XY plane', 0, 94)
+        mprog.add_offset_assembly('FRAME29.1', 'FRAME4.1',(apv['FRAME29']['B'] - apv['FRAME29']['F']), 'YZ plane', 1, 95)
+        mprog.add_offset_assembly('FRAME29.1', 'FRAME4.1',
+                                  -(apv['FRAME4']['B'] / 2 - apv['FRAME29']['A'] / 2 + assmebly_par['Ass_AJ']), 'ZX plane', 1,
+                                  96)
+        mprog.add_offset_assembly('FRAME29.2', 'FRAME4.1', -(
+                assmebly_par['Ass_Q'] + (apv['FRAME4']['A'] - apv['FRAME4']['a']) - apv['FRAME29']['A'] / 2),
+                                  'XY plane', 0, 97)
+        mprog.add_offset_assembly('FRAME29.2', 'FRAME4.1',(apv['FRAME29']['B'] - apv['FRAME29']['F']), 'YZ plane', 1, 98)
+        mprog.add_offset_assembly('FRAME29.2', 'FRAME4.1',
+                                  -(apv['FRAME4']['B'] / 2 - apv['FRAME29']['A'] / 2 - assmebly_par['Ass_AJ']), 'ZX plane', 1,
+                                  99)
+        mprog.add_offset_assembly('FRAME23.1', 'FRAME1.1',
+                                  -(apv["FRAME1"]["E"] - apv["FRAME1"]["DD"] - apv["FRAME23"]["I"]), 'XY plane', 0, 145)
+        mprog.add_offset_assembly('FRAME23.1', 'FRAME1.1', -(apv['FRAME1']['B'] - apv['FRAME23']['B']) - zeta,
+                                  'YZ plane', 0, 146)
+        mprog.add_offset_assembly('FRAME23.1', 'FRAME1.1', -(apv['FRAME1']['CC'] / 2 + apv['FRAME23']['A']), 'ZX plane',
+                                  1, 147)
+        mprog.add_offset_assembly('FRAME23.2', 'FRAME1.1',
+                                  -(apv["FRAME1"]["E"] - apv["FRAME1"]["DD"] - apv["FRAME23"]["I"]), 'XY plane', 0, 148)
+        mprog.add_offset_assembly('FRAME23.2', 'FRAME1.1',
+                                  -(apv["FRAME1"]["B"] - apv["FRAME23"]["B"] - assmebly_par['Ass_Y']) - zeta,
+                                  'YZ plane', 0, 149)
+        mprog.add_offset_assembly('FRAME23.2', 'FRAME1.1', -(apv['FRAME1']['CC'] / 2 + apv['FRAME23']['A']), 'ZX plane',
+                                  1, 150)
+        mprog.add_offset_assembly('FRAME23.3', 'FRAME2.1',
+                                  -(apv["FRAME1"]["E"] - apv["FRAME1"]["DD"] - apv["FRAME23"]["I"]), 'XY plane', 0, 151)
+        mprog.add_offset_assembly('FRAME23.3', 'FRAME2.1', (apv['FRAME1']['B']) + zeta,
+                                  'YZ plane', 1, 152)
+        mprog.add_offset_assembly('FRAME23.3', 'FRAME2.1', -(apv['FRAME1']['CC'] / 2 + apv['FRAME23']['A']), 'ZX plane',
+                                  0, 153)
+        mprog.add_offset_assembly('FRAME23.4', 'FRAME2.1',
+                                  -(apv["FRAME1"]["E"] - apv["FRAME1"]["DD"] - apv["FRAME23"]["I"]), 'XY plane', 0, 154)
+        mprog.add_offset_assembly('FRAME23.4', 'FRAME2.1', (apv["FRAME1"]["B"] - assmebly_par['Ass_Y']) + zeta,
+                                  'YZ plane', 1, 155)
+        mprog.add_offset_assembly('FRAME23.4', 'FRAME2.1', -(apv['FRAME2']['CC'] / 2 + apv['FRAME23']['A']), 'ZX plane',
+                                  0, 156)
+        mprog.add_offset_assembly('FRAME50.1', 'FRAME4.1',
+                                  -(apv["FRAME4"]["k"] + assmebly_par['Ass_AC'] - apv["FRAME50"]["B"]/2), 'XY plane', 0, 173)
+        mprog.add_offset_assembly('FRAME50.1', 'FRAME4.1', -(apv["FRAME50"]["c"]),
                                   'YZ plane', 1, 174)
         mprog.add_offset_assembly('FRAME50.1', 'FRAME4.1', -(apv['FRAME4']['B'] / 2 - assmebly_par['Ass_AB'] + apv['FRAME50']['B']/2), 'ZX plane',
                                   1, 175)
@@ -944,22 +1083,73 @@ def assembly(i, apv, path, alpha, beta, zeta):
                                   1, 192)
         mprog.add_offset_assembly('FRAME45.1', 'FRAME13.1', -apv["FRAME45"]["C"],
                                   'ZX plane', 0, 193)
-        mprog.add_offset_assembly('FRAME45.2', 'FRAME13.2', apv["FRAME45"]["H"], 'XY plane',
+        mprog.add_offset_assembly('FRAME45.2', 'FRAME13_1.1', apv["FRAME45"]["H"], 'XY plane',
                                   1, 194)
-        mprog.add_offset_assembly('FRAME45.2', 'FRAME13.2', apv["FRAME45"]["A"] + apv["FRAME13"]["H"], 'YZ plane',
+        mprog.add_offset_assembly('FRAME45.2', 'FRAME13_1.1', apv["FRAME45"]["A"] + apv["FRAME13"]["H"], 'YZ plane',
                                   1, 195)
-        mprog.add_offset_assembly('FRAME45.2', 'FRAME13.2', -(apv["FRAME45"]["C"] - apv["FRAME13"]["I"]),
+        mprog.add_offset_assembly('FRAME45.2', 'FRAME13_1.1', -(apv["FRAME45"]["C"] - apv["FRAME13"]["I"]),
                                   'ZX plane', 1, 196)
         mprog.add_offset_assembly('FRAME43.1', 'FRAME13.1', apv["FRAME13"]["j"] + apv["FRAME13"]["k"] + assmebly_par['Ass_AI'] + apv["FRAME43"]["C"]/2, 'XY plane',
                                   1, 197)
         mprog.add_offset_assembly('FRAME43.1', 'FRAME13.1', apv["FRAME43"]["B"], 'YZ plane',1, 198)
         mprog.add_offset_assembly('FRAME43.1', 'FRAME13.1', 0, 'ZX plane', 0, 199)
-        mprog.add_offset_assembly('FRAME43.2', 'FRAME13.2',
+        mprog.add_offset_assembly('FRAME43.2', 'FRAME13_1.1',
                                   -(apv["FRAME13"]["j"] + apv["FRAME13"]["k"] + assmebly_par['Ass_AI'] - apv["FRAME43"][
                                       "C"]) , 'XY plane',
                                   0, 200)
-        mprog.add_offset_assembly('FRAME43.2', 'FRAME13.2', apv["FRAME43"]["B"], 'YZ plane', 1, 201)
+        mprog.add_offset_assembly('FRAME43.2', 'FRAME13_1.1', apv["FRAME43"]["B"], 'YZ plane', 1, 201)
         mprog.add_offset_assembly('FRAME43.2', 'FRAME13.2', apv["FRAME13"]["I"], 'ZX plane', 1, 202)
+        mprog.add_offset_assembly('FRAME29.3', 'FRAME4.1', (
+                assmebly_par['Ass_Q'] - (apv['FRAME4']['A'] - apv['FRAME4']['a']) + apv['FRAME29']['A'] / 2),
+                                  'XY plane', 0, 203)
+        mprog.add_offset_assembly('FRAME29.3', 'FRAME4.1', (apv['FRAME29']['B'] - apv['FRAME29']['F']), 'YZ plane', 1,
+                                  204)
+        mprog.add_offset_assembly('FRAME29.3', 'FRAME4.1',
+                                  -(apv['FRAME4']['B'] / 2 - apv['FRAME29']['A'] / 2 + assmebly_par['Ass_Q']), 'ZX plane',
+                                  1,
+                                  205)
+        mprog.add_offset_assembly('FRAME29.4', 'FRAME4.1', (
+                assmebly_par['Ass_Q'] - (apv['FRAME4']['A'] - apv['FRAME4']['a']) + apv['FRAME29']['A'] / 2),
+                                  'XY plane', 0, 206)
+        mprog.add_offset_assembly('FRAME29.4', 'FRAME4.1', (apv['FRAME29']['B'] - apv['FRAME29']['F']), 'YZ plane', 1,
+                                  207)
+        mprog.add_offset_assembly('FRAME29.4', 'FRAME4.1',
+                                  -(apv['FRAME4']['B'] / 2 - apv['FRAME29']['A'] / 2 - assmebly_par['Ass_Q']), 'ZX plane',
+                                  1,
+                                  208)
+        mprog.add_offset_assembly('FRAME11.1', 'FRAME3.1', -(apv['FRAME3']['A']-apv['FRAME3']['E']-apv['FRAME11']['A']/2), 'XY plane', 0, 64)
+        mprog.add_offset_assembly('FRAME11.1', 'FRAME3.1', apv['FRAME3']['O']+assmebly_par['Ass_I'], 'YZ plane', 0, 65)
+        mprog.add_offset_assembly('FRAME11.1', 'FRAME3.1', apv['FRAME3']['B']/2+apv['FRAME11']['A']/2, 'ZX plane', 0, 66)
+        mprog.add_offset_assembly('FRAME54.1', 'FRAME30.1',
+                                  -(apv['FRAME30']['h']-apv['FRAME54']['D']), 'XY plane', 0,
+                                  64)
+        mprog.add_offset_assembly('FRAME54.1', 'FRAME30.1', apv['FRAME30']['M']/2 + apv['FRAME54']['F'], 'YZ plane', 0,
+                                  65)
+        mprog.add_offset_assembly('FRAME54.1', 'FRAME30.1', apv['FRAME30']['E'] / 2, 'ZX plane',
+                                  0, 66)
+        mprog.add_offset_assembly('FRAME54.1', 'FRAME30.1',
+                                  -(apv['FRAME30']['h'] - apv['FRAME54']['D']), 'XY plane', 0,
+                                  64)
+        mprog.add_offset_assembly('FRAME54.1', 'FRAME30.1', apv['FRAME30']['M'] / 2 + apv['FRAME54']['F'], 'YZ plane',
+                                  0,
+                                  65)
+        mprog.add_offset_assembly('FRAME54.1', 'FRAME30.1', apv['FRAME30']['E'] / 2, 'ZX plane',
+                                  0, 66)
+        mprog.add_offset_assembly('FRAME52.1', 'FRAME22.1',
+                                  -(apv["FRAME22"]["A(1)"] - apv["FRAME22"]["A(2)"] - apv["FRAME52"]["C"]), 'XY plane',
+                                  0, 212)
+        mprog.add_offset_assembly('FRAME52.1', 'FRAME22.1', 0, 'YZ plane', 0, 213)
+        mprog.add_offset_assembly('FRAME52.1', 'FRAME22.1', apv["FRAME22"]["D"] - apv["FRAME19"]["AH"], 'ZX plane', 1,
+                                  214)
+        mprog.add_offset_assembly('FRAME52.2', 'FRAME22.1',
+                                  -(apv["FRAME22"]["A(1)"] - apv["FRAME22"]["A(2)"] - apv["FRAME52"]["C"]), 'XY plane',
+                                  0, 215)
+        mprog.add_offset_assembly('FRAME52.2', 'FRAME22.1', -(apv["FRAME52"]["B"]), 'YZ plane', 1, 216)
+        mprog.add_offset_assembly('FRAME52.2', 'FRAME22.1', -(apv["FRAME22"]["D"] - apv["FRAME19"]["AH"]), 'ZX plane',
+                                  1,
+                                  217)
+
+
 
 
 

@@ -2495,6 +2495,40 @@ def change_welding_feature(name, i):
                     mprog.Update()
                 except:
                     print('FRAME50 Update error')
+        elif name == 'FRAME51':
+            # 判斷是否需要模墊加工
+            try:
+                if i == 8:
+                    mprog.partbodyfeatureactivate('Body')
+                    mprog.partbodyfeatureactivate('SN1_250_CD')
+                    mprog.partbodyfeatureactivate('Chamfer_FG_R')
+                    mprog.partbodyfeatureactivate('SN1_250_CD')
+                    mprog.activatefeature('M10*35L', 0)
+                else:
+                    print('FRAME51 feature activate error')
+            finally:
+                try:
+                    mprog.Update()
+                    print('FRAME51 Update success')
+                except:
+                    print('FRAME51 Update error')
+        elif name == 'FRAME51_1':
+            # 判斷是否需要模墊加工
+            try:
+                if i == 8:
+                    mprog.partbodyfeatureactivate('Body')
+                    mprog.partbodyfeatureactivate('SN1_250_CD')
+                    mprog.partbodyfeatureactivate('Chamfer_FG_L')
+                    mprog.partbodyfeatureactivate('SN1_250_CD')
+                    mprog.activatefeature('M10*35L', 0)
+                else:
+                    print('FRAME51_1 feature activate error')
+            finally:
+                try:
+                    mprog.Update()
+                    print('FRAME51_1 Update success')
+                except:
+                    print('FRAME51_1 Update error')
         elif name == 'FRAME52':
             try:
                 if i == 5:
@@ -2527,10 +2561,28 @@ def change_welding_feature(name, i):
                     print('FRAME52 Update error')
         elif name == 'FRAME53':
             try:
+                if i == 8:
+                    mprog.partbodyfeatureactivate('EdgeFillet.1')
+                    mprog.partbodyfeatureactivate('Chamfer.1')
+            except:
+                print('FRAME53 Parameter activate error')
+            try:
                 mprog.Update()
                 print('FRAME53 Update success')
             except BaseException:
                 print('FRAME53 Update error')
+        elif name == 'FRAME53_1':
+            try:
+                if i == 8:
+                    mprog.partbodyfeatureactivate('EdgeFillet.1')
+                    mprog.partbodyfeatureactivate('Chamfer.1')
+            except:
+                print('FRAME53_1 Parameter activate error')
+            try:
+                mprog.Update()
+                print('FRAME53_1 Update success')
+            except BaseException:
+                print('FRAME53_1 Update error')
         elif name == 'FRAME54':
             try:
                 if i == 6:
