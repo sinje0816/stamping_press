@@ -9,6 +9,7 @@ from PAD_MACHINING import Ui_Form as pad_machining_Form
 from PAD_dimension import Ui_Form as pad_dimension_Form
 from pad_feeding_hole import Ui_Form as pad_feeding_hole_Form
 from cutout_hole_GUI import Ui_Form as cutout_hole_machining_form
+from plate_main_first import Ui_Form as plate_main_first_form
 from io import StringIO
 import main_program as mprog
 import file_path as fp
@@ -433,6 +434,14 @@ class main(QtWidgets.QWidget, Ui_Dialog):
 
         return machining_file_change_error, welding_file_change_error
 
+class plate_first_windows(QtWidgets.QWidget):
+    def __init__(self):
+        super().__init__()
+        self.ui = plate_main_first_form()
+        self.ui.setupUi(self)
+        self.setWindowTitle('平板')
+        self.ui.pad.clicked.connect(self.showPadwindows)
+        self.ui.pushButton_2.clicked.connect(self.showcutoutwindows)
 
 # 平板主頁面
 class padwindows(QtWidgets.QWidget):
@@ -442,6 +451,9 @@ class padwindows(QtWidgets.QWidget):
         self.ui.setupUi(self)
         self.setWindowTitle('平板')
         self.ui.remove_type.currentIndexChanged.connect(self.cutout_parameter_change)
+        # 平板長寬尺寸
+        self.plate_type(i)
+        self.ui.pad_extrasize.currentIndexChanged.connect(lambda: self.plate_area_dimension(i))
         # 刪除垂直表頭
         self.ui.removetable.verticalHeader().setVisible(False)
         for number in range(0, 4):
@@ -460,6 +472,28 @@ class padwindows(QtWidgets.QWidget):
 
         self.ui.remove_machining.clicked.connect(self.showcutoutmachiningwindows)
         self.chack_plate_table()
+
+    def plate_area_dimension(self, i):
+        get_pad_select_name = self.ui.pad_select.currentText()
+        if get_pad_select_name == "特殊平板":
+            if get_pad_select_name == '標準':
+                LR_value = str(par.plate_length[i])
+                FB_value = str(par.plate_width[i])
+            elif get_pad_select_name == '加大I型':
+                LR_value = str(par.plate_length[i] + par.plate_lv1[i])
+                FB_value = str(par.plate_width[i])
+            elif get_pad_select_name == '加大II型':
+                LR_value = str(par.plate_length[i] + par.plate_lv2[i])
+                FB_value = str(par.plate_width[i])
+            # 設定最終的 LR 和 FB 值
+            self.ui.LR.setText(LR_value)
+            self.ui.FB.setText(FB_value)
+
+    def plate_type(self, i):
+        for number in range(0, 10):
+            self.ui.pad_select.setItemText(number, str(par.plate_type[number])+str(par.plate_length[i])+'x'+str(par.plate_width[i]))
+
+
 
     def T_solt_table_normel_setup(self):
         # 設定T_solt表格內容
@@ -1101,7 +1135,6 @@ class t_machining(QWidget):
                 combo_box.setCurrentText(item)
                 self.combo_box_changed(position + 1, combo_box.currentIndex())
 
-
         if self.ui.t_slot_table_v.rowCount() != 0:
             for row in range(1, self.ui.t_slot_table_v.rowCount()):
                 position_x = self.ui.t_slot_table_v.item(row, 1).text()
@@ -1154,8 +1187,6 @@ class t_machining(QWidget):
                 combo_box = self.ui.t_slot_table_v.cellWidget(position + 1, 2)
                 combo_box.setCurrentText(item)
                 self.combo_box_changed_v(position + 1, combo_box.currentIndex())
-
-
 
     def reset(self):
         self.ui.t_slot_h_number.clear()

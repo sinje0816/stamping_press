@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="T形槽可運作">
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="T形槽介面更新">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/DEMO.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/DEMO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/PAD_MACHINING.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/PAD_MACHINING.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/PAD_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/PAD_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/T_slot_position.png" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/T_slot_position.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/pad_machining.ui" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/pad_machining.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/pad_main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/pad_main.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/parameter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/seyi_stamping_die.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/seyi_stamping_die.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -651,7 +645,7 @@
       <option name="project" value="LOCAL" />
       <updated>1694404244224</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -717,7 +711,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="改FRAME11跟10的XY平面&#10;主程式修改" />
     <MESSAGE value="修改FRAME1,2,10,11之alpha值相關組立尺寸" />
     <MESSAGE value="爆改主程式" />
     <MESSAGE value="修整主程式資料位置" />
@@ -742,7 +735,8 @@
     <MESSAGE value="組立資訊修改，FRAME19更新" />
     <MESSAGE value="T形槽建立成功" />
     <MESSAGE value="T形槽可運作" />
-    <option name="LAST_COMMIT_MESSAGE" value="T形槽可運作" />
+    <MESSAGE value="T形槽介面更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="T形槽介面更新" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -756,21 +750,6 @@
           <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/test_T.py</url>
           <line>91</line>
           <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/DEMO.py</url>
-          <line>507</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/DEMO.py</url>
-          <line>511</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SYEI_stamping_press_system/DEMO.py</url>
-          <line>454</line>
-          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -813,7 +792,7 @@
     <SUITE FILE_PATH="coverage/stamping_press$parameter.coverage" NAME="parameter Coverage Results" MODIFIED="1683870399043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$seyi_stamping_die.coverage" NAME="seyi_stamping_die Coverage Results" MODIFIED="1697102387801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$excel_parameter_change_1.coverage" NAME="excel_parameter_change_1 Coverage Results" MODIFIED="1689250106079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
-    <SUITE FILE_PATH="coverage/stamping_press$DEMO.coverage" NAME="DEMO Coverage Results" MODIFIED="1697619231084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
+    <SUITE FILE_PATH="coverage/stamping_press$DEMO.coverage" NAME="DEMO Coverage Results" MODIFIED="1697630897703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$test_T.coverage" NAME="test_T Coverage Results" MODIFIED="1694584063207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$excel_parameter_change.coverage" NAME="excel_parameter_change Coverage Results" MODIFIED="1692177750023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />
     <SUITE FILE_PATH="coverage/stamping_press$part_TYPE_change2.coverage" NAME="part_TYPE_change2 Coverage Results" MODIFIED="1691644595509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SYEI_stamping_press_system" />

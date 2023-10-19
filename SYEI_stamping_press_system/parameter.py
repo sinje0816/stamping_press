@@ -124,14 +124,27 @@ total_SB = []  # 讓槽SR尺寸
 t1 = [19, 22, 25, 28, 45, 50, 55, 60, 65]
 t2 = [50, 50, 55, 60, 65, 90, 105, 105, 105]
 B2 = [388, 486, 516, 544, 614, 670, 730, 900, 970]
-B1 = []
+B1 = [526, 630, 676, 720, 834, 950, 1050, 1230, 1310]
+
+# 平板長寬尺吋
+plate_length = [700, 780, 840, 900, 1050, 1150, 1250, 1400, 1500]
+plate_width = [320, 400, 440, 520, 600, 680, 760, 840, 900]
+plate_lv1 = [80, 60, 60, 150, 100, 100, 150, 100, 150]
+plate_lv2 = [140, 120, 210, 100, 100, 150, 100, 150, 150]
+
+# 基本平板類型
+plate_type = ['標準圓孔', '標準無孔', '標準方孔', '標準模墊型', '標準加大I型(無孔)', '標準加大I型(圓孔)', '標準加大I型(方孔)', '標準加大II型(無孔)', '標準加大II型(圓孔)', '標準加大II型(方孔)']
+plate_normal_type = ['標準圓孔', '標準無孔', '標準方孔', '標準模墊型']
+plate_lv1_type = ['標準加大I型(無孔)', '標準加大I型(圓孔)', '標準加大I型(方孔)']
+plate_lv2_type = ['標準加大II型(無孔)', '標準加大II型(圓孔)', '標準加大II型(方孔)']
+plate_base_type = ['標準', '加大I型', '加大II型']
+
 # T型槽外型尺寸
 t_all_dimension = []
 # t_all_dimension = [22, 38, 23, 16]
 t_all_dimension_name = ['tw2', 'tw1', 'th2', 'th1']
 # T型槽主頁表格
 t_table_dimension_parameter = ['A', 'B', 'C', 'D']
-
 
 # 平板外型尺寸
 plate_dimension = []
@@ -156,12 +169,12 @@ cutout_all_limit = {}
 # 下料孔外型尺寸
 cutout_part_dimension = ['', '', '', '', '']
 
-#下料孔各形狀變數名稱
+# 下料孔各形狀變數名稱
 cutout_parameter_circle = ['HD']
 cutout_parameter_square = ['HLR', 'HFB']
 cutout_parameter_funnel = ['HULR', 'HDLR', 'HUFB', 'HDFB', 'HH']
 
-#模墊頂桿孔
+# 模墊頂桿孔
 cutout_molded_cushion_A = [26, 32]
 cutout_molded_cushion_B = [33.4, 40]
 cutout_molded_cushion_L = [8.5, 10.5]
