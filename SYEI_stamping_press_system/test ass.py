@@ -1,11 +1,7 @@
 import main_program as mprog
 
-#FRAME23要零存一個FRAME23_1，把ZX跟YZ交換
 
-
-# FRAME7 +bbbbb
-#FRAME47 要打開
-#FRAME45 ZX換YZ YZ換ZX
+#FRAME53 Zx換XY XY換ZX
 
 
 
