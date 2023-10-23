@@ -493,7 +493,7 @@ class padwindows(QtWidgets.QWidget):
 
     def plate_type(self, i):
         for number in range(0, 10):
-            self.ui.pad_select.setItemText(number, str(par.plate_type[number])+str(par.plate_length[i])+'x'+str(par.plate_width[i]))
+            self.ui.pad_select.setItemText(number, str(par.plate_type[number])+'('+str(par.plate_length[i])+'x'+str(par.plate_width[i])+")")
 
 
 

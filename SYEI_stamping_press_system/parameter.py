@@ -142,9 +142,14 @@ plate_base_type = ['標準', '加大I型', '加大II型']
 # T型槽外型尺寸
 t_all_dimension = []
 # t_all_dimension = [22, 38, 23, 16]
-t_all_dimension_name = ['tw2', 'tw1', 'th2', 'th1']
+t_all_dimension_name = ['T_type_A', 'T_type_B', 'T_type_C', 'T_type_D']
 # T型槽主頁表格
 t_table_dimension_parameter = ['A', 'B', 'C', 'D']
+#T型槽偏移
+T_offset_X = 0
+T_offset_Y = 0
+#T型槽貫穿
+T_type_E = 0
 
 # 平板外型尺寸
 plate_dimension = []
