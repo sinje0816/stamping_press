@@ -1326,6 +1326,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate("H")
                     mprog.partbodyfeatureactivate("I")
                 elif i == 8:  # 250N
+                    mprog.partbodyfeatureactivate("250N")
                     mprog.activatefeature('inside_hole', 0)
                     mprog.activatefeature('outside_hole', 0)
                     mprog.activatefeature('processing_h', 0)
@@ -1375,7 +1376,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('Hole', 0)
                     mprog.partbodyfeatureactivate('F')
                 elif i == 8:  # 250N
-                    mprog.partbodyfeatureactivate('SN1_200250')
+                    # mprog.partbodyfeatureactivate('SN1_200250')
                     mprog.activatefeature('Hole', 0)
                     mprog.partbodyfeatureactivate('F')
             except:
@@ -1530,6 +1531,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate("H")
                     mprog.partbodyfeatureactivate("I")
                 elif i == 8:  # 250N
+                    mprog.partbodyfeatureactivate("250N")
                     mprog.activatefeature('inside_hole', 0)
                     mprog.activatefeature('outside_hole', 0)
                     mprog.activatefeature('processing_h', 0)
