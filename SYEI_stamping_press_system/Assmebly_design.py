@@ -1095,8 +1095,7 @@ def assembly(i, apv, path, alpha, beta, zeta):
         mprog.add_offset_assembly('FRAME43.1', 'FRAME13.1', 0, 'ZX plane', 0, 199)
         mprog.add_offset_assembly('FRAME43.2', 'FRAME13_1.1',
                                   -(apv["FRAME13"]["j"] + apv["FRAME13"]["k"] + assmebly_par['Ass_AI'] - apv["FRAME43"][
-                                      "C"]) , 'XY plane',
-                                  0, 200)
+                                      "C"]) , 'XY plane', 0, 200)
         mprog.add_offset_assembly('FRAME43.2', 'FRAME13_1.1', apv["FRAME43"]["B"], 'YZ plane', 1, 201)
         mprog.add_offset_assembly('FRAME43.2', 'FRAME13_1.1', apv["FRAME13"]["E"], 'ZX plane', 1, 202)
         mprog.add_offset_assembly('FRAME29.3', 'FRAME4.1', (
