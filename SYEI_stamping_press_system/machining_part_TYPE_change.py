@@ -9,7 +9,7 @@ def modify_list_elements(enter_text, input_list):
 
 
 # 母檔變數變換
-def change_machining_parameter(name, i, machiningdiepad):
+def change_machining_parameter(name, i, machiningdiepad, specifications_travel_value):
     all_part_list = epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_col_cell(1)
     try:
         if name == 'FRAME1':
@@ -1326,6 +1326,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate("H")
                     mprog.partbodyfeatureactivate("I")
                 elif i == 8:  # 250N
+                    mprog.partbodyfeatureactivate("250N")
                     mprog.activatefeature('inside_hole', 0)
                     mprog.activatefeature('outside_hole', 0)
                     mprog.activatefeature('processing_h', 0)
@@ -1375,7 +1376,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.activatefeature('Hole', 0)
                     mprog.partbodyfeatureactivate('F')
                 elif i == 8:  # 250N
-                    mprog.partbodyfeatureactivate('SN1_200250')
+                    # mprog.partbodyfeatureactivate('SN1_200250')
                     mprog.activatefeature('Hole', 0)
                     mprog.partbodyfeatureactivate('F')
             except:
@@ -1530,6 +1531,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                     mprog.partbodyfeatureactivate("H")
                     mprog.partbodyfeatureactivate("I")
                 elif i == 8:  # 250N
+                    mprog.partbodyfeatureactivate("250N")
                     mprog.activatefeature('inside_hole', 0)
                     mprog.activatefeature('outside_hole', 0)
                     mprog.activatefeature('processing_h', 0)
@@ -2514,6 +2516,7 @@ def change_machining_parameter(name, i, machiningdiepad):
                 elif i == 8:
                     mprog.activatefeature('SN1_250_Body', 0)
                     mprog.activatefeature('Hole', 3)
+                    mprog.partbodyfeatureactivate('SN1_25250_L')
             except:
                 print('FRAME35 Parameter activate error')
             finally:
@@ -2963,6 +2966,341 @@ def change_machining_parameter(name, i, machiningdiepad):
                     print('FRAME54 Update success')
                 except:
                     print('FRAME54 Update error')
+        elif name == "crankshaft":
+            if specifications_travel_value == "S":
+                excel = epc.ExcelOp('尺寸整理表', 'crankshaft_S')
+                try:
+                    parameter_name, parameter_value = excel.get_sheet_par('crankshaft', i)
+                    print('crankshaft_S Parameter change success')
+                except:
+                    print('crankshaft_S Parameter change error')
+                try:
+                    if i == 0:  # 302CC7S
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('BALLr外1')
+                        mprog.partbodyfeatureactivate('BALLr內1')
+                        mprog.partbodyfeatureactivate('CALLr1')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_6M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_1M', 0)
+                    elif i == 1:  # 322CC7S
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('BALLr外1')
+                        mprog.partbodyfeatureactivate('BALLr內1')
+                        mprog.partbodyfeatureactivate('CALLr1')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_6M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_1M', 0)
+                    elif i == 2:  # 342CC7S
+                        mprog.partbodyfeatureactivate('Bex')
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('BALLr外2')
+                        mprog.partbodyfeatureactivate('BALLr內1')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_6M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_1M', 0)
+                    elif i == 3:  # 372CC7S
+                        mprog.partbodyfeatureactivate('Bex')
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('BALLr外2')
+                        mprog.partbodyfeatureactivate('BALLr內1')
+                        mprog.partbodyfeatureactivate('CALLr1')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_6M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_1M', 0)
+                    elif i == 4:  # 395CC7S
+                        mprog.partbodyfeatureactivate('Bex')
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('Ar1')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('Cr2')
+                        mprog.partbodyfeatureactivate('CALLr2')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_4M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_4M', 0)
+                    elif i == 5:  # 412CC7S
+                        mprog.partbodyfeatureactivate('Bex')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('BALLr外2')
+                        mprog.partbodyfeatureactivate('BALLr內2')
+                        mprog.partbodyfeatureactivate('CALLr1')
+                        mprog.partbodyfeatureactivate('Cr2')
+                        mprog.partbodyfeatureactivate('Cex(SN1_110_S)')
+                        mprog.activatefeature('Cex孔(SN1_110_S)', 0)
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_4M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_4M', 0)
+                        mprog.activatefeature('Dex(SN1_110_S)', 0)
+                    elif i == 6:  # 435CC7S
+                        mprog.partbodyfeatureactivate('Bex')
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('Ar1')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('CALLr1')
+                        mprog.partbodyfeatureactivate('Cr2')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_4M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_4M', 0)
+                    elif i == 7:  # 455CC7S
+                        mprog.partbodyfeatureactivate('Bex')
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('Ar1')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('CALLr1')
+                        mprog.partbodyfeatureactivate('Cr2')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_4M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_4M', 0)
+                    elif i == 8:  # 475CC7S
+                        mprog.partbodyfeatureactivate('Bex')
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('Ar1')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('BALLr外2')
+                        mprog.partbodyfeatureactivate('Cr2')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_4M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_4M', 0)
+                except:
+                    print('crankshaft Parameter activate error')
+                finally:
+                    try:
+                        mprog.Update()
+                        print('crankshaft Update success')
+                    except:
+                        print('crankshaft Update error')
+            elif specifications_travel_value == "H":
+                excel = epc.ExcelOp('尺寸整理表', 'crankshaft_H')
+                try:
+                    parameter_name, parameter_value = excel.get_sheet_par('crankshaft', i)
+                    print('crankshaft_H Parameter change success')
+                except:
+                    print('crankshaft_H Parameter change error')
+                try:
+                    if i == 0:  # 302CC7H
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('BALLr外1')
+                        mprog.partbodyfeatureactivate('BALLr內1')
+                        mprog.partbodyfeatureactivate('CALLr1')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_6M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_1M', 0)
+                    elif i == 1:  # 322CC7H
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('BALLr外1')
+                        mprog.partbodyfeatureactivate('BALLr內1')
+                        mprog.partbodyfeatureactivate('CALLr1')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_6M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_1M', 0)
+                    elif i == 2:  # 342CC7H
+                        mprog.partbodyfeatureactivate('Bex')
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('BALLr外2')
+                        mprog.partbodyfeatureactivate('BALLr內1')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_6M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_1M', 0)
+                    elif i == 3:  # 372CC7H
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('BALLr外1')
+                        mprog.partbodyfeatureactivate('BALLr內1')
+                        mprog.partbodyfeatureactivate('CALLr1')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_4M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_1M', 0)
+                    elif i == 4:  # 395CC7H
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('Ar1')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('Cr2')
+                        mprog.partbodyfeatureactivate('CALLr2')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_4M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_4M', 0)
+                    elif i == 5:  # 415CC7H
+                        mprog.partbodyfeatureactivate('Bex')
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('BALLr外2')
+                        mprog.partbodyfeatureactivate('BALLr內2')
+                        mprog.partbodyfeatureactivate('CALLr1')
+                        mprog.partbodyfeatureactivate('Cr2')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_4M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_4M', 0)
+                    elif i == 6:  # 435CC7H
+                        mprog.partbodyfeatureactivate('Bex')
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('Ar1')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('CALLr1')
+                        mprog.partbodyfeatureactivate('Cr2')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_4M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_4M', 0)
+                    elif i == 7:  # 455CC7H
+                        mprog.partbodyfeatureactivate('Bex')
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('Ar1')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('CALLr1')
+                        mprog.partbodyfeatureactivate('Cr2')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_4M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_4M', 0)
+                    elif i == 8:  # 475CC7H
+                        mprog.partbodyfeatureactivate('Bex')
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('Ar1')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('BALLr外2')
+                        mprog.partbodyfeatureactivate('Cr2')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_4M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_4M', 0)
+                except:
+                    print('crankshaft Parameter activate error')
+                finally:
+                    try:
+                        mprog.Update()
+                        print('crankshaft Update success')
+                    except:
+                        print('crankshaft Update error')
+            elif specifications_travel_value == "P":
+                excel = epc.ExcelOp('尺寸整理表', 'crankshaft_P')
+                try:
+                    parameter_name, parameter_value = excel.get_sheet_par('crankshaft', i)
+                    print('crankshaft_P Parameter change success')
+                except:
+                    print('crankshaft_P Parameter change error')
+                try:
+                    if i == 0:  # 302CC7P
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('BALLr外1')
+                        mprog.partbodyfeatureactivate('BALLr內2')
+                        mprog.partbodyfeatureactivate('CALLr1')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_6M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_1M', 0)
+                    elif i == 1:  # 322CC7P
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('BALLr外1')
+                        mprog.partbodyfeatureactivate('BALLr內1')
+                        mprog.partbodyfeatureactivate('CALLr1')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_6M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_1M', 0)
+                    elif i == 2:  # 342CC7P
+                        mprog.partbodyfeatureactivate('Bex')
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('BALLr外2')
+                        mprog.partbodyfeatureactivate('BALLr內1')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_6M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_1M', 0)
+                    elif i == 3:  # 372CC7P
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('Aex(SN1_60_P)')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('BALLr外1')
+                        mprog.partbodyfeatureactivate('BALLr內1')
+                        mprog.partbodyfeatureactivate('CALLr1')
+                        mprog.partbodyfeatureactivate('Cr2')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_4M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_1M', 0)
+                    elif i == 4:  # 395CC7P
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('Ar1')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('Cr2')
+                        mprog.partbodyfeatureactivate('CALLr2')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_4M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_4M', 0)
+                    elif i == 5:    # 415CC7P
+                        mprog.partbodyfeatureactivate('Bex')
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('BALLr外2')
+                        mprog.partbodyfeatureactivate('BALLr內2')
+                        mprog.partbodyfeatureactivate('CALLr1')
+                        mprog.partbodyfeatureactivate('Cr2')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_4M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_4M', 0)
+                    elif i == 6:  # 435CC7P
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('Ar1')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('CALLr1')
+                        mprog.partbodyfeatureactivate('Cr2')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_4M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_4M', 0)
+                    elif i == 7:  # 455CC7P
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('Ar1')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('CALLr1')
+                        mprog.partbodyfeatureactivate('Cr2')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_4M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_4M', 0)
+                    elif i == 8:  # 475CC7P
+                        mprog.partbodyfeatureactivate('Bex')
+                        mprog.partbodyfeatureactivate('C5')
+                        mprog.partbodyfeatureactivate('Ar1')
+                        mprog.partbodyfeatureactivate('AALLr')
+                        mprog.partbodyfeatureactivate('BALLr外2')
+                        mprog.partbodyfeatureactivate('Cr2')
+                        mprog.activatefeature('D1吊掛孔', 0)
+                        mprog.activatefeature('D2_4M', 0)
+                        mprog.activatefeature('D3_4M', 0)
+                        mprog.activatefeature('D4_4M', 0)
+                except:
+                    print('crankshaft Parameter activate error')
+                finally:
+                    try:
+                        mprog.Update()
+                        print('crankshaft Update success')
+                    except:
+                        print('crankshaft Update error')
 
     # print出跳錯欄位
     except Exception as e:
