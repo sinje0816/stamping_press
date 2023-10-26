@@ -500,13 +500,10 @@ class padwindows(QtWidgets.QWidget):
     def T_solt_table_normel_setup(self):
         # 設定T_solt表格內容
         # 第一行
-        self.ui.t_solttable.setSpan(0, 0, 1, 1)
         newItem = QTableWidgetItem("尺寸代號")
         self.ui.t_solttable.setItem(0, 0, newItem)
-        self.ui.t_solttable.setSpan(0, 0, 1, 1)
         newItem = QTableWidgetItem("尺寸")
         self.ui.t_solttable.setItem(0, 1, newItem)
-        self.ui.t_solttable.setSpan(0, 0, 1, 1)
         newItem = QTableWidgetItem("公差")
         self.ui.t_solttable.setItem(0, 2, newItem)
         # 第一列
