@@ -115,10 +115,10 @@ total_SL = []  # 讓槽SL尺寸
 total_SR = []  # 讓槽SR尺寸
 total_t_slot_v_type = []  # 型式(分段、貫穿)
 total_position_x = []  # T形槽位置
-total_LF = []  # 分段LL尺寸
-total_LB = []  # 分段LR尺寸
-total_SF = []  # 讓槽SL尺寸
-total_SB = []  # 讓槽SR尺寸
+total_LF = []  # 分段LF尺寸
+total_LB = []  # 分段LB尺寸
+total_SF = []  # 讓槽SF尺寸
+total_SB = []  # 讓槽SB尺寸
 
 # 機架外板喉部位置
 t1 = [19, 22, 25, 28, 45, 50, 55, 60, 65]
@@ -138,10 +138,10 @@ plate_normal_type = ['標準圓孔', '標準無孔', '標準方孔', '標準模�
 plate_lv1_type = ['標準加大I型(無孔)', '標準加大I型(圓孔)', '標準加大I型(方孔)']
 plate_lv2_type = ['標準加大II型(無孔)', '標準加大II型(圓孔)', '標準加大II型(方孔)']
 plate_base_type = ['標準', '加大I型', '加大II型']
+plate_special_type = []  # 紀錄當前特殊平板種類名稱
 
 # T型槽外型尺寸
 t_all_dimension = []
-# t_all_dimension = [22, 38, 23, 16]
 t_all_dimension_name = ['T_type_A', 'T_type_B', 'T_type_C', 'T_type_D']
 # T型槽主頁表格
 t_table_dimension_parameter = ['A', 'B', 'C', 'D']

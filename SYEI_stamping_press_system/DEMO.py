@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QPushButton, QLineEdit, QLabel, \
-    QTableWidget, QTableWidgetItem, QHeaderView, QSpinBox, QComboBox, QAbstractItemView
+    QTableWidget, QTableWidgetItem, QHeaderView, QSpinBox, QComboBox, QAbstractItemView, QMessageBox
 from PyQt5.QtCore import QObject, QTimer, Qt
 from PyQt5.QtGui import QColor, QBrush
 from DEMOGUI import Ui_Dialog
@@ -256,8 +256,8 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         time_now = datetime.datetime.now()
         dir_name = '{}_{}_{}_{}_{}'.format(type, time_now.day, time_now.hour, time_now.minute, time_now.second)
         desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
-        test = os.path.join("Z:")
-        path = test + '\\' + dir_name
+        test = os.path.join('Z:')
+        path = desktop + '\\' + dir_name
         os.mkdir(path)
         machining = path + "\\" + "machining"
         os.mkdir(machining)
@@ -452,15 +452,20 @@ class padwindows(QtWidgets.QWidget):
         self.ui = pad_main_Form()
         self.ui.setupUi(self)
         self.setWindowTitle('平板')
+        # 下料孔
         self.ui.remove_type.currentIndexChanged.connect(self.cutout_parameter_change)
-        # 平板長寬尺寸
+        self.ui.removetable.verticalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        self.ui.removetable.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        self.ui.removetable.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.ui.removetable.verticalHeader().setVisible(False)
+        # 平板面積
         self.plate_type(i)
         self.ui.pad_extrasize.currentIndexChanged.connect(lambda: self.plate_area_dimension(i))
-        # 刪除垂直表頭
-        self.ui.removetable.verticalHeader().setVisible(False)
+        self.ui.LR.setText(str(par.plate_length[i]))
+        self.ui.FB.setText(str(par.plate_width[i]))
+        # T溝
         for number in range(0, 4):
             self.ui.t_solttable.setItem(number, 0, QTableWidgetItem(par.t_table_dimension_parameter[number]))
-        # 刪除垂直及水平表頭
         self.ui.t_solttable.verticalHeader().setVisible(False)
         self.ui.t_solttable.horizontalHeader().setVisible(False)
         # 設定T_solt表格內容
@@ -468,34 +473,40 @@ class padwindows(QtWidgets.QWidget):
         for number in range(1, 10):
             newItem = QTableWidgetItem("-")
             self.ui.t_solttable.setItem(number, 1, newItem)
+        self.ui.t_solttable.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.ui.t_solttable.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        self.ui.t_solttable.verticalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         self.ui.t_solt_type.currentIndexChanged.connect(self.T_solt_combobox_change)
         self.ui.plate_start.clicked.connect(lambda: self.start(i))
         self.ui.t_machining.clicked.connect(lambda: self.showpadmachiningwindows(i))
-
-        self.ui.remove_machining.clicked.connect(self.showcutoutmachiningwindows)
+        self.ui.remove_machining.clicked.connect(lambda: self.showcutoutmachiningwindows(i))
         self.chack_plate_table()
+
 
     def plate_area_dimension(self, i):
         get_pad_select_name = self.ui.pad_select.currentText()
+        get_pad_area_name = self.ui.pad_extrasize.currentText()
         if get_pad_select_name == "特殊平板":
-            if get_pad_select_name == '標準':
+            if get_pad_area_name == '標準':
                 LR_value = str(par.plate_length[i])
                 FB_value = str(par.plate_width[i])
-            elif get_pad_select_name == '加大I型':
+            elif get_pad_area_name == '加大I型':
                 LR_value = str(par.plate_length[i] + par.plate_lv1[i])
                 FB_value = str(par.plate_width[i])
-            elif get_pad_select_name == '加大II型':
+            elif get_pad_area_name == '加大II型':
                 LR_value = str(par.plate_length[i] + par.plate_lv2[i])
                 FB_value = str(par.plate_width[i])
+            par.plate_special_type = [get_pad_area_name]
             # 設定最終的 LR 和 FB 值
             self.ui.LR.setText(LR_value)
             self.ui.FB.setText(FB_value)
+        else:
+            self.ui.LR.clear()
+            self.ui.FB.clear()
 
     def plate_type(self, i):
         for number in range(0, 10):
             self.ui.pad_select.setItemText(number, str(par.plate_type[number])+'('+str(par.plate_length[i])+'x'+str(par.plate_width[i])+")")
-
-
 
     def T_solt_table_normel_setup(self):
         # 設定T_solt表格內容
@@ -548,14 +559,30 @@ class padwindows(QtWidgets.QWidget):
 
     def T_solt_combobox_change(self):
         t_solt_type = self.ui.t_solt_type.currentText()
-        if t_solt_type == "T型槽代號:F(SN1-25~60標準)" or t_solt_type == "T型槽代號:G(SN180~250標準)":
+        if t_solt_type == "T溝代號:F(SN1-25~60標準)" or t_solt_type == "T溝代號:G(SN1-180~250標準)":
+            if t_solt_type == "T溝代號:F(SN1-25~60標準)":
+                self.ui.removepicture_2.setPixmap(QtGui.QPixmap("T溝詳圖_F.png"))
+            elif t_solt_type == "T溝代號:G(SN1-180~250標準)":
+                self.ui.removepicture_2.setPixmap(QtGui.QPixmap("T溝詳圖_G.png"))
             for number in range(1, 10):
                 newItem = QTableWidgetItem("-")
                 self.ui.t_solttable.setItem(number, 1, newItem)
-        elif t_solt_type == "特殊T型槽":
+        elif t_solt_type == "特殊T溝":
+            self.ui.removepicture_2.setPixmap(QtGui.QPixmap("T溝詳圖.png"))
             for number in range(1, 10):
                 newItem = QTableWidgetItem("")
                 self.ui.t_solttable.setItem(number, 1, newItem)
+        for number in range(0, 10):
+            for number2 in range(0, 3):
+                item = self.ui.t_solttable.item(number, number2)
+                if item is not None:
+                    item.setFlags(item.flags() & ~QtCore.Qt.ItemIsEditable)
+        if self.ui.t_solt_type.currentText() == '特殊T溝':
+            for number in range(1, 10):
+                item = self.ui.t_solttable.item(number, 1)
+                if item is not None:
+                    item.setFlags(item.flags() | QtCore.Qt.ItemIsEditable)
+                    self.ui.t_solttable.setEditTriggers(QtWidgets.QAbstractItemView.AllEditTriggers)
 
     def chack_plate_table(self):
         if par.plate_hole_type[0] != '':
@@ -580,24 +607,40 @@ class padwindows(QtWidgets.QWidget):
         self.nw.show()
 
     def showpadmachiningwindows(self, i):
-        for value in range(1, 9, 2):
-            par.t_all_dimension.append(self.ui.t_solttable.item(value, 1).text())
-        print("par.t_all_dimension:", par.t_all_dimension)
+        t_solt_type = self.ui.t_solt_type.currentText()
+        if t_solt_type == "T溝代號:F(SN1-25~60標準)":
+            par.t_all_dimension = [22, 38, 23, 16]
+        elif t_solt_type == "T溝代號:G(SN180~250標準)":
+            par.t_all_dimension = [28, 48, 30, 20]
+        elif t_solt_type == "特殊T溝":
+            for value in range(1, 9, 2):
+                par.t_all_dimension.append(self.ui.t_solttable.item(value, 1).text())
+        plate_type_select = self.ui.pad_extrasize.currentText()
+        if plate_type_select == '標準':
+            plate_lenght = par.plate_length[i]
+            plate_width = par.plate_width[i]
+        elif plate_type_select == '加大I型':
+            plate_lenght = par.plate_length[i] + par.plate_lv1[i]
+            plate_width = par.plate_width[i]
+        elif plate_type_select == '加大II型':
+            plate_lenght = par.plate_length[i] + par.plate_lv2[i]
+            plate_width = par.plate_width[i]
+
         self.hide()
-        self.nw = t_machining(i)
+        self.nw = t_machining(i, plate_lenght, plate_width)
         self.nw.show()
 
-    def showcutoutmachiningwindows(self):
+    def showcutoutmachiningwindows(self, i):
         par.plate_hole_type = [self.ui.remove_type.currentText()]
-        for i in range(0, 5):
-            par.cutout_part_dimension[i] = (self.ui.removetable.item(i, 1).text())
+        for turn in range(0, 5):
+            par.cutout_part_dimension[turn] = (self.ui.removetable.item(turn, 1).text())
         print(par.cutout_part_dimension)
         if par.plate_hole_type == '漏斗型':
             if int(par.cutout_part_dimension[0]) < int(par.cutout_part_dimension[1]) or int(
                 par.cutout_part_dimension[2]) < int(par.cutout_part_dimension[3]):
                 print('error')
         self.hide()
-        self.nw = cutout_hole_machining()
+        self.nw = cutout_hole_machining(i)
         self.nw.show()
 
     def showremovemachiningwindows(self):
@@ -609,9 +652,9 @@ class padwindows(QtWidgets.QWidget):
     def cutout_parameter_change(self):
         translate = QtCore.QCoreApplication.translate
         cutout_type = self.ui.remove_type.currentText()
-        for i in range(0, 5):
-            self.ui.removetable.setItem(i, 0, QTableWidgetItem(''))
-            self.ui.removetable.setItem(i, 1, QTableWidgetItem(''))
+        for number in range(0, 5):
+            self.ui.removetable.setItem(number, 0, QTableWidgetItem(''))
+            self.ui.removetable.setItem(number, 1, QTableWidgetItem(''))
         if cutout_type == '無孔':
             self.ui.removepicture.setPixmap(QtGui.QPixmap("cutout_shape_A.png"))
             self.ui.remove_machining.setDisabled(True)
@@ -635,13 +678,18 @@ class padwindows(QtWidgets.QWidget):
         if cutout_type == '模墊型':
             self.ui.removepicture.setPixmap(QtGui.QPixmap("cutout_shape_E.png"))
             self.ui.remove_machining.setDisabled(True)
+        for number in range(0, 5):
+            item = self.ui.removetable.item(number, 0)
+            if item is not None:
+                item.setFlags(item.flags() & ~QtCore.Qt.ItemIsEditable)
+
 
     def create_dir(self, type):  # 創建資料夾
         time_now = datetime.datetime.now()
         dir_name = '{}_{}_{}_{}_{}'.format(type, time_now.day, time_now.hour, time_now.minute, time_now.second)
-        # desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
-        test = os.path.join("Z:")
-        path = test + '\\' + dir_name
+        desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+        # test = os.path.join("Z:")
+        path = desktop + '\\' + dir_name
         os.mkdir(path)
         machining = path + "\\" + "machining"
         os.mkdir(machining)
@@ -652,7 +700,6 @@ class padwindows(QtWidgets.QWidget):
         self.welding = welding
 
     def start(self, i):
-        pad_type = str(self.ui.pad_type.currentText())
         # 對平板進行變數變換
         try:
             self.create_dir('plate')
@@ -663,25 +710,122 @@ class padwindows(QtWidgets.QWidget):
         plate_name, plate_value = pdp.padchange(i)
         for name in plate_name:
             par.plate_all_parameter[name] = plate_value[plate_name.index(name)]
-        print(par.plate_all_parameter)
-
-        try:
-            if pad_type == '標準':
-                par.lv = [0]
-            elif pad_type == '加大一型':
-                par.lv = [epc.ExcelOp('平板', '平板尺寸').get_single_data_sheet_par('平板尺寸', 'LV1', i)]
-            elif pad_type == '加大二型':
-                par.lv = [epc.ExcelOp('平板', '平板尺寸').get_single_data_sheet_par('平板尺寸', 'LV2', i)]
-            print('plate type LV update successfully')
-        except:
-            print('plate type LV update error')
-
+        if par.plate_special_type[0] == '標準':
+            par.lv = [0]
+        elif par.plate_special_type[0] == '加大I型':
+            par.lv.append(par.plate_lv1[i])
+            mprog.param_change('plate', 'LV', par.lv[0])
+        elif par.plate_special_type[0] == '加大II型':
+            par.lv.append(par.plate_lv2[i])
+            mprog.param_change('plate', 'LV', par.lv[0])
         # T溝程式
         self.T_solt()
+        # 下料孔程式
+        self.plate_hole(i)
+        # 關閉實體外所有東西
+        mprog.Close_All()
+        # 平板存檔
+        mprog.save_file_stp(self.path, 'plate')
+        mprog.save_stpfile_part(self.path, 'plate')
 
+    # T形槽
+    def T_solt(self):
+        # 對T溝進行變數變換
+        mprog.import_part(fp.system_root + fp.DEMO_part, 'T')
+        try:
+            for t in par.t_all_dimension:
+                for t_name in range(len(par.t_all_dimension_name) + 1):
+                    print(par.t_all_dimension_name[t_name], t)
+                    mprog.param_change('T', par.t_all_dimension_name[t_name], t)
+                    break
+            print('T-slot parameter change successfully')
+        except:
+            print('T-slot parameter change error')
+        mprog.Update()
+        mprog.save_file_stp(self.path, 'T')
+        mprog.save_stpfile_part(self.path, 'T')
+        mprog.close_window()
+        # 橫向T溝
+        if len(par.total_position_y) != 0:
+            for turn in range(0, len(par.total_position_y)):
+                mprog.import_part(self.path, 'T')
+                tT.changerotate(0)
+                mprog.param_change('T', 'A', (par.plate_all_parameter['A'] + par.lv[0]))
+                if par.total_t_slot_h_type[turn] == '貫穿' or par.total_t_slot_h_type[turn] == '':
+                    mprog.param_change('T', 'LL', (par.plate_all_parameter['A'] + par.lv[0]))
+                    mprog.param_change('T', 'LR', (par.plate_all_parameter['A'] + par.lv[0]))
+                elif par.total_t_slot_h_type[turn] == '分段':
+                    mprog.param_change('T', 'LL', par.total_LL[turn])
+                    mprog.param_change('T', 'LR', par.total_LR[turn])
+                # 判斷SL和SR是否為0或空值
+                if par.total_SL[turn] == '' or par.total_SL[turn] == '0':
+                    mprog.partdeactivate('讓孔1')
+                    mprog.partdeactivate('讓孔倒圓角1')
+                elif par.total_SL[turn] != '':
+                    mprog.param_change('T', 'SL', par.total_SL[turn])
+                if par.total_SR[turn] == '' or par.total_SR[turn] == '0':
+                    mprog.partdeactivate('讓孔2')
+                    mprog.partdeactivate('讓孔倒圓角2')
+                elif par.total_SR[turn] != '':
+                    mprog.param_change('T', 'SR', par.total_SR[turn])
+                tT.create_t_solt((par.plate_all_parameter['B']/2)+par.total_position_y[turn], turn)
+                if par.total_SL[turn] == '' or par.total_SL[turn] == '0':
+                    mprog.partbodyfeatureactivate('讓孔1')
+                    mprog.partbodyfeatureactivate('讓孔倒圓角1')
+                if par.total_SR[turn] == '' or par.total_SR[turn] == '0':
+                    mprog.partbodyfeatureactivate('讓孔2')
+                    mprog.partbodyfeatureactivate('讓孔倒圓角2')
+                mprog.Update()
+                mprog.close_window()
+                # time.sleep(0.1)
+        else:
+            turn = 0
 
-        #下料孔生成
-        if par.plate_hole_type[0] != '無孔':
+        # 縱向T溝
+        if len(par.total_position_x) != 0:
+            if turn != 0:
+                mprog.param_change('T', 'LL', 0)
+                mprog.param_change('T', 'LR', 0)
+                mprog.param_change('T', 'SL', 0)
+                mprog.param_change('T', 'SR', 0)
+            for turn_2 in range(0, len(par.total_position_x)):
+                mprog.import_part(self.path, 'T')
+                tT.changerotate(-90)
+                mprog.param_change('T', 'A', par.plate_all_parameter['B'])
+                if par.total_t_slot_v_type[turn_2] == '貫穿' or par.total_t_slot_v_type[turn_2] == '':
+                    mprog.param_change('T', 'LF', par.plate_all_parameter['B'])
+                    mprog.param_change('T', 'LB', par.plate_all_parameter['B'])
+                elif par.total_t_slot_v_type[turn_2] == '分段':
+                    mprog.param_change('T', 'LF', par.total_LF[turn_2])
+                    mprog.param_change('T', 'LB', par.total_LB[turn_2])
+                # 判斷SL和SR是否為0或空值
+                if par.total_SF[turn_2] == '' or par.total_SF[turn_2] == '0':
+                    mprog.partdeactivate('讓孔1')
+                    mprog.partdeactivate('讓孔倒圓角1')
+                elif par.total_SF[turn_2] != '':
+                    mprog.param_change('T', 'SF', par.total_SF[turn_2])
+                if par.total_SB[turn_2] == '' or par.total_SB[turn_2] == '0':
+                    mprog.partdeactivate('讓孔2')
+                    mprog.partdeactivate('讓孔倒圓角2')
+                elif par.total_SB[turn_2] != '':
+                    mprog.param_change('T', 'SB', par.total_SB[turn_2])
+                if turn == 0:
+                    tT.create_t_solt(-((par.plate_all_parameter['A']/2) + (par.lv[0]/2) + par.total_position_x[turn_2]), turn_2)
+                else:
+                    tT.create_t_solt(-((par.plate_all_parameter['A']/2) + (par.lv[0]/2) + par.total_position_x[turn_2]), turn_2+turn+1)
+                if par.total_SF[turn_2] == '' or par.total_SF[turn_2] == '0':
+                    mprog.partbodyfeatureactivate('讓孔1')
+                    mprog.partbodyfeatureactivate('讓孔倒圓角1')
+                if par.total_SB[turn_2] == '' or par.total_SB[turn_2] == '0':
+                    mprog.partbodyfeatureactivate('讓孔2')
+                    mprog.partbodyfeatureactivate('讓孔倒圓角2')
+                mprog.Update()
+                mprog.close_window()
+        print('T-slot create successfully')
+
+    # 下料孔
+    def plate_hole(self, i):
+        if par.plate_hole_type[0] != '無孔' or len(par.plate_hole_type) != 0:
             par.plate_hole_type = [self.ui.remove_type.currentText()]
             print(i)
             for x in range(0, 5):
@@ -733,91 +877,26 @@ class padwindows(QtWidgets.QWidget):
                 mprog.param_change('cutout_molded_cushion', 'Y', par.plate_all_parameter['B'] / 2 - 60 * (par.cutout_molded_cushion_j[i] - 1) / 2)
                 par.plate_hole_type[0] = 'cutout_molded_cushion'
             mprog.Update()
-            mprog.save_file_stp(self.path, par.plate_hole_type[0]) #存檔(stp)
-            mprog.save_stpfile_part(self.path, par.plate_hole_type[0]) #存檔(part)
+            mprog.save_file_stp(self.path, par.plate_hole_type[0])
+            mprog.save_stpfile_part(self.path, par.plate_hole_type[0])
             tT.copybody()
             tT.switch_to_window_by_name('plate.CATPart')
-            tT.pastebody(0, par.plate_hole_type[0]) #count??
-            tT.removebody(0, par.plate_hole_type[0]) #count??
+            if len(par.total_position_y) != 0:
+                position_y = len(par.total_position_y)
+            else:
+                position_y = 0
+            if len(par.total_position_x) != 0:
+                position_x = len(par.total_position_x)
+            else:
+                position_x = 0
+            total_turn = position_y + position_x
+            tT.pastebody(total_turn, par.plate_hole_type[0])
+            tT.removebody(total_turn, par.plate_hole_type[0])
             mprog.Update()
             tT.switch_to_window_by_name(par.plate_hole_type[0] + ".CATPart")
             mprog.close_window()
 
-    def T_solt(self):
-        # 對T型槽進行變數變換
-        mprog.import_part(fp.system_root + fp.DEMO_part, 'T')
-        pdp.padchange(i)
-        try:
-            for t in par.t_all_dimension:
-                for t_name in range(len(par.t_all_dimension_name) + 1):
-                    print(par.t_all_dimension_name[t_name], t)
-                    mprog.param_change('T', par.t_all_dimension_name[t_name], t)
-                    break
-            print('T-slot parameter change successfully')
-        except:
-            print('T-slot parameter change error')
-        mprog.Update()
-        mprog.save_file_stp(self.path, 'T')
-        mprog.save_stpfile_part(self.path, 'T')
-        mprog.close_window()
-        # 將T型槽移至平板上進行除料
-        try:
-            for turn in range(0, len(par.total_pierce)):
-                print("T形槽方向:", par.total_t_direction[turn])
-                print("貫穿:", par.total_pierce[turn])
-                print("間隙孔(讓孔):", par.total_clearance_hole[turn])
-                print("T形槽尺寸:", par.total_t_dimension[turn])
-                print("非貫穿尺寸:", par.total_unpierce[turn])
-                mprog.import_part(self.path, 'T')
-                if par.total_pierce[turn] == '是':
-                    if par.total_t_direction[turn] == '前後':
-                        mprog.param_change('T', 'Depth', par.plate_all_parameter['B'])
-                    elif par.total_t_direction[turn] == '左右':
-                        mprog.param_change('T', 'Depth', (par.plate_all_parameter['A'] + par.lv[0]))
-                else:
-                    mprog.param_change('T', 'Depth', par.total_unpierce[turn])
-                    if par.total_t_direction[turn] == '前後':
-                        mprog.param_change('T', 'mirror', par.plate_all_parameter['B'])
-                        print(par.plate_all_parameter['B'] / 2)
-                    elif par.total_t_direction[turn] == '左右':
-                        mprog.param_change('T', 'mirror', (par.plate_all_parameter['A'] + par.lv[0]))
-                        print((par.plate_all_parameter['A'] + par.lv[0]) / 2)
-                    mprog.partbodyfeatureactivate('Mirror.3')
-
-                if par.total_clearance_hole[turn] == '是':
-                    mprog.partbodyfeatureactivate('讓孔')
-                    mprog.partbodyfeatureactivate('讓孔倒圓角')
-                else:
-                    pass
-                if par.total_t_direction[turn] == '前後':
-                    tT.changerotate(-90)
-                elif par.total_t_direction[turn] == '左右':
-                    tT.changerotate(0)
-                else:
-                    tT.changerotate(45)
-                mprog.Update()
-                if par.total_t_direction[turn] == '前後':
-                    tT.create_t_solt(-par.total_t_dimension[turn], turn, par.total_pierce[turn],
-                                     par.total_clearance_hole[turn], par.total_t_direction[turn], par.lv[0])
-                elif par.total_t_direction[turn] == '左右':
-                    tT.create_t_solt(par.total_t_dimension[turn], turn, par.total_pierce[turn],
-                                     par.total_clearance_hole[turn], par.total_t_direction[turn], par.lv[0])
-            print('T-slot create successfully')
-        except Exception as e:
-            print('T-slot create error:', e)
-            error_class = e.__class__.__name__  # 取得錯誤類型
-            detail = e.args[0]  # 取得詳細內容
-            cl, exc, tb = sys.exc_info()  # 取得Call Stack
-            lastCallStack = traceback.extract_tb(tb)[-1]  # 取得Call Stack的最後一筆資料
-            fileName = lastCallStack[0]  # 取得發生的檔案名稱
-            lineNum = lastCallStack[1]  # 取得發生的行號
-            funcName = lastCallStack[2]  # 取得發生的函數名稱
-            errMsg = "File \"{}\", line {}, in {}: [{}] {}".format(fileName, lineNum, funcName, error_class, detail)
-            print(errMsg)
-
-
-
-# T型槽外型尺寸
+# T溝外型尺寸
 class pad_dimension(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
@@ -834,7 +913,7 @@ class pad_dimension(QtWidgets.QWidget):
         t_c = str(self.ui.C.text())
         t_d = str(self.ui.D.text())
         par.t_all_dimension = [t_a, t_b, t_c, t_d]
-        print("T型槽外型尺寸:", par.t_all_dimension)
+        print("T溝外型尺寸:", par.t_all_dimension)
         self.hide()
         self.nw = padwindows(i)
         self.nw.show()
@@ -852,12 +931,12 @@ class pad_dimension(QtWidgets.QWidget):
 
 
 class t_machining(QWidget):
-    def __init__(self, i):
+    def __init__(self, i, plate_lenght, plate_width):
         super().__init__()
         self.ui = pad_machining_Form()
         self.ui.setupUi(self)
         self.setWindowTitle('平板加工設定')
-        # 橫向T型槽
+        # 橫向T溝
         self.ui.t_slot_table_h.verticalHeader().setVisible(False)
         self.ui.t_slot_table_h.horizontalHeader().setVisible(False)
         self.ui.t_slot_table_h.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
@@ -865,7 +944,7 @@ class t_machining(QWidget):
         self.t_slot_table_h_setup()
         self.ui.t_slot_h_number.textChanged.connect(self.check_slot_number)
         self.table_h_combo_boxes = {}
-        # 縱向T型槽
+        # 縱向T溝
         self.ui.t_slot_table_v.verticalHeader().setVisible(False)
         self.ui.t_slot_table_v.horizontalHeader().setVisible(False)
         self.ui.t_slot_table_v.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
@@ -878,7 +957,7 @@ class t_machining(QWidget):
         # 重製按鈕
         self.ui.reset.clicked.connect(self.reset)
         # 重新排列
-        self.ui.rearrange_the_order.clicked.connect(self.rearrange_the_order)
+        self.ui.rearrange_the_order.clicked.connect(lambda: self.rearrange_the_order(plate_lenght, plate_width))
 
 
     def change_table_h_clear_table(self):
@@ -889,7 +968,7 @@ class t_machining(QWidget):
         try:
             if current_value == '':
                 current_value = 0
-            current_value = int(current_value)  # 尝试将文本转换为整数
+            current_value = int(current_value)
             self.add_rows_to_table(current_value)  # 插入新行
         except ValueError:
             print("Invalid input. Please enter a valid number")
@@ -903,7 +982,6 @@ class t_machining(QWidget):
             for col in range(col_count):
                 item = QTableWidgetItem("H" + str(row_position) if (row_position == 0 or col == 0) else "")
                 if col == 0 or row_position == 0:
-                    # 如果是第一行或第一列，设置单元格不可编辑
                     item.setFlags(item.flags() & ~Qt.ItemIsEditable)
                 else:
                     # 其他单元格默认不可编辑，会在后续根据条件进行修改
@@ -938,7 +1016,7 @@ class t_machining(QWidget):
         for col in range(3, 5):
             item = self.ui.t_slot_table_h.item(row, col)
             if item:
-                if is_editable and row != 0:  # 如果选择了"分段"且不是第一行
+                if is_editable and row != 0:
                     item.setFlags(item.flags() | Qt.ItemIsEditable)
                     item.setBackground(QBrush(QColor(255, 255, 255)))
                 else:
@@ -947,32 +1025,16 @@ class t_machining(QWidget):
 
     def t_slot_table_h_setup(self):
         # 第一行
-        self.ui.t_slot_table_h.setSpan(0, 0, 1, 1)
-        newItem = QTableWidgetItem("編號")
-        self.ui.t_slot_table_h.setItem(0, 0, newItem)
-        self.ui.t_slot_table_h.setSpan(0, 0, 1, 1)
-        newItem = QTableWidgetItem("位置(Y)")
-        self.ui.t_slot_table_h.setItem(0, 1, newItem)
-        self.ui.t_slot_table_h.setSpan(0, 0, 1, 1)
-        newItem = QTableWidgetItem("形式")
-        self.ui.t_slot_table_h.setItem(0, 2, newItem)
-        self.ui.t_slot_table_h.setSpan(0, 0, 1, 1)
-        newItem = QTableWidgetItem("LL")
-        self.ui.t_slot_table_h.setItem(0, 3, newItem)
-        self.ui.t_slot_table_h.setSpan(0, 0, 1, 1)
-        newItem = QTableWidgetItem("LR")
-        self.ui.t_slot_table_h.setItem(0, 4, newItem)
-        self.ui.t_slot_table_h.setSpan(0, 0, 1, 1)
-        newItem = QTableWidgetItem("SL")
-        self.ui.t_slot_table_h.setItem(0, 5, newItem)
-        self.ui.t_slot_table_h.setSpan(0, 0, 1, 1)
-        newItem = QTableWidgetItem("SR")
-        self.ui.t_slot_table_h.setItem(0, 6, newItem)
-
+        for col in range(7):  # 假设有7列
+            newItem = QTableWidgetItem(
+                "編號" if col == 0 else "位置(Y)" if col == 1 else "形式" if col == 2 else "LL" if col == 3 else "LR" if col == 4 else "SL" if col == 5 else "SR")
+            newItem.setTextAlignment(Qt.AlignCenter)  # 可以根据需要设置文本对齐方式
+            self.ui.t_slot_table_h.setItem(0, col, newItem)
+            newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)  # 移除可编辑标志
     def combo_box_changed_v(self, row, index):
         combo_box = self.table_v_combo_boxes.get(row)
         if combo_box:
-            if index == 2:  # 如果选择了"分段"
+            if index == 2:
                 self.set_editable_v_cells(row, is_editable=True)
             else:
                 self.set_editable_v_cells(row, is_editable=False)
@@ -985,13 +1047,13 @@ class t_machining(QWidget):
         try:
             if current_value == '':
                 current_value = 0
-            current_value = int(current_value)  # 尝试将文本转换为整数
-            self.add_rows_to_table_v(current_value)  # 插入新行
+            current_value = int(current_value)
+            self.add_rows_to_table_v(current_value)
         except ValueError:
             print("Invalid input. Please enter a valid number")
 
     def add_rows_to_table_v(self, num_rows):
-        self.change_table_v_clear_table()  # 清除表格内容
+        self.change_table_v_clear_table()
         col_count = self.ui.t_slot_table_v.columnCount()
         for row in range(num_rows):
             row_position = self.ui.t_slot_table_v.rowCount()
@@ -999,10 +1061,8 @@ class t_machining(QWidget):
             for col in range(col_count):
                 item = QTableWidgetItem("V" + str(row_position) if (row_position == 0 or col == 0) else "")
                 if col == 0 or row_position == 0:
-                    # 如果是第一行或第一列，设置单元格不可编辑
                     item.setFlags(item.flags() & ~Qt.ItemIsEditable)
                 else:
-                    # 其他单元格默认不可编辑，会在后续根据条件进行修改
                     item.setFlags(item.flags() | Qt.ItemIsEditable)
                 self.ui.t_slot_table_v.setItem(row_position, col, item)
 
@@ -1027,7 +1087,7 @@ class t_machining(QWidget):
         for col in range(3, 5):
             item = self.ui.t_slot_table_v.item(row, col)
             if item:
-                if is_editable and row != 0:  # 如果选择了"分段"且不是第一行
+                if is_editable and row != 0:
                     item.setFlags(item.flags() | Qt.ItemIsEditable)
                     item.setBackground(QBrush(QColor(255, 255, 255)))
                 else:
@@ -1036,27 +1096,12 @@ class t_machining(QWidget):
 
     def t_slot_table_v_setup(self):
         # 第一行
-        self.ui.t_slot_table_v.setSpan(0, 0, 1, 1)
-        newItem = QTableWidgetItem("編號")
-        self.ui.t_slot_table_v.setItem(0, 0, newItem)
-        self.ui.t_slot_table_v.setSpan(0, 0, 1, 1)
-        newItem = QTableWidgetItem("位置(Y)")
-        self.ui.t_slot_table_v.setItem(0, 1, newItem)
-        self.ui.t_slot_table_v.setSpan(0, 0, 1, 1)
-        newItem = QTableWidgetItem("形式")
-        self.ui.t_slot_table_v.setItem(0, 2, newItem)
-        self.ui.t_slot_table_v.setSpan(0, 0, 1, 1)
-        newItem = QTableWidgetItem("LF")
-        self.ui.t_slot_table_v.setItem(0, 3, newItem)
-        self.ui.t_slot_table_v.setSpan(0, 0, 1, 1)
-        newItem = QTableWidgetItem("LB")
-        self.ui.t_slot_table_v.setItem(0, 4, newItem)
-        self.ui.t_slot_table_v.setSpan(0, 0, 1, 1)
-        newItem = QTableWidgetItem("SF")
-        self.ui.t_slot_table_v.setItem(0, 5, newItem)
-        self.ui.t_slot_table_v.setSpan(0, 0, 1, 1)
-        newItem = QTableWidgetItem("SB")
-        self.ui.t_slot_table_v.setItem(0, 6, newItem)
+        for col in range(7):  # 假設有7列
+            newItem = QTableWidgetItem(
+                "編號" if col == 0 else "位置(X)" if col == 1 else "形式" if col == 2 else "LF" if col == 3 else "LB" if col == 4 else "SF" if col == 5 else "SB")
+            newItem.setTextAlignment(Qt.AlignCenter)  # 可以根據需要設定文本對齊方式
+            self.ui.t_slot_table_v.setItem(0, col, newItem)
+            newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)  # 移除可編輯標誌
 
     def showpadwindows(self):
         data_entries = []
@@ -1069,7 +1114,7 @@ class t_machining(QWidget):
         self.nw = padwindows(i)
         self.nw.show()
 
-    def rearrange_the_order(self):
+    def rearrange_the_order(self, plate_lenght, plate_width):
         par.total_position_y.clear()
         par.total_t_slot_h_type.clear()
         par.total_LL.clear()
@@ -1190,6 +1235,38 @@ class t_machining(QWidget):
                 combo_box.setCurrentText(item)
                 self.combo_box_changed_v(position + 1, combo_box.currentIndex())
 
+            # 檢查T溝是否超出界線
+            # T溝尺寸與平板邊緣>=50mm
+            if len(par.total_position_y) != 0:
+                if par.total_position_y[0]+(par.t_all_dimension[1]/2) > (plate_width/2)-50:
+                    self.show_alert('橫向T溝位置(Y) H1 與平板邊緣過近')
+                if par.total_position_y[-1]-(par.t_all_dimension[1]/2) <= (-plate_width/2)+50:
+                    self.show_alert('橫向T溝位置(Y) H' + str(len(par.total_position_y)) + ' 與平板邊緣過近')
+
+                # T溝與T溝之間間距需>=50mm
+                for turn in range(len(par.total_position_y)-1):
+                    third_value = abs(par.total_position_y[turn] - par.total_position_y[turn+1]) - par.t_all_dimension[1]
+                    if third_value <= 50:
+                        self.show_alert('橫向T溝位置(Y) H'+str(turn+1)+' 與 H'+str(turn+2)+' 間距過近')
+                    print('third_value:', third_value)
+
+            if len(par.total_position_x) != 0:
+                if par.total_position_x[0]+(par.t_all_dimension[0]/2) > (plate_lenght/2)-50:
+                    self.show_alert('縱向T溝位置(X) V1 與平板邊緣過近')
+                if par.total_position_x[-1]-(par.t_all_dimension[0]/2) <= (-plate_lenght/2)+50:
+                    self.show_alert('縱向T溝位置(X) V' + str(len(par.total_position_x)) + ' 與平板邊緣過近')
+
+                # T溝與T溝之間間距需>=50mm
+                for turn in range(len(par.total_position_x)-1):
+                    third_value = abs(par.total_position_x[turn] - par.total_position_x[turn+1]) - par.t_all_dimension[0]
+                    if third_value <= 50:
+                        self.show_alert('縱向T溝位置(X) V'+str(turn+1)+' 與 V'+str(turn+2)+' 間距過近')
+                    print('third_value:', third_value)
+
+
+    def show_alert(self, alert):
+        QMessageBox.about(self, "警告", alert)
+
     def reset(self):
         self.ui.t_slot_h_number.clear()
         self.ui.t_slot_v_number.clear()
@@ -1209,7 +1286,7 @@ class t_machining(QWidget):
 
 # 下料孔設定介面
 class cutout_hole_machining(QtWidgets.QWidget):
-    def __init__(self):
+    def __init__(self, i):
         super().__init__()
         self.ui = cutout_hole_machining_form()
         self.ui.setupUi(self)
@@ -1222,7 +1299,7 @@ class cutout_hole_machining(QtWidgets.QWidget):
             elif par.plate_hole_type[0] == '漏斗型':
                 self.ui.picture.setPixmap(QtGui.QPixmap("feeding_hole_C.png"))
         self.ui.setup.clicked.connect(self.setup)
-        self.ui.esc.clicked.connect(self.esc)
+        self.ui.esc.clicked.connect(lambda: self.esc(i))
 
     def setup(self, i):
         par.cutout_hole_machining_X = self.ui.X.text()
@@ -1244,25 +1321,25 @@ class cutout_hole_machining(QtWidgets.QWidget):
                     par.cutout_all_limit['Y'] / 2:
                 print('error')
             else:
-                self.esc()
+                self.esc(i)
         elif par.plate_hole_type[0] == '方孔':
             if abs(par.cutout_hole_machining_X) + int(par.cutout_part_dimension[0]) / 2 + 10 >= par.cutout_all_limit[
                 'X'] / 2 or abs(par.cutout_hole_machining_Y) + int(par.cutout_part_dimension[0]) / 2 + 10 >= \
                     par.cutout_all_limit['Y'] / 2:
                 print('error')
             else:
-                self.esc()
+                self.esc(i)
         elif par.plate_hole_type[0] == '漏斗型':
             if abs(par.cutout_hole_machining_X) + int(par.cutout_part_dimension[0]) / 2 + 10 >= par.cutout_all_limit[
                 'X'] / 2 or abs(par.cutout_hole_machining_Y) + int(par.cutout_part_dimension[0]) / 2 + 10 >= \
                     par.cutout_all_limit['Y'] / 2:
                 print('error')
             else:
-                self.esc()
+                self.esc(i)
         else:
-            self.esc()
+            self.esc(i)
 
-    def esc(self):
+    def esc(self, i):
         self.hide()
         self.nw = padwindows(i)
         self.nw.show()
