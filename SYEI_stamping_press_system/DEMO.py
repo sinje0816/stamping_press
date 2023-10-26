@@ -75,7 +75,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                             self.specifications_close_working_height_value, self.alpha, self.beta, self.zeta,
                             self.epsilon)
             self.change_dir(self.i, self.p, self.alpha, self.beta, self.zeta, self.epsilon, self.machining,
-                            self.welding)
+                            self.welding, self.specifications_travel_value)
 
     def showPadwindows(self):
         type = str(self.ui.comboBox_4.currentText())
@@ -325,7 +325,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         self.ui.label_9.clear()
         self.ui.label_9.setText(close_h)
 
-    def change_dir(self, i, p, alpha, beta, zeta, epsilon, machining, welding):
+    def change_dir(self, i, p, alpha, beta, zeta, epsilon, machining, welding, specifications_travel_value):
         start_time = time.time()
         all_part_name = {}
         all_part_value = {}
@@ -351,7 +351,27 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     # 创建一个新的StringIO对象来捕获输出
                     captured_output = StringIO()
                     sys.stdout = captured_output
-                    mprog.import_part(fp.system_root + fp.DEMO_part, name)
+                    if name == 'PANEL':
+                        if name == 'PANEL':
+                            if i == 0:
+                                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), "32H8302_PANEL")
+                            elif i == 1:
+                                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), "322CC10_PANEL")
+                            elif i == 2 or i == 3:
+                                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), "37H8302_PANEL")
+                            elif i == 4:
+                                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), "41H8302_PANEL")
+                            elif i == 5:
+                                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), "552CC10_PANEL")
+                            elif i == 6 or i == 7:
+                                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), "45H8302_PANEL")
+                            elif i == 8:
+                                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), "47H0001_PANEL")
+
+
+                    else:
+                        mprog.import_part(fp.system_root + fp.DEMO_part, name)
+
                     if name == 'FRAME52' and p == 0:
                         try:
                             mprog.param_change(name, "alpha", alpha)
@@ -360,7 +380,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         except:
                             pass
                         # 加工圖零件
-                        parameter_name, parameter_value = mptc.change_machining_parameter(name, i, 0)
+                        parameter_name, parameter_value = mptc.change_machining_parameter(name, i, 0, specifications_travel_value)
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
                         for x in range(len(parameter_name)):
@@ -390,7 +410,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                             pass
 
                         # 加工圖零件
-                        parameter_name, parameter_value = mptc.change_machining_parameter(name, i, 1)
+                        parameter_name, parameter_value = mptc.change_machining_parameter(name, i, 1, specifications_travel_value)
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
                         for x in range(len(parameter_name)):
@@ -511,13 +531,10 @@ class padwindows(QtWidgets.QWidget):
     def T_solt_table_normel_setup(self):
         # 設定T_solt表格內容
         # 第一行
-        self.ui.t_solttable.setSpan(0, 0, 1, 1)
         newItem = QTableWidgetItem("尺寸代號")
         self.ui.t_solttable.setItem(0, 0, newItem)
-        self.ui.t_solttable.setSpan(0, 0, 1, 1)
         newItem = QTableWidgetItem("尺寸")
         self.ui.t_solttable.setItem(0, 1, newItem)
-        self.ui.t_solttable.setSpan(0, 0, 1, 1)
         newItem = QTableWidgetItem("公差")
         self.ui.t_solttable.setItem(0, 2, newItem)
         # 第一列

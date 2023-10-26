@@ -185,3 +185,8 @@ cutout_molded_cushion_B = [33.4, 40]
 cutout_molded_cushion_L = [8.5, 10.5]
 cutout_molded_cushion_i = [5, 5, 5, 5, 6, 6, 6, 7, 8]
 cutout_molded_cushion_j = [3, 3, 3, 3, 4, 4, 4, 5, 6]
+
+# 主頁面資料
+series1 = ['C型單軸自動化選單', '基本參數']
+series2 = ['單位', '銷售地區法規', '機種', '形式', '平板', '衝頭']
+combo_box_series1 = ['公制', '英制']
