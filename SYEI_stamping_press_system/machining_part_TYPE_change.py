@@ -9,7 +9,7 @@ def modify_list_elements(enter_text, input_list):
 
 
 # 母檔變數變換
-def change_machining_parameter(name, i, machiningdiepad, specifications_travel_value):
+def change_machining_parameter(name, i, machiningdiepad, travel_type):
     all_part_list = epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_col_cell(1)
     try:
         if name == 'FRAME1':
@@ -2967,7 +2967,7 @@ def change_machining_parameter(name, i, machiningdiepad, specifications_travel_v
                 except:
                     print('FRAME54 Update error')
         elif name == "crankshaft":
-            if specifications_travel_value == "S":
+            if travel_type == 1:
                 excel = epc.ExcelOp('尺寸整理表', 'crankshaft_S')
                 try:
                     parameter_name, parameter_value = excel.get_sheet_par('crankshaft', i)
@@ -3081,7 +3081,7 @@ def change_machining_parameter(name, i, machiningdiepad, specifications_travel_v
                         print('crankshaft Update success')
                     except:
                         print('crankshaft Update error')
-            elif specifications_travel_value == "H":
+            elif travel_type == 2:
                 excel = epc.ExcelOp('尺寸整理表', 'crankshaft_H')
                 try:
                     parameter_name, parameter_value = excel.get_sheet_par('crankshaft', i)
@@ -3191,7 +3191,7 @@ def change_machining_parameter(name, i, machiningdiepad, specifications_travel_v
                         print('crankshaft Update success')
                     except:
                         print('crankshaft Update error')
-            elif specifications_travel_value == "P":
+            elif travel_type == 3:
                 excel = epc.ExcelOp('尺寸整理表', 'crankshaft_P')
                 try:
                     parameter_name, parameter_value = excel.get_sheet_par('crankshaft', i)

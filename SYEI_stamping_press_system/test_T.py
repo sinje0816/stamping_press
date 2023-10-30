@@ -95,27 +95,12 @@ def changerotate(rotate_value):
     part1.Update()
 
 
-def create_t_solt(translate, count, pierce, clearance_hole, direction, LV):
-    try:
-        if pierce == '否':
-            mprog.partdeactivate('讓孔')
-            mprog.partdeactivate('讓孔倒圓角')
-    except:
-        pass
-    try:
-        if clearance_hole == '否':
-            mprog.partdeactivate('Mirror.4')
-    except:
-        pass
+def create_t_solt(translate, count):
     changetranslate(translate)
     mprog.Update()
     copybody()
     switch_to_window_by_name("plate.CATPart")
-    if direction == '縱向':
-        pastebody(count + par.plate_all_parameter['B'])
-    else:
-        pastebody(count + par.plate_all_parameter['A'] + LV)
-    removebody(count)
+    pastebody(count, "Body.")
+    removebody(int(count), "Body.")
     mprog.Update()
     switch_to_window_by_name("T.CATPart")
-    mprog.close_window()
