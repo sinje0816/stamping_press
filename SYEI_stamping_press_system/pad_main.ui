@@ -1424,7 +1424,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="plate_start_3">
+           <widget class="QPushButton" name="plate_finish">
             <property name="font">
              <font>
               <family>微軟正黑體</family>
