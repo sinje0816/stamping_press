@@ -28,6 +28,8 @@ import os
 import time
 import traceback
 import check as ch
+import STP_input as S_i
+
 test_stop = False
 
 
@@ -75,7 +77,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                             self.specifications_close_working_height_value, self.alpha, self.beta, self.zeta,
                             self.epsilon)
             self.change_dir(self.i, self.p, self.alpha, self.beta, self.zeta, self.epsilon, self.machining,
-                            self.welding, self.specifications_travel_value)
+                            self.welding, self.travel_type)
 
     def show_pad_secend_windows(self):
         type = str(self.ui.comboBox_4.currentText())
@@ -325,7 +327,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         self.ui.label_9.clear()
         self.ui.label_9.setText(close_h)
 
-    def change_dir(self, i, p, alpha, beta, zeta, epsilon, machining, welding, specifications_travel_value):
+    def change_dir(self, i, p, alpha, beta, zeta, epsilon, machining, welding, travel_type):
         start_time = time.time()
         all_part_name = {}
         all_part_value = {}
@@ -351,27 +353,17 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     # 创建一个新的StringIO对象来捕获输出
                     captured_output = StringIO()
                     sys.stdout = captured_output
-                    if name == 'PANEL':
-                        if name == 'PANEL':
-                            if i == 0:
-                                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), "32H8302_PANEL")
-                            elif i == 1:
-                                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), "322CC10_PANEL")
-                            elif i == 2 or i == 3:
-                                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), "37H8302_PANEL")
-                            elif i == 4:
-                                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), "41H8302_PANEL")
-                            elif i == 5:
-                                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), "552CC10_PANEL")
-                            elif i == 6 or i == 7:
-                                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), "45H8302_PANEL")
-                            elif i == 8:
-                                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), "47H0001_PANEL")
-
-
+                    if name == 'PANEL' or name == 'CON_ROD' or name == 'CON_ROD_BASE' or name == 'CON_ROD_CAP' or name == 'INVERTERBRACKET' \
+                            or name == 'POINTER' or name == 'COVER' or name == 'PLUG' or name == 'feeding_shaft_cover' or name == 'OIL_LEVEL_GAUGE' \
+                            or name == 'slide_gib' or name == 'ELECTRIC_BOX_PLATE' or name == 'MOUNT_FILTER'or name == 'CONTROL_PANEL' or name == 'PANEL_BOX'\
+                            or name == 'PANEL_BOX_BRACKET' or name == 'CONTROL_UNIT_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE'\
+                            or name == 'TRADEMARK_NAMEPLATE'or name == 'OPERATION_BOX':
+                        # 讀取其餘STP檔
+                        S_i.STP(name, i, machining)
+                        continue
                     else:
+                        # 讀取機架零件
                         mprog.import_part(fp.system_root + fp.DEMO_part, name)
-
                     if name == 'FRAME52' and p == 0:
                         try:
                             mprog.param_change(name, "alpha", alpha)
@@ -380,7 +372,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                         except:
                             pass
                         # 加工圖零件
-                        parameter_name, parameter_value = mptc.change_machining_parameter(name, i, 0, specifications_travel_value)
+                        parameter_name, parameter_value = mptc.change_machining_parameter(name, i, 0, travel_type)
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
                         for x in range(len(parameter_name)):
@@ -410,7 +402,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                             pass
 
                         # 加工圖零件
-                        parameter_name, parameter_value = mptc.change_machining_parameter(name, i, 1, specifications_travel_value)
+                        parameter_name, parameter_value = mptc.change_machining_parameter(name, i, 1, travel_type)
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
                         for x in range(len(parameter_name)):
@@ -954,6 +946,7 @@ class pad_secend_windows(QtWidgets.QWidget):
                     mprog.partbodyfeatureactivate('讓孔倒圓角2')
                 mprog.Update()
                 mprog.close_window()
+                # time.sleep(0.1)
         else:
             turn = 0
 
