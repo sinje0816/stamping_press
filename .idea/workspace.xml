@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="母檔更新及組立程式微調">
-      <change afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/STP_input.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_10_23__03_17__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_10_23__03_17__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_10_23__10_08__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_10_23__10_08__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/Assmebly_design.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/Assmebly_design.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/DEMO.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/DEMO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/machining_part_TYPE_change.py" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/machining_part_TYPE_change.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SYEI_stamping_press_system/尺寸整理表.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/SYEI_stamping_press_system/尺寸整理表.xlsx" afterDir="false" />
-    </list>
+    <list default="true" id="16196f2d-2bed-4919-b6e6-decc4073d892" name="Changes" comment="STP檔更新上傳" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -315,14 +306,7 @@
       <workItem from="1698210245544" duration="18198000" />
       <workItem from="1698300687597" duration="19080000" />
       <workItem from="1698395047776" duration="13337000" />
-      <workItem from="1698633864801" duration="374000" />
-    </task>
-    <task id="LOCAL-00038" summary="新增:爆炸圖圖面">
-      <created>1670318256390</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1670318256390</updated>
+      <workItem from="1698633864801" duration="708000" />
     </task>
     <task id="LOCAL-00039" summary="新增:比例判別, 生成2D視圖">
       <created>1670337064813</created>
@@ -660,7 +644,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698117007803</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="STP檔更新上傳">
+      <created>1698634496803</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1698634496803</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -726,7 +717,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="合併零件檔案及程式，已完成加工圖合併" />
     <MESSAGE value="合併excel及撰寫demo人機介面使用迴圈" />
     <MESSAGE value="已正常可正常運作25~250噸數機架，客製化選項待測" />
     <MESSAGE value="完成客製化" />
@@ -751,7 +741,8 @@
     <MESSAGE value="零件母檔新增、組立更新" />
     <MESSAGE value="組立程式更新" />
     <MESSAGE value="母檔更新及組立程式微調" />
-    <option name="LAST_COMMIT_MESSAGE" value="母檔更新及組立程式微調" />
+    <MESSAGE value="STP檔更新上傳" />
+    <option name="LAST_COMMIT_MESSAGE" value="STP檔更新上傳" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
