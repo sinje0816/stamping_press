@@ -1,5 +1,6 @@
 import main_program as mprog
 import excel_parameter_change as epc
+import STP_input as S_i
 def assembly(i, apv, path, alpha, beta, zeta):
     #excel匯入
     excel = epc.ExcelOp('組立尺寸', 'Assembly_value')
@@ -16,7 +17,17 @@ def assembly(i, apv, path, alpha, beta, zeta):
     part_name, part_quantity = part.get_assmebly_quantity(i)
     for name in range(len(part_name)):
         for x in range(int(part_quantity[name])):
-            mprog.import_file_Part(path + '\\' + 'machining', part_name[name])
+            if part_name[name] == 'PANEL' or part_name[name] == 'CON_ROD' or part_name[name] == 'CON_ROD_BASE' or part_name[name] == 'CON_ROD_CAP' \
+                    or part_name[name] == 'INVERTERBRACKET' or part_name[name] == 'POINTER' or part_name[name] == 'COVER' or part_name[name] == 'PLUG'\
+                    or part_name[name] == 'feeding_shaft_cover' or part_name[name] == 'OIL_LEVEL_GAUGE' or part_name[name] == 'slide_gib'\
+                    or part_name[name] == 'ELECTRIC_BOX_PLATE'or part_name[name] == 'MOUNT_FILTER'or part_name[name] == 'CONTROL_PANEL' or part_name[name] == 'PANEL_BOX'\
+                    or part_name[name] == 'PANEL_BOX_BRACKET' or part_name[name] == 'CONTROL_UNIT_BOX'or part_name[name] == 'GUARD_FLYWHEEL'or part_name[name] == 'NAME_PLATE'\
+                    or part_name[name] == 'TRADEMARK_NAMEPLATE' or part_name[name] == 'OPERATION_BOX':
+                # 讀取其餘STP檔
+                S_i.Assmebly(part_name[name], path + '\\' + 'machining', i)
+                continue
+            else:
+                mprog.import_file_Part(path + '\\' + 'machining', part_name[name])
     #定義基準零件
     mprog.base_lock('FRAME1.1', 'FRAME1.1', 0)
     mprog.add_offset_assembly('FRAME2.1', 'FRAME1.1', 0, 'XY plane', 0, 4)
