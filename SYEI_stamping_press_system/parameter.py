@@ -131,6 +131,8 @@ plate_length = [700, 780, 840, 900, 1050, 1150, 1250, 1400, 1500]
 plate_width = [320, 400, 440, 520, 600, 680, 760, 840, 900]
 plate_lv1 = [80, 60, 60, 150, 100, 100, 150, 100, 150]
 plate_lv2 = [140, 120, 210, 100, 100, 150, 100, 150, 150]
+# 標準類型平板名稱紀錄
+plate_normal_name = []
 
 # 基本平板類型
 plate_type = ['標準圓孔', '標準無孔', '標準方孔', '標準模墊型', '標準加大I型(無孔)', '標準加大I型(圓孔)', '標準加大I型(方孔)', '標準加大II型(無孔)', '標準加大II型(圓孔)', '標準加大II型(方孔)']
@@ -145,34 +147,22 @@ t_all_dimension = []
 t_all_dimension_name = ['T_type_A', 'T_type_B', 'T_type_C', 'T_type_D']
 # T型槽主頁表格
 t_table_dimension_parameter = ['A', 'B', 'C', 'D']
-#T型槽偏移
-T_offset_X = 0
-T_offset_Y = 0
-#T型槽貫穿
-T_type_E = 0
 
-# 平板外型尺寸
-plate_dimension = []
 # 除料孔(待補齊)
 plate_hole_type = ['']
-plate_hole_position = []
-plate_hole_dimension = []
 # 平板變數大全
 plate_all_parameter = {}
-plate_parameter_name = []
-plate_parameter_value = []
 # 下料孔參數
 cutout_hole_machining_X = 0
 cutout_hole_machining_Y = 0
 lv = []
 # 下料孔位置尺寸
 feeding_hole_position = []
-# 下料孔須讓孔尺寸
-feeding_hole_limit = {}
 # 下料孔界線
 cutout_all_limit = {}
 # 下料孔外型尺寸
 cutout_part_dimension = ['', '', '', '', '']
+cutout_spuare_R = []
 
 # 下料孔各形狀變數名稱
 cutout_parameter_circle = ['HD']
