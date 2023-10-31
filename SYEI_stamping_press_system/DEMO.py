@@ -334,10 +334,8 @@ class main(QtWidgets.QWidget, Ui_Form):
         self.nw.show()
 
     def start(self):
-        window_table = self.ui.window_main_table
-        type = str(window_table.item(4, 5).currentText())
-        travel_type = str(window_table.item(4, 5).currentText())
-        travel = str(self.ui.label_7.text())
+        type = self.ui.window_main_table.cellWidget(4, 3).currentText()
+        travel_type = str(self.ui.window_main_table.cellWidget(4, 5).currentText())
         specifications_travel_value = str(self.ui.lineEdit_5.text())
         specifications_close_working_height_value = str(self.ui.lineEdit_2.text())
         close_working_height = str(self.ui.label_9.text())
@@ -354,16 +352,17 @@ class main(QtWidgets.QWidget, Ui_Form):
             self.specifications_close_working_height_value = 0
         else:
             self.specifications_close_working_height_value = int(specifications_close_working_height_value)
-        self.i, self.travel_type = self.choos(type, processing, travel_type)
+        self.stamping_press_type = self.choose_stamping_press_type()
+        self.p, self.travel_type = self.choos(processing, travel_type)
 
-        self.alpha, self.beta, self.zeta, self.epsilon = self.frame_calculate(self.i, self.specifications_travel_value,
+        self.alpha, self.beta, self.zeta, self.epsilon = self.frame_calculate(self.stamping_press_type, self.specifications_travel_value,
                                                                               self.specifications_close_working_height_value,
                                                                               self.travel_type)
         if test_stop == False:
             self.create_txt(self.path, type, travel_type, self.specifications_travel_value,
                             self.specifications_close_working_height_value, self.alpha, self.beta, self.zeta,
                             self.epsilon)
-            self.change_dir(self.i, self.p, self.alpha, self.beta, self.zeta, self.epsilon, self.machining,
+            self.change_dir(self.stamping_press_type, self.p, self.alpha, self.beta, self.zeta, self.epsilon, self.machining,
                             self.welding, self.travel_type)
 
 
@@ -406,7 +405,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         print(par.stamping_press_type, par.stamping_press_style)
 
 
-    def choos(self, type, prossing, travel_type):
+    def choos(self,prossing, travel_type):
         # 確認型號"輸入型號"
         # 確認加工方式
         if prossing == '是':
@@ -422,7 +421,7 @@ class main(QtWidgets.QWidget, Ui_Form):
             travel_type = 3
         return p, travel_type
 
-    def frame_calculate(self, i, specifications_travel_value, specifications_close_working_height_value, travel_type):
+    def frame_calculate(self, stamping_press_type, specifications_travel_value, specifications_close_working_height_value, travel_type):
         Form = QtWidgets.QWidget()
         # Form.setWindowTitle('警告')
         Form.resize(400, 300)
@@ -431,10 +430,10 @@ class main(QtWidgets.QWidget, Ui_Form):
         # 讀取標準資料
         excel = epc.ExcelOp('尺寸整理表', '標準資料')
         type_name, travel_value, close_working_height_value, specifications_travel_min_value, specifications_travel_max_value, specifications_close_working_height_min_value, specifications_close_working_height_max_value = excel.get_standard_parts(
-            i * 3)
+            stamping_press_type * 3)
 
         # 噸數&行程類型
-        all_type = i * 3 + travel_type - 1
+        all_type = stamping_press_type * 3 + travel_type - 1
         # 行程
         alpha = int(specifications_travel_value) - travel_value[all_type]
         # 牙球伸長量
@@ -622,7 +621,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         self.ui.label_9.clear()
         self.ui.label_9.setText(close_h)
 
-    def change_dir(self, i, p, alpha, beta, zeta, epsilon, machining, welding, travel_type):
+    def change_dir(self, stamping_press_type, p, alpha, beta, zeta, epsilon, machining, welding, travel_type):
         start_time = time.time()
         all_part_name = {}
         all_part_value = {}
@@ -637,7 +636,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         # 開啟零件檔更改變數後儲存並關閉
         for name in epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_col_cell(1):
             print(name)
-            file_list_name, file_list_value = epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_sheet_par('沖床機架零件清單', i)
+            file_list_name, file_list_value = epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_sheet_par('沖床機架零件清單', stamping_press_type)
             file_list_name_index = file_list_name.index(name)
             if file_list_value[file_list_name_index] == 0:
                 pass
@@ -654,7 +653,7 @@ class main(QtWidgets.QWidget, Ui_Form):
                             or name == 'PANEL_BOX_BRACKET' or name == 'ELECTRIC_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE'\
                             or name == 'TRADEMARK_NAMEPLATE'or name == 'OPERATION_BOX':
                         # 讀取其餘STP檔
-                        S_i.STP(name, i, machining)
+                        S_i.STP(name, stamping_press_type, machining)
                         continue
                     else:
                         # 讀取機架零件
@@ -667,7 +666,7 @@ class main(QtWidgets.QWidget, Ui_Form):
                         except:
                             pass
                         # 加工圖零件
-                        parameter_name, parameter_value = mptc.change_machining_parameter(name, i, 0, travel_type)
+                        parameter_name, parameter_value = mptc.change_machining_parameter(name, stamping_press_type, 0, travel_type)
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
                         for x in range(len(parameter_name)):
@@ -697,7 +696,7 @@ class main(QtWidgets.QWidget, Ui_Form):
                             pass
 
                         # 加工圖零件
-                        parameter_name, parameter_value = mptc.change_machining_parameter(name, i, 1, travel_type)
+                        parameter_name, parameter_value = mptc.change_machining_parameter(name, stamping_press_type, 1, travel_type)
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
                         for x in range(len(parameter_name)):
@@ -719,7 +718,7 @@ class main(QtWidgets.QWidget, Ui_Form):
                     mprog.save_file_stp(machining, name)
                     mprog.save_stpfile_part(machining, name)
                     # 進行裁料圖特徵變更
-                    wptc.change_welding_feature(name, i)
+                    wptc.change_welding_feature(name, stamping_press_type)
                     print(output_text)
                     if "error" in output_text:
                         welding_file_change_error.append(name)
@@ -731,7 +730,7 @@ class main(QtWidgets.QWidget, Ui_Form):
                     mprog.close_file(name)
                 except:
                     pass
-        print(i)
+        print(stamping_press_type)
         print('all_part_name', all_part_name)
         print('all_part_value', all_part_value)
         print('machining_file_change_error', machining_file_change_error)
@@ -739,7 +738,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         print('welding_file_change_error', welding_file_change_error)
         print('welding_file_change_pass', welding_file_change_pass)
         print('總用時%s' % (time.time() - start_time))  # 建立3D組立
-        Ad.assembly(i, apv, self.path, alpha, beta, zeta)
+        Ad.assembly(stamping_press_type, apv, self.path, alpha, beta, zeta)
 
         return machining_file_change_error, welding_file_change_error
 

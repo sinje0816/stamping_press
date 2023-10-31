@@ -1,7 +1,7 @@
 import main_program as mprog
 
 #待修正
-#ELECTRIC_BOX ZX 跟YZ互換
+#412R24S03的基準平面要命名
 #FRAME2 ll要修正
 
 #待討論
