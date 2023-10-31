@@ -342,8 +342,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # 開啟零件檔更改變數後儲存並關閉
         for name in epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_col_cell(1):
             print(name)
-            file_list_name, file_list_value = epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_sheet_par(
-                '沖床機架零件清單', i)
+            file_list_name, file_list_value = epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_sheet_par('沖床機架零件清單', i)
             file_list_name_index = file_list_name.index(name)
             if file_list_value[file_list_name_index] == 0:
                 pass
@@ -356,9 +355,9 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     sys.stdout = captured_output
                     if name == 'PANEL' or name == 'CON_ROD' or name == 'CON_ROD_BASE' or name == 'CON_ROD_CAP' or name == 'INVERTERBRACKET' \
                             or name == 'POINTER' or name == 'COVER' or name == 'PLUG' or name == 'feeding_shaft_cover' or name == 'OIL_LEVEL_GAUGE' \
-                            or name == 'slide_gib' or name == 'ELECTRIC_BOX_PLATE' or name == 'MOUNT_FILTER' or name == 'CONTROL_PANEL' or name == 'PANEL_BOX' \
-                            or name == 'PANEL_BOX_BRACKET' or name == 'CONTROL_UNIT_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE' \
-                            or name == 'TRADEMARK_NAMEPLATE' or name == 'OPERATION_BOX':
+                            or name == 'slide_gib' or name == 'ELECTRIC_BOX_PLATE' or name == 'MOUNT_FILTER'or name == 'CONTROL_PANEL' or name == 'PANEL_BOX'\
+                            or name == 'PANEL_BOX_BRACKET' or name == 'ELECTRIC_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE'\
+                            or name == 'TRADEMARK_NAMEPLATE'or name == 'OPERATION_BOX':
                         # 讀取其餘STP檔
                         S_i.STP(name, i, machining)
                         continue
@@ -459,6 +458,7 @@ class plate_first_windows(QtWidgets.QWidget):
         self.setWindowTitle('平板')
         self.ui.pad_select.currentIndexChanged.connect(lambda: self.select_plate_type_name(stamping_press_type))
         self.ui.plate_start.clicked.connect(lambda: self.start(stamping_press_type))
+
 
     # 選擇平板類型
     def select_plate_type_name(self, stamping_press_type):
