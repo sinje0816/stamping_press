@@ -317,13 +317,18 @@ class main(QtWidgets.QWidget, Ui_Form):
         button_layout = QHBoxLayout()  # 创建一个水平布局对象
         button_container.setLayout(button_layout)  # 将布局附加到button_container上
 
-        plate_setup.clicked.connect(self.switch_to_plate)
+
+        self.ui.window_main_table.cellWidget(4, 3).currentIndexChanged.connect(lambda:self.choose_stamping_press_type())
+        self.ui.window_main_table.cellWidget(5, 3).currentIndexChanged.connect(lambda:self.choose_stamping_press_type())
+
+
+
+        plate_setup.clicked.connect(lambda:self.switch_to_plate(par.stamping_press_type))
         # punch_setup.clicked.connect()
         # select_setup.clicked.connect()
         # spare_parts_setup.clicked.connect()
 
     def switch_to_plate(self, stamping_press_type):
-        self.choose_stamping_press_type()
         self.hide()
         self.nw = plate_first_windows(stamping_press_type)
         self.nw.show()
@@ -361,18 +366,10 @@ class main(QtWidgets.QWidget, Ui_Form):
             self.change_dir(self.i, self.p, self.alpha, self.beta, self.zeta, self.epsilon, self.machining,
                             self.welding, self.travel_type)
 
-    def show_pad_secend_windows(self):
-        window_table = self.ui.window_main_table
-        type = str(window_table.item(4, 5).currentText())
-        travel_type = str(window_table.item().currentText())
-        # processing = str(self.ui.comboBox.currentText())
-        self.stamping_press_type, self.travel_type = self.choos(type, travel_type)
-        self.hide()
-        self.nw = plate_first_windows(self.i)
-        self.nw.show()
 
     def choose_stamping_press_type(self):
-        type = str(self.ui.window_main_table.item(4, 5).currentText())
+        type = self.ui.window_main_table.cellWidget(4, 3).currentText()
+        style = self.ui.window_main_table.cellWidget(5, 3).currentText()
         if type == "SN1-25":
             stamping_press_type = 0
         elif type == "SN1-35":
@@ -391,10 +388,23 @@ class main(QtWidgets.QWidget, Ui_Form):
             stamping_press_type = 7
         elif type == "SN1-250":
             stamping_press_type = 8
-        elif type == "SN1-300":
-            stamping_press_type = 9
+        punch_stroke = QTableWidgetItem(par.stamping_press_stroke[style][stamping_press_type])
+        punch_stroke.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        punch_stroke.setFlags(punch_stroke.flags() & ~Qt.ItemIsEditable)
+        self.ui.window_main_table.setItem(9, 3, punch_stroke)
+        punch_cycle = QTableWidgetItem(par.stamping_press_cycle[style][stamping_press_type])
+        punch_cycle.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        punch_cycle.setFlags(punch_cycle.flags() & ~Qt.ItemIsEditable)
+        self.ui.window_main_table.setItem(10, 3, punch_cycle)
+        punch_DH = QTableWidgetItem(par.stamping_press_DH[style][stamping_press_type])
+        punch_DH.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        punch_DH.setFlags(punch_DH.flags() & ~Qt.ItemIsEditable)
+        self.ui.window_main_table.setItem(11, 3, punch_DH)
 
-        return stamping_press_type
+        par.stamping_press_type = stamping_press_type
+        par.stamping_press_style = style
+        print(par.stamping_press_type, par.stamping_press_style)
+
 
     def choos(self, type, prossing, travel_type):
         # 確認型號"輸入型號"
