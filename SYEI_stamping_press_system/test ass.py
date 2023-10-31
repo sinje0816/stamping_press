@@ -1,14 +1,15 @@
 import main_program as mprog
 
-#FRAME53角度改為-30
-#5FRAME53_1角度感-60
+#待修正
+#ELECTRIC_BOX ZX 跟YZ互換
+#FRAME2 ll要修正
 
-#FRAME53 Zx換XY XY換ZX
+#待討論
+#曲軸合銅座建零件
 
 
 
-
-#60頓
-#FRAME33要從上面削調bbbbb
-#FRAME19的J
-#FRAME27的下缺口高度要固定
+#待補齊
+#crankshaft的YZ距離為暫定
+#PANEL 的YZ距離為暫定
+#POINTER 的YZ距離為暫定

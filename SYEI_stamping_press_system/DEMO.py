@@ -356,7 +356,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
                     if name == 'PANEL' or name == 'CON_ROD' or name == 'CON_ROD_BASE' or name == 'CON_ROD_CAP' or name == 'INVERTERBRACKET' \
                             or name == 'POINTER' or name == 'COVER' or name == 'PLUG' or name == 'feeding_shaft_cover' or name == 'OIL_LEVEL_GAUGE' \
                             or name == 'slide_gib' or name == 'ELECTRIC_BOX_PLATE' or name == 'MOUNT_FILTER'or name == 'CONTROL_PANEL' or name == 'PANEL_BOX'\
-                            or name == 'PANEL_BOX_BRACKET' or name == 'CONTROL_UNIT_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE'\
+                            or name == 'PANEL_BOX_BRACKET' or name == 'ELECTRIC_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE'\
                             or name == 'TRADEMARK_NAMEPLATE'or name == 'OPERATION_BOX':
                         # 讀取其餘STP檔
                         S_i.STP(name, i, machining)
