@@ -45,7 +45,7 @@ def pastebody(count, parameter_name):
     body1 = bodies1.Item("PartBody")
     selection1.Add(body1)
     selection1.Paste()
-    body = bodies1.Item("Body." + str(9 + count))
+    body = bodies1.Item("Body." + str(10 + count))
     body.name = parameter_name + str(count)
 
 
@@ -92,7 +92,6 @@ def changerotate(rotate_value):
     hybridShapeRotate = hybridShapes1.Item("Rotate.3")
     angle1 = hybridShapeRotate.Angle
     angle1.Value = rotate_value
-    part1.Update()
 
 
 def create_t_solt(translate, count):

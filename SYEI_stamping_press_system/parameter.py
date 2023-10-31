@@ -149,7 +149,7 @@ t_all_dimension_name = ['T_type_A', 'T_type_B', 'T_type_C', 'T_type_D']
 t_table_dimension_parameter = ['A', 'B', 'C', 'D']
 
 # 除料孔(待補齊)
-plate_hole_type = ['']
+plate_hole_type = []
 # 平板變數大全
 plate_all_parameter = {}
 # 下料孔參數
@@ -169,13 +169,22 @@ cutout_parameter_circle = ['HD']
 cutout_parameter_square = ['HLR', 'HFB']
 cutout_parameter_funnel = ['HULR', 'HDLR', 'HUFB', 'HDFB', 'HH']
 
-# 模墊頂桿孔
+# 特殊平板(模墊頂桿孔)
 cutout_molded_cushion_A = [26, 32]
 cutout_molded_cushion_B = [33.4, 40]
 cutout_molded_cushion_L = [8.5, 10.5]
 cutout_molded_cushion_i = [5, 5, 5, 5, 6, 6, 6, 7, 8]
 cutout_molded_cushion_j = [3, 3, 3, 3, 4, 4, 4, 5, 6]
-
+# 標準平板(模墊型頂桿孔)
+normal_cutout_molded_cushion_A = ['M20', 'M20', 'M24', 'M24', 'M30']
+normal_cutout_molded_cushion_B = [40, 40, 45, 45, 50]
+normal_cutout_molded_cushion_D = [63, 63, 65, 65, 73]
+normal_cutout_molded_cushion_length = [70, 70, 80, 80, 110]
+normal_cutout_molded_cushion_width = [177.5, 177.5, 220, 220, 245]
+normal_cutout_molded_cushion_width_gap = [65, 65, 75, 75, 75, 90, 100, 100, 100]
+normal_cutout_molded_cushion_length_gap = [60, 90, 100, 100, 75, 90, 100, 100, 100]
+normal_cutout_molded_cushion_length_quantity = [5, 5, 5, 5, 6, 6, 6, 7, 8]
+normal_cutout_molded_cushion_width_quantity = [3, 3, 3, 3, 4, 4, 4, 5, 6]
 # 主頁面資料
 series1 = ['C型單軸自動化選單', '基本參數']
 series2 = ['單位', '銷售地區法規', '機種', '形式', '平板', '衝頭']

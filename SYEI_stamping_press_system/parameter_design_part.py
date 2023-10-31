@@ -3,24 +3,16 @@ import main_program as mprog
 import parameter as par
 
 
-def padchange(i):
+def padchange(stamping_press_type):
     excel = epc.ExcelOp('平板', '平板')
-    try:
-        plate_parameter_name, plate_parameter_value = excel.get_sheet_par('plate', i)
-        print(plate_parameter_value, plate_parameter_name)
-        print('plate Parameter change success')
-    except:
-        print('plate Parameter change error')
-    try:
-        if i == 4 or 5 or 6 or 7 or 8:  # 80N
-            mprog.activatefeature('Bottom_80N', 0)
-    except:
-        print('plate Parameter activate error')
-    finally:
-        try:
-            mprog.Update()
-            print('plate Update success')
-        except:
-            print('plate Update error')
-
+    plate_parameter_name, plate_parameter_value = excel.get_sheet_par('plate', stamping_press_type)
+    if stamping_press_type == 0 or stamping_press_type == 1 or stamping_press_type == 2 or stamping_press_type == 3:  # 60N
+        mprog.activatefeature('Bottom_60N', 0)
+        mprog.activatefeature('f', 16)
+    elif stamping_press_type == 4 or stamping_press_type == 5 or stamping_press_type ==  6 or stamping_press_type ==  7 or stamping_press_type ==  8:  # 80N
+        mprog.activatefeature('Bottom_80N', 0)
+        mprog.activatefeature('fr', 16)
+        mprog.partbodyfeatureactivate('80N')
+        mprog.partbodyfeatureactivate('80N_EdgeFillet')
+    mprog.Update()
     return plate_parameter_name, plate_parameter_value
