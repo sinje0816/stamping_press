@@ -35,45 +35,45 @@ NAME_PLATE_list_normal = ['302N52_NAME_PLATE', '322N52_NAME_PLATE', '342N52_NAME
 TRADEMARK_NAMEPLATE_list_normal = ['MZD8276_TRADEMARK_NAMEPLATE', 'MZD8276_TRADEMARK_NAMEPLATE', '34N19_TRADEMARK_NAMEPLATE', '34N19_TRADEMARK_NAMEPLATE', 'MZD8275_TRADEMARK_NAMEPLATE', 'MZD8275_TRADEMARK_NAMEPLATE', 'MZD8274_TRADEMARK_NAMEPLATE', 'MZD8274_TRADEMARK_NAMEPLATE', '47N46_TRADEMARK_NAMEPLATE']
 OPERATION_BOX_list = '01A061186RP_OPERATION_BOX'
 
-def STP(name, i, machining):
+def STP(name, stamping_press_type, machining):
     if name == 'PANEL':
-        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_list[i])
-        mprog.save_file_stp(machining, PANEL_list[i])
-        mprog.save_stpfile_part(machining, PANEL_list[i])
-        mprog.close_file(PANEL_list[i])
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_list[stamping_press_type])
+        mprog.save_file_stp(machining, PANEL_list[stamping_press_type])
+        mprog.save_stpfile_part(machining, PANEL_list[stamping_press_type])
+        mprog.close_file(PANEL_list[stamping_press_type])
     elif name == 'CON_ROD':
-        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), CON_ROD_list[i])
-        mprog.save_file_stp(machining, CON_ROD_list[i])
-        mprog.save_stpfile_part(machining, CON_ROD_list[i])
-        mprog.close_file(CON_ROD_list[i])
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), CON_ROD_list[stamping_press_type])
+        mprog.save_file_stp(machining, CON_ROD_list[stamping_press_type])
+        mprog.save_stpfile_part(machining, CON_ROD_list[stamping_press_type])
+        mprog.close_file(CON_ROD_list[stamping_press_type])
     elif name == 'CON_ROD_BASE':
-        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), CON_ROD_BASE_list[i])
-        mprog.save_file_stp(machining, CON_ROD_BASE_list[i])
-        mprog.save_stpfile_part(machining, CON_ROD_BASE_list[i])
-        mprog.close_file(CON_ROD_BASE_list[i])
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), CON_ROD_BASE_list[stamping_press_type])
+        mprog.save_file_stp(machining, CON_ROD_BASE_list[stamping_press_type])
+        mprog.save_stpfile_part(machining, CON_ROD_BASE_list[stamping_press_type])
+        mprog.close_file(CON_ROD_BASE_list[stamping_press_type])
     elif name == 'CON_ROD_CAP':
-        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), CON_ROD_CAP_list[i])
-        mprog.save_file_stp(machining, CON_ROD_CAP_list[i])
-        mprog.save_stpfile_part(machining, CON_ROD_CAP_list[i])
-        mprog.close_file(CON_ROD_CAP_list[i])
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), CON_ROD_CAP_list[stamping_press_type])
+        mprog.save_file_stp(machining, CON_ROD_CAP_list[stamping_press_type])
+        mprog.save_stpfile_part(machining, CON_ROD_CAP_list[stamping_press_type])
+        mprog.close_file(CON_ROD_CAP_list[stamping_press_type])
     elif name == 'INVERTERBRACKET':
         try:
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), INVERTERBRACKET_list[i])
-            mprog.save_file_stp(machining, INVERTERBRACKET_list[i])
-            mprog.save_stpfile_part(machining, INVERTERBRACKET_list[i])
-            mprog.close_file(INVERTERBRACKET_list[i])
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), INVERTERBRACKET_list[stamping_press_type])
+            mprog.save_file_stp(machining, INVERTERBRACKET_list[stamping_press_type])
+            mprog.save_stpfile_part(machining, INVERTERBRACKET_list[stamping_press_type])
+            mprog.close_file(INVERTERBRACKET_list[stamping_press_type])
         except:
             pass
     elif name == 'POINTER':
-        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), POINTER_list[i])
-        mprog.save_file_stp(machining, POINTER_list[i])
-        mprog.save_stpfile_part(machining, POINTER_list[i])
-        mprog.close_file(POINTER_list[i])
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), POINTER_list[stamping_press_type])
+        mprog.save_file_stp(machining, POINTER_list[stamping_press_type])
+        mprog.save_stpfile_part(machining, POINTER_list[stamping_press_type])
+        mprog.close_file(POINTER_list[stamping_press_type])
     elif name == 'COVER':
-        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), COVER_list[i])
-        mprog.save_file_stp(machining, COVER_list[i])
-        mprog.save_stpfile_part(machining, COVER_list[i])
-        mprog.close_file(COVER_list[i])
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), COVER_list[stamping_press_type])
+        mprog.save_file_stp(machining, COVER_list[stamping_press_type])
+        mprog.save_stpfile_part(machining, COVER_list[stamping_press_type])
+        mprog.close_file(COVER_list[stamping_press_type])
     elif name == 'PLUG':
         mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PLUG_list)
         mprog.save_file_stp(machining, PLUG_list)
@@ -81,44 +81,44 @@ def STP(name, i, machining):
         mprog.close_file(PLUG_list)
     elif name == 'feeding_shaft_cover':
         try:
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), feeding_shaft_cover_list[i])
-            mprog.save_file_stp(machining, feeding_shaft_cover_list[i])
-            mprog.save_stpfile_part(machining, feeding_shaft_cover_list[i])
-            mprog.close_file(feeding_shaft_cover_list[i])
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), feeding_shaft_cover_list[stamping_press_type])
+            mprog.save_file_stp(machining, feeding_shaft_cover_list[stamping_press_type])
+            mprog.save_stpfile_part(machining, feeding_shaft_cover_list[stamping_press_type])
+            mprog.close_file(feeding_shaft_cover_list[stamping_press_type])
         except:
             pass
     elif name == 'OIL_LEVEL_GAUGE':
-        if i <= 2:
+        if stamping_press_type <= 2:
             mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), 'OGASKL060_OIL_LEVEL_GAUGE')
             mprog.save_file_stp(machining, 'OGASKL060_OIL_LEVEL_GAUGE')
             mprog.save_stpfile_part(machining, 'OGASKL060_OIL_LEVEL_GAUGE')
             mprog.close_file('OGASKL060_OIL_LEVEL_GAUGE')
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), OIL_LEVEL_GAUGE_list_SLIDE[i])
-            mprog.save_file_stp(machining, OIL_LEVEL_GAUGE_list_SLIDE[i])
-            mprog.save_stpfile_part(machining, OIL_LEVEL_GAUGE_list_SLIDE[i])
-            mprog.close_file(OIL_LEVEL_GAUGE_list_SLIDE[i])
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type])
+            mprog.save_file_stp(machining, OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type])
+            mprog.save_stpfile_part(machining, OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type])
+            mprog.close_file(OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type])
         else:
             mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), 'OGASKL060_OIL_LEVEL_GAUGE')
             mprog.save_file_stp(machining, 'OGASKL060_OIL_LEVEL_GAUGE')
             mprog.save_stpfile_part(machining, 'OGASKL060_OIL_LEVEL_GAUGE')
             mprog.close_file('OGASKL060_OIL_LEVEL_GAUGE')
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), OIL_LEVEL_GAUGE_list_SLIDE[i])
-            mprog.save_file_stp(machining, OIL_LEVEL_GAUGE_list_SLIDE[i])
-            mprog.save_stpfile_part(machining, OIL_LEVEL_GAUGE_list_SLIDE[i])
-            mprog.close_file(OIL_LEVEL_GAUGE_list_SLIDE[i])
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), OIL_LEVEL_GAUGE_list_CON_ROD[i])
-            mprog.save_file_stp(machining, OIL_LEVEL_GAUGE_list_CON_ROD[i])
-            mprog.save_stpfile_part(machining, OIL_LEVEL_GAUGE_list_CON_ROD[i])
-            mprog.close_file(OIL_LEVEL_GAUGE_list_CON_ROD[i])
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type])
+            mprog.save_file_stp(machining, OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type])
+            mprog.save_stpfile_part(machining, OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type])
+            mprog.close_file(OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type])
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), OIL_LEVEL_GAUGE_list_CON_ROD[stamping_press_type])
+            mprog.save_file_stp(machining, OIL_LEVEL_GAUGE_list_CON_ROD[stamping_press_type])
+            mprog.save_stpfile_part(machining, OIL_LEVEL_GAUGE_list_CON_ROD[stamping_press_type])
+            mprog.close_file(OIL_LEVEL_GAUGE_list_CON_ROD[stamping_press_type])
     elif name == 'slide_gib':
-        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), slide_gib_list_right[i])
-        mprog.save_file_stp(machining, slide_gib_list_right[i])
-        mprog.save_stpfile_part(machining, slide_gib_list_right[i])
-        mprog.close_file(slide_gib_list_right[i])
-        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), slide_gib_list_left[i])
-        mprog.save_file_stp(machining, slide_gib_list_left[i])
-        mprog.save_stpfile_part(machining, slide_gib_list_left[i])
-        mprog.close_file(slide_gib_list_left[i])
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), slide_gib_list_right[stamping_press_type])
+        mprog.save_file_stp(machining, slide_gib_list_right[stamping_press_type])
+        mprog.save_stpfile_part(machining, slide_gib_list_right[stamping_press_type])
+        mprog.close_file(slide_gib_list_right[stamping_press_type])
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), slide_gib_list_left[stamping_press_type])
+        mprog.save_file_stp(machining, slide_gib_list_left[stamping_press_type])
+        mprog.save_stpfile_part(machining, slide_gib_list_left[stamping_press_type])
+        mprog.close_file(slide_gib_list_left[stamping_press_type])
     elif name == 'ELECTRIC_BOX_PLATE':
         mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), 'EWR60S01_ELECTRIC_BOX_PLATE')
         mprog.save_file_stp(machining, 'EWR60S01_ELECTRIC_BOX_PLATE')
@@ -130,110 +130,110 @@ def STP(name, i, machining):
         mprog.save_stpfile_part(machining, 'EGPSSGD1000IS_MOUNT_FILTER')
         mprog.close_file('EGPSSGD1000IS_MOUNT_FILTER')
     elif name == 'CONTROL_PANEL':
-        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), CONTROL_PANEL_list_normal[i])
-        mprog.save_file_stp(machining, CONTROL_PANEL_list_normal[i])
-        mprog.save_stpfile_part(machining, CONTROL_PANEL_list_normal[i])
-        mprog.close_file(CONTROL_PANEL_list_normal[i])
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), CONTROL_PANEL_list_normal[stamping_press_type])
+        mprog.save_file_stp(machining, CONTROL_PANEL_list_normal[stamping_press_type])
+        mprog.save_stpfile_part(machining, CONTROL_PANEL_list_normal[stamping_press_type])
+        mprog.close_file(CONTROL_PANEL_list_normal[stamping_press_type])
     elif name == 'PANEL_BOX':
-        if i == 0:
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_list_normal[i])
-            mprog.save_file_stp(machining, PANEL_BOX_list_normal[i])
-            mprog.save_stpfile_part(machining, PANEL_BOX_list_normal[i])
-            mprog.close_file(PANEL_BOX_list_normal[i])
-        elif i == 1:
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_list_normal[i])
-            mprog.save_file_stp(machining, PANEL_BOX_list_normal[i])
-            mprog.save_stpfile_part(machining, PANEL_BOX_list_normal[i])
-            mprog.close_file(PANEL_BOX_list_normal[i])
-        elif i == 2:
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_list_normal[i])
-            mprog.save_file_stp(machining, PANEL_BOX_list_normal[i])
-            mprog.save_stpfile_part(machining, PANEL_BOX_list_normal[i])
-            mprog.close_file(PANEL_BOX_list_normal[i])
-        elif i == 3:
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_list_normal[i])
-            mprog.save_file_stp(machining, PANEL_BOX_list_normal[i])
-            mprog.save_stpfile_part(machining, PANEL_BOX_list_normal[i])
-            mprog.close_file(PANEL_BOX_list_normal[i])
-        elif i == 4:
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_list_normal[i])
-            mprog.save_file_stp(machining, PANEL_BOX_list_normal[i])
-            mprog.save_stpfile_part(machining, PANEL_BOX_list_normal[i])
-            mprog.close_file(PANEL_BOX_list_normal[i])
-        elif i == 5:
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_list_normal[i])
-            mprog.save_file_stp(machining, PANEL_BOX_list_normal[i])
-            mprog.save_stpfile_part(machining, PANEL_BOX_list_normal[i])
-            mprog.close_file(PANEL_BOX_list_normal[i])
-        elif i == 6:
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_list_normal[i])
-            mprog.save_file_stp(machining, PANEL_BOX_list_normal[i])
-            mprog.save_stpfile_part(machining, PANEL_BOX_list_normal[i])
-            mprog.close_file(PANEL_BOX_list_normal[i])
-        elif i == 7:
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_list_normal[i])
-            mprog.save_file_stp(machining, PANEL_BOX_list_normal[i])
-            mprog.save_stpfile_part(machining, PANEL_BOX_list_normal[i])
-            mprog.close_file(PANEL_BOX_list_normal[i])
-        elif i == 8:
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_list_normal[i])
-            mprog.save_file_stp(machining, PANEL_BOX_list_normal[i])
-            mprog.save_stpfile_part(machining, PANEL_BOX_list_normal[i])
-            mprog.close_file(PANEL_BOX_list_normal[i])
+        if stamping_press_type == 0:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_list_normal[stamping_press_type])
+            mprog.save_file_stp(machining, PANEL_BOX_list_normal[stamping_press_type])
+            mprog.save_stpfile_part(machining, PANEL_BOX_list_normal[stamping_press_type])
+            mprog.close_file(PANEL_BOX_list_normal[stamping_press_type])
+        elif stamping_press_type == 1:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_list_normal[stamping_press_type])
+            mprog.save_file_stp(machining, PANEL_BOX_list_normal[stamping_press_type])
+            mprog.save_stpfile_part(machining, PANEL_BOX_list_normal[stamping_press_type])
+            mprog.close_file(PANEL_BOX_list_normal[stamping_press_type])
+        elif stamping_press_type == 2:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_list_normal[stamping_press_type])
+            mprog.save_file_stp(machining, PANEL_BOX_list_normal[stamping_press_type])
+            mprog.save_stpfile_part(machining, PANEL_BOX_list_normal[stamping_press_type])
+            mprog.close_file(PANEL_BOX_list_normal[stamping_press_type])
+        elif stamping_press_type == 3:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_list_normal[stamping_press_type])
+            mprog.save_file_stp(machining, PANEL_BOX_list_normal[stamping_press_type])
+            mprog.save_stpfile_part(machining, PANEL_BOX_list_normal[stamping_press_type])
+            mprog.close_file(PANEL_BOX_list_normal[stamping_press_type])
+        elif stamping_press_type == 4:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_list_normal[stamping_press_type])
+            mprog.save_file_stp(machining, PANEL_BOX_list_normal[stamping_press_type])
+            mprog.save_stpfile_part(machining, PANEL_BOX_list_normal[stamping_press_type])
+            mprog.close_file(PANEL_BOX_list_normal[stamping_press_type])
+        elif stamping_press_type == 5:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_list_normal[stamping_press_type])
+            mprog.save_file_stp(machining, PANEL_BOX_list_normal[stamping_press_type])
+            mprog.save_stpfile_part(machining, PANEL_BOX_list_normal[stamping_press_type])
+            mprog.close_file(PANEL_BOX_list_normal[stamping_press_type])
+        elif stamping_press_type == 6:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_list_normal[stamping_press_type])
+            mprog.save_file_stp(machining, PANEL_BOX_list_normal[stamping_press_type])
+            mprog.save_stpfile_part(machining, PANEL_BOX_list_normal[stamping_press_type])
+            mprog.close_file(PANEL_BOX_list_normal[stamping_press_type])
+        elif stamping_press_type == 7:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_list_normal[stamping_press_type])
+            mprog.save_file_stp(machining, PANEL_BOX_list_normal[stamping_press_type])
+            mprog.save_stpfile_part(machining, PANEL_BOX_list_normal[stamping_press_type])
+            mprog.close_file(PANEL_BOX_list_normal[stamping_press_type])
+        elif stamping_press_type == 8:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_list_normal[stamping_press_type])
+            mprog.save_file_stp(machining, PANEL_BOX_list_normal[stamping_press_type])
+            mprog.save_stpfile_part(machining, PANEL_BOX_list_normal[stamping_press_type])
+            mprog.close_file(PANEL_BOX_list_normal[stamping_press_type])
     elif name == 'PANEL_BOX_BRACKET':
-        if i == 0:
+        if stamping_press_type == 0:
             pass
-        elif i == 1:
+        elif stamping_press_type == 1:
             pass
-        elif i == 2:
+        elif stamping_press_type == 2:
             pass
-        elif i == 3:
+        elif stamping_press_type == 3:
             pass
-        elif i == 4:
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_BRACKET_list_normal[i])
-            mprog.save_file_stp(machining, PANEL_BOX_BRACKET_list_normal[i])
-            mprog.save_stpfile_part(machining, PANEL_BOX_BRACKET_list_normal[i])
-            mprog.close_file(PANEL_BOX_BRACKET_list_normal[i])
-        elif i == 5:
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_BRACKET_list_normal[i])
-            mprog.save_file_stp(machining, PANEL_BOX_BRACKET_list_normal[i])
-            mprog.save_stpfile_part(machining, PANEL_BOX_BRACKET_list_normal[i])
-            mprog.close_file(PANEL_BOX_BRACKET_list_normal[i])
-        elif i == 6:
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_BRACKET_list_normal[i])
-            mprog.save_file_stp(machining, PANEL_BOX_BRACKET_list_normal[i])
-            mprog.save_stpfile_part(machining, PANEL_BOX_BRACKET_list_normal[i])
-            mprog.close_file(PANEL_BOX_BRACKET_list_normal[i])
-        elif i == 7:
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_BRACKET_list_normal[i])
-            mprog.save_file_stp(machining, PANEL_BOX_BRACKET_list_normal[i])
-            mprog.save_stpfile_part(machining, PANEL_BOX_BRACKET_list_normal[i])
-            mprog.close_file(PANEL_BOX_BRACKET_list_normal[i])
-        elif i == 8:
-            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_BRACKET_list_normal[i])
-            mprog.save_file_stp(machining, PANEL_BOX_BRACKET_list_normal[i])
-            mprog.save_stpfile_part(machining, PANEL_BOX_BRACKET_list_normal[i])
-            mprog.close_file(PANEL_BOX_BRACKET_list_normal[i])
+        elif stamping_press_type == 4:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+            mprog.save_file_stp(machining, PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+            mprog.save_stpfile_part(machining, PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+            mprog.close_file(PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+        elif stamping_press_type == 5:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+            mprog.save_file_stp(machining, PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+            mprog.save_stpfile_part(machining, PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+            mprog.close_file(PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+        elif stamping_press_type == 6:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+            mprog.save_file_stp(machining, PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+            mprog.save_stpfile_part(machining, PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+            mprog.close_file(PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+        elif stamping_press_type == 7:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+            mprog.save_file_stp(machining, PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+            mprog.save_stpfile_part(machining, PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+            mprog.close_file(PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+        elif stamping_press_type == 8:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+            mprog.save_file_stp(machining, PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+            mprog.save_stpfile_part(machining, PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+            mprog.close_file(PANEL_BOX_BRACKET_list_normal[stamping_press_type])
     elif name == 'ELECTRIC_BOX':
-        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), ELECTRIC_BOX_list_normal[i])
-        mprog.save_file_stp(machining, ELECTRIC_BOX_list_normal[i])
-        mprog.save_stpfile_part(machining, ELECTRIC_BOX_list_normal[i])
-        mprog.close_file(ELECTRIC_BOX_list_normal[i])
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), ELECTRIC_BOX_list_normal[stamping_press_type])
+        mprog.save_file_stp(machining, ELECTRIC_BOX_list_normal[stamping_press_type])
+        mprog.save_stpfile_part(machining, ELECTRIC_BOX_list_normal[stamping_press_type])
+        mprog.close_file(ELECTRIC_BOX_list_normal[stamping_press_type])
     elif name == 'GUARD_FLYWHEEL':
-        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), GUARD_FLYWHEEL_list_normal[i])
-        mprog.save_file_stp(machining, GUARD_FLYWHEEL_list_normal[i])
-        mprog.save_stpfile_part(machining, GUARD_FLYWHEEL_list_normal[i])
-        mprog.close_file(GUARD_FLYWHEEL_list_normal[i])
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), GUARD_FLYWHEEL_list_normal[stamping_press_type])
+        mprog.save_file_stp(machining, GUARD_FLYWHEEL_list_normal[stamping_press_type])
+        mprog.save_stpfile_part(machining, GUARD_FLYWHEEL_list_normal[stamping_press_type])
+        mprog.close_file(GUARD_FLYWHEEL_list_normal[stamping_press_type])
     elif name == 'NAME_PLATE':
-        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), NAME_PLATE_list_normal[i])
-        mprog.save_file_stp(machining, NAME_PLATE_list_normal[i])
-        mprog.save_stpfile_part(machining, NAME_PLATE_list_normal[i])
-        mprog.close_file(NAME_PLATE_list_normal[i])
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), NAME_PLATE_list_normal[stamping_press_type])
+        mprog.save_file_stp(machining, NAME_PLATE_list_normal[stamping_press_type])
+        mprog.save_stpfile_part(machining, NAME_PLATE_list_normal[stamping_press_type])
+        mprog.close_file(NAME_PLATE_list_normal[stamping_press_type])
     elif name == 'TRADEMARK_NAMEPLATE':
-        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), TRADEMARK_NAMEPLATE_list_normal[i])
-        mprog.save_file_stp(machining, TRADEMARK_NAMEPLATE_list_normal[i])
-        mprog.save_stpfile_part(machining, TRADEMARK_NAMEPLATE_list_normal[i])
-        mprog.close_file(TRADEMARK_NAMEPLATE_list_normal[i])
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), TRADEMARK_NAMEPLATE_list_normal[stamping_press_type])
+        mprog.save_file_stp(machining, TRADEMARK_NAMEPLATE_list_normal[stamping_press_type])
+        mprog.save_stpfile_part(machining, TRADEMARK_NAMEPLATE_list_normal[stamping_press_type])
+        mprog.close_file(TRADEMARK_NAMEPLATE_list_normal[stamping_press_type])
     elif name == 'OPERATION_BOX':
         mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), '01A061186RP_OPERATION_BOX')
         mprog.save_file_stp(machining, '01A061186RP_OPERATION_BOX')
@@ -245,82 +245,82 @@ def STP(name, i, machining):
 
 
 
-def Assmebly(name,path, i):
+def Assmebly(name,path, stamping_press_type):
     if name == 'PANEL':
-        mprog.import_file_Part(path, PANEL_list[i])
+        mprog.import_file_Part(path, PANEL_list[stamping_press_type])
     elif name == 'CON_ROD':
-        mprog.import_file_Part(path, CON_ROD_list[i])
+        mprog.import_file_Part(path, CON_ROD_list[stamping_press_type])
     elif name == 'CON_ROD_BASE':
-        mprog.import_file_Part(path, CON_ROD_BASE_list[i])
+        mprog.import_file_Part(path, CON_ROD_BASE_list[stamping_press_type])
     elif name == 'CON_ROD_CAP':
-        mprog.import_file_Part(path, CON_ROD_CAP_list[i])
+        mprog.import_file_Part(path, CON_ROD_CAP_list[stamping_press_type])
     elif name == 'INVERTERBRACKET':
-        mprog.import_file_Part(path, INVERTERBRACKET_list[i])
+        mprog.import_file_Part(path, INVERTERBRACKET_list[stamping_press_type])
     elif name == 'POINTER':
-        mprog.import_file_Part(path, POINTER_list[i])
+        mprog.import_file_Part(path, POINTER_list[stamping_press_type])
     elif name == 'COVER':
-        mprog.import_file_Part(path, COVER_list[i])
+        mprog.import_file_Part(path, COVER_list[stamping_press_type])
     elif name == 'PLUG':
         mprog.import_file_Part(path, PLUG_list)
     elif name == 'feeding_shaft_cover':
-        mprog.import_file_Part(path, feeding_shaft_cover_list[i])
+        mprog.import_file_Part(path, feeding_shaft_cover_list[stamping_press_type])
     elif name == 'OIL_LEVEL_GAUGE':
         mprog.import_file_Part(path, 'OGASKL060_OIL_LEVEL_GAUGE')
-        mprog.import_file_Part(path, OIL_LEVEL_GAUGE_list_SLIDE[i])
-        mprog.import_file_Part(path, OIL_LEVEL_GAUGE_list_CON_ROD[i])
+        mprog.import_file_Part(path, OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type])
+        mprog.import_file_Part(path, OIL_LEVEL_GAUGE_list_CON_ROD[stamping_press_type])
     elif name == 'slide_gib':
-        mprog.import_file_Part(path, slide_gib_list_right[i])
-        mprog.import_file_Part(path, slide_gib_list_left[i])
+        mprog.import_file_Part(path, slide_gib_list_right[stamping_press_type])
+        mprog.import_file_Part(path, slide_gib_list_left[stamping_press_type])
     elif name == 'ELECTRIC_BOX_PLATE':
         mprog.import_file_Part(path, 'EWR60S01_ELECTRIC_BOX_PLATE')
     elif name == 'MOUNT_FILTER':
         mprog.import_file_Part(path, 'EGPSSGD1000IS_MOUNT_FILTER')
     elif name == 'CONTROL_PANEL':
-        mprog.import_file_Part(path, CONTROL_PANEL_list_normal[i])
+        mprog.import_file_Part(path, CONTROL_PANEL_list_normal[stamping_press_type])
     elif name == 'PANEL_BOX':
-        if i == 0:
-            mprog.import_file_Part(path, PANEL_BOX_list_normal[i])
-        elif i == 1:
-            mprog.import_file_Part(path, PANEL_BOX_list_normal[i])
-        elif i == 2:
-            mprog.import_file_Part(path, PANEL_BOX_list_normal[i])
-        elif i == 3:
-            mprog.import_file_Part(path, PANEL_BOX_list_normal[i])
-        elif i == 4:
-            mprog.import_file_Part(path, PANEL_BOX_list_normal[i])
-        elif i == 5:
-            mprog.import_file_Part(path, PANEL_BOX_list_normal[i])
-        elif i == 6:
-            mprog.import_file_Part(path, PANEL_BOX_list_normal[i])
-        elif i == 7:
-            mprog.import_file_Part(path, PANEL_BOX_list_normal[i])
-        elif i == 8:
-            mprog.import_file_Part(path, PANEL_BOX_list_normal[i])
+        if stamping_press_type == 0:
+            mprog.import_file_Part(path, PANEL_BOX_list_normal[stamping_press_type])
+        elif stamping_press_type == 1:
+            mprog.import_file_Part(path, PANEL_BOX_list_normal[stamping_press_type])
+        elif stamping_press_type == 2:
+            mprog.import_file_Part(path, PANEL_BOX_list_normal[stamping_press_type])
+        elif stamping_press_type == 3:
+            mprog.import_file_Part(path, PANEL_BOX_list_normal[stamping_press_type])
+        elif stamping_press_type == 4:
+            mprog.import_file_Part(path, PANEL_BOX_list_normal[stamping_press_type])
+        elif stamping_press_type == 5:
+            mprog.import_file_Part(path, PANEL_BOX_list_normal[stamping_press_type])
+        elif stamping_press_type == 6:
+            mprog.import_file_Part(path, PANEL_BOX_list_normal[stamping_press_type])
+        elif stamping_press_type == 7:
+            mprog.import_file_Part(path, PANEL_BOX_list_normal[stamping_press_type])
+        elif stamping_press_type == 8:
+            mprog.import_file_Part(path, PANEL_BOX_list_normal[stamping_press_type])
     elif name == 'PANEL_BOX_BRACKET':
-        if i == 0:
+        if stamping_press_type == 0:
             pass
-        elif i == 1:
+        elif stamping_press_type == 1:
             pass
-        elif i == 2:
+        elif stamping_press_type == 2:
             pass
-        elif i == 3:
+        elif stamping_press_type == 3:
             pass
-        elif i == 4:
-            mprog.import_file_Part(path, PANEL_BOX_BRACKET_list_normal[i])
-        elif i == 5:
-            mprog.import_file_Part(path, PANEL_BOX_BRACKET_list_normal[i])
-        elif i == 6:
-            mprog.import_file_Part(path, PANEL_BOX_BRACKET_list_normal[i])
-        elif i == 7:
-            mprog.import_file_Part(path, PANEL_BOX_BRACKET_list_normal[i])
-        elif i == 8:
-            mprog.import_file_Part(path, PANEL_BOX_BRACKET_list_normal[i])
+        elif stamping_press_type == 4:
+            mprog.import_file_Part(path, PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+        elif stamping_press_type == 5:
+            mprog.import_file_Part(path, PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+        elif stamping_press_type == 6:
+            mprog.import_file_Part(path, PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+        elif stamping_press_type == 7:
+            mprog.import_file_Part(path, PANEL_BOX_BRACKET_list_normal[stamping_press_type])
+        elif stamping_press_type == 8:
+            mprog.import_file_Part(path, PANEL_BOX_BRACKET_list_normal[stamping_press_type])
     elif name == 'ELECTRIC_BOX':
-        mprog.import_file_Part(path, ELECTRIC_BOX_list_normal[i])
+        mprog.import_file_Part(path, ELECTRIC_BOX_list_normal[stamping_press_type])
     elif name == 'GUARD_FLYWHEEL':
-        mprog.import_file_Part(path, GUARD_FLYWHEEL_list_normal[i])
+        mprog.import_file_Part(path, GUARD_FLYWHEEL_list_normal[stamping_press_type])
     elif name == 'NAME_PLATE':
-        mprog.import_file_Part(path, NAME_PLATE_list_normal[i])
+        mprog.import_file_Part(path, NAME_PLATE_list_normal[stamping_press_type])
     elif name == 'TRADEMARK_NAMEPLATE':
-        mprog.import_file_Part(path, TRADEMARK_NAMEPLATE_list_normal[i])
+        mprog.import_file_Part(path, TRADEMARK_NAMEPLATE_list_normal[stamping_press_type])
 

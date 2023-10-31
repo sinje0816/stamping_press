@@ -1,6 +1,6 @@
 import win32com.client as win32
 import main_program as mprog
-import excel_parameter_change_1 as epc
+import excel_parameter_change as epc
 def FRAME_change_parameter2(name, i):
     if name == 'FRAME3':
         excel = epc.ExcelOp('FRAME3')
@@ -1095,7 +1095,7 @@ def FRAME_change_parameter2(name, i):
             except:
                 print('FRAME54 Update error')
 def BALL_SCREW_change(BALL_SCREW_name):
-    excel = epc.ExcelOp('BALL_SCREW')
+    excel = epc.ExcelOp('尺寸整理表', 'BALL_SCREW')
     if BALL_SCREW_name == '302B07S02':
         BALL_SCREW_number = 0
     elif BALL_SCREW_name == '302B07S03':
@@ -1145,7 +1145,7 @@ def BALL_SCREW_change(BALL_SCREW_name):
     elif BALL_SCREW_name == '472B07S05':
         BALL_SCREW_number = 23
     try:
-        excel.part_parameter('BALL_SCREW', BALL_SCREW_number)
+        excel.get_sheet_par('BALL_SCREW', BALL_SCREW_number)
         print('BALL_SCREW Parameter change success')
     except:
         print('BALL_SCREW Parameter change error')
@@ -1561,4 +1561,4 @@ def BALL_SCREW_change(BALL_SCREW_name):
 
 
 
-FRAME_change_parameter2("FRAME20", 0)
+BALL_SCREW_change('472B07S05')
