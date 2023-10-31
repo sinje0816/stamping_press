@@ -283,6 +283,22 @@ def assembly(i, apv, path, alpha, beta, zeta):
     mprog.add_offset_assembly(S_i.ELECTRIC_BOX_list_normal[i]+'.1', 'EWR60S01_ELECTRIC_BOX_PLATE.1', -(S_assmebly_par['EBP_XY']+S_assmebly_par['EB_XY']), 'XY plane', 0, 266)
     mprog.add_offset_assembly(S_i.ELECTRIC_BOX_list_normal[i]+'.1', 'EWR60S01_ELECTRIC_BOX_PLATE.1', -(S_assmebly_par['EBP_YZ']+S_assmebly_par['EB_YZ']), 'YZ plane', 0, 267)
     mprog.add_offset_assembly(S_i.ELECTRIC_BOX_list_normal[i]+'.1', 'EWR60S01_ELECTRIC_BOX_PLATE.1', 0, 'ZX plane', 0, 268)
+    mprog.add_offset_assembly('EGPSSGD1000IS_MOUNT_FILTER.1', 'FRAME1.1', (apv['FRAME1']['e4']+apv['FRAME1']['e3']), 'XY plane', 1, 278)
+    mprog.add_offset_assembly('EGPSSGD1000IS_MOUNT_FILTER.1', 'FRAME1.1', -(apv['FRAME1']['g']-(apv['FRAME1']['d']-apv['FRAME1']['i'])), 'YZ plane', 0, 279)
+    mprog.add_offset_assembly('EGPSSGD1000IS_MOUNT_FILTER.1', 'FRAME1.1', -(apv['FRAME1']['CC']/2), 'ZX plane', 1, 280)
+    mprog.add_offset_assembly(S_i.TRADEMARK_NAMEPLATE_list_normal[i]+'.1', 'FRAME1.1', -(apv['FRAME1']['A']-S_assmebly_par['TN_XY ']), 'XY plane', 0, 281)
+    mprog.add_offset_assembly(S_i.TRADEMARK_NAMEPLATE_list_normal[i]+'.1', 'FRAME1.1', -(apv['FRAME1']['F']-S_assmebly_par['TN_YZ']), 'YZ plane', 1, 282)
+    mprog.add_offset_assembly(S_i.TRADEMARK_NAMEPLATE_list_normal[i]+'.1', 'FRAME1.1', -(apv['FRAME1']['CC']/2), 'ZX plane', 0, 283)
+    mprog.add_offset_assembly(S_i.TRADEMARK_NAMEPLATE_list_normal[i]+'.2', 'FRAME2.1', -(apv['FRAME1']['A']-S_assmebly_par['TN_XY']), 'XY plane', 0, 284)
+    mprog.add_offset_assembly(S_i.TRADEMARK_NAMEPLATE_list_normal[i]+'.2', 'FRAME2.1', (apv['FRAME1']['F']-S_assmebly_par['TN_YZ']+S_assmebly_par['TN_2_YZ']), 'YZ plane', 1, 285)
+    mprog.add_offset_assembly(S_i.TRADEMARK_NAMEPLATE_list_normal[i]+'.2', 'FRAME2.1', -(apv['FRAME1']['CC']/2), 'ZX plane', 0, 286)
+    mprog.add_offset_assembly(S_i.NAME_PLATE_list_normal[i]+'.1', 'FRAME30.1', -(apv['FRAME30']['A']-S_assmebly_par['NP_XY']), 'XY plane', 0, 287)
+    mprog.add_offset_assembly(S_i.NAME_PLATE_list_normal[i]+'.1', 'FRAME30.1', -(apv['FRAME30']['M']+S_assmebly_par['NP_YZ']), 'YZ plane', 0, 288)
+    mprog.add_offset_assembly(S_i.NAME_PLATE_list_normal[i]+'.1', 'FRAME30.1', -(apv['FRAME30']['E']-S_assmebly_par['NP_ZX']), 'ZX plane', 1, 289)
+    mprog.add_offset_assembly(S_i.GUARD_FLYWHEEL_list_normal[i]+'.1', 'FRAME30.1', (S_assmebly_par['GF_XY']), 'XY plane', 1, 290)
+    mprog.add_offset_assembly(S_i.GUARD_FLYWHEEL_list_normal[i]+'.1', 'FRAME30.1', 0, 'YZ plane', 1, 291)
+    mprog.add_offset_assembly(S_i.GUARD_FLYWHEEL_list_normal[i]+'.1', 'FRAME30.1', (S_assmebly_par['GF_ZX']), 'ZX plane', 0, 292)
+
 
 
 
@@ -1023,6 +1039,26 @@ def assembly(i, apv, path, alpha, beta, zeta):
         mprog.add_offset_assembly('FRAME52.2', 'FRAME22.1', -(apv["FRAME52"]["B"]), 'YZ plane', 1, 216)
         mprog.add_offset_assembly('FRAME52.2', 'FRAME22.1', -(apv["FRAME19"]["AH"]), 'ZX plane', 1,
                                   217)
+        #STP組立部分
+        mprog.add_offset_assembly(S_i.PANEL_BOX_BRACKET_list_normal[i] + '.1', S_i.ELECTRIC_BOX_list_normal[i] + '.1',
+                                  (S_assmebly_par['PBB_XY']), 'XY plane', 0, 269)
+        mprog.add_offset_assembly(S_i.PANEL_BOX_BRACKET_list_normal[i] + '.1', S_i.ELECTRIC_BOX_list_normal[i] + '.1',
+                                  (S_assmebly_par['PBB_YZ']), 'YZ plane', 0, 270)
+        mprog.add_offset_assembly(S_i.PANEL_BOX_BRACKET_list_normal[i] + '.1', S_i.ELECTRIC_BOX_list_normal[i] + '.1', (S_assmebly_par['PBB_ZX']),
+                                  'ZX plane', 1, 271)
+        mprog.add_offset_assembly(S_i.PANEL_BOX_list_normal[i] + '.1',S_i.PANEL_BOX_BRACKET_list_normal[i] + '.1',
+                                  (S_assmebly_par['PB_XY']), 'XY plane', 0, 272)
+        mprog.add_offset_assembly(S_i.PANEL_BOX_list_normal[i] + '.1',S_i.PANEL_BOX_BRACKET_list_normal[i] + '.1',
+                                  (S_assmebly_par['PB_YZ']), 'YZ plane', 1, 273)
+        mprog.add_offset_assembly(S_i.PANEL_BOX_list_normal[i] + '.1',S_i.PANEL_BOX_BRACKET_list_normal[i] + '.1', -(S_assmebly_par['PB_ZX']),
+                                  'ZX plane', 1, 274)
+        mprog.add_offset_assembly(S_i.CONTROL_PANEL_list_normal[i] + '.1',S_i.PANEL_BOX_list_normal[i] + '.1',
+                                  (S_assmebly_par['CP_XY']), 'XY plane', 1, 275)
+        mprog.add_offset_assembly(S_i.CONTROL_PANEL_list_normal[i] + '.1',S_i.PANEL_BOX_list_normal[i] + '.1',
+                                  -(S_assmebly_par['CP_YZ']), 'YZ plane', 1, 276)
+        mprog.add_offset_assembly(S_i.CONTROL_PANEL_list_normal[i] + '.1',S_i.PANEL_BOX_list_normal[i] + '.1', -(S_assmebly_par['CP_ZX']),
+                                  'ZX plane', 1, 277)
+
     elif i == 8:
         mprog.add_offset_assembly('FRAME15.1', 'FRAME1.1', -(
                 apv['FRAME1']['A'] - apv['FRAME30']['A'] - assmebly_par['Ass_S'] - apv['FRAME17']['g3']) - beta,
