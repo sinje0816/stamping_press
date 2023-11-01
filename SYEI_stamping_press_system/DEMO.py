@@ -317,32 +317,27 @@ class main(QtWidgets.QWidget, Ui_Form):
         button_layout = QHBoxLayout()  # 创建一个水平布局对象
         button_container.setLayout(button_layout)  # 将布局附加到button_container上
 
-
-        self.ui.window_main_table.cellWidget(4, 3).currentIndexChanged.connect(lambda:self.choose_stamping_press_type())
-        self.ui.window_main_table.cellWidget(5, 3).currentIndexChanged.connect(lambda:self.choose_stamping_press_type())
-
-
-
-        plate_setup.clicked.connect(lambda:self.switch_to_plate(par.stamping_press_type))
+        plate_setup.clicked.connect(self.switch_to_plate)
         # punch_setup.clicked.connect()
         # select_setup.clicked.connect()
         # spare_parts_setup.clicked.connect()
 
     def switch_to_plate(self, stamping_press_type):
+        self.choose_stamping_press_type()
         self.hide()
         self.nw = plate_first_windows(stamping_press_type)
         self.nw.show()
 
     def start(self):
         type = self.ui.window_main_table.cellWidget(4, 3).currentText()
-        travel_type = str(self.ui.window_main_table.cellWidget(4, 5).currentText())
-        specifications_travel_value = str(self.ui.lineEdit_5.text())
-        specifications_close_working_height_value = str(self.ui.lineEdit_2.text())
-        close_working_height = str(self.ui.label_9.text())
-        # delta = str(self.ui.lineEdit_4.text())
-        processing = str(self.ui.comboBox.currentText())
-        print(type, travel_type, travel, specifications_travel_value, specifications_close_working_height_value,
-              close_working_height)
+        travel_type = str(self.ui.window_main_table.cellWidget(5, 3).currentText())
+        specifications_travel_value = str(self.ui.window_main_table.item(9, 3).text())
+        specifications_close_working_height_value = str(self.ui.window_main_table.item(11, 3).text())
+        # close_working_height = str(self.ui.label_9.text())
+        # # delta = str(self.ui.lineEdit_4.text())
+        # processing = str(self.ui.comboBox.currentText())
+        processing = '是'
+        print(type, travel_type, specifications_travel_value, specifications_close_working_height_value)
         self.create_dir(type)
         if specifications_travel_value == "":
             self.specifications_travel_value = 0
