@@ -317,12 +317,10 @@ class main(QtWidgets.QWidget, Ui_Form):
         button_layout = QHBoxLayout()  # 创建一个水平布局对象
         button_container.setLayout(button_layout)  # 将布局附加到button_container上
 
-
-        self.ui.window_main_table.cellWidget(4, 3).currentIndexChanged.connect(lambda:self.choose_stamping_press_type())
-        self.ui.window_main_table.cellWidget(5, 3).currentIndexChanged.connect(lambda:self.choose_stamping_press_type())
-
-
-
+        self.ui.window_main_table.cellWidget(2, 3).currentIndexChanged.connect(lambda :self.unit_change())
+        self.ui.window_main_table.cellWidget(4, 3).currentIndexChanged.connect(lambda :self.choose_stamping_press_type())
+        self.ui.window_main_table.cellWidget(5, 3).currentIndexChanged.connect(lambda :self.choose_stamping_press_type())
+        # self.ui.window_main_table.item(9, 4).currentChanged.connect(lambda :self.customize_typing('stroke'))
         plate_setup.clicked.connect(lambda:self.switch_to_plate(par.stamping_press_type))
         # punch_setup.clicked.connect()
         # select_setup.clicked.connect()
@@ -333,6 +331,35 @@ class main(QtWidgets.QWidget, Ui_Form):
         self.nw = plate_first_windows(stamping_press_type)
         self.nw.show()
 
+    def unit_change(self):
+        unit_type = self.ui.window_main_table.cellWidget(2, 3).currentText()
+        if unit_type == '公制':
+            for x in range(9, 22):
+                if x != 17:
+                    newItem = QTableWidgetItem(par.unit_metric[x - 9])
+                    newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+                    newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+                    self.ui.window_main_table.setItem(x, 2, newItem)
+                else:
+                    pass
+        elif unit_type == '英制':
+            for x in range(9, 22):
+                if x != 17:
+                    newItem = QTableWidgetItem(par.unit_english[x - 9])
+                    newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+                    newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+                    self.ui.window_main_table.setItem(x, 2, newItem)
+                else:
+                    pass
+
+    def customize_typing(self, parameter_type):
+        if parameter_type == 'stroke':
+            item = self.ui.window_main_table.cellWidget(9, 3).text()
+            punch_stroke = QTableWidgetItem(item)
+            punch_stroke.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+            punch_stroke.setFlags(punch_stroke.flags() & ~Qt.ItemIsEditable)
+            self.ui.window_main_table.setItem(9, 3, punch_stroke)
+
     def start(self):
         type = self.ui.window_main_table.cellWidget(4, 3).currentText()
         travel_type = str(self.ui.window_main_table.cellWidget(4, 5).currentText())
@@ -341,7 +368,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         close_working_height = str(self.ui.label_9.text())
         # delta = str(self.ui.lineEdit_4.text())
         processing = str(self.ui.comboBox.currentText())
-        print(type, travel_type, travel, specifications_travel_value, specifications_close_working_height_value,
+        print(type, travel_type, specifications_travel_value, specifications_close_working_height_value,
               close_working_height)
         self.create_dir(type)
         if specifications_travel_value == "":
@@ -402,7 +429,6 @@ class main(QtWidgets.QWidget, Ui_Form):
 
         par.stamping_press_type = stamping_press_type
         par.stamping_press_style = style
-        print(par.stamping_press_type, par.stamping_press_style)
 
 
     def choos(self,prossing, travel_type):
