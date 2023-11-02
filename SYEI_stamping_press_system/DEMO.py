@@ -362,14 +362,14 @@ class main(QtWidgets.QWidget, Ui_Form):
 
     def start(self):
         type = self.ui.window_main_table.cellWidget(4, 3).currentText()
-        travel_type = str(self.ui.window_main_table.cellWidget(4, 5).currentText())
-        specifications_travel_value = str(self.ui.lineEdit_5.text())
-        specifications_close_working_height_value = str(self.ui.lineEdit_2.text())
-        close_working_height = str(self.ui.label_9.text())
-        # delta = str(self.ui.lineEdit_4.text())
-        processing = str(self.ui.comboBox.currentText())
-        print(type, travel_type, specifications_travel_value, specifications_close_working_height_value,
-              close_working_height)
+        travel_type = str(self.ui.window_main_table.cellWidget(5, 3).currentText())
+        specifications_travel_value = str(self.ui.window_main_table.item(9, 3).text())
+        specifications_close_working_height_value = str(self.ui.window_main_table.item(11, 3).text())
+        # close_working_height = str(self.ui.label_9.text())
+        # # delta = str(self.ui.lineEdit_4.text())
+        # processing = str(self.ui.comboBox.currentText())
+        processing = '是'
+        print(type, travel_type, specifications_travel_value, specifications_close_working_height_value)
         self.create_dir(type)
         if specifications_travel_value == "":
             self.specifications_travel_value = 0
