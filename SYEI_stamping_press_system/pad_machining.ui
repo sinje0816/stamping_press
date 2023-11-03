@@ -6,15 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1253</width>
-    <height>696</height>
+    <width>1230</width>
+    <height>660</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+   <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1230</width>
+    <height>660</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1230</width>
+    <height>660</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -22,8 +34,8 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
+     <x>0</x>
+     <y>0</y>
      <width>1231</width>
      <height>662</height>
     </rect>
@@ -355,7 +367,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item>
-       <widget class="QPushButton" name="setup">
+       <widget class="QPushButton" name="reset">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -371,11 +383,11 @@
         <property name="font">
          <font>
           <family>微軟正黑體</family>
-          <pointsize>18</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="text">
-         <string>設定參數</string>
+         <string>重設參數</string>
         </property>
        </widget>
       </item>
@@ -396,7 +408,7 @@
         <property name="font">
          <font>
           <family>微軟正黑體</family>
-          <pointsize>18</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="text">
@@ -405,7 +417,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="reset">
+       <widget class="QPushButton" name="setup">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -421,11 +433,11 @@
         <property name="font">
          <font>
           <family>微軟正黑體</family>
-          <pointsize>18</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="text">
-         <string>重設參數</string>
+         <string>確認參數</string>
         </property>
        </widget>
       </item>
