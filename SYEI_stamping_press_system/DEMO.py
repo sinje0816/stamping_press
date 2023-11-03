@@ -1,7 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QVBoxLayout, QWidget, QPushButton, QLabel, QTableWidgetItem, QHeaderView, QComboBox, QAbstractItemView, QMessageBox, QHBoxLayout
+from PyQt5.QtWidgets import QVBoxLayout, QWidget, QPushButton, QLabel, QTableWidgetItem, QHeaderView, QComboBox, \
+    QAbstractItemView, QMessageBox, QHBoxLayout
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QColor, QBrush, QPixmap
+from PyQt5.QtGui import QColor, QBrush, QPixmap, QFont
 from DEMOGUI import Ui_Dialog
 from PAD_main import Ui_Form as pad_main_Form
 from PAD_MACHINING import Ui_Form as pad_machining_Form
@@ -10,6 +11,8 @@ from pad_feeding_hole import Ui_Form as pad_feeding_hole_Form
 from cutout_hole_GUI import Ui_Form as cutout_hole_machining_form
 from plate_main_first import Ui_Form as plate_main_first_form
 from pad_main_simple import Ui_Form as pad_main_simple_form
+from punch_main_simple import Ui_Form as punch_main_form
+from punch_main import Ui_Form as punch_secend_form
 from window_main import Ui_Form
 from io import StringIO
 import main_program as mprog
@@ -32,6 +35,7 @@ import STP_input as S_i
 
 test_stop = False
 
+
 class main(QtWidgets.QWidget, Ui_Form):
     def __init__(self):
         super(main, self).__init__()
@@ -52,14 +56,14 @@ class main(QtWidgets.QWidget, Ui_Form):
         # 调整表格的大小以填充整个窗口
         self.ui.window_main_table.setGeometry(0, 0, window_size.width(), window_size.height())
         for x in range(0, 2):
-            self.ui.window_main_table.setSpan(x, 0, 1, 5) #以某格為基準向下向左合併儲存格
-            newItem = QTableWidgetItem(par.series1[x]) #儲存格內文字
-            newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter) #設定置中
-            newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable) #不可編輯化
-            self.ui.window_main_table.setItem(x, 0, newItem) #指定文字放置位置
+            self.ui.window_main_table.setSpan(x, 0, 1, 5)  # 以某格為基準向下向左合併儲存格
+            newItem = QTableWidgetItem(par.series1[x])  # 儲存格內文字
+            newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)  # 設定置中
+            newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)  # 不可編輯化
+            self.ui.window_main_table.setItem(x, 0, newItem)  # 指定文字放置位置
         for x in range(2, 8):
             self.ui.window_main_table.setSpan(x, 0, 1, 3)
-            newItem = QTableWidgetItem(par.series2[x-2])
+            newItem = QTableWidgetItem(par.series2[x - 2])
             newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
             newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
             self.ui.window_main_table.setItem(x, 0, newItem)
@@ -97,7 +101,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         combo_box_type.addItem('H')
         combo_box_type.addItem('P')
         self.ui.window_main_table.setCellWidget(5, 3, combo_box_type)
-        plate_setup = QPushButton('設定') #括號內為按鈕名稱
+        plate_setup = QPushButton('設定')  # 括號內為按鈕名稱
         self.ui.window_main_table.setCellWidget(6, 3, plate_setup)
         punch_setup = QPushButton('設定')
         self.ui.window_main_table.setCellWidget(7, 3, punch_setup)
@@ -297,7 +301,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         pixmap = QPixmap('machine_picture.png')
         machine_picture.setPixmap(pixmap)
 
-        scaled_pixmap = pixmap.scaled(pixmap.width()-100,pixmap.height()-110)
+        scaled_pixmap = pixmap.scaled(pixmap.width() - 100, pixmap.height() - 110)
         machine_picture.setPixmap(scaled_pixmap)
 
         # # 设置 QLabel 居中
@@ -317,20 +321,26 @@ class main(QtWidgets.QWidget, Ui_Form):
         button_layout = QHBoxLayout()  # 创建一个水平布局对象
         button_container.setLayout(button_layout)  # 将布局附加到button_container上
 
+        self.ui.window_main_table.cellWidget(4, 3).currentIndexChanged.connect(
+            lambda: self.choose_stamping_press_type())
+        self.ui.window_main_table.cellWidget(5, 3).currentIndexChanged.connect(
+            lambda: self.choose_stamping_press_type())
 
-        self.ui.window_main_table.cellWidget(4, 3).currentIndexChanged.connect(lambda:self.choose_stamping_press_type())
-        self.ui.window_main_table.cellWidget(5, 3).currentIndexChanged.connect(lambda:self.choose_stamping_press_type())
-
-
-
-        plate_setup.clicked.connect(lambda:self.switch_to_plate(par.stamping_press_type))
-        # punch_setup.clicked.connect()
+        plate_setup.clicked.connect(lambda: self.switch_to_plate(par.stamping_press_type))
+        punch_setup.clicked.connect(lambda: self.switch_to_punch(par.stamping_press_type))
         # select_setup.clicked.connect()
         # spare_parts_setup.clicked.connect()
 
+    # 切換至平板介面
     def switch_to_plate(self, stamping_press_type):
         self.hide()
         self.nw = plate_first_windows(stamping_press_type)
+        self.nw.show()
+
+    # 切換至沖頭介面
+    def switch_to_punch(self, stamping_press_type):
+        self.hide()
+        self.nw = punch_first_windows(stamping_press_type)
         self.nw.show()
 
     def start(self):
@@ -341,7 +351,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         close_working_height = str(self.ui.label_9.text())
         # delta = str(self.ui.lineEdit_4.text())
         processing = str(self.ui.comboBox.currentText())
-        print(type, travel_type, travel, specifications_travel_value, specifications_close_working_height_value,
+        print(type, travel_type, specifications_travel_value, specifications_close_working_height_value,
               close_working_height)
         self.create_dir(type)
         if specifications_travel_value == "":
@@ -355,16 +365,17 @@ class main(QtWidgets.QWidget, Ui_Form):
         self.stamping_press_type = self.choose_stamping_press_type()
         self.p, self.travel_type = self.choos(processing, travel_type)
 
-        self.alpha, self.beta, self.zeta, self.epsilon = self.frame_calculate(self.stamping_press_type, self.specifications_travel_value,
+        self.alpha, self.beta, self.zeta, self.epsilon = self.frame_calculate(self.stamping_press_type,
+                                                                              self.specifications_travel_value,
                                                                               self.specifications_close_working_height_value,
                                                                               self.travel_type)
         if test_stop == False:
             self.create_txt(self.path, type, travel_type, self.specifications_travel_value,
                             self.specifications_close_working_height_value, self.alpha, self.beta, self.zeta,
                             self.epsilon)
-            self.change_dir(self.stamping_press_type, self.p, self.alpha, self.beta, self.zeta, self.epsilon, self.machining,
+            self.change_dir(self.stamping_press_type, self.p, self.alpha, self.beta, self.zeta, self.epsilon,
+                            self.machining,
                             self.welding, self.travel_type)
-
 
     def choose_stamping_press_type(self):
         type = self.ui.window_main_table.cellWidget(4, 3).currentText()
@@ -404,8 +415,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         par.stamping_press_style = style
         print(par.stamping_press_type, par.stamping_press_style)
 
-
-    def choos(self,prossing, travel_type):
+    def choos(self, prossing, travel_type):
         # 確認型號"輸入型號"
         # 確認加工方式
         if prossing == '是':
@@ -421,7 +431,8 @@ class main(QtWidgets.QWidget, Ui_Form):
             travel_type = 3
         return p, travel_type
 
-    def frame_calculate(self, stamping_press_type, specifications_travel_value, specifications_close_working_height_value, travel_type):
+    def frame_calculate(self, stamping_press_type, specifications_travel_value,
+                        specifications_close_working_height_value, travel_type):
         Form = QtWidgets.QWidget()
         # Form.setWindowTitle('警告')
         Form.resize(400, 300)
@@ -636,7 +647,8 @@ class main(QtWidgets.QWidget, Ui_Form):
         # 開啟零件檔更改變數後儲存並關閉
         for name in epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_col_cell(1):
             print(name)
-            file_list_name, file_list_value = epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_sheet_par('沖床機架零件清單', stamping_press_type)
+            file_list_name, file_list_value = epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_sheet_par(
+                '沖床機架零件清單', stamping_press_type)
             file_list_name_index = file_list_name.index(name)
             if file_list_value[file_list_name_index] == 0:
                 pass
@@ -649,9 +661,9 @@ class main(QtWidgets.QWidget, Ui_Form):
                     sys.stdout = captured_output
                     if name == 'PANEL' or name == 'CON_ROD' or name == 'CON_ROD_BASE' or name == 'CON_ROD_CAP' or name == 'INVERTERBRACKET' \
                             or name == 'POINTER' or name == 'COVER' or name == 'PLUG' or name == 'feeding_shaft_cover' or name == 'OIL_LEVEL_GAUGE' \
-                            or name == 'slide_gib' or name == 'ELECTRIC_BOX_PLATE' or name == 'MOUNT_FILTER'or name == 'CONTROL_PANEL' or name == 'PANEL_BOX'\
-                            or name == 'PANEL_BOX_BRACKET' or name == 'ELECTRIC_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE'\
-                            or name == 'TRADEMARK_NAMEPLATE'or name == 'OPERATION_BOX':
+                            or name == 'slide_gib' or name == 'ELECTRIC_BOX_PLATE' or name == 'MOUNT_FILTER' or name == 'CONTROL_PANEL' or name == 'PANEL_BOX' \
+                            or name == 'PANEL_BOX_BRACKET' or name == 'ELECTRIC_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE' \
+                            or name == 'TRADEMARK_NAMEPLATE' or name == 'OPERATION_BOX':
                         # 讀取其餘STP檔
                         S_i.STP(name, stamping_press_type, machining)
                         continue
@@ -666,7 +678,8 @@ class main(QtWidgets.QWidget, Ui_Form):
                         except:
                             pass
                         # 加工圖零件
-                        parameter_name, parameter_value = mptc.change_machining_parameter(name, stamping_press_type, 0, travel_type)
+                        parameter_name, parameter_value = mptc.change_machining_parameter(name, stamping_press_type, 0,
+                                                                                          travel_type)
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
                         for x in range(len(parameter_name)):
@@ -696,7 +709,8 @@ class main(QtWidgets.QWidget, Ui_Form):
                             pass
 
                         # 加工圖零件
-                        parameter_name, parameter_value = mptc.change_machining_parameter(name, stamping_press_type, 1, travel_type)
+                        parameter_name, parameter_value = mptc.change_machining_parameter(name, stamping_press_type, 1,
+                                                                                          travel_type)
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
                         for x in range(len(parameter_name)):
@@ -743,6 +757,371 @@ class main(QtWidgets.QWidget, Ui_Form):
         return machining_file_change_error, welding_file_change_error
 
 
+class punch_first_windows(QtWidgets.QWidget):
+    def __init__(self, stamping_press_type):
+        super().__init__()
+        self.ui = punch_main_form()
+        self.ui.setupUi(self)
+        self.setWindowTitle('衝頭')
+        self.ui.punch_select.currentIndexChanged.connect(lambda: self.select_punch_type_name(stamping_press_type))
+        self.ui.punch_save.clicked.connect(self.switch_to_stamping_press_main_windows)
+
+    def switch_to_stamping_press_main_windows(self):
+        self.hide()
+        self.nw = main()
+        self.nw.show()
+
+    def select_punch_type_name(self, stamping_press_type):
+        get_punch_select_name = self.ui.punch_select.currentText()
+        if get_punch_select_name == "特殊衝頭":
+            self.hide()
+            self.nw = punch_secend_windows(stamping_press_type)
+            self.nw.show()
+
+
+class punch_secend_windows(QtWidgets.QWidget):
+    def __init__(self, stamping_press_type):
+        super().__init__()
+        self.ui = punch_secend_form()
+        self.ui.setupUi(self)
+        self.setWindowTitle('衝頭')
+        # 切換衝頭第一頁
+        self.ui.punch_select.currentIndexChanged.connect(
+            lambda: self.switch_to_first_punch_windows(stamping_press_type))
+        self.ui.punch_select.setCurrentText('特殊衝頭')
+        # 沖頭平板面積
+        self.punch_type(stamping_press_type)
+        self.ui.punch_extrasize.currentIndexChanged.connect(lambda: self.punch_area_dimension(stamping_press_type))
+        self.ui.punch_LR.setText(str(par.punch_length[stamping_press_type]))
+        self.ui.punch_FB.setText(str(par.punch_width[stamping_press_type]))
+        # T溝
+        for number in range(0, 4):
+            self.ui.t_solttable.setItem(number, 0, QTableWidgetItem(par.t_table_dimension_parameter[number]))
+        self.ui.t_solttable.verticalHeader().setVisible(False)
+        self.ui.t_solttable.horizontalHeader().setVisible(False)
+        # 設定T_solt表格內容
+        self.T_solt_table_normel_setup()
+        for number in range(1, 10):
+            newItem = QTableWidgetItem("-")
+            self.ui.t_solttable.setItem(number, 1, newItem)
+        self.ui.t_solttable.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.ui.t_solttable.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        self.ui.t_solttable.verticalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        self.ui.t_solt_type.currentIndexChanged.connect(self.T_solt_combobox_change)
+        self.ui.punch_start.clicked.connect(lambda: self.start(stamping_press_type))
+        self.ui.t_machining.clicked.connect(lambda: self.showpadmachiningwindows(stamping_press_type))
+        self.ui.punch_save.clicked.connect(self.switch_to_stamping_press_main_windows)
+
+    def switch_to_stamping_press_main_windows(self):
+        self.hide()
+        self.nw = main()
+        self.nw.show()
+
+    def switch_to_first_punch_windows(self, stamping_press_type):
+        if self.ui.punch_select.currentText() != "特殊衝頭":
+            self.hide()
+            self.nw = punch_first_windows(stamping_press_type)
+            self.nw.show()
+
+    def punch_area_dimension(self, stamping_press_type):
+        get_pad_select_name = self.ui.punch_select.currentText()
+        get_pad_area_name = self.ui.punch_extrasize.currentText()
+        if get_pad_select_name == "特殊衝頭":
+            if get_pad_area_name == '標準':
+                LR_value = str(par.punch_length[stamping_press_type])
+                FB_value = str(par.punch_width[stamping_press_type])
+            elif get_pad_area_name == '加大I型':
+                LR_value = str(par.punch_length[stamping_press_type] + par.punch_lv1[stamping_press_type])
+                FB_value = str(par.punch_width[stamping_press_type])
+            elif get_pad_area_name == '加大II型':
+                LR_value = str(par.punch_length[stamping_press_type] + par.punch_lv2[stamping_press_type])
+                FB_value = str(par.punch_width[stamping_press_type])
+            par.plate_special_type = [get_pad_area_name]
+            # 設定最終的 LR 和 FB 值
+            self.ui.punch_LR.setText(LR_value)
+            self.ui.punch_FB.setText(FB_value)
+        else:
+            self.ui.punch_LR.clear()
+            self.ui.punch_FB.clear()
+
+    def punch_type(self, stamping_press_type):
+        self.ui.punch_select.setItemText(0, '標準' + '(' + str(
+            par.punch_length[stamping_press_type]) + 'x' + str(par.punch_width[stamping_press_type]) + ")")
+        self.ui.punch_select.setItemText(1, '加大I型' + '(' + str(
+            par.punch_length[stamping_press_type] + par.punch_lv1[stamping_press_type]) + 'x' + str(
+            par.punch_width[stamping_press_type]) + ")")
+        self.ui.punch_select.setItemText(2, '加大II型' + '(' + str(
+            par.punch_length[stamping_press_type] + par.punch_lv2[stamping_press_type]) + 'x' + str(
+            par.punch_width[stamping_press_type]) + ")")
+
+    def T_solt_table_normel_setup(self):
+        # 設定T_solt表格內容
+        # 第一行
+        newItem = QTableWidgetItem("尺寸代號")
+        self.ui.t_solttable.setItem(0, 0, newItem)
+        newItem = QTableWidgetItem("尺寸")
+        self.ui.t_solttable.setItem(0, 1, newItem)
+        newItem = QTableWidgetItem("公差")
+        self.ui.t_solttable.setItem(0, 2, newItem)
+        # 第一列
+        self.ui.t_solttable.setSpan(1, 0, 2, 1)
+        newItem = QTableWidgetItem("A")
+        self.ui.t_solttable.setItem(1, 0, newItem)
+        self.ui.t_solttable.setSpan(3, 0, 2, 1)
+        newItem = QTableWidgetItem("B")
+        self.ui.t_solttable.setItem(3, 0, newItem)
+        self.ui.t_solttable.setSpan(5, 0, 2, 1)
+        newItem = QTableWidgetItem("C")
+        self.ui.t_solttable.setItem(5, 0, newItem)
+        self.ui.t_solttable.setSpan(7, 0, 2, 1)
+        newItem = QTableWidgetItem("D")
+        self.ui.t_solttable.setItem(7, 0, newItem)
+        # 第二列
+        self.ui.t_solttable.setSpan(1, 1, 2, 1)
+        self.ui.t_solttable.setSpan(3, 1, 2, 1)
+        self.ui.t_solttable.setSpan(5, 1, 2, 1)
+        self.ui.t_solttable.setSpan(7, 1, 2, 1)
+        # 第三列
+        newItem = QTableWidgetItem("+1")
+        self.ui.t_solttable.setItem(1, 2, newItem)
+        newItem = QTableWidgetItem("0")
+        self.ui.t_solttable.setItem(2, 2, newItem)
+        newItem = QTableWidgetItem("+1")
+        self.ui.t_solttable.setItem(3, 2, newItem)
+        newItem = QTableWidgetItem("-1")
+        self.ui.t_solttable.setItem(4, 2, newItem)
+        newItem = QTableWidgetItem("+0.25")
+        self.ui.t_solttable.setItem(5, 2, newItem)
+        newItem = QTableWidgetItem("-0.25")
+        self.ui.t_solttable.setItem(6, 2, newItem)
+        newItem = QTableWidgetItem("+2")
+        self.ui.t_solttable.setItem(7, 2, newItem)
+        newItem = QTableWidgetItem("0")
+        self.ui.t_solttable.setItem(8, 2, newItem)
+
+    def T_solt_combobox_change(self):
+        t_solt_type = self.ui.t_solt_type.currentText()
+        if t_solt_type == "T溝代號:F(SN1-25~60標準)" or t_solt_type == "T溝代號:G(SN1-80~250標準)":
+            if t_solt_type == "T溝代號:F(SN1-25~60標準)":
+                self.ui.removepicture_2.setPixmap(QtGui.QPixmap("T溝詳圖_F.png"))
+            elif t_solt_type == "T溝代號:G(SN1-80~250標準)":
+                self.ui.removepicture_2.setPixmap(QtGui.QPixmap("T溝詳圖_G.png"))
+            for number in range(1, 10):
+                newItem = QTableWidgetItem("-")
+                self.ui.t_solttable.setItem(number, 1, newItem)
+        elif t_solt_type == "特殊T溝":
+            self.ui.removepicture_2.setPixmap(QtGui.QPixmap("T溝詳圖.png"))
+            for number in range(1, 10):
+                newItem = QTableWidgetItem("")
+                self.ui.t_solttable.setItem(number, 1, newItem)
+        for number in range(0, 10):
+            for number2 in range(0, 3):
+                item = self.ui.t_solttable.item(number, number2)
+                if item is not None:
+                    item.setFlags(item.flags() & ~QtCore.Qt.ItemIsEditable)
+        if self.ui.t_solt_type.currentText() == '特殊T溝':
+            for number in range(1, 10):
+                item = self.ui.t_solttable.item(number, 1)
+                if item is not None:
+                    item.setFlags(item.flags() | QtCore.Qt.ItemIsEditable)
+                    self.ui.t_solttable.setEditTriggers(QtWidgets.QAbstractItemView.AllEditTriggers)
+
+    def showpadmachiningwindows(self, stamping_press_type):
+        t_solt_type = self.ui.t_solt_type.currentText()
+        if t_solt_type == "T溝代號:F(SN1-25~60標準)":
+            par.t_all_dimension = [22, 38, 23, 16]
+        elif t_solt_type == "T溝代號:G(SN1-80~250標準)":
+            par.t_all_dimension = [28, 48, 30, 20]
+        elif t_solt_type == "特殊T溝":
+            for value in range(1, 9, 2):
+                par.t_all_dimension.append(self.ui.t_solttable.item(value, 1).text())
+        punch_type_select = self.ui.punch_extrasize.currentText()
+        if punch_type_select == '標準':
+            punch_length = par.punch_length[stamping_press_type]
+            punch_width = par.punch_width[stamping_press_type]
+        elif punch_type_select == '加大I型':
+            punch_length = par.punch_length[stamping_press_type] + par.punch_lv1[stamping_press_type]
+            punch_width = par.punch_width[stamping_press_type]
+        elif punch_type_select == '加大II型':
+            punch_length = par.punch_length[stamping_press_type] + par.punch_lv2[stamping_press_type]
+            punch_width = par.punch_width[stamping_press_type]
+
+        self.hide()
+        self.nw = t_machining(stamping_press_type, punch_length, punch_width, 'punch_secend_windows')
+        self.nw.show()
+
+    def start(self, stamping_press_type):
+        # 對平板進行變數
+        path = FolderManager('plate').path
+        path = str(path)
+        mprog.set_CATIA_workbench_env()
+        mprog.import_part(fp.system_root + fp.DEMO_part, 'plate')
+        punch_name, punch_value = pdp.padchange(stamping_press_type)
+        for name in punch_name:
+            par.punch_all_parameter[name] = punch_value[punch_name.index(name)]
+        print(par.punch_all_parameter)
+        if len(par.punch_normal_name) != 0:
+            if '加大I型' in par.punch_normal_name[0]:
+                par.lv = [par.punch_lv1[stamping_press_type]]
+                mprog.param_change('punch', 'LV', par.lv[0])
+            elif '加大II型' in par.punch_normal_name[0]:
+                par.lv = [par.punch_lv2[stamping_press_type]]
+                mprog.param_change('punch', 'LV', par.lv[0])
+            else:
+                par.lv = [0]
+            if '模墊型' in par.punch_normal_name[0]:
+                if stamping_press_type <= 4:
+                    mprog.activatefeature('cutout_molded_cushion', 4)
+                    mprog.param_change('punch', 'cutout_molded_cushion_A',
+                                       par.normal_cutout_molded_cushion_A[stamping_press_type])
+                    mprog.param_change('punch', 'cutout_molded_cushion_B',
+                                       par.normal_cutout_molded_cushion_B[stamping_press_type])
+                    mprog.param_change('punch', 'cutout_molded_cushion_D',
+                                       par.normal_cutout_molded_cushion_D[stamping_press_type])
+                    mprog.param_change('punch', 'cutout_molded_cushion_length',
+                                       par.normal_cutout_molded_cushion_length[stamping_press_type])
+                    mprog.param_change('punch', 'cutout_molded_cushion_width',
+                                       par.normal_cutout_molded_cushion_width[stamping_press_type])
+            mprog.Update()
+        else:
+            punch_type = self.ui.punch_extrasize.currentText()
+            par.punch_special_type = [punch_type]
+            if par.punch_special_type[0] == '標準':
+                par.lv = [0]
+            elif par.punch_special_type[0] == '加大I型':
+                par.lv.append(par.punch_lv1[stamping_press_type])
+                mprog.param_change('punch', 'LV', par.lv[0])
+            elif par.punch_special_type[0] == '加大II型':
+                par.lv.append(par.punch_lv2[stamping_press_type])
+                mprog.param_change('punch', 'LV', par.lv[0])
+            # T溝程式
+            self.t_solt(path)
+            # 關閉實體外所有東西
+            mprog.Close_All()
+            # 平板存檔
+            mprog.save_file_stp(path, 'punch')
+            mprog.save_stpfile_part(path, 'punch')
+        return path
+
+    # T形槽
+    def t_solt(self, path):
+        # 對T溝進行變數變換
+        mprog.import_part(fp.system_root + fp.DEMO_part, 'T')
+        for t in par.t_all_dimension:
+            for t_name in range(len(par.t_all_dimension_name) + 1):
+                mprog.param_change('T', par.t_all_dimension_name[t_name], t)
+                break
+        mprog.param_change('T', 'LB', 0)
+        mprog.param_change('T', 'LF', 0)
+        mprog.param_change('T', 'SB', 0)
+        mprog.param_change('T', 'SF', 0)
+        mprog.Update()
+        mprog.save_file_stp(path, 'T')
+        mprog.save_stpfile_part(path, 'T')
+        mprog.close_window()
+
+        # 橫向T溝
+        if len(par.total_position_y) != 0:
+            for turn in range(0, len(par.total_position_y)):
+                mprog.import_part(path, 'T')
+                tT.changerotate(0)
+                mprog.param_change('T', 'A', (par.plate_all_parameter['A'] + par.lv[0]))
+                mprog.param_change('T', 'C', par.plate_all_parameter['C'])
+                if par.total_t_slot_h_type[turn] == '貫穿' or par.total_t_slot_h_type[turn] == '':
+                    mprog.param_change('T', 'LL', (par.plate_all_parameter['A'] + par.lv[0]))
+                    mprog.param_change('T', 'LR', (par.plate_all_parameter['A'] + par.lv[0]))
+                elif par.total_t_slot_h_type[turn] == '分段':
+                    mprog.param_change('T', 'LL', par.total_LL[turn])
+                    mprog.param_change('T', 'LR', par.total_LR[turn])
+                # 判斷SL和SR是否為0或空值
+                if len(par.total_SL) != 0:
+                    if par.total_SL[turn] == '' or par.total_SL[turn] == '0':
+                        mprog.partdeactivate('讓孔1')
+                        mprog.partdeactivate('讓孔倒圓角1')
+                    elif par.total_SL[turn] != '':
+                        mprog.param_change('T', 'SL', par.total_SL[turn])
+                else:
+                    mprog.partdeactivate('讓孔1')
+                    mprog.partdeactivate('讓孔倒圓角1')
+                if len(par.total_SR) != 0:
+                    if par.total_SR[turn] == '' or par.total_SR[turn] == '0' or len(par.total_SR) == 0:
+                        mprog.partdeactivate('讓孔2')
+                        mprog.partdeactivate('讓孔倒圓角2')
+                    elif par.total_SR[turn] != '':
+                        mprog.param_change('T', 'SR', par.total_SR[turn])
+                else:
+                    mprog.partdeactivate('讓孔2')
+                    mprog.partdeactivate('讓孔倒圓角2')
+                tT.create_t_solt((par.plate_all_parameter['B'] / 2) + par.total_position_y[turn], turn)
+                if len(par.total_SL) != 0:
+                    if par.total_SL[turn] == '' or par.total_SL[turn] == '0':
+                        mprog.partbodyfeatureactivate('讓孔1')
+                        mprog.partbodyfeatureactivate('讓孔倒圓角1')
+                else:
+                    mprog.partbodyfeatureactivate('讓孔1')
+                    mprog.partbodyfeatureactivate('讓孔倒圓角1')
+                if len(par.total_SR) != 0:
+                    if par.total_SR[turn] == '' or par.total_SR[turn] == '0':
+                        mprog.partbodyfeatureactivate('讓孔2')
+                        mprog.partbodyfeatureactivate('讓孔倒圓角2')
+                else:
+                    mprog.partbodyfeatureactivate('讓孔2')
+                    mprog.partbodyfeatureactivate('讓孔倒圓角2')
+                mprog.Update()
+                mprog.close_window()
+                # time.sleep(0.1)
+        else:
+            turn = 0
+
+        # 縱向T溝
+        if len(par.total_position_x) != 0:
+            if turn != 0:
+                mprog.param_change('T', 'LL', 0)
+                mprog.param_change('T', 'LR', 0)
+                mprog.param_change('T', 'SL', 0)
+                mprog.param_change('T', 'SR', 0)
+            for turn_2 in range(0, len(par.total_position_x)):
+                mprog.import_part(path, 'T')
+                tT.changerotate(-90)
+                mprog.param_change('T', 'A', par.plate_all_parameter['B'])
+                mprog.param_change('T', 'C', par.plate_all_parameter['C'])
+                if par.total_t_slot_v_type[turn_2] == '貫穿' or par.total_t_slot_v_type[turn_2] == '':
+                    mprog.param_change('T', 'LF', par.plate_all_parameter['B'])
+                    mprog.param_change('T', 'LB', par.plate_all_parameter['B'])
+                elif par.total_t_slot_v_type[turn_2] == '分段':
+                    mprog.param_change('T', 'LF', par.total_LF[turn_2])
+                    mprog.param_change('T', 'LB', par.total_LB[turn_2])
+                # 判斷SL和SR是否為0或空值
+                if par.total_SF[turn_2] == '' or par.total_SF[turn_2] == '0':
+                    mprog.partdeactivate('讓孔1')
+                    mprog.partdeactivate('讓孔倒圓角1')
+                elif par.total_SF[turn_2] != '':
+                    mprog.param_change('T', 'SF', par.total_SF[turn_2])
+                if par.total_SB[turn_2] == '' or par.total_SB[turn_2] == '0':
+                    mprog.partdeactivate('讓孔2')
+                    mprog.partdeactivate('讓孔倒圓角2')
+                elif par.total_SB[turn_2] != '':
+                    mprog.param_change('T', 'SB', par.total_SB[turn_2])
+                if turn == 0:
+                    tT.create_t_solt(
+                        -((par.plate_all_parameter['A'] / 2) + (par.lv[0] / 2) + par.total_position_x[turn_2]), turn_2)
+                else:
+                    tT.create_t_solt(
+                        -((par.plate_all_parameter['A'] / 2) + (par.lv[0] / 2) + par.total_position_x[turn_2]),
+                        turn_2 + turn + 1)
+                if par.total_SF[turn_2] == '' or par.total_SF[turn_2] == '0':
+                    mprog.param_change('T', 'SF', 10)
+                    mprog.partbodyfeatureactivate('讓孔1')
+                    mprog.partbodyfeatureactivate('讓孔倒圓角1')
+                if par.total_SB[turn_2] == '' or par.total_SB[turn_2] == '0':
+                    mprog.param_change('T', 'SB', 10)
+                    mprog.partbodyfeatureactivate('讓孔2')
+                    mprog.partbodyfeatureactivate('讓孔倒圓角2')
+                mprog.Update()
+                mprog.close_window()
+        print('T-slot create successfully')
+
+
 # 平板第一頁
 class plate_first_windows(QtWidgets.QWidget):
     def __init__(self, stamping_press_type):
@@ -752,7 +1131,7 @@ class plate_first_windows(QtWidgets.QWidget):
         self.setWindowTitle('平板')
         self.ui.pad_select.currentIndexChanged.connect(lambda: self.select_plate_type_name(stamping_press_type))
         self.ui.plate_start.clicked.connect(lambda: self.start(stamping_press_type))
-
+        self.ui.plate_escape.clicked.connect(self.switch_to_stamping_press_main_windows)
 
     # 選擇平板類型
     def select_plate_type_name(self, stamping_press_type):
@@ -761,6 +1140,11 @@ class plate_first_windows(QtWidgets.QWidget):
             self.hide()
             self.nw = pad_secend_windows(stamping_press_type)
             self.nw.show()
+
+    def switch_to_stamping_press_main_windows(self):
+        self.hide()
+        self.nw = main()
+        self.nw.show()
 
     def start(self, stamping_press_type):
         par.plate_normal_name = [self.ui.pad_select.currentText()]
@@ -938,8 +1322,12 @@ class pad_secend_windows(QtWidgets.QWidget):
         # 平板面積
         self.plate_type(stamping_press_type)
         self.ui.pad_extrasize.currentIndexChanged.connect(lambda: self.plate_area_dimension(stamping_press_type))
-        self.ui.LR.setText(str(par.plate_length[stamping_press_type]))
-        self.ui.FB.setText(str(par.plate_width[stamping_press_type]))
+        if len(par.plate_special_type) != 0:
+            self.ui.pad_extrasize.setCurrentText(par.plate_special_type[0])
+            self.plate_area_dimension(stamping_press_type)
+        else:
+            self.ui.LR.setText(str(par.plate_length[stamping_press_type]))
+            self.ui.FB.setText(str(par.plate_width[stamping_press_type]))
         # T溝
         for number in range(0, 4):
             self.ui.t_solttable.setItem(number, 0, QTableWidgetItem(par.t_table_dimension_parameter[number]))
@@ -954,10 +1342,20 @@ class pad_secend_windows(QtWidgets.QWidget):
         self.ui.t_solttable.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         self.ui.t_solttable.verticalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         self.ui.t_solt_type.currentIndexChanged.connect(self.T_solt_combobox_change)
+        if stamping_press_type <= 3:
+            self.ui.t_solt_type.setCurrentText('T溝代號:F(SN1-25~60標準)')
+        else:
+            self.ui.t_solt_type.setCurrentText('T溝代號:G(SN1-80~250標準)')
         self.ui.plate_start.clicked.connect(lambda: self.start(stamping_press_type))
         self.ui.t_machining.clicked.connect(lambda: self.showpadmachiningwindows(stamping_press_type))
         self.ui.remove_machining.clicked.connect(lambda: self.showcutoutmachiningwindows(stamping_press_type))
         self.chack_plate_table()
+        self.ui.plate_escape.clicked.connect(self.switch_to_stamping_press_main_windows)
+
+    def switch_to_stamping_press_main_windows(self):
+        self.hide()
+        self.nw = main()
+        self.nw.show()
 
     def switch_to_first_plate_windows(self, stamping_press_type):
         if self.ui.pad_select.currentText() != "特殊平板":
@@ -1038,10 +1436,10 @@ class pad_secend_windows(QtWidgets.QWidget):
 
     def T_solt_combobox_change(self):
         t_solt_type = self.ui.t_solt_type.currentText()
-        if t_solt_type == "T溝代號:F(SN1-25~60標準)" or t_solt_type == "T溝代號:G(SN1-180~250標準)":
+        if t_solt_type == "T溝代號:F(SN1-25~60標準)" or t_solt_type == "T溝代號:G(SN1-80~250標準)":
             if t_solt_type == "T溝代號:F(SN1-25~60標準)":
                 self.ui.removepicture_2.setPixmap(QtGui.QPixmap("T溝詳圖_F.png"))
-            elif t_solt_type == "T溝代號:G(SN1-180~250標準)":
+            elif t_solt_type == "T溝代號:G(SN1-80~250標準)":
                 self.ui.removepicture_2.setPixmap(QtGui.QPixmap("T溝詳圖_G.png"))
             for number in range(1, 10):
                 newItem = QTableWidgetItem("-")
@@ -1089,7 +1487,7 @@ class pad_secend_windows(QtWidgets.QWidget):
         t_solt_type = self.ui.t_solt_type.currentText()
         if t_solt_type == "T溝代號:F(SN1-25~60標準)":
             par.t_all_dimension = [22, 38, 23, 16]
-        elif t_solt_type == "T溝代號:G(SN180~250標準)":
+        elif t_solt_type == "T溝代號:G(SN1-80~250標準)":
             par.t_all_dimension = [28, 48, 30, 20]
         elif t_solt_type == "特殊T溝":
             for value in range(1, 9, 2):
@@ -1106,11 +1504,10 @@ class pad_secend_windows(QtWidgets.QWidget):
             plate_width = par.plate_width[stamping_press_type]
 
         self.hide()
-        self.nw = t_machining(stamping_press_type, plate_lenght, plate_width)
+        self.nw = t_machining(stamping_press_type, plate_lenght, plate_width, 'pad_secend_windows')
         self.nw.show()
 
     def showcutoutmachiningwindows(self, i):
-        par.plate_hole_type = [self.ui.remove_type.currentText()]
         for turn in range(0, 5):
             par.cutout_part_dimension[turn] = (self.ui.removetable.item(turn, 1).text())
         print(par.cutout_part_dimension)
@@ -1121,11 +1518,6 @@ class pad_secend_windows(QtWidgets.QWidget):
         self.hide()
         self.nw = cutout_hole_machining(i)
         self.nw.show()
-
-    # def showremovemachiningwindows(self, stamping_press_type):
-    #     self.hide()
-    #     self.nw = remove_machining(stamping_press_type)
-    #     self.nw.show()
 
     # 下料孔形狀選單連動功能
     def cutout_parameter_change(self):
@@ -1161,6 +1553,7 @@ class pad_secend_windows(QtWidgets.QWidget):
             item = self.ui.removetable.item(number, 0)
             if item is not None:
                 item.setFlags(item.flags() & ~QtCore.Qt.ItemIsEditable)
+        par.plate_hole_type = [self.ui.remove_type.currentText()]
 
     def start(self, stamping_press_type):
         # 對平板進行變數
@@ -1171,7 +1564,7 @@ class pad_secend_windows(QtWidgets.QWidget):
         plate_name, plate_value = pdp.padchange(stamping_press_type)
         for name in plate_name:
             par.plate_all_parameter[name] = plate_value[plate_name.index(name)]
-        print(par.plate_all_parameter)
+        # print(par.plate_all_parameter)
         if len(par.plate_normal_name) != 0:
             if '加大I型' in par.plate_normal_name[0]:
                 par.lv = [par.plate_lv1[stamping_press_type]]
@@ -1399,10 +1792,12 @@ class pad_secend_windows(QtWidgets.QWidget):
                     mprog.param_change('cutout_molded_cushion', 'i', par.cutout_molded_cushion_i[stamping_press_type])
                     mprog.param_change('cutout_molded_cushion', 'j', par.cutout_molded_cushion_j[stamping_press_type])
                     mprog.param_change('cutout_molded_cushion', 'X',
-                                       65 * (par.cutout_molded_cushion_i[stamping_press_type] - 1) / 2 - par.plate_all_parameter[
+                                       65 * (par.cutout_molded_cushion_i[stamping_press_type] - 1) / 2 -
+                                       par.plate_all_parameter[
                                            'A'] / 2 - par.lv[0] / 2)
                     mprog.param_change('cutout_molded_cushion', 'Y',
-                                       par.plate_all_parameter['B'] / 2 - 60 * (par.cutout_molded_cushion_j[stamping_press_type] - 1) / 2)
+                                       par.plate_all_parameter['B'] / 2 - 60 * (
+                                                   par.cutout_molded_cushion_j[stamping_press_type] - 1) / 2)
                     par.plate_hole_type[0] = 'cutout_molded_cushion'
                 mprog.Update()
                 mprog.save_file_stp(path, par.plate_hole_type[0])
@@ -1480,15 +1875,23 @@ class pad_secend_windows(QtWidgets.QWidget):
                                        par.normal_cutout_molded_cushion_length_quantity[stamping_press_type])
                     mprog.param_change('cutout_molded_cushion', 'j',
                                        par.normal_cutout_molded_cushion_width_quantity[stamping_press_type])
-                    mprog.param_change('cutout_molded_cushion', 'width_gap', par.normal_cutout_molded_cushion_length_gap[stamping_press_type])
-                    mprog.param_change('cutout_molded_cushion', 'length_gap', par.normal_cutout_molded_cushion_width_gap[stamping_press_type])
-                    mprog.param_change('cutout_molded_cushion', 'X', -((par.plate_all_parameter['A'] + par.lv[0]) / 2 - (par.normal_cutout_molded_cushion_length_quantity[stamping_press_type] - 1) * par.normal_cutout_molded_cushion_width_gap[stamping_press_type] / 2))
-                    print((par.plate_all_parameter['A'] + par.lv[0]) / 2 - (par.normal_cutout_molded_cushion_length_quantity[stamping_press_type] - 1) * par.normal_cutout_molded_cushion_width_gap[stamping_press_type] / 2)
+                    mprog.param_change('cutout_molded_cushion', 'width_gap',
+                                       par.normal_cutout_molded_cushion_length_gap[stamping_press_type])
+                    mprog.param_change('cutout_molded_cushion', 'length_gap',
+                                       par.normal_cutout_molded_cushion_width_gap[stamping_press_type])
+                    mprog.param_change('cutout_molded_cushion', 'X', -(
+                                (par.plate_all_parameter['A'] + par.lv[0]) / 2 - (
+                                    par.normal_cutout_molded_cushion_length_quantity[stamping_press_type] - 1) *
+                                par.normal_cutout_molded_cushion_width_gap[stamping_press_type] / 2))
+                    print((par.plate_all_parameter['A'] + par.lv[0]) / 2 - (
+                                par.normal_cutout_molded_cushion_length_quantity[stamping_press_type] - 1) *
+                          par.normal_cutout_molded_cushion_width_gap[stamping_press_type] / 2)
 
                     mprog.param_change('cutout_molded_cushion', 'Y',
                                        (par.plate_all_parameter['B'] / 2 -
-                                       (par.normal_cutout_molded_cushion_length_gap[stamping_press_type] *
-                                        (par.normal_cutout_molded_cushion_width_quantity[stamping_press_type] - 1)) / 2))
+                                        (par.normal_cutout_molded_cushion_length_gap[stamping_press_type] *
+                                         (par.normal_cutout_molded_cushion_width_quantity[
+                                              stamping_press_type] - 1)) / 2))
                     par.plate_normal_name[0] = 'cutout_molded_cushion'
 
                 mprog.Update()
@@ -1514,47 +1917,12 @@ class pad_secend_windows(QtWidgets.QWidget):
                 tT.switch_to_window_by_name(par.plate_normal_name[0] + ".CATPart")
                 mprog.close_window()
 
-
-# T溝外型尺寸
-# class pad_dimension(QtWidgets.QWidget):
-#     def __init__(self, stamping_press_type):
-#         super().__init__()
-#         self.ui = pad_dimension_Form()
-#         self.ui.setupUi(self)
-#         self.setWindowTitle('平板')
-#         self.ui.setup_value.clicked.connect(lambda :self.setup(stamping_press_type))
-#         self.ui.escape.clicked.connect(lambda :self.show_pad_secend_windows(stamping_press_type))
-#         self.ui.reset_value.clicked.connect(self.reset)
-#
-#     def setup(self, stamping_press_type):
-#         t_a = str(self.ui.A.text())
-#         t_b = str(self.ui.B.text())
-#         t_c = str(self.ui.C.text())
-#         t_d = str(self.ui.D.text())
-#         par.t_all_dimension = [t_a, t_b, t_c, t_d]
-#         print("T溝外型尺寸:", par.t_all_dimension)
-#         self.hide()
-#         self.nw = pad_secend_windows(stamping_press_type)
-#         self.nw.show()
-#
-#     def reset(self):
-#         self.ui.A.clear()
-#         self.ui.B.clear()
-#         self.ui.C.clear()
-#         self.ui.D.clear()
-#
-#     def show_pad_secend_windows(self, stamping_press_type):
-#         self.hide()
-#         self.nw = pad_secend_windows(stamping_press_type)
-#         self.nw.show()
-
-
 class t_machining(QWidget):
-    def __init__(self, stamping_press_type, plate_lenght, plate_width):
+    def __init__(self, stamping_press_type, lenght, width, parent_page):
         super().__init__()
         self.ui = pad_machining_Form()
         self.ui.setupUi(self)
-        self.setWindowTitle('平板加工設定')
+        self.setWindowTitle('T溝加工設定')
         # 橫向T溝
         self.ui.t_slot_table_h.verticalHeader().setVisible(False)
         self.ui.t_slot_table_h.horizontalHeader().setVisible(False)
@@ -1572,11 +1940,64 @@ class t_machining(QWidget):
         self.ui.t_slot_v_number.textChanged.connect(self.check_slot_v_number)
         self.table_v_combo_boxes = {}
         # 確定按鈕
-        self.ui.setup.clicked.connect(lambda: self.setup(stamping_press_type))
+        self.ui.setup.clicked.connect(lambda: self.setup(stamping_press_type, parent_page, lenght, width))
         # 重製按鈕
-        self.ui.reset.clicked.connect(self.reset)
+        self.ui.reset.clicked.connect(lambda :self.reset(parent_page))
         # 重新排列
-        self.ui.rearrange_the_order.clicked.connect(lambda: self.rearrange_the_order(plate_lenght, plate_width))
+        self.ui.rearrange_the_order.clicked.connect(lambda: self.rearrange_the_order(lenght, width, parent_page))
+        # 禁用setup
+        # self.ui.setup.setEnabled(False)
+        # self.ui.setup.setStyleSheet("background-color: gray; color: white;")
+        # 將上一輪資料輸入表格
+        self.re_paste_the_data(parent_page)
+
+    def re_paste_the_data(self, parent_page):
+        if parent_page == 'pad_secend_windows':
+            if len(par.total_position_y) != 0:
+                self.ui.t_slot_h_number.setText(str(len(par.total_position_y)))
+                for row, item_text in enumerate(par.total_position_y):
+                    self.ui.t_slot_table_h.setItem(row + 1, 1, QTableWidgetItem(str(item_text)))
+                    combo_box = QComboBox()
+                    combo_box.addItem("")
+                    combo_box.addItem("貫穿")
+                    combo_box.addItem("分段")
+                    cell_widget = self.ui.t_slot_table_h.cellWidget(row + 1, 2)
+                    cell_widget.setCurrentText(par.total_t_slot_h_type[row])
+                    if par.total_t_slot_h_type[row] != '分段':
+                        item = self.ui.t_slot_table_h.item(row+1, 3)
+                        item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+                        item = self.ui.t_slot_table_h.item(row + 1, 4)
+                        item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+                    else:
+                        self.ui.t_slot_table_h.setItem(row + 1, 3, QTableWidgetItem(str(par.total_LL[row])))
+                        self.ui.t_slot_table_h.setItem(row + 1, 4, QTableWidgetItem(str(par.total_LR[row])))
+                    self.ui.t_slot_table_h.setItem(row + 1, 5, QTableWidgetItem(str(par.total_SL[row])))
+                    self.ui.t_slot_table_h.setItem(row + 1, 6, QTableWidgetItem(str(par.total_SR[row])))
+            if len(par.total_position_x) != 0:
+                self.ui.t_slot_v_number.setText(str(len(par.total_position_x)))
+                for row, item_text in enumerate(par.total_position_x):
+                    self.ui.t_slot_table_v.setItem(row + 1, 1, QTableWidgetItem(str(item_text)))
+                    combo_box = QComboBox()
+                    combo_box.addItem(par.total_t_slot_v_type[row])
+                    self.ui.t_slot_table_v.setCellWidget(row + 1, 2, combo_box)
+                    if par.total_t_slot_v_type[row] != '分段':
+                        item = self.ui.t_slot_table_v.item(row+1, 3)
+                        item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+                        item = self.ui.t_slot_table_v.item(row + 1, 4)
+                        item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+                    else:
+                        self.ui.t_slot_table_v.setItem(row + 1, 3, QTableWidgetItem(str(par.total_LF[row])))
+                        self.ui.t_slot_table_v.setItem(row + 1, 4, QTableWidgetItem(str(par.total_LB[row])))
+                    self.ui.t_slot_table_v.setItem(row + 1, 5, QTableWidgetItem(str(par.total_SF[row])))
+                    self.ui.t_slot_table_v.setItem(row + 1, 6, QTableWidgetItem(str(par.total_SB[row])))
+
+
+
+    def restore_setup_button(self):
+        # 啟用
+        self.ui.setup.setEnabled(True)
+        # 還原樣式
+        self.ui.setup.setStyleSheet("")
 
     def change_table_h_clear_table(self):
         while self.ui.t_slot_table_h.rowCount() > 1:
@@ -1722,180 +2143,354 @@ class t_machining(QWidget):
             self.ui.t_slot_table_v.setItem(0, col, newItem)
             newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)  # 移除可編輯標誌
 
-    def setup(self, stamping_press_type):
-        self.hide()
-        self.nw = pad_secend_windows(stamping_press_type)
-        self.nw.show()
+    def setup(self, stamping_press_type, parent_page, lenght, width):
+        self.rearrange_the_order(lenght, width, parent_page)
+        if parent_page == 'pad_secend_windows':
+            self.hide()
+            self.nw = pad_secend_windows(stamping_press_type)
+            self.nw.show()
+        elif parent_page == 'punch_secend_windows':
+            self.hide()
+            self.nw = punch_secend_windows(stamping_press_type)
+            self.nw.show()
 
-    def rearrange_the_order(self, plate_lenght, plate_width):
-        par.total_position_y.clear()
-        par.total_t_slot_h_type.clear()
-        par.total_LL.clear()
-        par.total_LR.clear()
-        par.total_SL.clear()
-        par.total_SR.clear()
-        par.total_position_x.clear()
-        par.total_t_slot_v_type.clear()
-        par.total_LF.clear()
-        par.total_LB.clear()
-        par.total_SF.clear()
-        par.total_SB.clear()
+    def rearrange_the_order(self, length, width, parent_page):
+        if parent_page == 'pad_secend_windows':
+            par.total_position_y.clear()
+            par.total_t_slot_h_type.clear()
+            par.total_LL.clear()
+            par.total_LR.clear()
+            par.total_SL.clear()
+            par.total_SR.clear()
+            par.total_position_x.clear()
+            par.total_t_slot_v_type.clear()
+            par.total_LF.clear()
+            par.total_LB.clear()
+            par.total_SF.clear()
+            par.total_SB.clear()
 
-        if self.ui.t_slot_table_h.rowCount() != 0:
-            for row in range(1, self.ui.t_slot_table_h.rowCount()):
-                position_y = self.ui.t_slot_table_h.item(row, 1).text()
-                t_slot_type = self.ui.t_slot_table_h.cellWidget(row, 2).currentText()
-                LL = self.ui.t_slot_table_h.item(row, 3).text()
-                LR = self.ui.t_slot_table_h.item(row, 4).text()
-                SL = self.ui.t_slot_table_h.item(row, 5).text()
-                SR = self.ui.t_slot_table_h.item(row, 6).text()
-                par.total_position_y.append(position_y)
-                par.total_t_slot_h_type.append(t_slot_type)
-                par.total_LL.append(LL)
-                par.total_LR.append(LR)
-                par.total_SL.append(SL)
-                par.total_SR.append(SR)
-            par.total_position_y = [int(x) for x in par.total_position_y]
-            position_y_change_position = sorted(enumerate(par.total_position_y), key=lambda x: x[1], reverse=True)
-            print('position_y_change_position:', position_y_change_position)
-            rearrange = [position[0] for position in position_y_change_position]
-            print('rearrange:', rearrange)
-            par.total_position_y = [par.total_position_y[order_position] for order_position in rearrange]
-            par.total_LL = [par.total_LL[order_position] for order_position in rearrange]
-            par.total_LR = [par.total_LR[order_position] for order_position in rearrange]
-            par.total_SL = [par.total_SL[order_position] for order_position in rearrange]
-            par.total_SR = [par.total_SR[order_position] for order_position in rearrange]
-            par.total_t_slot_h_type = [par.total_t_slot_h_type[order_position] for order_position in rearrange]
+            if self.ui.t_slot_table_h.rowCount() != 0:
+                for row in range(1, self.ui.t_slot_table_h.rowCount()):
+                    position_y = self.ui.t_slot_table_h.item(row, 1).text()
+                    t_slot_type = self.ui.t_slot_table_h.cellWidget(row, 2).currentText()
+                    LL = self.ui.t_slot_table_h.item(row, 3).text()
+                    LR = self.ui.t_slot_table_h.item(row, 4).text()
+                    SL = self.ui.t_slot_table_h.item(row, 5).text()
+                    SR = self.ui.t_slot_table_h.item(row, 6).text()
+                    par.total_position_y.append(position_y)
+                    par.total_t_slot_h_type.append(t_slot_type)
+                    par.total_LL.append(LL)
+                    par.total_LR.append(LR)
+                    par.total_SL.append(SL)
+                    par.total_SR.append(SR)
+                par.total_position_y = [int(x) for x in par.total_position_y]
+                position_y_change_position = sorted(enumerate(par.total_position_y), key=lambda x: x[1], reverse=True)
+                print('position_y_change_position:', position_y_change_position)
+                rearrange = [position[0] for position in position_y_change_position]
+                print('rearrange:', rearrange)
+                par.total_position_y = [par.total_position_y[order_position] for order_position in rearrange]
+                par.total_LL = [par.total_LL[order_position] for order_position in rearrange]
+                par.total_LR = [par.total_LR[order_position] for order_position in rearrange]
+                par.total_SL = [par.total_SL[order_position] for order_position in rearrange]
+                par.total_SR = [par.total_SR[order_position] for order_position in rearrange]
+                par.total_t_slot_h_type = [par.total_t_slot_h_type[order_position] for order_position in rearrange]
 
-            print('total_position_y:', par.total_position_y)
-            print('total_t_slot_h_type:', par.total_t_slot_h_type)
-            print('total_LL:', par.total_LL)
-            print('total_LR:', par.total_LR)
-            print('total_SL:', par.total_SL)
-            print('total_SR:', par.total_SR)
-            for position, item in enumerate(par.total_position_y):
-                # 將整數轉換為字串，然後設定為表格的項目文本
-                item_text = str(item)
-                table_item = QtWidgets.QTableWidgetItem(item_text)
-                self.ui.t_slot_table_h.setItem(position + 1, 1, table_item)
-            for position, item in enumerate(par.total_LL):
-                item = QtWidgets.QTableWidgetItem(item)
-                self.ui.t_slot_table_h.setItem(position + 1, 3, item)
-            for position, item in enumerate(par.total_LR):
-                item = QtWidgets.QTableWidgetItem(item)
-                self.ui.t_slot_table_h.setItem(position + 1, 4, item)
-            for position, item in enumerate(par.total_SL):
-                item = QtWidgets.QTableWidgetItem(item)
-                self.ui.t_slot_table_h.setItem(position + 1, 5, item)
-            for position, item in enumerate(par.total_SR):
-                item = QtWidgets.QTableWidgetItem(item)
-                self.ui.t_slot_table_h.setItem(position + 1, 6, item)
-            for position, item in enumerate(par.total_t_slot_h_type):
-                combo_box = self.ui.t_slot_table_h.cellWidget(position + 1, 2)  # 從表格中獲取 ComboBox
-                combo_box.setCurrentText(item)
-                self.combo_box_changed(position + 1, combo_box.currentIndex())
+                print('total_position_y:', par.total_position_y)
+                print('total_t_slot_h_type:', par.total_t_slot_h_type)
+                print('total_LL:', par.total_LL)
+                print('total_LR:', par.total_LR)
+                print('total_SL:', par.total_SL)
+                print('total_SR:', par.total_SR)
+                for position, item in enumerate(par.total_position_y):
+                    # 將整數轉換為字串，然後設定為表格的項目文本
+                    item_text = str(item)
+                    table_item = QtWidgets.QTableWidgetItem(item_text)
+                    self.ui.t_slot_table_h.setItem(position + 1, 1, table_item)
+                for position, item in enumerate(par.total_LL):
+                    item = QtWidgets.QTableWidgetItem(item)
+                    self.ui.t_slot_table_h.setItem(position + 1, 3, item)
+                for position, item in enumerate(par.total_LR):
+                    item = QtWidgets.QTableWidgetItem(item)
+                    self.ui.t_slot_table_h.setItem(position + 1, 4, item)
+                for position, item in enumerate(par.total_SL):
+                    item = QtWidgets.QTableWidgetItem(item)
+                    self.ui.t_slot_table_h.setItem(position + 1, 5, item)
+                for position, item in enumerate(par.total_SR):
+                    item = QtWidgets.QTableWidgetItem(item)
+                    self.ui.t_slot_table_h.setItem(position + 1, 6, item)
+                for position, item in enumerate(par.total_t_slot_h_type):
+                    combo_box = self.ui.t_slot_table_h.cellWidget(position + 1, 2)  # 從表格中獲取 ComboBox
+                    combo_box.setCurrentText(item)
+                    self.combo_box_changed(position + 1, combo_box.currentIndex())
 
-        if self.ui.t_slot_table_v.rowCount() != 0:
-            for row in range(1, self.ui.t_slot_table_v.rowCount()):
-                position_x = self.ui.t_slot_table_v.item(row, 1).text()
-                t_slot_type = self.ui.t_slot_table_v.cellWidget(row, 2).currentText()
-                LF = self.ui.t_slot_table_v.item(row, 3).text()
-                LB = self.ui.t_slot_table_v.item(row, 4).text()
-                SF = self.ui.t_slot_table_v.item(row, 5).text()
-                SB = self.ui.t_slot_table_v.item(row, 6).text()
-                par.total_position_x.append(position_x)
-                par.total_t_slot_v_type.append(t_slot_type)
-                par.total_LF.append(LF)
-                par.total_LB.append(LB)
-                par.total_SF.append(SF)
-                par.total_SB.append(SB)
-            par.total_position_x = [int(x) for x in par.total_position_x]
-            position_x_change_position = sorted(enumerate(par.total_position_x), key=lambda x: x[1], reverse=True)
-            print('position_x_change_position:', position_x_change_position)
-            rearrange = [position[0] for position in position_x_change_position]
-            print('rearrange:', rearrange)
-            par.total_position_x = [par.total_position_x[order_position] for order_position in rearrange]
-            par.total_LF = [par.total_LF[order_position] for order_position in rearrange]
-            par.total_LB = [par.total_LB[order_position] for order_position in rearrange]
-            par.total_SF = [par.total_SF[order_position] for order_position in rearrange]
-            par.total_SB = [par.total_SB[order_position] for order_position in rearrange]
-            par.total_t_slot_v_type = [par.total_t_slot_v_type[order_position] for order_position in rearrange]
-            print('total_position_x:', par.total_position_x)
-            print('total_t_slot_v_type:', par.total_t_slot_v_type)
-            print('total_LF:', par.total_LF)
-            print('total_LB:', par.total_LB)
-            print('total_SF:', par.total_SF)
-            print('total_SB:', par.total_SB)
-            for position, item in enumerate(par.total_position_x):
-                # 將整數轉換為字串，然後設定為表格的項目文本
-                item_text = str(item)
-                table_item = QtWidgets.QTableWidgetItem(item_text)
-                self.ui.t_slot_table_v.setItem(position + 1, 1, table_item)
-            for position, item in enumerate(par.total_LF):
-                item = QtWidgets.QTableWidgetItem(item)
-                self.ui.t_slot_table_v.setItem(position + 1, 3, item)
-            for position, item in enumerate(par.total_LB):
-                item = QtWidgets.QTableWidgetItem(item)
-                self.ui.t_slot_table_v.setItem(position + 1, 4, item)
-            for position, item in enumerate(par.total_SF):
-                item = QtWidgets.QTableWidgetItem(item)
-                self.ui.t_slot_table_v.setItem(position + 1, 5, item)
-            for position, item in enumerate(par.total_SB):
-                item = QtWidgets.QTableWidgetItem(item)
-                self.ui.t_slot_table_v.setItem(position + 1, 6, item)
-            for position, item in enumerate(par.total_t_slot_v_type):
-                combo_box = self.ui.t_slot_table_v.cellWidget(position + 1, 2)
-                combo_box.setCurrentText(item)
-                self.combo_box_changed_v(position + 1, combo_box.currentIndex())
+            if self.ui.t_slot_table_v.rowCount() != 0:
+                for row in range(1, self.ui.t_slot_table_v.rowCount()):
+                    position_x = self.ui.t_slot_table_v.item(row, 1).text()
+                    t_slot_type = self.ui.t_slot_table_v.cellWidget(row, 2).currentText()
+                    LF = self.ui.t_slot_table_v.item(row, 3).text()
+                    LB = self.ui.t_slot_table_v.item(row, 4).text()
+                    SF = self.ui.t_slot_table_v.item(row, 5).text()
+                    SB = self.ui.t_slot_table_v.item(row, 6).text()
+                    par.total_position_x.append(position_x)
+                    par.total_t_slot_v_type.append(t_slot_type)
+                    par.total_LF.append(LF)
+                    par.total_LB.append(LB)
+                    par.total_SF.append(SF)
+                    par.total_SB.append(SB)
+                par.total_position_x = [int(x) for x in par.total_position_x]
+                position_x_change_position = sorted(enumerate(par.total_position_x), key=lambda x: x[1], reverse=True)
+                print('position_x_change_position:', position_x_change_position)
+                rearrange = [position[0] for position in position_x_change_position]
+                print('rearrange:', rearrange)
+                par.total_position_x = [par.total_position_x[order_position] for order_position in rearrange]
+                par.total_LF = [par.total_LF[order_position] for order_position in rearrange]
+                par.total_LB = [par.total_LB[order_position] for order_position in rearrange]
+                par.total_SF = [par.total_SF[order_position] for order_position in rearrange]
+                par.total_SB = [par.total_SB[order_position] for order_position in rearrange]
+                par.total_t_slot_v_type = [par.total_t_slot_v_type[order_position] for order_position in rearrange]
+                print('total_position_x:', par.total_position_x)
+                print('total_t_slot_v_type:', par.total_t_slot_v_type)
+                print('total_LF:', par.total_LF)
+                print('total_LB:', par.total_LB)
+                print('total_SF:', par.total_SF)
+                print('total_SB:', par.total_SB)
+                for position, item in enumerate(par.total_position_x):
+                    # 將整數轉換為字串，然後設定為表格的項目文本
+                    item_text = str(item)
+                    table_item = QtWidgets.QTableWidgetItem(item_text)
+                    self.ui.t_slot_table_v.setItem(position + 1, 1, table_item)
+                for position, item in enumerate(par.total_LF):
+                    item = QtWidgets.QTableWidgetItem(item)
+                    self.ui.t_slot_table_v.setItem(position + 1, 3, item)
+                for position, item in enumerate(par.total_LB):
+                    item = QtWidgets.QTableWidgetItem(item)
+                    self.ui.t_slot_table_v.setItem(position + 1, 4, item)
+                for position, item in enumerate(par.total_SF):
+                    item = QtWidgets.QTableWidgetItem(item)
+                    self.ui.t_slot_table_v.setItem(position + 1, 5, item)
+                for position, item in enumerate(par.total_SB):
+                    item = QtWidgets.QTableWidgetItem(item)
+                    self.ui.t_slot_table_v.setItem(position + 1, 6, item)
+                for position, item in enumerate(par.total_t_slot_v_type):
+                    combo_box = self.ui.t_slot_table_v.cellWidget(position + 1, 2)
+                    combo_box.setCurrentText(item)
+                    self.combo_box_changed_v(position + 1, combo_box.currentIndex())
 
-            # 檢查T溝是否超出界線
-            # T溝尺寸與平板邊緣>=50mm
-            if len(par.total_position_y) != 0:
-                if par.total_position_y[0] + (par.t_all_dimension[1] / 2) > (plate_width / 2) - 50:
-                    self.show_alert('橫向T溝位置(Y) H1 與平板邊緣過近')
-                if par.total_position_y[-1] - (par.t_all_dimension[1] / 2) <= (-plate_width / 2) + 50:
-                    self.show_alert('橫向T溝位置(Y) H' + str(len(par.total_position_y)) + ' 與平板邊緣過近')
+                # 檢查T溝是否超出界線
+                # T溝尺寸與平板邊緣>=50mm
+                if len(par.total_position_y) != 0:
+                    if par.total_position_y[0] + (par.t_all_dimension[1] / 2) > (width / 2) - 50:
+                        self.show_alert('橫向T溝位置(Y) H1 與平板邊緣過近')
+                    if par.total_position_y[-1] - (par.t_all_dimension[1] / 2) <= (-width / 2) + 50:
+                        self.show_alert('橫向T溝位置(Y) H' + str(len(par.total_position_y)) + ' 與平板邊緣過近')
 
-                # T溝與T溝之間間距需>=50mm
-                for turn in range(len(par.total_position_y) - 1):
-                    third_value = abs(par.total_position_y[turn] - par.total_position_y[turn + 1]) - \
-                                  par.t_all_dimension[1]
-                    if third_value <= 50:
-                        self.show_alert('橫向T溝位置(Y) H' + str(turn + 1) + ' 與 H' + str(turn + 2) + ' 間距過近')
-                    print('third_value:', third_value)
+                    # T溝與T溝之間間距需>=50mm
+                    for turn in range(len(par.total_position_y) - 1):
+                        third_value = abs(par.total_position_y[turn] - par.total_position_y[turn + 1]) - \
+                                      par.t_all_dimension[1]
+                        if third_value <= 50:
+                            self.show_alert('橫向T溝位置(Y) H' + str(turn + 1) + ' 與 H' + str(turn + 2) + ' 間距過近')
+                        print('third_value:', third_value)
 
-            if len(par.total_position_x) != 0:
-                if par.total_position_x[0] + (par.t_all_dimension[0] / 2) > (plate_lenght / 2) - 50:
-                    self.show_alert('縱向T溝位置(X) V1 與平板邊緣過近')
-                if par.total_position_x[-1] - (par.t_all_dimension[0] / 2) <= (-plate_lenght / 2) + 50:
-                    self.show_alert('縱向T溝位置(X) V' + str(len(par.total_position_x)) + ' 與平板邊緣過近')
+                if len(par.total_position_x) != 0:
+                    if par.total_position_x[0] + (par.t_all_dimension[0] / 2) > (length / 2) - 50:
+                        self.show_alert('縱向T溝位置(X) V1 與平板邊緣過近')
+                    if par.total_position_x[-1] - (par.t_all_dimension[0] / 2) <= (-length / 2) + 50:
+                        self.show_alert('縱向T溝位置(X) V' + str(len(par.total_position_x)) + ' 與平板邊緣過近')
 
-                # T溝與T溝之間間距需>=50mm
-                for turn in range(len(par.total_position_x) - 1):
-                    third_value = abs(par.total_position_x[turn] - par.total_position_x[turn + 1]) - \
-                                  par.t_all_dimension[0]
-                    if third_value <= 50:
-                        self.show_alert('縱向T溝位置(X) V' + str(turn + 1) + ' 與 V' + str(turn + 2) + ' 間距過近')
-                    print('third_value:', third_value)
+                    # T溝與T溝之間間距需>=50mm
+                    for turn in range(len(par.total_position_x) - 1):
+                        third_value = abs(par.total_position_x[turn] - par.total_position_x[turn + 1]) - \
+                                      par.t_all_dimension[0]
+                        if third_value <= 50:
+                            self.show_alert('縱向T溝位置(X) V' + str(turn + 1) + ' 與 V' + str(turn + 2) + ' 間距過近')
+                        print('third_value:', third_value)
+
+        elif parent_page == 'punch_secend_windows':
+            par.ph_total_position_y.clear()
+            par.ph_total_t_slot_h_type.clear()
+            par.ph_total_LL.clear()
+            par.ph_total_LR.clear()
+            par.ph_total_SL.clear()
+            par.ph_total_SR.clear()
+            par.ph_total_position_x.clear()
+            par.ph_total_t_slot_v_type.clear()
+            par.ph_total_LF.clear()
+            par.ph_total_LB.clear()
+            par.ph_total_SF.clear()
+            par.ph_total_SB.clear()
+
+            if self.ui.t_slot_table_h.rowCount() != 0:
+                for row in range(1, self.ui.t_slot_table_h.rowCount()):
+                    position_y = self.ui.t_slot_table_h.item(row, 1).text()
+                    t_slot_type = self.ui.t_slot_table_h.cellWidget(row, 2).currentText()
+                    LL = self.ui.t_slot_table_h.item(row, 3).text()
+                    LR = self.ui.t_slot_table_h.item(row, 4).text()
+                    SL = self.ui.t_slot_table_h.item(row, 5).text()
+                    SR = self.ui.t_slot_table_h.item(row, 6).text()
+                    par.ph_total_position_y.append(position_y)
+                    par.ph_total_t_slot_h_type.append(t_slot_type)
+                    par.ph_total_LL.append(LL)
+                    par.ph_total_LR.append(LR)
+                    par.ph_total_SL.append(SL)
+                    par.ph_total_SR.append(SR)
+                par.ph_total_position_y = [int(x) for x in par.ph_total_position_y]
+                position_y_change_position = sorted(enumerate(par.ph_total_position_y), key=lambda x: x[1], reverse=True)
+                print('position_y_change_position:', position_y_change_position)
+                rearrange = [position[0] for position in position_y_change_position]
+                print('rearrange:', rearrange)
+                par.ph_total_position_y = [par.ph_total_position_y[order_position] for order_position in rearrange]
+                par.ph_total_LL = [par.ph_total_LL[order_position] for order_position in rearrange]
+                par.ph_total_LR = [par.ph_total_LR[order_position] for order_position in rearrange]
+                par.ph_total_SL = [par.ph_total_SL[order_position] for order_position in rearrange]
+                par.ph_total_SR = [par.ph_total_SR[order_position] for order_position in rearrange]
+                par.ph_total_t_slot_h_type = [par.ph_total_t_slot_h_type[order_position] for order_position in rearrange]
+
+                print('ph_total_position_y:', par.ph_total_position_y)
+                print('ph_total_t_slot_h_type:', par.ph_total_t_slot_h_type)
+                print('ph_total_LL:', par.ph_total_LL)
+                print('ph_total_LR:', par.ph_total_LR)
+                print('ph_total_SL:', par.ph_total_SL)
+                print('ph_total_SR:', par.ph_total_SR)
+                for position, item in enumerate(par.ph_total_position_y):
+                    # 將整數轉換為字串，然後設定為表格的項目文本
+                    item_text = str(item)
+                    table_item = QtWidgets.QTableWidgetItem(item_text)
+                    self.ui.t_slot_table_h.setItem(position + 1, 1, table_item)
+                for position, item in enumerate(par.ph_total_LL):
+                    item = QtWidgets.QTableWidgetItem(item)
+                    self.ui.t_slot_table_h.setItem(position + 1, 3, item)
+                for position, item in enumerate(par.ph_total_LR):
+                    item = QtWidgets.QTableWidgetItem(item)
+                    self.ui.t_slot_table_h.setItem(position + 1, 4, item)
+                for position, item in enumerate(par.ph_total_SL):
+                    item = QtWidgets.QTableWidgetItem(item)
+                    self.ui.t_slot_table_h.setItem(position + 1, 5, item)
+                for position, item in enumerate(par.ph_total_SR):
+                    item = QtWidgets.QTableWidgetItem(item)
+                    self.ui.t_slot_table_h.setItem(position + 1, 6, item)
+                for position, item in enumerate(par.ph_total_t_slot_h_type):
+                    combo_box = self.ui.t_slot_table_h.cellWidget(position + 1, 2)  # 從表格中獲取 ComboBox
+                    combo_box.setCurrentText(item)
+                    self.combo_box_changed(position + 1, combo_box.currentIndex())
+
+            if self.ui.t_slot_table_v.rowCount() != 0:
+                for row in range(1, self.ui.t_slot_table_v.rowCount()):
+                    position_x = self.ui.t_slot_table_v.item(row, 1).text()
+                    t_slot_type = self.ui.t_slot_table_v.cellWidget(row, 2).currentText()
+                    LF = self.ui.t_slot_table_v.item(row, 3).text()
+                    LB = self.ui.t_slot_table_v.item(row, 4).text()
+                    SF = self.ui.t_slot_table_v.item(row, 5).text()
+                    SB = self.ui.t_slot_table_v.item(row, 6).text()
+                    par.ph_total_position_x.append(position_x)
+                    par.ph_total_t_slot_v_type.append(t_slot_type)
+                    par.ph_total_LF.append(LF)
+                    par.ph_total_LB.append(LB)
+                    par.ph_total_SF.append(SF)
+                    par.ph_total_SB.append(SB)
+                par.ph_total_position_x = [int(x) for x in par.ph_total_position_x]
+                position_x_change_position = sorted(enumerate(par.ph_total_position_x), key=lambda x: x[1], reverse=True)
+                print('position_x_change_position:', position_x_change_position)
+                rearrange = [position[0] for position in position_x_change_position]
+                print('rearrange:', rearrange)
+                par.ph_total_position_x = [par.ph_total_position_x[order_position] for order_position in rearrange]
+                par.ph_total_LF = [par.ph_total_LF[order_position] for order_position in rearrange]
+                par.ph_total_LB = [par.ph_total_LB[order_position] for order_position in rearrange]
+                par.ph_total_SF = [par.ph_total_SF[order_position] for order_position in rearrange]
+                par.ph_total_SB = [par.ph_total_SB[order_position] for order_position in rearrange]
+                par.ph_total_t_slot_v_type = [par.ph_total_t_slot_v_type[order_position] for order_position in rearrange]
+                print('ph_total_position_x:', par.ph_total_position_x)
+                print('ph_total_t_slot_v_type:', par.ph_total_t_slot_v_type)
+                print('ph_total_LF:', par.ph_total_LF)
+                print('ph_total_LB:', par.ph_total_LB)
+                print('ph_total_SF:', par.ph_total_SF)
+                print('ph_total_SB:', par.ph_total_SB)
+                for position, item in enumerate(par.ph_total_position_x):
+                    # 將整數轉換為字串，然後設定為表格的項目文本
+                    item_text = str(item)
+                    table_item = QtWidgets.QTableWidgetItem(item_text)
+                    self.ui.t_slot_table_v.setItem(position + 1, 1, table_item)
+                for position, item in enumerate(par.ph_total_LF):
+                    item = QtWidgets.QTableWidgetItem(item)
+                    self.ui.t_slot_table_v.setItem(position + 1, 3, item)
+                for position, item in enumerate(par.ph_total_LB):
+                    item = QtWidgets.QTableWidgetItem(item)
+                    self.ui.t_slot_table_v.setItem(position + 1, 4, item)
+                for position, item in enumerate(par.ph_total_SF):
+                    item = QtWidgets.QTableWidgetItem(item)
+                    self.ui.t_slot_table_v.setItem(position + 1, 5, item)
+                for position, item in enumerate(par.ph_total_SB):
+                    item = QtWidgets.QTableWidgetItem(item)
+                    self.ui.t_slot_table_v.setItem(position + 1, 6, item)
+                for position, item in enumerate(par.ph_total_t_slot_v_type):
+                    combo_box = self.ui.t_slot_table_v.cellWidget(position + 1, 2)
+                    combo_box.setCurrentText(item)
+                    self.combo_box_changed_v(position + 1, combo_box.currentIndex())
+
+                # 檢查T溝是否超出界線
+                # T溝尺寸與平板邊緣>=50mm
+                if len(par.ph_total_position_y) != 0:
+                    if par.ph_total_position_y[0] + (par.t_all_dimension[1] / 2) > (width / 2) - 50:
+                        self.show_alert('橫向T溝位置(Y) H1 與平板邊緣過近')
+                    if par.ph_total_position_y[-1] - (par.t_all_dimension[1] / 2) <= (-width / 2) + 50:
+                        self.show_alert('橫向T溝位置(Y) H' + str(len(par.ph_total_position_y)) + ' 與平板邊緣過近')
+
+                    # T溝與T溝之間間距需>=50mm
+                    for turn in range(len(par.ph_total_position_y) - 1):
+                        third_value = abs(par.ph_total_position_y[turn] - par.ph_total_position_y[turn + 1]) - \
+                                      par.t_all_dimension[1]
+                        if third_value <= 50:
+                            self.show_alert('橫向T溝位置(Y) H' + str(turn + 1) + ' 與 H' + str(turn + 2) + ' 間距過近')
+                        print('third_value:', third_value)
+
+                if len(par.ph_total_position_x) != 0:
+                    if par.ph_total_position_x[0] + (par.t_all_dimension[0] / 2) > (length / 2) - 50:
+                        self.show_alert('縱向T溝位置(X) V1 與平板邊緣過近')
+                    if par.ph_total_position_x[-1] - (par.t_all_dimension[0] / 2) <= (-length / 2) + 50:
+                        self.show_alert('縱向T溝位置(X) V' + str(len(par.ph_total_position_x)) + ' 與平板邊緣過近')
+
+                    # T溝與T溝之間間距需>=50mm
+                    for turn in range(len(par.ph_total_position_x) - 1):
+                        third_value = abs(par.ph_total_position_x[turn] - par.ph_total_position_x[turn + 1]) - \
+                                      par.t_all_dimension[0]
+                        if third_value <= 50:
+                            self.show_alert('縱向T溝位置(X) V' + str(turn + 1) + ' 與 V' + str(turn + 2) + ' 間距過近')
+                        print('third_value:', third_value)
+        self.restore_setup_button()
+
 
     def show_alert(self, alert):
         QMessageBox.about(self, "警告", alert)
 
-    def reset(self):
+    def reset(self, parent_page):
         self.ui.t_slot_h_number.clear()
         self.ui.t_slot_v_number.clear()
-        par.total_position_y.clear()
-        par.total_t_slot_h_type.clear()
-        par.total_LL.clear()
-        par.total_LR.clear()
-        par.total_SL.clear()
-        par.total_SR.clear()
-        par.total_position_x.clear()
-        par.total_t_slot_v_type.clear()
-        par.total_LF.clear()
-        par.total_LB.clear()
-        par.total_SF.clear()
-        par.total_SB.clear()
+        if parent_page == 'pad_secend_windows':
+            par.total_position_y.clear()
+            par.total_t_slot_h_type.clear()
+            par.total_LL.clear()
+            par.total_LR.clear()
+            par.total_SL.clear()
+            par.total_SR.clear()
+            par.total_position_x.clear()
+            par.total_t_slot_v_type.clear()
+            par.total_LF.clear()
+            par.total_LB.clear()
+            par.total_SF.clear()
+            par.total_SB.clear()
+        elif parent_page == 'punch_secend_windows':
+            par.ph_total_position_y.clear()
+            par.ph_total_t_slot_h_type.clear()
+            par.ph_total_LL.clear()
+            par.ph_total_LR.clear()
+            par.ph_total_SL.clear()
+            par.ph_total_SR.clear()
+            par.ph_total_position_x.clear()
+            par.ph_total_t_slot_v_type.clear()
+            par.ph_total_LF.clear()
+            par.ph_total_LB.clear()
+            par.ph_total_SF.clear()
+            par.ph_total_SB.clear()
 
 
 # 下料孔設定介面
