@@ -56,14 +56,14 @@ class main(QtWidgets.QWidget, Ui_Form):
         # 调整表格的大小以填充整个窗口
         self.ui.window_main_table.setGeometry(0, 0, window_size.width(), window_size.height())
         for x in range(0, 2):
-            self.ui.window_main_table.setSpan(x, 0, 1, 5)  # 以某格為基準向下向左合併儲存格
-            newItem = QTableWidgetItem(par.series1[x])  # 儲存格內文字
-            newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)  # 設定置中
-            newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)  # 不可編輯化
-            self.ui.window_main_table.setItem(x, 0, newItem)  # 指定文字放置位置
+            self.ui.window_main_table.setSpan(x, 0, 1, 5) #以某格為基準向下向左合併儲存格
+            newItem = QTableWidgetItem(par.series1[x]) #儲存格內文字
+            newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter) #設定置中
+            newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable) #不可編輯化
+            self.ui.window_main_table.setItem(x, 0, newItem) #指定文字放置位置
         for x in range(2, 8):
             self.ui.window_main_table.setSpan(x, 0, 1, 3)
-            newItem = QTableWidgetItem(par.series2[x - 2])
+            newItem = QTableWidgetItem(par.series2[x-2])
             newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
             newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
             self.ui.window_main_table.setItem(x, 0, newItem)
@@ -101,7 +101,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         combo_box_type.addItem('H')
         combo_box_type.addItem('P')
         self.ui.window_main_table.setCellWidget(5, 3, combo_box_type)
-        plate_setup = QPushButton('設定')  # 括號內為按鈕名稱
+        plate_setup = QPushButton('設定') #括號內為按鈕名稱
         self.ui.window_main_table.setCellWidget(6, 3, plate_setup)
         punch_setup = QPushButton('設定')
         self.ui.window_main_table.setCellWidget(7, 3, punch_setup)
@@ -301,7 +301,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         pixmap = QPixmap('machine_picture.png')
         machine_picture.setPixmap(pixmap)
 
-        scaled_pixmap = pixmap.scaled(pixmap.width() - 100, pixmap.height() - 110)
+        scaled_pixmap = pixmap.scaled(pixmap.width()-100,pixmap.height()-110)
         machine_picture.setPixmap(scaled_pixmap)
 
         # # 设置 QLabel 居中
@@ -321,13 +321,12 @@ class main(QtWidgets.QWidget, Ui_Form):
         button_layout = QHBoxLayout()  # 创建一个水平布局对象
         button_container.setLayout(button_layout)  # 将布局附加到button_container上
 
-        self.ui.window_main_table.cellWidget(4, 3).currentIndexChanged.connect(
-            lambda: self.choose_stamping_press_type())
-        self.ui.window_main_table.cellWidget(5, 3).currentIndexChanged.connect(
-            lambda: self.choose_stamping_press_type())
-
-        plate_setup.clicked.connect(lambda: self.switch_to_plate(par.stamping_press_type))
-        punch_setup.clicked.connect(lambda: self.switch_to_punch(par.stamping_press_type))
+        self.ui.window_main_table.cellWidget(2, 3).currentIndexChanged.connect(lambda :self.unit_change())
+        self.ui.window_main_table.cellWidget(4, 3).currentIndexChanged.connect(lambda :self.choose_stamping_press_type())
+        self.ui.window_main_table.cellWidget(5, 3).currentIndexChanged.connect(lambda :self.choose_stamping_press_type())
+        # self.ui.window_main_table.item(9, 4).currentChanged.connect(lambda :self.customize_typing('stroke'))
+        plate_setup.clicked.connect(lambda:self.switch_to_plate(par.stamping_press_type))
+        # punch_setup.clicked.connect()
         # select_setup.clicked.connect()
         # spare_parts_setup.clicked.connect()
 
@@ -343,6 +342,35 @@ class main(QtWidgets.QWidget, Ui_Form):
         self.nw = punch_first_windows(stamping_press_type)
         self.nw.show()
 
+    def unit_change(self):
+        unit_type = self.ui.window_main_table.cellWidget(2, 3).currentText()
+        if unit_type == '公制':
+            for x in range(9, 22):
+                if x != 17:
+                    newItem = QTableWidgetItem(par.unit_metric[x - 9])
+                    newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+                    newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+                    self.ui.window_main_table.setItem(x, 2, newItem)
+                else:
+                    pass
+        elif unit_type == '英制':
+            for x in range(9, 22):
+                if x != 17:
+                    newItem = QTableWidgetItem(par.unit_english[x - 9])
+                    newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+                    newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+                    self.ui.window_main_table.setItem(x, 2, newItem)
+                else:
+                    pass
+
+    def customize_typing(self, parameter_type):
+        if parameter_type == 'stroke':
+            item = self.ui.window_main_table.cellWidget(9, 3).text()
+            punch_stroke = QTableWidgetItem(item)
+            punch_stroke.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+            punch_stroke.setFlags(punch_stroke.flags() & ~Qt.ItemIsEditable)
+            self.ui.window_main_table.setItem(9, 3, punch_stroke)
+
     def start(self):
         type = self.ui.window_main_table.cellWidget(4, 3).currentText()
         travel_type = str(self.ui.window_main_table.cellWidget(4, 5).currentText())
@@ -353,6 +381,14 @@ class main(QtWidgets.QWidget, Ui_Form):
         processing = str(self.ui.comboBox.currentText())
         print(type, travel_type, specifications_travel_value, specifications_close_working_height_value,
               close_working_height)
+        travel_type = str(self.ui.window_main_table.cellWidget(5, 3).currentText())
+        specifications_travel_value = str(self.ui.window_main_table.item(9, 3).text())
+        specifications_close_working_height_value = str(self.ui.window_main_table.item(11, 3).text())
+        # close_working_height = str(self.ui.label_9.text())
+        # # delta = str(self.ui.lineEdit_4.text())
+        # processing = str(self.ui.comboBox.currentText())
+        processing = '是'
+        print(type, travel_type, specifications_travel_value, specifications_close_working_height_value)
         self.create_dir(type)
         if specifications_travel_value == "":
             self.specifications_travel_value = 0
@@ -365,16 +401,14 @@ class main(QtWidgets.QWidget, Ui_Form):
         self.stamping_press_type = self.choose_stamping_press_type()
         self.p, self.travel_type = self.choos(processing, travel_type)
 
-        self.alpha, self.beta, self.zeta, self.epsilon = self.frame_calculate(self.stamping_press_type,
-                                                                              self.specifications_travel_value,
+        self.alpha, self.beta, self.zeta, self.epsilon = self.frame_calculate(self.stamping_press_type, self.specifications_travel_value,
                                                                               self.specifications_close_working_height_value,
                                                                               self.travel_type)
         if test_stop == False:
             self.create_txt(self.path, type, travel_type, self.specifications_travel_value,
                             self.specifications_close_working_height_value, self.alpha, self.beta, self.zeta,
                             self.epsilon)
-            self.change_dir(self.stamping_press_type, self.p, self.alpha, self.beta, self.zeta, self.epsilon,
-                            self.machining,
+            self.change_dir(self.stamping_press_type, self.p, self.alpha, self.beta, self.zeta, self.epsilon, self.machining,
                             self.welding, self.travel_type)
 
     def choose_stamping_press_type(self):
@@ -413,9 +447,9 @@ class main(QtWidgets.QWidget, Ui_Form):
 
         par.stamping_press_type = stamping_press_type
         par.stamping_press_style = style
-        print(par.stamping_press_type, par.stamping_press_style)
 
-    def choos(self, prossing, travel_type):
+
+    def choos(self,prossing, travel_type):
         # 確認型號"輸入型號"
         # 確認加工方式
         if prossing == '是':
@@ -431,8 +465,7 @@ class main(QtWidgets.QWidget, Ui_Form):
             travel_type = 3
         return p, travel_type
 
-    def frame_calculate(self, stamping_press_type, specifications_travel_value,
-                        specifications_close_working_height_value, travel_type):
+    def frame_calculate(self, stamping_press_type, specifications_travel_value, specifications_close_working_height_value, travel_type):
         Form = QtWidgets.QWidget()
         # Form.setWindowTitle('警告')
         Form.resize(400, 300)
@@ -647,8 +680,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         # 開啟零件檔更改變數後儲存並關閉
         for name in epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_col_cell(1):
             print(name)
-            file_list_name, file_list_value = epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_sheet_par(
-                '沖床機架零件清單', stamping_press_type)
+            file_list_name, file_list_value = epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_sheet_par('沖床機架零件清單', stamping_press_type)
             file_list_name_index = file_list_name.index(name)
             if file_list_value[file_list_name_index] == 0:
                 pass
@@ -661,9 +693,9 @@ class main(QtWidgets.QWidget, Ui_Form):
                     sys.stdout = captured_output
                     if name == 'PANEL' or name == 'CON_ROD' or name == 'CON_ROD_BASE' or name == 'CON_ROD_CAP' or name == 'INVERTERBRACKET' \
                             or name == 'POINTER' or name == 'COVER' or name == 'PLUG' or name == 'feeding_shaft_cover' or name == 'OIL_LEVEL_GAUGE' \
-                            or name == 'slide_gib' or name == 'ELECTRIC_BOX_PLATE' or name == 'MOUNT_FILTER' or name == 'CONTROL_PANEL' or name == 'PANEL_BOX' \
-                            or name == 'PANEL_BOX_BRACKET' or name == 'ELECTRIC_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE' \
-                            or name == 'TRADEMARK_NAMEPLATE' or name == 'OPERATION_BOX':
+                            or name == 'slide_gib' or name == 'ELECTRIC_BOX_PLATE' or name == 'MOUNT_FILTER'or name == 'CONTROL_PANEL' or name == 'PANEL_BOX'\
+                            or name == 'PANEL_BOX_BRACKET' or name == 'ELECTRIC_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE'\
+                            or name == 'TRADEMARK_NAMEPLATE'or name == 'OPERATION_BOX':
                         # 讀取其餘STP檔
                         S_i.STP(name, stamping_press_type, machining)
                         continue
@@ -678,8 +710,7 @@ class main(QtWidgets.QWidget, Ui_Form):
                         except:
                             pass
                         # 加工圖零件
-                        parameter_name, parameter_value = mptc.change_machining_parameter(name, stamping_press_type, 0,
-                                                                                          travel_type)
+                        parameter_name, parameter_value = mptc.change_machining_parameter(name, stamping_press_type, 0, travel_type)
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
                         for x in range(len(parameter_name)):
@@ -709,8 +740,7 @@ class main(QtWidgets.QWidget, Ui_Form):
                             pass
 
                         # 加工圖零件
-                        parameter_name, parameter_value = mptc.change_machining_parameter(name, stamping_press_type, 1,
-                                                                                          travel_type)
+                        parameter_name, parameter_value = mptc.change_machining_parameter(name, stamping_press_type, 1, travel_type)
                         all_part_name[name] = parameter_name
                         all_part_value[name] = parameter_value
                         for x in range(len(parameter_name)):
