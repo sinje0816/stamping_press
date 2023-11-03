@@ -365,9 +365,6 @@ class main(QtWidgets.QWidget, Ui_Form):
         travel_type = str(self.ui.window_main_table.cellWidget(5, 3).currentText())
         specifications_travel_value = str(self.ui.window_main_table.item(9, 3).text())
         specifications_close_working_height_value = str(self.ui.window_main_table.item(11, 3).text())
-        # close_working_height = str(self.ui.label_9.text())
-        # # delta = str(self.ui.lineEdit_4.text())
-        # processing = str(self.ui.comboBox.currentText())
         processing = '是'
         print(type, travel_type, specifications_travel_value, specifications_close_working_height_value)
         self.create_dir(type)
@@ -429,6 +426,8 @@ class main(QtWidgets.QWidget, Ui_Form):
 
         par.stamping_press_type = stamping_press_type
         par.stamping_press_style = style
+
+        return stamping_press_type
 
 
     def choos(self,prossing, travel_type):
@@ -677,7 +676,8 @@ class main(QtWidgets.QWidget, Ui_Form):
                             or name == 'POINTER' or name == 'COVER' or name == 'PLUG' or name == 'feeding_shaft_cover' or name == 'OIL_LEVEL_GAUGE' \
                             or name == 'slide_gib' or name == 'ELECTRIC_BOX_PLATE' or name == 'MOUNT_FILTER'or name == 'CONTROL_PANEL' or name == 'PANEL_BOX'\
                             or name == 'PANEL_BOX_BRACKET' or name == 'ELECTRIC_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE'\
-                            or name == 'TRADEMARK_NAMEPLATE'or name == 'OPERATION_BOX':
+                            or name == 'TRADEMARK_NAMEPLATE'or name == 'OPERATION_BOX' or name == 'PORTABLE_STAND' or name == 'OPERATION_BOX'\
+                            or name == 'BEARING_HOUSING':
                         # 讀取其餘STP檔
                         S_i.STP(name, stamping_press_type, machining)
                         continue
@@ -689,6 +689,7 @@ class main(QtWidgets.QWidget, Ui_Form):
                             mprog.param_change(name, "alpha", alpha)
                             mprog.param_change(name, "beta", beta)
                             mprog.param_change(name, 'zeta', zeta)
+                            mprog.param_change(name, 'epsilon', epsilon)
                         except:
                             pass
                         # 加工圖零件
@@ -718,6 +719,7 @@ class main(QtWidgets.QWidget, Ui_Form):
                             mprog.param_change(name, "alpha", alpha)
                             mprog.param_change(name, "beta", beta)
                             mprog.param_change(name, 'zeta', zeta)
+                            mprog.param_change(name, 'epsilon', epsilon)
                         except:
                             pass
 
@@ -764,7 +766,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         print('welding_file_change_error', welding_file_change_error)
         print('welding_file_change_pass', welding_file_change_pass)
         print('總用時%s' % (time.time() - start_time))  # 建立3D組立
-        Ad.assembly(stamping_press_type, apv, self.path, alpha, beta, zeta)
+        Ad.assembly(stamping_press_type, apv, self.path, alpha, beta, zeta, epsilon)
 
         return machining_file_change_error, welding_file_change_error
 
