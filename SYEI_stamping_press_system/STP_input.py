@@ -34,6 +34,10 @@ GUARD_FLYWHEEL_list_normal = ['302N06S04_GUARD_FLYWHEEL', '32N6603_GUARD_FLYWHEE
 NAME_PLATE_list_normal = ['302N52_NAME_PLATE', '322N52_NAME_PLATE', '342N52_NAME_PLATE', '372N52_NAME_PLATE', '392N52_NAME_PLATE', '412N52_NAME_PLATE', '432N52_NAME_PLATE', '452N52_NAME_PLATE', '472N52_NAME_PLATE']
 TRADEMARK_NAMEPLATE_list_normal = ['MZD8276_TRADEMARK_NAMEPLATE', 'MZD8276_TRADEMARK_NAMEPLATE', '34N19_TRADEMARK_NAMEPLATE', '34N19_TRADEMARK_NAMEPLATE', 'MZD8275_TRADEMARK_NAMEPLATE', 'MZD8275_TRADEMARK_NAMEPLATE', 'MZD8274_TRADEMARK_NAMEPLATE', 'MZD8274_TRADEMARK_NAMEPLATE', '47N46_TRADEMARK_NAMEPLATE']
 OPERATION_BOX_list = '01A061186RP_OPERATION_BOX'
+PORTABLE_STAND_list = ['EWR12S06_PORTABLE_STAND', 'EWR12S06_PORTABLE_STAND' , 'EWR12S06_PORTABLE_STAND', 'EWR12S03_PORTABLE_STAND', 'EWR12S03_PORTABLE_STAND', 'EWR12S03_PORTABLE_STAND', 'EWR12S02_PORTABLE_STAND', 'EWR12S02_PORTABLE_STAND', 'EWR12S02_PORTABLE_STAND']
+OPERATION_BOX_list_normal = ['01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX']
+BEARING_HOUSING_list = ['302CC4S02_BEARING_HOUSING', '322CC4S02_BEARING_HOUSING', '342CC4S02_BEARING_HOUSING', '372CC4S02_BEARING_HOUSING', '395CC4S02_BEARING_HOUSING', '412CC4S02_BEARING_HOUSING', '432CC4S02_BEARING_HOUSING', '455CC4S02_BEARING_HOUSING', '475CC4S02_BEARING_HOUSING']
+SLIDE_list_normal = ['', '', '', 'punch_60_normal', 'punch_80_normal', 'punch_110_normal', 'punch_160_normal', 'punch_200_normal', 'punch_250_normal']
 
 def STP(name, stamping_press_type, machining):
     if name == 'PANEL':
@@ -239,6 +243,27 @@ def STP(name, stamping_press_type, machining):
         mprog.save_file_stp(machining, '01A061186RP_OPERATION_BOX')
         mprog.save_stpfile_part(machining, '01A061186RP_OPERATION_BOX')
         mprog.close_file('01A061186RP_OPERATION_BOX')
+    elif name == 'PORTABLE_STAND':
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PORTABLE_STAND_list[stamping_press_type])
+        mprog.save_file_stp(machining, PORTABLE_STAND_list[stamping_press_type])
+        mprog.save_stpfile_part(machining, PORTABLE_STAND_list[stamping_press_type])
+        mprog.close_file(PORTABLE_STAND_list[stamping_press_type])
+    elif name == 'OPERATION_BOX':
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), OPERATION_BOX_list_normal[stamping_press_type])
+        mprog.save_file_stp(machining, OPERATION_BOX_list_normal[stamping_press_type])
+        mprog.save_stpfile_part(machining, OPERATION_BOX_list_normal[stamping_press_type])
+        mprog.close_file(OPERATION_BOX_list_normal[stamping_press_type])
+    elif name == 'BEARING_HOUSING':
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), BEARING_HOUSING_list[stamping_press_type])
+        mprog.save_file_stp(machining, BEARING_HOUSING_list[stamping_press_type])
+        mprog.save_stpfile_part(machining, BEARING_HOUSING_list[stamping_press_type])
+        mprog.close_file(BEARING_HOUSING_list[stamping_press_type])
+    elif name == 'SLIDE':
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), SLIDE_list_normal[stamping_press_type])
+        mprog.save_file_stp(machining, SLIDE_list_normal[stamping_press_type])
+        mprog.save_stpfile_part(machining, SLIDE_list_normal[stamping_press_type])
+        mprog.close_file(SLIDE_list_normal[stamping_press_type])
+
 
 
 
@@ -323,4 +348,12 @@ def Assmebly(name,path, stamping_press_type):
         mprog.import_file_Part(path, NAME_PLATE_list_normal[stamping_press_type])
     elif name == 'TRADEMARK_NAMEPLATE':
         mprog.import_file_Part(path, TRADEMARK_NAMEPLATE_list_normal[stamping_press_type])
+    elif name == 'PORTABLE_STAND':
+        mprog.import_file_Part(path, PORTABLE_STAND_list[stamping_press_type])
+    elif name == 'OPERATION_BOX':
+        mprog.import_file_Part(path, OPERATION_BOX_list_normal[stamping_press_type])
+    elif name == 'BEARING_HOUSING':
+        mprog.import_file_Part(path, BEARING_HOUSING_list[stamping_press_type])
+    elif name == 'SLIDE':
+        mprog.import_file_Part(path, SLIDE_list_normal[stamping_press_type])
 

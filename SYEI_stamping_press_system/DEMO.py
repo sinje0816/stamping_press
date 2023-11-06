@@ -32,7 +32,6 @@ import time
 import traceback
 import check as ch
 import STP_input as S_i
-import pickle
 
 test_stop = False
 
@@ -374,23 +373,12 @@ class main(QtWidgets.QWidget, Ui_Form):
 
     def start(self):
         type = self.ui.window_main_table.cellWidget(4, 3).currentText()
-        travel_type = str(self.ui.window_main_table.cellWidget(4, 5).currentText())
-        specifications_travel_value = str(self.ui.lineEdit_5.text())
-        specifications_close_working_height_value = str(self.ui.lineEdit_2.text())
-        close_working_height = str(self.ui.label_9.text())
-        # delta = str(self.ui.lineEdit_4.text())
-        processing = str(self.ui.comboBox.currentText())
-        print(type, travel_type, specifications_travel_value, specifications_close_working_height_value,
-              close_working_height)
         travel_type = str(self.ui.window_main_table.cellWidget(5, 3).currentText())
         specifications_travel_value = str(self.ui.window_main_table.item(9, 3).text())
         specifications_close_working_height_value = str(self.ui.window_main_table.item(11, 3).text())
-        # close_working_height = str(self.ui.label_9.text())
-        # # delta = str(self.ui.lineEdit_4.text())
-        # processing = str(self.ui.comboBox.currentText())
         processing = '是'
         print(type, travel_type, specifications_travel_value, specifications_close_working_height_value)
-        self.create_dir(type)
+        self.create_dir()
         if specifications_travel_value == "":
             self.specifications_travel_value = 0
         else:
@@ -448,6 +436,8 @@ class main(QtWidgets.QWidget, Ui_Form):
 
         par.stamping_press_type = stamping_press_type
         par.stamping_press_style = style
+
+        return stamping_press_type
 
 
     def choos(self,prossing, travel_type):
@@ -592,11 +582,10 @@ class main(QtWidgets.QWidget, Ui_Form):
             f.write("喉部拉高量=%s\n" % zeta)
             f.write("牙球伸長量=%s\n" % epsilon)
 
-    def create_dir(self, type):  # 創建資料夾
+    def create_dir(self):  # 創建資料夾
         time_now = datetime.datetime.now()
-        dir_name = '{}_{}_{}_{}_{}'.format(type, time_now.day, time_now.hour, time_now.minute, time_now.second)
+        dir_name = '{}_{}_{}_{}'.format(time_now.day, time_now.hour, time_now.minute, time_now.second)
         desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
-        test = os.path.join('Z:')
         path = desktop + '\\' + dir_name
         os.mkdir(path)
         machining = path + "\\" + "machining"
@@ -695,7 +684,8 @@ class main(QtWidgets.QWidget, Ui_Form):
                             or name == 'POINTER' or name == 'COVER' or name == 'PLUG' or name == 'feeding_shaft_cover' or name == 'OIL_LEVEL_GAUGE' \
                             or name == 'slide_gib' or name == 'ELECTRIC_BOX_PLATE' or name == 'MOUNT_FILTER'or name == 'CONTROL_PANEL' or name == 'PANEL_BOX'\
                             or name == 'PANEL_BOX_BRACKET' or name == 'ELECTRIC_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE'\
-                            or name == 'TRADEMARK_NAMEPLATE'or name == 'OPERATION_BOX':
+                            or name == 'TRADEMARK_NAMEPLATE'or name == 'OPERATION_BOX' or name == 'PORTABLE_STAND' or name == 'OPERATION_BOX'\
+                            or name == 'BEARING_HOUSING'or name == 'SLIDE':
                         # 讀取其餘STP檔
                         S_i.STP(name, stamping_press_type, machining)
                         continue
@@ -707,6 +697,7 @@ class main(QtWidgets.QWidget, Ui_Form):
                             mprog.param_change(name, "alpha", alpha)
                             mprog.param_change(name, "beta", beta)
                             mprog.param_change(name, 'zeta', zeta)
+                            mprog.param_change(name, 'epsilon', epsilon)
                         except:
                             pass
                         # 加工圖零件
@@ -736,6 +727,7 @@ class main(QtWidgets.QWidget, Ui_Form):
                             mprog.param_change(name, "alpha", alpha)
                             mprog.param_change(name, "beta", beta)
                             mprog.param_change(name, 'zeta', zeta)
+                            mprog.param_change(name, 'epsilon', epsilon)
                         except:
                             pass
 
@@ -782,7 +774,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         print('welding_file_change_error', welding_file_change_error)
         print('welding_file_change_pass', welding_file_change_pass)
         print('總用時%s' % (time.time() - start_time))  # 建立3D組立
-        Ad.assembly(stamping_press_type, apv, self.path, alpha, beta, zeta)
+        Ad.assembly(stamping_press_type, apv, self.path, alpha, beta, zeta, epsilon)
 
         return machining_file_change_error, welding_file_change_error
 
@@ -981,9 +973,10 @@ class punch_secend_windows(QtWidgets.QWidget):
         self.nw.show()
 
     def start(self, stamping_press_type):
-        # 對平板進行變數
-        path = FolderManager('plate').path
-        path = str(path)
+        # # 對平板進行變數
+        # # path = FolderManager('plate').path
+        # path = str(path)
+        path = window.path
         mprog.set_CATIA_workbench_env()
         mprog.import_part(fp.system_root + fp.DEMO_part, 'plate')
         punch_name, punch_value = pdp.padchange(stamping_press_type)
@@ -1582,7 +1575,7 @@ class plate_secend_windows(QtWidgets.QWidget):
 
     def start(self, stamping_press_type):
         # 對平板進行變數
-        path = str(path)
+        path = window.path
         mprog.set_CATIA_workbench_env()
         mprog.import_part(fp.system_root + fp.DEMO_part, 'plate')
         plate_name, plate_value = pdp.padchange(stamping_press_type)
@@ -2622,6 +2615,6 @@ if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率
     app = QtWidgets.QApplication([])
     window = main()
-    FolderManager('SN1')
+    window.create_dir()
     window.show()
     sys.exit(app.exec_())

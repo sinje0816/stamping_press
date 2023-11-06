@@ -1,13 +1,12 @@
 import main_program as mprog
 import STP_input as S_i
 import excel_parameter_change as epc
-
-excel = epc.ExcelOp('組立尺寸', 'STP_Assembly_value')
-try:
-    S_assmebly_par = excel.get_assmebly_sheet_par(8)
-    print('STP_Assembly_value Parameter change success')
-except BaseException:
-    print('STP_Assembly_value Parameter change error')
+import file_path as fp
+stamping_press_type = 8
+PORTABLE_STAND_list = ['EWR12S06_PORTABLE_STAND', 'EWR12S06_PORTABLE_STAND' , 'EWR12S06_PORTABLE_STAND', 'EWR12S03_PORTABLE_STAND', 'EWR12S03_PORTABLE_STAND', 'EWR12S03_PORTABLE_STAND', 'EWR12S02_PORTABLE_STAND', 'EWR12S02_PORTABLE_STAND', 'EWR12S02_PORTABLE_STAND']
+name = 'PORTABLE_STAND'
+if name == 'PORTABLE_STAND':
+    mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PORTABLE_STAND_list[stamping_press_type])
 
 mprog.Close_All()
 #待修正
