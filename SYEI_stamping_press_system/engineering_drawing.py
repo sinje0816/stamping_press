@@ -278,7 +278,7 @@ def welding_drawing(l, type, i, alpha):
                        (par.H[i] - par.S[i] - par.Z[i] - 32 - alpha) / 2, -par.R_15[i] / 2 - 140, 0)
 
 
-def explosion_diagram(l, type, i, h):
+def explosion_diagram(l, type, i):
     # 重新定義拘束尺寸
     if l == 1:
         BOLSTER1_Offset_value = 1750
@@ -578,8 +578,8 @@ def balloons(i, l, h):
                                  -JOINT_ALL_offset_value * par.cos45,
                                  -JOINT_ALL_offset_value * par.cos45 * par.sin30 / par.cos30)
         draft.create_center_line('Isometric view2', -742.5 * par.cos45,
-                                 -742.5 * par.cos45 * par.sin30 / par.cos30 - 300,
-                                 -(Fixture_offset_value + par.B[i]) * par.cos45,
+                                 -625,
+                                 -3080,
                                  -(Fixture_offset_value + par.B[i]) * par.cos45 * par.sin30 / par.cos30 - 300)
     else:
         if h == 0:

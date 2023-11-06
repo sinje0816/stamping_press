@@ -32,6 +32,7 @@ import time
 import traceback
 import check as ch
 import STP_input as S_i
+import pickle
 
 test_stop = False
 
@@ -512,8 +513,7 @@ class main(QtWidgets.QWidget, Ui_Form):
 
         # 驗證閉合工作高度
         if specifications_close_working_height_value >= specifications_close_working_height_min_value[
-            all_type] and specifications_close_working_height_value <= \
-                specifications_close_working_height_max_value[all_type]:
+            all_type] and specifications_close_working_height_value <= specifications_close_working_height_max_value[all_type]:
             print('閉合工作高度在允許範圍: %s <= %s <= %s' % (
                 specifications_close_working_height_min_value[all_type], specifications_close_working_height_value,
                 specifications_close_working_height_max_value[all_type]))
@@ -1168,7 +1168,7 @@ class plate_first_windows(QtWidgets.QWidget):
         get_pad_select_name = self.ui.pad_select.currentText()
         if get_pad_select_name == "特殊平板":
             self.hide()
-            self.nw = pad_secend_windows(stamping_press_type)
+            self.nw = plate_secend_windows(stamping_press_type)
             self.nw.show()
 
     def switch_to_stamping_press_main_windows(self):
@@ -1321,11 +1321,11 @@ class plate_first_windows(QtWidgets.QWidget):
                 par.total_position_y = [350, 200, 0, -200, -350]
                 par.t_all_dimension = [28, 48, 30, 20]
         # 連結到平板第二頁的函式進行生成
-        path = pad_secend_windows.start(stamping_press_type, stamping_press_type)
+        path = plate_secend_windows.start(stamping_press_type, stamping_press_type)
         # T溝
-        pad_secend_windows.t_solt(stamping_press_type, path)
+        plate_secend_windows.t_solt(stamping_press_type, path)
         # 下料孔
-        pad_secend_windows.plate_hole(stamping_press_type, stamping_press_type, path)
+        plate_secend_windows.plate_hole(stamping_press_type, stamping_press_type, path)
         # 關閉實體外所有東西
         mprog.Close_All()
         # 平板存檔
@@ -1334,7 +1334,7 @@ class plate_first_windows(QtWidgets.QWidget):
 
 
 # 平板第二頁
-class pad_secend_windows(QtWidgets.QWidget):
+class plate_secend_windows(QtWidgets.QWidget):
     def __init__(self, stamping_press_type):
         super().__init__()
         self.ui = pad_main_Form()
@@ -1508,11 +1508,6 @@ class pad_secend_windows(QtWidgets.QWidget):
                     self.ui.removetable.setItem(i, 0, QTableWidgetItem(par.cutout_parameter_funnel[i]))
                     self.ui.removetable.setItem(i, 1, QTableWidgetItem(par.cutout_part_dimension[i]))
 
-    # def showpaddimensionwindows(self, stamping_press_type):
-    #     self.hide()
-    #     self.nw = pad_dimension(stamping_press_type)
-    #     self.nw.show()
-
     def showpadmachiningwindows(self, stamping_press_type):
         t_solt_type = self.ui.t_solt_type.currentText()
         if t_solt_type == "T溝代號:F(SN1-25~60標準)":
@@ -1534,10 +1529,10 @@ class pad_secend_windows(QtWidgets.QWidget):
             plate_width = par.plate_width[stamping_press_type]
 
         self.hide()
-        self.nw = t_machining(stamping_press_type, plate_lenght, plate_width, 'pad_secend_windows')
+        self.nw = t_machining(stamping_press_type, plate_lenght, plate_width, 'plate_secend_windows')
         self.nw.show()
 
-    def showcutoutmachiningwindows(self, i):
+    def showcutoutmachiningwindows(self, stamping_press_type):
         for turn in range(0, 5):
             par.cutout_part_dimension[turn] = (self.ui.removetable.item(turn, 1).text())
         print(par.cutout_part_dimension)
@@ -1546,7 +1541,7 @@ class pad_secend_windows(QtWidgets.QWidget):
                     par.cutout_part_dimension[2]) < int(par.cutout_part_dimension[3]):
                 print('error')
         self.hide()
-        self.nw = cutout_hole_machining(i)
+        self.nw = cutout_hole_machining(stamping_press_type)
         self.nw.show()
 
     # 下料孔形狀選單連動功能
@@ -1587,7 +1582,6 @@ class pad_secend_windows(QtWidgets.QWidget):
 
     def start(self, stamping_press_type):
         # 對平板進行變數
-        path = FolderManager('plate').path
         path = str(path)
         mprog.set_CATIA_workbench_env()
         mprog.import_part(fp.system_root + fp.DEMO_part, 'plate')
@@ -1760,6 +1754,16 @@ class pad_secend_windows(QtWidgets.QWidget):
 
     # 下料孔
     def plate_hole(self, stamping_press_type, path):
+        if not par.plate_hole_type:
+            par.plate_hole_type = [self.ui.remove_type.currentText()]
+            if par.plate_hole_type != '無孔':
+                for turn in range(0, 5):
+                    par.cutout_part_dimension[turn] = (self.ui.removetable.item(turn, 1).text())
+                print(par.cutout_part_dimension)
+            if par.plate_hole_type == '漏斗型':
+                if int(par.cutout_part_dimension[0]) < int(par.cutout_part_dimension[1]) or int(
+                        par.cutout_part_dimension[2]) < int(par.cutout_part_dimension[3]):
+                    print('error')
         try:
             par.plate_hole_type = [self.ui.remove_type.currentText()]
         except:
@@ -1794,6 +1798,7 @@ class pad_secend_windows(QtWidgets.QWidget):
                                        par.cutout_hole_machining_X - par.plate_all_parameter['A'] / 2 - par.lv[0] / 2)
                     mprog.param_change('cutout_hole_square', 'Y',
                                        par.plate_all_parameter['B'] / 2 + par.cutout_hole_machining_Y)
+                    mprog.param_change('cutout_hole_square', 'edge_fillet', par.cutout_edge_fillet_R[stamping_press_type])
                     par.plate_hole_type[0] = 'cutout_hole_square'
                 elif par.plate_hole_type[0] == '漏斗型':
                     mprog.import_part(fp.system_root + fp.DEMO_part, 'cutout_funnel')
@@ -1805,6 +1810,7 @@ class pad_secend_windows(QtWidgets.QWidget):
                                        par.cutout_hole_machining_X - par.plate_all_parameter['A'] / 2 - par.lv[0] / 2)
                     mprog.param_change('cutout_funnel', 'Y',
                                        par.plate_all_parameter['B'] / 2 + par.cutout_hole_machining_Y)
+                    mprog.param_change('cutout_funnel', 'R', par.cutout_edge_fillet_R[stamping_press_type])
                     par.plate_hole_type[0] = 'cutout_funnel'
                 elif par.plate_hole_type[0] == '模墊型':
                     mprog.import_part(fp.system_root + fp.DEMO_part, 'cutout_molded_cushion')
@@ -1876,7 +1882,7 @@ class pad_secend_windows(QtWidgets.QWidget):
                                            0] / 2)
                     mprog.param_change('cutout_hole_square', 'Y',
                                        par.plate_all_parameter['B'] / 2 + par.cutout_hole_machining_Y)
-                    mprog.param_change('cutout_hole_square', 'edge_fillet', par.cutout_spuare_R[0])
+                    mprog.param_change('cutout_hole_square', 'edge_fillet', par.cutout_edge_fillet_R[stamping_press_type])
                     par.plate_normal_name[0] = 'cutout_hole_square'
                 elif '漏斗型' in par.plate_normal_name[0]:
                     mprog.import_part(fp.system_root + fp.DEMO_part, 'cutout_funnel')
@@ -1889,6 +1895,7 @@ class pad_secend_windows(QtWidgets.QWidget):
                                            0] / 2)
                     mprog.param_change('cutout_funnel', 'Y',
                                        par.plate_all_parameter['B'] / 2 + par.cutout_hole_machining_Y)
+                    mprog.param_change('cutout_funnel', 'R', par.cutout_edge_fillet_R[stamping_press_type])
                     par.plate_normal_name[0] = 'cutout_funnel'
                 elif '模墊型' in par.plate_normal_name[0]:
                     mprog.import_part(fp.system_root + fp.DEMO_part, 'cutout_molded_cushion')
@@ -1913,14 +1920,10 @@ class pad_secend_windows(QtWidgets.QWidget):
                                 (par.plate_all_parameter['A'] + par.lv[0]) / 2 - (
                                     par.normal_cutout_molded_cushion_length_quantity[stamping_press_type] - 1) *
                                 par.normal_cutout_molded_cushion_width_gap[stamping_press_type] / 2))
-                    print((par.plate_all_parameter['A'] + par.lv[0]) / 2 - (
-                                par.normal_cutout_molded_cushion_length_quantity[stamping_press_type] - 1) *
-                          par.normal_cutout_molded_cushion_width_gap[stamping_press_type] / 2)
-
                     mprog.param_change('cutout_molded_cushion', 'Y',
-                                       (par.plate_all_parameter['B'] / 2 -
+                                        (par.plate_all_parameter['B'] / 2 -
                                         (par.normal_cutout_molded_cushion_length_gap[stamping_press_type] *
-                                         (par.normal_cutout_molded_cushion_width_quantity[
+                                        (par.normal_cutout_molded_cushion_width_quantity[
                                               stamping_press_type] - 1)) / 2))
                     par.plate_normal_name[0] = 'cutout_molded_cushion'
 
@@ -1982,7 +1985,7 @@ class t_machining(QWidget):
         self.re_paste_the_data(parent_page)
 
     def re_paste_the_data(self, parent_page):
-        if parent_page == 'pad_secend_windows':
+        if parent_page == 'plate_secend_windows':
             if len(par.total_position_y) != 0:
                 self.ui.t_slot_h_number.setText(str(len(par.total_position_y)))
                 for row, item_text in enumerate(par.total_position_y):
@@ -2175,9 +2178,9 @@ class t_machining(QWidget):
 
     def setup(self, stamping_press_type, parent_page, lenght, width):
         self.rearrange_the_order(lenght, width, parent_page)
-        if parent_page == 'pad_secend_windows':
+        if parent_page == 'plate_secend_windows':
             self.hide()
-            self.nw = pad_secend_windows(stamping_press_type)
+            self.nw = plate_secend_windows(stamping_press_type)
             self.nw.show()
         elif parent_page == 'punch_secend_windows':
             self.hide()
@@ -2185,7 +2188,7 @@ class t_machining(QWidget):
             self.nw.show()
 
     def rearrange_the_order(self, length, width, parent_page):
-        if parent_page == 'pad_secend_windows':
+        if parent_page == 'plate_secend_windows':
             par.total_position_y.clear()
             par.total_t_slot_h_type.clear()
             par.total_LL.clear()
@@ -2495,7 +2498,7 @@ class t_machining(QWidget):
     def reset(self, parent_page):
         self.ui.t_slot_h_number.clear()
         self.ui.t_slot_v_number.clear()
-        if parent_page == 'pad_secend_windows':
+        if parent_page == 'plate_secend_windows':
             par.total_position_y.clear()
             par.total_t_slot_h_type.clear()
             par.total_LL.clear()
@@ -2580,38 +2583,8 @@ class cutout_hole_machining(QtWidgets.QWidget):
 
     def esc(self, stamping_press_type):
         self.hide()
-        self.nw = pad_secend_windows(stamping_press_type)
+        self.nw = plate_secend_windows(stamping_press_type)
         self.nw.show()
-
-
-# class remove_machining(QtWidgets.QWidget):
-#     def __init__(self, stamping_press_type):
-#         super().__init__()
-#         self.ui = pad_feeding_hole_Form()
-#         self.ui.setupUi(self)
-#         self.setWindowTitle('下料口加工設定')
-#         self.ui.escape.clicked.connect(self.show_pad_secend_windows)
-#         self.ui.setup.clicked.connect(lambda :self.setup(stamping_press_type))
-#         self.ui.reset.clicked.connect(self.clean_data)
-#
-#     def setup(self, stamping_press_type):
-#         X = self.ui.X.text()
-#         Y = self.ui.Y.text()
-#         par.feeding_hole_position = [X, Y]
-#         print("下料口位置:", par.feeding_hole_position)
-#         self.hide()
-#         self.nw = pad_secend_windows(stamping_press_type)
-#         self.nw.show()
-#
-#     def clean_data(self):
-#         self.ui.X.clear()
-#         self.ui.Y.clear()
-#
-#     def show_pad_secend_windows(self, stamping_press_type):
-#         self.hide()
-#         self.nw = pad_secend_windows(stamping_press_type)
-#         self.nw.show()
-
 
 class FolderManager:
     _instance = None
@@ -2623,19 +2596,32 @@ class FolderManager:
         return cls._instance
 
     def init_folders(self, create_name):
-        time_now = datetime.datetime.now()
-        dir_name = '{}_{}_{}_{}_{}'.format(create_name, time_now.day, time_now.hour, time_now.minute, time_now.second)
-        desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
-        path = desktop + '\\' + dir_name
-        os.mkdir(path)
-        self.path = path
+        if not hasattr(self, 'path'):
+            time_now = datetime.datetime.now()
+            dir_name = '{}_{}_{}_{}_{}'.format(create_name, time_now.day, time_now.hour, time_now.minute, time_now.second)
+            desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+            path = os.path.join(desktop, dir_name)
+            os.mkdir(path)
+            self.path = path
+            self.save_instance()
 
-    # 添加其他管理資料夾的方法，如machining、welding等
+    def save_instance(self):
+        with open('folder_manager_instance.pickle', 'wb') as f:
+            pickle.dump(self, f)
+
+    @classmethod
+    def load_instance(cls):
+        if cls._instance is None:
+            if os.path.exists('folder_manager_instance.pickle'):
+                with open('folder_manager_instance.pickle', 'rb') as f:
+                    cls._instance = pickle.load(f)
+        return cls._instance
 
 
 if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率
     app = QtWidgets.QApplication([])
     window = main()
+    FolderManager('SN1')
     window.show()
     sys.exit(app.exec_())

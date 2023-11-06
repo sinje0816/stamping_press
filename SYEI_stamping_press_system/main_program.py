@@ -223,7 +223,7 @@ def save_file_part(path, file_name):
     partDocument1 = document.Item(file_name)
     # print(path + '\\' + file_name)
     partDocument1.SaveAs(path + '\\' + file_name)
-    # partDocument1.Close()
+    partDocument1.Close()
 
 
 def save_file_stp(path, file_name):

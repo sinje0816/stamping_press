@@ -163,6 +163,7 @@ cutout_all_limit = {}
 # 下料孔外型尺寸
 cutout_part_dimension = ['', '', '', '', '']
 cutout_spuare_R = []
+cutout_edge_fillet_R = [20, 25, 25, 30, 35, 40, 45, 50, 55]
 
 # 下料孔各形狀變數名稱
 cutout_parameter_circle = ['HD']

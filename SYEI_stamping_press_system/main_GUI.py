@@ -364,7 +364,7 @@ class main(QtWidgets.QWidget, Ui_Dialog):
         # ----------生成沖床組合圖---------
         Assdig.assembly_create(l, type, i, part_path, alpha, h)
         # ---------- 生成爆炸圖--------
-        eng.explosion_diagram(l, type, i, h)
+        eng.explosion_diagram(l, type, i)
         eng.balloons(i, l, h)
         # 存檔
         mprog.PDF_save(path, "Exploded_Views")
