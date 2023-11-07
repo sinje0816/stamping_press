@@ -378,7 +378,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         specifications_close_working_height_value = str(self.ui.window_main_table.item(11, 3).text())
         processing = '是'
         print(type, travel_type, specifications_travel_value, specifications_close_working_height_value)
-        self.create_dir()
+        # self.create_dir()
         if specifications_travel_value == "":
             self.specifications_travel_value = 0
         else:
@@ -394,11 +394,11 @@ class main(QtWidgets.QWidget, Ui_Form):
                                                                               self.specifications_close_working_height_value,
                                                                               self.travel_type)
         if test_stop == False:
-            self.create_txt(self.path, type, travel_type, self.specifications_travel_value,
-                            self.specifications_close_working_height_value, self.alpha, self.beta, self.zeta,
-                            self.epsilon)
-            self.change_dir(self.stamping_press_type, self.p, self.alpha, self.beta, self.zeta, self.epsilon, self.machining,
-                            self.welding, self.travel_type)
+            # self.create_txt(self.path, type, travel_type, self.specifications_travel_value,
+            #                 self.specifications_close_working_height_value, self.alpha, self.beta, self.zeta,
+            #                 self.epsilon)
+            self.change_dir(self.stamping_press_type, self.p, self.alpha, self.beta, self.zeta, self.epsilon, machining,
+                            welding, self.travel_type)
 
     def choose_stamping_press_type(self):
         type = self.ui.window_main_table.cellWidget(4, 3).currentText()
@@ -596,6 +596,8 @@ class main(QtWidgets.QWidget, Ui_Form):
         self.machining = machining
         self.welding = welding
 
+        return  path , machining , welding
+
     def finish(self, machining_file_change_error, welding_file_change_error):
         Form = QtWidgets.QWidget()
         Form.setWindowTitle('oxxo.studio')
@@ -685,7 +687,7 @@ class main(QtWidgets.QWidget, Ui_Form):
                             or name == 'slide_gib' or name == 'ELECTRIC_BOX_PLATE' or name == 'MOUNT_FILTER'or name == 'CONTROL_PANEL' or name == 'PANEL_BOX'\
                             or name == 'PANEL_BOX_BRACKET' or name == 'ELECTRIC_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE'\
                             or name == 'TRADEMARK_NAMEPLATE'or name == 'OPERATION_BOX' or name == 'PORTABLE_STAND' or name == 'OPERATION_BOX'\
-                            or name == 'BEARING_HOUSING'or name == 'SLIDE':
+                            or name == 'BEARING_HOUSING'or name == 'SLIDE' or name == 'BALANCER':
                         # 讀取其餘STP檔
                         S_i.STP(name, stamping_press_type, machining)
                         continue
@@ -774,7 +776,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         print('welding_file_change_error', welding_file_change_error)
         print('welding_file_change_pass', welding_file_change_pass)
         print('總用時%s' % (time.time() - start_time))  # 建立3D組立
-        Ad.assembly(stamping_press_type, apv, self.path, alpha, beta, zeta, epsilon)
+        Ad.assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon)
 
         return machining_file_change_error, welding_file_change_error
 
@@ -1324,6 +1326,7 @@ class plate_first_windows(QtWidgets.QWidget):
         # 平板存檔
         mprog.save_file_stp(path, 'plate')
         mprog.save_stpfile_part(path, 'plate')
+        mprog.close_file('plate')
 
 
 # 平板第二頁
@@ -1501,6 +1504,11 @@ class plate_secend_windows(QtWidgets.QWidget):
                     self.ui.removetable.setItem(i, 0, QTableWidgetItem(par.cutout_parameter_funnel[i]))
                     self.ui.removetable.setItem(i, 1, QTableWidgetItem(par.cutout_part_dimension[i]))
 
+    # def showpaddimensionwindows(self, stamping_press_type):
+    #     self.hide()
+    #     self.nw = pad_dimension(stamping_press_type)
+    #     self.nw.show()
+
     def showpadmachiningwindows(self, stamping_press_type):
         t_solt_type = self.ui.t_solt_type.currentText()
         if t_solt_type == "T溝代號:F(SN1-25~60標準)":
@@ -1625,6 +1633,8 @@ class plate_secend_windows(QtWidgets.QWidget):
             # 平板存檔
             mprog.save_file_stp(path, 'plate')
             mprog.save_stpfile_part(path, 'plate')
+            mprog.close_file('plate')
+
         return path
 
     # T形槽
@@ -1791,7 +1801,6 @@ class plate_secend_windows(QtWidgets.QWidget):
                                        par.cutout_hole_machining_X - par.plate_all_parameter['A'] / 2 - par.lv[0] / 2)
                     mprog.param_change('cutout_hole_square', 'Y',
                                        par.plate_all_parameter['B'] / 2 + par.cutout_hole_machining_Y)
-                    mprog.param_change('cutout_hole_square', 'edge_fillet', par.cutout_edge_fillet_R[stamping_press_type])
                     par.plate_hole_type[0] = 'cutout_hole_square'
                 elif par.plate_hole_type[0] == '漏斗型':
                     mprog.import_part(fp.system_root + fp.DEMO_part, 'cutout_funnel')
@@ -2579,42 +2588,10 @@ class cutout_hole_machining(QtWidgets.QWidget):
         self.nw = plate_secend_windows(stamping_press_type)
         self.nw.show()
 
-class FolderManager:
-    _instance = None
-
-    def __new__(cls, create_name):
-        if cls._instance is None:
-            cls._instance = super(FolderManager, cls).__new__(cls)
-            cls._instance.init_folders(create_name)
-        return cls._instance
-
-    def init_folders(self, create_name):
-        if not hasattr(self, 'path'):
-            time_now = datetime.datetime.now()
-            dir_name = '{}_{}_{}_{}_{}'.format(create_name, time_now.day, time_now.hour, time_now.minute, time_now.second)
-            desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
-            path = os.path.join(desktop, dir_name)
-            os.mkdir(path)
-            self.path = path
-            self.save_instance()
-
-    def save_instance(self):
-        with open('folder_manager_instance.pickle', 'wb') as f:
-            pickle.dump(self, f)
-
-    @classmethod
-    def load_instance(cls):
-        if cls._instance is None:
-            if os.path.exists('folder_manager_instance.pickle'):
-                with open('folder_manager_instance.pickle', 'rb') as f:
-                    cls._instance = pickle.load(f)
-        return cls._instance
-
-
 if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率
     app = QtWidgets.QApplication([])
     window = main()
-    window.create_dir()
+    path, machining , welding = window.create_dir()
     window.show()
     sys.exit(app.exec_())

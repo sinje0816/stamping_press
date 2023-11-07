@@ -38,6 +38,7 @@ PORTABLE_STAND_list = ['EWR12S06_PORTABLE_STAND', 'EWR12S06_PORTABLE_STAND' , 'E
 OPERATION_BOX_list_normal = ['01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX']
 BEARING_HOUSING_list = ['302CC4S02_BEARING_HOUSING', '322CC4S02_BEARING_HOUSING', '342CC4S02_BEARING_HOUSING', '372CC4S02_BEARING_HOUSING', '395CC4S02_BEARING_HOUSING', '412CC4S02_BEARING_HOUSING', '432CC4S02_BEARING_HOUSING', '455CC4S02_BEARING_HOUSING', '475CC4S02_BEARING_HOUSING']
 SLIDE_list_normal = ['', '', '', 'punch_60_normal', 'punch_80_normal', 'punch_110_normal', 'punch_160_normal', 'punch_200_normal', 'punch_250_normal']
+BALANCER_list = ['FAC063160W_BALANCER', 'FAC063170W_BALANCER', 'FAC070205W_BALANCER', 'FAC080235W_BALANCER', 'FAC100280W_BALANCER', 'FAC120320W_BALANCER', 'FAC140360W_BALANCER', 'FAC180390WA_BALANCER', 'FAC200450WS01_BALANCER']
 
 def STP(name, stamping_press_type, machining):
     if name == 'PANEL':
@@ -263,6 +264,11 @@ def STP(name, stamping_press_type, machining):
         mprog.save_file_stp(machining, SLIDE_list_normal[stamping_press_type])
         mprog.save_stpfile_part(machining, SLIDE_list_normal[stamping_press_type])
         mprog.close_file(SLIDE_list_normal[stamping_press_type])
+    elif name == 'BALANCER':
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), BALANCER_list[stamping_press_type])
+        mprog.save_file_stp(machining, BALANCER_list[stamping_press_type])
+        mprog.save_stpfile_part(machining, BALANCER_list[stamping_press_type])
+        mprog.close_file(BALANCER_list[stamping_press_type])
 
 
 
@@ -356,4 +362,6 @@ def Assmebly(name,path, stamping_press_type):
         mprog.import_file_Part(path, BEARING_HOUSING_list[stamping_press_type])
     elif name == 'SLIDE':
         mprog.import_file_Part(path, SLIDE_list_normal[stamping_press_type])
+    elif name == 'BALANCER':
+        mprog.import_file_Part(path, BALANCER_list[stamping_press_type])
 
