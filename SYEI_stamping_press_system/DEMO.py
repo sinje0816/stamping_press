@@ -378,7 +378,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         specifications_close_working_height_value = str(self.ui.window_main_table.item(11, 3).text())
         processing = '是'
         print(type, travel_type, specifications_travel_value, specifications_close_working_height_value)
-        self.create_dir()
+        # self.create_dir()
         if specifications_travel_value == "":
             self.specifications_travel_value = 0
         else:
@@ -394,11 +394,11 @@ class main(QtWidgets.QWidget, Ui_Form):
                                                                               self.specifications_close_working_height_value,
                                                                               self.travel_type)
         if test_stop == False:
-            self.create_txt(self.path, type, travel_type, self.specifications_travel_value,
-                            self.specifications_close_working_height_value, self.alpha, self.beta, self.zeta,
-                            self.epsilon)
-            self.change_dir(self.stamping_press_type, self.p, self.alpha, self.beta, self.zeta, self.epsilon, self.machining,
-                            self.welding, self.travel_type)
+            # self.create_txt(self.path, type, travel_type, self.specifications_travel_value,
+            #                 self.specifications_close_working_height_value, self.alpha, self.beta, self.zeta,
+            #                 self.epsilon)
+            self.change_dir(self.stamping_press_type, self.p, self.alpha, self.beta, self.zeta, self.epsilon, machining,
+                            welding, self.travel_type)
 
     def choose_stamping_press_type(self):
         type = self.ui.window_main_table.cellWidget(4, 3).currentText()
@@ -602,6 +602,8 @@ class main(QtWidgets.QWidget, Ui_Form):
         self.plate = plate
         self.punch = punch
 
+        return  path , machining , welding
+
     def finish(self, machining_file_change_error, welding_file_change_error):
         Form = QtWidgets.QWidget()
         Form.setWindowTitle('oxxo.studio')
@@ -691,7 +693,7 @@ class main(QtWidgets.QWidget, Ui_Form):
                             or name == 'slide_gib' or name == 'ELECTRIC_BOX_PLATE' or name == 'MOUNT_FILTER'or name == 'CONTROL_PANEL' or name == 'PANEL_BOX'\
                             or name == 'PANEL_BOX_BRACKET' or name == 'ELECTRIC_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE'\
                             or name == 'TRADEMARK_NAMEPLATE'or name == 'OPERATION_BOX' or name == 'PORTABLE_STAND' or name == 'OPERATION_BOX'\
-                            or name == 'BEARING_HOUSING'or name == 'SLIDE':
+                            or name == 'BEARING_HOUSING'or name == 'SLIDE' or name == 'BALANCER':
                         # 讀取其餘STP檔
                         S_i.STP(name, stamping_press_type, machining)
                         continue
@@ -780,7 +782,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         print('welding_file_change_error', welding_file_change_error)
         print('welding_file_change_pass', welding_file_change_pass)
         print('總用時%s' % (time.time() - start_time))  # 建立3D組立
-        Ad.assembly(stamping_press_type, apv, self.path, alpha, beta, zeta, epsilon)
+        Ad.assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon)
 
         return machining_file_change_error, welding_file_change_error
 
@@ -1578,6 +1580,7 @@ class plate_first_windows(QtWidgets.QWidget):
         # 平板存檔
         mprog.save_file_stp(path, 'plate')
         mprog.save_stpfile_part(path, 'plate')
+        mprog.close_file('plate')
 
 # 平板第二頁
 class plate_secend_windows(QtWidgets.QWidget):
@@ -1909,6 +1912,8 @@ class plate_secend_windows(QtWidgets.QWidget):
             # 平板存檔
             mprog.save_file_stp(path, 'plate')
             mprog.save_stpfile_part(path, 'plate')
+            mprog.close_file('plate')
+
         return path
 
     # T形槽
@@ -2870,6 +2875,6 @@ if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率
     app = QtWidgets.QApplication([])
     window = main()
-    window.create_dir()
+    path, machining , welding = window.create_dir()
     window.show()
     sys.exit(app.exec_())
