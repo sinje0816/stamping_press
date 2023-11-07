@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>668</width>
-    <height>640</height>
+    <height>670</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,13 +19,13 @@
   <property name="minimumSize">
    <size>
     <width>668</width>
-    <height>640</height>
+    <height>670</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>668</width>
-    <height>640</height>
+    <height>670</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -40,7 +40,7 @@
      <x>0</x>
      <y>0</y>
      <width>690</width>
-     <height>740</height>
+     <height>800</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -52,13 +52,13 @@
    <property name="minimumSize">
     <size>
      <width>690</width>
-     <height>740</height>
+     <height>800</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
      <width>690</width>
-     <height>740</height>
+     <height>800</height>
     </size>
    </property>
    <property name="widgetResizable">
@@ -841,7 +841,7 @@
        <x>540</x>
        <y>580</y>
        <width>121</width>
-       <height>61</height>
+       <height>87</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -859,6 +859,19 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="punch_start">
+        <property name="font">
+         <font>
+          <family>微軟正黑體</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>開始生成</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="punch_finish">
         <property name="font">
          <font>
@@ -872,25 +885,6 @@
        </widget>
       </item>
      </layout>
-    </widget>
-    <widget class="QPushButton" name="punch_start">
-     <property name="geometry">
-      <rect>
-       <x>320</x>
-       <y>570</y>
-       <width>219</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微軟正黑體</family>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>開始生成</string>
-     </property>
     </widget>
    </widget>
   </widget>

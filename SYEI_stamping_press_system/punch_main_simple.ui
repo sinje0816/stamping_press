@@ -150,7 +150,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QPushButton" name="punch_default">
+       <widget class="QPushButton" name="punch_create">
         <property name="font">
          <font>
           <family>微軟正黑體</family>
@@ -158,7 +158,7 @@
          </font>
         </property>
         <property name="text">
-         <string>載入預設值</string>
+         <string>開始生成</string>
         </property>
        </widget>
       </item>

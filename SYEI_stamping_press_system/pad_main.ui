@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>668</width>
+    <width>670</width>
     <height>930</height>
    </rect>
   </property>
@@ -18,13 +18,13 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>668</width>
+    <width>670</width>
     <height>930</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>668</width>
+    <width>670</width>
     <height>930</height>
    </size>
   </property>
@@ -63,7 +63,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>684</width>
+      <width>681</width>
       <height>1500</height>
      </rect>
     </property>
@@ -138,21 +138,8 @@
      <layout class="QGridLayout" name="gridLayout_16">
       <item row="1" column="0">
        <layout class="QGridLayout" name="gridLayout_15">
-        <item row="0" column="0">
+        <item row="1" column="0">
          <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <item>
-           <widget class="QPushButton" name="plate_start">
-            <property name="font">
-             <font>
-              <family>微軟正黑體</family>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>開始生成</string>
-            </property>
-           </widget>
-          </item>
           <item>
            <widget class="QPushButton" name="plate_reset">
             <property name="font">
@@ -167,6 +154,19 @@
            </widget>
           </item>
           <item>
+           <widget class="QPushButton" name="plate_start">
+            <property name="font">
+             <font>
+              <family>微軟正黑體</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>開始生成</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="plate_escape">
             <property name="font">
              <font>
@@ -175,29 +175,12 @@
              </font>
             </property>
             <property name="text">
-             <string>離開</string>
+             <string>暫存按鈕</string>
             </property>
            </widget>
           </item>
-         </layout>
-        </item>
-        <item row="1" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>350</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="plate_start_3">
+           <widget class="QPushButton" name="plate_finish">
             <property name="font">
              <font>
               <family>微軟正黑體</family>
