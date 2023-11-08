@@ -1023,13 +1023,14 @@ class punch_secend_windows(QtWidgets.QWidget):
             self.ui.t_solt_type.setCurrentText('T溝代號:F(SN1-25~60標準)')
         else:
             self.ui.t_solt_type.setCurrentText('T溝代號:G(SN1-80~250標準)')
-        self.ui.plate_start.clicked.connect(lambda: self.start(stamping_press_type, 'plate_secend_windows'))
+        # T溝加工數量
         self.ui.t_machining.clicked.connect(lambda: self.showpadmachiningwindows(stamping_press_type))
-        self.ui.remove_machining.clicked.connect(lambda: self.showcutoutmachiningwindows(stamping_press_type))
-        self.chack_plate_table()
-        self.ui.plate_escape.clicked.connect(self.switch_to_stamping_press_main_windows)
+        # 點擊生成
+        self.ui.punch_start.clicked.connect(lambda: self.start(stamping_press_type, 'plate_secend_windows'))
+        # 暫存按鈕
+        self.ui.punch_save.clicked.connect(self.switch_to_stamping_press_main_windows)
         # 完成按鈕
-        self.ui.plate_finish.clicked.connect(lambda :self.finish)
+        self.ui.punch_finish.clicked.connect(lambda :self.finish)
 
     def finish(self):
         plate_path = window.plate + "\\" + "plate" + str(par.plate_count)
@@ -1150,23 +1151,6 @@ class punch_secend_windows(QtWidgets.QWidget):
                 if item is not None:
                     item.setFlags(item.flags() | QtCore.Qt.ItemIsEditable)
                     self.ui.t_solttable.setEditTriggers(QtWidgets.QAbstractItemView.AllEditTriggers)
-
-    def chack_plate_table(self):
-        if len(par.plate_hole_type) != 0:
-            if par.plate_hole_type[0] == '圓孔':
-                self.ui.remove_type.setCurrentIndex(1)
-                self.ui.removetable.setItem(0, 0, QTableWidgetItem(par.cutout_parameter_circle[0]))
-                self.ui.removetable.setItem(0, 1, QTableWidgetItem(par.cutout_part_dimension[0]))
-            if par.plate_hole_type[0] == '方孔':
-                self.ui.remove_type.setCurrentIndex(2)
-                for i in range(0, 2):
-                    self.ui.removetable.setItem(i, 0, QTableWidgetItem(par.cutout_parameter_square[i]))
-                    self.ui.removetable.setItem(i, 1, QTableWidgetItem(par.cutout_part_dimension[i]))
-            if par.plate_hole_type[0] == '漏斗型':
-                self.ui.remove_type.setCurrentIndex(3)
-                for i in range(0, 5):
-                    self.ui.removetable.setItem(i, 0, QTableWidgetItem(par.cutout_parameter_funnel[i]))
-                    self.ui.removetable.setItem(i, 1, QTableWidgetItem(par.cutout_part_dimension[i]))
 
     def showpadmachiningwindows(self, stamping_press_type):
         t_solt_type = self.ui.t_solt_type.currentText()
