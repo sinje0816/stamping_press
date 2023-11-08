@@ -1,6 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QVBoxLayout, QWidget, QPushButton, QLabel, QTableWidgetItem, QHeaderView, QComboBox, \
-    QAbstractItemView, QMessageBox, QHBoxLayout
+from PyQt5.QtWidgets import QVBoxLayout, QWidget, QPushButton, QLabel, QTableWidgetItem, QHeaderView, QComboBox, QAbstractItemView, QMessageBox, QHBoxLayout, QLineEdit
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QColor, QBrush, QPixmap, QFont
 from DEMOGUI import Ui_Dialog
@@ -35,7 +34,6 @@ import STP_input as S_i
 
 test_stop = False
 
-
 class main(QtWidgets.QWidget, Ui_Form):
     def __init__(self):
         super(main, self).__init__()
@@ -43,6 +41,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         self.ui.setupUi(self)
         self.setting()
         self.ui.start.clicked.connect(self.start)
+        self.previous_value()
 
     def setting(self):
         # 设置额外的宽度和高度来容纳其他界面元素
@@ -258,38 +257,38 @@ class main(QtWidgets.QWidget, Ui_Form):
         spare_parts_finish = QtWidgets.QLabel('未設定')
         spare_parts_finish.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
         self.ui.window_main_table.setCellWidget(23, 4, spare_parts_finish)
-        punch_stroke_customize = QTableWidgetItem('')
-        punch_stroke_customize.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
-        # punch_stroke_customize.setBackground(QBrush(QColor(255, 191, 0)))  # 背景色
-        self.ui.window_main_table.setItem(9, 4, punch_stroke_customize)
-        punch_cycle_customize = QTableWidgetItem('')
-        punch_cycle_customize.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
-        # punch_cycle_customize.setBackground(QBrush(QColor(255, 191, 0)))
-        self.ui.window_main_table.setItem(10, 4, punch_cycle_customize)
-        punch_DH_customize = QTableWidgetItem('')
-        punch_DH_customize.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
-        # punch_DH_customize.setBackground(QBrush(QColor(255, 191, 0)))
-        self.ui.window_main_table.setItem(11, 4, punch_DH_customize)
-        motor_company_customize = QTableWidgetItem('')
-        motor_company_customize.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
-        # motor_company_customize.setBackground(QBrush(QColor(255, 191, 0)))
-        self.ui.window_main_table.setItem(12, 4, motor_company_customize)
-        motor_power_customize = QTableWidgetItem('')
-        motor_power_customize.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
-        # motor_power_customize.setBackground(QBrush(QColor(255, 191, 0)))
-        self.ui.window_main_table.setItem(13, 4, motor_power_customize)
-        frequency_company_customize = QTableWidgetItem('')
-        frequency_company_customize.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
-        # frequency_company_customize.setBackground(QBrush(QColor(255, 191, 0)))
-        self.ui.window_main_table.setItem(14, 4, frequency_company_customize)
-        frequency_power_customize = QTableWidgetItem('')
-        frequency_power_customize.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
-        # frequency_power_customize.setBackground(QBrush(QColor(255, 191, 0)))
-        self.ui.window_main_table.setItem(15, 4, frequency_power_customize)
-        upper_kg_customize = QTableWidgetItem('')
-        upper_kg_customize.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
-        # upper_kg_customize.setBackground(QBrush(QColor(255, 191, 0)))
-        self.ui.window_main_table.setItem(16, 4, upper_kg_customize)
+        punch_stroke_customize = QLineEdit('')
+        punch_stroke_customize.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        punch_stroke_customize.setStyleSheet('background-color:#ffe4c4;') # 背景色
+        self.ui.window_main_table.setCellWidget(9, 4, punch_stroke_customize)
+        punch_cycle_customize = QLineEdit('')
+        punch_cycle_customize.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        punch_cycle_customize.setStyleSheet('background-color:#ffe4c4;')
+        self.ui.window_main_table.setCellWidget(10, 4, punch_cycle_customize)
+        punch_DH_customize = QLineEdit('')
+        punch_DH_customize.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        punch_DH_customize.setStyleSheet('background-color:#ffe4c4;')
+        self.ui.window_main_table.setCellWidget(11, 4, punch_DH_customize)
+        motor_company_customize = QLineEdit('')
+        motor_company_customize.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        motor_company_customize.setStyleSheet('background-color:#ffe4c4;')
+        self.ui.window_main_table.setCellWidget(12, 4, motor_company_customize)
+        motor_power_customize = QLineEdit('')
+        motor_power_customize.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        motor_power_customize.setStyleSheet('background-color:#ffe4c4;')
+        self.ui.window_main_table.setCellWidget(13, 4, motor_power_customize)
+        frequency_company_customize = QLineEdit('')
+        frequency_company_customize.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        frequency_company_customize.setStyleSheet('background-color:#ffe4c4;')
+        self.ui.window_main_table.setCellWidget(14, 4, frequency_company_customize)
+        frequency_power_customize = QLineEdit('')
+        frequency_power_customize.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        frequency_power_customize.setStyleSheet('background-color:#ffe4c4;')
+        self.ui.window_main_table.setCellWidget(15, 4, frequency_power_customize)
+        upper_kg_customize = QLineEdit('')
+        upper_kg_customize.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        upper_kg_customize.setStyleSheet('background-color:#ffe4c4;')
+        self.ui.window_main_table.setCellWidget(16, 4, upper_kg_customize)
 
         self.ui.window_main_table.setSpan(0, 5, 24, 9)
 
@@ -301,7 +300,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         pixmap = QPixmap('machine_picture.png')
         machine_picture.setPixmap(pixmap)
 
-        scaled_pixmap = pixmap.scaled(pixmap.width()-100,pixmap.height()-110)
+        scaled_pixmap = pixmap.scaled(pixmap.width()-100, pixmap.height()-110)
         machine_picture.setPixmap(scaled_pixmap)
 
         # # 设置 QLabel 居中
@@ -324,14 +323,57 @@ class main(QtWidgets.QWidget, Ui_Form):
         self.ui.window_main_table.cellWidget(2, 3).currentIndexChanged.connect(lambda :self.unit_change())
         self.ui.window_main_table.cellWidget(4, 3).currentIndexChanged.connect(lambda :self.choose_stamping_press_type())
         self.ui.window_main_table.cellWidget(5, 3).currentIndexChanged.connect(lambda :self.choose_stamping_press_type())
-        # self.ui.window_main_table.item(9, 4).currentChanged.connect(lambda :self.customize_typing('stroke'))
+        self.ui.window_main_table.cellWidget(9, 4).textChanged.connect(lambda :self.customize_typing('stroke'))
+        self.ui.window_main_table.cellWidget(10, 4).textChanged.connect(lambda :self.customize_typing('cycle'))
+        self.ui.window_main_table.cellWidget(11, 4).textChanged.connect(lambda :self.customize_typing('DH'))
+
+
         plate_setup.clicked.connect(lambda:self.switch_to_plate(par.stamping_press_type))
         # punch_setup.clicked.connect()
         # select_setup.clicked.connect()
         # spare_parts_setup.clicked.connect()
 
-    # 切換至平板介面
+    def previous_value(self):
+        if par.main_change == '':
+            print('This is your first time enter main window')
+        elif par.main_change == '1':
+            if par.unit_keep == '公制':
+                self.ui.window_main_table.cellWidget(2, 3).setCurrentIndex(0)
+            elif par.unit_keep == '英制':
+                self.ui.window_main_table.cellWidget(2, 3).setCurrentIndex(1)
+            if par.type_keep == 'SN1-25':
+                self.ui.window_main_table.cellWidget(4, 3).setCurrentIndex(0)
+            elif par.type_keep == 'SN1-35':
+                self.ui.window_main_table.cellWidget(4, 3).setCurrentIndex(1)
+            elif par.type_keep == 'SN1-45':
+                self.ui.window_main_table.cellWidget(4, 3).setCurrentIndex(2)
+            elif par.type_keep == 'SN1-60':
+                self.ui.window_main_table.cellWidget(4, 3).setCurrentIndex(3)
+            elif par.type_keep == 'SN1-80':
+                self.ui.window_main_table.cellWidget(4, 3).setCurrentIndex(4)
+            elif par.type_keep == 'SN1-110':
+                self.ui.window_main_table.cellWidget(4, 3).setCurrentIndex(5)
+            elif par.type_keep == 'SN1-160':
+                self.ui.window_main_table.cellWidget(4, 3).setCurrentIndex(6)
+            elif par.type_keep == 'SN1-200':
+                self.ui.window_main_table.cellWidget(4, 3).setCurrentIndex(7)
+            elif par.type_keep == 'SN1-250':
+                self.ui.window_main_table.cellWidget(4, 3).setCurrentIndex(8)
+            if par.style_keep == 'S':
+                self.ui.window_main_table.cellWidget(5, 3).setCurrentIndex(0)
+            elif par.style_keep == 'H':
+                self.ui.window_main_table.cellWidget(5, 3).setCurrentIndex(1)
+            elif par.style_keep == 'P':
+                self.ui.window_main_table.cellWidget(5, 3).setCurrentIndex(2)
+            self.ui.window_main_table.cellWidget(9, 4).setText(par.stroke_keep)
+            self.ui.window_main_table.cellWidget(10, 4).setText(par.cycle_keep)
+            self.ui.window_main_table.cellWidget(11, 4).setText(par.DH_keep)
+
+            for x in range(0, len(par.keep_items)):
+                par.keep_items[x] = ''
+
     def switch_to_plate(self, stamping_press_type):
+        self.window_main_keep()
         self.hide()
         self.nw = plate_first_windows(stamping_press_type)
         self.nw.show()
@@ -364,14 +406,99 @@ class main(QtWidgets.QWidget, Ui_Form):
                     pass
 
     def customize_typing(self, parameter_type):
+        # 目前只製作行程、行程數、閉合
         if parameter_type == 'stroke':
-            item = self.ui.window_main_table.cellWidget(9, 3).text()
-            punch_stroke = QTableWidgetItem(item)
-            punch_stroke.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
-            punch_stroke.setFlags(punch_stroke.flags() & ~Qt.ItemIsEditable)
-            self.ui.window_main_table.setItem(9, 3, punch_stroke)
+            current_text = self.ui.window_main_table.cellWidget(9, 4).text()
+            if current_text != '':
+                item = self.ui.window_main_table.item(9, 3).text()
+                punch_stroke = QTableWidgetItem(item)
+                punch_stroke.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+                font = QtGui.QFont()
+                font.setStrikeOut(True)
+                font.setKerning(True)
+                punch_stroke.setFont(font)
+                self.ui.window_main_table.setItem(9, 3, punch_stroke)
+            elif current_text == '':
+                item = self.ui.window_main_table.item(9, 3).text()
+                punch_stroke = QTableWidgetItem(item)
+                punch_stroke.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+                font = QtGui.QFont()
+                font.setStrikeOut(False)
+                font.setKerning(True)
+                punch_stroke.setFont(font)
+                self.ui.window_main_table.setItem(9, 3, punch_stroke)
+        elif parameter_type == 'cycle':
+            current_text = self.ui.window_main_table.cellWidget(10, 4).text()
+            if current_text != '':
+                item = self.ui.window_main_table.item(10, 3).text()
+                punch_stroke = QTableWidgetItem(item)
+                punch_stroke.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+                font = QtGui.QFont()
+                font.setStrikeOut(True)
+                font.setKerning(True)
+                punch_stroke.setFont(font)
+                self.ui.window_main_table.setItem(10, 3, punch_stroke)
+            elif current_text == '':
+                item = self.ui.window_main_table.item(10, 3).text()
+                punch_stroke = QTableWidgetItem(item)
+                punch_stroke.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+                font = QtGui.QFont()
+                font.setStrikeOut(False)
+                font.setKerning(True)
+                punch_stroke.setFont(font)
+                self.ui.window_main_table.setItem(10, 3, punch_stroke)
+        elif parameter_type == 'DH':
+            current_text = self.ui.window_main_table.cellWidget(11, 4).text()
+            if current_text != '':
+                item = self.ui.window_main_table.item(11, 3).text()
+                punch_stroke = QTableWidgetItem(item)
+                punch_stroke.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+                font = QtGui.QFont()
+                font.setStrikeOut(True)
+                font.setKerning(True)
+                punch_stroke.setFont(font)
+                self.ui.window_main_table.setItem(11, 3, punch_stroke)
+            elif current_text == '':
+                item = self.ui.window_main_table.item(11, 3).text()
+                punch_stroke = QTableWidgetItem(item)
+                punch_stroke.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+                font = QtGui.QFont()
+                font.setStrikeOut(False)
+                font.setKerning(True)
+                punch_stroke.setFont(font)
+                self.ui.window_main_table.setItem(11, 3, punch_stroke)
+
+    def customize_dimension_check(self):
+        # 目前只製作行程、行程數、閉合
+        check_item = []
+        for x in range(9, 17):
+            check_item.append(self.ui.window_main_table.cellWidget(x, 4).text())
+        if check_item[0] != '':
+            par.customize_stroke = self.ui.window_main_table.cellWidget(9, 4).text()
+        elif check_item[0] == '':
+            par.customize_stroke = self.ui.window_main_table.item(9, 3).text()
+        if check_item[1] != '':
+            par.customize_cycle = self.ui.window_main_table.cellWidget(10, 4).text()
+        elif check_item[1] == '':
+            par.customize_cycle = self.ui.window_main_table.item(10, 3).text()
+        if check_item[2] != '':
+            par.customize_DH = self.ui.window_main_table.cellWidget(11, 4).text()
+        elif check_item[2] == '':
+            par.customize_DH = self.ui.window_main_table.item(11, 3).text()
+        print(check_item, par.customize_stroke, par.customize_cycle, par.customize_DH)
+
+    def window_main_keep(self):
+        par.main_change = '1'
+        par.unit_keep = self.ui.window_main_table.cellWidget(2, 3).currentText()
+        par.type_keep = self.ui.window_main_table.cellWidget(4, 3).currentText()
+        par.style_keep = self.ui.window_main_table.cellWidget(5, 3).currentText()
+        par.stroke_keep = self.ui.window_main_table.cellWidget(9, 4).text()
+        par.cycle_keep = self.ui.window_main_table.cellWidget(10, 4).text()
+        par.DH_keep = self.ui.window_main_table.cellWidget(11, 4).text()
+        print(par.unit_keep, par.type_keep, par.style_keep, par.stroke_keep, par.cycle_keep, par.DH_keep)
 
     def start(self):
+        self.customize_dimension_check()
         type = self.ui.window_main_table.cellWidget(4, 3).currentText()
         travel_type = str(self.ui.window_main_table.cellWidget(5, 3).currentText())
         specifications_travel_value = str(self.ui.window_main_table.item(9, 3).text())

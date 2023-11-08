@@ -126,9 +126,6 @@ t2 = [50, 50, 55, 60, 65, 90, 105, 105, 105]
 B2 = [388, 486, 516, 544, 614, 670, 730, 900, 970]
 B1 = [526, 630, 676, 720, 834, 950, 1050, 1230, 1310]
 
-# 平板生成計數器
-plate_count = 0
-
 # 平板長寬尺吋
 plate_length = [700, 780, 840, 900, 1050, 1150, 1250, 1400, 1500]
 plate_width = [320, 400, 440, 520, 600, 680, 760, 840, 900]
@@ -166,7 +163,6 @@ cutout_all_limit = {}
 # 下料孔外型尺寸
 cutout_part_dimension = ['', '', '', '', '']
 cutout_spuare_R = []
-cutout_edge_fillet_R = [20, 25, 25, 30, 35, 40, 45, 50, 55]
 
 # 下料孔各形狀變數名稱
 cutout_parameter_circle = ['HD']
@@ -215,31 +211,17 @@ stamping_press_DH = {'S': ['230', '250', '270', '300', '330', '350', '400', '450
 customize_stroke = 0
 customize_cycle = 0
 customize_DH = 0
-# 衝頭
-punch_length = [330, 380, 430, 480, 560, 650, 720, 860, 960]
-punch_width = [250, 300, 350, 400, 460, 520, 580, 650, 720]
-punch_lv1 = [50, 50, 50, 80, 90, 70, 140, 100, 190]
-punch_lv2 = [100, 100, 130, 170, 160, 210, 240, 290, 340]
-punch_normal_type = ['標準', '加大I型', '加大II型', '特殊衝頭']
-# 衝頭T溝
-# T型槽相關參數
-ph_total_t_slot_h_type = []  # 型式(分段、貫穿)
-ph_total_position_y = []  # T形槽位置
-ph_total_LL = []  # 分段LL尺寸
-ph_total_LR = []  # 分段LR尺寸
-ph_total_SL = []  # 讓槽SL尺寸
-ph_total_SR = []  # 讓槽SR尺寸
-ph_total_t_slot_v_type = []  # 型式(分段、貫穿)
-ph_total_position_x = []  # T形槽位置
-ph_total_LF = []  # 分段LF尺寸
-ph_total_LB = []  # 分段LB尺寸
-ph_total_SF = []  # 讓槽SF尺寸
-ph_total_SB = []  # 讓槽SB尺寸
-# 沖頭計數器
-punch_count = 0
-# 沖頭名稱
-punch_normal_name = []
 
 #公英制單位轉換
 unit_metric = ['mm', 'SPM', 'mm', '_', 'kW×P', '_', 'kW×P', 'kg', '', '_', '_', 'mm', '_']
 unit_english = ['inch', 'SPM', 'inch', '_', 'kW×P', '_', 'kW×P', 'kg', '', '_', '_', 'inch', '_']
+
+#保留輸入數值(主頁面ver.)
+main_change = ''
+unit_keep = ''
+type_keep = ''
+style_keep = ''
+stroke_keep = ''
+cycle_keep = ''
+DH_keep = ''
+keep_items = [main_change, unit_keep, type_keep, style_keep, stroke_keep, cycle_keep, DH_keep]

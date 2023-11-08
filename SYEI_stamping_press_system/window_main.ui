@@ -90,6 +90,17 @@
    <column/>
    <column/>
    <column/>
+   <item row="0" column="0">
+    <property name="text">
+     <string>123</string>
+    </property>
+    <property name="font">
+     <font>
+      <strikeout>true</strikeout>
+      <kerning>true</kerning>
+     </font>
+    </property>
+   </item>
   </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
