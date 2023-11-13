@@ -329,7 +329,7 @@ class main(QtWidgets.QWidget, Ui_Form):
 
 
         plate_setup.clicked.connect(lambda:self.switch_to_plate(par.stamping_press_type))
-        # punch_setup.clicked.connect()
+        punch_setup.clicked.connect(lambda :self.switch_to_punch(par.stamping_press_type))
         # select_setup.clicked.connect()
         # spare_parts_setup.clicked.connect()
 
@@ -729,7 +729,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         self.plate = plate
         self.punch = punch
 
-        return  path , machining , welding
+        return  path , machining , welding, punch
 
     def finish(self, machining_file_change_error, welding_file_change_error):
         Form = QtWidgets.QWidget()
@@ -922,7 +922,7 @@ class punch_first_windows(QtWidgets.QWidget):
         super().__init__()
         self.ui = punch_main_form()
         self.ui.setupUi(self)
-        self.setWindowTitle('平板')
+        self.setWindowTitle('衝頭')
         self.ui.punch_select.currentIndexChanged.connect(lambda: self.select_punch_type_name(stamping_press_type))
         self.ui.punch_create.clicked.connect(lambda: self.start(stamping_press_type))
         self.ui.punch_save.clicked.connect(self.switch_to_stamping_press_main_windows)
@@ -1119,19 +1119,44 @@ class punch_secend_windows(QtWidgets.QWidget):
         super().__init__()
         self.ui = punch_secend_form()
         self.ui.setupUi(self)
-        self.setWindowTitle('沖頭')
+        self.setWindowTitle('衝頭')
         # 切換平板第一頁
         self.ui.punch_select.currentIndexChanged.connect(lambda: self.switch_to_first_punch_windows(stamping_press_type))
-        self.ui.punch_select.setCurrentText('特殊平板')
+        self.ui.punch_select.setCurrentText('特殊衝頭')
         # 平板面積
         self.punch_type(stamping_press_type)
-        self.ui.punch_extrasize.currentIndexChanged.connect(lambda: self.plate_area_dimension(stamping_press_type))
-        if len(par.plate_special_type) != 0:
-            self.ui.punch_extrasize.setCurrentText(par.plate_special_type[0])
-            self.plate_area_dimension(stamping_press_type)
+        self.ui.punch_extrasize.currentIndexChanged.connect(lambda: self.punch_area_dimension(stamping_press_type))
+        if len(par.punch_special_type) != 0:
+            self.ui.punch_extrasize.setCurrentText(par.punch_special_type[0])
+            self.punch_area_dimension(stamping_press_type)
         else:
-            self.ui.punch_LR.setText(str(par.plate_length[stamping_press_type]))
-            self.ui.punch_FB.setText(str(par.plate_width[stamping_press_type]))
+            self.ui.punch_LR.setText(str(par.punch_length[stamping_press_type]))
+            self.ui.punch_FB.setText(str(par.punch_width[stamping_press_type]))
+        # 鎖模夾頭
+        if stamping_press_type <= 6:
+            self.ui.punch_chuck.setCurrentText('無鎖模')
+        else:
+            self.ui.punch_chuck.setCurrentText('有鎖模')
+        # 模柄孔
+        self.ui.punch_dieshank.currentTextChanged.connect(lambda: self.punch_dieshank_change(stamping_press_type))
+        if len(par.punch_chunk_status) == 0:
+            self.ui.punch_dieshank.setCurrentText('標準模柄孔')
+            # 預設模柄孔大小為禁用
+            self.ui.punch_dieshank_size.setEnabled(False)
+            self.ui.punch_dieshank_size.setStyleSheet("background-color: #f0f0f0; color: #808080;")
+            self.ui.punch_dieshank_size.setPlaceholderText("-")
+        else:
+            self.ui.punch_chuck.setCurrentText(par.punch_chunk_status[0])
+            self.ui.punch_dieshank.setCurrentText(par.punch_chunk_status[0])
+            if par.punch_dieshank_size_status[0] == '-':
+                self.ui.punch_dieshank_size.setStyleSheet("background-color: #f0f0f0; color: #808080;")
+                self.ui.punch_dieshank_size.setPlaceholderText("-")
+            else:
+                self.ui.punch_dieshank_size.setEnabled(True)
+                self.ui.punch_dieshank_size.setStyleSheet("")  # 清除樣式
+                self.ui.punch_dieshank_size.setPlaceholderText(par.punch_dieshank_size_status[0])
+        # 模柄孔大小修改
+        self.ui.punch_dieshank_size.textChanged.connect(lambda: self.punch_dieshank_size_change(stamping_press_type))
         # T溝
         for number in range(0, 4):
             self.ui.t_solttable.setItem(number, 0, QTableWidgetItem(par.t_table_dimension_parameter[number]))
@@ -1145,6 +1170,8 @@ class punch_secend_windows(QtWidgets.QWidget):
         self.ui.t_solttable.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
         self.ui.t_solttable.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         self.ui.t_solttable.verticalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        # 設定整體大小調整策略
+        self.ui.t_solttable.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
         self.ui.t_solt_type.currentIndexChanged.connect(self.T_solt_combobox_change)
         if stamping_press_type <= 3:
             self.ui.t_solt_type.setCurrentText('T溝代號:F(SN1-25~60標準)')
@@ -1159,12 +1186,27 @@ class punch_secend_windows(QtWidgets.QWidget):
         # 完成按鈕
         self.ui.punch_finish.clicked.connect(lambda :self.finish)
 
+    def punch_dieshank_size_change(self, stamping_press_type):
+        par.punch_dieshank_size_status = [self.ui.punch_dieshank_size.text()]
+        print(par.punch_dieshank_size_status)
+
+    def punch_dieshank_change(self, stamping_press_type):
+        par.punch_chunk_status = [self.ui.punch_dieshank.currentText()]
+        if par.punch_chunk_status[0] == '特殊模柄孔':
+            self.ui.punch_dieshank_size.setEnabled(True)
+            self.ui.punch_dieshank_size.setStyleSheet("")  # 清除樣式
+            self.ui.punch_dieshank_size.setPlaceholderText("")
+        else:
+            self.ui.punch_dieshank_size.setEnabled(False)
+            self.ui.punch_dieshank_size.setStyleSheet("background-color: #f0f0f0; color: #808080;")
+            self.ui.punch_dieshank_size.setPlaceholderText("-")
+
     def finish(self):
-        plate_path = window.plate + "\\" + "plate" + str(par.plate_count)
-        mprog.import_part(plate_path, 'plate')
+        punch_path = window.punch + "\\" + "punch" + str(par.punch_count)
+        mprog.import_part(punch_path, 'punch')
         path = window.path
-        mprog.save_file_stp(path, 'plate')
-        mprog.save_stpfile_part(path, 'plate')
+        mprog.save_file_stp(path, 'punch')
+        mprog.save_stpfile_part(path, 'punch')
         mprog.close_window()
         self.hide()
         self.nw = main()
@@ -1176,36 +1218,40 @@ class punch_secend_windows(QtWidgets.QWidget):
         self.nw.show()
 
     def switch_to_first_punch_windows(self, stamping_press_type):
-        if self.ui.punch_select.currentText() != "特殊平板":
+        if self.ui.punch_select.currentText() != "特殊衝頭":
             self.hide()
-            self.nw = plate_first_windows(stamping_press_type)
+            self.nw = punch_first_windows(stamping_press_type)
             self.nw.show()
 
-    def plate_area_dimension(self, stamping_press_type):
+    def punch_area_dimension(self, stamping_press_type):
         get_punch_select_name = self.ui.punch_select.currentText()
-        get_pad_area_name = self.ui.punch_extrasize.currentText()
-        if get_punch_select_name == "特殊平板":
-            if get_pad_area_name == '標準':
-                LR_value = str(par.plate_length[stamping_press_type])
-                FB_value = str(par.plate_width[stamping_press_type])
-            elif get_pad_area_name == '加大I型':
-                LR_value = str(par.plate_length[stamping_press_type] + par.plate_lv1[stamping_press_type])
-                FB_value = str(par.plate_width[stamping_press_type])
-            elif get_pad_area_name == '加大II型':
-                LR_value = str(par.plate_length[stamping_press_type] + par.plate_lv2[stamping_press_type])
-                FB_value = str(par.plate_width[stamping_press_type])
-            par.plate_special_type = [get_pad_area_name]
+        get_punch_area_name = self.ui.punch_extrasize.currentText()
+        if get_punch_select_name == "特殊衝頭":
+            if get_punch_area_name == '標準':
+                LR_value = str(par.punch_length[stamping_press_type])
+                FB_value = str(par.punch_width[stamping_press_type])
+            elif get_punch_area_name == '加大I型':
+                LR_value = str(par.punch_length[stamping_press_type] + par.punch_lv1[stamping_press_type])
+                FB_value = str(par.punch_width[stamping_press_type])
+            elif get_punch_area_name == '加大II型':
+                LR_value = str(par.punch_length[stamping_press_type] + par.punch_lv2[stamping_press_type])
+                FB_value = str(par.punch_width[stamping_press_type])
+            par.punch_special_type = [get_punch_area_name]
             # 設定最終的 LR 和 FB 值
-            self.ui.LR.setText(LR_value)
-            self.ui.FB.setText(FB_value)
+            self.ui.punch_LR.setText(LR_value)
+            self.ui.punch_FB.setText(FB_value)
         else:
-            self.ui.LR.clear()
-            self.ui.FB.clear()
+            self.ui.punch_LR.clear()
+            self.ui.punch_FB.clear()
 
     def punch_type(self, stamping_press_type):
-        for number in range(0, 10):
-            self.ui.punch_select.setItemText(number, str(par.plate_type[number]) + '(' + str(
-                par.plate_length[stamping_press_type]) + 'x' + str(par.plate_width[stamping_press_type]) + ")")
+        self.ui.punch_select.setItemText(0, str(par.punch_normal_type[0]) + '(' + str(
+            par.punch_length[stamping_press_type]) + 'x' + str(par.punch_width[stamping_press_type]) + ")")
+        self.ui.punch_select.setItemText(1, str(par.punch_normal_type[1]) + '(' + str(
+            par.punch_length[stamping_press_type]+par.punch_lv1[stamping_press_type]) + 'x' + str(par.punch_width[stamping_press_type]) + ")")
+        self.ui.punch_select.setItemText(2, str(par.punch_normal_type[2]) + '(' + str(
+            par.punch_length[stamping_press_type]+par.punch_lv2[stamping_press_type]) + 'x' + str(par.punch_width[stamping_press_type]) + ")")
+        self.ui.punch_select.setItemText(3, str(par.punch_normal_type[3]))
 
     def T_solt_table_normel_setup(self):
         # 設定T_solt表格內容
@@ -1288,31 +1334,19 @@ class punch_secend_windows(QtWidgets.QWidget):
         elif t_solt_type == "特殊T溝":
             for value in range(1, 9, 2):
                 par.t_all_dimension.append(self.ui.t_solttable.item(value, 1).text())
-        plate_type_select = self.ui.punch_extrasize.currentText()
-        if plate_type_select == '標準':
-            plate_lenght = par.plate_length[stamping_press_type]
-            plate_width = par.plate_width[stamping_press_type]
-        elif plate_type_select == '加大I型':
-            plate_lenght = par.plate_length[stamping_press_type] + par.plate_lv1[stamping_press_type]
-            plate_width = par.plate_width[stamping_press_type]
-        elif plate_type_select == '加大II型':
-            plate_lenght = par.plate_length[stamping_press_type] + par.plate_lv2[stamping_press_type]
-            plate_width = par.plate_width[stamping_press_type]
+        punch_type_select = self.ui.punch_extrasize.currentText()
+        if punch_type_select == '標準':
+            punch_length = par.punch_length[stamping_press_type]
+            punch_width = par.punch_width[stamping_press_type]
+        elif punch_type_select == '加大I型':
+            punch_length = par.punch_length[stamping_press_type] + par.punch_lv1[stamping_press_type]
+            punch_width = par.punch_width[stamping_press_type]
+        elif punch_type_select == '加大II型':
+            punch_length = par.punch_length[stamping_press_type] + par.punch_lv2[stamping_press_type]
+            punch_width = par.punch_width[stamping_press_type]
 
         self.hide()
-        self.nw = t_machining(stamping_press_type, plate_lenght, plate_width, 'plate_secend_windows')
-        self.nw.show()
-
-    def showcutoutmachiningwindows(self, stamping_press_type):
-        for turn in range(0, 5):
-            par.cutout_part_dimension[turn] = (self.ui.removetable.item(turn, 1).text())
-        print(par.cutout_part_dimension)
-        if par.plate_hole_type == '漏斗型':
-            if int(par.cutout_part_dimension[0]) < int(par.cutout_part_dimension[1]) or int(
-                    par.cutout_part_dimension[2]) < int(par.cutout_part_dimension[3]):
-                print('error')
-        self.hide()
-        self.nw = cutout_hole_machining(stamping_press_type)
+        self.nw = t_machining(stamping_press_type, punch_length, punch_width, 'punch_secend_windows')
         self.nw.show()
 
     def start(self, stamping_press_type, parent_page):
@@ -2351,6 +2385,9 @@ class t_machining(QWidget):
         self.ui = pad_machining_Form()
         self.ui.setupUi(self)
         self.setWindowTitle('T溝加工設定')
+        # 相片
+        # if par.punch_chunk_status != '':
+
         # 橫向T溝
         self.ui.t_slot_table_h.verticalHeader().setVisible(False)
         self.ui.t_slot_table_h.horizontalHeader().setVisible(False)
@@ -2986,6 +3023,6 @@ if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率
     app = QtWidgets.QApplication([])
     window = main()
-    path, machining , welding = window.create_dir()
+    path, machining, welding, punch = window.create_dir()
     window.show()
     sys.exit(app.exec_())

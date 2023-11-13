@@ -133,6 +133,8 @@ plate_lv1 = [80, 60, 60, 150, 100, 100, 150, 100, 150]
 plate_lv2 = [140, 120, 210, 100, 100, 150, 100, 150, 150]
 # 標準類型平板名稱紀錄
 plate_normal_name = []
+# 平板計數器
+plate_count = 0
 
 # 基本平板類型
 plate_type = ['標準圓孔', '標準無孔', '標準方孔', '標準模墊型', '標準加大I型(無孔)', '標準加大I型(圓孔)', '標準加大I型(方孔)', '標準加大II型(無孔)', '標準加大II型(圓孔)', '標準加大II型(方孔)']
@@ -225,3 +227,33 @@ stroke_keep = ''
 cycle_keep = ''
 DH_keep = ''
 keep_items = [main_change, unit_keep, type_keep, style_keep, stroke_keep, cycle_keep, DH_keep]
+
+
+# 衝頭
+punch_length = [330, 380, 430, 480, 560, 650, 720, 860, 960]
+punch_width = [250, 300, 350, 400, 460, 520, 580, 650, 720]
+punch_lv1 = [50, 50, 50, 80, 90, 70, 140, 100, 190]
+punch_lv2 = [100, 100, 130, 170, 160, 210, 240, 290, 340]
+punch_normal_type = ['標準', '加大I型', '加大II型', '特殊衝頭']
+# 紀錄當前衝頭名稱
+punch_special_type = []
+# 衝頭T溝
+# T型槽相關參數
+ph_total_t_slot_h_type = []  # 型式(分段、貫穿)
+ph_total_position_y = []  # T形槽位置
+ph_total_LL = []  # 分段LL尺寸
+ph_total_LR = []  # 分段LR尺寸
+ph_total_SL = []  # 讓槽SL尺寸
+ph_total_SR = []  # 讓槽SR尺寸
+ph_total_t_slot_v_type = []  # 型式(分段、貫穿)
+ph_total_position_x = []  # T形槽位置
+ph_total_LF = []  # 分段LF尺寸
+ph_total_LB = []  # 分段LB尺寸
+ph_total_SF = []  # 讓槽SF尺寸
+ph_total_SB = []  # 讓槽SB尺寸
+#衝頭計數器
+punch_count = 0
+# 鎖模夾頭當前狀態
+punch_chunk_status = []
+punch_dieshank_status = []
+punch_dieshank_size_status = []

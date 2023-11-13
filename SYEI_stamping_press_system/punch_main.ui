@@ -659,6 +659,25 @@
             </item>
            </widget>
           </item>
+          <item row="2" column="0">
+           <widget class="QPushButton" name="t_machining">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>微軟正黑體</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>T型槽設定</string>
+            </property>
+           </widget>
+          </item>
           <item row="1" column="0">
            <widget class="QTableWidget" name="t_solttable">
             <property name="font">
@@ -672,6 +691,19 @@
             </property>
             <property name="layoutDirection">
              <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">text-align: center;
+</string>
+            </property>
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarAsNeeded</enum>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarAsNeeded</enum>
+            </property>
+            <property name="sizeAdjustPolicy">
+             <enum>QAbstractScrollArea::AdjustToContents</enum>
             </property>
             <property name="textElideMode">
              <enum>Qt::ElideMiddle</enum>
@@ -778,25 +810,6 @@
               </font>
              </property>
             </column>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QPushButton" name="t_machining">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="font">
-             <font>
-              <family>微軟正黑體</family>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>T型槽設定</string>
-            </property>
            </widget>
           </item>
          </layout>
