@@ -39,8 +39,11 @@ OPERATION_BOX_list_normal = ['01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION
 BEARING_HOUSING_list = ['302CC4S02_BEARING_HOUSING', '322CC4S02_BEARING_HOUSING', '342CC4S02_BEARING_HOUSING', '372CC4S02_BEARING_HOUSING', '395CC4S02_BEARING_HOUSING', '412CC4S02_BEARING_HOUSING', '432CC4S02_BEARING_HOUSING', '455CC4S02_BEARING_HOUSING', '475CC4S02_BEARING_HOUSING']
 SLIDE_list_normal = ['', '', '', 'punch_60_normal', 'punch_80_normal', 'punch_110_normal', 'punch_160_normal', 'punch_200_normal', 'punch_250_normal']
 BALANCER_list = ['FAC063160W_BALANCER', 'FAC063170W_BALANCER', 'FAC070205W_BALANCER', 'FAC080235W_BALANCER', 'FAC100280W_BALANCER', 'FAC120320W_BALANCER', 'FAC140360W_BALANCER', 'FAC180390WA_BALANCER', 'FAC200450WS01_BALANCER']
+MOTOR_list = ['5HP_3.7kW_MOTOR', '5HP_3.7kW_MOTOR', '5HP_3.7kW_MOTOR', '7.5HP_5.5kW_MOTOR', '10HP_7.5kW_MOTOR', '10HP_7.5kW_MOTOR', '15HP_11kW_MOTOR', '20HP_15kW_MOTOR', '25HP_18.5kW_MOTOR']
+MOTOR_BRACKET_S_list = ['302M01S02_MOTOR_BASE', '322M01S02_MOTOR_BASE', '34M4701_MOTOR_BASE', '392M01_MOTOR_BASE', '392M01S03_MOTOR_BASE', '41M4701_MOTOR_BASE', '34M4701_MOTOR_BASE', '452M01_MOTOR_BASE', '472M01_MOTOR_BASE']
+MOTOR_BRACKET_HP_list = ['302M01S02_MOTOR_BASE', '322M01S02_MOTOR_BASE', '34M4701_MOTOR_BASE', '392M01_MOTOR_BASE', '392M01S03_MOTOR_BASE', '412M01S03_MOTOR_BASE', '432M01S04_MOTOR_BASE', '94452S053_MOTOR_BASE', '472M01_MOTOR_BASE']
 
-def STP(name, stamping_press_type, machining):
+def STP(name, stamping_press_type, machining, travel_type):
     if name == 'PANEL':
         mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_list[stamping_press_type])
         mprog.save_file_stp(machining, PANEL_list[stamping_press_type])
@@ -269,14 +272,26 @@ def STP(name, stamping_press_type, machining):
         mprog.save_file_stp(machining, BALANCER_list[stamping_press_type])
         mprog.save_stpfile_part(machining, BALANCER_list[stamping_press_type])
         mprog.close_file(BALANCER_list[stamping_press_type])
+    elif name == 'MOTOR':
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), MOTOR_list[stamping_press_type])
+        mprog.save_file_stp(machining, MOTOR_list[stamping_press_type])
+        mprog.save_stpfile_part(machining, MOTOR_list[stamping_press_type])
+        mprog.close_file(MOTOR_list[stamping_press_type])
+    elif name == 'MOTOR_BRACKET':
+        if travel_type == 1:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), MOTOR_BRACKET_S_list[stamping_press_type])
+            mprog.save_file_stp(machining, MOTOR_BRACKET_S_list[stamping_press_type])
+            mprog.save_stpfile_part(machining, MOTOR_BRACKET_S_list[stamping_press_type])
+            mprog.close_file(MOTOR_BRACKET_S_list[stamping_press_type])
+        else:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), MOTOR_BRACKET_HP_list[stamping_press_type])
+            mprog.save_file_stp(machining, MOTOR_BRACKET_HP_list[stamping_press_type])
+            mprog.save_stpfile_part(machining, MOTOR_BRACKET_HP_list[stamping_press_type])
+            mprog.close_file(MOTOR_BRACKET_HP_list[stamping_press_type])
 
 
 
-
-
-
-
-def Assmebly(name,path, stamping_press_type):
+def Assmebly(name,path, stamping_press_type, travel_type):
     if name == 'PANEL':
         mprog.import_file_Part(path, PANEL_list[stamping_press_type])
     elif name == 'CON_ROD':
@@ -297,6 +312,7 @@ def Assmebly(name,path, stamping_press_type):
         mprog.import_file_Part(path, feeding_shaft_cover_list[stamping_press_type])
     elif name == 'OIL_LEVEL_GAUGE':
         mprog.import_file_Part(path, 'OGASKL060_OIL_LEVEL_GAUGE')
+        mprog.import_file_Part(path, OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type])
         mprog.import_file_Part(path, OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type])
         mprog.import_file_Part(path, OIL_LEVEL_GAUGE_list_CON_ROD[stamping_press_type])
     elif name == 'slide_gib':
@@ -364,4 +380,13 @@ def Assmebly(name,path, stamping_press_type):
         mprog.import_file_Part(path, SLIDE_list_normal[stamping_press_type])
     elif name == 'BALANCER':
         mprog.import_file_Part(path, BALANCER_list[stamping_press_type])
+    elif name == 'MOTOR':
+        mprog.import_file_Part(path, MOTOR_list[stamping_press_type])
+    elif name == 'MOTOR_BRACKET':
+        if travel_type == 1:
+            mprog.import_file_Part(path, MOTOR_BRACKET_S_list[stamping_press_type])
+        else:
+            mprog.import_file_Part(path, MOTOR_BRACKET_HP_list[stamping_press_type])
+
+
 

@@ -187,6 +187,8 @@ normal_cutout_molded_cushion_width_gap = [65, 65, 75, 75, 75, 90, 100, 100, 100]
 normal_cutout_molded_cushion_length_gap = [60, 90, 100, 100, 75, 90, 100, 100, 100]
 normal_cutout_molded_cushion_length_quantity = [5, 5, 5, 5, 6, 6, 6, 7, 8]
 normal_cutout_molded_cushion_width_quantity = [3, 3, 3, 3, 4, 4, 4, 5, 6]
+#平板目前實際長寬(組立用)
+plate_length_width = []
 # 主頁面資料
 series1 = ['C型單軸自動化選單', '基本參數']
 series2 = ['單位', '銷售地區法規', '機種', '形式', '平板', '衝頭']
