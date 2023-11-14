@@ -1148,7 +1148,7 @@ class punch_secend_windows(QtWidgets.QWidget):
         else:
             self.ui.punch_chuck.setCurrentText(par.punch_chunk_status[0])
             self.ui.punch_dieshank.setCurrentText(par.punch_chunk_status[0])
-            if par.punch_dieshank_size_status[0] == '-':
+            if par.punch_dieshank_size_status[0] == '-' or len(par.punch_dieshank_size_status) == 0:
                 self.ui.punch_dieshank_size.setStyleSheet("background-color: #f0f0f0; color: #808080;")
                 self.ui.punch_dieshank_size.setPlaceholderText("-")
             else:
@@ -1157,6 +1157,9 @@ class punch_secend_windows(QtWidgets.QWidget):
                 self.ui.punch_dieshank_size.setPlaceholderText(par.punch_dieshank_size_status[0])
         # 模柄孔大小修改
         self.ui.punch_dieshank_size.textChanged.connect(lambda: self.punch_dieshank_size_change(stamping_press_type))
+        if len(par.punch_dieshank_status) != 0:
+            self.ui.punch_dieshank_size.setText(par.punch_dieshank_status[0])
+
         # T溝
         for number in range(0, 4):
             self.ui.t_solttable.setItem(number, 0, QTableWidgetItem(par.t_table_dimension_parameter[number]))
@@ -1344,6 +1347,10 @@ class punch_secend_windows(QtWidgets.QWidget):
         elif punch_type_select == '加大II型':
             punch_length = par.punch_length[stamping_press_type] + par.punch_lv2[stamping_press_type]
             punch_width = par.punch_width[stamping_press_type]
+
+        par.punch_chunk_status = [self.ui.punch_chuck.currentText()]
+        par.punch_dieshank_status = [self.ui.punch_dieshank.currentText()]
+        par.punch_dieshank_size_status = [self.ui.punch_dieshank_size.text()]
 
         self.hide()
         self.nw = t_machining(stamping_press_type, punch_length, punch_width, 'punch_secend_windows')
@@ -2386,7 +2393,16 @@ class t_machining(QWidget):
         self.ui.setupUi(self)
         self.setWindowTitle('T溝加工設定')
         # 相片
-        # if par.punch_chunk_status != '':
+        if parent_page == 'punch_secend_windows':
+            print(par.punch_dieshank_status)
+            print(par.punch_chunk_status)
+            if par.punch_dieshank_status[0] == '無模柄孔':
+                self.ui.label.setPixmap(QPixmap(fp.system_root + '/無模柄孔.png'))
+            elif par.punch_dieshank_status[0] == '標準模柄孔' or par.punch_dieshank_status[0] == '特殊模柄孔':
+                if par.punch_chunk_status[0] == '無鎖模':
+                    self.ui.label.setPixmap(QPixmap(fp.system_root + '/無鎖模加模柄孔.png'))
+                elif par.punch_chunk_status[0] == '有鎖模':
+                    self.ui.label.setPixmap(QPixmap(fp.system_root + '/鎖模加模柄孔.png'))
 
         # 橫向T溝
         self.ui.t_slot_table_h.verticalHeader().setVisible(False)
