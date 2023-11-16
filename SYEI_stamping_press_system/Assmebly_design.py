@@ -32,7 +32,7 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
                     or part_name[name] == 'PANEL_BOX_BRACKET' or part_name[name] == 'ELECTRIC_BOX'or part_name[name] == 'GUARD_FLYWHEEL'or part_name[name] == 'NAME_PLATE'\
                     or part_name[name] == 'TRADEMARK_NAMEPLATE' or part_name[name] == 'OPERATION_BOX' or part_name[name] == 'PORTABLE_STAND' or part_name[name] == 'OPERATION_BOX'\
                     or part_name[name] == 'BEARING_HOUSING' or part_name[name] == 'SLIDE'or part_name[name] == 'BALANCER'or part_name[name] == 'MOTOR_BRACKET'\
-                    or part_name[name] == 'MOTOR':
+                    or part_name[name] == 'MOTOR' or part_name[name] == 'WIRE_CASING':
                 # 讀取其餘STP檔
                 S_i.Assmebly(part_name[name], path + '\\' + 'machining', stamping_press_type, travel_type)
                 continue
@@ -321,6 +321,18 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
     mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type] + '.2', S_i.SLIDE_list_normal[stamping_press_type] + '.1', -S_assmebly_par['OLS2_XY'], 'XY plane', 0, 320)
     mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type] + '.2', S_i.SLIDE_list_normal[stamping_press_type] + '.1', -S_assmebly_par['OLS2_YZ'], 'YZ plane', 0, 321)
     mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type] + '.2', S_i.SLIDE_list_normal[stamping_press_type] + '.1', -S_assmebly_par['OLS2_ZX'], 'ZX plane', 0, 322)
+    mprog.add_offset_assembly('MZW8702_WIRE_CASING.1', S_i.ELECTRIC_BOX_list_normal[stamping_press_type] + '.1', S_assmebly_par['EW_XY'], 'XY plane', 0, 329)
+    mprog.add_offset_assembly('MZW8702_WIRE_CASING.1', S_i.ELECTRIC_BOX_list_normal[stamping_press_type] + '.1', S_assmebly_par['EW_YZ'], 'YZ plane', 0, 330)
+    mprog.add_offset_assembly('MZW8702_WIRE_CASING.1', S_i.ELECTRIC_BOX_list_normal[stamping_press_type] + '.1', 0, 'ZX plane', 1, 331)
+    mprog.add_offset_assembly('43N6603_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['w4']-apv['FRAME2']['l2']-apv['FRAME2']['l3']-apv['FRAME2']['l4']-apv['FRAME2']['l5']/2), 'XY plane', 0, 332)
+    mprog.add_offset_assembly('43N6603_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['k']-15), 'YZ plane', 0, 333)
+    mprog.add_offset_assembly('43N6603_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['CC']/2+S_assmebly_par['EF_ZX']), 'ZX plane', 1, 334)
+    mprog.add_offset_assembly('43N6604_WIRE_CASING.1', '43N6603_WIRE_CASING.1', 0, 'XY plane', 0, 335)
+    mprog.add_offset_assembly('43N6604_WIRE_CASING.1', '43N6603_WIRE_CASING.1', 0, 'YZ plane', 0, 336)
+    mprog.add_offset_assembly('43N6604_WIRE_CASING.1', '43N6603_WIRE_CASING.1', -(S_assmebly_par['EE_ZX']), 'ZX plane', 0, 337)
+    mprog.add_offset_assembly('FRAME_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['w4']-apv['FRAME_WIRE_CASING']['B']), 'XY plane', 0, 338)
+    mprog.add_offset_assembly('FRAME_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['k']-apv['FRAME_WIRE_CASING']['E']/2), 'YZ plane', 0, 339)
+    mprog.add_offset_assembly('FRAME_WIRE_CASING.1', 'FRAME2.1', -(S_assmebly_par['EE_ZX']), 'ZX plane', 0, 340)
 
     if stamping_press_type == 0:
         mprog.add_offset_assembly('FRAME33.1', 'FRAME1.1', 0, 'XY plane', 0, 19)
@@ -1084,7 +1096,7 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
         mprog.add_offset_assembly(S_i.CON_ROD_list[stamping_press_type]+'.1', S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', 0, 'YZ plane', 0, 234)
         mprog.add_offset_assembly(S_i.CON_ROD_list[stamping_press_type]+'.1', S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', 0, 'ZX plane', 0, 235)
         mprog.add_offset_assembly(S_i.COVER_list[stamping_press_type]+'.1', 'FRAME1.1', -(apv['FRAME1']['A'])-0.5*alpha-beta, 'XY plane', 0, 242)
-        mprog.add_offset_assembly(S_i.COVER_list[stamping_press_type]+'.1', 'FRAME1.1', -(apv['FRAME1']['F']-(apv['FRAME1']['aaaaa1']+apv['FRAME1']['aaaaa2']+apv['FRAME1']['aaaaa3'])-S_assmebly_par['C_YZ']), 'YZ plane', 0, 243)
+        mprog.add_offset_assembly(S_i.COVER_list[stamping_press_type]+'.1', 'FRAME1.1', -(apv['FRAME1']['F']-(apv['FRAME1']['fffff1']+apv['FRAME1']['fffff2'])+S_assmebly_par['C_YZ']+zeta), 'YZ plane', 0, 243)
         mprog.add_offset_assembly(S_i.COVER_list[stamping_press_type]+'.1', 'FRAME1.1', -15, 'ZX plane', 1, 244)
         mprog.add_offset_assembly(S_i.PLUG_list+'.1', S_i.COVER_list[stamping_press_type]+'.1', -(S_assmebly_par['P_XY']), 'XY plane', 0, 245)
         mprog.add_offset_assembly(S_i.PLUG_list+'.1', S_i.COVER_list[stamping_press_type]+'.1', (S_assmebly_par['P_YZ']), 'YZ plane', 0, 246)
@@ -1099,16 +1111,16 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
             mprog.add_offset_assembly(S_i.MOTOR_BRACKET_S_list[stamping_press_type]+'.1', 'FRAME20.1', -S_assmebly_par['MB_XY'], 'XY plane', 0, 323)
             mprog.add_offset_assembly(S_i.MOTOR_BRACKET_S_list[stamping_press_type]+'.1', 'FRAME20.1', S_assmebly_par['MB_YZ'], 'YZ plane', 0, 324)
             mprog.add_offset_assembly(S_i.MOTOR_BRACKET_S_list[stamping_press_type]+'.1', 'FRAME20.1', -S_assmebly_par['MB_ZX'], 'ZX plane', 0, 325)
-            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_S_list[stamping_press_type]+'.1', S_assmebly_par['M_XY'], 'XY plane', 1, 323)
-            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_S_list[stamping_press_type]+'.1', -S_assmebly_par['M_YZ'], 'YZ plane', 0, 324)
-            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_S_list[stamping_press_type]+'.1', S_assmebly_par['M_ZX'], 'ZX plane', 0, 325)
+            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_S_list[stamping_press_type]+'.1', S_assmebly_par['M_XY'], 'XY plane', 1, 326)
+            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_S_list[stamping_press_type]+'.1', -S_assmebly_par['M_YZ'], 'YZ plane', 0, 327)
+            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_S_list[stamping_press_type]+'.1', S_assmebly_par['M_ZX'], 'ZX plane', 0, 328)
         else:
-            mprog.add_offset_assembly(S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', 'FRAME20.1', -S_assmebly_par['MB_XY'], 'XY plane', 0, 323)
+            mprog.add_offset_assembly(S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', 'FRAME20.1', S_assmebly_par['MB_XY'], 'XY plane', 1, 323)
             mprog.add_offset_assembly(S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', 'FRAME20.1', S_assmebly_par['MB_YZ'], 'YZ plane', 0, 324)
             mprog.add_offset_assembly(S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', 'FRAME20.1', -S_assmebly_par['MB_ZX'], 'ZX plane', 0, 325)
-            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', S_assmebly_par['M_XY'], 'XY plane', 1, 323)
-            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', -S_assmebly_par['M_YZ'], 'YZ plane', 0, 324)
-            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', S_assmebly_par['M_ZX'], 'ZX plane', 0, 325)
+            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', S_assmebly_par['M_XY'], 'XY plane', 0, 326)
+            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', -S_assmebly_par['M_YZ'], 'YZ plane', 0, 327)
+            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', S_assmebly_par['M_ZX'], 'ZX plane', 0, 328)
     elif stamping_press_type == 8:
         mprog.add_offset_assembly('FRAME15.1', 'FRAME1.1', -(
                 apv['FRAME1']['A'] - apv['FRAME30']['A'] - assmebly_par['Ass_S'] - apv['FRAME17']['g3']) - beta,
@@ -1344,16 +1356,16 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
             mprog.add_offset_assembly(S_i.MOTOR_BRACKET_S_list[stamping_press_type]+'.1', 'FRAME20.1', -S_assmebly_par['MB_XY'], 'XY plane', 0, 323)
             mprog.add_offset_assembly(S_i.MOTOR_BRACKET_S_list[stamping_press_type]+'.1', 'FRAME20.1', S_assmebly_par['MB_YZ'], 'YZ plane', 0, 324)
             mprog.add_offset_assembly(S_i.MOTOR_BRACKET_S_list[stamping_press_type]+'.1', 'FRAME20.1', -S_assmebly_par['MB_ZX'], 'ZX plane', 1, 325)
-            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_S_list[stamping_press_type]+'.1', -S_assmebly_par['M_XY'], 'XY plane', 0, 323)
-            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_S_list[stamping_press_type]+'.1', -S_assmebly_par['M_YZ'], 'YZ plane', 0, 324)
-            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_S_list[stamping_press_type]+'.1', -S_assmebly_par['M_ZX'], 'ZX plane', 1, 325)
+            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_S_list[stamping_press_type]+'.1', -S_assmebly_par['M_XY'], 'XY plane', 0, 326)
+            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_S_list[stamping_press_type]+'.1', -S_assmebly_par['M_YZ'], 'YZ plane', 0, 327)
+            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_S_list[stamping_press_type]+'.1', -S_assmebly_par['M_ZX'], 'ZX plane', 1, 328)
         else:
             mprog.add_offset_assembly(S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', 'FRAME20.1', -S_assmebly_par['MB_XY'], 'XY plane', 0, 323)
             mprog.add_offset_assembly(S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', 'FRAME20.1', S_assmebly_par['MB_YZ'], 'YZ plane', 0, 324)
             mprog.add_offset_assembly(S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', 'FRAME20.1', -S_assmebly_par['MB_ZX'], 'ZX plane', 1, 325)
-            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', -S_assmebly_par['M_XY'], 'XY plane', 0, 323)
-            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', -S_assmebly_par['M_YZ'], 'YZ plane', 0, 324)
-            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', -S_assmebly_par['M_ZX'], 'ZX plane', 1, 325)
+            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', -S_assmebly_par['M_XY'], 'XY plane', 0, 326)
+            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', -S_assmebly_par['M_YZ'], 'YZ plane', 0, 327)
+            mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', -S_assmebly_par['M_ZX'], 'ZX plane', 1, 328)
 
 
 

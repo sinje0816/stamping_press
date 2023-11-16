@@ -486,6 +486,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         elif check_item[2] == '':
             par.customize_DH = self.ui.window_main_table.item(11, 3).text()
         print(check_item, par.customize_stroke, par.customize_cycle, par.customize_DH)
+        return par.customize_stroke , par.customize_DH
 
     def window_main_keep(self):
         par.main_change = '1'
@@ -498,11 +499,10 @@ class main(QtWidgets.QWidget, Ui_Form):
         print(par.unit_keep, par.type_keep, par.style_keep, par.stroke_keep, par.cycle_keep, par.DH_keep)
 
     def start(self):
-        self.customize_dimension_check()
+        start_time = time.time()
+        specifications_travel_value,  specifications_close_working_height_value= self.customize_dimension_check()
         type = self.ui.window_main_table.cellWidget(4, 3).currentText()
         travel_type = str(self.ui.window_main_table.cellWidget(5, 3).currentText())
-        specifications_travel_value = str(self.ui.window_main_table.item(9, 3).text())
-        specifications_close_working_height_value = str(self.ui.window_main_table.item(11, 3).text())
         processing = '是'
         print(type, travel_type, specifications_travel_value, specifications_close_working_height_value)
         # self.create_dir()
@@ -526,7 +526,8 @@ class main(QtWidgets.QWidget, Ui_Form):
             #                 self.epsilon)
             self.change_dir(self.stamping_press_type, self.p, self.alpha, self.beta, self.zeta, self.epsilon, machining,
                             welding, self.travel_type, self.specifications_close_working_height_value)
-
+            TOTAL_time = time.time() - start_time
+            print(TOTAL_time)
     def choose_stamping_press_type(self):
         type = self.ui.window_main_table.cellWidget(4, 3).currentText()
         style = self.ui.window_main_table.cellWidget(5, 3).currentText()
@@ -803,7 +804,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         welding_file_change_pass = []
         # 開啟零件檔更改變數後儲存並關閉
         for name in epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_col_cell(1):
-            print(name)
+            # print(name)
             file_list_name, file_list_value = epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_sheet_par('沖床機架零件清單', stamping_press_type)
             file_list_name_index = file_list_name.index(name)
             if file_list_value[file_list_name_index] == 0:
@@ -820,7 +821,7 @@ class main(QtWidgets.QWidget, Ui_Form):
                             or name == 'slide_gib' or name == 'ELECTRIC_BOX_PLATE' or name == 'MOUNT_FILTER'or name == 'CONTROL_PANEL' or name == 'PANEL_BOX'\
                             or name == 'PANEL_BOX_BRACKET' or name == 'ELECTRIC_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE'\
                             or name == 'TRADEMARK_NAMEPLATE'or name == 'OPERATION_BOX' or name == 'PORTABLE_STAND' or name == 'OPERATION_BOX'\
-                            or name == 'BEARING_HOUSING'or name == 'SLIDE' or name == 'BALANCER'or name == 'MOTOR'or name == 'MOTOR_BRACKET':
+                            or name == 'BEARING_HOUSING'or name == 'SLIDE' or name == 'BALANCER'or name == 'MOTOR'or name == 'MOTOR_BRACKET' or name == 'WIRE_CASING':
                         # 讀取其餘STP檔
                         S_i.STP(name, stamping_press_type, machining, travel_type)
                         continue
