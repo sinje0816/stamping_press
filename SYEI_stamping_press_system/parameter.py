@@ -232,32 +232,34 @@ cycle_keep = ''
 DH_keep = ''
 keep_items = [main_change, unit_keep, type_keep, style_keep, stroke_keep, cycle_keep, DH_keep]
 
-
 # 衝頭
-punch_length = [330, 380, 430, 480, 560, 650, 720, 860, 960]
-punch_width = [250, 300, 350, 400, 460, 520, 580, 650, 720]
-punch_lv1 = [50, 50, 50, 80, 90, 70, 140, 100, 190]
-punch_lv2 = [100, 100, 130, 170, 160, 210, 240, 290, 340]
-punch_normal_type = ['標準', '加大I型', '加大II型', '特殊衝頭']
-# 紀錄當前衝頭名稱
-punch_special_type = []
+slide_length = [330, 380, 430, 480, 560, 650, 720, 860, 960]
+slide_width = [250, 300, 350, 400, 460, 520, 580, 650, 720]
+slide_lv1 = [50, 50, 50, 80, 90, 70, 140, 100, 190]
+slide_lv2 = [100, 100, 130, 170, 160, 210, 240, 290, 340]
+slide_normal_type = ['標準', '加大I型', '加大II型', '特殊衝頭']
+slide_special_type = []
 # 衝頭T溝
 # T型槽相關參數
-ph_total_t_slot_h_type = []  # 型式(分段、貫穿)
-ph_total_position_y = []  # T形槽位置
-ph_total_LL = []  # 分段LL尺寸
-ph_total_LR = []  # 分段LR尺寸
-ph_total_SL = []  # 讓槽SL尺寸
-ph_total_SR = []  # 讓槽SR尺寸
-ph_total_t_slot_v_type = []  # 型式(分段、貫穿)
-ph_total_position_x = []  # T形槽位置
-ph_total_LF = []  # 分段LF尺寸
-ph_total_LB = []  # 分段LB尺寸
-ph_total_SF = []  # 讓槽SF尺寸
-ph_total_SB = []  # 讓槽SB尺寸
+sl_total_t_slot_h_type = []  # 型式(分段、貫穿)
+sl_total_position_y = []  # T形槽位置
+sl_total_LL = []  # 分段LL尺寸
+sl_total_LR = []  # 分段LR尺寸
+sl_total_SL = []  # 讓槽SL尺寸
+sl_total_SR = []  # 讓槽SR尺寸
+sl_total_t_slot_v_type = []  # 型式(分段、貫穿)
+sl_total_position_x = []  # T形槽位置
+sl_total_LF = []  # 分段LF尺寸
+sl_total_LB = []  # 分段LB尺寸
+sl_total_SF = []  # 讓槽SF尺寸
+sl_total_SB = []  # 讓槽SB尺寸
 #衝頭計數器
-punch_count = 0
+slide_count = 0
 # 鎖模夾頭當前狀態
-punch_chunk_status = []
-punch_dieshank_status = []
-punch_dieshank_size_status = []
+slide_chunk_status = []
+slide_dieshank_status = []
+slide_dieshank_size_status = []
+# 僅限第一頁衝頭選單紀錄用變數
+slide_normal_name = []
+# 當前開啟沖頭part檔名稱
+slide_part_name = ''

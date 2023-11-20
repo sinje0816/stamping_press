@@ -35,7 +35,7 @@ def copybody():
     selection1.Copy()
 
 
-def pastebody(count, parameter_name):
+def pastebody(count, parameter_name, name):
     catapp = win32.Dispatch('CATIA.Application')
     part_document1 = catapp.ActiveDocument
     selection1 = part_document1.Selection
@@ -45,7 +45,13 @@ def pastebody(count, parameter_name):
     body1 = bodies1.Item("PartBody")
     selection1.Add(body1)
     selection1.Paste()
-    body = bodies1.Item("Body." + str(10 + count))
+    if name == 'plate':
+        body = bodies1.Item("Body." + str(10 + count))
+    elif name == 'hole':
+        body = bodies1.Item("Body." + str(10 + count))
+    else:
+        print(count)
+        body = bodies1.Item("Body." + str(count+2))
     body.name = parameter_name + str(count)
 
 
@@ -94,12 +100,12 @@ def changerotate(rotate_value):
     angle1.Value = rotate_value
 
 
-def create_t_solt(translate, count):
+def create_t_solt(translate, count, name, T_solt, part):
     changetranslate(translate)
     mprog.Update()
     copybody()
-    switch_to_window_by_name("plate.CATPart")
-    pastebody(count, "Body.")
+    switch_to_window_by_name(part + ".CATPart")
+    pastebody(count, "Body.", name)
     removebody(int(count), "Body.")
     mprog.Update()
-    switch_to_window_by_name("T.CATPart")
+    switch_to_window_by_name(T_solt + ".CATPart")
