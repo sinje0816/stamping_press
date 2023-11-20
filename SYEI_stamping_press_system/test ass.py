@@ -4,7 +4,7 @@ import excel_parameter_change as epc
 import file_path as fp
 #油面計(衝頭)XY跟YZ互換
 
-mprog.add_offset_assembly('43N6603_WIRE_CASING.1', 'FRAME2.1', -100, 'XY plane', 0, 332)
+mprog.add_offset_assembly('EWR60S01_ELECTRIC_BOX_PLATE.1', 'FRAME2.1', -(411), 'XY plane', 0, 260)
 #待修正
 #FRAME43.2高度要調整
 

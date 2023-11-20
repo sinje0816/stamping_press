@@ -325,14 +325,14 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
     mprog.add_offset_assembly('MZW8702_WIRE_CASING.1', S_i.ELECTRIC_BOX_list_normal[stamping_press_type] + '.1', S_assmebly_par['EW_YZ'], 'YZ plane', 0, 330)
     mprog.add_offset_assembly('MZW8702_WIRE_CASING.1', S_i.ELECTRIC_BOX_list_normal[stamping_press_type] + '.1', 0, 'ZX plane', 1, 331)
     mprog.add_offset_assembly('43N6603_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['w4']-apv['FRAME2']['l2']-apv['FRAME2']['l3']-apv['FRAME2']['l4']-apv['FRAME2']['l5']/2), 'XY plane', 0, 332)
-    mprog.add_offset_assembly('43N6603_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['k']-15), 'YZ plane', 0, 333)
+    mprog.add_offset_assembly('43N6603_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['k']-15+zeta), 'YZ plane', 0, 333)
     mprog.add_offset_assembly('43N6603_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['CC']/2+S_assmebly_par['EF_ZX']), 'ZX plane', 1, 334)
     mprog.add_offset_assembly('43N6604_WIRE_CASING.1', '43N6603_WIRE_CASING.1', 0, 'XY plane', 0, 335)
     mprog.add_offset_assembly('43N6604_WIRE_CASING.1', '43N6603_WIRE_CASING.1', 0, 'YZ plane', 0, 336)
     mprog.add_offset_assembly('43N6604_WIRE_CASING.1', '43N6603_WIRE_CASING.1', -(S_assmebly_par['EE_ZX']), 'ZX plane', 0, 337)
     mprog.add_offset_assembly('FRAME_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['w4']-apv['FRAME_WIRE_CASING']['B']), 'XY plane', 0, 338)
-    mprog.add_offset_assembly('FRAME_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['k']-apv['FRAME_WIRE_CASING']['E']/2), 'YZ plane', 0, 339)
-    mprog.add_offset_assembly('FRAME_WIRE_CASING.1', 'FRAME2.1', -(S_assmebly_par['EE_ZX']), 'ZX plane', 0, 340)
+    mprog.add_offset_assembly('FRAME_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['k']-apv['FRAME_WIRE_CASING']['E']/2+zeta), 'YZ plane', 0, 339)
+    mprog.add_offset_assembly('FRAME_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['CC']/2), 'ZX plane', 1, 340)
 
     if stamping_press_type == 0:
         mprog.add_offset_assembly('FRAME33.1', 'FRAME1.1', 0, 'XY plane', 0, 19)
