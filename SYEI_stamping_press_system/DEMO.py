@@ -485,8 +485,13 @@ class main(QtWidgets.QWidget, Ui_Form):
             par.customize_DH = self.ui.window_main_table.cellWidget(11, 4).text()
         elif check_item[2] == '':
             par.customize_DH = self.ui.window_main_table.item(11, 3).text()
+        if check_item[5] !='':
+            par.INVERTER = self.ui.window_main_table.cellWidget(14, 4).text()
+        elif check_item[5] == '':
+            par.INVERTER = self.ui.window_main_table.item(14, 3).text()
+        par.GUM = self.ui.window_main_table.cellWidget(18, 3).currentText()
         print(check_item, par.customize_stroke, par.customize_cycle, par.customize_DH)
-        return par.customize_stroke , par.customize_DH
+        return par.customize_stroke , par.customize_DH , par.GUM, par.INVERTER
 
     def window_main_keep(self):
         par.main_change = '1'
@@ -500,7 +505,7 @@ class main(QtWidgets.QWidget, Ui_Form):
 
     def start(self):
         start_time = time.time()
-        specifications_travel_value,  specifications_close_working_height_value= self.customize_dimension_check()
+        specifications_travel_value,  specifications_close_working_height_value, self.GUM, self.INVERTER= self.customize_dimension_check()
         type = self.ui.window_main_table.cellWidget(4, 3).currentText()
         travel_type = str(self.ui.window_main_table.cellWidget(5, 3).currentText())
         processing = '是'
@@ -525,7 +530,7 @@ class main(QtWidgets.QWidget, Ui_Form):
             #                 self.specifications_close_working_height_value, self.alpha, self.beta, self.zeta,
             #                 self.epsilon)
             self.change_dir(self.stamping_press_type, self.p, self.alpha, self.beta, self.zeta, self.epsilon, machining,
-                            welding, self.travel_type, self.specifications_close_working_height_value)
+                            welding, self.travel_type, self.specifications_close_working_height_value, self.GUM, self.INVERTER)
             TOTAL_time = time.time() - start_time
             print(TOTAL_time)
     def choose_stamping_press_type(self):
@@ -790,7 +795,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         self.ui.label_9.clear()
         self.ui.label_9.setText(close_h)
 
-    def change_dir(self, stamping_press_type, p, alpha, beta, zeta, epsilon, machining, welding, travel_type, specifications_close_working_height_value):
+    def change_dir(self, stamping_press_type, p, alpha, beta, zeta, epsilon, machining, welding, travel_type, specifications_close_working_height_value, GUM, INVERTER):
         start_time = time.time()
         all_part_name = {}
         all_part_value = {}
@@ -821,9 +826,10 @@ class main(QtWidgets.QWidget, Ui_Form):
                             or name == 'slide_gib' or name == 'ELECTRIC_BOX_PLATE' or name == 'MOUNT_FILTER'or name == 'CONTROL_PANEL' or name == 'PANEL_BOX'\
                             or name == 'PANEL_BOX_BRACKET' or name == 'ELECTRIC_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE'\
                             or name == 'TRADEMARK_NAMEPLATE'or name == 'OPERATION_BOX' or name == 'PORTABLE_STAND' or name == 'OPERATION_BOX'\
-                            or name == 'BEARING_HOUSING'or name == 'SLIDE' or name == 'BALANCER'or name == 'MOTOR'or name == 'MOTOR_BRACKET' or name == 'WIRE_CASING':
+                            or name == 'BEARING_HOUSING'or name == 'SLIDE' or name == 'BALANCER'or name == 'MOTOR'or name == 'MOTOR_BRACKET' or name == 'WIRE_CASING'\
+                            or name == 'ANTI_VIBRATION_GUM'or name == 'HANDEL_MOUNT_FILTER'or name == 'INVERTER':
                         # 讀取其餘STP檔
-                        S_i.STP(name, stamping_press_type, machining, travel_type)
+                        S_i.STP(name, stamping_press_type, machining, travel_type, GUM, INVERTER)
                         continue
                     else:
                         # 讀取機架零件
@@ -910,7 +916,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         print('welding_file_change_error', welding_file_change_error)
         print('welding_file_change_pass', welding_file_change_pass)
         print('總用時%s' % (time.time() - start_time))  # 建立3D組立
-        Ad.assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifications_close_working_height_value, travel_type)
+        Ad.assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifications_close_working_height_value, travel_type, GUM,INVERTER)
 
         return machining_file_change_error, welding_file_change_error
 
@@ -1728,8 +1734,6 @@ class plate_first_windows(QtWidgets.QWidget):
         plate_secend_windows.t_solt(stamping_press_type, path)
         # 下料孔
         plate_secend_windows.plate_hole(stamping_press_type, stamping_press_type, path, 'plate_first_windows')
-        # 關閉實體外所有東西
-        mprog.Close_All()
         # 平板存檔
         mprog.save_file_stp(path, 'plate')
         mprog.save_stpfile_part(path, 'plate')

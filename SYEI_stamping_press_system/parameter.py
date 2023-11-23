@@ -230,6 +230,8 @@ style_keep = ''
 stroke_keep = ''
 cycle_keep = ''
 DH_keep = ''
+INVERTER = ''
+GUM = ''
 keep_items = [main_change, unit_keep, type_keep, style_keep, stroke_keep, cycle_keep, DH_keep]
 
 

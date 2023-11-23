@@ -3,8 +3,11 @@ import STP_input as S_i
 import excel_parameter_change as epc
 import file_path as fp
 #油面計(衝頭)XY跟YZ互換
+excel = epc.ExcelOp('組立尺寸', 'STP_Assembly_value')
+S_assmebly_par = excel.get_assmebly_sheet_par(5)
 
-mprog.add_offset_assembly('EWR60S01_ELECTRIC_BOX_PLATE.1', 'FRAME2.1', -(411), 'XY plane', 0, 260)
+mprog.add_offset_assembly(S_i.GUM_U_list[5] + '.1', 'FRAME10.1',
+                          (S_assmebly_par['AVG_S_XY'] + 45), 'XY plane', 1, 341)
 #待修正
 #FRAME43.2高度要調整
 

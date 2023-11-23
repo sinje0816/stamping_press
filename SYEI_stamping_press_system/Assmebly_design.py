@@ -2,19 +2,17 @@ import main_program as mprog
 import excel_parameter_change as epc
 import STP_input as S_i
 import parameter as par
-def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifications_close_working_height_value, travel_type):
-    #excel匯入
+def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifications_close_working_height_value, travel_type, GUM,INVERTER):
+    #excel匯入(匯入組立尺寸)
     excel = epc.ExcelOp('組立尺寸', 'Assembly_value')
     try:
         assmebly_par = excel.get_assmebly_sheet_par(stamping_press_type)
-        print('Assembly_value Parameter change success')
     except BaseException:
         print('Assembly_value Parameter change error')
-
+    #匯入STP(固定零件)組立相關尺寸
     excel = epc.ExcelOp('組立尺寸', 'STP_Assembly_value')
     try:
         S_assmebly_par = excel.get_assmebly_sheet_par(stamping_press_type)
-        print('STP_Assembly_value Parameter change success')
     except BaseException:
         print('STP_Assembly_value Parameter change error')
     #新增組立檔
@@ -32,9 +30,10 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
                     or part_name[name] == 'PANEL_BOX_BRACKET' or part_name[name] == 'ELECTRIC_BOX'or part_name[name] == 'GUARD_FLYWHEEL'or part_name[name] == 'NAME_PLATE'\
                     or part_name[name] == 'TRADEMARK_NAMEPLATE' or part_name[name] == 'OPERATION_BOX' or part_name[name] == 'PORTABLE_STAND' or part_name[name] == 'OPERATION_BOX'\
                     or part_name[name] == 'BEARING_HOUSING' or part_name[name] == 'SLIDE'or part_name[name] == 'BALANCER'or part_name[name] == 'MOTOR_BRACKET'\
-                    or part_name[name] == 'MOTOR' or part_name[name] == 'WIRE_CASING':
+                    or part_name[name] == 'MOTOR' or part_name[name] == 'WIRE_CASING' or part_name[name] == 'ANTI_VIBRATION_GUM' or part_name[name] == 'HANDEL_MOUNT_FILTER'\
+                    or part_name[name] == 'INVERTER':#固定零件匯入清單
                 # 讀取其餘STP檔
-                S_i.Assmebly(part_name[name], path + '\\' + 'machining', stamping_press_type, travel_type)
+                S_i.Assmebly(part_name[name], path + '\\' + 'machining', stamping_press_type, travel_type, GUM, INVERTER)
                 continue
             else:
                 mprog.import_file_Part(path + '\\' + 'machining', part_name[name])
@@ -44,6 +43,7 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
         pass
     #定義基準零件
     mprog.base_lock('FRAME1.1', 'FRAME1.1', 0)
+    #開始進行組立，條件為:(零件1、零件2、距離、平面、組立方式、編號)
     mprog.add_offset_assembly('FRAME2.1', 'FRAME1.1', 0, 'XY plane', 0, 4)
     mprog.add_offset_assembly('FRAME2.1', 'FRAME1.1', 0, 'YZ plane', 0, 5)
     mprog.add_offset_assembly('FRAME2.1', 'FRAME1.1', -(apv['FRAME22']['D']+(apv['FRAME1']['CC']/2)+(apv['FRAME2']['CC']/2)), 'ZX plane', 0, 6)
@@ -248,7 +248,7 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
     mprog.add_offset_assembly('crankshaft.1', 'FRAME30.1', -(apv['FRAME30']['h']), 'XY plane', 0, 224)
     mprog.add_offset_assembly('crankshaft.1', 'FRAME30.1', -assmebly_par['Ass_AN'], 'YZ plane', 0, 225)
     mprog.add_offset_assembly('crankshaft.1', 'FRAME30.1', (apv['FRAME30']['E']/2), 'ZX plane', 0, 226)
-    mprog.add_offset_assembly(S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', 'crankshaft.1', apv['crankshaft']['Bx2'], 'XY plane', 0, 227)
+    mprog.add_offset_assembly(S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', 'crankshaft.1', apv['crankshaft']['Bx2']+alpha/2, 'XY plane', 0, 227)
     mprog.add_offset_assembly(S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', 'crankshaft.1', (apv['crankshaft']['Ah1']+apv['crankshaft']['Ah2']+apv['crankshaft']['Bh1']+apv['crankshaft']['Bh2']/2), 'YZ plane', 0, 228)
     mprog.add_offset_assembly(S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', 'crankshaft.1', 0, 'ZX plane', 0, 229)
     mprog.add_offset_assembly(S_i.PANEL_list[stamping_press_type]+'.1', S_i.BEARING_HOUSING_list[stamping_press_type] + '.1', 0, 'XY plane', 1, 236)
@@ -303,9 +303,6 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
     mprog.add_offset_assembly(S_i.BEARING_HOUSING_list[stamping_press_type] + '.1', 'FRAME30.1', -apv['FRAME30']['h'], 'XY plane', 0, 302)
     mprog.add_offset_assembly(S_i.BEARING_HOUSING_list[stamping_press_type] + '.1', 'FRAME30.1', -(S_assmebly_par['BH_YZ']), 'YZ plane', 0, 303)
     mprog.add_offset_assembly(S_i.BEARING_HOUSING_list[stamping_press_type] + '.1', 'FRAME30.1', apv['FRAME30']['E'] / 2, 'ZX plane', 0, 304)
-    mprog.add_offset_assembly('plate.1', 'FRAME22.1', -(apv['FRAME22']['A(1)']-apv['FRAME22']['A(2)']), 'XY plane', 0, 305)
-    mprog.add_offset_assembly('plate.1', 'FRAME22.1', (par.plate_length_width[1]/2-assmebly_par['Ass_AL']+apv['FRAME22']['O']), 'YZ plane', 1, 306)
-    mprog.add_offset_assembly('plate.1', 'FRAME22.1', -(par.plate_length_width[0]/2-apv['FRAME22']['D']/2), 'ZX plane', 0, 307)
     mprog.add_offset_assembly(S_i.SLIDE_list_normal[stamping_press_type] + '.1', 'plate.1', -(specifications_close_working_height_value+beta+assmebly_par['Ass_AM']), 'XY plane', 0, 308)
     mprog.add_offset_assembly(S_i.SLIDE_list_normal[stamping_press_type] + '.1', 'plate.1', (par.plate_length_width[1]/2), 'YZ plane', 1, 309)
     mprog.add_offset_assembly(S_i.SLIDE_list_normal[stamping_press_type] + '.1', 'plate.1', par.plate_length_width[0]/2, 'ZX plane', 0, 310)
@@ -333,6 +330,100 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
     mprog.add_offset_assembly('FRAME_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['w4']-apv['FRAME_WIRE_CASING']['B']), 'XY plane', 0, 338)
     mprog.add_offset_assembly('FRAME_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['k']-apv['FRAME_WIRE_CASING']['E']/2+zeta), 'YZ plane', 0, 339)
     mprog.add_offset_assembly('FRAME_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['CC']/2), 'ZX plane', 1, 340)
+    # 選配
+    try:
+        mprog.add_offset_assembly('plate.1', 'FRAME22.1', -(apv['FRAME22']['A(1)']-apv['FRAME22']['A(2)']), 'XY plane', 0, 305)
+        mprog.add_offset_assembly('plate.1', 'FRAME22.1', (par.plate_length_width[1]/2-assmebly_par['Ass_AL']+apv['FRAME22']['O']), 'YZ plane', 1, 306)
+        mprog.add_offset_assembly('plate.1', 'FRAME22.1', -(par.plate_length_width[0]/2-apv['FRAME22']['D']/2), 'ZX plane', 0, 307)
+        if GUM == '穎益':
+            mprog.add_offset_assembly(S_i.GUM_E_list[stamping_press_type] + '.1', 'FRAME10.1',
+                                      (S_assmebly_par['AVG_E_XY']+apv['FRAME10']['K(2)']), 'XY plane', 1, 341)
+            mprog.add_offset_assembly(S_i.GUM_E_list[stamping_press_type] + '.1', 'FRAME10.1',
+                                      (apv['FRAME10']['B']/2),
+                                      'YZ plane', 0, 342)
+            mprog.add_offset_assembly(S_i.GUM_E_list[stamping_press_type] + '.1', 'FRAME10.1',
+                                      -(apv['FRAME10']['A']-apv['FRAME10']['a']), 'ZX plane', 0, 343)
+            mprog.add_offset_assembly(S_i.GUM_E_list[stamping_press_type] + '.2', 'FRAME10.2',
+                                      (S_assmebly_par['AVG_E_XY']), 'XY plane', 0, 344)
+            mprog.add_offset_assembly(S_i.GUM_E_list[stamping_press_type] + '.2', 'FRAME10.2',
+                                      (apv['FRAME10']['B']/2),
+                                      'YZ plane', 0, 345)
+            mprog.add_offset_assembly(S_i.GUM_E_list[stamping_press_type] + '.2', 'FRAME10.2',
+                                      (apv['FRAME10']['A']-apv['FRAME10']['a']), 'ZX plane', 1, 346)
+            mprog.add_offset_assembly(S_i.GUM_E_list[stamping_press_type] + '.3', 'FRAME35.1',
+                                      (S_assmebly_par['AVG_E_XY']), 'XY plane', 0, 347)
+            mprog.add_offset_assembly(S_i.GUM_E_list[stamping_press_type] + '.3', 'FRAME35.1',
+                                      (apv['FRAME35']['B']-apv['FRAME35']['a']-apv['FRAME35']['b']),
+                                      'YZ plane', 0, 348)
+            mprog.add_offset_assembly(S_i.GUM_E_list[stamping_press_type] + '.3', 'FRAME35.1',
+                                      (apv['FRAME35']['A']-apv['FRAME35']['e']), 'ZX plane', 1, 349)
+            mprog.add_offset_assembly(S_i.GUM_E_list[stamping_press_type] + '.4', 'FRAME35.2',
+                                      (S_assmebly_par['AVG_E_XY']+apv['FRAME10']['K(2)']), 'XY plane', 1, 350)
+            mprog.add_offset_assembly(S_i.GUM_E_list[stamping_press_type] + '.4', 'FRAME35.2',
+                                      (apv['FRAME35']['B']-apv['FRAME35']['a']-apv['FRAME35']['b']),
+                                      'YZ plane', 0, 351)
+            mprog.add_offset_assembly(S_i.GUM_E_list[stamping_press_type] + '.4', 'FRAME35.2',
+                                      -(apv['FRAME35']['A']-apv['FRAME35']['e']), 'ZX plane', 0, 352)
+        elif GUM == 'UNISORB':
+            mprog.add_offset_assembly(S_i.GUM_U_list[stamping_press_type] + '.1', 'FRAME10.1',
+                                      (S_assmebly_par['AVG_U_XY']+apv['FRAME10']['K(2)']), 'XY plane', 1, 341)
+            mprog.add_offset_assembly(S_i.GUM_U_list[stamping_press_type] + '.1', 'FRAME10.1',
+                                      (apv['FRAME10']['B']/2),
+                                      'YZ plane', 0, 342)
+            mprog.add_offset_assembly(S_i.GUM_U_list[stamping_press_type] + '.1', 'FRAME10.1',
+                                      -(apv['FRAME10']['A']-apv['FRAME10']['a']), 'ZX plane', 0, 343)
+            mprog.add_offset_assembly(S_i.GUM_U_list[stamping_press_type] + '.2', 'FRAME10.2',
+                                      (S_assmebly_par['AVG_U_XY']), 'XY plane', 0, 344)
+            mprog.add_offset_assembly(S_i.GUM_U_list[stamping_press_type] + '.2', 'FRAME10.2',
+                                      (apv['FRAME10']['B']/2),
+                                      'YZ plane', 0, 345)
+            mprog.add_offset_assembly(S_i.GUM_U_list[stamping_press_type] + '.2', 'FRAME10.2',
+                                      (apv['FRAME10']['A']-apv['FRAME10']['a']), 'ZX plane', 1, 346)
+            mprog.add_offset_assembly(S_i.GUM_U_list[stamping_press_type] + '.3', 'FRAME35.1',
+                                      (S_assmebly_par['AVG_U_XY']), 'XY plane', 0, 347)
+            mprog.add_offset_assembly(S_i.GUM_U_list[stamping_press_type] + '.3', 'FRAME35.1',
+                                      (apv['FRAME35']['B']-apv['FRAME35']['a']-apv['FRAME35']['b']),
+                                      'YZ plane', 0, 348)
+            mprog.add_offset_assembly(S_i.GUM_U_list[stamping_press_type] + '.3', 'FRAME35.1',
+                                      (apv['FRAME35']['A']-apv['FRAME35']['e']), 'ZX plane', 1, 349)
+            mprog.add_offset_assembly(S_i.GUM_U_list[stamping_press_type] + '.4', 'FRAME35.2',
+                                      (S_assmebly_par['AVG_U_XY']+apv['FRAME10']['K(2)']), 'XY plane', 1, 350)
+            mprog.add_offset_assembly(S_i.GUM_U_list[stamping_press_type] + '.4', 'FRAME35.2',
+                                      (apv['FRAME35']['B']-apv['FRAME35']['a']-apv['FRAME35']['b']),
+                                      'YZ plane', 0, 351)
+            mprog.add_offset_assembly(S_i.GUM_U_list[stamping_press_type] + '.4', 'FRAME35.2',
+                                      -(apv['FRAME35']['A']-apv['FRAME35']['e']), 'ZX plane', 0, 352)
+        elif GUM == '商定':
+            mprog.add_offset_assembly(S_i.GUM_S_list[stamping_press_type] + '.1', 'FRAME10.1',
+                                      (S_assmebly_par['AVG_S_XY']+apv['FRAME10']['K(2)']), 'XY plane', 1, 341)
+            mprog.add_offset_assembly(S_i.GUM_S_list[stamping_press_type] + '.1', 'FRAME10.1',
+                                      (apv['FRAME10']['B']/2),
+                                      'YZ plane', 0, 342)
+            mprog.add_offset_assembly(S_i.GUM_S_list[stamping_press_type] + '.1', 'FRAME10.1',
+                                      -(apv['FRAME10']['A']-apv['FRAME10']['a']), 'ZX plane', 0, 343)
+            mprog.add_offset_assembly(S_i.GUM_S_list[stamping_press_type] + '.2', 'FRAME10.2',
+                                      (S_assmebly_par['AVG_S_XY']), 'XY plane', 0, 344)
+            mprog.add_offset_assembly(S_i.GUM_S_list[stamping_press_type] + '.2', 'FRAME10.2',
+                                      (apv['FRAME10']['B']/2),
+                                      'YZ plane', 0, 345)
+            mprog.add_offset_assembly(S_i.GUM_S_list[stamping_press_type] + '.2', 'FRAME10.2',
+                                      (apv['FRAME10']['A']-apv['FRAME10']['a']), 'ZX plane', 1, 346)
+            mprog.add_offset_assembly(S_i.GUM_S_list[stamping_press_type] + '.3', 'FRAME35.1',
+                                      (S_assmebly_par['AVG_S_XY']), 'XY plane', 0, 347)
+            mprog.add_offset_assembly(S_i.GUM_S_list[stamping_press_type] + '.3', 'FRAME35.1',
+                                      (apv['FRAME35']['B']-apv['FRAME35']['a']-apv['FRAME35']['b']),
+                                      'YZ plane', 0, 348)
+            mprog.add_offset_assembly(S_i.GUM_S_list[stamping_press_type] + '.3', 'FRAME35.1',
+                                      (apv['FRAME35']['A']-apv['FRAME35']['e']), 'ZX plane', 1, 349)
+            mprog.add_offset_assembly(S_i.GUM_S_list[stamping_press_type] + '.4', 'FRAME35.2',
+                                      (S_assmebly_par['AVG_S_XY']+apv['FRAME10']['K(2)']), 'XY plane', 1, 350)
+            mprog.add_offset_assembly(S_i.GUM_S_list[stamping_press_type] + '.4', 'FRAME35.2',
+                                      (apv['FRAME35']['B']-apv['FRAME35']['a']-apv['FRAME35']['b']),
+                                      'YZ plane', 0, 351)
+            mprog.add_offset_assembly(S_i.GUM_S_list[stamping_press_type] + '.4', 'FRAME35.2',
+                                      -(apv['FRAME35']['A']-apv['FRAME35']['e']), 'ZX plane', 0, 352)
+    except:
+        pass
 
     if stamping_press_type == 0:
         mprog.add_offset_assembly('FRAME33.1', 'FRAME1.1', 0, 'XY plane', 0, 19)
@@ -1089,10 +1180,10 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
                                   -(S_assmebly_par['CP_YZ']), 'YZ plane', 1, 276)
         mprog.add_offset_assembly(S_i.CONTROL_PANEL_list_normal[stamping_press_type] + '.1',S_i.PANEL_BOX_list_normal[stamping_press_type] + '.1', -(S_assmebly_par['CP_ZX']),
                                   'ZX plane', 1, 277)
-        mprog.add_offset_assembly(S_i.CON_ROD_BASE_list[stamping_press_type]+'.1', 'crankshaft.1', -(apv['crankshaft']['Bx2']), 'XY plane', 1, 230)
+        mprog.add_offset_assembly(S_i.CON_ROD_BASE_list[stamping_press_type]+'.1', 'crankshaft.1', -(apv['crankshaft']['Bx2']+alpha/2), 'XY plane', 1, 230)
         mprog.add_offset_assembly(S_i.CON_ROD_BASE_list[stamping_press_type]+'.1', 'crankshaft.1', (apv['crankshaft']['Ah1']+apv['crankshaft']['Ah2']+apv['crankshaft']['Bh1']+apv['crankshaft']['Bh2']/2), 'YZ plane', 0, 231)
         mprog.add_offset_assembly(S_i.CON_ROD_BASE_list[stamping_press_type]+'.1', 'crankshaft.1', 0, 'ZX plane', 0, 232)
-        mprog.add_offset_assembly(S_i.CON_ROD_list[stamping_press_type]+'.1', S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', (S_assmebly_par['C_R_XY']), 'XY plane', 0, 233)
+        mprog.add_offset_assembly(S_i.CON_ROD_list[stamping_press_type]+'.1', S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', (S_assmebly_par['C_R_XY']-alpha/2), 'XY plane', 0, 233)
         mprog.add_offset_assembly(S_i.CON_ROD_list[stamping_press_type]+'.1', S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', 0, 'YZ plane', 0, 234)
         mprog.add_offset_assembly(S_i.CON_ROD_list[stamping_press_type]+'.1', S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', 0, 'ZX plane', 0, 235)
         mprog.add_offset_assembly(S_i.COVER_list[stamping_press_type]+'.1', 'FRAME1.1', -(apv['FRAME1']['A'])-0.5*alpha-beta, 'XY plane', 0, 242)
