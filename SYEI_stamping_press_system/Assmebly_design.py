@@ -330,7 +330,7 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
     mprog.add_offset_assembly('FRAME_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['w4']-apv['FRAME_WIRE_CASING']['B']), 'XY plane', 0, 338)
     mprog.add_offset_assembly('FRAME_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['k']-apv['FRAME_WIRE_CASING']['E']/2+zeta), 'YZ plane', 0, 339)
     mprog.add_offset_assembly('FRAME_WIRE_CASING.1', 'FRAME2.1', -(apv['FRAME2']['CC']/2), 'ZX plane', 1, 340)
-    # 選配
+    # 選配零件(用try防止沒有選配到該零件的時候跳錯)
     try:
         mprog.add_offset_assembly('plate.1', 'FRAME22.1', -(apv['FRAME22']['A(1)']-apv['FRAME22']['A(2)']), 'XY plane', 0, 305)
         mprog.add_offset_assembly('plate.1', 'FRAME22.1', (par.plate_length_width[1]/2-assmebly_par['Ass_AL']+apv['FRAME22']['O']), 'YZ plane', 1, 306)
@@ -424,7 +424,7 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
                                       -(apv['FRAME35']['A']-apv['FRAME35']['e']), 'ZX plane', 0, 352)
     except:
         pass
-
+    #25頓
     if stamping_press_type == 0:
         mprog.add_offset_assembly('FRAME33.1', 'FRAME1.1', 0, 'XY plane', 0, 19)
         mprog.add_offset_assembly('FRAME33.1', 'FRAME1.1', -(apv['FRAME1']['B']-apv['FRAME33']['B'])-zeta, 'YZ plane', 0, 20)
@@ -535,6 +535,7 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
                                   -(apv['FRAME3']['B'] / 2 - assmebly_par['Ass_U'] + apv['FRAME1']['CC'] / 2),
                                   'ZX plane',
                                   1, 120)
+    #35頓
     elif stamping_press_type == 1:
         mprog.add_offset_assembly('FRAME33.1', 'FRAME1.1', 0, 'XY plane', 0, 19)
         mprog.add_offset_assembly('FRAME33.1', 'FRAME1.1', -(apv['FRAME1']['B']-apv['FRAME33']['B'])-zeta, 'YZ plane', 0, 20)
@@ -661,6 +662,7 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
                                   -(apv['FRAME3']['B'] / 2 - assmebly_par['Ass_U'] + apv['FRAME1']['CC'] / 2),
                                   'ZX plane',
                                   1, 120)
+    #45頓
     elif stamping_press_type == 2:
         mprog.add_offset_assembly('FRAME6.1', 'FRAME4.1',
                                   assmebly_par['Ass_Q'] - (apv['FRAME4']['A'] - apv['FRAME4']['a']) - apv['FRAME6'][
@@ -833,8 +835,7 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
         mprog.add_offset_assembly('FRAME42.2', 'FRAME2.1', (
                 apv['FRAME1']['CC'] / 2 + apv['FRAME19']['AH'] + apv['FRAME42']['B']),
                                   'ZX plane', 0, 172)
-
-#60頓待修
+    #60頓待修
     elif stamping_press_type == 3:
         mprog.add_offset_assembly('FRAME6.1', 'FRAME4.1',
                                   assmebly_par['Ass_Q'] - (apv['FRAME4']['A'] - apv['FRAME4']['a']) + apv['FRAME6'][
@@ -1004,6 +1005,7 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
         mprog.add_offset_assembly('FRAME42.2', 'FRAME2.1', (
                 apv['FRAME1']['CC'] / 2 + apv['FRAME19']['AH'] + apv['FRAME42']['B']),
                                   'ZX plane', 0, 172)
+    #110頓
     elif stamping_press_type == 5:
         mprog.add_offset_assembly('FRAME6.1', 'FRAME4.1',
                                   assmebly_par['Ass_Q'] - (apv['FRAME4']['A'] - apv['FRAME4']['a'] + apv['FRAME6']['E']/2) + apv['FRAME6']['E'], 'XY plane', 0, 88)
@@ -1212,6 +1214,42 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
             mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', S_assmebly_par['M_XY'], 'XY plane', 0, 326)
             mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', -S_assmebly_par['M_YZ'], 'YZ plane', 0, 327)
             mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', S_assmebly_par['M_ZX'], 'ZX plane', 0, 328)
+        # 變頻器選配
+        if INVERTER == '東元':
+            if travel_type == 1:  # k+zeta+cc1
+                mprog.add_offset_assembly(S_i.INVERTER_D_S_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                            apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
+                        'bb1'] / 2), 'XY plane', 0, 353)
+                mprog.add_offset_assembly(S_i.INVERTER_D_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                          -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
+                mprog.add_offset_assembly(S_i.INVERTER_D_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                          -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+            else:
+                mprog.add_offset_assembly(S_i.INVERTER_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                            apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
+                        'w1'] / 2), 'XY plane', 0, 353)
+                mprog.add_offset_assembly(S_i.INVERTER_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                          -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
+                mprog.add_offset_assembly(S_i.INVERTER_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                          -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+        elif INVERTER == '台達':
+            if travel_type == 1:
+                mprog.add_offset_assembly(S_i.INVERTER_T_S_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                            apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
+                        'y1'] / 2 - apv['FRAME2']['bb2']), 'XY plane', 0, 353)
+                mprog.add_offset_assembly(S_i.INVERTER_T_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                          -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
+                mprog.add_offset_assembly(S_i.INVERTER_T_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                          -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+            else:
+                mprog.add_offset_assembly(S_i.INVERTER_T_HP_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                            apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
+                        'y1'] / 2 - apv['FRAME2']['bb2']), 'XY plane', 0, 353)
+                mprog.add_offset_assembly(S_i.INVERTER_T_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                          -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
+                mprog.add_offset_assembly(S_i.INVERTER_T_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                          -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+    #250頓
     elif stamping_press_type == 8:
         mprog.add_offset_assembly('FRAME15.1', 'FRAME1.1', -(
                 apv['FRAME1']['A'] - apv['FRAME30']['A'] - assmebly_par['Ass_S'] - apv['FRAME17']['g3']) - beta,
@@ -1457,6 +1495,23 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
             mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', -S_assmebly_par['M_XY'], 'XY plane', 0, 326)
             mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', -S_assmebly_par['M_YZ'], 'YZ plane', 0, 327)
             mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', -S_assmebly_par['M_ZX'], 'ZX plane', 1, 328)
+        # 變頻器選配
+        if INVERTER == '東元':
+            mprog.add_offset_assembly(S_i.INVERTER_D_S_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                    apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['aaaa2'] + apv['FRAME2'][
+                'aaaa1'] / 2), 'XY plane', 0, 353)
+            mprog.add_offset_assembly(S_i.INVERTER_D_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                      -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
+            mprog.add_offset_assembly(S_i.INVERTER_D_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                      -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+        elif INVERTER == '台達':
+            mprog.add_offset_assembly(S_i.INVERTER_T_S_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                    apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['dddd2'] + apv['FRAME2'][
+                'dddd1'] / 2 ), 'XY plane', 0, 353)
+            mprog.add_offset_assembly(S_i.INVERTER_T_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                      -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
+            mprog.add_offset_assembly(S_i.INVERTER_T_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                      -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
 
 
 

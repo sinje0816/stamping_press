@@ -505,12 +505,12 @@ class main(QtWidgets.QWidget, Ui_Form):
 
     def start(self):
         start_time = time.time()
+        #讀取介面輸入數值
         specifications_travel_value,  specifications_close_working_height_value, self.GUM, self.INVERTER= self.customize_dimension_check()
         type = self.ui.window_main_table.cellWidget(4, 3).currentText()
         travel_type = str(self.ui.window_main_table.cellWidget(5, 3).currentText())
         processing = '是'
         print(type, travel_type, specifications_travel_value, specifications_close_working_height_value)
-        # self.create_dir()
         if specifications_travel_value == "":
             self.specifications_travel_value = 0
         else:
@@ -526,9 +526,9 @@ class main(QtWidgets.QWidget, Ui_Form):
                                                                               self.specifications_close_working_height_value,
                                                                               self.travel_type)
         if test_stop == False:
-            # self.create_txt(self.path, type, travel_type, self.specifications_travel_value,
-            #                 self.specifications_close_working_height_value, self.alpha, self.beta, self.zeta,
-            #                 self.epsilon)
+            self.create_txt(self.path, type, travel_type, self.specifications_travel_value,
+                            self.specifications_close_working_height_value, self.alpha, self.beta, self.zeta,
+                            self.epsilon)
             self.change_dir(self.stamping_press_type, self.p, self.alpha, self.beta, self.zeta, self.epsilon, machining,
                             welding, self.travel_type, self.specifications_close_working_height_value, self.GUM, self.INVERTER)
             TOTAL_time = time.time() - start_time
@@ -737,63 +737,63 @@ class main(QtWidgets.QWidget, Ui_Form):
 
         return  path , machining , welding, punch
 
-    def finish(self, machining_file_change_error, welding_file_change_error):
-        Form = QtWidgets.QWidget()
-        Form.setWindowTitle('oxxo.studio')
-        Form.resize(500, 200)
-        mbox = QtWidgets.QMessageBox(Form)
-        mbox.information(Form, '完成', '生成完成\nmachining_file_change_error:%s\nwelding_file_change_error:%s\n' % (
-            machining_file_change_error, welding_file_change_error))
-        self.ui.lineEdit_5.clear()
-        self.ui.lineEdit_2.clear()
+    # def finish(self, machining_file_change_error, welding_file_change_error):
+    #     Form = QtWidgets.QWidget()
+    #     Form.setWindowTitle('oxxo.studio')
+    #     Form.resize(500, 200)
+    #     mbox = QtWidgets.QMessageBox(Form)
+    #     mbox.information(Form, '完成', '生成完成\nmachining_file_change_error:%s\nwelding_file_change_error:%s\n' % (
+    #         machining_file_change_error, welding_file_change_error))
+    #     self.ui.lineEdit_5.clear()
+    #     self.ui.lineEdit_2.clear()
 
-    def label_7_change_data(self):
-        label_7_data = {250: {"S": "標準:80", "H": ("標準:50"), "P": ("標準:35")},
-                        350: {"S": ("標準:90"), "H": ("標準:60"), "P": ("標準:40")},
-                        450: {"S": ("標準:110"), "H": ("標準:70"), "P": ("標準:45")},
-                        600: {"S": ("標準:130"), "H": ("標準:80"), "P": ("標準:50")},
-                        800: {"S": ("標準:150"), "H": ("標準:100"), "P": ("標準:60")},
-                        1100: {"S": ("標準:180"), "H": ("標準:110"), "P": ("標準:70")},
-                        1600: {"S": ("標準:200"), "H": ("標準:130"), "P": ("標準:80")},
-                        2000: {"S": ("標準:220"), "H": ("標準:150"), "P": ("標準:90")},
-                        2500: {"S": ("標準:250"), "H": ("標準:180"), "P": ("標準:100")},
-                        }
-        return label_7_data
+    # def label_7_change_data(self):
+    #     label_7_data = {250: {"S": "標準:80", "H": ("標準:50"), "P": ("標準:35")},
+    #                     350: {"S": ("標準:90"), "H": ("標準:60"), "P": ("標準:40")},
+    #                     450: {"S": ("標準:110"), "H": ("標準:70"), "P": ("標準:45")},
+    #                     600: {"S": ("標準:130"), "H": ("標準:80"), "P": ("標準:50")},
+    #                     800: {"S": ("標準:150"), "H": ("標準:100"), "P": ("標準:60")},
+    #                     1100: {"S": ("標準:180"), "H": ("標準:110"), "P": ("標準:70")},
+    #                     1600: {"S": ("標準:200"), "H": ("標準:130"), "P": ("標準:80")},
+    #                     2000: {"S": ("標準:220"), "H": ("標準:150"), "P": ("標準:90")},
+    #                     2500: {"S": ("標準:250"), "H": ("標準:180"), "P": ("標準:100")},
+    #                     }
+    #     return label_7_data
+    #
+    # def change_label_7(self):
+    #     label_7_data = self.label_7_change_data()
+    #     type = str(self.ui.comboBox_4.currentText())
+    #     travel_type = str(self.ui.comboBox_2.currentText())
+    #     ton = int(type.split('-')[-1] + '0')
+    #     travel_standard = label_7_data[ton][travel_type]
+    #     travel_standard = str(travel_standard)
+    #
+    #     self.ui.label_7.clear()
+    #     self.ui.label_7.setText(travel_standard)
 
-    def change_label_7(self):
-        label_7_data = self.label_7_change_data()
-        type = str(self.ui.comboBox_4.currentText())
-        travel_type = str(self.ui.comboBox_2.currentText())
-        ton = int(type.split('-')[-1] + '0')
-        travel_standard = label_7_data[ton][travel_type]
-        travel_standard = str(travel_standard)
+    # def label_9_data(self):
+    #     label_9_data = {250: {"S": ("標準:230"), "H": ("標準:200"), "P": ("標準:200")},
+    #                     350: {"S": ("標準:250"), "H": ("標準:220"), "P": ("標準:220")},
+    #                     450: {"S": ("標準:270"), "H": ("標準:240"), "P": ("標準:240")},
+    #                     600: {"S": ("標準:300"), "H": ("標準:270"), "P": ("標準:270")},
+    #                     800: {"S": ("標準:330"), "H": ("標準:300"), "P": ("標準:300")},
+    #                     1100: {"S": ("標準:350"), "H": ("標準:320"), "P": ("標準:320")},
+    #                     1600: {"S": ("標準:400"), "H": ("標準:360"), "P": ("標準:360")},
+    #                     2000: {"S": ("標準:450"), "H": ("標準:400"), "P": ("標準:400")},
+    #                     2500: {"S": ("標準:450"), "H": ("標準:400"), "P": ("標準:400")}, }
+    #
+    #     return label_9_data
 
-        self.ui.label_7.clear()
-        self.ui.label_7.setText(travel_standard)
-
-    def label_9_data(self):
-        label_9_data = {250: {"S": ("標準:230"), "H": ("標準:200"), "P": ("標準:200")},
-                        350: {"S": ("標準:250"), "H": ("標準:220"), "P": ("標準:220")},
-                        450: {"S": ("標準:270"), "H": ("標準:240"), "P": ("標準:240")},
-                        600: {"S": ("標準:300"), "H": ("標準:270"), "P": ("標準:270")},
-                        800: {"S": ("標準:330"), "H": ("標準:300"), "P": ("標準:300")},
-                        1100: {"S": ("標準:350"), "H": ("標準:320"), "P": ("標準:320")},
-                        1600: {"S": ("標準:400"), "H": ("標準:360"), "P": ("標準:360")},
-                        2000: {"S": ("標準:450"), "H": ("標準:400"), "P": ("標準:400")},
-                        2500: {"S": ("標準:450"), "H": ("標準:400"), "P": ("標準:400")}, }
-
-        return label_9_data
-
-    def change_label_9(self):
-        label_9_data = self.label_9_data()
-        type = str(self.ui.comboBox_4.currentText())
-        travel_type = str(self.ui.comboBox_2.currentText())
-        ton = int(type.split('-')[-1] + '0')
-        close_h = label_9_data[ton][travel_type]
-        close_h = str(close_h)
-
-        self.ui.label_9.clear()
-        self.ui.label_9.setText(close_h)
+    # def change_label_9(self):
+    #     label_9_data = self.label_9_data()
+    #     type = str(self.ui.comboBox_4.currentText())
+    #     travel_type = str(self.ui.comboBox_2.currentText())
+    #     ton = int(type.split('-')[-1] + '0')
+    #     close_h = label_9_data[ton][travel_type]
+    #     close_h = str(close_h)
+    #
+    #     self.ui.label_9.clear()
+    #     self.ui.label_9.setText(close_h)
 
     def change_dir(self, stamping_press_type, p, alpha, beta, zeta, epsilon, machining, welding, travel_type, specifications_close_working_height_value, GUM, INVERTER):
         start_time = time.time()
@@ -821,6 +821,7 @@ class main(QtWidgets.QWidget, Ui_Form):
                     # 创建一个新的StringIO对象来捕获输出
                     captured_output = StringIO()
                     sys.stdout = captured_output
+                    #判斷其是否為STP(直接匯入)之零件
                     if name == 'PANEL' or name == 'CON_ROD' or name == 'CON_ROD_BASE' or name == 'CON_ROD_CAP' or name == 'INVERTERBRACKET' \
                             or name == 'POINTER' or name == 'COVER' or name == 'PLUG' or name == 'feeding_shaft_cover' or name == 'OIL_LEVEL_GAUGE' \
                             or name == 'slide_gib' or name == 'ELECTRIC_BOX_PLATE' or name == 'MOUNT_FILTER'or name == 'CONTROL_PANEL' or name == 'PANEL_BOX'\
@@ -834,7 +835,9 @@ class main(QtWidgets.QWidget, Ui_Form):
                     else:
                         # 讀取機架零件
                         mprog.import_part(fp.system_root + fp.DEMO_part, name)
+                    #判斷FRAME52是否需模墊加工
                     if name == 'FRAME52' and p == 0:
+                        #輸入行程調整量等客製化參數
                         try:
                             mprog.param_change(name, "alpha", alpha)
                             mprog.param_change(name, "beta", beta)
@@ -908,14 +911,14 @@ class main(QtWidgets.QWidget, Ui_Form):
                     mprog.close_file(name)
                 except:
                     pass
-        print(stamping_press_type)
-        print('all_part_name', all_part_name)
-        print('all_part_value', all_part_value)
-        print('machining_file_change_error', machining_file_change_error)
-        print('machining_file_change_pass', machining_file_change_pass)
-        print('welding_file_change_error', welding_file_change_error)
-        print('welding_file_change_pass', welding_file_change_pass)
-        print('總用時%s' % (time.time() - start_time))  # 建立3D組立
+        # print(stamping_press_type)
+        # print('all_part_name', all_part_name)
+        # print('all_part_value', all_part_value)
+        # print('machining_file_change_error', machining_file_change_error)
+        # print('machining_file_change_pass', machining_file_change_pass)
+        # print('welding_file_change_error', welding_file_change_error)
+        # print('welding_file_change_pass', welding_file_change_pass)
+        # print('總用時%s' % (time.time() - start_time))  # 建立3D組立
         Ad.assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifications_close_working_height_value, travel_type, GUM,INVERTER)
 
         return machining_file_change_error, welding_file_change_error
