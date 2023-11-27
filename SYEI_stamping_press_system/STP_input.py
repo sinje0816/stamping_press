@@ -37,13 +37,24 @@ OPERATION_BOX_list = '01A061186RP_OPERATION_BOX'
 PORTABLE_STAND_list = ['EWR12S06_PORTABLE_STAND', 'EWR12S06_PORTABLE_STAND' , 'EWR12S06_PORTABLE_STAND', 'EWR12S03_PORTABLE_STAND', 'EWR12S03_PORTABLE_STAND', 'EWR12S03_PORTABLE_STAND', 'EWR12S02_PORTABLE_STAND', 'EWR12S02_PORTABLE_STAND', 'EWR12S02_PORTABLE_STAND']
 OPERATION_BOX_list_normal = ['01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX']
 BEARING_HOUSING_list = ['302CC4S02_BEARING_HOUSING', '322CC4S02_BEARING_HOUSING', '342CC4S02_BEARING_HOUSING', '372CC4S02_BEARING_HOUSING', '395CC4S02_BEARING_HOUSING', '412CC4S02_BEARING_HOUSING', '432CC4S02_BEARING_HOUSING', '455CC4S02_BEARING_HOUSING', '475CC4S02_BEARING_HOUSING']
-SLIDE_list_normal = ['', '', '', 'punch_60_normal', 'punch_80_normal', 'punch_110_normal', 'punch_160_normal', 'punch_200_normal', 'punch_250_normal']
+SLIDE_list_normal = ['', '', '', 'punch_3_normal', 'punch_4_normal', 'punch_5_normal', 'punch_6_normal', 'punch_7_normal', 'punch_8_normal']
 BALANCER_list = ['FAC063160W_BALANCER', 'FAC063170W_BALANCER', 'FAC070205W_BALANCER', 'FAC080235W_BALANCER', 'FAC100280W_BALANCER', 'FAC120320W_BALANCER', 'FAC140360W_BALANCER', 'FAC180390WA_BALANCER', 'FAC200450WS01_BALANCER']
 MOTOR_list = ['5HP_3.7kW_MOTOR', '5HP_3.7kW_MOTOR', '5HP_3.7kW_MOTOR', '7.5HP_5.5kW_MOTOR', '10HP_7.5kW_MOTOR', '10HP_7.5kW_MOTOR', '15HP_11kW_MOTOR', '20HP_15kW_MOTOR', '25HP_18.5kW_MOTOR']
 MOTOR_BRACKET_S_list = ['302M01S02_MOTOR_BASE', '322M01S02_MOTOR_BASE', '34M4701_MOTOR_BASE', '392M01_MOTOR_BASE', '392M01S03_MOTOR_BASE', '41M4701_MOTOR_BASE', '34M4701_MOTOR_BASE', '452M01_MOTOR_BASE', '472M01_MOTOR_BASE']
 MOTOR_BRACKET_HP_list = ['302M01S02_MOTOR_BASE', '322M01S02_MOTOR_BASE', '34M4701_MOTOR_BASE', '392M01_MOTOR_BASE', '392M01S03_MOTOR_BASE', '412M01S03_MOTOR_BASE', '432M01S04_MOTOR_BASE', '94452S053_MOTOR_BASE', '472M01_MOTOR_BASE']
-
-def STP(name, stamping_press_type, machining, travel_type):
+# 穎益
+GUM_E_list = ['L7_18-20_ANTI_VIBRATION_GUM', 'L7_18-20_ANTI_VIBRATION_GUM', 'L9_21_24_ANTI_VIBRATION_GUM', 'L9_21_24_ANTI_VIBRATION_GUM', 'L19_25_24_ANTI_VIBRATION_GUM', 'L29_29_24_ANTI_VIBRATION_GUM', 'L39_32_30_ANTI_VIBRATION_GUM', 'L69_38_39_ANTI_VIBRATION_GUM', 'L89_45_39_ANTI_VIBRATION_GUM']
+# UNISORB
+GUM_U_list = ['PM_61_M16_N90_ANTI_VIBRATION_GUM', 'PM_61_M16_N90_ANTI_VIBRATION_GUM', 'PM_81_M24_N75_ANTI_VIBRATION_GUM', 'PM_81_M24_N90_ANTI_VIBRATION_GUM', 'PM_81_M24_N90_ANTI_VIBRATION_GUM', 'PM_101_M30(150)_TF24_ANTI_VIBRATION_GUM', 'PM_121_M36(180)_TF25_ANTI_VIBRATION_GUM', 'PM_121_M36(180)_TF26_ANTI_VIBRATION_GUM', 'PM_161_M36(180)_TF2631_ANTI_VIBRATION_GUM']
+# 商定
+GUM_S_list = ['KM_145_ANTI_VIBRATION_GUM', 'KM_145_ANTI_VIBRATION_GUM', 'KM_145_ANTI_VIBRATION_GUM', 'KM_200_ANTI_VIBRATION_GUM', 'KM_200_ANTI_VIBRATION_GUM', 'KM_200_ANTI_VIBRATION_GUM', 'KM_250_ANTI_VIBRATION_GUM', 'KM_250_ANTI_VIBRATION_GUM', 'KM_250_ANTI_VIBRATION_GUM']
+#東元
+INVERTER_D_S_list =['', '', '', '', '', 'SAV0102B1T_INVERTER', '', '', 'SAV0252B1T_INVERTER']
+INVERTER_D_HP_list =['', '', '', '', '', 'SAV0152B1T_INVERTER', '', '', 'SAV0252B1T_INVERTER']
+#台達
+INVERTER_T_S_list =['', '', '', '', '', 'SAV0102BUS_INVERTER', '', '', 'SAV0252BUS_INVERTER']
+INVERTER_T_HP_list =['', '', '', '', '', 'SAV0152BUS_INVERTER', '', '', 'SAV0252BUS_INVERTER']
+def STP(name, stamping_press_type, machining, travel_type, GUM, INVERTER):
     if name == 'PANEL':
         mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_list[stamping_press_type])
         mprog.save_file_stp(machining, PANEL_list[stamping_press_type])
@@ -288,10 +299,66 @@ def STP(name, stamping_press_type, machining, travel_type):
             mprog.save_file_stp(machining, MOTOR_BRACKET_HP_list[stamping_press_type])
             mprog.save_stpfile_part(machining, MOTOR_BRACKET_HP_list[stamping_press_type])
             mprog.close_file(MOTOR_BRACKET_HP_list[stamping_press_type])
+    elif name == 'WIRE_CASING':
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), '43N6603_WIRE_CASING')
+            mprog.save_file_stp(machining, '43N6603_WIRE_CASING')
+            mprog.save_stpfile_part(machining, '43N6603_WIRE_CASING')
+            mprog.close_file('43N6603_WIRE_CASING')
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), '43N6604_WIRE_CASING')
+            mprog.save_file_stp(machining, '43N6604_WIRE_CASING')
+            mprog.save_stpfile_part(machining, '43N6604_WIRE_CASING')
+            mprog.close_file('43N6604_WIRE_CASING')
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), 'MZW8702_WIRE_CASING')
+            mprog.save_file_stp(machining, 'MZW8702_WIRE_CASING')
+            mprog.save_stpfile_part(machining, 'MZW8702_WIRE_CASING')
+            mprog.close_file('MZW8702_WIRE_CASING')
+    elif name == 'ANTI_VIBRATION_GUM':
+        if GUM == '無':
+            pass
+        elif GUM == '穎益':
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), GUM_E_list[stamping_press_type])
+            mprog.save_file_stp(machining, GUM_E_list[stamping_press_type])
+            mprog.save_stpfile_part(machining, GUM_E_list[stamping_press_type])
+            mprog.close_file(GUM_E_list[stamping_press_type])
+        elif GUM == 'UNISORB':
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), GUM_U_list[stamping_press_type])
+            mprog.save_file_stp(machining, GUM_U_list[stamping_press_type])
+            mprog.save_stpfile_part(machining, GUM_U_list[stamping_press_type])
+            mprog.close_file(GUM_U_list[stamping_press_type])
+        elif GUM == '商定':
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), GUM_S_list[stamping_press_type])
+            mprog.save_file_stp(machining, GUM_S_list[stamping_press_type])
+            mprog.save_stpfile_part(machining, GUM_S_list[stamping_press_type])
+            mprog.close_file(GUM_S_list[stamping_press_type])
+    elif name == 'INVERTER':
+        if INVERTER == '東元':
+            if travel_type == 1:
+                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name),
+                                  INVERTER_D_S_list[stamping_press_type])
+                mprog.save_file_stp(machining, INVERTER_D_S_list[stamping_press_type])
+                mprog.save_stpfile_part(machining, INVERTER_D_S_list[stamping_press_type])
+                mprog.close_file(INVERTER_D_S_list[stamping_press_type])
+            else:
+                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name),
+                                  INVERTER_D_HP_list[stamping_press_type])
+                mprog.save_file_stp(machining, INVERTER_D_HP_list[stamping_press_type])
+                mprog.save_stpfile_part(machining, INVERTER_D_HP_list[stamping_press_type])
+                mprog.close_file(INVERTER_D_HP_list[stamping_press_type])
+        elif INVERTER == '台達':
+            if travel_type == 1:
+                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), INVERTER_T_S_list[stamping_press_type])
+                mprog.save_file_stp(machining, INVERTER_T_S_list[stamping_press_type])
+                mprog.save_stpfile_part(machining, INVERTER_T_S_list[stamping_press_type])
+                mprog.close_file(INVERTER_T_S_list[stamping_press_type])
+            else:
+                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), INVERTER_T_HP_list[stamping_press_type])
+                mprog.save_file_stp(machining, INVERTER_T_HP_list[stamping_press_type])
+                mprog.save_stpfile_part(machining, INVERTER_T_HP_list[stamping_press_type])
+                mprog.close_file(INVERTER_T_HP_list[stamping_press_type])
 
 
 
-def Assmebly(name,path, stamping_press_type, travel_type):
+def Assmebly(name,path, stamping_press_type, travel_type, GUM, INVERTER):
     if name == 'PANEL':
         mprog.import_file_Part(path, PANEL_list[stamping_press_type])
     elif name == 'CON_ROD':
@@ -387,6 +454,30 @@ def Assmebly(name,path, stamping_press_type, travel_type):
             mprog.import_file_Part(path, MOTOR_BRACKET_S_list[stamping_press_type])
         else:
             mprog.import_file_Part(path, MOTOR_BRACKET_HP_list[stamping_press_type])
+    elif name == 'WIRE_CASING':
+            mprog.import_file_Part(path, '43N6603_WIRE_CASING')
+            mprog.import_file_Part(path, '43N6604_WIRE_CASING')
+            mprog.import_file_Part(path,'MZW8702_WIRE_CASING')
+    elif name == 'ANTI_VIBRATION_GUM':
+        if GUM == '無':
+            pass
+        elif GUM == '穎益':
+            mprog.import_file_Part(path, GUM_E_list[stamping_press_type])
+        elif GUM == 'UNISORB':
+            mprog.import_file_Part(path, GUM_U_list[stamping_press_type])
+        elif GUM == '商定':
+            mprog.import_file_Part(path, GUM_S_list[stamping_press_type])
+    elif name == 'INVERTER':
+        if INVERTER == '東元':
+            if travel_type == 1:
+                mprog.import_file_Part(path, INVERTER_D_S_list[stamping_press_type])
+            else:
+                mprog.import_file_Part(path, INVERTER_D_HP_list[stamping_press_type])
+        elif INVERTER == '台達':
+            if travel_type == 1:
+                mprog.import_file_Part(path, INVERTER_T_S_list[stamping_press_type])
+            else:
+                mprog.import_file_Part(path, INVERTER_T_HP_list[stamping_press_type])
 
 
 

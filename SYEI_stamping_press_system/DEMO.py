@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QVBoxLayout, QWidget, QPushButton, QLabel, QTableWidgetItem, QHeaderView, QComboBox, QAbstractItemView, QMessageBox, QHBoxLayout, QLineEdit
+from PyQt5.QtWidgets import QVBoxLayout, QWidget, QPushButton, QLabel, QTableWidgetItem, QHeaderView, QComboBox, QAbstractItemView, QMessageBox, QHBoxLayout, QLineEdit, QCheckBox
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QColor, QBrush, QPixmap, QFont
 from DEMOGUI import Ui_Dialog
@@ -13,6 +13,7 @@ from pad_main_simple import Ui_Form as pad_main_simple_form
 from slide_main_simple import Ui_Form as slide_main_form
 from slide_main import Ui_Form as slide_secend_form
 from window_main import Ui_Form
+from select_item import Ui_Form as select_item_form
 from io import StringIO
 import main_program as mprog
 import file_path as fp
@@ -330,7 +331,7 @@ class main(QtWidgets.QWidget, Ui_Form):
 
         plate_setup.clicked.connect(lambda:self.switch_to_plate(par.stamping_press_type))
         slide_setup.clicked.connect(lambda :self.switch_to_slide(par.stamping_press_type))
-        # select_setup.clicked.connect()
+        select_setup.clicked.connect(lambda: self.switch_to_select_item())
         # spare_parts_setup.clicked.connect()
 
     def previous_value(self):
@@ -382,6 +383,12 @@ class main(QtWidgets.QWidget, Ui_Form):
     def switch_to_slide(self, stamping_press_type):
         self.hide()
         self.nw = slide_first_windows(stamping_press_type)
+        self.nw.show()
+
+    def switch_to_select_item(self):
+        self.window_main_keep()
+        self.hide()
+        self.nw = select_item_window()
         self.nw.show()
 
     def unit_change(self):
@@ -485,7 +492,13 @@ class main(QtWidgets.QWidget, Ui_Form):
             par.customize_DH = self.ui.window_main_table.cellWidget(11, 4).text()
         elif check_item[2] == '':
             par.customize_DH = self.ui.window_main_table.item(11, 3).text()
+        if check_item[5] !='':
+            par.INVERTER = self.ui.window_main_table.cellWidget(14, 4).text()
+        elif check_item[5] == '':
+            par.INVERTER = self.ui.window_main_table.item(14, 3).text()
+        par.GUM = self.ui.window_main_table.cellWidget(18, 3).currentText()
         print(check_item, par.customize_stroke, par.customize_cycle, par.customize_DH)
+        return par.customize_stroke , par.customize_DH , par.GUM, par.INVERTER
 
     def window_main_keep(self):
         par.main_change = '1'
@@ -498,14 +511,13 @@ class main(QtWidgets.QWidget, Ui_Form):
         print(par.unit_keep, par.type_keep, par.style_keep, par.stroke_keep, par.cycle_keep, par.DH_keep)
 
     def start(self):
-        self.customize_dimension_check()
+        start_time = time.time()
+        #讀取介面輸入數值
+        specifications_travel_value,  specifications_close_working_height_value, self.GUM, self.INVERTER= self.customize_dimension_check()
         type = self.ui.window_main_table.cellWidget(4, 3).currentText()
         travel_type = str(self.ui.window_main_table.cellWidget(5, 3).currentText())
-        specifications_travel_value = str(self.ui.window_main_table.item(9, 3).text())
-        specifications_close_working_height_value = str(self.ui.window_main_table.item(11, 3).text())
         processing = '是'
         print(type, travel_type, specifications_travel_value, specifications_close_working_height_value)
-        # self.create_dir()
         if specifications_travel_value == "":
             self.specifications_travel_value = 0
         else:
@@ -521,12 +533,13 @@ class main(QtWidgets.QWidget, Ui_Form):
                                                                               self.specifications_close_working_height_value,
                                                                               self.travel_type)
         if test_stop == False:
-            # self.create_txt(self.path, type, travel_type, self.specifications_travel_value,
-            #                 self.specifications_close_working_height_value, self.alpha, self.beta, self.zeta,
-            #                 self.epsilon)
+            self.create_txt(self.path, type, travel_type, self.specifications_travel_value,
+                            self.specifications_close_working_height_value, self.alpha, self.beta, self.zeta,
+                            self.epsilon)
             self.change_dir(self.stamping_press_type, self.p, self.alpha, self.beta, self.zeta, self.epsilon, machining,
-                            welding, self.travel_type, self.specifications_close_working_height_value)
-
+                            welding, self.travel_type, self.specifications_close_working_height_value, self.GUM, self.INVERTER)
+            TOTAL_time = time.time() - start_time
+            print(TOTAL_time)
     def choose_stamping_press_type(self):
         type = self.ui.window_main_table.cellWidget(4, 3).currentText()
         style = self.ui.window_main_table.cellWidget(5, 3).currentText()
@@ -731,65 +744,65 @@ class main(QtWidgets.QWidget, Ui_Form):
 
         return  path , machining , welding, slide
 
-    def finish(self, machining_file_change_error, welding_file_change_error):
-        Form = QtWidgets.QWidget()
-        Form.setWindowTitle('oxxo.studio')
-        Form.resize(500, 200)
-        mbox = QtWidgets.QMessageBox(Form)
-        mbox.information(Form, '完成', '生成完成\nmachining_file_change_error:%s\nwelding_file_change_error:%s\n' % (
-            machining_file_change_error, welding_file_change_error))
-        self.ui.lineEdit_5.clear()
-        self.ui.lineEdit_2.clear()
+    # def finish(self, machining_file_change_error, welding_file_change_error):
+    #     Form = QtWidgets.QWidget()
+    #     Form.setWindowTitle('oxxo.studio')
+    #     Form.resize(500, 200)
+    #     mbox = QtWidgets.QMessageBox(Form)
+    #     mbox.information(Form, '完成', '生成完成\nmachining_file_change_error:%s\nwelding_file_change_error:%s\n' % (
+    #         machining_file_change_error, welding_file_change_error))
+    #     self.ui.lineEdit_5.clear()
+    #     self.ui.lineEdit_2.clear()
 
-    def label_7_change_data(self):
-        label_7_data = {250: {"S": "標準:80", "H": ("標準:50"), "P": ("標準:35")},
-                        350: {"S": ("標準:90"), "H": ("標準:60"), "P": ("標準:40")},
-                        450: {"S": ("標準:110"), "H": ("標準:70"), "P": ("標準:45")},
-                        600: {"S": ("標準:130"), "H": ("標準:80"), "P": ("標準:50")},
-                        800: {"S": ("標準:150"), "H": ("標準:100"), "P": ("標準:60")},
-                        1100: {"S": ("標準:180"), "H": ("標準:110"), "P": ("標準:70")},
-                        1600: {"S": ("標準:200"), "H": ("標準:130"), "P": ("標準:80")},
-                        2000: {"S": ("標準:220"), "H": ("標準:150"), "P": ("標準:90")},
-                        2500: {"S": ("標準:250"), "H": ("標準:180"), "P": ("標準:100")},
-                        }
-        return label_7_data
+    # def label_7_change_data(self):
+    #     label_7_data = {250: {"S": "標準:80", "H": ("標準:50"), "P": ("標準:35")},
+    #                     350: {"S": ("標準:90"), "H": ("標準:60"), "P": ("標準:40")},
+    #                     450: {"S": ("標準:110"), "H": ("標準:70"), "P": ("標準:45")},
+    #                     600: {"S": ("標準:130"), "H": ("標準:80"), "P": ("標準:50")},
+    #                     800: {"S": ("標準:150"), "H": ("標準:100"), "P": ("標準:60")},
+    #                     1100: {"S": ("標準:180"), "H": ("標準:110"), "P": ("標準:70")},
+    #                     1600: {"S": ("標準:200"), "H": ("標準:130"), "P": ("標準:80")},
+    #                     2000: {"S": ("標準:220"), "H": ("標準:150"), "P": ("標準:90")},
+    #                     2500: {"S": ("標準:250"), "H": ("標準:180"), "P": ("標準:100")},
+    #                     }
+    #     return label_7_data
+    #
+    # def change_label_7(self):
+    #     label_7_data = self.label_7_change_data()
+    #     type = str(self.ui.comboBox_4.currentText())
+    #     travel_type = str(self.ui.comboBox_2.currentText())
+    #     ton = int(type.split('-')[-1] + '0')
+    #     travel_standard = label_7_data[ton][travel_type]
+    #     travel_standard = str(travel_standard)
+    #
+    #     self.ui.label_7.clear()
+    #     self.ui.label_7.setText(travel_standard)
 
-    def change_label_7(self):
-        label_7_data = self.label_7_change_data()
-        type = str(self.ui.comboBox_4.currentText())
-        travel_type = str(self.ui.comboBox_2.currentText())
-        ton = int(type.split('-')[-1] + '0')
-        travel_standard = label_7_data[ton][travel_type]
-        travel_standard = str(travel_standard)
+    # def label_9_data(self):
+    #     label_9_data = {250: {"S": ("標準:230"), "H": ("標準:200"), "P": ("標準:200")},
+    #                     350: {"S": ("標準:250"), "H": ("標準:220"), "P": ("標準:220")},
+    #                     450: {"S": ("標準:270"), "H": ("標準:240"), "P": ("標準:240")},
+    #                     600: {"S": ("標準:300"), "H": ("標準:270"), "P": ("標準:270")},
+    #                     800: {"S": ("標準:330"), "H": ("標準:300"), "P": ("標準:300")},
+    #                     1100: {"S": ("標準:350"), "H": ("標準:320"), "P": ("標準:320")},
+    #                     1600: {"S": ("標準:400"), "H": ("標準:360"), "P": ("標準:360")},
+    #                     2000: {"S": ("標準:450"), "H": ("標準:400"), "P": ("標準:400")},
+    #                     2500: {"S": ("標準:450"), "H": ("標準:400"), "P": ("標準:400")}, }
+    #
+    #     return label_9_data
 
-        self.ui.label_7.clear()
-        self.ui.label_7.setText(travel_standard)
+    # def change_label_9(self):
+    #     label_9_data = self.label_9_data()
+    #     type = str(self.ui.comboBox_4.currentText())
+    #     travel_type = str(self.ui.comboBox_2.currentText())
+    #     ton = int(type.split('-')[-1] + '0')
+    #     close_h = label_9_data[ton][travel_type]
+    #     close_h = str(close_h)
+    #
+    #     self.ui.label_9.clear()
+    #     self.ui.label_9.setText(close_h)
 
-    def label_9_data(self):
-        label_9_data = {250: {"S": ("標準:230"), "H": ("標準:200"), "P": ("標準:200")},
-                        350: {"S": ("標準:250"), "H": ("標準:220"), "P": ("標準:220")},
-                        450: {"S": ("標準:270"), "H": ("標準:240"), "P": ("標準:240")},
-                        600: {"S": ("標準:300"), "H": ("標準:270"), "P": ("標準:270")},
-                        800: {"S": ("標準:330"), "H": ("標準:300"), "P": ("標準:300")},
-                        1100: {"S": ("標準:350"), "H": ("標準:320"), "P": ("標準:320")},
-                        1600: {"S": ("標準:400"), "H": ("標準:360"), "P": ("標準:360")},
-                        2000: {"S": ("標準:450"), "H": ("標準:400"), "P": ("標準:400")},
-                        2500: {"S": ("標準:450"), "H": ("標準:400"), "P": ("標準:400")}, }
-
-        return label_9_data
-
-    def change_label_9(self):
-        label_9_data = self.label_9_data()
-        type = str(self.ui.comboBox_4.currentText())
-        travel_type = str(self.ui.comboBox_2.currentText())
-        ton = int(type.split('-')[-1] + '0')
-        close_h = label_9_data[ton][travel_type]
-        close_h = str(close_h)
-
-        self.ui.label_9.clear()
-        self.ui.label_9.setText(close_h)
-
-    def change_dir(self, stamping_press_type, p, alpha, beta, zeta, epsilon, machining, welding, travel_type, specifications_close_working_height_value):
+    def change_dir(self, stamping_press_type, p, alpha, beta, zeta, epsilon, machining, welding, travel_type, specifications_close_working_height_value, GUM, INVERTER):
         start_time = time.time()
         all_part_name = {}
         all_part_value = {}
@@ -803,31 +816,35 @@ class main(QtWidgets.QWidget, Ui_Form):
         welding_file_change_pass = []
         # 開啟零件檔更改變數後儲存並關閉
         for name in epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_col_cell(1):
-            print(name)
+            # print(name)
             file_list_name, file_list_value = epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_sheet_par('沖床機架零件清單', stamping_press_type)
             file_list_name_index = file_list_name.index(name)
             if file_list_value[file_list_name_index] == 0:
                 pass
             else:
                 try:
-                    # 保存原始的sys.stdout
-                    original_stdout = sys.stdout
-                    # 创建一个新的StringIO对象来捕获输出
-                    captured_output = StringIO()
-                    sys.stdout = captured_output
+                    # # 保存原始的sys.stdout
+                    # original_stdout = sys.stdout
+                    # # 创建一个新的StringIO对象来捕获输出
+                    # captured_output = StringIO()
+                    # sys.stdout = captured_output
+                    #判斷其是否為STP(直接匯入)之零件
                     if name == 'PANEL' or name == 'CON_ROD' or name == 'CON_ROD_BASE' or name == 'CON_ROD_CAP' or name == 'INVERTERBRACKET' \
                             or name == 'POINTER' or name == 'COVER' or name == 'PLUG' or name == 'feeding_shaft_cover' or name == 'OIL_LEVEL_GAUGE' \
                             or name == 'slide_gib' or name == 'ELECTRIC_BOX_PLATE' or name == 'MOUNT_FILTER'or name == 'CONTROL_PANEL' or name == 'PANEL_BOX'\
                             or name == 'PANEL_BOX_BRACKET' or name == 'ELECTRIC_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE'\
                             or name == 'TRADEMARK_NAMEPLATE'or name == 'OPERATION_BOX' or name == 'PORTABLE_STAND' or name == 'OPERATION_BOX'\
-                            or name == 'BEARING_HOUSING'or name == 'SLIDE' or name == 'BALANCER'or name == 'MOTOR'or name == 'MOTOR_BRACKET':
+                            or name == 'BEARING_HOUSING'or name == 'SLIDE' or name == 'BALANCER'or name == 'MOTOR'or name == 'MOTOR_BRACKET' or name == 'WIRE_CASING'\
+                            or name == 'ANTI_VIBRATION_GUM'or name == 'HANDEL_MOUNT_FILTER'or name == 'INVERTER':
                         # 讀取其餘STP檔
-                        S_i.STP(name, stamping_press_type, machining, travel_type)
+                        S_i.STP(name, stamping_press_type, machining, travel_type, GUM, INVERTER)
                         continue
                     else:
                         # 讀取機架零件
                         mprog.import_part(fp.system_root + fp.DEMO_part, name)
+                    #判斷FRAME52是否需模墊加工
                     if name == 'FRAME52' and p == 0:
+                        #輸入行程調整量等客製化參數
                         try:
                             mprog.param_change(name, "alpha", alpha)
                             mprog.param_change(name, "beta", beta)
@@ -846,16 +863,16 @@ class main(QtWidgets.QWidget, Ui_Form):
                             apv = all_parameter_value
                         all_parameter_save.clear()
 
-                        # 恢复原始的sys.stdout
-                        sys.stdout = original_stdout
-                        # 从捕获的输出中获取文本
-                        output_text = captured_output.getvalue()
+                        # # 恢复原始的sys.stdout
+                        # sys.stdout = original_stdout
+                        # # 从捕获的输出中获取文本
+                        # output_text = captured_output.getvalue()
 
                         # 判断文本内容
-                        if "error" in output_text:
-                            machining_file_change_error.append(name)
-                        else:
-                            machining_file_change_pass.append(name)
+                        # if "error" in output_text:
+                        #     machining_file_change_error.append(name)
+                        # else:
+                        #     machining_file_change_pass.append(name)
                             # mprog.close_file(name)
                     else:
                         try:
@@ -877,39 +894,39 @@ class main(QtWidgets.QWidget, Ui_Form):
                             apv = all_parameter_value
                         all_parameter_save.clear()
 
-                        # 恢复原始的sys.stdout
-                        sys.stdout = original_stdout
-                        output_text = captured_output.getvalue()
-                        # 判断文本内容
-                        if "error" in output_text:
-                            machining_file_change_error.append(name)
-                        else:
-                            machining_file_change_pass.append(name)
+                        # # 恢复原始的sys.stdout
+                        # sys.stdout = original_stdout
+                        # output_text = captured_output.getvalue()
+                        # # 判断文本内容
+                        # if "error" in output_text:
+                        #     machining_file_change_error.append(name)
+                        # else:
+                        #     machining_file_change_pass.append(name)
                     # 儲存加工圖零件檔
                     mprog.save_file_stp(machining, name)
                     mprog.save_stpfile_part(machining, name)
                     # 進行裁料圖特徵變更
                     wptc.change_welding_feature(name, stamping_press_type)
-                    print(output_text)
-                    if "error" in output_text:
-                        welding_file_change_error.append(name)
-                    else:
-                        welding_file_change_pass.append(name)
+                    # # print(output_text)
+                    # if "error" in output_text:
+                    #     welding_file_change_error.append(name)
+                    # else:
+                    #     welding_file_change_pass.append(name)
                     # 儲存裁料圖零件檔
                     mprog.save_file_stp(welding, name)
                     mprog.save_stpfile_part(welding, name)
                     mprog.close_file(name)
                 except:
                     pass
-        print(stamping_press_type)
-        print('all_part_name', all_part_name)
-        print('all_part_value', all_part_value)
-        print('machining_file_change_error', machining_file_change_error)
-        print('machining_file_change_pass', machining_file_change_pass)
-        print('welding_file_change_error', welding_file_change_error)
-        print('welding_file_change_pass', welding_file_change_pass)
-        print('總用時%s' % (time.time() - start_time))  # 建立3D組立
-        Ad.assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifications_close_working_height_value, travel_type)
+        # print(stamping_press_type)
+        # print('all_part_name', all_part_name)
+        # print('all_part_value', all_part_value)
+        # print('machining_file_change_error', machining_file_change_error)
+        # print('machining_file_change_pass', machining_file_change_pass)
+        # print('welding_file_change_error', welding_file_change_error)
+        # print('welding_file_change_pass', welding_file_change_pass)
+        # print('總用時%s' % (time.time() - start_time))  # 建立3D組立
+        Ad.assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifications_close_working_height_value, travel_type, GUM,INVERTER)
 
         return machining_file_change_error, welding_file_change_error
 
@@ -1720,8 +1737,6 @@ class plate_first_windows(QtWidgets.QWidget):
         plate_secend_windows.t_solt(stamping_press_type, path)
         # 下料孔
         plate_secend_windows.plate_hole(stamping_press_type, stamping_press_type, path, 'plate_first_windows')
-        # 關閉實體外所有東西
-        mprog.Close_All()
         # 平板存檔
         mprog.save_file_stp(path, 'plate')
         mprog.save_stpfile_part(path, 'plate')
@@ -3027,6 +3042,285 @@ class cutout_hole_machining(QtWidgets.QWidget):
         self.nw = plate_secend_windows(stamping_press_type)
         self.nw.show()
 
+class select_item_window(QtWidgets.QWidget):
+    def __init__(self):
+        super().__init__()
+        self.ui = select_item_form()
+        self.ui.setupUi(self)
+        self.setWindowTitle('選配項目')
+        self.setting()
+
+    def setting(self):
+        # 设置额外的宽度和高度来容纳其他界面元素
+        extra_width = 30
+        extra_height = 500
+        # 获取表格的大小
+        table_size = self.ui.select_item_table.size()
+        # 设置窗口的大小为表格大小加上额外的宽度和高度
+        self.setFixedSize(table_size.width() + extra_width, table_size.height() + extra_height)
+        window_size = self.size()
+        # 调整表格的大小以填充整个窗口
+        self.ui.select_item_table.setGeometry(0, 0, window_size.width(), window_size.height())
+        self.ui.select_item_table.setSpan(0, 0, 1, 6)
+        newItem = QTableWidgetItem('選配項目')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(0, 0, newItem)
+        self.ui.select_item_table.setSpan(1, 0, 3, 2)
+        checkbox = QCheckBox('模墊(S型機台)')
+        self.ui.select_item_table.setCellWidget(1, 0, checkbox)
+        self.ui.select_item_table.setSpan(4, 0, 1, 2)
+        checkbox = QCheckBox('光電安全裝置')
+        self.ui.select_item_table.setCellWidget(4, 0, checkbox)
+        self.ui.select_item_table.setSpan(5, 0, 1, 2)
+        checkbox = QCheckBox('控制箱切齊')
+        self.ui.select_item_table.setCellWidget(5, 0, checkbox)
+        self.ui.select_item_table.setSpan(6, 0, 7, 2)
+        checkbox = QCheckBox('QDC')
+        self.ui.select_item_table.setCellWidget(6, 0, checkbox)
+        self.ui.select_item_table.setSpan(13, 0, 1, 2)
+        checkbox = QCheckBox('裝箱方式')
+        self.ui.select_item_table.setCellWidget(13, 0, checkbox)
+        self.ui.select_item_table.setSpan(14, 0, 8, 2)
+        checkbox = QCheckBox('申皓裝置')
+        self.ui.select_item_table.setCellWidget(14, 0, checkbox)
+        self.ui.select_item_table.setSpan(22, 0, 1, 2)
+        checkbox = QCheckBox('千斤頂')
+        self.ui.select_item_table.setCellWidget(22, 0, checkbox)
+        self.ui.select_item_table.setSpan(23, 0, 4, 2)
+        checkbox = QCheckBox('吹氣吹料數量')
+        self.ui.select_item_table.setCellWidget(23, 0, checkbox)
+        self.ui.select_item_table.setSpan(27, 0, 1, 2)
+        checkbox = QCheckBox('安全桿')
+        self.ui.select_item_table.setCellWidget(27, 0, checkbox)
+        self.ui.select_item_table.setSpan(28, 0, 1, 2)
+        checkbox = QCheckBox('自動送料軸')
+        self.ui.select_item_table.setCellWidget(28, 0, checkbox)
+        self.ui.select_item_table.setSpan(29, 0, 1, 2)
+        checkbox = QCheckBox('腳踏操作器')
+        self.ui.select_item_table.setCellWidget(29, 0, checkbox)
+        self.ui.select_item_table.setSpan(30, 0, 1, 2)
+        checkbox = QCheckBox('試車潤滑油')
+        self.ui.select_item_table.setCellWidget(30, 0, checkbox)
+        self.ui.select_item_table.setSpan(27, 2, 1, 2)
+        checkbox = QCheckBox('手動平衡氣缸潤滑泵幫')
+        self.ui.select_item_table.setCellWidget(27, 2, checkbox)
+        self.ui.select_item_table.setSpan(28, 2, 1, 2)
+        checkbox = QCheckBox('頂料裝置')
+        self.ui.select_item_table.setCellWidget(28, 2, checkbox)
+        self.ui.select_item_table.setSpan(29, 2, 1, 2)
+        checkbox = QCheckBox('後方護網')
+        self.ui.select_item_table.setCellWidget(29, 2, checkbox)
+        self.ui.select_item_table.setSpan(30, 2, 1, 2)
+        checkbox = QCheckBox('噸位顯示器')
+        self.ui.select_item_table.setCellWidget(30, 2, checkbox)
+        self.ui.select_item_table.setSpan(27, 4, 1, 2)
+        checkbox = QCheckBox('移動式操作台')
+        self.ui.select_item_table.setCellWidget(27, 4, checkbox)
+        self.ui.select_item_table.setSpan(28, 4, 1, 2)
+        checkbox = QCheckBox('模具照明燈')
+        self.ui.select_item_table.setCellWidget(28, 4, checkbox)
+        self.ui.select_item_table.setSpan(29, 4, 1, 2)
+        checkbox = QCheckBox('手動黃油槍')
+        self.ui.select_item_table.setCellWidget(29, 4, checkbox)
+        self.ui.select_item_table.setSpan(30, 4, 1, 2)
+        checkbox = QCheckBox('左右手選擇開關')
+        self.ui.select_item_table.setCellWidget(30, 4, checkbox)
+        self.ui.select_item_table.setSpan(1, 2, 1, 2)
+        newItem = QTableWidgetItem('能力')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(1, 2, newItem)
+        self.ui.select_item_table.setSpan(2, 2, 1, 2)
+        newItem = QTableWidgetItem('行程')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(2, 2, newItem)
+        self.ui.select_item_table.setSpan(3, 2, 1, 2)
+        newItem = QTableWidgetItem('模墊面積')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(3, 2, newItem)
+        self.ui.select_item_table.setSpan(1, 4, 1, 2)
+        newItem = QTableWidgetItem('35')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(1, 4, newItem)
+        self.ui.select_item_table.setSpan(2, 4, 1, 2)
+        newItem = QTableWidgetItem('70')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(2, 4, newItem)
+        self.ui.select_item_table.setSpan(3, 4, 1, 2)
+        newItem = QTableWidgetItem('340×234')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(3, 4, newItem)
+        self.ui.select_item_table.setSpan(4, 2, 1, 4) #光電安全裝置細項(尚未製作)
+        self.ui.select_item_table.setSpan(5, 2, 1, 4)
+        control_cabinet_tangency = QComboBox()
+        control_cabinet_tangency.setEditable(False)
+        control_cabinet_tangency.addItem('導軌')
+        control_cabinet_tangency.addItem('喉部')
+        control_cabinet_tangency.addItem('沖頭前緣')
+        self.ui.select_item_table.setCellWidget(5, 2, control_cabinet_tangency)
+        self.ui.select_item_table.setSpan(6, 2, 1, 2)
+        newItem = QTableWidgetItem('廠牌')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(6, 2, newItem)
+        self.ui.select_item_table.setSpan(6, 4, 1, 2)
+        QDC_company = QComboBox()
+        QDC_company.setEditable(False)
+        QDC_company.addItem('富偉')
+        QDC_company.addItem('山田順')
+        self.ui.select_item_table.setCellWidget(6, 4, QDC_company)
+        newItem = QTableWidgetItem('品名')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(7, 2, newItem)
+        self.ui.select_item_table.setSpan(7, 3, 1, 2)
+        newItem = QTableWidgetItem('規格')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(7, 3, newItem)
+        newItem = QTableWidgetItem('數量')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(7, 5, newItem)
+        newItem = QTableWidgetItem('油壓單元')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(8, 2, newItem)
+        self.ui.select_item_table.setSpan(8, 3, 1, 2)
+        hydraulic_size = QLineEdit('')
+        hydraulic_size.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        hydraulic_size.setStyleSheet('background-color:#ffe4c4;')
+        self.ui.select_item_table.setCellWidget(8, 3, hydraulic_size)
+        hydraulic_quantity = QLineEdit('')
+        hydraulic_quantity.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        hydraulic_quantity.setStyleSheet('background-color:#ffe4c4;')
+        self.ui.select_item_table.setCellWidget(8, 5, hydraulic_quantity)
+        newItem = QTableWidgetItem('舉模軌道')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(9, 2, newItem)
+        self.ui.select_item_table.setSpan(9, 3, 1, 2)
+        track_size = QLineEdit('')
+        track_size.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        track_size.setStyleSheet('background-color:#ffe4c4;')
+        self.ui.select_item_table.setCellWidget(9, 3, track_size)
+        track_quantity = QLineEdit('')
+        track_quantity.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        track_quantity.setStyleSheet('background-color:#ffe4c4;')
+        self.ui.select_item_table.setCellWidget(9, 5, track_quantity)
+        newItem = QTableWidgetItem('預置架')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(10, 2, newItem)
+        self.ui.select_item_table.setSpan(10, 3, 1, 2)
+        shelf_size = QLineEdit('')
+        shelf_size.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        shelf_size.setStyleSheet('background-color:#ffe4c4;')
+        self.ui.select_item_table.setCellWidget(10, 3, shelf_size)
+        shelf_quantity = QLineEdit('')
+        shelf_quantity.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        shelf_quantity.setStyleSheet('background-color:#ffe4c4;')
+        self.ui.select_item_table.setCellWidget(10, 5, shelf_quantity)
+        newItem = QTableWidgetItem('上夾模')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(11, 2, newItem)
+        self.ui.select_item_table.setSpan(11, 3, 1, 2)
+        upper_size = QLineEdit('')
+        upper_size.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        upper_size.setStyleSheet('background-color:#ffe4c4;')
+        self.ui.select_item_table.setCellWidget(11, 3, upper_size)
+        upper_quantity = QLineEdit('')
+        upper_quantity.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        upper_quantity.setStyleSheet('background-color:#ffe4c4;')
+        self.ui.select_item_table.setCellWidget(11, 5, upper_quantity)
+        newItem = QTableWidgetItem('下夾模')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(12, 2, newItem)
+        self.ui.select_item_table.setSpan(12, 3, 1, 2)
+        lower_size = QLineEdit('')
+        lower_size.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        lower_size.setStyleSheet('background-color:#ffe4c4;')
+        self.ui.select_item_table.setCellWidget(12, 3, lower_size)
+        lower_quantity = QLineEdit('')
+        lower_quantity.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        lower_quantity.setStyleSheet('background-color:#ffe4c4;')
+        self.ui.select_item_table.setCellWidget(12, 5, lower_quantity)
+        self.ui.select_item_table.setSpan(13, 2, 1, 4)
+        newItem = QTableWidgetItem('全木箱')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(13, 2, newItem)
+        self.ui.select_item_table.setSpan(14, 2, 1, 4)
+        DUCIS_setting = QPushButton('設定')
+        self.ui.select_item_table.setCellWidget(14, 2, DUCIS_setting)
+        self.ui.select_item_table.setSpan(15, 2, 1, 4)
+        newItem = QTableWidgetItem('規格')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(15, 2, newItem)
+        for x in range(16, 22):
+            self.ui.select_item_table.setSpan(x, 2, 1, 4)
+            newItem = QTableWidgetItem('')
+            newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+            newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+            self.ui.select_item_table.setItem(x, 2, newItem)
+        self.ui.select_item_table.setSpan(22, 2, 1, 4)
+        JACK_type = QComboBox()
+        JACK_type.setEditable(False)
+        JACK_type.addItem('一般型')
+        JACK_type.addItem('附爪型')
+        self.ui.select_item_table.setCellWidget(22, 2, JACK_type)
+        self.ui.select_item_table.setSpan(23, 2, 1, 2)
+        newItem = QTableWidgetItem('左側')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(23, 2, newItem)
+        self.ui.select_item_table.setSpan(24, 2, 1, 2)
+        EJECTOR_UNIT_left = QComboBox()
+        EJECTOR_UNIT_left.setEditable(False)
+        EJECTOR_UNIT_left.addItem('無吹氣，無吹料')
+        EJECTOR_UNIT_left.addItem('一吹氣，一吹料')
+        EJECTOR_UNIT_left.addItem('一吹氣，二吹料')
+        EJECTOR_UNIT_left.addItem('二吹氣，一吹料')
+        EJECTOR_UNIT_left.addItem('二吹氣，二吹料')
+        self.ui.select_item_table.setCellWidget(24, 2, EJECTOR_UNIT_left)
+        self.ui.select_item_table.setSpan(23, 4, 1, 2)
+        newItem = QTableWidgetItem('右側')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(23, 4, newItem)
+        self.ui.select_item_table.setSpan(24, 4, 1, 2)
+        EJECTOR_UNIT_right = QComboBox()
+        EJECTOR_UNIT_right.setEditable(False)
+        EJECTOR_UNIT_right.addItem('無吹氣，無吹料')
+        EJECTOR_UNIT_right.addItem('一吹氣，一吹料')
+        EJECTOR_UNIT_right.addItem('一吹氣，二吹料')
+        EJECTOR_UNIT_right.addItem('二吹氣，一吹料')
+        EJECTOR_UNIT_right.addItem('二吹氣，二吹料')
+        EJECTOR_UNIT_right.setCurrentIndex(1)
+        self.ui.select_item_table.setCellWidget(24, 4, EJECTOR_UNIT_right)
+        self.ui.select_item_table.setSpan(25, 2, 2, 4)
+        newItem = QTableWidgetItem('若此非標準配置，在選此功能配置\n(標準為右側吹氣吹料各一PCS)')
+        newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable)
+        self.ui.select_item_table.setItem(25, 2, newItem)
+
+
+        # self.ui.select_item_table.cellWidget(14, 2).currentIndexChanged.connect()
+        self.ui.select_item_finish.clicked.connect(lambda :self.select_finished_back_to_main())
+
+    def select_finished_back_to_main(self):
+        self.hide()
+        self.nw = main()
+        self.nw.show()
 
 if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率
