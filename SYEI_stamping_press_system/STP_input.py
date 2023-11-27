@@ -48,13 +48,23 @@ GUM_E_list = ['L7_18-20_ANTI_VIBRATION_GUM', 'L7_18-20_ANTI_VIBRATION_GUM', 'L9_
 GUM_U_list = ['PM_61_M16_N90_ANTI_VIBRATION_GUM', 'PM_61_M16_N90_ANTI_VIBRATION_GUM', 'PM_81_M24_N75_ANTI_VIBRATION_GUM', 'PM_81_M24_N90_ANTI_VIBRATION_GUM', 'PM_81_M24_N90_ANTI_VIBRATION_GUM', 'PM_101_M30(150)_TF24_ANTI_VIBRATION_GUM', 'PM_121_M36(180)_TF25_ANTI_VIBRATION_GUM', 'PM_121_M36(180)_TF26_ANTI_VIBRATION_GUM', 'PM_161_M36(180)_TF2631_ANTI_VIBRATION_GUM']
 # 商定
 GUM_S_list = ['KM_145_ANTI_VIBRATION_GUM', 'KM_145_ANTI_VIBRATION_GUM', 'KM_145_ANTI_VIBRATION_GUM', 'KM_200_ANTI_VIBRATION_GUM', 'KM_200_ANTI_VIBRATION_GUM', 'KM_200_ANTI_VIBRATION_GUM', 'KM_250_ANTI_VIBRATION_GUM', 'KM_250_ANTI_VIBRATION_GUM', 'KM_250_ANTI_VIBRATION_GUM']
+#220V變頻器
 #東元
-INVERTER_D_S_list =['', '', '', '', '', 'SAV0102B1T_INVERTER', '', '', 'SAV0252B1T_INVERTER']
-INVERTER_D_HP_list =['', '', '', '', '', 'SAV0152B1T_INVERTER', '', '', 'SAV0252B1T_INVERTER']
+INVERTER_D_S_list =['SAV0052B1T_INVERTER', 'SAV0052B1T_INVERTER', 'SAV0052B1T_INVERTER', 'SAV0072B1T_INVERTER', 'SAV0102B1T_INVERTER', 'SAV0102B1T_INVERTER', 'SAV0152B1T_INVERTER', 'SAV0202B1T_INVERTER', 'SAV0252B1T_INVERTER']
+INVERTER_D_HP_list =['SAV0052B1T_INVERTER', 'SAV0052B1T_INVERTER', 'SAV0052B1T_INVERTER', 'SAV0072B1T_INVERTER', 'SAV0102B1T_INVERTER', 'SAV0152B1T_INVERTER', 'SAV0202B1T_INVERTER', 'SAV0202B1T_INVERTER', 'SAV0252B1T_INVERTER']
 #台達
-INVERTER_T_S_list =['', '', '', '', '', 'SAV0102BUS_INVERTER', '', '', 'SAV0252BUS_INVERTER']
-INVERTER_T_HP_list =['', '', '', '', '', 'SAV0152BUS_INVERTER', '', '', 'SAV0252BUS_INVERTER']
-def STP(name, stamping_press_type, machining, travel_type, GUM, INVERTER):
+INVERTER_T_S_list =['SAV0052BUS_INVERTER', 'SAV0052BUS_INVERTER', 'SAV0052BUS_INVERTER', 'SAV0072BUS_INVERTER', 'SAV0102BUS_INVERTER', 'SAV0102BUS_INVERTER', 'SAV0152BUS_INVERTER', 'SAV0202BUS_INVERTER', 'SAV0252BUS_INVERTER']
+INVERTER_T_HP_list =['SAV0052BUS_INVERTER', 'SAV0052BUS_INVERTER', 'SAV0052BUS_INVERTER', 'SAV0072BUS_INVERTER', 'SAV0102BUS_INVERTER', 'SAV0152BUS_INVERTER', 'SAV0202BUS_INVERTER', 'SAV0202BUS_INVERTER', 'SAV0252BUS_INVERTER']
+#440V變頻器
+#東元
+INVERTER_440_D_S_list =['SAV0052A1T_INVERTER', 'SAV0052A1T_INVERTER', 'SAV0052A1T_INVERTER', 'SAV0072A1T_INVERTER', 'SAV0102A1T_INVERTER', 'SAV0102A1T_INVERTER', 'SAV0152A1T_INVERTER', 'SAV0202A1T_INVERTER', 'SAV0252A1T_INVERTER']
+INVERTER_440_D_HP_list =['SAV0052A1T_INVERTER', 'SAV0052A1T_INVERTER', 'SAV0052A1T_INVERTER', 'SAV0072A1T_INVERTER', 'SAV0102A1T_INVERTER', 'SAV0152A1T_INVERTER', 'SAV0152A1T_INVERTER', 'SAV0202A1T_INVERTER', 'SAV0252A1T_INVERTER']
+#台達
+INVERTER_440_T_S_list =['SAV0052BUS_INVERTER', 'SAV0052BUS_INVERTER', 'SAV0052BUS_INVERTER', 'SAV0072BUS_INVERTER', 'SAV0102BUS_INVERTER', 'SAV0102BUS_INVERTER', 'SAV0152BUS_INVERTER', 'SAV0202BUS_INVERTER', 'SAV0252BUS_INVERTER']
+INVERTER_440_T_HP_list =['SAV0052BUS_INVERTER', 'SAV0052BUS_INVERTER', 'SAV0052BUS_INVERTER', 'SAV0072BUS_INVERTER', 'SAV0102BUS_INVERTER', 'SAV0152BUS_INVERTER', 'SAV0202BUS_INVERTER', 'SAV0202BUS_INVERTER', 'SAV0252BUS_INVERTER']
+
+
+def STP(name, stamping_press_type, machining, travel_type, GUM, INVERTER, power):
     if name == 'PANEL':
         mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), PANEL_list[stamping_press_type])
         mprog.save_file_stp(machining, PANEL_list[stamping_press_type])
@@ -332,33 +342,57 @@ def STP(name, stamping_press_type, machining, travel_type, GUM, INVERTER):
             mprog.close_file(GUM_S_list[stamping_press_type])
     elif name == 'INVERTER':
         if INVERTER == '東元':
-            if travel_type == 1:
-                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name),
-                                  INVERTER_D_S_list[stamping_press_type])
-                mprog.save_file_stp(machining, INVERTER_D_S_list[stamping_press_type])
-                mprog.save_stpfile_part(machining, INVERTER_D_S_list[stamping_press_type])
-                mprog.close_file(INVERTER_D_S_list[stamping_press_type])
+            if power == '220Vx60Hz'or power == '220x50Hz':
+                if travel_type == 1:
+                    mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name),
+                                      INVERTER_D_S_list[stamping_press_type])
+                    mprog.save_file_stp(machining, INVERTER_D_S_list[stamping_press_type])
+                    mprog.save_stpfile_part(machining, INVERTER_D_S_list[stamping_press_type])
+                    mprog.close_file(INVERTER_D_S_list[stamping_press_type])
+                else:
+                    mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name),
+                                      INVERTER_D_HP_list[stamping_press_type])
+                    mprog.save_file_stp(machining, INVERTER_D_HP_list[stamping_press_type])
+                    mprog.save_stpfile_part(machining, INVERTER_D_HP_list[stamping_press_type])
+                    mprog.close_file(INVERTER_D_HP_list[stamping_press_type])
             else:
-                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name),
-                                  INVERTER_D_HP_list[stamping_press_type])
-                mprog.save_file_stp(machining, INVERTER_D_HP_list[stamping_press_type])
-                mprog.save_stpfile_part(machining, INVERTER_D_HP_list[stamping_press_type])
-                mprog.close_file(INVERTER_D_HP_list[stamping_press_type])
+                if travel_type == 1:
+                    mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), INVERTER_440_D_S_list[stamping_press_type])
+                    mprog.save_file_stp(machining, INVERTER_440_D_S_list[stamping_press_type])
+                    mprog.save_stpfile_part(machining, INVERTER_440_D_S_list[stamping_press_type])
+                    mprog.close_file(INVERTER_440_D_S_list[stamping_press_type])
+                else:
+                    mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), INVERTER_440_D_HP_list[stamping_press_type])
+                    mprog.save_file_stp(machining, INVERTER_440_D_HP_list[stamping_press_type])
+                    mprog.save_stpfile_part(machining, INVERTER_440_D_HP_list[stamping_press_type])
+                    mprog.close_file(INVERTER_440_D_HP_list[stamping_press_type])
         elif INVERTER == '台達':
-            if travel_type == 1:
-                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), INVERTER_T_S_list[stamping_press_type])
-                mprog.save_file_stp(machining, INVERTER_T_S_list[stamping_press_type])
-                mprog.save_stpfile_part(machining, INVERTER_T_S_list[stamping_press_type])
-                mprog.close_file(INVERTER_T_S_list[stamping_press_type])
+            if power == '220Vx60Hz'or power == '220x50Hz':
+                if travel_type == 1:
+                    mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), INVERTER_T_S_list[stamping_press_type])
+                    mprog.save_file_stp(machining, INVERTER_T_S_list[stamping_press_type])
+                    mprog.save_stpfile_part(machining, INVERTER_T_S_list[stamping_press_type])
+                    mprog.close_file(INVERTER_T_S_list[stamping_press_type])
+                else:
+                    mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), INVERTER_T_HP_list[stamping_press_type])
+                    mprog.save_file_stp(machining, INVERTER_T_HP_list[stamping_press_type])
+                    mprog.save_stpfile_part(machining, INVERTER_T_HP_list[stamping_press_type])
+                    mprog.close_file(INVERTER_T_HP_list[stamping_press_type])
             else:
-                mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), INVERTER_T_HP_list[stamping_press_type])
-                mprog.save_file_stp(machining, INVERTER_T_HP_list[stamping_press_type])
-                mprog.save_stpfile_part(machining, INVERTER_T_HP_list[stamping_press_type])
-                mprog.close_file(INVERTER_T_HP_list[stamping_press_type])
+                if travel_type == 1:
+                    mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), INVERTER_440_T_S_list[stamping_press_type])
+                    mprog.save_file_stp(machining, INVERTER_440_T_S_list[stamping_press_type])
+                    mprog.save_stpfile_part(machining, INVERTER_440_T_S_list[stamping_press_type])
+                    mprog.close_file(INVERTER_440_T_S_list[stamping_press_type])
+                else:
+                    mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), INVERTER_440_T_HP_list[stamping_press_type])
+                    mprog.save_file_stp(machining, INVERTER_440_T_HP_list[stamping_press_type])
+                    mprog.save_stpfile_part(machining, INVERTER_440_T_HP_list[stamping_press_type])
+                    mprog.close_file(INVERTER_440_T_HP_list[stamping_press_type])
 
 
 
-def Assmebly(name,path, stamping_press_type, travel_type, GUM, INVERTER):
+def Assmebly(name,path, stamping_press_type, travel_type, GUM, INVERTER, power):
     if name == 'PANEL':
         mprog.import_file_Part(path, PANEL_list[stamping_press_type])
     elif name == 'CON_ROD':
@@ -469,15 +503,28 @@ def Assmebly(name,path, stamping_press_type, travel_type, GUM, INVERTER):
             mprog.import_file_Part(path, GUM_S_list[stamping_press_type])
     elif name == 'INVERTER':
         if INVERTER == '東元':
-            if travel_type == 1:
-                mprog.import_file_Part(path, INVERTER_D_S_list[stamping_press_type])
+            if power == '220Vx60Hz' or power == '220x50Hz':
+                if travel_type == 1:
+                    mprog.import_file_Part(path, INVERTER_D_S_list[stamping_press_type])
+                else:
+                    mprog.import_file_Part(path, INVERTER_D_HP_list[stamping_press_type])
             else:
-                mprog.import_file_Part(path, INVERTER_D_HP_list[stamping_press_type])
+                if travel_type == 1:
+                    mprog.import_file_Part(path, INVERTER_440_D_S_list[stamping_press_type])
+                else:
+                    mprog.import_file_Part(path, INVERTER_440_D_HP_list[stamping_press_type])
+
         elif INVERTER == '台達':
-            if travel_type == 1:
-                mprog.import_file_Part(path, INVERTER_T_S_list[stamping_press_type])
+            if power == '220Vx60Hz' or power == '220x50Hz':
+                if travel_type == 1:
+                    mprog.import_file_Part(path, INVERTER_T_S_list[stamping_press_type])
+                else:
+                    mprog.import_file_Part(path, INVERTER_T_HP_list[stamping_press_type])
             else:
-                mprog.import_file_Part(path, INVERTER_T_HP_list[stamping_press_type])
+                if travel_type == 1:
+                    mprog.import_file_Part(path, INVERTER_440_T_S_list[stamping_press_type])
+                else:
+                    mprog.import_file_Part(path, INVERTER_440_T_HP_list[stamping_press_type])
 
 
 
