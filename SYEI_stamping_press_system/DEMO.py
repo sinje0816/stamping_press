@@ -236,17 +236,17 @@ class main(QtWidgets.QWidget, Ui_Form):
         self.ui.window_main_table.setItem(20, 3, work_height)
         power = QComboBox()
         power.setEditable(False)
-        power.addItem('200V×50Hz')
-        power.addItem('200V×60Hz')
-        power.addItem('220V×50Hz')
-        power.addItem('220V×60Hz')
-        power.addItem('380V×50Hz')
-        power.addItem('380V×60Hz')
-        power.addItem('415V×50Hz')
-        power.addItem('440V×60Hz')
-        power.addItem('460V×60Hz')
-        power.addItem('480V×60Hz')
-        power.addItem('575V×60Hz')
+        power.addItem('200Vx50Hz')
+        power.addItem('200Vx60Hz')
+        power.addItem('220Vx50Hz')
+        power.addItem('220Vx60Hz')
+        power.addItem('380Vx50Hz')
+        power.addItem('380Vx60Hz')
+        power.addItem('415Vx50Hz')
+        power.addItem('440Vx60Hz')
+        power.addItem('460Vx60Hz')
+        power.addItem('480Vx60Hz')
+        power.addItem('575Vx60Hz')
         self.ui.window_main_table.setCellWidget(21, 3, power)
         select_setup = QPushButton('設定')
         self.ui.window_main_table.setCellWidget(22, 3, select_setup)
@@ -573,6 +573,15 @@ class main(QtWidgets.QWidget, Ui_Form):
         slide_DH.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
         slide_DH.setFlags(slide_DH.flags() & ~Qt.ItemIsEditable)
         self.ui.window_main_table.setItem(11, 3, slide_DH)
+        motor_power = QTableWidgetItem(par.stamping_press_motor_power[style][stamping_press_type])
+        motor_power.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        motor_power.setFlags(motor_power.flags() & ~Qt.ItemIsEditable)
+        self.ui.window_main_table.setItem(13, 3, motor_power)
+        frequency_power = QTableWidgetItem(par.stamping_press_frequency_power[style][stamping_press_type])
+        frequency_power.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        frequency_power.setFlags(frequency_power.flags() & ~Qt.ItemIsEditable)
+        self.ui.window_main_table.setItem(15, 3, frequency_power)
+
 
         par.stamping_press_type = stamping_press_type
         par.stamping_press_style = style
@@ -1499,6 +1508,7 @@ class slide_secend_windows(QtWidgets.QWidget):
                     mprog.partbodyfeatureactivate('讓孔倒圓角2')
                 mprog.Update()
                 mprog.close_window()
+                # time.sleep(0.1)
         else:
             turn = 0
 
