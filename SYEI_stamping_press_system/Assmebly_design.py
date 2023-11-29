@@ -2,7 +2,7 @@ import main_program as mprog
 import excel_parameter_change as epc
 import STP_input as S_i
 import parameter as par
-def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifications_close_working_height_value, travel_type, GUM,INVERTER):
+def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifications_close_working_height_value, travel_type, GUM,INVERTER, power):
     #excel匯入(匯入組立尺寸)
     excel = epc.ExcelOp('組立尺寸', 'Assembly_value')
     try:
@@ -33,7 +33,7 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
                     or part_name[name] == 'MOTOR' or part_name[name] == 'WIRE_CASING' or part_name[name] == 'ANTI_VIBRATION_GUM' or part_name[name] == 'HANDEL_MOUNT_FILTER'\
                     or part_name[name] == 'INVERTER':#固定零件匯入清單
                 # 讀取其餘STP檔
-                S_i.Assmebly(part_name[name], path + '\\' + 'machining', stamping_press_type, travel_type, GUM, INVERTER)
+                S_i.Assmebly(part_name[name], path + '\\' + 'machining', stamping_press_type, travel_type, GUM, INVERTER, power)
                 continue
             else:
                 mprog.import_file_Part(path + '\\' + 'machining', part_name[name])
@@ -1216,39 +1216,76 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
             mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', S_assmebly_par['M_ZX'], 'ZX plane', 0, 328)
         # 變頻器選配
         if INVERTER == '東元':
-            if travel_type == 1:  # k+zeta+cc1
-                mprog.add_offset_assembly(S_i.INVERTER_D_S_list[stamping_press_type] + '.1', 'FRAME2.1', -(
-                            apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
-                        'bb1'] / 2), 'XY plane', 0, 353)
-                mprog.add_offset_assembly(S_i.INVERTER_D_S_list[stamping_press_type] + '.1', 'FRAME2.1',
-                                          -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
-                mprog.add_offset_assembly(S_i.INVERTER_D_S_list[stamping_press_type] + '.1', 'FRAME2.1',
-                                          -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+            if power == '220Vx60Hz' or power == '220x50Hz':
+                if travel_type == 1:
+                    mprog.add_offset_assembly(S_i.INVERTER_D_S_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                                apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
+                            'bb1'] / 2), 'XY plane', 0, 353)
+                    mprog.add_offset_assembly(S_i.INVERTER_D_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                              -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
+                    mprog.add_offset_assembly(S_i.INVERTER_D_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                              -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+                else:
+                    mprog.add_offset_assembly(S_i.INVERTER_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                                apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
+                            'w1'] / 2), 'XY plane', 0, 353)
+                    mprog.add_offset_assembly(S_i.INVERTER_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                              -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
+                    mprog.add_offset_assembly(S_i.INVERTER_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                              -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
             else:
-                mprog.add_offset_assembly(S_i.INVERTER_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1', -(
-                            apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
-                        'w1'] / 2), 'XY plane', 0, 353)
-                mprog.add_offset_assembly(S_i.INVERTER_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
-                                          -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
-                mprog.add_offset_assembly(S_i.INVERTER_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
-                                          -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+                if travel_type == 1:
+                    mprog.add_offset_assembly(S_i.INVERTER_440_D_S_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                                apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
+                            'bb1'] / 2), 'XY plane', 0, 353)
+                    mprog.add_offset_assembly(S_i.INVERTER_440_D_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                              -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
+                    mprog.add_offset_assembly(S_i.INVERTER_440_D_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                              -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+                else:
+                    mprog.add_offset_assembly(S_i.INVERTER_440_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                                apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
+                            'w1'] / 2), 'XY plane', 0, 353)
+                    mprog.add_offset_assembly(S_i.INVERTER_440_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                              -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
+                    mprog.add_offset_assembly(S_i.INVERTER_440_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                              -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
         elif INVERTER == '台達':
-            if travel_type == 1:
-                mprog.add_offset_assembly(S_i.INVERTER_T_S_list[stamping_press_type] + '.1', 'FRAME2.1', -(
-                            apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
-                        'y1'] / 2 - apv['FRAME2']['bb2']), 'XY plane', 0, 353)
-                mprog.add_offset_assembly(S_i.INVERTER_T_S_list[stamping_press_type] + '.1', 'FRAME2.1',
-                                          -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
-                mprog.add_offset_assembly(S_i.INVERTER_T_S_list[stamping_press_type] + '.1', 'FRAME2.1',
-                                          -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+            if power == '220Vx60Hz' or power == '220x50Hz':
+                if travel_type == 1:
+                    mprog.add_offset_assembly(S_i.INVERTER_T_S_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                                apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
+                            'y1'] / 2 - apv['FRAME2']['bb2']), 'XY plane', 0, 353)
+                    mprog.add_offset_assembly(S_i.INVERTER_T_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                              -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
+                    mprog.add_offset_assembly(S_i.INVERTER_T_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                              -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+                else:
+                    mprog.add_offset_assembly(S_i.INVERTER_T_HP_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                                apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
+                            'y1'] / 2 - apv['FRAME2']['bb2']), 'XY plane', 0, 353)
+                    mprog.add_offset_assembly(S_i.INVERTER_T_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                              -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
+                    mprog.add_offset_assembly(S_i.INVERTER_T_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                              -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
             else:
-                mprog.add_offset_assembly(S_i.INVERTER_T_HP_list[stamping_press_type] + '.1', 'FRAME2.1', -(
-                            apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
-                        'y1'] / 2 - apv['FRAME2']['bb2']), 'XY plane', 0, 353)
-                mprog.add_offset_assembly(S_i.INVERTER_T_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
-                                          -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
-                mprog.add_offset_assembly(S_i.INVERTER_T_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
-                                          -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+                if travel_type == 1:
+                    mprog.add_offset_assembly(S_i.INVERTER_440_T_S_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                                apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
+                            'y1'] / 2 - apv['FRAME2']['bb2']), 'XY plane', 0, 353)
+                    mprog.add_offset_assembly(S_i.INVERTER_440_T_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                              -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
+                    mprog.add_offset_assembly(S_i.INVERTER_440_T_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                              -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+                else:
+                    mprog.add_offset_assembly(S_i.INVERTER_440_T_HP_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                                apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
+                            'y1'] / 2 - apv['FRAME2']['bb2']), 'XY plane', 0, 353)
+                    mprog.add_offset_assembly(S_i.INVERTER_440_T_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                              -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
+                    mprog.add_offset_assembly(S_i.INVERTER_440_T_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                              -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+
     #250頓
     elif stamping_press_type == 8:
         mprog.add_offset_assembly('FRAME15.1', 'FRAME1.1', -(
@@ -1497,21 +1534,40 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
             mprog.add_offset_assembly(S_i.MOTOR_list[stamping_press_type]+'.1', S_i.MOTOR_BRACKET_HP_list[stamping_press_type]+'.1', -S_assmebly_par['M_ZX'], 'ZX plane', 1, 328)
         # 變頻器選配
         if INVERTER == '東元':
-            mprog.add_offset_assembly(S_i.INVERTER_D_S_list[stamping_press_type] + '.1', 'FRAME2.1', -(
-                    apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['aaaa2'] + apv['FRAME2'][
-                'aaaa1'] / 2), 'XY plane', 0, 353)
-            mprog.add_offset_assembly(S_i.INVERTER_D_S_list[stamping_press_type] + '.1', 'FRAME2.1',
-                                      -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
-            mprog.add_offset_assembly(S_i.INVERTER_D_S_list[stamping_press_type] + '.1', 'FRAME2.1',
-                                      -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+            if power == '220Vx60Hz' or power == '220x50Hz':
+                mprog.add_offset_assembly(S_i.INVERTER_D_S_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                        apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['aaaa2'] + apv['FRAME2'][
+                    'aaaa1'] / 2), 'XY plane', 0, 353)
+                mprog.add_offset_assembly(S_i.INVERTER_D_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                          -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
+                mprog.add_offset_assembly(S_i.INVERTER_D_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                          -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+            else:
+                mprog.add_offset_assembly(S_i.INVERTER_440_D_S_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                        apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['aaaa2'] + apv['FRAME2'][
+                    'aaaa1'] / 2), 'XY plane', 0, 353)
+                mprog.add_offset_assembly(S_i.INVERTER_440_D_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                          -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
+                mprog.add_offset_assembly(S_i.INVERTER_440_D_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                          -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+
         elif INVERTER == '台達':
-            mprog.add_offset_assembly(S_i.INVERTER_T_S_list[stamping_press_type] + '.1', 'FRAME2.1', -(
-                    apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['dddd2'] + apv['FRAME2'][
-                'dddd1'] / 2 ), 'XY plane', 0, 353)
-            mprog.add_offset_assembly(S_i.INVERTER_T_S_list[stamping_press_type] + '.1', 'FRAME2.1',
-                                      -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
-            mprog.add_offset_assembly(S_i.INVERTER_T_S_list[stamping_press_type] + '.1', 'FRAME2.1',
-                                      -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+            if power == '220Vx60Hz' or power == '220x50Hz':
+                mprog.add_offset_assembly(S_i.INVERTER_T_S_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                        apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['dddd2'] + apv['FRAME2'][
+                    'dddd1'] / 2 ), 'XY plane', 0, 353)
+                mprog.add_offset_assembly(S_i.INVERTER_T_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                          -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
+                mprog.add_offset_assembly(S_i.INVERTER_T_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                          -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
+            else:
+                mprog.add_offset_assembly(S_i.INVERTER_440_T_S_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                        apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['dddd2'] + apv['FRAME2'][
+                    'dddd1'] / 2 ), 'XY plane', 0, 353)
+                mprog.add_offset_assembly(S_i.INVERTER_440_T_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                          -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
+                mprog.add_offset_assembly(S_i.INVERTER_440_T_S_list[stamping_press_type] + '.1', 'FRAME2.1',
+                                          -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
 
 
 

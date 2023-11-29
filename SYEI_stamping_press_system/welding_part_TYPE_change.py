@@ -251,11 +251,7 @@ def change_welding_feature(name, i):
                 mprog.bodydeactivate('machining_aaaaa2', 0)
                 mprog.bodydeactivate('machining_aaaaa4', 0)
                 mprog.partbodyfeatureactivate("T250_FF")
-            try:
-                mprog.update()
-                print('FRAME1 update success')
-            except BaseException:
-                print('FRAME1 update error')
+            mprog.update()
         elif name == 'FRAME2':
             try:
                 if i == 0:
@@ -466,7 +462,6 @@ def change_welding_feature(name, i):
                 print('FRAME2 Part activate error')
             finally:
                 mprog.update()
-                print('FRAME2 update success')
         elif name == 'FRAME3':
             try:
                 if i == 0:
@@ -742,11 +737,7 @@ def change_welding_feature(name, i):
             except BaseException:
                 print('FRAME5 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME5 Update success')
-                except BaseException:
-                    print('FRAME5 Update error')
         elif name == 'FRAME6':
             try:
                 if i == 0:
@@ -891,11 +882,7 @@ def change_welding_feature(name, i):
             except BaseException:
                 print('FRAME8 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME8 Update success')
-                except BaseException:
-                    print('FRAME8 Update error')
         elif name == 'FRAME9':
             try:
                 if i == 0:
@@ -970,10 +957,7 @@ def change_welding_feature(name, i):
             except:
                 print('FRAME10 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                except:
-                    print('FRAME10 Update error')
         elif name == 'FRAME11':
             if i == 0:
                 mprog.activatefeature('挖孔', 0)
@@ -999,11 +983,7 @@ def change_welding_feature(name, i):
                 pass
             elif i == 8:
                 pass
-            try:
-                mprog.Update()
-                print('FRAME11 Update success')
-            except BaseException:
-                print('FRAME11 Update error')
+            mprog.Update()
         elif name == 'FRAME12':
             pass
         elif name == 'FRAME13':
@@ -1176,11 +1156,7 @@ def change_welding_feature(name, i):
             except:
                 print('FRAME14 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME14 Update success')
-                except:
-                    print('FRAME14 Update error')
         elif name == 'FRAME15':
             try:
                 if i == 0:  # 25N
@@ -1295,11 +1271,7 @@ def change_welding_feature(name, i):
             except:
                 print('FRAME17 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME17 Update success')
-                except:
-                    print('FRAME17 Update error')
         elif name == 'FRAME18':
             pass
         elif name == 'FRAME19':
@@ -1413,11 +1385,7 @@ def change_welding_feature(name, i):
             except:
                 print('FRAME21 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME21 Update success')
-                except:
-                    print('FRAME21 Update error')
         elif name == 'FRAME22':
             try:
                 if i == 0:
@@ -1582,11 +1550,7 @@ def change_welding_feature(name, i):
             except:
                 print('FRAME23 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME23 Update success')
-                except:
-                    print('FRAME23 Update error')
         elif name == 'FRAME23_1':
             try:
                 if i == 0:
@@ -1653,11 +1617,7 @@ def change_welding_feature(name, i):
             except:
                 print('FRAME23_1 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME23_1 Update success')
-                except:
-                    print('FRAME23_1 Update error')
         elif name == 'FRAME24':
             if i == 0:
                 mprog.partdeactivate('Pad.2')
@@ -1731,11 +1691,7 @@ def change_welding_feature(name, i):
                 mprog.partdeactivate('machining_bbbbb')
                 mprog.partdeactivate('machining_bbbbb_2')
                 mprog.bodydeactivate('machining_Hole_1', 0)
-            try:
-                mprog.Update()
-                print('FRAME24 Update success')
-            except BaseException:
-                print('FRAME24 Update error')
+            mprog.Update()
         elif name == 'FRAME24_1':
             if i == 0:
                 mprog.partdeactivate('Pad.2')
@@ -1809,11 +1765,7 @@ def change_welding_feature(name, i):
                 mprog.partdeactivate('machining_bbbbb')
                 mprog.partdeactivate('machining_bbbbb_2')
                 mprog.bodydeactivate('machining_Hole_1', 0)
-            try:
-                mprog.Update()
-                print('FRAME24_1 Update success')
-            except BaseException:
-                print('FRAME24_1 Update error')
+            mprog.Update()
         elif name == 'FRAME25':
             try:
                 if i == 0:
@@ -1878,11 +1830,7 @@ def change_welding_feature(name, i):
             except:
                 print('FRAME26 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME26 Update success')
-                except:
-                    print('FRAME26 Update error')
         elif name == 'FRAME27':
             try:
                 if i == 0:
@@ -1902,11 +1850,7 @@ def change_welding_feature(name, i):
             except BaseException:
                 print('FRAME27 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME27 Update success')
-                except BaseException:
-                    print('FRAME27 Update error')
         elif name == 'FRAME27_1':
             try:
                 if i == 0:
@@ -1926,11 +1870,7 @@ def change_welding_feature(name, i):
             except BaseException:
                 print('FRAME27_1 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME27_1 Update success')
-                except BaseException:
-                    print('FRAME27_1 Update error')
         elif name == 'FRAME28':
             try:
                 if i == 0:
@@ -1981,11 +1921,7 @@ def change_welding_feature(name, i):
                 mprog.partdeactivate('Hole.1')
                 mprog.partdeactivate("F")
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME29 Update success')
-                except BaseException:
-                    print('FRAME29 Update error')
         elif name == 'FRAME30':
             try:
                 if i == 0:
@@ -2153,11 +2089,7 @@ def change_welding_feature(name, i):
             except:
                 print('FRAME33 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME33 Update success')
-                except:
-                    print('FRAME33 Update error')
         elif name == 'FRAME34':
             try:
                 if i == 0:
@@ -2197,11 +2129,7 @@ def change_welding_feature(name, i):
             except:
                 print('FRAME34 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME34 Update success')
-                except:
-                    print('FRAME34 Update error')
         elif name == 'FRAME35':
             try:
                 if i == 0:
@@ -2286,11 +2214,7 @@ def change_welding_feature(name, i):
             except:
                 print('FRAME37 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME37 Update success')
-                except:
-                    print('FRAME37 Update error')
         elif name == 'FRAME38':
             try:
                 if i == 0:
@@ -2336,11 +2260,7 @@ def change_welding_feature(name, i):
             except:
                 print('FRAME41 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME41 Update success')
-                except:
-                    print('FRAME41 Update error')
         elif name == 'FRAME42':
             try:
                 if i == 3:  # 60
@@ -2351,11 +2271,7 @@ def change_welding_feature(name, i):
             except:
                 print('FRAME42 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME42 Update success')
-                except:
-                    print('FRAME42 Update error')
         elif name == 'FRAME43':
             try:
                 if i == 3:
@@ -2381,11 +2297,7 @@ def change_welding_feature(name, i):
             except BaseException:
                 print('FRAME43 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME43 Update success')
-                except BaseException:
-                    print('FRAME43 Update error')
         elif name == 'FRAME45':
             try:
                 if i == 3:  # 60N
@@ -2431,11 +2343,7 @@ def change_welding_feature(name, i):
             except:
                 print('FRAME47 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME47 Update success')
-                except:
-                    print('FRAME47 Update error')
         elif name == 'FRAME48':
             pass
         elif name == 'FRAME49':
@@ -2507,11 +2415,7 @@ def change_welding_feature(name, i):
                 else:
                     print('FRAME51 feature activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME51 Update success')
-                except:
-                    print('FRAME51 Update error')
         elif name == 'FRAME51_1':
             # 判斷是否需要模墊加工
             try:
@@ -2524,11 +2428,7 @@ def change_welding_feature(name, i):
                 else:
                     print('FRAME51_1 feature activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME51_1 Update success')
-                except:
-                    print('FRAME51_1 Update error')
         elif name == 'FRAME52':
             try:
                 if i == 5:
@@ -2554,11 +2454,7 @@ def change_welding_feature(name, i):
             except:
                 print('FRAME52 Parameter activate error')
             finally:
-                try:
                     mprog.Update()
-                    print('FRAME52 Update success')
-                except:
-                    print('FRAME52 Update error')
         elif name == 'FRAME53':
             try:
                 if i == 8:
@@ -2566,11 +2462,7 @@ def change_welding_feature(name, i):
                     mprog.partbodyfeatureactivate('Chamfer.1')
             except:
                 print('FRAME53 Parameter activate error')
-            try:
-                mprog.Update()
-                print('FRAME53 Update success')
-            except BaseException:
-                print('FRAME53 Update error')
+            mprog.Update()
         elif name == 'FRAME53_1':
             try:
                 if i == 8:
@@ -2578,11 +2470,7 @@ def change_welding_feature(name, i):
                     mprog.partbodyfeatureactivate('Chamfer.1')
             except:
                 print('FRAME53_1 Parameter activate error')
-            try:
-                mprog.Update()
-                print('FRAME53_1 Update success')
-            except BaseException:
-                print('FRAME53_1 Update error')
+            mprog.Update()
         elif name == 'FRAME54':
             try:
                 if i == 6:
