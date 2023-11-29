@@ -13,7 +13,7 @@ def change_machining_parameter(name, stamping_press_type, machiningdiepad, trave
     all_part_list = epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_col_cell(1)
     if name == 'FRAME1':
         excel = epc.ExcelOp('尺寸整理表', 'FRAME1')
-        parameter_name, parameter_value = excel.get_sheet_par('FRAME1', stamping_press_type)
+        parameter_name, parameter_value = excel.get_sheet_par('FRAME1', stamping_press_type)#更改變數，回傳變數名稱跟值
         if stamping_press_type == 0:
             mprog.partbodyfeatureactivate('before250_喉口')
             mprog.partbodyfeatureactivate('Z1')
@@ -171,7 +171,7 @@ def change_machining_parameter(name, stamping_press_type, machiningdiepad, trave
             mprog.activatefeature('光電裝置電線固定孔', 0)
             mprog.activatefeature('配管用(電動黃油泵→潤滑分配塊用)', 0)
             mprog.activatefeature('兩點組合', 0)
-        mprog.update()
+        mprog.update()#更新
     elif name == 'FRAME2':
         excel = epc.ExcelOp('尺寸整理表', 'FRAME2')
         parameter_name, parameter_value = excel.get_sheet_par(

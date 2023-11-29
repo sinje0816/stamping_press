@@ -1,5 +1,6 @@
 import main_program as mprog
 import file_path as fp
+import parameter as par
 
 PANEL_list = ['32H8302_PANEL', '322CC10_PANEL', '37H8302_PANEL', '37H8302_PANEL', '41H8302_PANEL', '552CC10_PANEL', '45H8302_PANEL', '45H8302_PANEL', '47H0001_PANEL']
 CON_ROD_list = ["302B04_CON_ROD", "322B04_CON_ROD", "342B04S01_CON_ROD", "372B04S01_CON_ROD", "392B04S01_CON_ROD", "412B04S03_CON_ROD", "432B04S01_CON_ROD", "452B04S02_CON_ROD", "472B04S02_CON_ROD"]
@@ -37,8 +38,9 @@ OPERATION_BOX_list = '01A061186RP_OPERATION_BOX'
 PORTABLE_STAND_list = ['EWR12S06_PORTABLE_STAND', 'EWR12S06_PORTABLE_STAND' , 'EWR12S06_PORTABLE_STAND', 'EWR12S03_PORTABLE_STAND', 'EWR12S03_PORTABLE_STAND', 'EWR12S03_PORTABLE_STAND', 'EWR12S02_PORTABLE_STAND', 'EWR12S02_PORTABLE_STAND', 'EWR12S02_PORTABLE_STAND']
 OPERATION_BOX_list_normal = ['01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX', '01A061186RP_OPERATION_BOX']
 BEARING_HOUSING_list = ['302CC4S02_BEARING_HOUSING', '322CC4S02_BEARING_HOUSING', '342CC4S02_BEARING_HOUSING', '372CC4S02_BEARING_HOUSING', '395CC4S02_BEARING_HOUSING', '412CC4S02_BEARING_HOUSING', '432CC4S02_BEARING_HOUSING', '455CC4S02_BEARING_HOUSING', '475CC4S02_BEARING_HOUSING']
-SLIDE_list_normal = ['', '', '', 'punch_3_normal', 'punch_4_normal', 'punch_5_normal', 'punch_6_normal', 'punch_7_normal', 'punch_8_normal']
+# SLIDE_list_normal = ['', '', '', 'punch_3_normal', 'punch_4_normal', 'punch_5_normal', 'punch_6_normal', 'punch_7_normal', 'punch_8_normal']
 BALANCER_list = ['FAC063160W_BALANCER', 'FAC063170W_BALANCER', 'FAC070205W_BALANCER', 'FAC080235W_BALANCER', 'FAC100280W_BALANCER', 'FAC120320W_BALANCER', 'FAC140360W_BALANCER', 'FAC180390WA_BALANCER', 'FAC200450WS01_BALANCER']
+#馬達
 MOTOR_list = ['5HP_3.7kW_MOTOR', '5HP_3.7kW_MOTOR', '5HP_3.7kW_MOTOR', '7.5HP_5.5kW_MOTOR', '10HP_7.5kW_MOTOR', '10HP_7.5kW_MOTOR', '15HP_11kW_MOTOR', '20HP_15kW_MOTOR', '25HP_18.5kW_MOTOR']
 MOTOR_BRACKET_S_list = ['302M01S02_MOTOR_BASE', '322M01S02_MOTOR_BASE', '34M4701_MOTOR_BASE', '392M01_MOTOR_BASE', '392M01S03_MOTOR_BASE', '41M4701_MOTOR_BASE', '34M4701_MOTOR_BASE', '452M01_MOTOR_BASE', '472M01_MOTOR_BASE']
 MOTOR_BRACKET_HP_list = ['302M01S02_MOTOR_BASE', '322M01S02_MOTOR_BASE', '34M4701_MOTOR_BASE', '392M01_MOTOR_BASE', '392M01S03_MOTOR_BASE', '412M01S03_MOTOR_BASE', '432M01S04_MOTOR_BASE', '94452S053_MOTOR_BASE', '472M01_MOTOR_BASE']
@@ -283,11 +285,11 @@ def STP(name, stamping_press_type, machining, travel_type, GUM, INVERTER, power)
         mprog.save_file_stp(machining, BEARING_HOUSING_list[stamping_press_type])
         mprog.save_stpfile_part(machining, BEARING_HOUSING_list[stamping_press_type])
         mprog.close_file(BEARING_HOUSING_list[stamping_press_type])
-    elif name == 'SLIDE':
-        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), SLIDE_list_normal[stamping_press_type])
-        mprog.save_file_stp(machining, SLIDE_list_normal[stamping_press_type])
-        mprog.save_stpfile_part(machining, SLIDE_list_normal[stamping_press_type])
-        mprog.close_file(SLIDE_list_normal[stamping_press_type])
+    # elif name == 'SLIDE':
+    #     mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), SLIDE_list_normal[stamping_press_type])
+    #     mprog.save_file_stp(machining, SLIDE_list_normal[stamping_press_type])
+    #     mprog.save_stpfile_part(machining, SLIDE_list_normal[stamping_press_type])
+    #     mprog.close_file(SLIDE_list_normal[stamping_press_type])
     elif name == 'BALANCER':
         mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), BALANCER_list[stamping_press_type])
         mprog.save_file_stp(machining, BALANCER_list[stamping_press_type])
@@ -392,7 +394,7 @@ def STP(name, stamping_press_type, machining, travel_type, GUM, INVERTER, power)
 
 
 
-def Assmebly(name,path, stamping_press_type, travel_type, GUM, INVERTER, power):
+def Assmebly(name,path, stamping_press_type, travel_type, GUM, INVERTER, power, slide):
     if name == 'PANEL':
         mprog.import_file_Part(path, PANEL_list[stamping_press_type])
     elif name == 'CON_ROD':
@@ -478,7 +480,7 @@ def Assmebly(name,path, stamping_press_type, travel_type, GUM, INVERTER, power):
     elif name == 'BEARING_HOUSING':
         mprog.import_file_Part(path, BEARING_HOUSING_list[stamping_press_type])
     elif name == 'SLIDE':
-        mprog.import_file_Part(path, SLIDE_list_normal[stamping_press_type])
+        mprog.import_file_Part(slide, par.slide_part_name)
     elif name == 'BALANCER':
         mprog.import_file_Part(path, BALANCER_list[stamping_press_type])
     elif name == 'MOTOR':

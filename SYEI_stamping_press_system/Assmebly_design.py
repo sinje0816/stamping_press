@@ -2,7 +2,7 @@ import main_program as mprog
 import excel_parameter_change as epc
 import STP_input as S_i
 import parameter as par
-def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifications_close_working_height_value, travel_type, GUM,INVERTER, power):
+def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifications_close_working_height_value, travel_type, GUM,INVERTER, power, slide):
     #excel匯入(匯入組立尺寸)
     excel = epc.ExcelOp('組立尺寸', 'Assembly_value')
     try:
@@ -33,7 +33,7 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
                     or part_name[name] == 'MOTOR' or part_name[name] == 'WIRE_CASING' or part_name[name] == 'ANTI_VIBRATION_GUM' or part_name[name] == 'HANDEL_MOUNT_FILTER'\
                     or part_name[name] == 'INVERTER':#固定零件匯入清單
                 # 讀取其餘STP檔
-                S_i.Assmebly(part_name[name], path + '\\' + 'machining', stamping_press_type, travel_type, GUM, INVERTER, power)
+                S_i.Assmebly(part_name[name], path + '\\' + 'machining', stamping_press_type, travel_type, GUM, INVERTER, power, slide)
                 continue
             else:
                 mprog.import_file_Part(path + '\\' + 'machining', part_name[name])
@@ -303,21 +303,21 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
     mprog.add_offset_assembly(S_i.BEARING_HOUSING_list[stamping_press_type] + '.1', 'FRAME30.1', -apv['FRAME30']['h'], 'XY plane', 0, 302)
     mprog.add_offset_assembly(S_i.BEARING_HOUSING_list[stamping_press_type] + '.1', 'FRAME30.1', -(S_assmebly_par['BH_YZ']), 'YZ plane', 0, 303)
     mprog.add_offset_assembly(S_i.BEARING_HOUSING_list[stamping_press_type] + '.1', 'FRAME30.1', apv['FRAME30']['E'] / 2, 'ZX plane', 0, 304)
-    mprog.add_offset_assembly(S_i.SLIDE_list_normal[stamping_press_type] + '.1', 'plate.1', -(specifications_close_working_height_value+beta+assmebly_par['Ass_AM']), 'XY plane', 0, 308)
-    mprog.add_offset_assembly(S_i.SLIDE_list_normal[stamping_press_type] + '.1', 'plate.1', (par.plate_length_width[1]/2), 'YZ plane', 1, 309)
-    mprog.add_offset_assembly(S_i.SLIDE_list_normal[stamping_press_type] + '.1', 'plate.1', par.plate_length_width[0]/2, 'ZX plane', 0, 310)
+    mprog.add_offset_assembly('slide.1', 'plate.1', -(specifications_close_working_height_value+beta+assmebly_par['Ass_AM']), 'XY plane', 0, 308)
+    mprog.add_offset_assembly('slide.1', 'plate.1', (par.plate_length_width[1]/2), 'YZ plane', 1, 309)
+    mprog.add_offset_assembly('slide.1', 'plate.1', par.plate_length_width[0]/2, 'ZX plane', 0, 310)
     mprog.add_offset_assembly(S_i.BALANCER_list[stamping_press_type] + '.1', 'FRAME1.1', -(apv['FRAME1']['A']-apv['FRAME1']['bbbbb']+S_assmebly_par['B_XY']+ 0.5 * alpha + beta), 'XY plane', 0, 311)
     mprog.add_offset_assembly(S_i.BALANCER_list[stamping_press_type] + '.1', 'FRAME1.1', -(apv['FRAME1']['F']-apv['FRAME1']['fffff1'] + apv['FRAME1']['ddddd1'] + zeta - S_assmebly_par['B_YZ']), 'YZ plane', 0, 312)
     mprog.add_offset_assembly(S_i.BALANCER_list[stamping_press_type] + '.1', 'FRAME1.1', -S_assmebly_par['B_ZX'], 'ZX plane', 0, 313)
     mprog.add_offset_assembly(S_i.BALANCER_list[stamping_press_type] + '.2', S_i.BALANCER_list[stamping_press_type] + '.1', 0, 'XY plane', 0, 314)
     mprog.add_offset_assembly(S_i.BALANCER_list[stamping_press_type] + '.2', S_i.BALANCER_list[stamping_press_type] + '.1', 0, 'YZ plane', 0, 315)
     mprog.add_offset_assembly(S_i.BALANCER_list[stamping_press_type] + '.2', S_i.BALANCER_list[stamping_press_type] + '.1', -S_assmebly_par['B2_ZX'], 'ZX plane', 0, 316)
-    mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type] + '.1', S_i.SLIDE_list_normal[stamping_press_type] + '.1', -S_assmebly_par['OLS_XY'], 'XY plane', 0, 317)
-    mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type] + '.1', S_i.SLIDE_list_normal[stamping_press_type] + '.1', -S_assmebly_par['OLS_YZ'], 'YZ plane', 0, 318)
-    mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type] + '.1', S_i.SLIDE_list_normal[stamping_press_type] + '.1', -S_assmebly_par['OLS_ZX'], 'ZX plane', 0, 319)
-    mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type] + '.2', S_i.SLIDE_list_normal[stamping_press_type] + '.1', -S_assmebly_par['OLS2_XY'], 'XY plane', 0, 320)
-    mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type] + '.2', S_i.SLIDE_list_normal[stamping_press_type] + '.1', -S_assmebly_par['OLS2_YZ'], 'YZ plane', 0, 321)
-    mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type] + '.2', S_i.SLIDE_list_normal[stamping_press_type] + '.1', -S_assmebly_par['OLS2_ZX'], 'ZX plane', 0, 322)
+    mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type] + '.1', 'slide.1', -S_assmebly_par['OLS_XY'], 'XY plane', 0, 317)
+    mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type] + '.1', 'slide.1', -S_assmebly_par['OLS_YZ'], 'YZ plane', 0, 318)
+    mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type] + '.1', 'slide.1', -S_assmebly_par['OLS_ZX'], 'ZX plane', 0, 319)
+    mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type] + '.2', 'slide.1', -S_assmebly_par['OLS2_XY'], 'XY plane', 0, 320)
+    mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type] + '.2', 'slide.1', -S_assmebly_par['OLS2_YZ'], 'YZ plane', 0, 321)
+    mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_SLIDE[stamping_press_type] + '.2', 'slide.1', -S_assmebly_par['OLS2_ZX'], 'ZX plane', 0, 322)
     mprog.add_offset_assembly('MZW8702_WIRE_CASING.1', S_i.ELECTRIC_BOX_list_normal[stamping_press_type] + '.1', S_assmebly_par['EW_XY'], 'XY plane', 0, 329)
     mprog.add_offset_assembly('MZW8702_WIRE_CASING.1', S_i.ELECTRIC_BOX_list_normal[stamping_press_type] + '.1', S_assmebly_par['EW_YZ'], 'YZ plane', 0, 330)
     mprog.add_offset_assembly('MZW8702_WIRE_CASING.1', S_i.ELECTRIC_BOX_list_normal[stamping_press_type] + '.1', 0, 'ZX plane', 1, 331)

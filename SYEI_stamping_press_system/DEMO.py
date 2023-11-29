@@ -496,8 +496,8 @@ class main(QtWidgets.QWidget, Ui_Form):
             par.INVERTER = self.ui.window_main_table.cellWidget(14, 4).text()
         elif check_item[5] == '':
             par.INVERTER = self.ui.window_main_table.item(14, 3).text()
-        par.GUM = self.ui.window_main_table.cellWidget(18, 3).currentText()
-        par.power = self.ui.window_main_table.cellWidget(21, 3).currentText()
+        par.GUM = self.ui.window_main_table.cellWidget(18, 3).currentText()#防震繳
+        par.power = self.ui.window_main_table.cellWidget(21, 3).currentText()#電源
         print(check_item, par.customize_stroke, par.customize_cycle, par.customize_DH)
         return par.customize_stroke , par.customize_DH , par.GUM, par.INVERTER, par.power
 
@@ -517,7 +517,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         specifications_travel_value,  specifications_close_working_height_value, self.GUM, self.INVERTER, self.power= self.customize_dimension_check()
         type = self.ui.window_main_table.cellWidget(4, 3).currentText()
         travel_type = str(self.ui.window_main_table.cellWidget(5, 3).currentText())
-        processing = '是'
+        processing = '是'#魔電加工
         print(type, travel_type, specifications_travel_value, specifications_close_working_height_value)
         if specifications_travel_value == "":
             self.specifications_travel_value = 0
@@ -582,6 +582,14 @@ class main(QtWidgets.QWidget, Ui_Form):
         frequency_power.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
         frequency_power.setFlags(frequency_power.flags() & ~Qt.ItemIsEditable)
         self.ui.window_main_table.setItem(15, 3, frequency_power)
+        Upper_mold_lifting_weight = QTableWidgetItem(par.stamping_press_Upper_mold_lifting_weight[style][stamping_press_type])
+        Upper_mold_lifting_weight.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        Upper_mold_lifting_weight.setFlags(Upper_mold_lifting_weight.flags() & ~Qt.ItemIsEditable)
+        self.ui.window_main_table.setItem(16, 3, Upper_mold_lifting_weight)
+        Working_surface_height = QTableWidgetItem(par.stamping_press_Working_surface_height[style][stamping_press_type])
+        Working_surface_height.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+        Working_surface_height.setFlags(Working_surface_height.flags() & ~Qt.ItemIsEditable)
+        self.ui.window_main_table.setItem(20, 3, Working_surface_height)
 
 
         par.stamping_press_type = stamping_press_type
@@ -722,7 +730,7 @@ class main(QtWidgets.QWidget, Ui_Form):
                    type, alpha, beta, zeta, epsilon, power):
         file_txt = path
         txt_name = "生成參數.txt"
-        with open(file_txt + "\\" + txt_name, "w") as f:
+        with open(file_txt + "\\" + txt_name, "w") as f:#創建文字檔
             f.write("噸數=%s\n" % type)
             f.write("型式:%s\n" % travel_type)
             f.write("本次行程=%s\n" % specifications_travel_value)
@@ -735,10 +743,10 @@ class main(QtWidgets.QWidget, Ui_Form):
 
     def create_dir(self):  # 創建資料夾
         time_now = datetime.datetime.now()
-        dir_name = '{}_{}_{}_{}'.format(time_now.day, time_now.hour, time_now.minute, time_now.second)
-        desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
-        path = desktop + '\\' + dir_name
-        os.mkdir(path)
+        dir_name = '{}_{}_{}_{}'.format(time_now.day, time_now.hour, time_now.minute, time_now.second)#確認資料夾名稱
+        desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')#確認桌面路徑
+        path = desktop + '\\' + dir_name#給程式一個創建資料夾的路徑
+        os.mkdir(path)#創建資料夾
         machining = path + "\\" + "machining"
         welding = path + "\\" + "welding"
         plate = path + "\\" + "plate"
@@ -815,10 +823,10 @@ class main(QtWidgets.QWidget, Ui_Form):
 
     def change_dir(self, stamping_press_type, p, alpha, beta, zeta, epsilon, machining, welding, travel_type, specifications_close_working_height_value, GUM, INVERTER, power):
         start_time = time.time()
-        all_part_name = {}
-        all_part_value = {}
+        all_part_name = {}#零件名稱
+        all_part_value = {}#零件變數名稱
         all_parameter_save = {}
-        all_parameter_value = {}
+        all_parameter_value = {}#零件變數的職
         # 開啟CATIA
         env = mprog.set_CATIA_workbench_env()
         machining_file_change_error = []
@@ -829,7 +837,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         for name in epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_col_cell(1):
             # print(name)
             file_list_name, file_list_value = epc.ExcelOp('尺寸整理表', '沖床機架零件清單').get_sheet_par('沖床機架零件清單', stamping_press_type)
-            file_list_name_index = file_list_name.index(name)
+            file_list_name_index = file_list_name.index(name)#之後問泓毅
             if file_list_value[file_list_name_index] == 0:
                 pass
             else:
@@ -896,8 +904,8 @@ class main(QtWidgets.QWidget, Ui_Form):
 
                         # 加工圖零件
                         parameter_name, parameter_value = mptc.change_machining_parameter(name, stamping_press_type, 1, travel_type)
-                        all_part_name[name] = parameter_name
-                        all_part_value[name] = parameter_value
+                        all_part_name[name] = parameter_name#路人甲
+                        all_part_value[name] = parameter_value#以
                         for x in range(len(parameter_name)):
                             all_parameter_save.setdefault(parameter_name[x], parameter_value[x])
                             all_parameter_list = all_parameter_save.copy()
@@ -937,7 +945,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         # print('welding_file_change_error', welding_file_change_error)
         # print('welding_file_change_pass', welding_file_change_pass)
         # print('總用時%s' % (time.time() - start_time))  # 建立3D組立
-        Ad.assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifications_close_working_height_value, travel_type, GUM,INVERTER, power)
+        Ad.assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifications_close_working_height_value, travel_type, GUM,INVERTER, power, slide)
 
         return machining_file_change_error, welding_file_change_error
 
