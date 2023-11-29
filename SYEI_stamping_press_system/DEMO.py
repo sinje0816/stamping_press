@@ -951,16 +951,16 @@ class slide_first_windows(QtWidgets.QWidget):
         except:
             pass
         slide_path = window.slide + "\\" + "slide" + str(par.slide_count)
-        mprog.import_part(slide_path, 'slide')
+        mprog.import_part(slide_path, par.slide_part_name)
         path = window.slide
-        mprog.save_file_stp(path, 'slide')
-        mprog.save_stpfile_part(path, 'slide')
+        mprog.save_file_stp(path, par.slide_part_name)
+        mprog.save_stpfile_part(path, par.slide_part_name)
         mprog.close_window()
         self.hide()
         self.nw = main()
         self.nw.show()
 
-    # 選擇平板類型
+    # 選擇衝頭類型
     def select_slide_type_name(self, stamping_press_type):
         get_slide_select_name = self.ui.slide_select.currentText()
         if get_slide_select_name == "特殊衝頭":
@@ -975,159 +975,103 @@ class slide_first_windows(QtWidgets.QWidget):
 
     def start(self, stamping_press_type):
         par.slide_normal_name = [self.ui.slide_select.currentText()]
-        # 判斷模墊型
-        if par.slide_normal_name[0] == "標準模墊型":
-            if stamping_press_type == 0:
-                par.total_t_slot_h_type = ['貫穿', '分段', '貫穿']
-                par.total_position_y = [100, 0, -100]
-                par.total_LL = ['', 185, '']
-                par.total_LR = ['', 185, '']
-                par.t_all_dimension = [22, 38, 23, 16]
-            elif stamping_press_type == 1:
-                par.total_t_slot_h_type = ['貫穿', '分段', '貫穿']
-                par.total_position_y = [125, 0, -125]
-                par.total_LL = ['', 210, '']
-                par.total_LR = ['', 210, '']
-                par.t_all_dimension = [22, 38, 23, 16]
-            elif stamping_press_type == 2:
-                par.total_t_slot_h_type = ['貫穿', '分段', '貫穿']
-                par.total_position_y = [140, 0, -140]
-                par.total_LL = ['', 220, '']
-                par.total_LR = ['', 220, '']
-                par.t_all_dimension = [22, 38, 23, 16]
-            elif stamping_press_type == 3:
-                par.total_t_slot_h_type = ['貫穿', '分段', '貫穿']
-                par.total_position_y = [150, 0, -150]
-                par.total_LL = ['', 240, '']
-                par.total_LR = ['', 240, '']
-                par.t_all_dimension = [22, 38, 23, 16]
-            elif stamping_press_type == 4:
-                par.total_t_slot_h_type = ['貫穿', '分段', '貫穿']
-                par.total_position_y = [180, 0, -180]
-                par.total_LL = ['', 270, '']
-                par.total_LR = ['', 270, '']
-                par.t_all_dimension = [28, 48, 30, 20]
-            elif stamping_press_type == 5:
-                par.total_t_slot_h_type = ['貫穿', '分段', '貫穿']
-                par.total_position_y = [210, 0, -210]
-                par.total_LL = ['', 280, '']
-                par.total_LR = ['', 280, '']
-                par.t_all_dimension = [28, 48, 30, 20]
-            elif stamping_press_type == 6:
-                par.total_t_slot_h_type = ['貫穿', '分段', '分段', '分段', '貫穿']
-                par.total_position_y = [290, 165, 0, -165, -290]
-                par.total_LL = ['', 290, 290, 290, '']
-                par.total_LR = ['', 290, 290, 290, '']
-                par.t_all_dimension = [28, 48, 30, 20]
-            elif stamping_press_type == 7:
-                par.total_t_slot_h_type = ['貫穿', '分段', '分段', '分段', '貫穿']
-                par.total_position_y = [320, 180, 0, -180, -320]
-                par.total_LL = ['', 320, 320, 320, '']
-                par.total_LR = ['', 320, 320, 320, '']
-                par.t_all_dimension = [28, 48, 30, 20]
-            elif stamping_press_type == 8:
-                par.total_t_slot_h_type = ['貫穿', '分段', '分段', '分段', '貫穿']
-                par.total_position_y = [350, 200, 0, -200, -350]
-                par.total_LL = ['', 320, 320, 320, '']
-                par.total_LR = ['', 320, 320, 320, '']
-                par.t_all_dimension = [28, 48, 30, 20]
-        else:
-            # 判斷下料孔
-            if '圓孔' in par.slide_normal_name[0]:
-                if stamping_press_type == 0:
-                    par.cutout_part_dimension = [100, '', '', '', '']
-                elif stamping_press_type == 1:
-                    par.cutout_part_dimension = [110, '', '', '', '']
-                elif stamping_press_type == 2:
-                    par.cutout_part_dimension = [130, '', '', '', '']
-                elif stamping_press_type == 3:
-                    par.cutout_part_dimension = [150, '', '', '', '']
-                elif stamping_press_type == 4:
-                    par.cutout_part_dimension = [180, '', '', '', '']
-                elif stamping_press_type == 5:
-                    par.cutout_part_dimension = [200, '', '', '', '']
-                elif stamping_press_type == 6:
-                    par.cutout_part_dimension = [220, '', '', '', '']
-                elif stamping_press_type == 7:
-                    par.cutout_part_dimension = [250, '', '', '', '']
-                elif stamping_press_type == 8:
-                    par.cutout_part_dimension = [270, '', '', '', '']
-            elif '方孔' in par.slide_normal_name[0]:
-                if stamping_press_type == 0:
-                    par.cutout_part_dimension = [200, 100, '', '', '']
-                    par.cutout_spuare_R = [20]
-                elif stamping_press_type == 1:
-                    par.cutout_part_dimension = [220, 110, '', '', '']
-                    par.cutout_spuare_R = [25]
-                elif stamping_press_type == 2:
-                    par.cutout_part_dimension = [260, 130, '', '', '']
-                    par.cutout_spuare_R = [25]
-                elif stamping_press_type == 3:
-                    par.cutout_part_dimension = [300, 150, '', '', '']
-                    par.cutout_spuare_R = [30]
-                elif stamping_press_type == 4:
-                    par.cutout_part_dimension = [360, 180, '', '', '']
-                    par.cutout_spuare_R = [35]
-                elif stamping_press_type == 5:
-                    par.cutout_part_dimension = [400, 200, '', '', '']
-                    par.cutout_spuare_R = [40]
-                elif stamping_press_type == 6:
-                    par.cutout_part_dimension = [440, 220, '', '', '']
-                    par.cutout_spuare_R = [45]
-                elif stamping_press_type == 7:
-                    par.cutout_part_dimension = [500, 250, '', '', '']
-                    par.cutout_spuare_R = [50]
-                elif stamping_press_type == 8:
-                    par.cutout_part_dimension = [540, 270, '', '', '']
-                    par.cutout_spuare_R = [55]
-            # 判斷T溝
-            if stamping_press_type == 0:
-                par.total_t_slot_h_type = ['貫穿', '貫穿', '貫穿']
-                par.total_position_y = [100, 0, -100]
-                par.t_all_dimension = [22, 38, 23, 16]
-            elif stamping_press_type == 1:
-                par.total_t_slot_h_type = ['貫穿', '貫穿', '貫穿']
-                par.total_position_y = [125, 0, -125]
-                par.t_all_dimension = [22, 38, 23, 16]
-            elif stamping_press_type == 2:
-                par.total_t_slot_h_type = ['貫穿', '貫穿', '貫穿']
-                par.total_position_y = [140, 0, -140]
-                par.t_all_dimension = [22, 38, 23, 16]
-            elif stamping_press_type == 3:
-                par.total_t_slot_h_type = ['貫穿', '貫穿', '貫穿']
-                par.total_position_y = [150, 0, -150]
-                par.t_all_dimension = [22, 38, 23, 16]
-            elif stamping_press_type == 4:
-                par.total_t_slot_h_type = ['貫穿', '貫穿', '貫穿']
-                par.total_position_y = [180, 0, -180]
-                par.t_all_dimension = [28, 48, 30, 20]
-            elif stamping_press_type == 5:
-                par.total_t_slot_h_type = ['貫穿', '貫穿', '貫穿']
-                par.total_position_y = [210, 0, -210]
-                par.t_all_dimension = [28, 48, 30, 20]
-            elif stamping_press_type == 6:
-                par.total_t_slot_h_type = ['貫穿', '貫穿', '貫穿', '貫穿', '貫穿']
-                par.total_position_y = [290, 165, 0, -165, -290]
-                par.t_all_dimension = [28, 48, 30, 20]
-            elif stamping_press_type == 7:
-                par.total_t_slot_h_type = ['貫穿', '貫穿', '貫穿', '貫穿', '貫穿']
-                par.total_position_y = [320, 180, 0, -180, -320]
-                par.t_all_dimension = [28, 48, 30, 20]
-            elif stamping_press_type == 8:
-                par.total_t_slot_h_type = ['貫穿', '貫穿', '貫穿', '貫穿', '貫穿']
-                par.total_position_y = [350, 200, 0, -200, -350]
-                par.t_all_dimension = [28, 48, 30, 20]
-        # 連結到平板第二頁的函式進行生成
-        path = plate_secend_windows.start(stamping_press_type, stamping_press_type, 'plate_first_windows')
+        if '標準' in par.slide_normal_name[0]:
+            slide_lv = 0
+            slide_lv_name = 0
+        elif '標準加大I型' in par.slide_normal_name[0]:
+            slide_lv = par.slide_lv1[stamping_press_type]
+            slide_lv_name = 1
+        elif '標準加大II型' in par.slide_normal_name[0]:
+            slide_lv = par.slide_lv2[stamping_press_type]
+            slide_lv_name = 2
+        # 根據噸數判斷T溝數量
+        if stamping_press_type == 0:
+            par.sl_total_t_slot_v_type = ['貫穿', '貫穿']
+            par.sl_total_position_x = [105, -105]
+            par.sl_t_all_dimension = [22, 38, 23, 16]
+        elif stamping_press_type == 1:
+            par.sl_total_t_slot_v_type = ['貫穿', '貫穿']
+            par.sl_total_position_x = [130, -130]
+            par.sl_t_all_dimension = [22, 38, 23, 16]
+        elif stamping_press_type == 2:
+            par.sl_total_t_slot_v_type = ['貫穿', '貫穿']
+            par.sl_total_position_x = [140, -140]
+            par.sl_t_all_dimension = [22, 38, 23, 16]
+        elif stamping_press_type == 3:
+            par.sl_total_t_slot_v_type = ['貫穿', '貫穿']
+            par.sl_total_position_x = [150, -150]
+            par.sl_t_all_dimension = [28, 48, 30, 20]
+        elif stamping_press_type == 4:
+            par.sl_total_t_slot_v_type = ['貫穿', '貫穿']
+            par.sl_total_position_x = [160, -160]
+            par.sl_t_all_dimension = [28, 48, 30, 20]
+        elif stamping_press_type == 5:
+            par.sl_total_t_slot_v_type = ['貫穿', '貫穿']
+            par.sl_total_position_x = [180, -180]
+            par.sl_t_all_dimension = [28, 48, 30, 20]
+        elif stamping_press_type == 6:
+            par.sl_total_t_slot_v_type = ['貫穿', '貫穿', '貫穿', '貫穿']
+            par.sl_total_position_x = [260, 160, -160, -260]
+            par.sl_t_all_dimension = [28, 48, 30, 20]
+            par.sl_total_position_y = [0]
+            par.sl_total_t_slot_h_type = ['分段']
+            if slide_lv_name == 0:
+                par.sl_total_LL = [(par.slide_length[stamping_press_type]/2) - 260]
+                par.sl_total_LR = [(par.slide_length[stamping_press_type]/2) - 260]
+            elif slide_lv_name == 1:
+                par.sl_total_LL = [(par.slide_length[stamping_press_type]/2) + par.slide_lv1[stamping_press_type] - 260]
+                par.sl_total_LR = [(par.slide_length[stamping_press_type]/2) + par.slide_lv1[stamping_press_type] - 260]
+            elif slide_lv_name == 2:
+                par.sl_total_LL = [(par.slide_length[stamping_press_type]/2) + par.slide_lv2[stamping_press_type] - 260]
+                par.sl_total_LR = [(par.slide_length[stamping_press_type]/2) + par.slide_lv2[stamping_press_type] - 260]
+        elif stamping_press_type == 7:
+            par.sl_total_t_slot_v_type = ['貫穿', '貫穿', '貫穿', '貫穿']
+            par.sl_total_position_x = [300, 170, -170, -300]
+            par.sl_t_all_dimension = [28, 48, 30, 20]
+            par.sl_total_position_y = [0]
+            par.sl_total_t_slot_h_type = ['分段']
+            if slide_lv_name == 0:
+                par.sl_total_LL = [(par.slide_length[stamping_press_type] / 2) - 300]
+                par.sl_total_LR = [(par.slide_length[stamping_press_type] / 2) - 300]
+            elif slide_lv_name == 1:
+                par.sl_total_LL = [
+                    (par.slide_length[stamping_press_type] / 2) + par.slide_lv1[stamping_press_type] - 300]
+                par.sl_total_LR = [
+                    (par.slide_length[stamping_press_type] / 2) + par.slide_lv1[stamping_press_type] - 300]
+            elif slide_lv_name == 2:
+                par.sl_total_LL = [
+                    (par.slide_length[stamping_press_type] / 2) + par.slide_lv2[stamping_press_type] - 300]
+                par.sl_total_LR = [
+                    (par.slide_length[stamping_press_type] / 2) + par.slide_lv2[stamping_press_type] - 300]
+        elif stamping_press_type == 8:
+            par.sl_total_t_slot_v_type = ['貫穿', '貫穿', '貫穿', '貫穿']
+            par.sl_total_position_x = [350, 200, -200, -350]
+            par.sl_t_all_dimension = [28, 48, 30, 20]
+            par.sl_total_position_y = [0]
+            par.sl_total_t_slot_h_type = ['分段']
+            if slide_lv_name == 0:
+                par.sl_total_LL = [(par.slide_length[stamping_press_type] / 2) - 350]
+                par.sl_total_LR = [(par.slide_length[stamping_press_type] / 2) - 350]
+            elif slide_lv_name == 1:
+                par.sl_total_LL = [
+                    (par.slide_length[stamping_press_type] / 2) + par.slide_lv1[stamping_press_type] - 350]
+                par.sl_total_LR = [
+                    (par.slide_length[stamping_press_type] / 2) + par.slide_lv1[stamping_press_type] - 350]
+            elif slide_lv_name == 2:
+                par.sl_total_LL = [
+                    (par.slide_length[stamping_press_type] / 2) + par.slide_lv2[stamping_press_type] - 350]
+                par.sl_total_LR = [
+                    (par.slide_length[stamping_press_type] / 2) + par.slide_lv2[stamping_press_type] - 350]
+
+        # 連結到衝頭第二頁的函式進行生成
+        slide_secend_windows.start(stamping_press_type, stamping_press_type, 'slide_first_windows')
         # T溝
-        plate_secend_windows.t_solt(stamping_press_type, path)
-        # 下料孔
-        plate_secend_windows.plate_hole(stamping_press_type, stamping_press_type, path, 'plate_first_windows')
+        slide_secend_windows.t_solt(stamping_press_type, window.slide + '\\slide' + str(par.slide_count), stamping_press_type, slide_lv)
         # 關閉實體外所有東西
         mprog.Close_All()
         # 平板存檔
-        mprog.save_file_stp(path, 'plate')
-        mprog.save_stpfile_part(path, 'plate')
+        mprog.save_file_stp(window.slide + '\\slide' + str(par.slide_count), par.slide_part_name)
+        mprog.save_stpfile_part(window.slide + '\\slide' + str(par.slide_count), par.slide_part_name)
 
 
 # 沖頭第二頁
@@ -1137,10 +1081,10 @@ class slide_secend_windows(QtWidgets.QWidget):
         self.ui = slide_secend_form()
         self.ui.setupUi(self)
         self.setWindowTitle('衝頭')
-        # 切換平板第一頁
+        # 切換衝頭第一頁
         self.ui.slide_select.currentIndexChanged.connect(lambda: self.switch_to_first_slide_windows(stamping_press_type))
         self.ui.slide_select.setCurrentText('特殊衝頭')
-        # 平板面積
+        # 衝頭面積
         self.slide_type(stamping_press_type)
         self.ui.slide_extrasize.currentIndexChanged.connect(lambda: self.slide_area_dimension(stamping_press_type))
         if len(par.slide_special_type) != 0:
@@ -1230,7 +1174,7 @@ class slide_secend_windows(QtWidgets.QWidget):
             pass
         slide_path = window.slide + "\\" + "slide" + str(par.slide_count)
         mprog.import_part(slide_path, par.slide_part_name)
-        path = window.path
+        path = window.slide
         mprog.save_file_stp(path, par.slide_part_name)
         mprog.save_stpfile_part(path, par.slide_part_name)
         mprog.close_window()
@@ -1251,7 +1195,7 @@ class slide_secend_windows(QtWidgets.QWidget):
             self.nw = slide_first_windows(stamping_press_type)
             self.nw.show()
 
-    # 客製化頁面平板當前面積
+    # 客製化頁面衝頭當前面積
     def slide_area_dimension(self, stamping_press_type):
         get_slide_select_name = self.ui.slide_select.currentText()
         get_slide_area_name = self.ui.slide_extrasize.currentText()
@@ -1273,7 +1217,7 @@ class slide_secend_windows(QtWidgets.QWidget):
             self.ui.slide_LR.clear()
             self.ui.slide_FB.clear()
 
-    # 客製化頁面衝頭平板選項之尺寸改變
+    # 客製化頁面衝頭衝頭選項之尺寸改變
     def slide_type(self, stamping_press_type):
         self.ui.slide_select.setItemText(0, str(par.slide_normal_type[0]) + '(' + str(
             par.slide_length[stamping_press_type]) + 'x' + str(par.slide_width[stamping_press_type]) + ")")
@@ -1403,12 +1347,17 @@ class slide_secend_windows(QtWidgets.QWidget):
 
         # 第一頁選衝頭
         if len(par.slide_normal_name) != 0:
-            if "標準" in par.slide_normal_name[0]:
-                mprog.import_part(fp.system_root + fp.DEMO_part, 'slide_'+str(stamping_press_type)+'_normal')
-            elif '標準加大I型' in  par.slide_normal_name[0]:
-                mprog.import_part(fp.system_root + fp.DEMO_part, 'slide_'+str(stamping_press_type)+'_lv1')
+            if '標準加大I型' in  par.slide_normal_name[0]:
+                mprog.import_part(fp.system_root + fp.DEMO_part + '\\SLIDE', 'slide_'+str(stamping_press_type)+'_lv1')
+                slide_extrasize = 'lv1'
             elif '標準加大II型' in  par.slide_normal_name[0]:
-                mprog.import_part(fp.system_root + fp.DEMO_part, 'slide_'+str(stamping_press_type)+'_lv2')
+                mprog.import_part(fp.system_root + fp.DEMO_part + '\\SLIDE', 'slide_'+str(stamping_press_type)+'_lv2')
+                slide_extrasize = 'lv2'
+            elif "標準" in par.slide_normal_name[0]:
+                mprog.import_part(fp.system_root + fp.DEMO_part + '\\SLIDE', 'slide_'+str(stamping_press_type)+'_normal')
+                slide_extrasize = 'normal'
+            par.slide_part_name = 'slide_'+str(stamping_press_type)+'_' + slide_extrasize
+
         # 第二頁選衝頭
         else:
             slide_extrasize = self.ui.slide_extrasize.currentText()
@@ -1424,13 +1373,14 @@ class slide_secend_windows(QtWidgets.QWidget):
             mprog.import_part(fp.system_root + fp.DEMO_part + '\\SLIDE', 'slide_'+str(stamping_press_type)+'_'+slide_extrasize)
             par.slide_part_name = 'slide_'+str(stamping_press_type)+'_'+slide_extrasize
         # T溝程式
-        self.t_solt(path, stamping_press_type, slide_lv)
-        # 關閉實體外所有東西
-        mprog.Close_All()
-        # 平板存檔
-        mprog.save_file_stp(path, par.slide_part_name)
-        mprog.save_stpfile_part(path, par.slide_part_name)
-        return path
+        if parent_page == 'slide_secend_windows':
+            path_slide = window.slide + 'slide' + str(par.slide_count)
+            self.t_solt(path_slide, stamping_press_type, slide_lv)
+            # 關閉實體外所有東西
+            mprog.Close_All()
+            # 衝頭存檔
+            mprog.save_file_stp(path_slide, par.slide_part_name)
+            mprog.save_stpfile_part(path_slide, par.slide_part_name)
 
     # T形槽
     def t_solt(self, path, stamping_press_type, slide_lv):
@@ -1462,45 +1412,58 @@ class slide_secend_windows(QtWidgets.QWidget):
                     mprog.param_change('T_solt_slide', 'LL', par.sl_total_LL[turn])
                     mprog.param_change('T_solt_slide', 'LR', par.sl_total_LR[turn])
                 # 判斷SL和SR是否為0或空值
-                if len(par.sl_total_SL) != 0:
-                    if par.sl_total_SL[turn] == '' or par.sl_total_SL[turn] == '0':
-                        mprog.partdeactivate('讓孔1')
-                        mprog.partdeactivate('讓孔倒圓角1')
-                    elif par.sl_total_SL[turn] != '':
-                        mprog.param_change('T_solt_slide', 'SL', par.sl_total_SL[turn])
+                if len(par.sl_total_SL) == 0:
+                    mprog.partdeactivate('讓孔1')
+                    mprog.partdeactivate('讓孔倒圓角1')
+                elif par.sl_total_SL[turn] == '' or par.sl_total_SL[turn] == '0':
+                    mprog.partdeactivate('讓孔1')
+                    mprog.partdeactivate('讓孔倒圓角1')
+                elif par.sl_total_SL[turn] != '':
+                    mprog.param_change('T_solt_slide', 'SL', par.sl_total_SL[turn])
                 else:
                     mprog.partdeactivate('讓孔1')
                     mprog.partdeactivate('讓孔倒圓角1')
-                if len(par.sl_total_SR) != 0:
-                    if par.sl_total_SR[turn] == '' or par.sl_total_SR[turn] == '0' or len(par.sl_total_SR) == 0:
-                        mprog.partdeactivate('讓孔2')
-                        mprog.partdeactivate('讓孔倒圓角2')
-                    elif par.sl_total_SR[turn] != '':
-                        mprog.param_change('T_solt_slide', 'SR', par.sl_total_SR[turn])
+                if len(par.sl_total_SR) == 0:
+                    mprog.partdeactivate('讓孔2')
+                    mprog.partdeactivate('讓孔倒圓角2')
+                elif par.sl_total_SR[turn] == '' or par.sl_total_SR[turn] == '0':
+                    mprog.partdeactivate('讓孔2')
+                    mprog.partdeactivate('讓孔倒圓角2')
+                elif par.sl_total_SR[turn] != '':
+                    mprog.param_change('T_solt_slide', 'SR', par.sl_total_SR[turn])
                 else:
                     mprog.partdeactivate('讓孔2')
                     mprog.partdeactivate('讓孔倒圓角2')
-                print(turn)
                 # 偏移距離及複製T溝到衝頭進行除料
                 tT.create_t_solt(par.sl_total_position_y[turn], turn, 'slide', 'T_solt_slide', par.slide_part_name)
-                if len(par.sl_total_SL) != 0:
-                    if par.sl_total_SL[turn] == '' or par.sl_total_SL[turn] == '0':
-                        mprog.partbodyfeatureactivate('讓孔1')
-                        mprog.partbodyfeatureactivate('讓孔倒圓角1')
+                if len(par.sl_total_SL) == 0:
+                    mprog.partbodyfeatureactivate('讓孔1')
+                    mprog.partbodyfeatureactivate('讓孔倒圓角1')
+                elif par.sl_total_SL[turn] == '' or par.sl_total_SL[turn] == '0':
+                    mprog.partbodyfeatureactivate('讓孔1')
+                    mprog.partbodyfeatureactivate('讓孔倒圓角1')
                 else:
                     mprog.partbodyfeatureactivate('讓孔1')
                     mprog.partbodyfeatureactivate('讓孔倒圓角1')
-                if len(par.sl_total_SR) != 0:
-                    if par.sl_total_SR[turn] == '' or par.sl_total_SR[turn] == '0':
-                        mprog.partbodyfeatureactivate('讓孔2')
-                        mprog.partbodyfeatureactivate('讓孔倒圓角2')
+                if len(par.sl_total_SR) == 0:
+                    mprog.partbodyfeatureactivate('讓孔2')
+                    mprog.partbodyfeatureactivate('讓孔倒圓角2')
+                elif par.sl_total_SR[turn] == '' or par.sl_total_SR[turn] == '0':
+                    mprog.partbodyfeatureactivate('讓孔2')
+                    mprog.partbodyfeatureactivate('讓孔倒圓角2')
                 else:
                     mprog.partbodyfeatureactivate('讓孔2')
                     mprog.partbodyfeatureactivate('讓孔倒圓角2')
                 mprog.Update()
                 mprog.close_window()
+                turn_test = True
         else:
             turn = 0
+            turn_test = False
+
+        if turn_test == True:
+            if turn == 0:
+                turn = 1
 
         # 縱向T溝
         if len(par.sl_total_position_x) != 0:
@@ -1520,26 +1483,45 @@ class slide_secend_windows(QtWidgets.QWidget):
                     mprog.param_change('T_solt_slide', 'LF', par.sl_total_LF[turn_2])
                     mprog.param_change('T_solt_slide', 'LB', par.sl_total_LB[turn_2])
                 # 判斷SL和SR是否為0或空值
-                if par.sl_total_SF[turn_2] == '' or par.sl_total_SF[turn_2] == '0':
+                # 第一頁內容不會有SF值
+                if len(par.sl_total_SF) == 0:
+                    mprog.partdeactivate('讓孔1')
+                    mprog.partdeactivate('讓孔倒圓角1')
+                elif par.sl_total_SF[turn_2] == '' or par.sl_total_SF[turn_2] == '0':
                     mprog.partdeactivate('讓孔1')
                     mprog.partdeactivate('讓孔倒圓角1')
                 elif par.sl_total_SF[turn_2] != '':
                     mprog.param_change('T_solt_slide', 'SF', par.sl_total_SF[turn_2])
-                if par.sl_total_SB[turn_2] == '' or par.sl_total_SB[turn_2] == '0':
+                # 第一頁內容不會有SB值
+                if len(par.sl_total_SB) == 0:
+                    mprog.partdeactivate('讓孔2')
+                    mprog.partdeactivate('讓孔倒圓角2')
+                elif par.sl_total_SB[turn_2] == '' or par.sl_total_SB[turn_2] == '0':
                     mprog.partdeactivate('讓孔2')
                     mprog.partdeactivate('讓孔倒圓角2')
                 elif par.sl_total_SB[turn_2] != '':
                     mprog.param_change('T_solt_slide', 'SB', par.sl_total_SB[turn_2])
                 # T溝位置移動
+                print('turn:', turn)
+                print('turn_2:', turn_2)
                 if turn == 0:
                     tT.create_t_solt(par.sl_total_position_x[turn_2], turn_2, 'slide', 'T_solt_slide', par.slide_part_name)
                 elif turn != 0:
-                    tT.create_t_solt(par.sl_total_position_x[turn_2], 1+turn_2+turn, 'slide', 'T_solt_slide', par.slide_part_name)
-                if par.sl_total_SF[turn_2] == '' or par.sl_total_SF[turn_2] == '0':
+                    tT.create_t_solt(par.sl_total_position_x[turn_2], turn_2+turn, 'slide', 'T_solt_slide', par.slide_part_name)
+
+                if len(par.sl_total_SF) == 0:
                     mprog.param_change('T_solt_slide', 'SF', 10)
                     mprog.partbodyfeatureactivate('讓孔1')
                     mprog.partbodyfeatureactivate('讓孔倒圓角1')
-                if par.sl_total_SB[turn_2] == '' or par.sl_total_SB[turn_2] == '0':
+                elif par.sl_total_SF[turn_2] == '' or par.sl_total_SF[turn_2] == '0':
+                    mprog.param_change('T_solt_slide', 'SF', 10)
+                    mprog.partbodyfeatureactivate('讓孔1')
+                    mprog.partbodyfeatureactivate('讓孔倒圓角1')
+                if len(par.sl_total_SB) == 0:
+                    mprog.param_change('T_solt_slide', 'SB', 10)
+                    mprog.partbodyfeatureactivate('讓孔2')
+                    mprog.partbodyfeatureactivate('讓孔倒圓角2')
+                elif par.sl_total_SB[turn_2] == '' or par.sl_total_SB[turn_2] == '0':
                     mprog.param_change('T_solt_slide', 'SB', 10)
                     mprog.partbodyfeatureactivate('讓孔2')
                     mprog.partbodyfeatureactivate('讓孔倒圓角2')
@@ -2411,6 +2393,8 @@ class t_machining(QWidget):
                     self.ui.label.setPixmap(QPixmap(fp.system_root + '/無鎖模加模柄孔.png'))
                 elif par.slide_chunk_status[0] == '有鎖模':
                     self.ui.label.setPixmap(QPixmap(fp.system_root + '/鎖模加模柄孔.png'))
+            self.ui.label_1.setText('註:Y>0表示T溝位於衝頭中心後方；Y=0表示T溝位於衝頭中心；Y<0表示T溝位於衝頭中心前方')
+            self.ui.label_2.setText('X>0表示T溝位於衝頭中心右方；X=0表示T溝位於衝頭中心；X<0表示T溝位於衝頭中心左方')
 
         # 橫向T溝
         self.ui.t_slot_table_h.verticalHeader().setVisible(False)

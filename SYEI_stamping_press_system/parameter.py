@@ -255,6 +255,8 @@ sl_total_LF = []  # 分段LF尺寸
 sl_total_LB = []  # 分段LB尺寸
 sl_total_SF = []  # 讓槽SF尺寸
 sl_total_SB = []  # 讓槽SB尺寸
+sl_t_all_dimension = []
+
 #衝頭計數器
 slide_count = 0
 # 鎖模夾頭當前狀態
