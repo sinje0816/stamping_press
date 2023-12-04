@@ -761,7 +761,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         self.plate = plate
         self.slide = slide
 
-        return  path , machining , welding, slide
+        return  path , machining , welding, slide, plate
 
     # def finish(self, machining_file_change_error, welding_file_change_error):
     #     Form = QtWidgets.QWidget()
@@ -1393,7 +1393,7 @@ class slide_secend_windows(QtWidgets.QWidget):
             par.slide_part_name = 'slide_'+str(stamping_press_type)+'_'+slide_extrasize
         # T溝程式
         if parent_page == 'slide_secend_windows':
-            path_slide = window.slide + 'slide' + str(par.slide_count)
+            path_slide = window.slide + '\\slide' + str(par.slide_count)
             self.t_solt(path_slide, stamping_press_type, slide_lv)
             # 關閉實體外所有東西
             mprog.Close_All()
@@ -1403,6 +1403,7 @@ class slide_secend_windows(QtWidgets.QWidget):
 
     # T形槽
     def t_solt(self, path, stamping_press_type, slide_lv):
+        print(path)
         # 對T溝進行變數變換
         mprog.import_part(fp.system_root + fp.DEMO_part, 'T_solt_slide')
         for t in par.t_all_dimension:
@@ -1478,11 +1479,13 @@ class slide_secend_windows(QtWidgets.QWidget):
                 turn_test = True
         else:
             turn = 0
-            turn_test = False
 
-        if turn_test == True:
-            if turn == 0:
-                turn = 1
+        try:
+            if turn_test == True:
+                if turn == 0:
+                    turn = 1
+        except:
+            pass
 
         # 縱向T溝
         if len(par.sl_total_position_x) != 0:
@@ -1525,9 +1528,10 @@ class slide_secend_windows(QtWidgets.QWidget):
                 print('turn_2:', turn_2)
                 if turn == 0:
                     tT.create_t_solt(par.sl_total_position_x[turn_2], turn_2, 'slide', 'T_solt_slide', par.slide_part_name)
-                elif turn != 0:
+                elif len(par.sl_total_position_y) == 1:
                     tT.create_t_solt(par.sl_total_position_x[turn_2], turn_2+turn, 'slide', 'T_solt_slide', par.slide_part_name)
-
+                else:
+                    tT.create_t_solt(par.sl_total_position_x[turn_2], turn_2+turn + 1, 'slide', 'T_solt_slide', par.slide_part_name)
                 if len(par.sl_total_SF) == 0:
                     mprog.param_change('T_solt_slide', 'SF', 10)
                     mprog.partbodyfeatureactivate('讓孔1')
@@ -1792,12 +1796,12 @@ class plate_secend_windows(QtWidgets.QWidget):
         self.chack_plate_table()
         self.ui.plate_escape.clicked.connect(self.switch_to_stamping_press_main_windows)
         # 完成按鈕
-        self.ui.plate_finish.clicked.connect(lambda :self.finish)
+        self.ui.plate_finish.clicked.connect(self.finish)
 
     def finish(self):
         plate_path = window.plate + "\\" + "plate" + str(par.plate_count)
         mprog.import_part(plate_path, 'plate')
-        path = window.path
+        path = window.plate
         mprog.save_file_stp(path, 'plate')
         mprog.save_stpfile_part(path, 'plate')
         mprog.close_window()
@@ -2096,46 +2100,46 @@ class plate_secend_windows(QtWidgets.QWidget):
 
         # 橫向T溝
         if len(par.total_position_y) != 0:
-            for turn in range(0, len(par.total_position_y)):
+            for plate_turn in range(0, len(par.total_position_y)):
                 mprog.import_part(path, 'T')
                 tT.changerotate(0)
                 mprog.param_change('T', 'A', (par.plate_all_parameter['A'] + par.lv[0]))
                 mprog.param_change('T', 'C', par.plate_all_parameter['C'])
-                if par.total_t_slot_h_type[turn] == '貫穿' or par.total_t_slot_h_type[turn] == '':
+                if par.total_t_slot_h_type[plate_turn] == '貫穿' or par.total_t_slot_h_type[plate_turn] == '':
                     mprog.param_change('T', 'LL', (par.plate_all_parameter['A'] + par.lv[0]))
                     mprog.param_change('T', 'LR', (par.plate_all_parameter['A'] + par.lv[0]))
-                elif par.total_t_slot_h_type[turn] == '分段':
-                    mprog.param_change('T', 'LL', par.total_LL[turn])
-                    mprog.param_change('T', 'LR', par.total_LR[turn])
+                elif par.total_t_slot_h_type[plate_turn] == '分段':
+                    mprog.param_change('T', 'LL', par.total_LL[plate_turn])
+                    mprog.param_change('T', 'LR', par.total_LR[plate_turn])
                 # 判斷SL和SR是否為0或空值
                 if len(par.total_SL) != 0:
-                    if par.total_SL[turn] == '' or par.total_SL[turn] == '0':
+                    if par.total_SL[plate_turn] == '' or par.total_SL[plate_turn] == '0':
                         mprog.partdeactivate('讓孔1')
                         mprog.partdeactivate('讓孔倒圓角1')
-                    elif par.total_SL[turn] != '':
-                        mprog.param_change('T', 'SL', par.total_SL[turn])
+                    elif par.total_SL[plate_turn] != '':
+                        mprog.param_change('T', 'SL', par.total_SL[plate_turn])
                 else:
                     mprog.partdeactivate('讓孔1')
                     mprog.partdeactivate('讓孔倒圓角1')
                 if len(par.total_SR) != 0:
-                    if par.total_SR[turn] == '' or par.total_SR[turn] == '0' or len(par.total_SR) == 0:
+                    if par.total_SR[plate_turn] == '' or par.total_SR[plate_turn] == '0' or len(par.total_SR) == 0:
                         mprog.partdeactivate('讓孔2')
                         mprog.partdeactivate('讓孔倒圓角2')
-                    elif par.total_SR[turn] != '':
-                        mprog.param_change('T', 'SR', par.total_SR[turn])
+                    elif par.total_SR[plate_turn] != '':
+                        mprog.param_change('T', 'SR', par.total_SR[plate_turn])
                 else:
                     mprog.partdeactivate('讓孔2')
                     mprog.partdeactivate('讓孔倒圓角2')
-                tT.create_t_solt((par.plate_all_parameter['B'] / 2) + par.total_position_y[turn], turn, 'plate', 'T', 'plate')
+                tT.create_t_solt((par.plate_all_parameter['B'] / 2) + par.total_position_y[plate_turn], plate_turn, 'plate', 'T', 'plate')
                 if len(par.total_SL) != 0:
-                    if par.total_SL[turn] == '' or par.total_SL[turn] == '0':
+                    if par.total_SL[plate_turn] == '' or par.total_SL[plate_turn] == '0':
                         mprog.partbodyfeatureactivate('讓孔1')
                         mprog.partbodyfeatureactivate('讓孔倒圓角1')
                 else:
                     mprog.partbodyfeatureactivate('讓孔1')
                     mprog.partbodyfeatureactivate('讓孔倒圓角1')
                 if len(par.total_SR) != 0:
-                    if par.total_SR[turn] == '' or par.total_SR[turn] == '0':
+                    if par.total_SR[plate_turn] == '' or par.total_SR[plate_turn] == '0':
                         mprog.partbodyfeatureactivate('讓孔2')
                         mprog.partbodyfeatureactivate('讓孔倒圓角2')
                 else:
@@ -2143,51 +2147,69 @@ class plate_secend_windows(QtWidgets.QWidget):
                     mprog.partbodyfeatureactivate('讓孔倒圓角2')
                 mprog.Update()
                 mprog.close_window()
-                # time.sleep(0.1)
+                plate_turn_test = True
+                print('plate_turn : ', plate_turn)
+
         else:
-            turn = 0
+            plate_turn = 0
+
+        try:
+            if plate_turn_test == True:
+                if plate_turn == 0:
+                    plate_turn = 1
+                print('plate_turn_true : ', plate_turn)
+        except:
+            pass
 
         # 縱向T溝
         if len(par.total_position_x) != 0:
-            if turn != 0:
+            if plate_turn != 0:
                 mprog.param_change('T', 'LL', 0)
                 mprog.param_change('T', 'LR', 0)
                 mprog.param_change('T', 'SL', 0)
                 mprog.param_change('T', 'SR', 0)
-            for turn_2 in range(0, len(par.total_position_x)):
+            for plate_turn_2 in range(0, len(par.total_position_x)):
                 mprog.import_part(path, 'T')
                 tT.changerotate(-90)
                 mprog.param_change('T', 'A', par.plate_all_parameter['B'])
                 mprog.param_change('T', 'C', par.plate_all_parameter['C'])
-                if par.total_t_slot_v_type[turn_2] == '貫穿' or par.total_t_slot_v_type[turn_2] == '':
+                if par.total_t_slot_v_type[plate_turn_2] == '貫穿' or par.total_t_slot_v_type[plate_turn_2] == '':
                     mprog.param_change('T', 'LF', par.plate_all_parameter['B'])
                     mprog.param_change('T', 'LB', par.plate_all_parameter['B'])
-                elif par.total_t_slot_v_type[turn_2] == '分段':
-                    mprog.param_change('T', 'LF', par.total_LF[turn_2])
-                    mprog.param_change('T', 'LB', par.total_LB[turn_2])
+                elif par.total_t_slot_v_type[plate_turn_2] == '分段':
+                    mprog.param_change('T', 'LF', par.total_LF[plate_turn_2])
+                    mprog.param_change('T', 'LB', par.total_LB[plate_turn_2])
                 # 判斷SL和SR是否為0或空值
-                if par.total_SF[turn_2] == '' or par.total_SF[turn_2] == '0':
+                if par.total_SF[plate_turn_2] == '' or par.total_SF[plate_turn_2] == '0':
                     mprog.partdeactivate('讓孔1')
                     mprog.partdeactivate('讓孔倒圓角1')
-                elif par.total_SF[turn_2] != '':
-                    mprog.param_change('T', 'SF', par.total_SF[turn_2])
-                if par.total_SB[turn_2] == '' or par.total_SB[turn_2] == '0':
+                elif par.total_SF[plate_turn_2] != '':
+                    mprog.param_change('T', 'SF', par.total_SF[plate_turn_2])
+                if par.total_SB[plate_turn_2] == '' or par.total_SB[plate_turn_2] == '0':
                     mprog.partdeactivate('讓孔2')
                     mprog.partdeactivate('讓孔倒圓角2')
-                elif par.total_SB[turn_2] != '':
-                    mprog.param_change('T', 'SB', par.total_SB[turn_2])
-                if turn == 0:
+                elif par.total_SB[plate_turn_2] != '':
+                    mprog.param_change('T', 'SB', par.total_SB[plate_turn_2])
+                if plate_turn == 0:
                     tT.create_t_solt(
-                        -((par.plate_all_parameter['A'] / 2) + (par.lv[0] / 2) + par.total_position_x[turn_2]), turn_2, 'plate', 'T', 'plate')
+                        -((par.plate_all_parameter['A'] / 2) + (par.lv[0] / 2) + par.total_position_x[plate_turn_2]), plate_turn_2, 'plate', 'T', 'plate')
+                elif len(par.total_position_y) == 1:
+                    tT.create_t_solt(
+                        -((par.plate_all_parameter['A'] / 2) + (par.lv[0] / 2) + par.total_position_x[plate_turn_2]),
+                        plate_turn_2 + plate_turn, 'plate', 'T', 'plate')
+                elif len(par.total_position_y) == 2:
+                    tT.create_t_solt(
+                        -((par.plate_all_parameter['A'] / 2) + (par.lv[0] / 2) + par.total_position_x[plate_turn_2]),
+                        plate_turn_2 + plate_turn + 1, 'plate', 'T', 'plate')
                 else:
                     tT.create_t_solt(
-                        -((par.plate_all_parameter['A'] / 2) + (par.lv[0] / 2) + par.total_position_x[turn_2]),
-                        turn_2 + turn + 1, 'plate', 'T', 'plate')
-                if par.total_SF[turn_2] == '' or par.total_SF[turn_2] == '0':
+                        -((par.plate_all_parameter['A'] / 2) + (par.lv[0] / 2) + par.total_position_x[plate_turn_2]),
+                        plate_turn_2 + plate_turn + 1, 'plate', 'T', 'plate')
+                if par.total_SF[plate_turn_2] == '' or par.total_SF[plate_turn_2] == '0':
                     mprog.param_change('T', 'SF', 10)
                     mprog.partbodyfeatureactivate('讓孔1')
                     mprog.partbodyfeatureactivate('讓孔倒圓角1')
-                if par.total_SB[turn_2] == '' or par.total_SB[turn_2] == '0':
+                if par.total_SB[plate_turn_2] == '' or par.total_SB[plate_turn_2] == '0':
                     mprog.param_change('T', 'SB', 10)
                     mprog.partbodyfeatureactivate('讓孔2')
                     mprog.partbodyfeatureactivate('讓孔倒圓角2')
@@ -2766,7 +2788,7 @@ class t_machining(QWidget):
                 for position, item in enumerate(par.total_t_slot_v_type):
                     combo_box = self.ui.t_slot_table_v.cellWidget(position + 1, 2)
                     combo_box.setCurrentText(item)
-                    self.combo_box_changed_v(position + 1, combo_box.currentIndex())
+                    # self.combo_box_changed_v(position + 1, combo_box.currentIndex())
 
                 # 檢查T溝是否超出界線
                 # T溝尺寸與平板邊緣>=50mm
@@ -3329,6 +3351,6 @@ if __name__ == "__main__":
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)  # 自適應屏幕分辨率
     app = QtWidgets.QApplication([])
     window = main()
-    path, machining, welding, slide = window.create_dir()
+    path, machining, welding, slide, plate= window.create_dir()
     window.show()
     sys.exit(app.exec_())
