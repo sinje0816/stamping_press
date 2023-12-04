@@ -36,14 +36,14 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
                 S_i.Assmebly(part_name[name], path + '\\' + 'machining', stamping_press_type, travel_type, GUM, INVERTER, power, slide)
                 continue
             else:
-                mprog.import_file_Part(path + '\\' + 'machining', part_name[name])
+                mprog.import_file_Part(path + '\\' + 'machining', part_name[name])#參數設計件
     try:
-        mprog.import_file_Part(path + '\\' + 'plate', 'plate')
+        mprog.import_file_Part(path + '\\' + 'plate', 'plate')#平板匯入
     except:
         pass
     #定義基準零件
     mprog.base_lock('FRAME1.1', 'FRAME1.1', 0)
-    #開始進行組立，條件為:(零件1、零件2、距離、平面、組立方式、編號)
+    #開始進行組立，條件為:(零件1(浮動零件)、零件2(以固定零件)、距離、平面、組立方式、編號)
     mprog.add_offset_assembly('FRAME2.1', 'FRAME1.1', 0, 'XY plane', 0, 4)
     mprog.add_offset_assembly('FRAME2.1', 'FRAME1.1', 0, 'YZ plane', 0, 5)
     mprog.add_offset_assembly('FRAME2.1', 'FRAME1.1', -(apv['FRAME22']['D']+(apv['FRAME1']['CC']/2)+(apv['FRAME2']['CC']/2)), 'ZX plane', 0, 6)
@@ -1228,7 +1228,7 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
                 else:
                     mprog.add_offset_assembly(S_i.INVERTER_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1', -(
                                 apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
-                            'w1'] / 2), 'XY plane', 0, 353)
+                            'bb1'] / 2), 'XY plane', 0, 353)
                     mprog.add_offset_assembly(S_i.INVERTER_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
                                               -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
                     mprog.add_offset_assembly(S_i.INVERTER_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
