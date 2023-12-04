@@ -191,6 +191,9 @@ normal_cutout_molded_cushion_length_quantity = [5, 5, 5, 5, 6, 6, 6, 7, 8]
 normal_cutout_molded_cushion_width_quantity = [3, 3, 3, 3, 4, 4, 4, 5, 6]
 #平板目前實際長寬(組立用)
 plate_length_width = []
+# 平板是否按下完成按鈕
+plate_finish = False
+
 # 主頁面資料
 series1 = ['C型單軸自動化選單', '基本參數']
 series2 = ['單位', '銷售地區法規', '機種', '形式', '平板', '衝頭']
@@ -280,3 +283,5 @@ slide_dieshank_size_status = []
 slide_normal_name = []
 # 當前開啟沖頭part檔名稱
 slide_part_name = ''
+# 衝頭是否按下完成按鈕
+slide_finish = False

@@ -334,6 +334,26 @@ class main(QtWidgets.QWidget, Ui_Form):
         select_setup.clicked.connect(lambda: self.switch_to_select_item())
         # spare_parts_setup.clicked.connect()
 
+        # 若平板或沖頭按下完成設定，則將按鈕設定為不可按及改為綠色和顯示已完成
+        if par.plate_finish == True:
+            # 文字設定
+            plate_finish = QtWidgets.QLabel('已完成')
+            plate_finish.setEnabled(False)
+            plate_finish.setStyleSheet('font-family: "微軟正黑體"; font-size: 12px; background-color:#7fff00;')
+            self.ui.window_main_table.setCellWidget(6, 5, plate_finish)
+            # 按鈕設定
+            plate_finish.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+            self.ui.window_main_table.setCellWidget(6, 4, plate_finish)
+        if par.slide_finish == True:
+            # 文字設定
+            slide_finish = QtWidgets.QLabel('已完成')
+            slide_finish.setEnabled(False)
+            slide_finish.setStyleSheet('font-family: "微軟正黑體"; font-size: 12px; background-color:#7fff00;')
+            self.ui.window_main_table.setCellWidget(7, 5, slide_finish)
+            # 按鈕設定
+            slide_finish.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+            self.ui.window_main_table.setCellWidget(7, 4, slide_finish)
+
     def previous_value(self):
         if par.main_change == '':
             print('This is your first time enter main window')
@@ -964,6 +984,10 @@ class slide_first_windows(QtWidgets.QWidget):
         self.ui.slide_save.clicked.connect(self.switch_to_stamping_press_main_windows)
         self.ui.slide_finish.clicked.connect(self.finish)
 
+    # 根據噸數顯示不同平板長寬尺寸
+    def change_slide_title_contect(self, stamping_press_type):
+        self.ui.slide_select.addItems()
+
     def finish(self):
         try:
             mprog.close_window()
@@ -975,6 +999,7 @@ class slide_first_windows(QtWidgets.QWidget):
         mprog.save_file_stp(path, par.slide_part_name)
         mprog.save_stpfile_part(path, par.slide_part_name)
         mprog.close_window()
+        par.slide_finish = True
         self.hide()
         self.nw = main()
         self.nw.show()
@@ -1197,6 +1222,7 @@ class slide_secend_windows(QtWidgets.QWidget):
         mprog.save_file_stp(path, par.slide_part_name)
         mprog.save_stpfile_part(path, par.slide_part_name)
         mprog.close_window()
+        par.slide_finish = True
         self.hide()
         self.nw = main()
         self.nw.show()
@@ -1575,6 +1601,7 @@ class plate_first_windows(QtWidgets.QWidget):
         mprog.save_file_stp(path, 'plate')
         mprog.save_stpfile_part(path, 'plate')
         mprog.close_window()
+        par.plate_finish = True
         self.hide()
         self.nw = main()
         self.nw.show()
@@ -1805,6 +1832,7 @@ class plate_secend_windows(QtWidgets.QWidget):
         mprog.save_file_stp(path, 'plate')
         mprog.save_stpfile_part(path, 'plate')
         mprog.close_window()
+        par.plate_finish = True
         self.hide()
         self.nw = main()
         self.nw.show()
