@@ -726,8 +726,8 @@ class main(QtWidgets.QWidget, Ui_Form):
         return alpha, beta, zeta, epsilon
 
     # 建立txt檔
-    def create_txt(self, path, travel_type, specifications_travel_value, specifications_close_working_height_value,
-                   type, alpha, beta, zeta, epsilon, power):
+    def create_txt(self, path, type, travel_type, specifications_travel_value, specifications_close_working_height_value,
+                alpha, beta, zeta, epsilon, power):
         file_txt = path
         txt_name = "生成參數.txt"
         with open(file_txt + "\\" + txt_name, "w") as f:#創建文字檔
@@ -1792,7 +1792,7 @@ class plate_secend_windows(QtWidgets.QWidget):
         self.chack_plate_table()
         self.ui.plate_escape.clicked.connect(self.switch_to_stamping_press_main_windows)
         # 完成按鈕
-        self.ui.plate_finish.clicked.connect(lambda :self.finish)
+        self.ui.plate_finish.clicked.connect(self.finish)
 
     def finish(self):
         plate_path = window.plate + "\\" + "plate" + str(par.plate_count)
