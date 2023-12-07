@@ -1243,9 +1243,9 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
                     mprog.add_offset_assembly(S_i.INVERTER_440_D_S_list[stamping_press_type] + '.1', 'FRAME2.1',
                                               -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
                 else:
-                    mprog.add_offset_assembly(S_i.INVERTER_440_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                    mprog.add_offset_assembly(S_i.INVERTER_440_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1',-(
                                 apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
-                            'w1'] / 2), 'XY plane', 0, 353)
+                            'bb1'] / 2), 'XY plane', 0, 353)
                     mprog.add_offset_assembly(S_i.INVERTER_440_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
                                               -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
                     mprog.add_offset_assembly(S_i.INVERTER_440_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
