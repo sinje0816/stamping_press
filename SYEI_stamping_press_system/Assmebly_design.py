@@ -1582,3 +1582,4 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
     mprog.Close_All()
     # 儲存Product檔
     mprog.saveas(path, 'Product1', '.CATProduct')
+    mprog.save_file_product(path, 'Product1')

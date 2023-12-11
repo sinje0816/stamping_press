@@ -253,9 +253,10 @@ def save_file_product(path, file_name):
     catapp = win32.Dispatch('CATIA.Application')
     document = catapp.Documents
     file_name = file_name + '.CATProduct'
+    STP_file_name = file_name + '.stp'
     partDocument1 = document.Item(file_name)
     # print(path + '\\' + file_name)
-    partDocument1.SaveAs(path + '\\' + file_name)
+    partDocument1.SaveAs(path + '\\' + STP_file_name)
 
 
 # 新增資料夾
