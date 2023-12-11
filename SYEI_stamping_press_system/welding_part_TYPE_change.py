@@ -1919,7 +1919,6 @@ def change_welding_feature(name, i):
         elif name == 'FRAME29':
             try:
                 mprog.partdeactivate('Hole.1')
-                mprog.partdeactivate("F")
             finally:
                     mprog.Update()
         elif name == 'FRAME30':
