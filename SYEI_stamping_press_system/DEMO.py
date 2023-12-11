@@ -874,7 +874,7 @@ class main(QtWidgets.QWidget, Ui_Form):
                             or name == 'PANEL_BOX_BRACKET' or name == 'ELECTRIC_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE'\
                             or name == 'TRADEMARK_NAMEPLATE'or name == 'OPERATION_BOX' or name == 'PORTABLE_STAND' or name == 'OPERATION_BOX'\
                             or name == 'BEARING_HOUSING'or name == 'SLIDE' or name == 'BALANCER'or name == 'MOTOR'or name == 'MOTOR_BRACKET' or name == 'WIRE_CASING'\
-                            or name == 'ANTI_VIBRATION_GUM'or name == 'HANDEL_MOUNT_FILTER'or name == 'INVERTER':
+                            or name == 'ANTI_VIBRATION_GUM'or name == 'HANDEL_MOUNT_FILTER'or name == 'INVERTER' or name == 'SAFETY_SWITCH' or name == 'SAFETY_BLOCK':
                         # 讀取其餘STP檔
                         S_i.STP(name, stamping_press_type, machining, travel_type, GUM, INVERTER, power)
                         continue
@@ -984,7 +984,7 @@ class slide_first_windows(QtWidgets.QWidget):
         self.ui.slide_save.clicked.connect(self.switch_to_stamping_press_main_windows)
         self.ui.slide_finish.clicked.connect(self.finish)
 
-    # 根據噸數顯示不同平板長寬尺寸
+    # 根據噸數顯示不同沖頭長寬尺寸
     def change_slide_title_contect(self, stamping_press_type):
         self.ui.slide_select.addItems()
 
@@ -1113,7 +1113,7 @@ class slide_first_windows(QtWidgets.QWidget):
         slide_secend_windows.t_solt(stamping_press_type, window.slide + '\\slide' + str(par.slide_count), stamping_press_type, slide_lv)
         # 關閉實體外所有東西
         mprog.Close_All()
-        # 平板存檔
+        # 沖頭存檔
         mprog.save_file_stp(window.slide + '\\slide' + str(par.slide_count), par.slide_part_name)
         mprog.save_stpfile_part(window.slide + '\\slide' + str(par.slide_count), par.slide_part_name)
 
@@ -2064,7 +2064,7 @@ class plate_secend_windows(QtWidgets.QWidget):
                 mprog.param_change('plate', 'LV', par.lv[0])
                 par.plate_length_width = [par.plate_length[stamping_press_type] + par.lv[0],
                                           par.plate_width[stamping_press_type]]
-            else:
+            elif '標準' in par.plate_normal_name[0]:
                 par.lv = [0]
                 par.plate_length_width = [par.plate_length[stamping_press_type], par.plate_width[stamping_press_type]]
             if '模墊型' in par.plate_normal_name[0]:
@@ -2086,6 +2086,7 @@ class plate_secend_windows(QtWidgets.QWidget):
             par.plate_special_type = [plate_type]
             if par.plate_special_type[0] == '標準':
                 par.lv = [0]
+                par.plate_length_width = [par.plate_length[stamping_press_type], par.plate_width[stamping_press_type]]
             elif par.plate_special_type[0] == '加大I型':
                 par.lv.append(par.plate_lv1[stamping_press_type])
                 mprog.param_change('plate', 'LV', par.lv[0])

@@ -31,7 +31,7 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
                     or part_name[name] == 'TRADEMARK_NAMEPLATE' or part_name[name] == 'OPERATION_BOX' or part_name[name] == 'PORTABLE_STAND' or part_name[name] == 'OPERATION_BOX'\
                     or part_name[name] == 'BEARING_HOUSING' or part_name[name] == 'SLIDE'or part_name[name] == 'BALANCER'or part_name[name] == 'MOTOR_BRACKET'\
                     or part_name[name] == 'MOTOR' or part_name[name] == 'WIRE_CASING' or part_name[name] == 'ANTI_VIBRATION_GUM' or part_name[name] == 'HANDEL_MOUNT_FILTER'\
-                    or part_name[name] == 'INVERTER':#固定零件匯入清單
+                    or part_name[name] == 'INVERTER' or part_name[name] == 'SAFETY_SWITCH' or part_name[name] == 'SAFETY_BLOCK':#固定零件匯入清單
                 # 讀取其餘STP檔
                 S_i.Assmebly(part_name[name], path + '\\' + 'machining', stamping_press_type, travel_type, GUM, INVERTER, power, slide)
                 continue
@@ -1243,9 +1243,9 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
                     mprog.add_offset_assembly(S_i.INVERTER_440_D_S_list[stamping_press_type] + '.1', 'FRAME2.1',
                                               -(apv['FRAME2']['CC'] / 2), 'ZX plane', 0, 355)
                 else:
-                    mprog.add_offset_assembly(S_i.INVERTER_440_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1', -(
+                    mprog.add_offset_assembly(S_i.INVERTER_440_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1',-(
                                 apv['FRAME2']['w4'] + apv['FRAME2']['w3'] + apv['FRAME2']['w2'] + apv['FRAME2'][
-                            'w1'] / 2), 'XY plane', 0, 353)
+                            'bb1'] / 2), 'XY plane', 0, 353)
                     mprog.add_offset_assembly(S_i.INVERTER_440_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
                                               -(apv['FRAME2']['k'] + zeta), 'YZ plane', 0, 354)
                     mprog.add_offset_assembly(S_i.INVERTER_440_D_HP_list[stamping_press_type] + '.1', 'FRAME2.1',
@@ -1590,3 +1590,4 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
     mprog.Close_All()
     # 儲存Product檔
     mprog.saveas(path, 'Product1', '.CATProduct')
+    mprog.save_file_product(path, 'Product1')

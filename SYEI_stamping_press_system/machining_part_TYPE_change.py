@@ -1847,13 +1847,7 @@ def change_machining_parameter(name, stamping_press_type, machiningdiepad, trave
         excel = epc.ExcelOp('尺寸整理表', 'FRAME29')
         parameter_name, parameter_value = excel.get_sheet_par(
                 'FRAME29', stamping_press_type)
-        if stamping_press_type == 5:
-            mprog.partbodyfeatureactivate('Hole.1')
-        elif stamping_press_type == 8:
-            mprog.partbodyfeatureactivate('Hole.1')
-        else:
-            mprog.partbodyfeatureactivate('Hole.1')
-            mprog.partbodyfeatureactivate("F")
+        mprog.partbodyfeatureactivate('Hole.1')
     elif name == 'FRAME30':  # 已更改
         excel = epc.ExcelOp('尺寸整理表', 'FRAME30')
         parameter_name, parameter_value = excel.get_sheet_par('FRAME30', stamping_press_type)

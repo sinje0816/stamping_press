@@ -2,6 +2,8 @@ import main_program as mprog
 import file_path as fp
 import parameter as par
 
+SAFETY_BLOCK_list = ['30W71_SAFETY_BLOCK_YOCBR20_BRACKET', '30W71_SAFETY_BLOCK_YOCBR20_BRACKET', '30W71_SAFETY_BLOCK_YOCBR20_BRACKET', '30W71_SAFETY_BLOCK_YOCBR20_BRACKET', '160R13010_SAFETY_BLOCK_YOCBR20_BRACKET', '160R13010_SAFETY_BLOCK_YOCBR20_BRACKET', '160R13010_SAFETY_BLOCK_YOCBR20_BRACKET', '160R13010_SAFETY_BLOCK_YOCBR20_BRACKET', '160R13010_SAFETY_BLOCK_YOCBR20_BRACKET']
+SAFETY_SWITCH_list = ['Y01A017209HQ_SAFETY_SWITCH', 'Y01A017209HQ_SAFETY_SWITCH', 'Y01A017209HQ_SAFETY_SWITCH', 'Y01A017209HQ_SAFETY_SWITCH', 'Y01A017209HQ_SAFETY_SWITCH', 'Y01A017209HQ_SAFETY_SWITCH', 'Y01A017209HQ_SAFETY_SWITCH', 'Y01A017209HQ_SAFETY_SWITCH', 'Y01A017209HQ_SAFETY_SWITCH']
 PANEL_list = ['32H8302_PANEL', '322CC10_PANEL', '37H8302_PANEL', '37H8302_PANEL', '41H8302_PANEL', '552CC10_PANEL', '45H8302_PANEL', '45H8302_PANEL', '47H0001_PANEL']
 CON_ROD_list = ["302B04_CON_ROD", "322B04_CON_ROD", "342B04S01_CON_ROD", "372B04S01_CON_ROD", "392B04S01_CON_ROD", "412B04S03_CON_ROD", "432B04S01_CON_ROD", "452B04S02_CON_ROD", "472B04S02_CON_ROD"]
 CON_ROD_BASE_list = ["302B03_CON_ROD_BASE", "322B03_CON_ROD_BASE", "342B03_CON_ROD_BASE", "372B03_CON_ROD_BASE", "392B03S01_CON_ROD_BASE", "412B03S01P10_CON_ROD_BASE", "432B03S01_CON_ROD_BASE", "452B03S02_CON_ROD_BASE", "47B03S02_CON_ROD_BASE"]
@@ -72,6 +74,16 @@ def STP(name, stamping_press_type, machining, travel_type, GUM, INVERTER, power)
         mprog.save_file_stp(machining, PANEL_list[stamping_press_type])
         mprog.save_stpfile_part(machining, PANEL_list[stamping_press_type])
         mprog.close_file(PANEL_list[stamping_press_type])
+    elif name == 'SAFETY_BLOCK':
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), SAFETY_BLOCK_list[stamping_press_type])
+        mprog.save_file_stp(machining, SAFETY_BLOCK_list[stamping_press_type])
+        mprog.save_stpfile_part(machining, SAFETY_BLOCK_list[stamping_press_type])
+        mprog.close_file(SAFETY_BLOCK_list[stamping_press_type])
+    elif name == 'SAFETY_SWITCH':
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), SAFETY_SWITCH_list[stamping_press_type])
+        mprog.save_file_stp(machining, SAFETY_SWITCH_list[stamping_press_type])
+        mprog.save_stpfile_part(machining, SAFETY_SWITCH_list[stamping_press_type])
+        mprog.close_file(SAFETY_SWITCH_list[stamping_press_type])
     elif name == 'CON_ROD':
         mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), CON_ROD_list[stamping_press_type])
         mprog.save_file_stp(machining, CON_ROD_list[stamping_press_type])
@@ -397,6 +409,10 @@ def STP(name, stamping_press_type, machining, travel_type, GUM, INVERTER, power)
 def Assmebly(name,path, stamping_press_type, travel_type, GUM, INVERTER, power, slide):
     if name == 'PANEL':
         mprog.import_file_Part(path, PANEL_list[stamping_press_type])
+    elif name == 'SAFETY_BLOCK':
+        mprog.import_file_Part(path, SAFETY_BLOCK_list[stamping_press_type])
+    elif name == 'SAFETY_SWITCH':
+        mprog.import_file_Part(path, SAFETY_SWITCH_list[stamping_press_type])
     elif name == 'CON_ROD':
         mprog.import_file_Part(path, CON_ROD_list[stamping_press_type])
     elif name == 'CON_ROD_BASE':
