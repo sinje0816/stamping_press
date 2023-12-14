@@ -1134,13 +1134,13 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
         mprog.add_offset_assembly('FRAME45.1', 'FRAME13.1', 0, 'XY plane', 0, 191)
         mprog.add_offset_assembly('FRAME45.1', 'FRAME13.1', apv["FRAME45"]["A"] + apv["FRAME13"]["H"], 'YZ plane',
                                   1, 192)
-        mprog.add_offset_assembly('FRAME45.1', 'FRAME13.1', -apv["FRAME45"]["C"],
+        mprog.add_offset_assembly('FRAME45.1', 'FRAME13.1', -apv["FRAME45"]["C"]-(apv['FRAME13_1']['E']-apv['FRAME13_1']['I']),
                                   'ZX plane', 0, 193)
         mprog.add_offset_assembly('FRAME45.2', 'FRAME13_1.1', apv["FRAME45"]["H"], 'XY plane',
                                   1, 194)
         mprog.add_offset_assembly('FRAME45.2', 'FRAME13_1.1', apv["FRAME45"]["A"] + apv["FRAME13"]["H"], 'YZ plane',
                                   1, 195)
-        mprog.add_offset_assembly('FRAME45.2', 'FRAME13_1.1', -(apv["FRAME45"]["C"] - apv["FRAME13"]["I"]),
+        mprog.add_offset_assembly('FRAME45.2', 'FRAME13_1.1', -(apv["FRAME45"]["C"] - apv["FRAME13"]["E"]),
                                   'ZX plane', 1, 196)
         mprog.add_offset_assembly('FRAME43.1', 'FRAME13.1', apv["FRAME13"]["j"] + apv["FRAME13"]["k"] + assmebly_par['Ass_AI'] + apv["FRAME43"]["C"]/2, 'XY plane',
                                   1, 197)

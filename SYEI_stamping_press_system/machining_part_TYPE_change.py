@@ -2255,6 +2255,7 @@ def change_machining_parameter(name, stamping_press_type, machiningdiepad, trave
             mprog.partbodyfeatureactivate('Body')
             mprog.partbodyfeatureactivate('SN1_250_CD')
             mprog.activatefeature('M10*35L', 0)
+            mprog.Update()
         else:
             mprog.Update()
     elif name == 'FRAME51_1':
@@ -2265,6 +2266,7 @@ def change_machining_parameter(name, stamping_press_type, machiningdiepad, trave
             mprog.partbodyfeatureactivate('Body')
             mprog.partbodyfeatureactivate('SN1_250_CD')
             mprog.activatefeature('M10*35L', 0)
+            mprog.Update()
         else:
             mprog.Update()
     elif name == 'FRAME52':
@@ -2274,6 +2276,7 @@ def change_machining_parameter(name, stamping_press_type, machiningdiepad, trave
         if machiningdiepad == 0:
             mprog.partbodyfeatureactivate('machining_除料')
             mprog.activatefeature('machining_通孔', 0)
+            mprog.Update()
         else:
             mprog.Update()
     elif name == 'FRAME53':
