@@ -2,7 +2,7 @@ import main_program as mprog
 import excel_parameter_change as epc
 import STP_input as S_i
 import parameter as par
-def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifications_close_working_height_value, travel_type, GUM,INVERTER, power, slide):
+def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifications_close_working_height_value, specifications_travel_value, travel_type, GUM,INVERTER, power, slide):
     #excel匯入(匯入組立尺寸)
     excel = epc.ExcelOp('組立尺寸', 'Assembly_value')
     try:
@@ -245,12 +245,13 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
     mprog.add_offset_assembly('FRAME38.2', 'FRAME19.1', -(assmebly_par['Ass_X'] + apv['FRAME38']['C']), 'YZ plane', 0,
                               140)
     mprog.add_offset_assembly('FRAME38.2', 'FRAME19.1', -(apv['FRAME38']['B']), 'ZX plane', 0, 141)
-    mprog.add_offset_assembly('crankshaft.1', 'FRAME30.1', -(apv['FRAME30']['h']), 'XY plane', 0, 224)
-    mprog.add_offset_assembly('crankshaft.1', 'FRAME30.1', -assmebly_par['Ass_AN'], 'YZ plane', 0, 225)
-    mprog.add_offset_assembly('crankshaft.1', 'FRAME30.1', (apv['FRAME30']['E']/2), 'ZX plane', 0, 226)
-    mprog.add_offset_assembly(S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', 'crankshaft.1', apv['crankshaft']['Bx2']+alpha/2, 'XY plane', 0, 227)
+    mprog.add_offset_assembly('crankshaft.1', 'FRAME30.1', (apv['FRAME30']['h']), 'XY plane', 1, 224)
+
+    mprog.add_offset_assembly('crankshaft.1', 'FRAME30.1', -(assmebly_par['Ass_AN']+apv['FRAME30']['M']/2-apv['crankshaft']['Ah1']-apv['crankshaft']['Ah2']-apv['crankshaft']['Bh1']-apv['crankshaft']['Bh2']/2), 'YZ plane', 0, 225)
+    mprog.add_offset_assembly('crankshaft.1', 'FRAME30.1', -(apv['FRAME30']['E']/2), 'ZX plane', 1, 226)
+    mprog.add_offset_assembly(S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', 'crankshaft.1', -apv['crankshaft']['Bx2']+alpha/2, 'XY plane', 1, 227)
     mprog.add_offset_assembly(S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', 'crankshaft.1', (apv['crankshaft']['Ah1']+apv['crankshaft']['Ah2']+apv['crankshaft']['Bh1']+apv['crankshaft']['Bh2']/2), 'YZ plane', 0, 228)
-    mprog.add_offset_assembly(S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', 'crankshaft.1', 0, 'ZX plane', 0, 229)
+    mprog.add_offset_assembly(S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', 'crankshaft.1', 0, 'ZX plane', 1, 229)
     mprog.add_offset_assembly(S_i.PANEL_list[stamping_press_type]+'.1', S_i.BEARING_HOUSING_list[stamping_press_type] + '.1', 0, 'XY plane', 1, 236)
     mprog.add_offset_assembly(S_i.PANEL_list[stamping_press_type]+'.1', S_i.BEARING_HOUSING_list[stamping_press_type] + '.1', -S_assmebly_par['PANEL_YZ'], 'YZ plane', 0, 237)
     mprog.add_offset_assembly(S_i.PANEL_list[stamping_press_type]+'.1', S_i.BEARING_HOUSING_list[stamping_press_type] + '.1', 0, 'ZX plane', 0, 238)
@@ -285,7 +286,7 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
     mprog.add_offset_assembly(S_i.TRADEMARK_NAMEPLATE_list_normal[stamping_press_type]+'.2', 'FRAME2.1', (apv['FRAME1']['F']-S_assmebly_par['TN_YZ']+S_assmebly_par['TN_2_YZ'])-zeta, 'YZ plane', 1, 285)
     mprog.add_offset_assembly(S_i.TRADEMARK_NAMEPLATE_list_normal[stamping_press_type]+'.2', 'FRAME2.1', -(apv['FRAME1']['CC']/2), 'ZX plane', 0, 286)
     mprog.add_offset_assembly(S_i.NAME_PLATE_list_normal[stamping_press_type]+'.1', 'FRAME30.1', -(apv['FRAME30']['A']-S_assmebly_par['NP_XY'])-epsilon, 'XY plane', 0, 287)
-    mprog.add_offset_assembly(S_i.NAME_PLATE_list_normal[stamping_press_type]+'.1', 'FRAME30.1', -(apv['FRAME30']['M']+S_assmebly_par['NP_YZ']), 'YZ plane', 0, 288)
+    mprog.add_offset_assembly(S_i.NAME_PLATE_list_normal[stamping_press_type]+'.1', 'FRAME30.1', -(apv['FRAME30']['M']/2+S_assmebly_par['NP_YZ']), 'YZ plane', 0, 288)
     mprog.add_offset_assembly(S_i.NAME_PLATE_list_normal[stamping_press_type]+'.1', 'FRAME30.1', -(apv['FRAME30']['E']-S_assmebly_par['NP_ZX']), 'ZX plane', 1, 289)
     mprog.add_offset_assembly(S_i.GUARD_FLYWHEEL_list_normal[stamping_press_type]+'.1', 'FRAME1.1', (S_assmebly_par['GF_XY'])+0.5*alpha+beta, 'XY plane', 1, 290)
     mprog.add_offset_assembly(S_i.GUARD_FLYWHEEL_list_normal[stamping_press_type]+'.1', 'FRAME1.1', 6, 'YZ plane', 0, 291)
@@ -303,7 +304,7 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
     mprog.add_offset_assembly(S_i.BEARING_HOUSING_list[stamping_press_type] + '.1', 'FRAME30.1', -apv['FRAME30']['h'], 'XY plane', 0, 302)
     mprog.add_offset_assembly(S_i.BEARING_HOUSING_list[stamping_press_type] + '.1', 'FRAME30.1', -(S_assmebly_par['BH_YZ']), 'YZ plane', 0, 303)
     mprog.add_offset_assembly(S_i.BEARING_HOUSING_list[stamping_press_type] + '.1', 'FRAME30.1', apv['FRAME30']['E'] / 2, 'ZX plane', 0, 304)
-    mprog.add_offset_assembly('slide.1', 'plate.1', -(specifications_close_working_height_value+beta+assmebly_par['Ass_AM']), 'XY plane', 0, 308)
+    mprog.add_offset_assembly('slide.1', 'plate.1', -(specifications_close_working_height_value+par.plate_all_parameter['C']+specifications_travel_value), 'XY plane', 0, 308)
     mprog.add_offset_assembly('slide.1', 'plate.1', (par.plate_length_width[1]/2), 'YZ plane', 1, 309)
     mprog.add_offset_assembly('slide.1', 'plate.1', par.plate_length_width[0]/2, 'ZX plane', 0, 310)
     mprog.add_offset_assembly(S_i.BALANCER_list[stamping_press_type] + '.1', 'FRAME1.1', -(apv['FRAME1']['A']-apv['FRAME1']['bbbbb']+S_assmebly_par['B_XY']+ 0.5 * alpha + beta), 'XY plane', 0, 311)
@@ -1182,9 +1183,9 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
                                   -(S_assmebly_par['CP_YZ']), 'YZ plane', 1, 276)
         mprog.add_offset_assembly(S_i.CONTROL_PANEL_list_normal[stamping_press_type] + '.1',S_i.PANEL_BOX_list_normal[stamping_press_type] + '.1', -(S_assmebly_par['CP_ZX']),
                                   'ZX plane', 1, 277)
-        mprog.add_offset_assembly(S_i.CON_ROD_BASE_list[stamping_press_type]+'.1', 'crankshaft.1', -(apv['crankshaft']['Bx2']+alpha/2), 'XY plane', 1, 230)
+        mprog.add_offset_assembly(S_i.CON_ROD_BASE_list[stamping_press_type]+'.1', 'crankshaft.1', (apv['crankshaft']['Bx2']+alpha/2), 'XY plane', 0, 230)
         mprog.add_offset_assembly(S_i.CON_ROD_BASE_list[stamping_press_type]+'.1', 'crankshaft.1', (apv['crankshaft']['Ah1']+apv['crankshaft']['Ah2']+apv['crankshaft']['Bh1']+apv['crankshaft']['Bh2']/2), 'YZ plane', 0, 231)
-        mprog.add_offset_assembly(S_i.CON_ROD_BASE_list[stamping_press_type]+'.1', 'crankshaft.1', 0, 'ZX plane', 0, 232)
+        mprog.add_offset_assembly(S_i.CON_ROD_BASE_list[stamping_press_type]+'.1', 'crankshaft.1', 0, 'ZX plane', 1, 232)
         mprog.add_offset_assembly(S_i.CON_ROD_list[stamping_press_type]+'.1', S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', (S_assmebly_par['C_R_XY']-alpha/2), 'XY plane', 0, 233)
         mprog.add_offset_assembly(S_i.CON_ROD_list[stamping_press_type]+'.1', S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', 0, 'YZ plane', 0, 234)
         mprog.add_offset_assembly(S_i.CON_ROD_list[stamping_press_type]+'.1', S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', 0, 'ZX plane', 0, 235)
@@ -1197,7 +1198,7 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
         mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_CON_ROD[stamping_press_type]+'.1', S_i.CON_ROD_list[stamping_press_type]+'.1', -(S_assmebly_par['PLG_C_XY']), 'XY plane', 1, 257)
         mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_CON_ROD[stamping_press_type]+'.1', S_i.CON_ROD_list[stamping_press_type]+'.1', -(S_assmebly_par['PLG_C_YZ']), 'YZ plane', 0, 258)
         mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_CON_ROD[stamping_press_type]+'.1', S_i.CON_ROD_list[stamping_press_type]+'.1', (S_assmebly_par['PLG_C_ZX']), 'ZX plane', 0, 259)
-        mprog.add_offset_assembly('BALL_SCREW.1', S_i.CON_ROD_list[stamping_press_type]+'.1', (assmebly_par['Ass_AK']), 'XY plane', 0, 293)
+        mprog.add_offset_assembly('BALL_SCREW.1', 'slide.1', -(S_assmebly_par['BS_XY']-apv['BALL_SCREW']['Z']/2), 'XY plane', 0, 293)
         mprog.add_offset_assembly('BALL_SCREW.1', S_i.CON_ROD_list[stamping_press_type]+'.1', 0, 'YZ plane', 0, 294)
         mprog.add_offset_assembly('BALL_SCREW.1', S_i.CON_ROD_list[stamping_press_type]+'.1', -apv['BALL_SCREW']['Z']/2, 'ZX plane', 0, 295)
         if travel_type == 1:
@@ -1505,9 +1506,9 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
         mprog.add_offset_assembly(S_i.CONTROL_PANEL_list_normal[stamping_press_type] + '.1',
                                   S_i.PANEL_BOX_list_normal[stamping_press_type] + '.1', (S_assmebly_par['CP_ZX']),
                                   'ZX plane', 0, 277)
-        mprog.add_offset_assembly(S_i.CON_ROD_BASE_list[stamping_press_type]+'.1', 'crankshaft.1', (apv['crankshaft']['Bx2']), 'XY plane', 0, 230)
+        mprog.add_offset_assembly(S_i.CON_ROD_BASE_list[stamping_press_type]+'.1', 'crankshaft.1', (apv['crankshaft']['Bx2']+alpha/2), 'XY plane', 0, 230)
         mprog.add_offset_assembly(S_i.CON_ROD_BASE_list[stamping_press_type]+'.1', 'crankshaft.1', (apv['crankshaft']['Ah1']+apv['crankshaft']['Ah2']+apv['crankshaft']['Bh1']+apv['crankshaft']['Bh2']/2), 'YZ plane', 0, 231)
-        mprog.add_offset_assembly(S_i.CON_ROD_BASE_list[stamping_press_type]+'.1', 'crankshaft.1', 0, 'ZX plane', 0, 232)
+        mprog.add_offset_assembly(S_i.CON_ROD_BASE_list[stamping_press_type]+'.1', 'crankshaft.1', 0, 'ZX plane', 1, 232)
         mprog.add_offset_assembly(S_i.CON_ROD_list[stamping_press_type]+'.1', S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', (S_assmebly_par['C_R_XY']), 'XY plane', 0, 233)
         mprog.add_offset_assembly(S_i.CON_ROD_list[stamping_press_type]+'.1', S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', 0, 'YZ plane', 0, 234)
         mprog.add_offset_assembly(S_i.CON_ROD_list[stamping_press_type]+'.1', S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', 0, 'ZX plane', 1, 235)
@@ -1523,7 +1524,8 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
         mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_CON_ROD[stamping_press_type]+'.1', S_i.CON_ROD_list[stamping_press_type]+'.1', -(S_assmebly_par['PLG_C_XY']), 'XY plane', 1, 257)
         mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_CON_ROD[stamping_press_type]+'.1', S_i.CON_ROD_list[stamping_press_type]+'.1', -(S_assmebly_par['PLG_C_YZ']), 'YZ plane', 0, 258)
         mprog.add_offset_assembly(S_i.OIL_LEVEL_GAUGE_list_CON_ROD[stamping_press_type]+'.1', S_i.CON_ROD_list[stamping_press_type]+'.1', (S_assmebly_par['PLG_C_ZX']), 'ZX plane', 1, 259)
-        mprog.add_offset_assembly('BALL_SCREW.1', S_i.CON_ROD_list[stamping_press_type]+'.1', (assmebly_par['Ass_AK']), 'XY plane', 0, 293)
+        mprog.add_offset_assembly('BALL_SCREW.1', 'slide.1', -(S_assmebly_par['BS_XY'] - apv['BALL_SCREW']['Z'] / 2),
+                                  'XY plane', 0, 293)
         mprog.add_offset_assembly('BALL_SCREW.1', S_i.CON_ROD_list[stamping_press_type]+'.1', 0, 'YZ plane', 0, 294)
         mprog.add_offset_assembly('BALL_SCREW.1', S_i.CON_ROD_list[stamping_press_type]+'.1', -apv['BALL_SCREW']['Z']/2, 'ZX plane', 1, 295)
         if travel_type == 1:

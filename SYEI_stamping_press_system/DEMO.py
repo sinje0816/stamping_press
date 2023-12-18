@@ -558,7 +558,7 @@ class main(QtWidgets.QWidget, Ui_Form):
                             self.specifications_close_working_height_value, self.alpha, self.beta, self.zeta,
                             self.epsilon, self.power)
             self.change_dir(self.stamping_press_type, self.p, self.alpha, self.beta, self.zeta, self.epsilon, machining,
-                            welding, self.travel_type, self.specifications_close_working_height_value, self.GUM, self.INVERTER, self.power)
+                            welding, self.travel_type, self.specifications_close_working_height_value, self.specifications_travel_value, self.GUM, self.INVERTER, self.power)
             TOTAL_time = time.time() - start_time
             print(TOTAL_time)
     def choose_stamping_press_type(self):
@@ -841,7 +841,7 @@ class main(QtWidgets.QWidget, Ui_Form):
     #     self.ui.label_9.clear()
     #     self.ui.label_9.setText(close_h)
 
-    def change_dir(self, stamping_press_type, p, alpha, beta, zeta, epsilon, machining, welding, travel_type, specifications_close_working_height_value, GUM, INVERTER, power):
+    def change_dir(self, stamping_press_type, p, alpha, beta, zeta, epsilon, machining, welding, travel_type, specifications_close_working_height_value, specifications_travel_value,  GUM, INVERTER, power):
         start_time = time.time()
         all_part_name = {}#零件名稱
         all_part_value = {}#零件變數名稱
@@ -943,7 +943,6 @@ class main(QtWidgets.QWidget, Ui_Form):
                         #     machining_file_change_pass.append(name)
                     # 儲存加工圖零件檔
                     mprog.save_file_stp(machining, name)
-                    mprog.save_stpfile_part(machining, name)
                     # 進行裁料圖特徵變更
                     wptc.change_welding_feature(name, stamping_press_type)
                     # # print(output_text)
@@ -953,7 +952,6 @@ class main(QtWidgets.QWidget, Ui_Form):
                     #     welding_file_change_pass.append(name)
                     # 儲存裁料圖零件檔
                     mprog.save_file_stp(welding, name)
-                    mprog.save_stpfile_part(welding, name)
                     mprog.close_file(name)
                 except:
                     pass
@@ -965,7 +963,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         # print('welding_file_change_error', welding_file_change_error)
         # print('welding_file_change_pass', welding_file_change_pass)
         # print('總用時%s' % (time.time() - start_time))  # 建立3D組立
-        Ad.assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifications_close_working_height_value, travel_type, GUM,INVERTER, power, slide)
+        Ad.assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifications_close_working_height_value, specifications_travel_value, travel_type, GUM,INVERTER, power, slide)
 
         return machining_file_change_error, welding_file_change_error
 
