@@ -942,7 +942,8 @@ class main(QtWidgets.QWidget, Ui_Form):
                         # else:
                         #     machining_file_change_pass.append(name)
                     # 儲存加工圖零件檔
-                    mprog.save_file_stp(machining, name)
+                    # mprog.save_file_stp(machining, name)
+                    mprog.save_stpfile_part(machining, name)
                     # 進行裁料圖特徵變更
                     wptc.change_welding_feature(name, stamping_press_type)
                     # # print(output_text)
@@ -951,7 +952,8 @@ class main(QtWidgets.QWidget, Ui_Form):
                     # else:
                     #     welding_file_change_pass.append(name)
                     # 儲存裁料圖零件檔
-                    mprog.save_file_stp(welding, name)
+                    # mprog.save_file_stp(welding, name)
+                    mprog.save_stpfile_part(welding, name)
                     mprog.close_file(name)
                 except:
                     pass

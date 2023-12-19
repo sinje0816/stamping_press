@@ -5,8 +5,8 @@ import file_path as fp
 #油面計(衝頭)XY跟YZ互換
 excel = epc.ExcelOp('組立尺寸', 'STP_Assembly_value')
 S_assmebly_par = excel.get_assmebly_sheet_par(5)
-mprog.add_offset_assembly('crankshaft.1', 'FRAME30.1', -(100), 'XY plane', 0, 224)
 
+print(-(346+32.5-15-150-106-149))
 #待修正
 #FRAME43.2高度要調整
 
