@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>668</width>
-    <height>670</height>
+    <height>700</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,13 +19,13 @@
   <property name="minimumSize">
    <size>
     <width>668</width>
-    <height>670</height>
+    <height>700</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>668</width>
-    <height>670</height>
+    <height>700</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -40,7 +40,7 @@
      <x>0</x>
      <y>0</y>
      <width>690</width>
-     <height>800</height>
+     <height>1000</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -52,13 +52,13 @@
    <property name="minimumSize">
     <size>
      <width>690</width>
-     <height>800</height>
+     <height>1000</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
      <width>690</width>
-     <height>800</height>
+     <height>1000</height>
     </size>
    </property>
    <property name="widgetResizable">
@@ -674,7 +674,7 @@
              </font>
             </property>
             <property name="text">
-             <string>T型槽設定</string>
+             <string>T型溝設定</string>
             </property>
            </widget>
           </item>
@@ -837,7 +837,7 @@
            </font>
           </property>
           <property name="text">
-           <string>T型槽尺寸</string>
+           <string>T型溝尺寸</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -851,10 +851,10 @@
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>540</x>
-       <y>580</y>
-       <width>121</width>
-       <height>87</height>
+       <x>490</x>
+       <y>590</y>
+       <width>170</width>
+       <height>104</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -867,7 +867,7 @@
          </font>
         </property>
         <property name="text">
-         <string>暫存按鈕</string>
+         <string>儲存參數並返回上一頁</string>
         </property>
        </widget>
       </item>
@@ -880,7 +880,7 @@
          </font>
         </property>
         <property name="text">
-         <string>開始生成</string>
+         <string>生成3D</string>
         </property>
        </widget>
       </item>
@@ -893,7 +893,7 @@
          </font>
         </property>
         <property name="text">
-         <string>完成按鈕</string>
+         <string>完成</string>
         </property>
        </widget>
       </item>

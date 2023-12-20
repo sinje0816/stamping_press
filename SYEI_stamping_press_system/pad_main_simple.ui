@@ -46,7 +46,7 @@
          </font>
         </property>
         <property name="text">
-         <string>完成按鈕</string>
+         <string>完成</string>
         </property>
        </widget>
       </item>
@@ -59,7 +59,7 @@
          </font>
         </property>
         <property name="text">
-         <string>開始生成</string>
+         <string>生成3D</string>
         </property>
        </widget>
       </item>
@@ -72,7 +72,7 @@
          </font>
         </property>
         <property name="text">
-         <string>暫存按鈕</string>
+         <string>儲存參數並返回上一頁</string>
         </property>
        </widget>
       </item>

@@ -23,7 +23,7 @@ class Ui_Form(object):
         Form.setMinimumSize(QtCore.QSize(665, 85))
         Form.setMaximumSize(QtCore.QSize(665, 85))
         self.layoutWidget = QtWidgets.QWidget(Form)
-        self.layoutWidget.setGeometry(QtCore.QRect(0, 0, 664, 82))
+        self.layoutWidget.setGeometry(QtCore.QRect(0, 0, 666, 82))
         self.layoutWidget.setObjectName("layoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.layoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -115,9 +115,9 @@ class Ui_Form(object):
         self.slide_select.setItemText(3, _translate("Form", "特殊衝頭"))
         self.slide_mold_locking.setItemText(0, _translate("Form", "有鎖模"))
         self.slide_mold_locking.setItemText(1, _translate("Form", "無鎖模"))
-        self.slide_create.setText(_translate("Form", "開始生成"))
-        self.slide_save.setText(_translate("Form", "暫存按鈕"))
-        self.slide_finish.setText(_translate("Form", "完成按鈕"))
+        self.slide_create.setText(_translate("Form", "生成3D"))
+        self.slide_save.setText(_translate("Form", "儲存參數並返回上一頁"))
+        self.slide_finish.setText(_translate("Form", "完成"))
 
 
 if __name__ == "__main__":

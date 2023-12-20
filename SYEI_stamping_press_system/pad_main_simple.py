@@ -91,9 +91,9 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.plate_finish.setText(_translate("Form", "完成按鈕"))
-        self.plate_start.setText(_translate("Form", "開始生成"))
-        self.plate_escape.setText(_translate("Form", "暫存按鈕"))
+        self.plate_finish.setText(_translate("Form", "完成"))
+        self.plate_start.setText(_translate("Form", "生成3D"))
+        self.plate_escape.setText(_translate("Form", "儲存參數並返回上一頁"))
         self.label_13.setText(_translate("Form", "平板選項"))
         self.pad_select.setItemText(0, _translate("Form", "標準圓孔"))
         self.pad_select.setItemText(1, _translate("Form", "標準無孔"))

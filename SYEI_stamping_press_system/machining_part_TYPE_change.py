@@ -3078,3 +3078,4 @@ def change_machining_parameter(name, stamping_press_type, machiningdiepad, trave
 #     #     print('報錯行數：{}\n報錯內容：{}'.format(__file__, s[2].tb_lineno, s[1]))
 
     return parameter_name, parameter_value
+
