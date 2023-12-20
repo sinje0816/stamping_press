@@ -233,7 +233,7 @@ def save_file_stp(path, file_name):
     file_name = file_name + '.CATPart'
     partDocument1 = document.Item(file_name)
     # print(path + '\\' + file_name)
-    partDocument1.SaveAs(path + '\\' + stp_file_name)
+    partDocument1.ExportData(path + '\\' + stp_file_name, 'stp')
     # partDocument1.Close()
 
 
@@ -242,7 +242,7 @@ def save_stpfile_part(path, file_name):
     document = catapp.Documents
     part_file_name = file_name + '.CATPart'
     file_name = file_name + '.stp'
-    partDocument1 = document.Item(file_name)
+    partDocument1 = document.Item(part_file_name)
     # print(path + '\\' + file_name)
     partDocument1.SaveAs(path + '\\' + part_file_name)
     # partDocument1.Close()
@@ -253,9 +253,10 @@ def save_file_product(path, file_name):
     catapp = win32.Dispatch('CATIA.Application')
     document = catapp.Documents
     file_name = file_name + '.CATProduct'
+    STP_file_name = file_name + '.stp'
     partDocument1 = document.Item(file_name)
     # print(path + '\\' + file_name)
-    partDocument1.SaveAs(path + '\\' + file_name)
+    partDocument1.SaveAs(path + '\\' + STP_file_name)
 
 
 # 新增資料夾

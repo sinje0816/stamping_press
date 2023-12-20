@@ -1275,7 +1275,6 @@ def change_welding_feature(name, i):
         elif name == 'FRAME18':
             pass
         elif name == 'FRAME19':
-            try:
                 if i == 0:
                     mprog.activatefeature('SN1_2545_Body', 0)
                     mprog.partbodyfeatureactivate('SN1_25_X')
@@ -1312,13 +1311,7 @@ def change_welding_feature(name, i):
                 elif i == 8:
                     mprog.activatefeature('SN1_250_Body', 0)
                     mprog.partdeactivate("machining_AI")
-            except:
-                print('FRAME19 Parameter activate error')
-            finally:
-                try:
-                    mprog.Update()
-                except:
-                    print('FRAME19 Update error')
+                mprog.Update()
         elif name == 'FRAME20':
             try:
                 if i == 0:
@@ -1919,7 +1912,6 @@ def change_welding_feature(name, i):
         elif name == 'FRAME29':
             try:
                 mprog.partdeactivate('Hole.1')
-                mprog.partdeactivate("F")
             finally:
                     mprog.Update()
         elif name == 'FRAME30':
