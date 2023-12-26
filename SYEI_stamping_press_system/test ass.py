@@ -6,12 +6,9 @@ import file_path as fp
 excel = epc.ExcelOp('組立尺寸', 'STP_Assembly_value')
 S_assmebly_par = excel.get_assmebly_sheet_par(5)
 
-print(-(346+32.5-15-150-106-149))
-#待修正
-#FRAME43.2高度要調整
-
-#待討論
-#曲軸合銅座建零件
+mprog.add_offset_assembly('FRAME30.1', 'FRAME2.1', -(2910 - 680) - 50, 'XY plane', 0,
+                          40)
+#FRAME30的高度alpha要拿掉
 
 
 
