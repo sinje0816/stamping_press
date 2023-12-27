@@ -120,6 +120,11 @@ total_LB = []  # 分段LB尺寸
 total_SF = []  # 讓槽SF尺寸
 total_SB = []  # 讓槽SB尺寸
 
+
+# T溝形式
+t_solt_type = ''
+sl_t_solt_type = ''
+
 # 機架外板喉部位置
 t1 = [19, 22, 25, 28, 45, 50, 55, 60, 65]
 t2 = [50, 50, 55, 60, 65, 90, 105, 105, 105]
@@ -291,4 +296,6 @@ slide_normal_name = []
 slide_part_name = ''
 # 衝頭是否按下完成按鈕
 slide_finish = False
+
+get_slide_select_name = ''
 

@@ -341,20 +341,27 @@ class main(QtWidgets.QWidget, Ui_Form):
             plate_finish = QtWidgets.QLabel('已完成')
             plate_finish.setEnabled(False)
             plate_finish.setStyleSheet('font-family: "微軟正黑體"; font-size: 12px; background-color:#7fff00;')
-            self.ui.window_main_table.setCellWidget(6, 5, plate_finish)
-            # 按鈕設定
             plate_finish.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
             self.ui.window_main_table.setCellWidget(6, 4, plate_finish)
+            # 按鈕設定
+            plate_setup = QtWidgets.QPushButton('設定')
+            plate_setup.setStyleSheet('font-family: "微軟正黑體"; font-size: 12px; background-color:#7fff00;')
+            plate_setup.setEnabled(False)  # 使按鈕不可操作
+            plate_setup.setFlat(True)  # 使按鈕不顯示為可按下的外觀
+            self.ui.window_main_table.setCellWidget(6, 3, plate_setup)
         if par.slide_finish == True:
             # 文字設定
             slide_finish = QtWidgets.QLabel('已完成')
             slide_finish.setEnabled(False)
             slide_finish.setStyleSheet('font-family: "微軟正黑體"; font-size: 12px; background-color:#7fff00;')
-            self.ui.window_main_table.setCellWidget(7, 5, slide_finish)
-            # 按鈕設定
             slide_finish.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
             self.ui.window_main_table.setCellWidget(7, 4, slide_finish)
-
+            # 按鈕設定
+            slide_setup = QtWidgets.QPushButton('設定')
+            slide_setup.setStyleSheet('font-family: "微軟正黑體"; font-size: 12px; background-color:#7fff00;')
+            slide_setup.setEnabled(False)  # 使按鈕不可操作
+            slide_setup.setFlat(True)  # 使按鈕不顯示為可按下的外觀
+            self.ui.window_main_table.setCellWidget(7, 3, slide_setup)
     def previous_value(self):
         if par.main_change == '':
             print('This is your first time enter main window')
@@ -405,8 +412,12 @@ class main(QtWidgets.QWidget, Ui_Form):
 
     # 切換至沖頭介面
     def switch_to_slide(self, stamping_press_type):
+        self.window_main_keep()
         self.hide()
-        self.nw = slide_first_windows(stamping_press_type)
+        if par.get_pad_select_name == '特殊衝頭':
+            self.nw = slide_secend_windows(stamping_press_type)
+        else:
+            self.nw = slide_first_windows(stamping_press_type)
         self.nw.show()
 
     def switch_to_select_item(self):
@@ -979,7 +990,27 @@ class slide_first_windows(QtWidgets.QWidget):
         self.ui = slide_main_form()
         self.ui.setupUi(self)
         self.setWindowTitle('衝頭')
-        self.ui.slide_select.currentIndexChanged.connect(lambda: self.select_slide_type_name(stamping_press_type))
+        print(stamping_press_type)
+
+        # 選單
+        slide_select_contact = [
+            '標準(%sx%s)' % (par.slide_length[stamping_press_type], par.slide_width[stamping_press_type]),
+            '標準加大I型(%sx%s)' % (par.slide_length[stamping_press_type] + par.slide_lv1[stamping_press_type],
+                                    par.slide_width[stamping_press_type]),
+            '標準加大II型(%sx%s)' % (par.slide_length[stamping_press_type] + par.slide_lv2[stamping_press_type],
+                                     par.slide_width[stamping_press_type]),
+            '特殊衝頭'
+        ]
+        self.ui.slide_select.clear()
+        self.ui.slide_select.addItems(slide_select_contact)
+
+
+        if par.get_slide_select_name == '特殊衝頭':
+            self.hide()
+            self.nw = slide_secend_windows(stamping_press_type)
+            self.nw.show()
+        else:
+            self.ui.slide_select.currentIndexChanged.connect(lambda: self.select_slide_type_name(stamping_press_type))
         self.ui.slide_create.clicked.connect(lambda: self.start(stamping_press_type))
         self.ui.slide_save.clicked.connect(self.switch_to_stamping_press_main_windows)
         self.ui.slide_finish.clicked.connect(self.finish)
@@ -1006,8 +1037,8 @@ class slide_first_windows(QtWidgets.QWidget):
 
     # 選擇衝頭類型
     def select_slide_type_name(self, stamping_press_type):
-        get_slide_select_name = self.ui.slide_select.currentText()
-        if get_slide_select_name == "特殊衝頭":
+        par.get_pad_select_name = self.ui.slide_select.currentText()
+        if par.get_pad_select_name == "特殊衝頭":
             self.hide()
             self.nw = slide_secend_windows(stamping_press_type)
             self.nw.show()
@@ -1181,16 +1212,34 @@ class slide_secend_windows(QtWidgets.QWidget):
         # 設定整體大小調整策略
         self.ui.t_solttable.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
         self.ui.t_solt_type.currentIndexChanged.connect(self.T_solt_combobox_change)
-        if stamping_press_type <= 3:
-            self.ui.t_solt_type.setCurrentText('T溝代號:F(SN1-25~60標準)')
+        print(par.t_solt_type)
+        if par.t_solt_type == '特殊T溝':
+            # 選單改為特殊平板
+            self.ui.t_solt_type.setCurrentText('特殊T溝')
+            for i in range(0, len(par.sl_t_all_dimension)):
+                row = 0
+                if i == 0:
+                    row = 1
+                elif i == 1:
+                    row = 3
+                elif i == 2:
+                    row = 5
+                elif i == 3:
+                    row = 7
+                value = par.sl_t_all_dimension[i]
+                item = QTableWidgetItem(value)
+                self.ui.t_solttable.setItem(row, 1, item)
         else:
-            self.ui.t_solt_type.setCurrentText('T溝代號:G(SN1-80~250標準)')
+            if stamping_press_type <= 3:
+                self.ui.t_solt_type.setCurrentText('T溝代號:F(SN1-25~60標準)')
+            else:
+                self.ui.t_solt_type.setCurrentText('T溝代號:G(SN1-80~250標準)')
         # T溝加工數量
         self.ui.t_machining.clicked.connect(lambda: self.showpadmachiningwindows(stamping_press_type))
         # 點擊生成
         self.ui.slide_start.clicked.connect(lambda: self.start(stamping_press_type, 'slide_secend_windows'))
         # 暫存按鈕
-        self.ui.slide_save.clicked.connect(self.switch_to_stamping_press_main_windows)
+        self.ui.slide_save.clicked.connect(lambda: self.switch_to_stamping_press_main_windows(stamping_press_type))
         # 完成按鈕
         self.ui.slide_finish.clicked.connect(self.finish)
 
@@ -1228,7 +1277,23 @@ class slide_secend_windows(QtWidgets.QWidget):
         self.nw.show()
 
     # 回到主頁面
-    def switch_to_stamping_press_main_windows(self):
+    def switch_to_stamping_press_main_windows(self, stamping_press_type):
+        # T溝
+        par.t_solt_type = self.ui.t_solt_type.currentText()
+        t_solt_type = par.t_solt_type
+        if t_solt_type == "T溝代號:F(SN1-25~60標準)":
+            par.sl_t_all_dimension = [22, 38, 23, 16]
+        elif t_solt_type == "T溝代號:G(SN1-80~250標準)":
+            par.sl_t_all_dimension = [28, 48, 30, 20]
+        elif t_solt_type == "特殊T溝":
+            par.sl_t_all_dimension = []
+            for value in range(1, 9, 2):
+                par.sl_t_all_dimension.append(self.ui.t_solttable.item(value, 1).text())
+                print(par.sl_t_all_dimension)
+        slide_type_select = self.ui.slide_extrasize.currentText()
+        par.slide_chunk_status = [self.ui.slide_chuck.currentText()]
+        par.slide_dieshank_status = [self.ui.slide_dieshank.currentText()]
+        par.slide_dieshank_size_status = [self.ui.slide_dieshank_size.text()]
         self.hide()
         self.nw = main()
         self.nw.show()
@@ -1320,7 +1385,9 @@ class slide_secend_windows(QtWidgets.QWidget):
 
     # T溝尺寸表格客製化選項
     def T_solt_combobox_change(self):
-        t_solt_type = self.ui.t_solt_type.currentText()
+        par.sl_t_solt_type = self.ui.t_solt_type.currentText()
+        print("par.t_solt_type change:", par.sl_t_solt_type)
+        t_solt_type = par.sl_t_solt_type
         if t_solt_type == "T溝代號:F(SN1-25~60標準)" or t_solt_type == "T溝代號:G(SN1-80~250標準)":
             if t_solt_type == "T溝代號:F(SN1-25~60標準)":
                 self.ui.removepicture_2.setPixmap(QtGui.QPixmap("T溝詳圖_F.png"))
@@ -1791,6 +1858,8 @@ class plate_secend_windows(QtWidgets.QWidget):
         self.ui.removetable.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         self.ui.removetable.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
         self.ui.removetable.verticalHeader().setVisible(False)
+        self.ui.remove_machining.clicked.connect(lambda: self.showcutoutmachiningwindows(stamping_press_type))
+
         # 平板面積
         self.plate_type(stamping_press_type)
         self.ui.pad_extrasize.currentIndexChanged.connect(lambda: self.plate_area_dimension(stamping_press_type))
@@ -1814,13 +1883,30 @@ class plate_secend_windows(QtWidgets.QWidget):
         self.ui.t_solttable.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         self.ui.t_solttable.verticalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         self.ui.t_solt_type.currentIndexChanged.connect(self.T_solt_combobox_change)
-        if stamping_press_type <= 3:
-            self.ui.t_solt_type.setCurrentText('T溝代號:F(SN1-25~60標準)')
+        if par.t_solt_type == '特殊T溝':
+            # 選單改為特殊平板
+            self.ui.t_solt_type.setCurrentText('特殊T溝')
+            for i in range(0, len(par.t_all_dimension)):
+                row = 0
+                if i == 0:
+                    row = 1
+                elif i == 1:
+                    row = 3
+                elif i == 2:
+                    row = 5
+                elif i == 3:
+                    row = 7
+                value = par.t_all_dimension[i]
+                item = QTableWidgetItem(value)
+                self.ui.t_solttable.setItem(row, 1, item)
         else:
-            self.ui.t_solt_type.setCurrentText('T溝代號:G(SN1-80~250標準)')
-        self.ui.plate_start.clicked.connect(lambda: self.start(stamping_press_type, 'plate_secend_windows'))
+            if stamping_press_type <= 3:
+                self.ui.t_solt_type.setCurrentText('T溝代號:F(SN1-25~60標準)')
+            else:
+                self.ui.t_solt_type.setCurrentText('T溝代號:G(SN1-80~250標準)')
         self.ui.t_machining.clicked.connect(lambda: self.showpadmachiningwindows(stamping_press_type))
-        self.ui.remove_machining.clicked.connect(lambda: self.showcutoutmachiningwindows(stamping_press_type))
+        # 最下面按鈕
+        self.ui.plate_start.clicked.connect(lambda: self.start(stamping_press_type, 'plate_secend_windows'))
         self.chack_plate_table()
         self.ui.plate_escape.clicked.connect(self.switch_to_stamping_press_main_windows)
         # 完成按鈕
@@ -1839,7 +1925,24 @@ class plate_secend_windows(QtWidgets.QWidget):
         self.nw.show()
 
     def switch_to_stamping_press_main_windows(self):
-        # self.ui.pad_select.currentText()
+        # 下料孔
+        for turn in range(0, 5):
+            par.cutout_part_dimension[turn] = (self.ui.removetable.item(turn, 1).text())
+        print(par.cutout_part_dimension)
+        if par.plate_hole_type == '漏斗型':
+            if int(par.cutout_part_dimension[0]) < int(par.cutout_part_dimension[1]) or int(
+                    par.cutout_part_dimension[2]) < int(par.cutout_part_dimension[3]):
+                print('error')
+        # T溝
+        par.t_solt_type = self.ui.t_solt_type.currentText()
+        t_solt_type = par.t_solt_type
+        if t_solt_type == "T溝代號:F(SN1-25~60標準)":
+            par.t_all_dimension = [22, 38, 23, 16]
+        elif t_solt_type == "T溝代號:G(SN1-80~250標準)":
+            par.t_all_dimension = [28, 48, 30, 20]
+        elif t_solt_type == "特殊T溝":
+            for value in range(1, 9, 2):
+                par.t_all_dimension.append(self.ui.t_solttable.item(value, 1).text())
         self.hide()
         self.nw = main()
         self.nw.show()
@@ -1968,7 +2071,8 @@ class plate_secend_windows(QtWidgets.QWidget):
                     self.ui.removetable.setItem(i, 1, QTableWidgetItem(par.cutout_part_dimension[i]))
 
     def showpadmachiningwindows(self, stamping_press_type):
-        t_solt_type = self.ui.t_solt_type.currentText()
+        par.t_solt_type = self.ui.t_solt_type.currentText()
+        t_solt_type = par.t_solt_type
         if t_solt_type == "T溝代號:F(SN1-25~60標準)":
             par.t_all_dimension = [22, 38, 23, 16]
         elif t_solt_type == "T溝代號:G(SN1-80~250標準)":
@@ -2536,8 +2640,12 @@ class t_machining(QWidget):
                 for row, item_text in enumerate(par.total_position_x):
                     self.ui.t_slot_table_v.setItem(row + 1, 1, QTableWidgetItem(str(item_text)))
                     combo_box = QComboBox()
-                    combo_box.addItem(par.total_t_slot_v_type[row])
-                    self.ui.t_slot_table_v.setCellWidget(row + 1, 2, combo_box)
+                    combo_box.addItem("")
+                    combo_box.addItem("貫穿")
+                    combo_box.addItem("分段")
+                    cell_widget_x = self.ui.t_slot_table_v.cellWidget(row + 1, 2)
+                    cell_widget_x.setCurrentText(par.total_t_slot_v_type[row])
+                    # self.ui.t_slot_table_v.setCellWidget(row + 1, 2)
                     if par.total_t_slot_v_type[row] != '分段':
                         item = self.ui.t_slot_table_v.item(row+1, 3)
                         item.setFlags(item.flags() & ~Qt.ItemIsEditable)
@@ -2550,6 +2658,52 @@ class t_machining(QWidget):
                         self.ui.t_slot_table_v.setItem(row + 1, 5, QTableWidgetItem(str(par.total_SF[row])))
                     if len(par.total_SB) != 0:
                         self.ui.t_slot_table_v.setItem(row + 1, 6, QTableWidgetItem(str(par.total_SB[row])))
+        if parent_page == 'slide_secend_windows':
+            if len(par.sl_total_position_y) != 0:
+                self.ui.t_slot_h_number.setText(str(len(par.sl_total_position_y)))
+                for row, item_text in enumerate(par.sl_total_position_y):
+                    self.ui.t_slot_table_h.setItem(row + 1, 1, QTableWidgetItem(str(item_text)))
+                    combo_box = QComboBox()
+                    combo_box.addItem("")
+                    combo_box.addItem("貫穿")
+                    combo_box.addItem("分段")
+                    cell_widget = self.ui.t_slot_table_h.cellWidget(row + 1, 2)
+                    cell_widget.setCurrentText(par.sl_total_t_slot_h_type[row])
+                    if par.sl_total_t_slot_h_type[row] != '分段':
+                        item = self.ui.t_slot_table_h.item(row+1, 3)
+                        item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+                        item = self.ui.t_slot_table_h.item(row + 1, 4)
+                        item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+                    else:
+                        self.ui.t_slot_table_h.setItem(row + 1, 3, QTableWidgetItem(str(par.sl_total_LL[row])))
+                        self.ui.t_slot_table_h.setItem(row + 1, 4, QTableWidgetItem(str(par.sl_total_LR[row])))
+                    if len(par.sl_total_SL) != 0:
+                        self.ui.t_slot_table_h.setItem(row + 1, 5, QTableWidgetItem(str(par.sl_total_SL[row])))
+                    if len(par.sl_total_SR) != 0:
+                        self.ui.t_slot_table_h.setItem(row + 1, 6, QTableWidgetItem(str(par.sl_total_SR[row])))
+            if len(par.sl_total_position_x) != 0:
+                self.ui.t_slot_v_number.setText(str(len(par.sl_total_position_x)))
+                for row, item_text in enumerate(par.sl_total_position_x):
+                    self.ui.t_slot_table_v.setItem(row + 1, 1, QTableWidgetItem(str(item_text)))
+                    combo_box = QComboBox()
+                    combo_box.addItem("")
+                    combo_box.addItem("貫穿")
+                    combo_box.addItem("分段")
+                    cell_widget_x = self.ui.t_slot_table_v.cellWidget(row + 1, 2)
+                    cell_widget_x.setCurrentText(par.sl_total_t_slot_v_type[row])
+                    # self.ui.t_slot_table_v.setCellWidget(row + 1, 2)
+                    if par.sl_total_t_slot_v_type[row] != '分段':
+                        item = self.ui.t_slot_table_v.item(row+1, 3)
+                        item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+                        item = self.ui.t_slot_table_v.item(row + 1, 4)
+                        item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+                    else:
+                        self.ui.t_slot_table_v.setItem(row + 1, 3, QTableWidgetItem(str(par.sl_total_LF[row])))
+                        self.ui.t_slot_table_v.setItem(row + 1, 4, QTableWidgetItem(str(par.sl_total_LB[row])))
+                    if len(par.total_SF) != 0:
+                        self.ui.t_slot_table_v.setItem(row + 1, 5, QTableWidgetItem(str(par.sl_total_SF[row])))
+                    if len(par.total_SB) != 0:
+                        self.ui.t_slot_table_v.setItem(row + 1, 6, QTableWidgetItem(str(par.sl_total_SB[row])))
 
 
 
@@ -2838,7 +2992,7 @@ class t_machining(QWidget):
 
                 # 檢查T溝是否超出界線
                 # T溝尺寸與平板邊緣>=50mm
-                if str(len(par.total_position_y)) != 0:
+                if len(par.total_position_y) != 0:
                     if par.total_position_y[0] + (int(par.t_all_dimension[1]) / 2) > (width / 2) - 50:
                         self.show_alert('橫向T溝位置(Y) H1 與平板邊緣過近')
                     if par.total_position_y[-1] - (int(par.t_all_dimension[1]) / 2) <= (-width / 2) + 50:
