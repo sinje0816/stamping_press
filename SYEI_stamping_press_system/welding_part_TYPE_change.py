@@ -253,7 +253,6 @@ def change_welding_feature(name, i):
                 mprog.partbodyfeatureactivate("T250_FF")
             mprog.update()
         elif name == 'FRAME2':
-            try:
                 if i == 0:
                     mprog.partbodyfeatureactivate('before250_喉口')
                     mprog.partbodyfeatureactivate('AA2')
@@ -458,9 +457,6 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('machining_aaaaa2', 0)
                     mprog.bodydeactivate('machining_aaaaa4', 0)
                     mprog.partbodyfeatureactivate("T250_FF")
-            except BaseException:
-                print('FRAME2 Part activate error')
-            finally:
                 mprog.update()
         elif name == 'FRAME3':
             try:
@@ -1081,7 +1077,6 @@ def change_welding_feature(name, i):
                 except:
                     print('FRAME13 Update error')
         elif name == 'FRAME14':
-            try:
                 if i == 0:  # 25N
                     mprog.activatefeature('inside_hole', 0)
                     mprog.bodydeactivate('processing_h', 0)
@@ -1152,11 +1147,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
                     mprog.partdeactivate("I")
-                print('FRAME14 machining success')
-            except:
-                print('FRAME14 Parameter activate error')
-            finally:
-                    mprog.Update()
+                mprog.Update()
         elif name == 'FRAME15':
             try:
                 if i == 0:  # 25N
@@ -1196,7 +1187,6 @@ def change_welding_feature(name, i):
                 except:
                     print('FRAME15 Update error')
         elif name == 'FRAME17':
-            try:
                 if i == 0:  # 25N
                     mprog.activatefeature('inside_hole', 0)
                     mprog.bodydeactivate('processing_h', 0)
@@ -1267,11 +1257,7 @@ def change_welding_feature(name, i):
                     mprog.bodydeactivate('processing_m', 0)
                     mprog.partdeactivate("H")
                     mprog.partdeactivate("I")
-                print('FRAME17 machining success')
-            except:
-                print('FRAME17 Parameter activate error')
-            finally:
-                    mprog.Update()
+                mprog.Update()
         elif name == 'FRAME18':
             pass
         elif name == 'FRAME19':

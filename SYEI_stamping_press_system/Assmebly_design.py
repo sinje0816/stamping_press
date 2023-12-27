@@ -198,9 +198,6 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
         mprog.add_offset_assembly('FRAME28.1', 'FRAME30.1', apv['FRAME27']['I'] + 1, 'ZX plane', 0, 160)
     else:
         mprog.add_offset_assembly('FRAME28.1', 'FRAME30.1', 0, 'ZX plane', 0, 160)
-    print(apv['FRAME2']['A'])
-    print(apv['FRAME30']['A'])
-    print(-zeta)
     mprog.add_offset_assembly('FRAME30.1', 'FRAME2.1', -(apv['FRAME2']['A'] - apv['FRAME30']['A'])-zeta, 'XY plane', 0, 40)
     mprog.add_offset_assembly('FRAME30.1', 'FRAME2.1', -(apv['FRAME2']['F'] - (apv['FRAME30']['M'] / 2)), 'YZ plane', 0,
                               41)
@@ -249,12 +246,6 @@ def assembly(stamping_press_type, apv, path, alpha, beta, zeta, epsilon, specifi
                               140)
     mprog.add_offset_assembly('FRAME38.2', 'FRAME19.1', -(apv['FRAME38']['B']), 'ZX plane', 0, 141)
     mprog.add_offset_assembly('crankshaft.1', 'FRAME30.1', (apv['FRAME30']['h']), 'XY plane', 1, 224)
-    print(assmebly_par['Ass_AN'])#346
-    print(apv['FRAME30']['M']/2)#32.5
-    print(apv['crankshaft']['Ah1'])#15
-    print(apv['crankshaft']['Ah2'])#150
-    print(apv['crankshaft']['Bh1'])#106
-    print(apv['crankshaft']['Bh2']/2)#149
     mprog.add_offset_assembly('crankshaft.1', 'FRAME30.1', (assmebly_par['Ass_AN']-apv['FRAME30']['M']/2-apv['crankshaft']['Ah1']-apv['crankshaft']['Ah2']-apv['crankshaft']['Bh1']-apv['crankshaft']['Bh2']/2), 'YZ plane', 0, 225)
     mprog.add_offset_assembly('crankshaft.1', 'FRAME30.1', -(apv['FRAME30']['E']/2), 'ZX plane', 1, 226)
     mprog.add_offset_assembly(S_i.CON_ROD_CAP_list[stamping_press_type]+'.1', 'crankshaft.1', -apv['crankshaft']['Bx2']+alpha/2, 'XY plane', 1, 227)
