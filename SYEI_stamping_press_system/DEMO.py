@@ -885,7 +885,8 @@ class main(QtWidgets.QWidget, Ui_Form):
                             or name == 'PANEL_BOX_BRACKET' or name == 'ELECTRIC_BOX' or name == 'GUARD_FLYWHEEL' or name == 'NAME_PLATE'\
                             or name == 'TRADEMARK_NAMEPLATE'or name == 'OPERATION_BOX' or name == 'PORTABLE_STAND' or name == 'OPERATION_BOX'\
                             or name == 'BEARING_HOUSING'or name == 'SLIDE' or name == 'BALANCER'or name == 'MOTOR'or name == 'MOTOR_BRACKET' or name == 'WIRE_CASING'\
-                            or name == 'ANTI_VIBRATION_GUM'or name == 'HANDEL_MOUNT_FILTER'or name == 'INVERTER' or name == 'SAFETY_SWITCH' or name == 'SAFETY_BLOCK':
+                            or name == 'ANTI_VIBRATION_GUM'or name == 'HANDEL_MOUNT_FILTER'or name == 'INVERTER' or name == 'SAFETY_SWITCH' or name == 'SAFETY_BLOCK'\
+                            or name == 'EJECTOR_UNIT' or name == 'KNOCK_OUT_BAR' or name == 'SlideKnockout_StrikePin' or name == 'SlideKnockout_Bracket':
                         # 讀取其餘STP檔
                         S_i.STP(name, stamping_press_type, machining, travel_type, GUM, INVERTER, power)
                         continue

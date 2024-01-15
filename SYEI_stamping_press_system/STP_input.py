@@ -2,6 +2,12 @@ import main_program as mprog
 import file_path as fp
 import parameter as par
 
+SlideKnockout_Bracket_list = ['Y32G4402_SlideKnockout_Bracket', 'Y32G4402_SlideKnockout_Bracket', 'Y32G4402_SlideKnockout_Bracket', 'Y37G4402_SlideKnockout_Bracket', 'Y37G4402_SlideKnockout_Bracket', 'Y37G4402_SlideKnockout_Bracket', 'Y45G4402_SlideKnockout_Bracket', 'Y45G4402_SlideKnockout_Bracket', 'Y472G02_SlideKnockout_Bracket']
+SlideKnockout_StrikePin_S_list = ['YGAA3850_SlideKnockout_StrikePin', 'YGAA3850_SlideKnockout_StrikePin', 'YGAA3850_SlideKnockout_StrikePin', 'YGAA3854S01_SlideKnockout_StrikePin', 'YGAA3854S01_SlideKnockout_StrikePin', 'YGAA3854S01_SlideKnockout_StrikePin', 'YGAA3859_SlideKnockout_StrikePin', 'YGAA3859_SlideKnockout_StrikePin', 'Y43G0004_SlideKnockout_StrikePin']
+SlideKnockout_StrikePin_H_list = ['Y30G0003_SlideKnockout_StrikePin', 'Y30G0003_SlideKnockout_StrikePin', 'Y30G0003_SlideKnockout_StrikePin', 'Y39G0002_SlideKnockout_StrikePin', 'Y39G0002S01_SlideKnockout_StrikePin', 'Y39G0002S01_SlideKnockout_StrikePin', 'Y43G0004S01_SlideKnockout_StrikePin', 'Y43G0004S01_SlideKnockout_StrikePin', 'Y47G0005_SlideKnockout_StrikePin']
+SlideKnockout_StrikePin_P_list = ['Y30G0003_SlideKnockout_StrikePin', 'Y30G0003_SlideKnockout_StrikePin', 'Y30G0003S01_SlideKnockout_StrikePin', 'Y39G0002S01_SlideKnockout_StrikePin', 'Y39G0002S01_SlideKnockout_StrikePin', 'Y412G02S01_SlideKnockout_StrikePin', 'Y43G0004S01_SlideKnockout_StrikePin', 'Y47G0005_SlideKnockout_StrikePin', 'Y472G05_SlideKnockout_StrikePin']
+KNOCK_OUT_BAR_list = ['Y30G3901_KNOCK_OUT_BAR', 'Y32G3901_KNOCK_OUT_BAR', 'Y342G01_KNOCK_OUT_BAR', 'Y372G01_KNOCK_OUT_BAR', 'Y392G01_KNOCK_OUT_BAR', 'Y412G01_KNOCK_OUT_BAR', 'Y43G3901_KNOCK_OUT_BAR', 'Y452G01_KNOCK_OUT_BAR', 'Y47G0001_KNOCK_OUT_BAR']
+EJECTOR_UNIT_list = ['412RR02_EJECTOR_UNIT', '412RR02_EJECTOR_UNIT', '412RR02_EJECTOR_UNIT', '412RR02_EJECTOR_UNIT', '412RR02_EJECTOR_UNIT', '412RR02_EJECTOR_UNIT', '412RR02_EJECTOR_UNIT', '412RR02_EJECTOR_UNIT', '412RR02_EJECTOR_UNIT']
 SAFETY_BLOCK_list = ['30W71_SAFETY_BLOCK_YOCBR20_BRACKET', '30W71_SAFETY_BLOCK_YOCBR20_BRACKET', '30W71_SAFETY_BLOCK_YOCBR20_BRACKET', '30W71_SAFETY_BLOCK_YOCBR20_BRACKET', '160R13010_SAFETY_BLOCK_YOCBR20_BRACKET', '160R13010_SAFETY_BLOCK_YOCBR20_BRACKET', '160R13010_SAFETY_BLOCK_YOCBR20_BRACKET', '160R13010_SAFETY_BLOCK_YOCBR20_BRACKET', '160R13010_SAFETY_BLOCK_YOCBR20_BRACKET']
 SAFETY_SWITCH_list = ['Y01A017209HQ_SAFETY_SWITCH', 'Y01A017209HQ_SAFETY_SWITCH', 'Y01A017209HQ_SAFETY_SWITCH', 'Y01A017209HQ_SAFETY_SWITCH', 'Y01A017209HQ_SAFETY_SWITCH', 'Y01A017209HQ_SAFETY_SWITCH', 'Y01A017209HQ_SAFETY_SWITCH', 'Y01A017209HQ_SAFETY_SWITCH', 'Y01A017209HQ_SAFETY_SWITCH']
 PANEL_list = ['32H8302_PANEL', '322CC10_PANEL', '37H8302_PANEL', '37H8302_PANEL', '41H8302_PANEL', '552CC10_PANEL', '45H8302_PANEL', '45H8302_PANEL', '47H0001_PANEL']
@@ -74,6 +80,37 @@ def STP(name, stamping_press_type, machining, travel_type, GUM, INVERTER, power)
         mprog.save_file_stp(machining, PANEL_list[stamping_press_type])
         mprog.save_stpfile_part(machining, PANEL_list[stamping_press_type])
         mprog.close_file(PANEL_list[stamping_press_type])
+    elif name == 'SlideKnockout_Bracket':
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), SlideKnockout_Bracket_list[stamping_press_type])
+        mprog.save_file_stp(machining, SlideKnockout_Bracket_list[stamping_press_type])
+        mprog.save_stpfile_part(machining, SlideKnockout_Bracket_list[stamping_press_type])
+        mprog.close_file(SlideKnockout_Bracket_list[stamping_press_type])
+    elif name == 'SlideKnockout_StrikePin':
+        if travel_type == 1:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), SlideKnockout_StrikePin_S_list[stamping_press_type])
+            mprog.save_file_stp(machining, SlideKnockout_StrikePin_S_list[stamping_press_type])
+            mprog.save_stpfile_part(machining, SlideKnockout_StrikePin_S_list[stamping_press_type])
+            mprog.close_file(SlideKnockout_StrikePin_S_list[stamping_press_type])
+        elif travel_type == 2:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), SlideKnockout_StrikePin_H_list[stamping_press_type])
+            mprog.save_file_stp(machining, SlideKnockout_StrikePin_H_list[stamping_press_type])
+            mprog.save_stpfile_part(machining, SlideKnockout_StrikePin_H_list[stamping_press_type])
+            mprog.close_file(SlideKnockout_StrikePin_H_list[stamping_press_type])
+        elif travel_type == 3:
+            mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), SlideKnockout_StrikePin_P_list[stamping_press_type])
+            mprog.save_file_stp(machining, SlideKnockout_StrikePin_P_list[stamping_press_type])
+            mprog.save_stpfile_part(machining, SlideKnockout_StrikePin_P_list[stamping_press_type])
+            mprog.close_file(SlideKnockout_StrikePin_P_list[stamping_press_type])
+    elif name == 'KNOCK_OUT_BAR':
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), KNOCK_OUT_BAR_list[stamping_press_type])
+        mprog.save_file_stp(machining, KNOCK_OUT_BAR_list[stamping_press_type])
+        mprog.save_stpfile_part(machining, KNOCK_OUT_BAR_list[stamping_press_type])
+        mprog.close_file(KNOCK_OUT_BAR_list[stamping_press_type])
+    elif name == 'EJECTOR_UNIT':
+        mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), EJECTOR_UNIT_list[stamping_press_type])
+        mprog.save_file_stp(machining, EJECTOR_UNIT_list[stamping_press_type])
+        mprog.save_stpfile_part(machining, EJECTOR_UNIT_list[stamping_press_type])
+        mprog.close_file(EJECTOR_UNIT_list[stamping_press_type])
     elif name == 'SAFETY_BLOCK':
         mprog.import_part(fp.system_root + fp.DEMO_part + "\\" + str(name), SAFETY_BLOCK_list[stamping_press_type])
         mprog.save_file_stp(machining, SAFETY_BLOCK_list[stamping_press_type])
@@ -409,6 +446,19 @@ def STP(name, stamping_press_type, machining, travel_type, GUM, INVERTER, power)
 def Assmebly(name,path, stamping_press_type, travel_type, GUM, INVERTER, power, slide):
     if name == 'PANEL':
         mprog.import_file_Part(path, PANEL_list[stamping_press_type])
+    elif name == 'SlideKnockout_Bracket':
+        mprog.import_file_Part(path, SlideKnockout_Bracket_list[stamping_press_type])
+    elif name == 'SlideKnockout_StrikePin':
+        if travel_type == 1:
+            mprog.import_file_Part(path, SlideKnockout_StrikePin_S_list[stamping_press_type])
+        elif travel_type == 2:
+            mprog.import_file_Part(path, SlideKnockout_StrikePin_H_list[stamping_press_type])
+        elif travel_type == 3:
+            mprog.import_file_Part(path, SlideKnockout_StrikePin_P_list[stamping_press_type])
+    elif name == 'KNOCK_OUT_BAR':
+        mprog.import_file_Part(path, KNOCK_OUT_BAR_list[stamping_press_type])
+    elif name == 'EJECTOR_UNIT':
+        mprog.import_file_Part(path, EJECTOR_UNIT_list[stamping_press_type])
     elif name == 'SAFETY_BLOCK':
         mprog.import_file_Part(path, SAFETY_BLOCK_list[stamping_press_type])
     elif name == 'SAFETY_SWITCH':
