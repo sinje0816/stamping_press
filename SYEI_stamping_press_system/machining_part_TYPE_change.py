@@ -1139,7 +1139,6 @@ def change_machining_parameter(name, stamping_press_type, machiningdiepad, trave
             mprog.partbodyfeatureactivate("H")
             mprog.partbodyfeatureactivate("I")
         elif stamping_press_type == 7:  # 200N
-            mprog.activatefeature('outside_hole', 0)
             mprog.activatefeature('outside_hole_E', 0)
             mprog.activatefeature('processing_h', 0)
             mprog.activatefeature('processing_i', 0)
@@ -1307,7 +1306,6 @@ def change_machining_parameter(name, stamping_press_type, machiningdiepad, trave
             mprog.partbodyfeatureactivate("H")
             mprog.partbodyfeatureactivate("I")
         elif stamping_press_type == 7:  # 200N
-            mprog.activatefeature('outside_hole', 0)
             mprog.activatefeature('outside_hole_E', 0)
             mprog.activatefeature('processing_h', 0)
             mprog.activatefeature('processing_i', 0)
