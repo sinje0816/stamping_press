@@ -57,7 +57,7 @@ class main(QtWidgets.QWidget, Ui_Form):
         # 调整表格的大小以填充整个窗口
         self.ui.window_main_table.setGeometry(0, 0, window_size.width(), window_size.height())
         for x in range(0, 2):
-            self.ui.window_main_table.setSpan(x, 0, 1, 5) #以某格為基準向下向左合併儲存格
+            self.ui.window_main_table.setSpan(x, 0, 1, 5) #以某格為基準向下向右合併儲存格
             newItem = QTableWidgetItem(par.series1[x]) #儲存格內文字
             newItem.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter) #設定置中
             newItem.setFlags(newItem.flags() & ~Qt.ItemIsEditable) #不可編輯化
